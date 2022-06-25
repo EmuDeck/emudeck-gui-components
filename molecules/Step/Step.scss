@@ -13,8 +13,14 @@ input:checked + label.step {
   //background: var(--color-danger);
   animation: background 15s infinite;
 }
-.steps {
+.steps{
   justify-content: flex-start;
+}
+.steps{
+  &.steps--nowrap {
+    justify-content: space-between;
+    flex-wrap: nowrap
+  }
 }
 
 .step {
@@ -22,6 +28,9 @@ input:checked + label.step {
   display: inline-block;
   margin-right: 15px;
   position: relative;
+  &:last-child{
+    margin-right: 0
+  }
 }
 
 .step--100 {

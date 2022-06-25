@@ -1,9 +1,9 @@
-footer {
+footer.footer {
   display: flex;
   justify-content: flex-end;
   padding: 20px;
 }
 
-footer .button + .button {
+footer.footer .button + .button {
   margin-left: 20px;
 }

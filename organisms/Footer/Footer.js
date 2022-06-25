@@ -10,7 +10,7 @@ const Footer = ({ back, next, disabledNext, disabledBack }) => {
     navigate('/' + href);
   };
   return (
-    <footer>
+    <footer className="footer">
       {back && (
         <BtnSimple
           css="btn-simple--2"

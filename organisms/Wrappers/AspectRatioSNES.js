@@ -7,10 +7,11 @@ import Header from "components/organisms/Header/Header.js";
 import Aside from "components/organisms/Aside/Aside.js";
 import Main from "components/organisms/Main/Main.js";
 
-import imgBezels from "assets/bezels.png";
-import imgNoBezels from "assets/no-bezels.png";
+import ar43 from "assets/ar43snes.png";
+import ar87 from "assets/ar87snes.png";
+import ar32 from "assets/ar32snes.png";
 
-const RABezels = () => {
+const AspectRatioSNES = () => {
   const { state, setState } = useContext(GlobalContext);
   const { bezels } = state;
   const [statePage, setStatePage] = useState({
@@ -40,42 +41,53 @@ const RABezels = () => {
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure" bold="game bezels" />
+          <Header title="Configure Aspect Ratio for" bold="Super NES" />
           <Main>
             <p className="lead">
-              You can use our preconfigured bezels to hide the vertical black
-              vars on 8bit and 16bits games.
+              Chose your aspect ratio for Super Nintendo games.
             </p>
-            <div className="steps">
+            <div className="steps steps--nowrap">
               <input
                 type="radio"
-                id="true"
+                id="87"
                 name="device"
                 onChange={() => bezelsSet(true)}
               />
-              <label for="true" className="step step--bezel">
+              <label for="87" className="step step--bezel">
                 <div className="step-img">
-                  <img src={imgBezels} alt="Background" />
+                  <img src={ar87} alt="Background" />
                 </div>
-                <figcaption>Show Bezels</figcaption>
+                <figcaption>8:7 - Internal Original</figcaption>
               </label>
               <input
                 type="radio"
-                id="false"
+                id="43"
                 name="device"
                 onChange={() => bezelsSet(false)}
-              />
-              <label for="false" className="step step--bezel">
+              />           
+              <label for="43" className="step step--bezel">
                 <div className="step-img">
-                  <img src={imgNoBezels} alt="Background" />
+                  <img src={ar43} alt="Background" />
                 </div>
-                <figcaption>Show black borders</figcaption>
+                <figcaption>4:3 - Default Original</figcaption>
               </label>
+              <input
+                type="radio"
+                id="32"
+                name="device"
+                onChange={() => bezelsSet(false)}
+              />           
+              <label for="32" className="step step--bezel">
+                <div className="step-img">
+                  <img src={ar32} alt="Background" />
+                </div>
+                <figcaption>3:2 - Not recommended</figcaption>
+              </label>  
             </div>
           </Main>
           <Footer
-            back="rom-storage"
-            next="aspect-ratio-2d"
+            back="aspect-ratio-2d"
+            next="aspect-ratio-3d"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />
@@ -85,4 +97,4 @@ const RABezels = () => {
   );
 };
 
-export default RABezels;
+export default AspectRatioSNES;

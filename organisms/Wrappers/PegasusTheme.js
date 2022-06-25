@@ -48,7 +48,7 @@ const PegasusTheme = () => {
             </p>
           </Main>
           <Footer
-            back="ra-bezels"
+            back="aspect-ratio-3d"
             next="end"
             disabledNext={disabledNext}
             disabledBack={disabledBack}

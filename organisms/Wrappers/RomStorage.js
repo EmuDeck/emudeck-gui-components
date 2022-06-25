@@ -80,8 +80,8 @@ const RomStorage = () => {
             </div>
           </Main>
           <Footer
-            back="emulator-configuration"
-            next="rom-structure"
+            back="emulator-selector"
+            next="ra-bezels"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />
