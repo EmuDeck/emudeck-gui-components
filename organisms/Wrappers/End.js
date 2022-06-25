@@ -43,7 +43,7 @@ const End = () => {
             <p>Lorem ipsum dolor sit amet</p>
           </Main>
           <Footer
-            back="/"
+            back="welcome"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />

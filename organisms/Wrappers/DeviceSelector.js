@@ -203,7 +203,7 @@ const EmulatorSelector = () => {
             </div>
           </Main>
           <Footer
-            back="/"
+            back="welcome"
             next="emulator-selector"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
