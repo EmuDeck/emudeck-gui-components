@@ -7,6 +7,7 @@ import Header from 'components/organisms/Header/Header.js';
 import Aside from "components/organisms/Aside/Aside.js";
 import Main from "components/organisms/Main/Main.js";
 
+import Step from 'components/molecules/Step/Step.js';
 
 import {
   BtnSimple,

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-
+import "./Header.scss"
 const Header = ({ title, bold }) => {
   return (
     <header>

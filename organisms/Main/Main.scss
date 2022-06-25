@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100vh;
+}
+body {
+  background: #222;
+  font-weight: 200;
+  padding-top: 80px;
+  color: #f3f3f3;
+  position: relative;
+  margin: 0;
+}
+
+#root {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-between;
+  contain: layout size style;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.app {
+  display: flex;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
+
+main {
+  padding: 20px;
+  padding-top: 0;
+  flex: 1;
+  overflow: scroll;
+}

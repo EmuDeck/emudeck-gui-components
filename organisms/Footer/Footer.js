@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BtnSimple } from 'getbasecore/Atoms';
+
+import "./Footer.scss"
+
 const Footer = ({ back, next, disabledNext, disabledBack }) => {
   const navigate = useNavigate();
   const goTo = (href) => {

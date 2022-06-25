@@ -5,7 +5,7 @@ import Footer from "components/organisms/Footer/Footer.js";
 import Header from "components/organisms/Header/Header.js";
 import Aside from "components/organisms/Aside/Aside.js";
 import Main from "components/organisms/Main/Main.js";
-
+import Step from 'components/molecules/Step/Step.js';
 import img552 from "assets/rg552.png";
 import imgOdin from "assets/odin.png";
 import imgRP2 from "assets/rp2.png";

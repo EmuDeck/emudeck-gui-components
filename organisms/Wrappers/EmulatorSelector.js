@@ -19,9 +19,10 @@ import {
   FormInputSimple,
   FormSelectSimple,
   FormRadioSimple,
-  FormCheckboxSimple,
   FormInputRangeSimple,
 } from "getbasecore/Atoms";
+
+import {FormCheckboxSimple }  from "getbasecore/dist/components/atoms/FormCheckboxSimple/FormCheckboxSimple.js";
 
 const DeviceSelector = () => {
   const { state, setState } = useContext(GlobalContext);
@@ -50,7 +51,7 @@ const DeviceSelector = () => {
         ...state,
         installEmus: {
           ...installEmus,
-          [emu]: stateEmu,
+          [emu]: !stateEmu,
         },
       });
 
@@ -92,7 +93,7 @@ const DeviceSelector = () => {
                       id="GameCube - Dolphin MMJR"
                       name="GameCube - Dolphin MMJR"
                       onClick={(e) =>
-                        toggleEmus("dolphinmmjr", e.detail.defaultChecked)
+                        toggleEmus("dolphinmmjr")
                       }
                     />
                   </li>
