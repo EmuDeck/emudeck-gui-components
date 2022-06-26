@@ -142,7 +142,7 @@ p {
   font-family: 'MotivaSans';
   font-size: $lead-font-size;
   letter-spacing: 0;
-  margin-bottom: var(--margin3);
+  margin-bottom: var(--margin6);
   color: #b8bcbf;
 }
 
@@ -245,7 +245,7 @@ address {
   'MotivaSans',
   600,
   var(--color-text-1),
-  4.4rem
+  3rem
 );
 @include generate_titles(
   'h3',
@@ -253,19 +253,19 @@ address {
   4.2rem,
   -0.05rem,
   'MotivaSans',
-  300,
+  600,
   var(--color-text-1),
-  3.5rem
+  1.5rem
 );
 @include generate_titles(
   'h4',
-  2.5rem,
-  3.2rem,
+  3.0rem,
+  4.2rem,
   -0.05rem,
   'MotivaSans',
-  300,
+  600,
   var(--color-text-1),
-  2.5rem
+  1rem
 );
 @include generate_titles(
   'h5',
@@ -273,7 +273,7 @@ address {
   2.7rem,
   -0.05rem,
   'MotivaSans',
-  300,
+  600,
   var(--color-text-1),
   2rem
 );
@@ -283,7 +283,7 @@ address {
   1.5rem,
   -0.05rem,
   'MotivaSans',
-  300,
+  600,
   var(--color-text-1),
   1.5rem
 );

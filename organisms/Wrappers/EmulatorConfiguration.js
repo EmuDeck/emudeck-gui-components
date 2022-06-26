@@ -161,7 +161,6 @@ const EmulatorConfiguration = () => {
             )}
           </Main>
           <Footer
-            back="emulator-selector"
             next="rom-storage"
             disabledNext={disabledNext}
             disabledBack={disabledBack}

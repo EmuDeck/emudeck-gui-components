@@ -64,7 +64,7 @@ const AspectRatioSNES = () => {
                 id="43"
                 name="device"
                 onChange={() => bezelsSet(false)}
-              />           
+              />
               <label for="43" className="step step--bezel">
                 <div className="step-img">
                   <img src={ar43} alt="Background" />
@@ -76,17 +76,16 @@ const AspectRatioSNES = () => {
                 id="32"
                 name="device"
                 onChange={() => bezelsSet(false)}
-              />           
+              />
               <label for="32" className="step step--bezel">
                 <div className="step-img">
                   <img src={ar32} alt="Background" />
                 </div>
                 <figcaption>3:2 - Not recommended</figcaption>
-              </label>  
+              </label>
             </div>
           </Main>
           <Footer
-            back="aspect-ratio-2d"
             next="aspect-ratio-3d"
             disabledNext={disabledNext}
             disabledBack={disabledBack}

@@ -41,18 +41,37 @@ const End = () => {
           <Header title="Installation" bold="complete!" />
           <Main>
             <p className="lead">BIOS</p>
-            <p>You need to copy your BIOS for the following systems in their respective folders: <strong>Don't create new subfolders</strong></p>
+            <p>
+              You need to copy your BIOS for the following systems in their
+              respective folders: <strong>Don't create new subfolders</strong>
+            </p>
             <ul className="list-two-cols">
-              <li>PlayStation 1 - <strong>Emulation/bios/</strong></li>
-              <li>Playstation 2 - <strong>Emulation/bios/</strong></li>
-              <li>Playstation 3 - <strong>Open RPCS3 and load Sony's official firmware</strong></li>
-              <li>Switch - <strong>Emulation/bios/yuzu/ - Make sure you don't overwrite the folders</strong></li>
+              <li>
+                PlayStation 1 - <strong>Emulation/bios/</strong>
+              </li>
+              <li>
+                Playstation 2 - <strong>Emulation/bios/</strong>
+              </li>
+              <li>
+                Playstation 3 -{" "}
+                <strong>Open RPCS3 and load Sony's official firmware</strong>
+              </li>
+              <li>
+                Switch -{" "}
+                <strong>
+                  Emulation/bios/yuzu/ - Make sure you don't overwrite the
+                  folders
+                </strong>
+              </li>
             </ul>
             <p className="lead">ROMS</p>
-            <p>You need to copy your BIOS for the following systems in their respective folders: <strong>Don't create new subfolders</strong></p>
+            <p>
+              You need to copy your BIOS for the following systems in their
+              respective folders: <strong>Don't create new subfolders</strong>
+            </p>
           </Main>
           <Footer
-            back="pegasus-theme"
+            back="disabled"
             next="welcome"
             nextText="Finish"
             disabledNext={disabledNext}

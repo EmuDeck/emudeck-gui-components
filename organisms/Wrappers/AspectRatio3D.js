@@ -69,8 +69,10 @@ const AspectRatio3D = () => {
                 <div className="step-img">
                   <img src={ar32} alt="Background" />
                 </div>
-                <figcaption>3:2 - Good compromise, almost no distortion </figcaption>
-              </label>  
+                <figcaption>
+                  3:2 - Good compromise, almost no distortion{" "}
+                </figcaption>
+              </label>
               <input
                 type="radio"
                 id="169"
@@ -82,12 +84,10 @@ const AspectRatio3D = () => {
                   <img src={ar169} alt="Background" />
                 </div>
                 <figcaption>16:9 - WideScreen Hacks </figcaption>
-              </label>        
-                    
+              </label>
             </div>
           </Main>
           <Footer
-            back="aspect-ratio-snes"
             next="pegasus-theme"
             disabledNext={disabledNext}
             disabledBack={disabledBack}

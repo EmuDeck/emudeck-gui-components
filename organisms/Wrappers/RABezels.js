@@ -74,8 +74,7 @@ const RABezels = () => {
             </div>
           </Main>
           <Footer
-            back="rom-storage"
-            next="aspect-ratio-2d"
+            next="aspect-ratio-sega"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />

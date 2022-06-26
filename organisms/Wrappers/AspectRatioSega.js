@@ -10,7 +10,7 @@ import Main from "components/organisms/Main/Main.js";
 import ar43 from "assets/ar43.png";
 import ar32 from "assets/ar32.png";
 
-const AspectRatio2D = () => {
+const AspectRatioSega = () => {
   const { state, setState } = useContext(GlobalContext);
   const { bezels } = state;
   const [statePage, setStatePage] = useState({
@@ -40,7 +40,10 @@ const AspectRatio2D = () => {
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure Aspect Ratio for" bold="Classic Sega Games" />
+          <Header
+            title="Configure Aspect Ratio for"
+            bold="Classic Sega Games"
+          />
           <Main>
             <p className="lead">
               Chose your aspect ratio for Genesis and Master System games.
@@ -68,12 +71,13 @@ const AspectRatio2D = () => {
                 <div className="step-img">
                   <img src={ar32} alt="Background" />
                 </div>
-                <figcaption>3:2 - Good compromise, almost no distortion </figcaption>
-              </label>        
+                <figcaption>
+                  3:2 - Good compromise, almost no distortion{" "}
+                </figcaption>
+              </label>
             </div>
           </Main>
           <Footer
-            back="ra-bezels"
             next="aspect-ratio-snes"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
@@ -84,4 +88,4 @@ const AspectRatio2D = () => {
   );
 };
 
-export default AspectRatio2D;
+export default AspectRatioSega;

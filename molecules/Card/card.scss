@@ -1,0 +1,39 @@
+.card{
+  background: #18181c;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  padding-bottom: 30px;
+  margin: 0;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  text-align: left;
+  height: 100%;
+  
+  p{
+    flex: 1
+  }
+  
+  p,.h1,.h2,.h3{
+    color: #444
+  }
+  
+  *:last-child{
+    margin-bottom: 0
+  }
+  
+  &.is-selected{
+    animation: background 15s infinite;
+    p,.h1,.h2,.h3{
+      color: #fff
+    }
+    .btn-simple{
+      animation: none;
+      background: #fff;
+      color: #444
+    }
+  }
+  
+}

@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from "react";
 
-import { GlobalContext } from 'context/globalContext';
+import { GlobalContext } from "context/globalContext";
 
-import Footer from 'components/organisms/Footer/Footer.js';
-import Header from 'components/organisms/Header/Header.js';
+import Footer from "components/organisms/Footer/Footer.js";
+import Header from "components/organisms/Header/Header.js";
 import Aside from "components/organisms/Aside/Aside.js";
 import Main from "components/organisms/Main/Main.js";
 
-import Step from 'components/molecules/Step/Step.js';
+import Step from "components/molecules/Step/Step.js";
 
 import {
   BtnSimple,
@@ -24,7 +24,7 @@ import {
   FormRadioSimple,
   FormCheckboxSimple,
   FormInputRangeSimple,
-} from 'getbasecore/Atoms';
+} from "getbasecore/Atoms";
 
 const RAConfig = () => {
   const { state, setState } = useContext(GlobalContext);
@@ -44,7 +44,7 @@ const RAConfig = () => {
   };
   //Enabling button when changing the global state only if we have a device selected
   useEffect(() => {
-    if (snes != '') {
+    if (snes != "") {
       setStatePage({ ...statePage, disabledNext: false });
     }
   }, [state]); // <-- here put the parameter to listen
@@ -99,7 +99,6 @@ const RAConfig = () => {
             )}
           </Main>
           <Footer
-            back="RA-bezels"
             next="pegasus-install"
             disabledNext={disabledNext}
             disabledBack={disabledBack}

@@ -100,7 +100,6 @@ const RomStorage = () => {
             )}
           </Main>
           <Footer
-            back="rom-storage"
             next="ra-bezels"
             disabledNext={disabledNext}
             disabledBack={disabledBack}

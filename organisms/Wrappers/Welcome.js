@@ -6,7 +6,20 @@ import Header from "components/organisms/Header/Header.js";
 import Aside from "components/organisms/Aside/Aside.js";
 import Main from "components/organisms/Main/Main.js";
 
-const Welcome = ({ disabledNext, disabledBack, downloadComplete }) => {
+import { BtnSimple } from "getbasecore/Atoms";
+
+import Card from "components/molecules/Card/Card.js";
+
+const Welcome = ({
+  disabledNext,
+  disabledBack,
+  downloadComplete,
+  onClick,
+  next,
+  back,
+}) => {
+  const { state, setState } = useContext(GlobalContext);
+  const { mode } = state;
   return (
     <div className="app">
       <Aside />
@@ -14,8 +27,10 @@ const Welcome = ({ disabledNext, disabledBack, downloadComplete }) => {
         <Header title="Welcome to" bold="EmuDeck" />
         <Main>
           <p className="lead">
-            This installer will guide you throught the installation of your emulators and it will configurate them for your Steam Deck.
-            <br/><strong>All Emulators will be installed from the Discover App Store or from the Emulator official source.</strong>
+            Please select how do you want EmuDeck to configure your device:
+          </p>
+          <p>
+            <span className="h4"></span>
           </p>
 
           {downloadComplete === false && (
@@ -24,34 +39,50 @@ const Welcome = ({ disabledNext, disabledBack, downloadComplete }) => {
             </>
           )}
           {downloadComplete === true && (
-            <div className="steps">
-              <div className="step">
-                <img
-                  className="screenshot lozad"
-                  alt="RP Switch Theme Screenshot"
-                  src="https://www.pegasus-installer.com/img/1.png"
-                />
+            <div className="container--grid">
+              <div data-col-sm="5">
+                <Card css={mode == "easy" && "is-selected"}>
+                  <span class="h3">Easy mode</span>
+                  <p>
+                    We will care of everything for you, what emulators are
+                    installed, how bezels and aspect ratio are configured, it is
+                    an unattended installation.
+                  </p>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Go Next"
+                    onClick={() => onClick("easy")}
+                  >
+                    Select
+                  </BtnSimple>
+                </Card>
               </div>
-              <div className="step">
-                <img
-                  className="screenshot lozad"
-                  alt="RP Switch Theme Screenshot"
-                  src="https://www.pegasus-installer.com/img/4.png"
-                />
-              </div>
-              <div className="step">
-                <img
-                  className="screenshot lozad"
-                  alt="RP Switch Theme Screenshot"
-                  src="https://www.pegasus-installer.com/img/ss/Screenshot_20220212-004757.png"
-                />
+
+              <div data-col-sm="5">
+                <Card css={mode == "expert" && "is-selected"}>
+                  <span class="h3">Expert mode</span>
+                  <p>
+                    Expert gives you a bit more of control on how EmuDeck
+                    configures your system like configuring Aspect Ratio,
+                    Bezels, etc.
+                  </p>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Go Next"
+                    onClick={() => onClick("expert")}
+                  >
+                    Select
+                  </BtnSimple>
+                </Card>
               </div>
             </div>
           )}
         </Main>
         <Footer
-          back=""
-          next="device-selector"
+          back={back}
+          next={next}
           disabledNext={disabledNext}
           disabledBack={disabledBack}
         />
