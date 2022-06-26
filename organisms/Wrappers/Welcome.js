@@ -14,9 +14,8 @@ const Welcome = ({ disabledNext, disabledBack, downloadComplete }) => {
         <Header title="Welcome to" bold="EmuDeck" />
         <Main>
           <p className="lead">
-            This guide will help you install your emulators, configure Pegasus
-            Frontend and scrap your roms artwork all without leaving your
-            Android Handheld.
+            This installer will guide you throught the installation of your emulators and it will configurate them for your Steam Deck.
+            <br/><strong>All Emulators will be installed from the Discover App Store or from the Emulator official source.</strong>
           </p>
 
           {downloadComplete === false && (

@@ -4,7 +4,7 @@ import { BtnSimple } from 'getbasecore/Atoms';
 
 import "./Footer.scss"
 
-const Footer = ({ back, next, disabledNext, disabledBack }) => {
+const Footer = ({ back, next, disabledNext, disabledBack, nextText, backText }) => {
   const navigate = useNavigate();
   const goTo = (href) => {
     navigate('/' + href);
@@ -31,7 +31,10 @@ const Footer = ({ back, next, disabledNext, disabledBack }) => {
           aria="Go Next"
           disabled={disabledNext && 'true'}
         >
-          Continue{' '}
+          {!nextText && (
+            "Continue "  
+          )}
+          {nextText}
           <svg
             class="rightarrow"
             width="32"

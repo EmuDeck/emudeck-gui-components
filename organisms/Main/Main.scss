@@ -46,3 +46,11 @@ main {
   flex: 1;
   overflow: scroll;
 }
+
+
+.list-two-cols {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 220px;
+}
