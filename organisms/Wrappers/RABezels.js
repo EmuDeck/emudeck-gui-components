@@ -7,33 +7,23 @@ import Header from "components/organisms/Header/Header.js";
 import Aside from "components/organisms/Aside/Aside.js";
 import Main from "components/organisms/Main/Main.js";
 
+import Card from "components/molecules/Card/Card.js";
+import SelectorMenu from "components/molecules/SelectorMenu/SelectorMenu.js";
+
+
 import imgBezels from "assets/bezels.png";
 import imgNoBezels from "assets/no-bezels.png";
 
-const RABezels = () => {
+const RABezels = ({
+  disabledNext,
+  disabledBack,
+  downloadComplete,
+  onClick,
+  next,
+  back,
+}) => {
   const { state, setState } = useContext(GlobalContext);
   const { bezels } = state;
-  const [statePage, setStatePage] = useState({
-    disabledNext: true,
-    disabledBack: false,
-  });
-  const { disabledNext, disabledBack } = statePage;
-  const copyDir = () => {
-    console.log("nah");
-  };
-  const bezelsSet = (bezelStatus) => {
-    copyDir();
-    setState({
-      ...state,
-      bezels: bezelStatus,
-    });
-  };
-  //Enabling button when changing the global state only if we have a device selected
-  useEffect(() => {
-    if (bezels != "") {
-      setStatePage({ ...statePage, disabledNext: false });
-    }
-  }, [state]); // <-- here put the parameter to listen
 
   return (
     <>
@@ -46,32 +36,30 @@ const RABezels = () => {
               You can use our preconfigured bezels to hide the vertical black
               vars on 8bit and 16bits games.
             </p>
-            <div className="steps">
-              <input
-                type="radio"
-                id="true"
-                name="device"
-                onChange={() => bezelsSet(true)}
-              />
-              <label for="true" className="step step--bezel">
-                <div className="step-img">
-                  <img src={imgBezels} alt="Background" />
-                </div>
-                <figcaption>Show Bezels</figcaption>
-              </label>
-              <input
-                type="radio"
-                id="false"
-                name="device"
-                onChange={() => bezelsSet(false)}
-              />
-              <label for="false" className="step step--bezel">
-                <div className="step-img">
-                  <img src={imgNoBezels} alt="Background" />
-                </div>
-                <figcaption>Show black borders</figcaption>
-              </label>
-            </div>
+          
+            
+            <SelectorMenu>
+              <div className="selector-menu__img">
+                <img src={imgBezels} className={bezels == false && "is-hidden"} alt="Background" />
+                <img src={imgNoBezels} className={bezels == true && "is-hidden"} alt="Background" />
+              </div>
+              <div className="selector-menu__options">
+                <ul>
+                  <li onClick={() => onClick(true)}>
+                  <Card css={bezels == true && "is-selected"}>
+                    <span class="h3">On</span>
+                    <p>Show Bezels</p>               
+                  </Card>
+                  </li>
+                  <li onClick={() => onClick(false)}>
+                  <Card css={bezels == false && "is-selected"}>
+                    <span class="h3">Off</span>
+                    <p>Hide Bezels</p>               
+                  </Card>
+                  </li>
+                </ul>
+              </div>
+            </SelectorMenu>
           </Main>
           <Footer
             next="aspect-ratio-sega"

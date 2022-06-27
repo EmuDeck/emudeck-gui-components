@@ -1,0 +1,33 @@
+.selector-menu{
+  
+  display: flex;
+  flex-wrap: nowrap;
+  
+  &__img{        
+    margin-right: 20px;
+    width: 58vw;
+    position: relative;
+    img{
+      position: absolute;
+      top:0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      opacity:1;
+      transition: .8s;
+      &.is-hidden{
+        opacity: 0;
+        transition: .8s
+      }
+    }
+  }
+  
+  &__options{
+    
+    max-width: 130px;
+    &--full{
+      max-width: 40%;
+    }    
+  }
+  
+}

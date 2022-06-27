@@ -7,34 +7,23 @@ import Header from "components/organisms/Header/Header.js";
 import Aside from "components/organisms/Aside/Aside.js";
 import Main from "components/organisms/Main/Main.js";
 
+import Card from "components/molecules/Card/Card.js";
+import SelectorMenu from "components/molecules/SelectorMenu/SelectorMenu.js";
+
 import ar43 from "assets/ar43.png";
 import ar32 from "assets/ar32.png";
 
-const AspectRatioSega = () => {
+const AspectRatioSega = ({
+  disabledNext,
+  disabledBack,
+  downloadComplete,
+  onClick,
+  next,
+  back,
+}) => {
   const { state, setState } = useContext(GlobalContext);
-  const { bezels } = state;
-  const [statePage, setStatePage] = useState({
-    disabledNext: true,
-    disabledBack: false,
-  });
-  const { disabledNext, disabledBack } = statePage;
-  const copyDir = () => {
-    console.log("nah");
-  };
-  const bezelsSet = (bezelStatus) => {
-    copyDir();
-    setState({
-      ...state,
-      bezels: bezelStatus,
-    });
-  };
-  //Enabling button when changing the global state only if we have a device selected
-  useEffect(() => {
-    if (bezels != "") {
-      setStatePage({ ...statePage, disabledNext: false });
-    }
-  }, [state]); // <-- here put the parameter to listen
-
+  const { ar } = state;
+ 
   return (
     <>
       {/*  <ExploreContainer name="Tab 1 page" /> */}
@@ -48,34 +37,33 @@ const AspectRatioSega = () => {
             <p className="lead">
               Chose your aspect ratio for Genesis and Master System games.
             </p>
-            <div className="steps">
-              <input
-                type="radio"
-                id="43"
-                name="device"
-                onChange={() => bezelsSet(true)}
-              />
-              <label for="43" className="step step--bezel">
-                <div className="step-img">
-                  <img src={ar43} alt="Background" />
-                </div>
-                <figcaption>4:3 - Default Original</figcaption>
-              </label>
-              <input
-                type="radio"
-                id="32"
-                name="device"
-                onChange={() => bezelsSet(false)}
-              />
-              <label for="32" className="step step--bezel">
-                <div className="step-img">
-                  <img src={ar32} alt="Background" />
-                </div>
-                <figcaption>
-                  3:2 - Good compromise, almost no distortion{" "}
-                </figcaption>
-              </label>
-            </div>
+            <SelectorMenu>
+              <div className="selector-menu__img">
+                <img src={ar43} className={ar.sega == "32" && "is-hidden"} alt="Background" />
+                <img src={ar32} className={ar.sega == "43" && "is-hidden"} alt="Background" />
+              </div>
+              <div className="selector-menu__options selector-menu__options--full">
+                <ul>
+                  <li onClick={() => onClick("43")}>
+                  <Card css={ar.sega == 43 && "is-selected"}>
+                    <span class="h3">4:3</span>
+                    <p>Default Original</p>               
+                  </Card>
+                  </li>
+                  <li onClick={() => onClick("32")}>
+                  <Card css={ar.sega == 32 && "is-selected"}>
+                    <span class="h3">3:2</span>
+                    <p>Good compromise, almost no distortion</p>               
+                  </Card>
+                  </li>
+                </ul>
+              </div>
+            </SelectorMenu>
+            
+            
+            
+            
+ 
           </Main>
           <Footer
             next="aspect-ratio-snes"

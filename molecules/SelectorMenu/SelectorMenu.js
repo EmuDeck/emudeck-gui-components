@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 
 import { GlobalContext } from "context/globalContext";
-import "./card.scss"
+import "./selector-menu.scss"
 import {
   BtnSimple,
   BtnGroup,
@@ -19,18 +19,12 @@ import {
   FormInputRangeSimple,
 } from "getbasecore/Atoms";
 
-const Card = ({children,css}) => {
-  const { state, setState } = useContext(GlobalContext);
-  const [statePage, setStatePage] = useState({
-	disabledNext: false,
-	disabledBack: false,
-  });
-  const { disabledNext, disabledBack } = statePage;
+const SelectorMenu = ({children,css}) => {
   return (
-	<div className={`card ${css}`}>
+	<div className={`selector-menu ${css}`}>
       {children}
 	</div>
   );
 };
 
-export default Card;
+export default SelectorMenu;

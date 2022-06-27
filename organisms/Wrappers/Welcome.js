@@ -61,9 +61,9 @@ const Welcome = ({
 
               <div data-col-sm="5">
                 <Card css={mode == "expert" && "is-selected"}>
-                  <span class="h3">Expert mode</span>
+                  <span class="h3">Custom mode</span>
                   <p>
-                    Expert gives you a bit more of control on how EmuDeck
+                    Custom gives you a bit more of control on how EmuDeck
                     configures your system like configuring Aspect Ratio,
                     Bezels, etc.
                   </p>
