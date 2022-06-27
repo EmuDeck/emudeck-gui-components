@@ -7,87 +7,73 @@ import Header from "components/organisms/Header/Header.js";
 import Aside from "components/organisms/Aside/Aside.js";
 import Main from "components/organisms/Main/Main.js";
 
-import darkNoir from "assets/darkNoir.jpg";
+import Card from "components/molecules/Card/Card.js";
+import SelectorMenu from "components/molecules/SelectorMenu/SelectorMenu.js";
+import SimpleCarousel from "components/molecules/SimpleCarousel/SimpleCarousel.js";
+
+import noir1 from "assets/esdethemes/epicnoir/1.png";
+import noir2 from "assets/esdethemes/epicnoir/2.png";
+import noir3 from "assets/esdethemes/epicnoir/3.png";
 import rbsimple from "assets/ES-DE_01.png";
 import modern from "assets/ES-DE_01.png";
 
-import {
-  BtnSimple,
-  BtnGroup,
-  BtnSwitch,
-  Icon,
-  LinkSimple,
-  Img,
-  Iframe,
-  List,
-  ProgressBar,
-  FormInputSimple,
-  FormSelectSimple,
-  FormRadioSimple,
-  FormCheckboxSimple,
-  FormInputRangeSimple,
-} from "getbasecore/Atoms";
+const noirPics = [<img src={noir1} alt="Background" />,<img src={noir2} alt="Background" />,<img src={noir3} alt="Background" />];
+const rbsimplePics = [<img src={rbsimple} alt="Background" />];
+const modernPics = [<img src={modern} alt="Background" />];
 
-const PegasusTheme = () => {
+
+const PegasusTheme = ({
+  disabledNext,
+  disabledBack,
+  downloadComplete,
+  onClick,
+  next,
+  back,
+}) => {
   const { state, setState } = useContext(GlobalContext);
-  const [statePage, setStatePage] = useState({
-    disabledNext: false,
-    disabledBack: false,
-  });
-  const { disabledNext, disabledBack } = statePage;
-  const bezelsSet = (bezelStatus) => {
-    console.log("hi");
-  };
+ const { theme } = state;
   return (
     <>
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
           <Header
-            title="Choose your default EmulationStation DE"
+            title="EmulationStation DE "
             bold="Theme"
           />
           <Main>
-            <div className="steps steps--nowrap">
-              <input
-                type="radio"
-                id="43"
-                name="device"
-                onChange={() => bezelsSet(true)}
-              />
-              <label for="43" className="step step--bezel">
-                <div className="step-img">
-                  <img src={darkNoir} alt="Background" />
-                </div>
-                <figcaption>Epic Noir</figcaption>
-              </label>
-              <input
-                type="radio"
-                id="32"
-                name="device"
-                onChange={() => bezelsSet(false)}
-              />
-              <label for="32" className="step step--bezel">
-                <div className="step-img">
-                  <img src={rbsimple} alt="Background" />
-                </div>
-                <figcaption>RB Simple </figcaption>
-              </label>
-              <input
-                type="radio"
-                id="169"
-                name="device"
-                onChange={() => bezelsSet(false)}
-              />
-              <label for="169" className="step step--bezel">
-                <div className="step-img">
-                  <img src={modern} alt="Background" />
-                </div>
-                <figcaption>Modern </figcaption>
-              </label>
-            </div>
+            <p className="lead">
+              Chose your theme for EmulationStation DE
+            </p>
+            <SelectorMenu>
+              <div className="selector-menu__img">
+                <SimpleCarousel nav={false} img={noirPics} css={theme != "darkNoir"  && "is-hidden"}/>
+                <SimpleCarousel nav={false} img={rbsimplePics} css={theme != "rbsimple"  && "is-hidden"}/>                
+                <SimpleCarousel nav={false} img={modernPics} css={theme != "modern"  && "is-hidden"}/>                
+              </div>
+              <div className="selector-menu__options selector-menu__options--full">
+                <ul>
+                  <li onClick={() => onClick("darkNoir")}>
+                    <Card css={theme == 'darkNoir' && "is-selected"}>
+                      <span class="h3">Dark Noir</span>
+                    </Card>
+                  </li>
+                  <li onClick={() => onClick("rbsimple")}>
+                    <Card css={theme == 'rbsimple' && "is-selected"}>
+                      <span class="h3">RBSimple</span>            
+                    </Card>
+                  </li>
+                  <li onClick={() => onClick("modern")}>
+                    <Card css={theme == 'modern' && "is-selected"}>
+                      <span class="h3">Modern</span>            
+                    </Card>
+                  </li>
+                </ul>
+              </div>
+            </SelectorMenu>            
           </Main>
           <Footer
+            back="aspect-ratio-dolphin"
             next="end"
             disabledNext={disabledNext}
             disabledBack={disabledBack}

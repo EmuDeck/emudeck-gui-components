@@ -7,7 +7,8 @@
     margin-right: 20px;
     width: 58vw;
     position: relative;
-    img{
+    img,
+    .carousel{
       position: absolute;
       top:0;
       bottom: 0;
@@ -15,11 +16,13 @@
       width: 100%;
       opacity:1;
       transition: .8s;
-      &.is-hidden{
-        opacity: 0;
-        transition: .8s
-      }
     }
+    .is-hidden{
+      opacity: 0;
+      transition: .8s;
+      pointer-events: none
+    }
+
   }
   
   &__options{

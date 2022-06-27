@@ -6,31 +6,73 @@ import Footer from "components/organisms/Footer/Footer.js";
 import Header from "components/organisms/Header/Header.js";
 import Aside from "components/organisms/Aside/Aside.js";
 import Main from "components/organisms/Main/Main.js";
+import Card from "components/molecules/Card/Card.js";
+import SimpleCarousel from "components/molecules/SimpleCarousel/SimpleCarousel.js";
 
-import {
-  BtnSimple,
-  BtnGroup,
-  BtnSwitch,
-  Icon,
-  LinkSimple,
-  Img,
-  Iframe,
-  List,
-  ProgressBar,
-  FormInputSimple,
-  FormSelectSimple,
-  FormRadioSimple,
-  FormCheckboxSimple,
-  FormInputRangeSimple,
-} from "getbasecore/Atoms";
+import sdlogo from "assets/sdlogo.png";
 
-const End = () => {
+const End = ({
+  disabledNext,
+  disabledBack,
+  downloadComplete,
+  onClick,
+  next,
+  back,
+}) => {
+  
   const { state, setState } = useContext(GlobalContext);
-  const [statePage, setStatePage] = useState({
-    disabledNext: false,
-    disabledBack: false,
-  });
-  const { disabledNext, disabledBack } = statePage;
+  const { storage } = state;
+  
+  const slides=[
+    <Card>
+    <div class="container--grid">
+      <div data-col-sm="9">
+        <span class="h3">Emulation Folder</span>
+        <p class="lead">We've created the following folders in your {storage}: <br/><br/>
+          <ul>
+            <li><strong>Emulation/roms</strong> - For your games</li>
+            <li><strong>Emulation/bios</strong>  - For your Bios and Yuzu firmware</li>
+            <li><strong>Emulation/saves</strong>  - Your saved games</li>
+            <li><strong>Emulation/storage</strong>  - Shaders, PS3 installed games, etc. {storage == 'SD-Card' &&( 'to save space in your internal storage' )} </li>
+          </ul>        
+          </p>
+      </div>
+      <div data-col-sm="3">
+        <img src={sdlogo} alt="bg"/>
+      </div>
+    </div>
+  </Card>,
+    <Card>
+      <div class="container--grid">
+        <div data-col-sm="6">
+          <span class="h2">Adding games</span>
+          <p class="lead">When the installation is completed SteamRomManager will open to scan and add your games.<br/>Copy your roms to your {storage}, in the Emulation/roms folder.<br/><strong>Tip:You can copy your roms using an external USB drive.</strong></p>
+        </div>
+        <div data-col-sm="6">
+          <img src="https://www.emudeck.com/img/ss1.png" alt="bg"/>
+        </div>
+      </div>
+    </Card>,
+    <Card>
+      <div class="container--grid">
+        <div data-col-sm="12">
+          <span class="h2">Bios Paths</span>
+          <p class="lead">Copy your bios for your systems. The folder is in your {storage}, in the Emulation/bios folder.</p>
+        </div>
+      </div>
+    </Card>,
+    <Card>
+      <div class="container--grid">
+        <div data-col-sm="6">
+          <span class="h2">Steam Input Profiles </span>
+          <p class="lead">You can use Steam Deck's L4, L5, R4, R5 triggers to control some emulators hotkeys. Just select the right EmuDeck template for the system you want. <br/><strong>Repeat for every for 3DS, WiiU or Playstation 1 & 2 game.</strong></p>
+        </div>
+        <div data-col-sm="6">
+          <img src="https://www.emudeck.com/img/citra1.png" alt="bg"/>
+        </div>
+      </div>
+    </Card>,
+  ]
   return (
     <>
       {/*  <ExploreContainer name="Tab 1 page" /> */}
@@ -38,40 +80,12 @@ const End = () => {
         <Aside />
 
         <div className="wrapper">
-          <Header title="Installation" bold="complete!" />
+          <Header title="Please read these tips while we are completing your" bold="installation!" />          
           <Main>
-            <p className="lead">BIOS</p>
-            <p>
-              You need to copy your BIOS for the following systems in their
-              respective folders: <strong>Don't create new subfolders</strong>
-            </p>
-            <ul className="list-two-cols">
-              <li>
-                PlayStation 1 - <strong>Emulation/bios/</strong>
-              </li>
-              <li>
-                Playstation 2 - <strong>Emulation/bios/</strong>
-              </li>
-              <li>
-                Playstation 3 -{" "}
-                <strong>Open RPCS3 and load Sony's official firmware</strong>
-              </li>
-              <li>
-                Switch -{" "}
-                <strong>
-                  Emulation/bios/yuzu/ - Make sure you don't overwrite the
-                  folders
-                </strong>
-              </li>
-            </ul>
-            <p className="lead">ROMS</p>
-            <p>
-              You need to copy your BIOS for the following systems in their
-              respective folders: <strong>Don't create new subfolders</strong>
-            </p>
+            <SimpleCarousel nav={false} img={slides}/>            
           </Main>
           <Footer
-            back="disabled"
+            back="pegasus-theme"
             next="welcome"
             nextText="Finish"
             disabledNext={disabledNext}

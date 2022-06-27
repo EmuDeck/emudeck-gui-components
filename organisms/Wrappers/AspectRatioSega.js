@@ -47,24 +47,19 @@ const AspectRatioSega = ({
                   <li onClick={() => onClick("43")}>
                   <Card css={ar.sega == 43 && "is-selected"}>
                     <span class="h3">4:3</span>
-                    <p>Default Original</p>               
+                    <p>Original Aspect Ratio</p>               
                   </Card>
                   </li>
                   <li onClick={() => onClick("32")}>
                   <Card css={ar.sega == 32 && "is-selected"}>
                     <span class="h3">3:2</span>
-                    <p>Good compromise, almost no distortion</p>               
+                    <p>Less black bars, slight distortion</p>               
                   </Card>
                   </li>
                 </ul>
               </div>
             </SelectorMenu>
-            
-            
-            
-            
- 
-          </Main>
+           </Main>
           <Footer
             next="aspect-ratio-snes"
             disabledNext={disabledNext}

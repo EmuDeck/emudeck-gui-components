@@ -10,11 +10,10 @@ import Main from "components/organisms/Main/Main.js";
 import Card from "components/molecules/Card/Card.js";
 import SelectorMenu from "components/molecules/SelectorMenu/SelectorMenu.js";
 
-import ar43 from "assets/ar43snes.png";
-import ar87 from "assets/ar87snes.png";
-import ar32 from "assets/ar32snes.png";
+import ar43 from "assets/ar43gc.png";
+import ar169 from "assets/ar169gc.jpg";
 
-const AspectRatioSNES = ({
+const AspectRatioDolphin = ({
   disabledNext,
   disabledBack,
   downloadComplete,
@@ -30,44 +29,36 @@ const AspectRatioSNES = ({
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure Aspect Ratio for" bold="Super NES" />
+          <Header title="Configure Aspect Ratio for" bold="GameCube" />
           <Main>
             <p className="lead">
-              Chose your aspect ratio for Super Nintendo games.
+              Chose your aspect ratio for GameCube games
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">
-                <img src={ar87} className={ar.snes != "87"  && "is-hidden"} alt="Background" />
-                <img src={ar43} className={ar.snes != "43"  && "is-hidden"} alt="Background" />
-                <img src={ar32} className={ar.snes != "32"  && "is-hidden"} alt="Background" />                
+                <img src={ar169} className={ar.dolphin != "169"  && "is-hidden"} alt="Background" />
+                <img src={ar43} className={ar.dolphin != "43"  && "is-hidden"} alt="Background" />     
               </div>
               <div className="selector-menu__options selector-menu__options--full">
                 <ul>
-                <li onClick={() => onClick("87")}>
-                  <Card css={ar.snes == 87 && "is-selected"}>
-                    <span class="h3">8:7</span>
-                    <p>The real SNES Resolution</p>               
-                  </Card>
-                </li>
                   <li onClick={() => onClick("43")}>
-                    <Card css={ar.snes == 43 && "is-selected"}>
+                    <Card css={ar.dolphin == 43 && "is-selected"}>
                       <span class="h3">4:3</span>
-                      <p>Default Original</p>               
+                      <p>Original aspect ratio</p>               
                     </Card>
                   </li>
-                  <li onClick={() => onClick("32")}>
-                    <Card css={ar.snes == 32 && "is-selected"}>
-                      <span class="h3">3:2</span>
-                      <p>Not recommended, a lot of distortion</p>               
+                  <li onClick={() => onClick("169")}>
+                    <Card css={ar.dolphin == 169 && "is-selected"}>
+                      <span class="h3">16:9</span>
+                      <p>Fullscreen using WideScreen hacks<br/>(Expect some graphical glitches)</p>               
                     </Card>
                   </li>
                 </ul>
               </div>
             </SelectorMenu>
-
           </Main>
           <Footer
-            next="aspect-ratio-3d"
+            next="pegasus-theme"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />
@@ -77,4 +68,4 @@ const AspectRatioSNES = ({
   );
 };
 
-export default AspectRatioSNES;
+export default AspectRatioDolphin;
