@@ -63,9 +63,29 @@ const End = ({
     </Card>,
     <Card>
       <div class="container--grid">
+        <div data-col-sm="7">
+          <span class="h2">Hotkeys </span>
+          <p class="lead">
+          Almost all of the emulators share these hotkeys: <br/><br/>
+            <ul>              
+              <li><strong>Select + Start</strong> - Exit Emulator</li>                         
+              <li><strong>Select + L1</strong> - Load state</li>
+              <li><strong>Select + R1</strong> - Save state</li>
+              <li><strong>Select + R2</strong> - Fast-forward</li>
+              <li><strong>L3 + R3</strong> - Menu (Only RetroArch)</li>
+            </ul>
+          </p>  
+        </div>
+        <div data-col-sm="5">
+          <img src="https://www.emudeck.com/img/citra1.png" alt="bg"/>
+        </div>
+      </div>
+    </Card>,
+    <Card>
+      <div class="container--grid">
         <div data-col-sm="6">
           <span class="h2">Steam Input Profiles </span>
-          <p class="lead">You can use Steam Deck's L4, L5, R4, R5 triggers to control some emulators hotkeys. Just select the right EmuDeck template for the system you want. <br/><strong>Repeat for every for 3DS, WiiU or Playstation 1 & 2 game.</strong></p>
+          <p class="lead">You can use Steam Deck's L4, L5, R4, R5 triggers to control some emulators hotkeys. Just select the right EmuDeck template for the system you want. <br/><strong>Do this for every 3DS, WiiU or Playstation 1 & 2 game.</strong></p>
         </div>
         <div data-col-sm="6">
           <img src="https://www.emudeck.com/img/citra1.png" alt="bg"/>
