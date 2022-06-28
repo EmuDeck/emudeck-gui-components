@@ -4,16 +4,11 @@
   --progress-bg: var(--color-border-1);
   --progress-color: white;
   --progress-font-size: 12px;
-  --progress-transition: width 0.6s ease;
+  --progress-transition: width 0.1s ease;
 }
 
 // @mixin generate-progress($name, $progress-color, $progress-bg, $progress-value-bg)
-@include generate-progress(
-  success,
-  white,
-  var(--progress-bg),
-  var(--color-success)
-);
+@include generate-progress(success, white, var(--progress-bg), #1a9fff);
 
 .progress {
   border-radius: 10px;

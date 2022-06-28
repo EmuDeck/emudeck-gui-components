@@ -30,12 +30,12 @@ const End = ({
   useEffect(() => {
     const interval = setInterval(() => {
       setCounter((prevCounter) => {
-        if (prevCounter === 100) {
-          prevCounter = 1;
+        if (prevCounter === 110) {
+          prevCounter = -10;
         }
         return prevCounter + 1;
       });
-    }, 80);
+    }, 100);
 
     return () => clearInterval(interval);
   }, []);
@@ -184,7 +184,7 @@ const End = ({
           <Main>
             <SimpleCarousel nav={false} img={slides} />
             <br />
-            <ProgressBar value={counter} max={100} />
+            <ProgressBar css="progress--success" value={counter} max={100} />
           </Main>
           <Footer
             back="pegasus-theme"
