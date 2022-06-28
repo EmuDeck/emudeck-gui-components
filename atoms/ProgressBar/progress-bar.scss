@@ -1,5 +1,5 @@
 .progress {
-  --progress-height: 20px;
+  --progress-height: 4px;
   --progress-mb: var(--margin3);
   --progress-bg: var(--color-border-1);
   --progress-color: white;
@@ -14,3 +14,8 @@
   var(--progress-bg),
   var(--color-success)
 );
+
+.progress {
+  border-radius: 10px;
+  overflow: hidden;
+}

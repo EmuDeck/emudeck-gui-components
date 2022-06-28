@@ -41,38 +41,34 @@ const Welcome = ({
           {downloadComplete === true && (
             <div className="container--grid">
               <div data-col-sm="5">
-                <Card css={mode == "easy" && "is-selected"}>
+                <Card
+                  css={mode == "easy" && "is-selected"}
+                  onClick={() => onClick("easy")}
+                >
                   <span class="h3">Easy mode</span>
                   <p>
-                    We will care of everything for you, what emulators are
-                    installed, how bezels and aspect ratio are configured, it is
-                    an unattended installation.
+                    This is a 100% automatic mode. We will configure your device
+                    with the recommended settings so you can start playing right
+                    away.
                   </p>
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Go Next"
-                    onClick={() => onClick("easy")}
-                  >
+                  <BtnSimple css="btn-simple--1" type="button" aria="Go Next">
                     Select
                   </BtnSimple>
                 </Card>
               </div>
 
               <div data-col-sm="5">
-                <Card css={mode == "expert" && "is-selected"}>
+                <Card
+                  css={mode == "expert" && "is-selected"}
+                  onClick={() => onClick("expert")}
+                >
                   <span class="h3">Custom mode</span>
                   <p>
-                    Custom gives you a bit more of control on how EmuDeck
-                    configures your system like configuring Aspect Ratio,
-                    Bezels, etc.
+                    This mode gives you a bit more of control on how EmuDeck
+                    configures your system. You will be able to select Aspect
+                    Ratios, Bezels, Emulators, etc.
                   </p>
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Go Next"
-                    onClick={() => onClick("expert")}
-                  >
+                  <BtnSimple css="btn-simple--1" type="button" aria="Go Next">
                     Select
                   </BtnSimple>
                 </Card>
