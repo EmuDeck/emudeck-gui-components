@@ -1,18 +1,18 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from "react";
 
-import { GlobalContext } from 'context/globalContext';
+import { GlobalContext } from "context/globalContext";
 
-import Footer from 'components/organisms/Footer/Footer.js';
-import Header from 'components/organisms/Header/Header.js';
-import Aside from 'components/organisms/Aside/Aside.js';
-import Main from 'components/organisms/Main/Main.js';
-import Card from 'components/molecules/Card/Card.js';
-import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.js';
+import Footer from "components/organisms/Footer/Footer.js";
+import Header from "components/organisms/Header/Header.js";
+import Aside from "components/organisms/Aside/Aside.js";
+import Main from "components/organisms/Main/Main.js";
+import Card from "components/molecules/Card/Card.js";
+import SimpleCarousel from "components/molecules/SimpleCarousel/SimpleCarousel.js";
 
-import { ProgressBar } from 'getbasecore/Atoms';
+import { ProgressBar } from "getbasecore/Atoms";
 
-import sdlogo from 'assets/sdlogo.png';
-import amberlogo from 'assets/amberelec.jpg';
+import sdlogo from "assets/sdlogo.png";
+import amberlogo from "assets/amberelec.jpg";
 
 const End = ({
   disabledNext,
@@ -42,7 +42,7 @@ const End = ({
   }, []);
 
   const slides = [
-    <Card>
+    <Card css="is-selected">
       <div className="container--grid">
         <div data-col-sm="9">
           <span className="h3">Emulation Folder</span>
@@ -62,9 +62,9 @@ const End = ({
               </li>
               <li>
                 <strong>Emulation/storage</strong> - Shaders, PS3 installed
-                games, etc.{' '}
-                {storage == 'SD-Card' &&
-                  'to save space in your internal storage'}{' '}
+                games, etc.{" "}
+                {storage == "SD-Card" &&
+                  "to save space in your internal storage"}{" "}
               </li>
             </ul>
           </p>
@@ -74,7 +74,7 @@ const End = ({
         </div>
       </div>
     </Card>,
-    <Card>
+    <Card css="is-selected">
       <div className="container--grid">
         <div data-col-sm="6">
           <span className="h2">Adding games</span>
@@ -95,7 +95,7 @@ const End = ({
         </div>
       </div>
     </Card>,
-    <Card>
+    <Card css="is-selected">
       <div className="container--grid">
         <div data-col-sm="12">
           <span className="h2">Bios Paths</span>
@@ -119,7 +119,7 @@ const End = ({
         </div>
       </div>
     </Card>,
-    <Card>
+    <Card css="is-selected">
       <div className="container--grid">
         <div data-col-sm="7">
           <span className="h2">AmberElec Hotkeys</span>
@@ -150,7 +150,7 @@ const End = ({
         </div>
       </div>
     </Card>,
-    <Card>
+    <Card css="is-selected">
       <div className="container--grid">
         <div data-col-sm="6">
           <span className="h2">Steam Input Profiles </span>
@@ -184,13 +184,6 @@ const End = ({
             <br />
             <ProgressBar css="progress--success" value={counter} max={100} />
           </Main>
-          <Footer
-            back="pegasus-theme"
-            next="welcome"
-            nextText="Finish"
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
         </div>
       </div>
     </>

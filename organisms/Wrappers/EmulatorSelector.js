@@ -1,21 +1,21 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { GlobalContext } from 'context/globalContext';
+import React, { useEffect, useState, useContext } from "react";
+import { GlobalContext } from "context/globalContext";
 
-import Footer from 'components/organisms/Footer/Footer.js';
-import Header from 'components/organisms/Header/Header.js';
-import Aside from 'components/organisms/Aside/Aside.js';
-import Main from 'components/organisms/Main/Main.js';
-import Card from 'components/molecules/Card/Card.js';
+import Footer from "components/organisms/Footer/Footer.js";
+import Header from "components/organisms/Header/Header.js";
+import Aside from "components/organisms/Aside/Aside.js";
+import Main from "components/organisms/Main/Main.js";
+import Card from "components/molecules/Card/Card.js";
 
-import imgra from 'assets/emulators/ra.png';
-import imgdolphin from 'assets/emulators/dolphin.png';
-import imgppsspp from 'assets/emulators/ppsspp.png';
-import imgduckstation from 'assets/emulators/duckstation.png';
-import imgcitra from 'assets/emulators/citra.png';
-import imgpcsx2 from 'assets/emulators/pcsx2.png';
-import imgrpcs3 from 'assets/emulators/rpcs3.png';
-import imgyuzu from 'assets/emulators/yuzu.png';
-import imgcemu from 'assets/emulators/cemu.png';
+import imgra from "assets/emulators/ra.png";
+import imgdolphin from "assets/emulators/dolphin.png";
+import imgppsspp from "assets/emulators/ppsspp.png";
+import imgduckstation from "assets/emulators/duckstation.png";
+import imgcitra from "assets/emulators/citra.png";
+import imgpcsx2 from "assets/emulators/pcsx2.png";
+import imgrpcs3 from "assets/emulators/rpcs3.png";
+import imgyuzu from "assets/emulators/yuzu.png";
+import imgcemu from "assets/emulators/cemu.png";
 
 const images = {
   ra: { imgra },
@@ -29,7 +29,7 @@ const images = {
   cemu: { imgcemu },
 };
 
-const DeviceSelector = ({
+const EmulatorSelector = ({
   disabledNext,
   disabledBack,
   onClick,
@@ -38,7 +38,7 @@ const DeviceSelector = ({
   data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { device, installEmus } = state;
+  const { device, installEmus, second } = state;
   const installEmusArray = Object.values(installEmus);
   return (
     <>
@@ -50,8 +50,8 @@ const DeviceSelector = ({
           <Header title="Emulators for" bold={`${device}`} />
           <Main>
             <p className="lead">
-              These are the recommended emulators for your system. But you can
-              chose to not install all of them.
+              These are the recommended emulators for your system but you can
+              click the ones you don't want to install.
             </p>
 
             <div className="cards cards--mini">
@@ -59,7 +59,7 @@ const DeviceSelector = ({
                 const img = images[item.id][`img${item.id}`];
                 return (
                   <Card
-                    css={item.status == true && 'is-selected'}
+                    css={item.status == true && "is-selected"}
                     key={item.id}
                     onClick={() => onClick(item.id)}
                   >
@@ -71,7 +71,7 @@ const DeviceSelector = ({
             </div>
           </Main>
           <Footer
-            next="ra-bezels"
+            next={second ? "emulator-configuration" : "ra-bezels"}
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />
@@ -81,4 +81,4 @@ const DeviceSelector = ({
   );
 };
 
-export default DeviceSelector;
+export default EmulatorSelector;
