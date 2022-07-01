@@ -142,7 +142,7 @@ p {
   font-family: 'MotivaSans';
   font-size: $lead-font-size;
   letter-spacing: 0;
-  margin-bottom: var(--margin6);
+  margin-bottom: var(--margin3);
   color: #b8bcbf;
   ul li {
     margin-bottom: 5px;
@@ -262,7 +262,7 @@ address {
 );
 @include generate_titles(
   'h4',
-  3.0rem,
+  3rem,
   4.2rem,
   -0.05rem,
   'MotivaSans',
