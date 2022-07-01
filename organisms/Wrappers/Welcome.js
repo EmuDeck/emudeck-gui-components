@@ -29,7 +29,6 @@ const Welcome = ({
         <Main>
           <p className="lead">
             Please select how do you want EmuDeck to configure your device:
-            {data}
           </p>
           <p>
             <span className="h4"></span>
