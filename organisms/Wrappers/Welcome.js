@@ -52,9 +52,6 @@ const Welcome = ({
                     with the recommended settings so you can start playing right
                     away.
                   </p>
-                  <BtnSimple css="btn-simple--1" type="button" aria="Go Next">
-                    Select
-                  </BtnSimple>
                 </Card>
               </div>
 
@@ -69,9 +66,6 @@ const Welcome = ({
                     configures your system. You will be able to select Aspect
                     Ratios, Bezels, Emulators, etc.
                   </p>
-                  <BtnSimple css="btn-simple--1" type="button" aria="Go Next">
-                    Select
-                  </BtnSimple>
                 </Card>
               </div>
             </div>

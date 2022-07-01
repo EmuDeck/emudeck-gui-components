@@ -64,18 +64,18 @@ const PegasusTheme = ({
               </div>
               <div className="selector-menu__options selector-menu__options--full">
                 <ul>
-                  <li onClick={() => onClick('darkNoir')}>
-                    <Card css={theme == 'darkNoir' && 'is-selected'}>
+                  <li onClick={() => onClick('EPICNOIR')}>
+                    <Card css={theme == 'EPICNOIR' && 'is-selected'}>
                       <span className="h3">Dark Noir</span>
                     </Card>
                   </li>
-                  <li onClick={() => onClick('rbsimple')}>
-                    <Card css={theme == 'rbsimple' && 'is-selected'}>
+                  <li onClick={() => onClick('RBSIMPLE-DE')}>
+                    <Card css={theme == 'RBSIMPLE-DE' && 'is-selected'}>
                       <span className="h3">RBSimple</span>
                     </Card>
                   </li>
-                  <li onClick={() => onClick('modern')}>
-                    <Card css={theme == 'modern' && 'is-selected'}>
+                  <li onClick={() => onClick('MODERN-DE')}>
+                    <Card css={theme == 'MODERN-DE' && 'is-selected'}>
                       <span className="h3">Modern</span>
                     </Card>
                   </li>
