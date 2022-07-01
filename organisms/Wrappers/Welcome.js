@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
-import { GlobalContext } from "context/globalContext";
+import React, { useEffect, useState, useContext } from 'react';
+import { GlobalContext } from 'context/globalContext';
 
-import Footer from "components/organisms/Footer/Footer.js";
-import Header from "components/organisms/Header/Header.js";
-import Aside from "components/organisms/Aside/Aside.js";
-import Main from "components/organisms/Main/Main.js";
+import Footer from 'components/organisms/Footer/Footer.js';
+import Header from 'components/organisms/Header/Header.js';
+import Aside from 'components/organisms/Aside/Aside.js';
+import Main from 'components/organisms/Main/Main.js';
 
-import { BtnSimple } from "getbasecore/Atoms";
+import { BtnSimple } from 'getbasecore/Atoms';
 
-import Card from "components/molecules/Card/Card.js";
+import Card from 'components/molecules/Card/Card.js';
 
 const Welcome = ({
   disabledNext,
@@ -42,10 +42,10 @@ const Welcome = ({
             <div className="container--grid">
               <div data-col-sm="5">
                 <Card
-                  css={mode == "easy" && "is-selected"}
-                  onClick={() => onClick("easy")}
+                  css={mode == 'easy' && 'is-selected'}
+                  onClick={() => onClick('easy')}
                 >
-                  <span class="h3">Easy mode</span>
+                  <span className="h3">Easy mode</span>
                   <p>
                     This is a 100% automatic mode. We will configure your device
                     with the recommended settings so you can start playing right
@@ -59,10 +59,10 @@ const Welcome = ({
 
               <div data-col-sm="5">
                 <Card
-                  css={mode == "expert" && "is-selected"}
-                  onClick={() => onClick("expert")}
+                  css={mode == 'expert' && 'is-selected'}
+                  onClick={() => onClick('expert')}
                 >
-                  <span class="h3">Custom mode</span>
+                  <span className="h3">Custom mode</span>
                   <p>
                     This mode gives you a bit more of control on how EmuDeck
                     configures your system. You will be able to select Aspect

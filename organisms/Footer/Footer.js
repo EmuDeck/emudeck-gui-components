@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { BtnSimple } from "getbasecore/Atoms";
+import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { BtnSimple } from 'getbasecore/Atoms';
 
-import "./Footer.scss";
+import './Footer.scss';
 
 const Footer = ({
   back,
@@ -14,7 +14,7 @@ const Footer = ({
 }) => {
   const navigate = useNavigate();
   const goTo = (href) => {
-    navigate("/" + href);
+    navigate('/' + href);
   };
   return (
     <footer className="footer">
@@ -24,7 +24,7 @@ const Footer = ({
           type="button"
           onClick={() => navigate(-1)}
           aria="Go Back"
-          disabled={disabledBack && "true"}
+          disabled={disabledBack && 'true'}
         >
           Go Back
         </BtnSimple>
@@ -36,12 +36,12 @@ const Footer = ({
           type="button"
           onClick={() => goTo(next)}
           aria="Go Next"
-          disabled={disabledNext && "true"}
+          disabled={disabledNext && 'true'}
         >
-          {!nextText && "Continue "}
+          {!nextText && 'Continue '}
           {nextText}
           <svg
-            class="rightarrow"
+            className="rightarrow"
             width="32"
             height="32"
             viewBox="0 0 32 32"

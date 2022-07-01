@@ -1,18 +1,18 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from 'react';
 
-import { GlobalContext } from "context/globalContext";
+import { GlobalContext } from 'context/globalContext';
 
-import Footer from "components/organisms/Footer/Footer.js";
-import Header from "components/organisms/Header/Header.js";
-import Aside from "components/organisms/Aside/Aside.js";
-import Main from "components/organisms/Main/Main.js";
-import Card from "components/molecules/Card/Card.js";
-import SimpleCarousel from "components/molecules/SimpleCarousel/SimpleCarousel.js";
+import Footer from 'components/organisms/Footer/Footer.js';
+import Header from 'components/organisms/Header/Header.js';
+import Aside from 'components/organisms/Aside/Aside.js';
+import Main from 'components/organisms/Main/Main.js';
+import Card from 'components/molecules/Card/Card.js';
+import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.js';
 
-import { ProgressBar } from "getbasecore/Atoms";
+import { ProgressBar } from 'getbasecore/Atoms';
 
-import sdlogo from "assets/sdlogo.png";
-import amberlogo from "assets/amberelec.jpg";
+import sdlogo from 'assets/sdlogo.png';
+import amberlogo from 'assets/amberelec.jpg';
 
 const End = ({
   disabledNext,
@@ -42,10 +42,10 @@ const End = ({
 
   const slides = [
     <Card>
-      <div class="container--grid">
+      <div className="container--grid">
         <div data-col-sm="9">
-          <span class="h3">Emulation Folder</span>
-          <p class="lead">
+          <span className="h3">Emulation Folder</span>
+          <p className="lead">
             We've created the following folders in your {storage}: <br />
             <br />
             <ul>
@@ -61,9 +61,9 @@ const End = ({
               </li>
               <li>
                 <strong>Emulation/storage</strong> - Shaders, PS3 installed
-                games, etc.{" "}
-                {storage == "SD-Card" &&
-                  "to save space in your internal storage"}{" "}
+                games, etc.{' '}
+                {storage == 'SD-Card' &&
+                  'to save space in your internal storage'}{' '}
               </li>
             </ul>
           </p>
@@ -74,10 +74,10 @@ const End = ({
       </div>
     </Card>,
     <Card>
-      <div class="container--grid">
+      <div className="container--grid">
         <div data-col-sm="6">
-          <span class="h2">Adding games</span>
-          <p class="lead">
+          <span className="h2">Adding games</span>
+          <p className="lead">
             When the installation is completed SteamRomManager will open to scan
             and add your games.
             <br />
@@ -95,10 +95,10 @@ const End = ({
       </div>
     </Card>,
     <Card>
-      <div class="container--grid">
+      <div className="container--grid">
         <div data-col-sm="12">
-          <span class="h2">Bios Paths</span>
-          <p class="lead">
+          <span className="h2">Bios Paths</span>
+          <p className="lead">
             Some games need the original system Bios to launch. <br />
             SoAn exaple of these systems are:
             <br />
@@ -119,10 +119,10 @@ const End = ({
       </div>
     </Card>,
     <Card>
-      <div class="container--grid">
+      <div className="container--grid">
         <div data-col-sm="7">
-          <span class="h2">AmberElec Hotkeys</span>
-          <p class="lead">
+          <span className="h2">AmberElec Hotkeys</span>
+          <p className="lead">
             Almost all of the emulators use the AmberElec convention: <br />
             <br />
             <ul>
@@ -150,10 +150,10 @@ const End = ({
       </div>
     </Card>,
     <Card>
-      <div class="container--grid">
+      <div className="container--grid">
         <div data-col-sm="6">
-          <span class="h2">Steam Input Profiles </span>
-          <p class="lead">
+          <span className="h2">Steam Input Profiles </span>
+          <p className="lead">
             You can use Steam Deck's L4, L5, R4, R5 triggers to control some
             emulators hotkeys. Just select the right EmuDeck template for the
             system you want. <br />

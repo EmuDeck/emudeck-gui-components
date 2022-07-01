@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
-import { GlobalContext } from "context/globalContext";
+import React, { useEffect, useState, useContext } from 'react';
+import { GlobalContext } from 'context/globalContext';
 
-import Footer from "components/organisms/Footer/Footer.js";
-import Header from "components/organisms/Header/Header.js";
-import Aside from "components/organisms/Aside/Aside.js";
-import Main from "components/organisms/Main/Main.js";
+import Footer from 'components/organisms/Footer/Footer.js';
+import Header from 'components/organisms/Header/Header.js';
+import Aside from 'components/organisms/Aside/Aside.js';
+import Main from 'components/organisms/Main/Main.js';
 
 import {
   BtnSimple,
@@ -21,7 +21,7 @@ import {
   FormRadioSimple,
   FormCheckboxSimple,
   FormInputRangeSimple,
-} from "getbasecore/Atoms";
+} from 'getbasecore/Atoms';
 
 const RomStorage = () => {
   const { state, setState } = useContext(GlobalContext);
@@ -52,12 +52,12 @@ const RomStorage = () => {
               </>
             )}
 
-            {storage === "SD-Card" && structureCreated === true && (
+            {storage === 'SD-Card' && structureCreated === true && (
               <>
                 <p>
                   You'll have to copy your roms in this folder on your SD Card:
                 </p>
-                <ul class="folder-structure">
+                <ul className="folder-structure">
                   <li>
                     <strong>
                       {SDID}/Android/data/roms.pegasus.installer/files/
@@ -73,13 +73,13 @@ const RomStorage = () => {
                 </ul>
               </>
             )}
-            {storage === "Internal" && structureCreated === true && (
+            {storage === 'Internal' && structureCreated === true && (
               <>
                 <p>
                   You'll have to copy your roms in this folder on your internal
                   storage:
                 </p>
-                <ul class="folder-structure">
+                <ul className="folder-structure">
                   <li>
                     <strong>/roms/</strong>
                     <ul>
