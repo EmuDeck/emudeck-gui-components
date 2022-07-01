@@ -178,10 +178,7 @@ const End = ({
         <Aside />
 
         <div className="wrapper">
-          <Header
-            title="Please read these tips while we are completing your"
-            bold="installation!"
-          />
+          <Header title="We are completing your" bold="installation..." />
           <Main>
             <SimpleCarousel nav={false} img={slides} />
             <br />
