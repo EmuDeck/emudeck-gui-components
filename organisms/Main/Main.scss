@@ -43,9 +43,8 @@ body {
 
 main {
   flex: 1;
-  overflow: scroll;
+  overflow: hidden;
 }
-
 
 .list-two-cols {
   display: flex;
