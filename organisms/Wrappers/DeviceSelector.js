@@ -21,6 +21,7 @@ const DeviceSelector = ({
   downloadComplete,
   next,
   back,
+  data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { device } = state;

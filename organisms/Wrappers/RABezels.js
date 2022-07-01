@@ -20,6 +20,7 @@ const RABezels = ({
   onClick,
   next,
   back,
+  data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { bezels } = state;

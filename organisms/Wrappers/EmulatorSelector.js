@@ -35,6 +35,7 @@ const DeviceSelector = ({
   onClick,
   next,
   back,
+  data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { device, installEmus } = state;

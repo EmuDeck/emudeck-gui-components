@@ -17,6 +17,7 @@ const Welcome = ({
   onClick,
   next,
   back,
+  data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { mode } = state;
@@ -28,6 +29,7 @@ const Welcome = ({
         <Main>
           <p className="lead">
             Please select how do you want EmuDeck to configure your device:
+            {data}
           </p>
           <p>
             <span className="h4"></span>

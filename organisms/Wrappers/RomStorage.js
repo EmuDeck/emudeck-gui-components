@@ -16,6 +16,7 @@ const RomStorage = ({
   downloadComplete,
   next,
   back,
+  data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { storage, SDID } = state;
