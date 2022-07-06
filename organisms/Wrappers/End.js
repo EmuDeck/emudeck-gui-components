@@ -19,6 +19,7 @@ const End = ({
   disabledBack,
   downloadComplete,
   onClick,
+  onClose,
   next,
   back,
   data,
@@ -193,6 +194,29 @@ const End = ({
             )}
           </Main>
           <footer className="footer">
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Go Back"
+              disabled={disabledNext && 'true'}
+              onClick={onClose}
+            >
+              Exit to Desktop
+              <svg
+                className="rightarrow"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="currentColor"
+                  d="M16.4091 8.48003L21.5024 13.5734L1.98242 13.5734L1.98242 18.0178H21.5024L16.4091 23.1111L19.5558 26.2578L30.018 15.7956L19.5558 5.33337L16.4091 8.48003Z"
+                ></path>
+              </svg>
+            </BtnSimple>
+
             <BtnSimple
               css="btn-simple--1"
               type="button"
