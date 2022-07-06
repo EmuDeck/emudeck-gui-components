@@ -6,7 +6,7 @@ import Header from 'components/organisms/Header/Header.js';
 import Aside from 'components/organisms/Aside/Aside.js';
 import Main from 'components/organisms/Main/Main.js';
 
-import { BtnSimple } from 'getbasecore/Atoms';
+import { BtnSimple, ProgressBar } from 'getbasecore/Atoms';
 
 import Card from 'components/molecules/Card/Card.js';
 
@@ -21,6 +21,22 @@ const Welcome = ({
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { mode } = state;
+
+  //Download files
+  const [counter, setCounter] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCounter((prevCounter) => {
+        if (prevCounter === 110) {
+          prevCounter = -10;
+        }
+        return prevCounter + 1;
+      });
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="app">
       <Aside />
@@ -30,13 +46,11 @@ const Welcome = ({
           <p className="lead">
             Please select how do you want EmuDeck to configure your device:
           </p>
-          <p>
-            <span className="h4"></span>
-          </p>
 
           {downloadComplete === false && (
             <>
-              <p>Downloading Files</p>
+              <p className="h5">Downloading Files</p>
+              <ProgressBar css="progress--success" value={counter} max="100" />
             </>
           )}
           {downloadComplete === true && (
