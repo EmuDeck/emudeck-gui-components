@@ -178,17 +178,17 @@ const End = ({
         <Aside />
 
         <div className="wrapper">
-          {disabledNext == false && (
+          {disabledNext == true && (
             <Header title="We are completing your" bold="installation..." />
           )}
-          {disabledNext == true && (
+          {disabledNext == false && (
             <Header title="Installation" bold="complete!" />
           )}
 
           <Main>
             <SimpleCarousel nav={false} img={slides} />
             <br />
-            {disabledNext == true && (
+            {disabledNext == false && (
               <ProgressBar css="progress--success" value={counter} max={100} />
             )}
           </Main>
