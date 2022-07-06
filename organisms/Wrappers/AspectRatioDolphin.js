@@ -11,7 +11,7 @@ import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 
 import ar43 from 'assets/ar43gc.png';
-import ar169 from 'assets/ar169gc.jpg';
+import ar169 from 'assets/ar169gc.png';
 
 const AspectRatioDolphin = ({
   disabledNext,
