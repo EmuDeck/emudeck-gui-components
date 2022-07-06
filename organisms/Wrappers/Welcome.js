@@ -20,7 +20,11 @@ const Welcome = ({
   data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { mode } = state;
+  const { mode, debug } = state;
+
+  const debugMode = (debug) => {
+    setState({ ...state, debug: debug });
+  };
 
   //Download files
   const [counter, setCounter] = useState(0);
@@ -52,6 +56,23 @@ const Welcome = ({
               <p className="h5">Downloading Files</p>
               <ProgressBar css="progress--success" value={counter} max="100" />
             </>
+          )}
+          {debug === true && (
+            <div>
+              <p className="h5">Debug - Chose your git branch</p>
+              <BtnSimple type="button" onClick={() => debugMode('main')}>
+                Main
+              </BtnSimple>
+              <BtnSimple type="button" onClick={() => debugMode('dev')}>
+                Dev
+              </BtnSimple>
+              <BtnSimple type="button" onClick={() => debugMode('beta')}>
+                Beta
+              </BtnSimple>
+              <BtnSimple type="button" onClick={() => debugMode('EmuReorg')}>
+                EmuReorg
+              </BtnSimple>
+            </div>
           )}
           {downloadComplete === true && (
             <div className="container--grid">
