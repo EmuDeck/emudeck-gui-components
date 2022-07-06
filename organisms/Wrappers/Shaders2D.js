@@ -10,10 +10,10 @@ import Main from 'components/organisms/Main/Main.js';
 import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 
-import ar43 from 'assets/ar43gc.png';
-import ar169 from 'assets/ar169gc.jpg';
+import lcdon from 'assets/classic-shader-on.png';
+import lcdoff from 'assets/classic-shader-off.png';
 
-const AspectRatioDolphin = ({
+const Shaders2D = ({
   disabledNext,
   disabledBack,
   downloadComplete,
@@ -23,45 +23,42 @@ const AspectRatioDolphin = ({
   data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { ar } = state;
+  const { shaders } = state;
 
   return (
     <>
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure Aspect Ratio for" bold="GameCube" />
+          <Header title="Configure LCD Shader for" bold="Classic 2d Games" />
           <Main>
-            <p className="lead">Chose your aspect ratio for GameCube games</p>
+            <p className="lead">
+              The LCD Shader gives the handheld systems like MasterSystem,
+              Genesis SuperNintendo, etc a faux retro CRT vibe.
+            </p>
             <SelectorMenu>
               <div className="selector-menu__img">
                 <img
-                  src={ar169}
-                  className={ar.dolphin != '169' && 'is-hidden'}
+                  src={lcdoff}
+                  className={shaders.classic == true && 'is-hidden'}
                   alt="Background"
                 />
                 <img
-                  src={ar43}
-                  className={ar.dolphin != '43' && 'is-hidden'}
+                  src={lcdon}
+                  className={shaders.classic == false && 'is-hidden'}
                   alt="Background"
                 />
               </div>
               <div className="selector-menu__options selector-menu__options--full">
                 <ul>
-                  <li onClick={() => onClick('43')}>
-                    <Card css={ar.dolphin == 43 && 'is-selected'}>
-                      <span className="h3">4:3</span>
-                      <p>Original aspect ratio</p>
+                  <li onClick={() => onClick(false)}>
+                    <Card css={shaders.classic == false && 'is-selected'}>
+                      <span className="h3">Off</span>
                     </Card>
                   </li>
-                  <li onClick={() => onClick('169')}>
-                    <Card css={ar.dolphin == 169 && 'is-selected'}>
-                      <span className="h3">16:9</span>
-                      <p>
-                        Fullscreen using WideScreen hacks
-                        <br />
-                        (Expect some graphical glitches)
-                      </p>
+                  <li onClick={() => onClick(true)}>
+                    <Card css={shaders.classic == true && 'is-selected'}>
+                      <span className="h3">On</span>
                     </Card>
                   </li>
                 </ul>
@@ -69,7 +66,7 @@ const AspectRatioDolphin = ({
             </SelectorMenu>
           </Main>
           <Footer
-            next="shaders-handhelds"
+            next="pegasus-theme"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />
@@ -79,4 +76,4 @@ const AspectRatioDolphin = ({
   );
 };
 
-export default AspectRatioDolphin;
+export default Shaders2D;
