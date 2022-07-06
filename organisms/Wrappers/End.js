@@ -9,7 +9,7 @@ import Main from 'components/organisms/Main/Main.js';
 import Card from 'components/molecules/Card/Card.js';
 import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.js';
 
-import { ProgressBar } from 'getbasecore/Atoms';
+import { ProgressBar, BtnSimple } from 'getbasecore/Atoms';
 
 import sdlogo from 'assets/sdlogo.png';
 import amberlogo from 'assets/amberelec.jpg';
@@ -192,6 +192,30 @@ const End = ({
               <ProgressBar css="progress--success" value={counter} max={100} />
             )}
           </Main>
+          <footer className="footer">
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Go Next"
+              disabled={disabledNext && 'true'}
+              onClick={onClick}
+            >
+              Launch Steam Rom Manager
+              <svg
+                className="rightarrow"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="currentColor"
+                  d="M16.4091 8.48003L21.5024 13.5734L1.98242 13.5734L1.98242 18.0178H21.5024L16.4091 23.1111L19.5558 26.2578L30.018 15.7956L19.5558 5.33337L16.4091 8.48003Z"
+                ></path>
+              </svg>
+            </BtnSimple>
+          </footer>
         </div>
       </div>
     </>
