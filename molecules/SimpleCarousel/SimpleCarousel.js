@@ -4,7 +4,6 @@ import { GlobalContext } from 'context/globalContext';
 import './simple-carousel.scss';
 
 const SimpleCarousel = ({ children, css, img, nav }) => {
-  console.log({ img });
   return (
     <div className={`simple-carousel ${css}`}>
       <div className="carousel" aria-label="Gallery">
