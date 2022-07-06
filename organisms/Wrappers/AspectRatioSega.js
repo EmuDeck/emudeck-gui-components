@@ -36,7 +36,7 @@ const AspectRatioSega = ({
           />
           <Main>
             <p className="lead">
-              Chose your aspect ratio for Genesis and Master System games.
+              Chose your aspect ratio for your classic Sega games.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">
@@ -65,6 +65,15 @@ const AspectRatioSega = ({
                       <p>Less black bars, slight distortion</p>
                     </Card>
                   </li>
+                </ul>
+              </div>
+              <div className="selector-menu__details">
+                <p className="lead">Systems</p>
+                <ul>
+                  <li>Master System</li>
+                  <li>Genesis</li>
+                  <li>Sega CD</li>
+                  <li>Sega 32X</li>
                 </ul>
               </div>
             </SelectorMenu>

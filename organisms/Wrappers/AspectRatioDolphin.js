@@ -66,6 +66,12 @@ const AspectRatioDolphin = ({
                   </li>
                 </ul>
               </div>
+              <div className="selector-menu__details">
+                <p className="lead">Systems</p>
+                <ul>
+                  <li>Gamecube</li>
+                </ul>
+              </div>
             </SelectorMenu>
           </Main>
           <Footer

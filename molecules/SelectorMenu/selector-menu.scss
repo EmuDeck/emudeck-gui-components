@@ -24,9 +24,19 @@
   }
 
   &__options {
-    max-width: 130px;
+    max-width: 100px;
     &--full {
-      max-width: 40%;
+      max-width: 25%;
+    }
+  }
+
+  &__details {
+    margin-left: 40px;
+    padding-left: 40px;
+    border-left: 1px solid #fff;
+    li {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
     }
   }
 }

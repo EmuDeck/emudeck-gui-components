@@ -55,15 +55,29 @@ const RABezels = ({
                   <li onClick={() => onClick(true)}>
                     <Card css={bezels == true && 'is-selected'}>
                       <span className="h3">On</span>
-                      <p>Show Bezels</p>
                     </Card>
                   </li>
                   <li onClick={() => onClick(false)}>
                     <Card css={bezels == false && 'is-selected'}>
                       <span className="h3">Off</span>
-                      <p>Hide Bezels</p>
                     </Card>
                   </li>
+                </ul>
+              </div>
+              <div className="selector-menu__details">
+                <p className="lead">Systems</p>
+                <ul>
+                  <li>GameBoy</li>
+                  <li>GameBoy Color</li>
+                  <li>Super Nintendo</li>
+                  <li>Nintendo NES</li>
+                  <li>Atari</li>
+                  <li>Master System</li>
+                  <li>Genesis</li>
+                  <li>SegaCD</li>
+                  <li>Sega32x</li>
+                  <li>GameGear</li>
+                  <li>NeoGeo Pocket</li>
                 </ul>
               </div>
             </SelectorMenu>

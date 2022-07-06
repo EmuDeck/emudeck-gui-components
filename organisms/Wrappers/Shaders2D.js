@@ -30,11 +30,10 @@ const Shaders2D = ({
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure LCD Shader for" bold="Classic 2d Games" />
+          <Header title="Configure CRT Shader for" bold="Classic 2d Games" />
           <Main>
             <p className="lead">
-              The LCD Shader gives the handheld systems like MasterSystem,
-              Genesis SuperNintendo, etc a faux retro CRT vibe.
+              The CRT Shader gives your classic systems a faux retro CRT vibe.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">
@@ -61,6 +60,18 @@ const Shaders2D = ({
                       <span className="h3">On</span>
                     </Card>
                   </li>
+                </ul>
+              </div>
+              <div className="selector-menu__details">
+                <p className="lead">Affected Systems</p>
+                <ul>
+                  <li>Atari</li>
+                  <li>Master System</li>
+                  <li>Genesis</li>
+                  <li>SegaCD</li>
+                  <li>Sega32x</li>
+                  <li>Nes</li>
+                  <li>SuperNes</li>
                 </ul>
               </div>
             </SelectorMenu>

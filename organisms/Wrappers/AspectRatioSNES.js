@@ -71,9 +71,16 @@ const AspectRatioSNES = ({
                   <li onClick={() => onClick('32')}>
                     <Card css={ar.snes == 32 && 'is-selected'}>
                       <span className="h3">3:2</span>
-                      <p>Not recommended, a lot of distortion</p>
+                      <p>Not recommended</p>
                     </Card>
                   </li>
+                </ul>
+              </div>
+              <div className="selector-menu__details">
+                <p className="lead">Systems</p>
+                <ul>
+                  <li>Super Nintendo</li>
+                  <li>Nintendo NES</li>
                 </ul>
               </div>
             </SelectorMenu>

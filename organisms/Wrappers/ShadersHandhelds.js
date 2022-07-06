@@ -33,8 +33,8 @@ const ShadersHandhelds = ({
           <Header title="Configure LCD Shader for" bold="Handhelds" />
           <Main>
             <p className="lead">
-              The LCD Shader gives the handheld systems like GameBoy, Gameboy
-              Advance, GameGear, etc a cool old style.
+              The LCD Shader simulates the old LCD Matrix screens of handheld
+              systems.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">
@@ -61,6 +61,15 @@ const ShadersHandhelds = ({
                       <span className="h3">On</span>
                     </Card>
                   </li>
+                </ul>
+              </div>
+              <div className="selector-menu__details">
+                <p className="lead">Systems</p>
+                <ul>
+                  <li>GameBoy</li>
+                  <li>GameBoy Color</li>
+                  <li>GameGear</li>
+                  <li>NeoGeo Pocket</li>
                 </ul>
               </div>
             </SelectorMenu>

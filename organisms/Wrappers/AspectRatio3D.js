@@ -76,6 +76,14 @@ const AspectRatio3D = ({
                   </li>
                 </ul>
               </div>
+              <div className="selector-menu__details">
+                <p className="lead">Systems</p>
+                <ul>
+                  <li>Dreamcast</li>
+                  <li>Nintendo 64</li>
+                  <li>Sega Saturn</li>
+                </ul>
+              </div>
             </SelectorMenu>
           </Main>
           <Footer
