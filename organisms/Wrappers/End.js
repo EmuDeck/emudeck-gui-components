@@ -1,18 +1,18 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from 'react';
 
-import { GlobalContext } from "context/globalContext";
+import { GlobalContext } from 'context/globalContext';
 
-import Footer from "components/organisms/Footer/Footer.js";
-import Header from "components/organisms/Header/Header.js";
-import Aside from "components/organisms/Aside/Aside.js";
-import Main from "components/organisms/Main/Main.js";
-import Card from "components/molecules/Card/Card.js";
-import SimpleCarousel from "components/molecules/SimpleCarousel/SimpleCarousel.js";
+import Footer from 'components/organisms/Footer/Footer.js';
+import Header from 'components/organisms/Header/Header.js';
+import Aside from 'components/organisms/Aside/Aside.js';
+import Main from 'components/organisms/Main/Main.js';
+import Card from 'components/molecules/Card/Card.js';
+import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.js';
 
-import { ProgressBar } from "getbasecore/Atoms";
+import { ProgressBar } from 'getbasecore/Atoms';
 
-import sdlogo from "assets/sdlogo.png";
-import amberlogo from "assets/amberelec.jpg";
+import sdlogo from 'assets/sdlogo.png';
+import amberlogo from 'assets/amberelec.jpg';
 
 const End = ({
   disabledNext,
@@ -62,9 +62,9 @@ const End = ({
               </li>
               <li>
                 <strong>Emulation/storage</strong> - Shaders, PS3 installed
-                games, etc.{" "}
-                {storage == "SD-Card" &&
-                  "to save space in your internal storage"}{" "}
+                games, etc.{' '}
+                {storage == 'SD-Card' &&
+                  'to save space in your internal storage'}{' '}
               </li>
             </ul>
           </p>
@@ -178,11 +178,19 @@ const End = ({
         <Aside />
 
         <div className="wrapper">
-          <Header title="We are completing your" bold="installation..." />
+          {disabledNext == false && (
+            <Header title="We are completing your" bold="installation..." />
+          )}
+          {disabledNext == true && (
+            <Header title="Installation" bold="complete!" />
+          )}
+
           <Main>
             <SimpleCarousel nav={false} img={slides} />
             <br />
-            <ProgressBar css="progress--success" value={counter} max={100} />
+            {disabledNext == true && (
+              <ProgressBar css="progress--success" value={counter} max={100} />
+            )}
           </Main>
         </div>
       </div>
