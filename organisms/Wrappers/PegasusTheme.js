@@ -11,19 +11,27 @@ import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.js';
 
-import noir1 from 'assets/esdethemes/epicnoir/1.png';
-import noir2 from 'assets/esdethemes/epicnoir/2.png';
-import noir3 from 'assets/esdethemes/epicnoir/3.png';
-import rbsimple from 'assets/ES-DE_01.png';
+import noir1 from 'assets/esdethemes/es-de_epicnoir_01.png';
+import noir2 from 'assets/esdethemes/es-de_epicnoir_02.png';
+import rbsimple1 from 'assets/esdethemes/es-de_modern_01.png';
+import rbsimple2 from 'assets/esdethemes/es-de_modern_02.png';
+import modern1 from 'assets/esdethemes/es-de_rbsimple_01.png';
+import modern2 from 'assets/esdethemes/es-de_rbsimple_02.png';
+
 import modern from 'assets/ES-DE_01.png';
 
 const noirPics = [
   <img src={noir1} alt="Background" />,
   <img src={noir2} alt="Background" />,
-  <img src={noir3} alt="Background" />,
 ];
-const rbsimplePics = [<img src={rbsimple} alt="Background" />];
-const modernPics = [<img src={modern} alt="Background" />];
+const rbsimplePics = [
+  <img src={rbsimple1} alt="Background" />,
+  <img src={rbsimple2} alt="Background" />,
+];
+const modernPics = [
+  <img src={modern1} alt="Background" />,
+  <img src={modern2} alt="Background" />,
+];
 
 const PegasusTheme = ({
   disabledNext,
@@ -66,7 +74,7 @@ const PegasusTheme = ({
                 <ul>
                   <li onClick={() => onClick('EPICNOIR')}>
                     <Card css={theme == 'EPICNOIR' && 'is-selected'}>
-                      <span className="h3">Dark Noir</span>
+                      <span className="h3">Epic Noir</span>
                     </Card>
                   </li>
                   <li onClick={() => onClick('RBSIMPLE-DE')}>
