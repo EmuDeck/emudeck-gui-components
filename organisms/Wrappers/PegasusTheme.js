@@ -49,17 +49,17 @@ const PegasusTheme = ({
                 <SimpleCarousel
                   nav={false}
                   img={noirPics}
-                  css={theme != 'darkNoir' && 'is-hidden'}
+                  css={theme != 'EPICNOIR' && 'is-hidden'}
                 />
                 <SimpleCarousel
                   nav={false}
                   img={rbsimplePics}
-                  css={theme != 'rbsimple' && 'is-hidden'}
+                  css={theme != 'RBSIMPLE-DE' && 'is-hidden'}
                 />
                 <SimpleCarousel
                   nav={false}
                   img={modernPics}
-                  css={theme != 'modern' && 'is-hidden'}
+                  css={theme != 'MODERN-DE' && 'is-hidden'}
                 />
               </div>
               <div className="selector-menu__options selector-menu__options--full">
