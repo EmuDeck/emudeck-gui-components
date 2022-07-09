@@ -51,7 +51,10 @@ const PegasusTheme = ({
         <div className="wrapper">
           <Header title="EmulationStation DE " bold="Theme" />
           <Main>
-            <p className="lead">Chose your theme for EmulationStation DE</p>
+            <p className="lead">
+              Chose your theme for EmulationStation DE, swipe to see more
+              screenshots
+            </p>
             <SelectorMenu>
               <div className="selector-menu__img">
                 <SimpleCarousel

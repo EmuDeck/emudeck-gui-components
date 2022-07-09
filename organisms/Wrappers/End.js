@@ -187,7 +187,10 @@ const End = ({
           )}
 
           <Main>
-            <SimpleCarousel nav={false} img={slides} />
+            <div class="tips">
+              <SimpleCarousel nav={false} img={slides} />
+            </div>
+
             <br />
             {disabledNext == true && (
               <ProgressBar css="progress--success" value={counter} max={100} />
