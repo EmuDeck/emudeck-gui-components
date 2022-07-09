@@ -96,7 +96,7 @@ const PegasusTheme = ({
           </Main>
           <Footer
             back="aspect-ratio-dolphin"
-            next="end"
+            next="power-tools"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />

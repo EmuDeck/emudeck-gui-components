@@ -26,7 +26,7 @@ const PowerTools = ({
   onClick,
   next,
   back,
-  data,
+  hasSudo,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { achievements } = state;
@@ -52,20 +52,41 @@ const PowerTools = ({
           <div className="container--grid">
             <div data-col-sm="6">
               <p>
-                PowerTools require you to have set a Linux sudo (SuperUser)
-                password.
+                This tool requires you to use a Linux sudo (SuperUser) password.
               </p>
-
-              <p>
-                If you don't have a sudo password, type your desired password
-                here and click on "Create Password". If you already have sudo
-                access, just type the password and continue the installation.
-              </p>
-              <p>
-                <strong>Never share this password</strong>.
-              </p>
-              <p>Leave this input empty to skip PowerTools installation</p>
-
+              {hasSudo === false && (
+                <>
+                  <p>
+                    Click on "Create Password" to launch a new Terminal window
+                    where you will be able to create one.
+                    <br />
+                    <strong>
+                      Never share the sudo password, if you forget the sudo
+                      password you'll need to reset your Steam Deck.
+                    </strong>
+                  </p>
+                  <BtnSimple
+                    type="button"
+                    onClick={onClick}
+                    css="btn-simple--1"
+                  >
+                    Create Password
+                  </BtnSimple>
+                </>
+              )}
+              {hasSudo === true && (
+                <p>
+                  We've detected you already have set your sudo password, type
+                  it on the next input to install this tool or leave it empty to
+                  skip its installation.
+                </p>
+              )}
+              {hasSudo === false && (
+                <p>
+                  If you want to skip this installation just leave the next
+                  input empty an continue.
+                </p>
+              )}
               <Form>
                 <FormInputSimple
                   label="Sudo Password"
@@ -73,9 +94,6 @@ const PowerTools = ({
                   name="pass"
                   id="pass"
                   onChange={onChange}
-                  addon="right"
-                  addonText="Create Password"
-                  onClick={onClick}
                 />
               </Form>
             </div>

@@ -57,23 +57,6 @@ const Welcome = ({
               <ProgressBar css="progress--success" value={counter} max="100" />
             </>
           )}
-          {debug === true && (
-            <div>
-              <p className="h5">Debug - Chose your git branch</p>
-              <BtnSimple type="button" onClick={() => debugMode('main')}>
-                Main
-              </BtnSimple>
-              <BtnSimple type="button" onClick={() => debugMode('dev')}>
-                Dev
-              </BtnSimple>
-              <BtnSimple type="button" onClick={() => debugMode('beta')}>
-                Beta
-              </BtnSimple>
-              <BtnSimple type="button" onClick={() => debugMode('EmuReorg')}>
-                EmuReorg
-              </BtnSimple>
-            </div>
-          )}
           {downloadComplete === true && (
             <div className="container--grid">
               <div data-col-sm="5">

@@ -8,11 +8,12 @@ import Main from 'components/organisms/Main/Main.js';
 import Step from 'components/molecules/Step/Step.js';
 import Card from 'components/molecules/Card/Card.js';
 
-import img552 from 'assets/rg552.png';
-import imgOdin from 'assets/odin.png';
-import imgRP2 from 'assets/rp2.png';
-import imgAndroid from 'assets/android.png';
+// import img552 from 'assets/rg552.png';
+// import imgOdin from 'assets/odin.png';
+// import imgRP2 from 'assets/rp2.png';
+// import imgAndroid from 'assets/android.png';
 import imgDeck from 'assets/deck.png';
+import imgWin600 from 'assets/win600.png';
 
 const DeviceSelector = ({
   onClick,
@@ -42,6 +43,25 @@ const DeviceSelector = ({
             </p>
 
             <div className="cards">
+              <Card
+                css={device == 'Steam Deck' && 'is-selected'}
+                onClick={() => onClick('Steam Deck')}
+              >
+                <img src={imgDeck} width="100" alt="Background" />
+                <span className="h6">Steam Deck</span>
+              </Card>
+              <Card
+                css={device == 'Anbernic Win600' && 'is-selected'}
+                onClick={() => onClick('Anbernic Win600')}
+              >
+                <img src={imgWin600} width="100" alt="Background" />
+                <span className="h6">Anbernic WIN600</span>
+              </Card>
+
+              {/*
+
+
+
               <Card
                 css={device == 'RG552' && 'is-selected'}
                 onClick={() => onClick('RG552')}
@@ -80,6 +100,7 @@ const DeviceSelector = ({
                 <img src={imgAndroid} width="100" alt="Background" />
                 <span className="h6">Android Phone</span>
               </Card>
+              */}
             </div>
           </Main>
           <Footer
