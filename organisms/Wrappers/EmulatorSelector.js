@@ -78,7 +78,7 @@ const EmulatorSelector = ({
             </div>
           </Main>
           <Footer
-            next={second ? 'emulator-configuration' : 'ra-bezels'}
+            next={second ? 'emulator-configuration' : 'ra-achievements'}
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />

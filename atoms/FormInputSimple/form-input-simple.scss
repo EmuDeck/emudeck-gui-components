@@ -1,8 +1,8 @@
 .form--simple {
-  --form-control-border: 1px solid var(--brown-grey);
+  --form-control-border: 0px;
   --form-mb: var(--margin3);
   --form-label-mb: var(--margin1);
-  --form-control-border-radius: 0;
+  --form-control-border-radius: 4px;
   --form-control-padding: 4px 10px;
   --form-control-box-shadow: none;
   --form-control-bg: white;
@@ -15,7 +15,21 @@
   --form-icon-size: 32px;
   --form-icon-right: 10px;
   --form-icon-top: 25px;
-  --form-select-caret: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDE2IDEwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iIzY2NiI+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zLjkxNyA4Ljg4TDUuODc1IDcgMTEuNzUgMTIuNjQyIDE3LjYyNSA3LjAwMiAxOS41ODMgOC44ODIgMTEuNzUgMTYuNDAyeiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU2OSAtMTQ5NikgdHJhbnNsYXRlKDExMiAxMDgxKSB0cmFuc2xhdGUoMjYyIDM5MSkgdHJhbnNsYXRlKDE5MS4xMzUgMTcpIi8+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K");
+  --form-select-caret: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDE2IDEwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iIzY2NiI+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zLjkxNyA4Ljg4TDUuODc1IDcgMTEuNzUgMTIuNjQyIDE3LjYyNSA3LjAwMiAxOS41ODMgOC44ODIgMTEuNzUgMTYuNDAyeiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU2OSAtMTQ5NikgdHJhbnNsYXRlKDExMiAxMDgxKSB0cmFuc2xhdGUoMjYyIDM5MSkgdHJhbnNsYXRlKDE5MS4xMzUgMTcpIi8+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K');
   --form-select-caret-size: 16px;
   --form-select-caret-position: right 12px center;
+  font-family: inherit;
+}
+
+.form__control {
+  border: 0px;
+  border-radius: 4px;
+}
+
+.form__group {
+  label {
+    font-weight: 500;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
 }
