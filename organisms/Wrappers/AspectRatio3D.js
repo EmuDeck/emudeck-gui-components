@@ -82,6 +82,7 @@ const AspectRatio3D = ({
                   <li>Dreamcast</li>
                   <li>Nintendo 64</li>
                   <li>Sega Saturn</li>
+                  <li>Xbox</li>
                 </ul>
               </div>
             </SelectorMenu>
