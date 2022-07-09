@@ -16,13 +16,14 @@ import { Form } from 'getbasecore/Molecules';
 
 import Card from 'components/molecules/Card/Card.js';
 
-import raLogo from 'assets/RetroAchievements.png';
+import powerToolsImg from 'assets/powertools.png';
 
-const RAAchievements = ({
+const PowerTools = ({
   disabledNext,
   disabledBack,
   downloadComplete,
   onChange,
+  onClick,
   next,
   back,
   data,
@@ -33,55 +34,59 @@ const RAAchievements = ({
   return (
     <div className="app">
       <div className="wrapper">
-        <Header title="Configure" bold="RetroAchievements" />
+        <Header title="Configure" bold="PowerTools" />
         <Main>
           <p className="lead">
-            RetroAchievements.org is a community who collaborate and compete to
-            earn custom-made achievements in classic games through emulation.
-            You can use them on all the systems emulated on RetroArch
+            PowerTools is a plugin that allows you to tweak your CPU & GPU to
+            get maximum performance for the more demanding systems. You can read
+            more about this great tool{' '}
+            <LinkSimple
+              css="link-simple--1"
+              href="https://github.com/NGnius/PowerTools"
+              target="_blank"
+            >
+              here
+            </LinkSimple>
           </p>
           <br />
           <div className="container--grid">
             <div data-col-sm="6">
               <p>
-                If you dont have an account you can register now on
-                RetroAchievements.org by clicking{' '}
-                <LinkSimple
-                  css="link-simple--1"
-                  target="_blank"
-                  href="https://www.retroAchievements.org"
-                >
-                  here
-                </LinkSimple>
+                PowerTools require you to have set a Linux sudo (SuperUser)
+                password.
               </p>
+
+              <p>
+                If you don't have a sudo password, type your desired password
+                here and click on "Create Password". If you already have sudo
+                access, just type the password and continue the installation.
+              </p>
+              <p>
+                <strong>Never share this password</strong>.
+              </p>
+              <p>Leave this input empty to skip PowerTools installation</p>
 
               <Form>
                 <FormInputSimple
-                  label="Username"
-                  type="text"
-                  name="user"
-                  id="user"
-                  value={achievements.pass}
-                  onChange={onChange}
-                />
-                <FormInputSimple
-                  label="Password"
+                  label="Sudo Password"
                   type="password"
                   name="pass"
                   id="pass"
-                  value={achievements.pass}
                   onChange={onChange}
+                  addon="right"
+                  addonText="Create Password"
+                  onClick={onClick}
                 />
               </Form>
             </div>
             <div data-col-sm="1"></div>
             <div data-col-sm="5">
-              <img src={raLogo} alt="RetroAchievements" />
+              <img src={powerToolsImg} alt="RetroAchievements" />
             </div>
           </div>
         </Main>
         <Footer
-          next="ra-bezels"
+          next="gyrodsu"
           disabledNext={disabledNext}
           disabledBack={disabledBack}
         />
@@ -90,4 +95,4 @@ const RAAchievements = ({
   );
 };
 
-export default RAAchievements;
+export default PowerTools;

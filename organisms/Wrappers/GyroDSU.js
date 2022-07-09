@@ -16,13 +16,14 @@ import { Form } from 'getbasecore/Molecules';
 
 import Card from 'components/molecules/Card/Card.js';
 
-import raLogo from 'assets/RetroAchievements.png';
+import gyroDsu from 'assets/gyroDsu.png';
 
-const RAAchievements = ({
+const GyroDSU = ({
   disabledNext,
   disabledBack,
   downloadComplete,
   onChange,
+  onClick,
   next,
   back,
   data,
@@ -33,50 +34,53 @@ const RAAchievements = ({
   return (
     <div className="app">
       <div className="wrapper">
-        <Header title="Configure" bold="RetroAchievements" />
+        <Header title="Configure" bold="GyroDSU" />
         <Main>
           <p className="lead">
-            RetroAchievements.org is a community who collaborate and compete to
-            earn custom-made achievements in classic games through emulation.
-            You can use them on all the systems emulated on RetroArch
+            GyroDSU is a plugin that allows you to use your Steam Deck Gyroscope
+            in Cemu For Wii U games. More info about this tool{' '}
+            <LinkSimple
+              css="link-simple--1"
+              href="https://github.com/kmicki/SteamDeckGyroDSU"
+              target="_blank"
+            >
+              here
+            </LinkSimple>
           </p>
           <br />
           <div className="container--grid">
             <div data-col-sm="6">
               <p>
-                If you dont have an account you can register now on
-                RetroAchievements.org by clicking{' '}
-                <LinkSimple
-                  css="link-simple--1"
-                  target="_blank"
-                  href="https://www.retroAchievements.org"
-                >
-                  here
-                </LinkSimple>
+                GyroDSU requires you to have set a Linux sudo (SuperUser)
+                password.
               </p>
+
+              <p>
+                If you don't have a sudo password, type your desired password
+                here and click on "Create Password". If you already have sudo
+                access, just type the password and continue the installation.
+              </p>
+              <p>
+                <strong>Never share this password</strong>.
+              </p>
+              <p>Leave this input empty to skip GyroDSU installation</p>
 
               <Form>
                 <FormInputSimple
-                  label="Username"
-                  type="text"
-                  name="user"
-                  id="user"
-                  value={achievements.pass}
-                  onChange={onChange}
-                />
-                <FormInputSimple
-                  label="Password"
+                  label="Sudo Password"
                   type="password"
                   name="pass"
                   id="pass"
-                  value={achievements.pass}
                   onChange={onChange}
+                  addon="right"
+                  addonText="Create Password"
+                  onClick={onClick}
                 />
               </Form>
             </div>
             <div data-col-sm="1"></div>
             <div data-col-sm="5">
-              <img src={raLogo} alt="RetroAchievements" />
+              <img src={gyroDsu} alt="RetroAchievements" />
             </div>
           </div>
         </Main>
@@ -90,4 +94,4 @@ const RAAchievements = ({
   );
 };
 
-export default RAAchievements;
+export default GyroDSU;
