@@ -47,10 +47,6 @@ const Welcome = ({
       <div className="wrapper">
         <Header title="Welcome to" bold="EmuDeck" />
         <Main>
-          <p className="lead">
-            Please select how do you want EmuDeck to configure your device:
-          </p>
-
           {downloadComplete === false && (
             <>
               <p className="h5">Downloading Files</p>
@@ -58,35 +54,40 @@ const Welcome = ({
             </>
           )}
           {downloadComplete === true && (
-            <div className="container--grid">
-              <div data-col-sm="5">
-                <Card
-                  css={mode == 'easy' && 'is-selected'}
-                  onClick={() => onClick('easy')}
-                >
-                  <span className="h3">Easy mode</span>
-                  <p>
-                    This is a 100% automatic mode. We will configure your device
-                    with the recommended settings so you can start playing right
-                    away.
-                  </p>
-                </Card>
-              </div>
+            <>
+              <p className="lead">
+                Please select how do you want EmuDeck to configure your device:
+              </p>
+              <div className="container--grid">
+                <div data-col-sm="5">
+                  <Card
+                    css={mode == 'easy' && 'is-selected'}
+                    onClick={() => onClick('easy')}
+                  >
+                    <span className="h3">Easy mode</span>
+                    <p>
+                      This is a 100% automatic mode. We will configure your
+                      device with the recommended settings so you can start
+                      playing right away.
+                    </p>
+                  </Card>
+                </div>
 
-              <div data-col-sm="5">
-                <Card
-                  css={mode == 'expert' && 'is-selected'}
-                  onClick={() => onClick('expert')}
-                >
-                  <span className="h3">Custom mode</span>
-                  <p>
-                    This mode gives you a bit more of control on how EmuDeck
-                    configures your system. You will be able to select Aspect
-                    Ratios, Bezels, Emulators, etc.
-                  </p>
-                </Card>
+                <div data-col-sm="5">
+                  <Card
+                    css={mode == 'expert' && 'is-selected'}
+                    onClick={() => onClick('expert')}
+                  >
+                    <span className="h3">Custom mode</span>
+                    <p>
+                      This mode gives you a bit more of control on how EmuDeck
+                      configures your system. You will be able to select Aspect
+                      Ratios, Bezels, Emulators, etc.
+                    </p>
+                  </Card>
+                </div>
               </div>
-            </div>
+            </>
           )}
         </Main>
         <Footer
