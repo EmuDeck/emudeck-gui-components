@@ -55,6 +55,14 @@ const RomStorage = ({
                 <img src={imgInternal} width="100" alt="Background" />
                 <span className="h5">Internal Storage</span>
               </Card>
+
+              <Card
+                css={storage == 'Custom' && 'is-selected'}
+                onClick={() => onClick('Custom')}
+              >
+                <img src={imgInternal} width="100" alt="Background" />
+                <span className="h5">Custom Directory</span>
+              </Card>
             </div>
           </Main>
           <Footer
