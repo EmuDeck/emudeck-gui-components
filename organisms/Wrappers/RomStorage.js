@@ -17,6 +17,8 @@ const RomStorage = ({
   next,
   back,
   data,
+  sdCardValid,
+  sdCardName,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { storage, SDID } = state;
@@ -30,22 +32,28 @@ const RomStorage = ({
         <div className="wrapper">
           <Header title="Choose your" bold="ROMs Storage" />
           <Main>
-            <p className="lead">Where do you want to store your roms?</p>
+            <p className="lead">
+              Where do you want to store your roms? No seeing your SD Card? Make
+              sure you formatted it on Gaming Mode
+            </p>
             <div className="cards">
-              <Card
-                css={storage == 'SD-Card' && 'is-selected'}
-                onClick={() => onClick('SD-Card')}
-              >
-                <img src={imgSD} width="100" alt="Background" />
-                <span className="h6">SD Card</span>
-              </Card>
+              {sdCardValid && (
+                <Card
+                  css={storage == 'SD-Card' && 'is-selected'}
+                  onClick={() => onClick('SD-Card')}
+                >
+                  <img src={imgSD} width="100" alt="Background" />
+                  <span className="h5">SD Card</span>
+                  <span className="h6">{sdCardName}</span>
+                </Card>
+              )}
 
               <Card
                 css={storage == 'Internal Storage' && 'is-selected'}
                 onClick={() => onClick('Internal Storage')}
               >
                 <img src={imgInternal} width="100" alt="Background" />
-                <span className="h6">Internal Storage</span>
+                <span className="h5">Internal Storage</span>
               </Card>
             </div>
           </Main>
