@@ -6,13 +6,22 @@ import './Aside.scss';
 const Aside = ({ props }) => {
   const { state, setState } = useContext(GlobalContext);
   const { debug } = state;
+  const ipcChannel = window.electron.ipcRenderer;
 
   const toggleDebug = () => {
+
     setState({
       ...state,
       debug: !debug,
     });
   };
+
+
+  useEffect(() => {
+    if (debug === true) {
+      ipcChannel.sendMessage('debug');
+    }
+  }, [debug]);
 
   return (
     <aside>
