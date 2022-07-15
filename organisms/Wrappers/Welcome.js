@@ -65,23 +65,6 @@ const Welcome = ({
           )}
           {downloadComplete === true && (
             <>
-              <Form>
-                <FormInputSimple
-                  label="command"
-                  type="text"
-                  name="command"
-                  id="command"
-                  onChange={saveCommand}
-                  value={command}
-                />
-                <button
-                  onClick={runCommand}
-                  className="btn-simple--1"
-                  type="button"
-                >
-                  Run!
-                </button>
-              </Form>
 
               <p className="lead">
                 Please select how do you want EmuDeck to configure your device:
