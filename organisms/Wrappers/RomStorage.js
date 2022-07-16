@@ -37,7 +37,7 @@ const RomStorage = ({
               sure you formatted it on Gaming Mode
             </p>
             <div className="cards">
-              {sdCardValid && (
+              {sdCardValid === true && (
                 <Card
                   css={storage == 'SD-Card' && 'is-selected'}
                   onClick={() => onClick('SD-Card')}
