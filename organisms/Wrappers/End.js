@@ -187,10 +187,11 @@ const End = ({
           )}
 
           <Main>
-            <div class="tips">
-              <SimpleCarousel nav={false} img={slides} />
-            </div>
-
+            {disabledNext == false && (
+              <div class="tips">
+                <SimpleCarousel nav={false} img={slides} />
+              </div>
+            )}
             <br />
             {disabledNext == true && (
               <ProgressBar css="progress--success" value={counter} max={100} />
