@@ -27,6 +27,7 @@ const PowerTools = ({
   next,
   back,
   hasSudo,
+  nextText,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { achievements } = state;
@@ -105,6 +106,7 @@ const PowerTools = ({
         </Main>
         <Footer
           next="gyrodsu"
+          nextText={nextText}
           disabledNext={disabledNext}
           disabledBack={disabledBack}
         />

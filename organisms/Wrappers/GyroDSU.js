@@ -27,6 +27,7 @@ const GyroDSU = ({
   next,
   back,
   hasSudo,
+  nextText,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { achievements } = state;
@@ -104,6 +105,7 @@ const GyroDSU = ({
         </Main>
         <Footer
           next="end"
+          nextText={nextText}
           disabledNext={disabledNext}
           disabledBack={disabledBack}
         />

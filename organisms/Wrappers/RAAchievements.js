@@ -11,6 +11,7 @@ import {
   ProgressBar,
   FormInputSimple,
   LinkSimple,
+  nextText,
 } from 'getbasecore/Atoms';
 import { Form } from 'getbasecore/Molecules';
 
@@ -26,6 +27,7 @@ const RAAchievements = ({
   next,
   back,
   data,
+  nextText,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { achievements } = state;
@@ -82,6 +84,7 @@ const RAAchievements = ({
         </Main>
         <Footer
           next="ra-bezels"
+          nextText={nextText}
           disabledNext={disabledNext}
           disabledBack={disabledBack}
         />
