@@ -54,8 +54,8 @@ const EmulatorSelector = ({
           <Header title="Emulators for" bold={`${device}`} />
           <Main>
             <p className="lead">
-              These are the recommended emulators for your system but you can
-              click the ones you don't want to install.
+              These are the recommended emulators for your system, disable those
+              you don't want to install
             </p>
 
             <div className="cards cards--mini">

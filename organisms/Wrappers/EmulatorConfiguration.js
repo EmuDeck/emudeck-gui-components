@@ -18,6 +18,7 @@ import imgrpcs3 from 'assets/emulators/rpcs3.png';
 import imgyuzu from 'assets/emulators/yuzu.png';
 import imgcemu from 'assets/emulators/cemu.png';
 import imgxemu from 'assets/emulators/xemu.png';
+import imgsrm from 'assets/emulators/srm.png';
 
 const images = {
   ra: { imgra },
@@ -31,6 +32,7 @@ const images = {
   yuzu: { imgyuzu },
   cemu: { imgcemu },
   xemu: { imgxemu },
+  srm: { imgsrm },
 };
 
 const EmulatorConfiguration = ({
@@ -54,9 +56,9 @@ const EmulatorConfiguration = ({
           <Header title="Keep emulator's" bold="configuration" />
           <Main>
             <p className="lead">
-              Please select which configuration you want to keep untouched.
-              Those unselected will see it's configuration overwritten by
-              EmuDeck's default
+              By default we will overwrite all configuration of this emulators,
+              disable those you want to keep you current configuration ( Not
+              recommended ).
             </p>
 
             <div className="cards cards--mini">
@@ -79,7 +81,7 @@ const EmulatorConfiguration = ({
             </div>
           </Main>
           <Footer
-            next="ra-bezels"
+            next="ra-achievements"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />
