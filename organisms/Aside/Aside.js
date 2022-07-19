@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-import bgImg from 'assets/bg.gif';
+import bgImg from 'assets/nbg.gif';
 import './Aside.scss';
 
 const Aside = ({ props }) => {
@@ -9,13 +9,11 @@ const Aside = ({ props }) => {
   const ipcChannel = window.electron.ipcRenderer;
 
   const toggleDebug = () => {
-
     setState({
       ...state,
       debug: !debug,
     });
   };
-
 
   useEffect(() => {
     if (debug === true) {
