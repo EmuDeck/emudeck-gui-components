@@ -48,11 +48,6 @@ const AspectRatio3D = ({
                   className={ar.classic3d != '43' && 'is-hidden'}
                   alt="Background"
                 />
-                <img
-                  src={ar32}
-                  className={ar.classic3d != '32' && 'is-hidden'}
-                  alt="Background"
-                />
               </div>
               <div className="selector-menu__options selector-menu__options--full">
                 <ul>
@@ -60,12 +55,6 @@ const AspectRatio3D = ({
                     <Card css={ar.classic3d == 43 && 'is-selected'}>
                       <span className="h3">4:3</span>
                       <p>Original aspect ratio</p>
-                    </Card>
-                  </li>
-                  <li onClick={() => onClick('32')}>
-                    <Card css={ar.classic3d == 32 && 'is-selected'}>
-                      <span className="h3">3:2</span>
-                      <p>Less black bars, slight distortion</p>
                     </Card>
                   </li>
                   <li onClick={() => onClick('169')}>
