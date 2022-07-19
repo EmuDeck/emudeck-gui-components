@@ -13,7 +13,7 @@ import { ProgressBar, BtnSimple } from 'getbasecore/Atoms';
 
 import sdlogo from 'assets/sdlogo.png';
 import amberlogo from 'assets/amberelec.jpg';
-
+const ipcChannel = window.electron.ipcRenderer;
 const End = ({
   disabledNext,
   disabledBack,
@@ -27,20 +27,50 @@ const End = ({
   const { state, setState } = useContext(GlobalContext);
   const { storage } = state;
 
+  const readMSG = (command) => {
+    const idMessage = Math.random();
+    ipcChannel.sendMessage('emudeck', [`${idMessage}|||${command}`]);
+    ipcChannel.on(idMessage, (message) => {
+      let messageArray = message.stdout.split('#');
+      let messageText = messageArray[1];
+      let messagePercent = messageArray[0];
+
+      messagePercent = messagePercent.replaceAll(' ', '');
+      messagePercent = messagePercent.replaceAll('\n', '');
+
+      setMsg({ message: messageText, percentage: messagePercent });
+    });
+  };
+
+  const [msg, setMsg] = useState({
+    message: '',
+    percentage: 0,
+  });
+
+  const { message, percentage } = msg;
+
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCounter((prevCounter) => {
-        if (prevCounter === 110) {
-          prevCounter = -10;
-        }
-        return prevCounter + 1;
-      });
+      let msg = readMSG('cat ~/emudeck/msg.log');
+
+      if (message.includes('100')) {
+        clearInterval(interval);
+      }
     }, 100);
 
     return () => clearInterval(interval);
   }, []);
+
+  ipcChannel.sendMessage('bash', [
+    'clone|||mkdir -p ~/emudeck/backend && git clone https://github.com/dragoonDorise/EmuDeck.git ~/emudeck/backend/ && cd ~/emudeck/backend && git checkout EmuReorg && touch ~/emudeck/.cloned && clear && echo true',
+  ]);
+  ipcChannel.on('clone', (stdout) => {
+    if (stdout.includes('true')) {
+      setStatePage({ ...statePage, downloadComplete: true });
+    }
+  });
 
   const slides = [
     <Card css="is-selected">
@@ -180,7 +210,10 @@ const End = ({
 
         <div className="wrapper">
           {disabledNext == true && (
-            <Header title="We are completing your" bold="installation..." />
+            <>
+              <Header title="We are completing your" bold="installation..." />
+              <p className="lead">{message}...</p>
+            </>
           )}
           {disabledNext == false && (
             <Header title="Installation" bold="complete!" />
@@ -194,7 +227,11 @@ const End = ({
             )}
             <br />
             {disabledNext == true && (
-              <ProgressBar css="progress--success" value={counter} max={100} />
+              <ProgressBar
+                css="progress--success"
+                value={percentage}
+                max={100}
+              />
             )}
           </Main>
           <footer className="footer">
