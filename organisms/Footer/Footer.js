@@ -22,11 +22,12 @@ const Footer = ({
         <BtnSimple
           css="btn-simple--2"
           type="button"
-          onClick={() => navigate(-1)}
+          onClick={ back ?  () => goTo(back) : () => navigate(-1) }
           aria="Go Back"
           disabled={disabledBack && 'true'}
         >
-          Go Back
+          {!backText && 'Go Back'}
+          {backText}
         </BtnSimple>
       )}
 

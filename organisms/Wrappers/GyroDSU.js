@@ -30,7 +30,7 @@ const GyroDSU = ({
   nextText,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { achievements } = state;
+  const { sudoPass, GyroDSU } = state;
 
   return (
     <div className="app">
@@ -95,6 +95,17 @@ const GyroDSU = ({
                   id="pass"
                   onChange={onChange}
                 />
+                {GyroDSU === true && (
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Install GyroDSU"
+                    onClick={()=> alert('Not implemented yet') }
+                    disabled={disabledNext && 'true'}
+                  >
+                    Install GyroDSU
+                  </BtnSimple>
+                )}
               </Form>
             </div>
             <div data-col-sm="1"></div>
@@ -104,7 +115,7 @@ const GyroDSU = ({
           </div>
         </Main>
         <Footer
-          next="end"
+          next={false}
           nextText={nextText}
           disabledNext={disabledNext}
           disabledBack={disabledBack}

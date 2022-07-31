@@ -30,7 +30,7 @@ const PowerTools = ({
   nextText,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { achievements } = state;
+  const { sudoPass, powerTools } = state;
 
   return (
     <div className="app">
@@ -96,6 +96,17 @@ const PowerTools = ({
                   id="pass"
                   onChange={onChange}
                 />
+                {powerTools === true && (
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Install PowerTools"
+                    onClick={()=> alert('Not implemented yet') }
+                    disabled={disabledNext && 'true'}
+                  >
+                    Install PowerTools
+                  </BtnSimple>
+                )}
               </Form>
             </div>
             <div data-col-sm="1"></div>
@@ -105,7 +116,7 @@ const PowerTools = ({
           </div>
         </Main>
         <Footer
-          next="gyrodsu"
+          next={false}
           nextText={nextText}
           disabledNext={disabledNext}
           disabledBack={disabledBack}

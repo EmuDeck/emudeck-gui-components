@@ -26,6 +26,7 @@ const Welcome = ({
   onClick,
   next,
   back,
+  backText,
   alert,
   saveCommand,
   runCommand,
@@ -116,6 +117,7 @@ const Welcome = ({
         </Main>
         <Footer
           back={back}
+          backText={backText}
           next={next}
           disabledNext={disabledNext}
           disabledBack={disabledBack}
