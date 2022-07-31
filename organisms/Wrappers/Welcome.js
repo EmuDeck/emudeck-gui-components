@@ -7,6 +7,7 @@ import Aside from 'components/organisms/Aside/Aside.js';
 import Main from 'components/organisms/Main/Main.js';
 
 import { BtnSimple, ProgressBar } from 'getbasecore/Atoms';
+import { Alert } from 'getbasecore/Molecules';
 
 import {
   BtnSimple,
@@ -25,7 +26,7 @@ const Welcome = ({
   onClick,
   next,
   back,
-  data,
+  alert,
   saveCommand,
   runCommand,
 }) => {
@@ -69,6 +70,7 @@ const Welcome = ({
               <p className="lead">
                 Please select how do you want EmuDeck to configure your device:
               </p>
+
               <div className="container--grid">
                 <div data-col-sm="5">
                   <Card
@@ -100,6 +102,17 @@ const Welcome = ({
               </div>
             </>
           )}
+          {alert && (
+            <>
+              <br/>
+              <div className="container--grid">
+                <div data-col-sm="10">
+                  <Alert css="alert--warning">{alert}</Alert>
+                </div>
+              </div>
+            </>
+          )}
+
         </Main>
         <Footer
           back={back}

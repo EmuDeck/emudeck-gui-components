@@ -11,6 +11,7 @@
   background-color: rgba(255, 255, 255, 0.6);
   text-align: left;
   height: 100%;
+  transition: .8s;
   .btn-simple {
     display: none;
   }
@@ -41,6 +42,7 @@
     background-color: rgba(255, 255, 255, 1);
     opacity: 1;
     outline: 2px solid #5bf;
+    transition: .8s
     img {
       opacity: 1;
     }
