@@ -70,6 +70,7 @@ const PowerTools = ({
                     type="button"
                     onClick={onClick}
                     css="btn-simple--1"
+                    aria="Create Password"
                   >
                     Create Password
                   </BtnSimple>
