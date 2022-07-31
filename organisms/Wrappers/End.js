@@ -30,7 +30,7 @@ const End = ({
   const readMSG = (command) => {
     const idMessage = Math.random();
     ipcChannel.sendMessage('emudeck', [`${idMessage}|||${command}`]);
-    ipcChannel.on(idMessage, (message) => {
+    ipcChannel.once(idMessage, (message) => {
       let messageArray = message.stdout.split('#');
       let messageText = messageArray[1];
       let messagePercent = messageArray[0];

@@ -18,7 +18,7 @@ const Header = ({ title, bold }) => {
     let command = state.command;
     const idMessage= Math.random();
     ipcChannel.sendMessage('emudeck', [`${idMessage}|||${command}`]);
-    ipcChannel.on(idMessage, (message) => {
+    ipcChannel.once(idMessage, (message) => {
       console.log(message);
     });
   };
