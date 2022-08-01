@@ -46,7 +46,7 @@ const UpdateEmus = ({
             css="btn-simple--1"
             type="button"
             aria="Update Emulators from the Discover Store"
-            onClick={()=> onClickDiscover() }
+            onClick={()=> onClickFlatpak() }
             disabled={disabledNext && 'true'}
           >
             Update Flatpak Emulators
@@ -55,7 +55,7 @@ const UpdateEmus = ({
             css="btn-simple--1"
             type="button"
             aria="Update appImages"
-            onClick={()=> onClickFlatpak() }
+            onClick={()=> onClickAppImage() }
             disabled={disabledNext && 'true'}
           >
            Update AppImages Emulators
