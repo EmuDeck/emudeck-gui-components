@@ -37,7 +37,7 @@ const DeviceSelector = ({
           <Header title="Choose your" bold="device" />
           <Main>
             <p className="lead">
-              We tailor the experience depending of the selected device, each
+              We tailor the experience depending on the selected device, each
               device has its own special configuration, different emulators and
               adjusted bezels.
             </p>

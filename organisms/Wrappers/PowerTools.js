@@ -34,6 +34,7 @@ const PowerTools = ({
 
   return (
     <div className="app">
+      <Aside />
       <div className="wrapper">
         <Header title="Configure" bold="PowerTools" />
         <Main>

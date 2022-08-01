@@ -36,7 +36,7 @@ const AspectRatioSega = ({
           />
           <Main>
             <p className="lead">
-              Chose your aspect ratio for your classic Sega games.
+              Choose your aspect ratio for your Classic Sega Games.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">

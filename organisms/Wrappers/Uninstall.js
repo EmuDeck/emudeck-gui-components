@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-import { useNavigate } from 'react-router-dom';
+
 import Footer from 'components/organisms/Footer/Footer.js';
 import Header from 'components/organisms/Header/Header.js';
 import Aside from 'components/organisms/Aside/Aside.js';
@@ -16,77 +16,59 @@ import { Form } from 'getbasecore/Molecules';
 
 import Card from 'components/molecules/Card/Card.js';
 
-import ToolsAndStuffImg from 'assets/powertools.png';
+import Uninstall from 'assets/Uninstall.png';
 
-const ToolsAndStuff = ({
+const Uninstall = ({
   disabledNext,
   disabledBack,
-  downloadComplete,
-  onChange,
   onClick,
   next,
   back,
-  hasSudo,
   nextText,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { achievements } = state;
-  const navigate = useNavigate();
-  const goTo = (href) => {
-    navigate('/' + href);
-  };
+  const { sudoPass, Uninstall } = state;
+
   return (
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title="Tools &" bold="Stuff" />
+        <Header title="Uninstall" bold="Emudeck" />
         <Main>
           <p className="lead">
-            In this section you'll find tools and scripts that will allow you to get the most of your Device.
+            Do you really want to uninstall Emudek? If you are having issues, installing EmuDeck a second time usually solves them, if you are still having issues please go to our Discord or Reddit so we can help you.
           </p>
+          <br />
           <div>
           <BtnSimple
             css="btn-simple--1"
-            type="button"
-            onClick={() => goTo('power-tools')}
+            type="link"
+            href="https://github.com/kmicki/SteamDeckGyroDSU"
             aria="Go Next"
-            disabled={disabledNext && 'true'}
           >
-            PowerTools
+            Go to Discord
           </BtnSimple>
 
           <BtnSimple
             css="btn-simple--1"
-            type="button"
-            onClick={() => goTo('gyrodsu')}
+            type="link"
+            href="https://discord.gg/b9F7GpXtFP"
             aria="Go Next"
-            disabled={disabledNext && 'true'}
           >
-            GyroDSU
+            Go to Reddit
           </BtnSimple>
-
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            onClick={() => goTo('chd-tool')}
-            aria="Go Next"
-            disabled={disabledNext && 'true'}
-          >
-            CHD Compressor
-          </BtnSimple>
-
-        </div>
+          </div>
+          <p className="lead">
+            Thanks, but I don't need help, I want to uninstall.
+          </p>
           <BtnSimple
             css="btn-simple--3"
             type="button"
-            onClick={() => goTo('uninstall')}
+            onClick={() => onClick()}
             aria="Go Next"
-            disabled={disabledNext && 'true'}
           >
             Uninstall EmuDeck
           </BtnSimple>
-
-
         </Main>
         <Footer
           next={false}
@@ -99,4 +81,4 @@ const ToolsAndStuff = ({
   );
 };
 
-export default ToolsAndStuff;
+export default Uninstall;

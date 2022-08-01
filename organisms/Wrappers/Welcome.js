@@ -95,8 +95,8 @@ const Welcome = ({
                     <span className="h3">Custom mode</span>
                     <p>
                       This mode gives you a bit more of control on how EmuDeck
-                      configures your system. You will be able to select Aspect
-                      Ratios, Bezels, Emulators, etc.
+                      configures your system. You will be able to configure Aspect
+                      Ratios, Bezels, Filters, RetroAchievments, Emulators and ESDE themes.
                     </p>
                   </Card>
                 </div>

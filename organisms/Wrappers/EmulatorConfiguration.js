@@ -44,8 +44,8 @@ const EmulatorConfiguration = ({
   data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { device, keepConfigEmus, second } = state;
-  const keepConfigEmusArray = Object.values(keepConfigEmus);
+  const { device, overwriteConfigEmus, second } = state;
+  const overwriteConfigEmusArray = Object.values(overwriteConfigEmus);
   return (
     <>
       {/*  <ExploreContainer name="Tab 1 page" /> */}
@@ -53,17 +53,15 @@ const EmulatorConfiguration = ({
         <Aside />
 
         <div className="wrapper">
-          <Header title="Keep emulator's" bold="configuration" />
+          <Header title="Update emulator's" bold="configuration" />
           <Main>
             <p className="lead">
-              By default we will overwrite all configuration of this emulators,
-              disable those you want to keep you current configuration ( Not
-              recommended ).
+              By default we will overwrite all configuration on these emulators. You may click/tap on an emulator to keep it's current configuration ( Not recommended ).
             </p>
 
             <div className="cards cards--mini">
-              {keepConfigEmusArray.map((item, i) => {
-                if (keepConfigEmusArray.id == 'srm') {
+              {overwriteConfigEmusArray.map((item, i) => {
+                if (overwriteConfigEmusArray.id == 'srm') {
                   return;
                 }
                 const img = images[item.id][`img${item.id}`];

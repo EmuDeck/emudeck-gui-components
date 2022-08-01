@@ -13,10 +13,10 @@ import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.j
 
 import noir1 from 'assets/esdethemes/es-de_epicnoir_01.png';
 import noir2 from 'assets/esdethemes/es-de_epicnoir_02.png';
-import rbsimple1 from 'assets/esdethemes/es-de_modern_01.png';
-import rbsimple2 from 'assets/esdethemes/es-de_modern_02.png';
-import modern1 from 'assets/esdethemes/es-de_rbsimple_01.png';
-import modern2 from 'assets/esdethemes/es-de_rbsimple_02.png';
+import modern1 from 'assets/esdethemes/es-de_modern_01.png';
+import modern2 from 'assets/esdethemes/es-de_modern_02.png';
+import rbsimple1 from 'assets/esdethemes/es-de_rbsimple_01.png';
+import rbsimple2 from 'assets/esdethemes/es-de_rbsimple_02.png';
 
 import modern from 'assets/ES-DE_01.png';
 
@@ -52,8 +52,8 @@ const PegasusTheme = ({
           <Header title="EmulationStation DE " bold="Theme" />
           <Main>
             <p className="lead">
-              Chose your theme for EmulationStation DE, swipe to see more
-              screenshots
+              Choose your theme for EmulationStation DE, swipe to see more
+              screenshots.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">

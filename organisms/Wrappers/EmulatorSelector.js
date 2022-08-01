@@ -54,8 +54,7 @@ const EmulatorSelector = ({
           <Header title="Emulators for" bold={`${device}`} />
           <Main>
             <p className="lead">
-              These are the recommended emulators for your system, disable those
-              you don't want to install
+              These are the emulators EmuDeck recommends for your device. You may click/tap on an emulator to avoid installing / updating it on your installation.
             </p>
 
             <div className="cards cards--mini">

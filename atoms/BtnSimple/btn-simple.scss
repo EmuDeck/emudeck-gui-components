@@ -37,14 +37,14 @@
 );
 
 @include generate-btn-simple(
-  3,
-  #262626,
-  white,
-  #262626,
-  white,
-  white,
-  white,
-  var(--color-disabled)
+ 3,
+white,
+ var(--color-danger),
+ var(--color-danger),
+ white,
+ var(--color-danger),
+ white,
+ var(--color-disabled)
 );
 
 @keyframes background {

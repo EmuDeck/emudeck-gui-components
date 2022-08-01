@@ -34,6 +34,7 @@ const GyroDSU = ({
 
   return (
     <div className="app">
+      <Aside />
       <div className="wrapper">
         <Header title="Configure" bold="GyroDSU" />
         <Main>
