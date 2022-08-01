@@ -36,10 +36,10 @@ const UpdateEmus = ({
     <div className="app">
     <Aside />
       <div className="wrapper">
-        <Header title="Update your" bold="Emulators" />
+        <Header title="Update your" bold="Emulators & Tools" />
         <Main>
           <p className="lead">
-            We use two types of emulators. Some are installed from the Discover Store ( Flatpaks ), and others downloaded directly from the developer's website ( AppImages ).
+            We use two types of emulators and tools. Some are installed from the Discover Store ( Flatpaks ), and others downloaded directly from the developer's website ( AppImages ).
           </p>
           <p>Choose what do you want to update</p>
           <BtnSimple
@@ -49,7 +49,7 @@ const UpdateEmus = ({
             onClick={()=> onClickFlatpak() }
             disabled={disabledNext && 'true'}
           >
-            Update Flatpak Emulators
+            Update Flatpaks
           </BtnSimple>
           <BtnSimple
             css="btn-simple--1"
@@ -58,7 +58,7 @@ const UpdateEmus = ({
             onClick={()=> onClickAppImage() }
             disabled={disabledNext && 'true'}
           >
-           Update AppImages Emulators
+           Update AppImages
           </BtnSimple>
         </Main>
         <Footer

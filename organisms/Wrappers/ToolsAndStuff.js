@@ -77,7 +77,7 @@ const ToolsAndStuff = ({
             type="button"
             onClick={() => goTo('update-emulators')}
           >
-            Update Emulators
+            Update Emulators & Tools
           </BtnSimple>
         </div>
           <BtnSimple
