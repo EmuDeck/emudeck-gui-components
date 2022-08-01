@@ -74,7 +74,7 @@ const CloudSync = ({
       </SelectorMenu>
       </Main>
       <Footer
-      next="aspect-ratio-snes"
+      next="end"
       disabledNext={disabledNext}
       disabledBack={disabledBack}
       />
