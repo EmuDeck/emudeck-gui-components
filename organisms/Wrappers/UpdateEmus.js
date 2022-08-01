@@ -22,7 +22,7 @@ const UpdateEmus = ({
   disabledNext,
   disabledBack,
   downloadComplete,
-  onClickDiscover,
+  onClickFlatpak,
   onClickAppImage,
   next,
   back,
@@ -55,7 +55,7 @@ const UpdateEmus = ({
             css="btn-simple--1"
             type="button"
             aria="Update appImages"
-            onClick={()=> onClickAppImage() }
+            onClick={()=> onClickFlatpak() }
             disabled={disabledNext && 'true'}
           >
            Update AppImages Emulators

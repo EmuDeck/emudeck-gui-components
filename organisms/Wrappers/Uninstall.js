@@ -40,23 +40,10 @@ const Uninstall = ({
           </p>
           <br />
           <div>
-          <BtnSimple
-            css="btn-simple--1"
-            type="link"
-            href="https://github.com/kmicki/SteamDeckGyroDSU"
-            aria="Go Next"
-          >
-            Go to Discord
-          </BtnSimple>
 
-          <BtnSimple
-            css="btn-simple--1"
-            type="link"
-            href="https://discord.gg/b9F7GpXtFP"
-            aria="Go Next"
-          >
-            Go to Reddit
-          </BtnSimple>
+          <a href="https://discord.gg/b9F7GpXtFP" aria-label="Go Next" class="btn-simple btn-simple--1" target="_blank">Go to Discord</a>
+          <a href="https://www.reddit.com/r/EmuDeck/" aria-label="Go Next" class="btn-simple btn-simple--1" target="_blank">Go to Reddit</a>
+
           </div>
           <p className="lead">
             Thanks, but I don't need help, I want to uninstall.

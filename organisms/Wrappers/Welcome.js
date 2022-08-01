@@ -96,7 +96,7 @@ const Welcome = ({
                     <p>
                       This mode gives you a bit more of control on how EmuDeck
                       configures your system. You will be able to configure Aspect
-                      Ratios, Bezels, Filters, RetroAchievments, Emulators and ESDE themes.
+                      Ratios, Bezels, Filters, RetroAchievments, Emulators, ESDE themes and Cloud Game Saving.
                     </p>
                   </Card>
                 </div>
