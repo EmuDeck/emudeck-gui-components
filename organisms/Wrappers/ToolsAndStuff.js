@@ -68,7 +68,7 @@ const ToolsAndStuff = ({
             onClick={() => goTo('chd-tool')}
 
           >
-            CHD Compressor
+            EmuDeck Compressor
           </BtnSimple>
 
 

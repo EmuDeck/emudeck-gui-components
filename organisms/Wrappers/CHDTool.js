@@ -36,20 +36,23 @@ const CHDTool = ({
     <div className="app">
     <Aside />
       <div className="wrapper">
-        <Header title="CHDTool" bold="Script" />
+        <Header title="EmuDeck" bold="Compression Tool" />
         <Main>
           <p className="lead">
-            CHDTool is a script that compresses all types of BIN, CUE or GDI files to the superior CHD format.
+            Our Compression Tool is a script that looks through your roms and compress them up to 70% of it's original disk size without losing anything using CHD and RVZ formats.
+          </p>
 
-          </p>
           <p>
-            This tool searches in all your romns subfolders and reemplaces your files with new CHD files. The CHD format is a lossless compression format that can save you about 65% space.
+            <strong>CHD</strong><br/>
+            Used for PSX, PS2, SegaCD and Dreamcast games.
+          </p>
 
-          </p>
+
           <p>
-          Valid for PSX, PS2, SegaCD and Dreamcast games
+            <strong>RVZ</strong><br/>
+            Used for GameCube and Wii Games.
           </p>
-          <br />
+
           <BtnSimple
             css="btn-simple--1"
             type="button"
@@ -57,7 +60,7 @@ const CHDTool = ({
             onClick={()=> onClick() }
             disabled={disabledNext && 'true'}
           >
-            Run CHDTool
+            Run Compression Tool
           </BtnSimple>
         </Main>
         <Footer
