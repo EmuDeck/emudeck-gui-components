@@ -11,7 +11,7 @@ import { Form } from 'getbasecore/Molecules';
 import './Header.scss';
 const Header = ({ title, bold }) => {
   const { state, setState, command } = useContext(GlobalContext);
-  const { debug, debugText } = state;
+  const { debug, debugText, version } = state;
   const ipcChannel = window.electron.ipcRenderer;
 
   const runCommand = () => {
@@ -28,6 +28,7 @@ const Header = ({ title, bold }) => {
 
   return (
     <header className="header">
+      <small className="version">{version}</small>
       {!debug && (
         <h1 className="h2">
           {title} <span>{bold}</span>

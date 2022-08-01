@@ -32,7 +32,7 @@ const Welcome = ({
   runCommand,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { mode, debug, command } = state;
+  const { mode, debug, command, version } = state;
 
   const debugMode = (debug) => {
     setState({ ...state, debug: debug });
@@ -57,11 +57,11 @@ const Welcome = ({
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title="Welcome to" bold="EmuDeck" />
+        <Header title="Welcome to" bold={`Emudeck`} />
         <Main>
           {downloadComplete === false && (
             <>
-              <p className="h5">Downloading Files</p>
+              <p className="h5">Downloading Files. If this progress bar won't disappear after a couple of minutes restart the app</p>
               <ProgressBar css="progress--success" value={counter} max="100" />
             </>
           )}
