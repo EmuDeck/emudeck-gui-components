@@ -61,7 +61,7 @@ const Welcome = ({
         <Main>
           {downloadComplete === false && (
             <>
-              <p className="h5">Downloading Files. If this progress bar won't disappear after a couple of minutes restart the app</p>
+              <p className="h5">Downloading Files. If this progress bar won't disappear after a couple of minutes please restart the app</p>
               <ProgressBar css="progress--success" value={counter} max="100" />
             </>
           )}
