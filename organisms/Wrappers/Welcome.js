@@ -32,7 +32,7 @@ const Welcome = ({
   runCommand,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { mode, debug, command, version } = state;
+  const { mode, debug, command, version, second } = state;
 
   const debugMode = (debug) => {
     setState({ ...state, debug: debug });
@@ -78,11 +78,14 @@ const Welcome = ({
                     css={mode == 'easy' && 'is-selected'}
                     onClick={() => onClick('easy')}
                   >
-                    <span className="h3">Easy mode</span>
+                    <span className="h3">
+                      {second === false && ('Easy mode')}
+                      {second === true && ('Quick Update')}
+                    </span>
                     <p>
-                      This is a 100% automatic mode. We will configure your
-                      device with the recommended settings so you can start
-                      playing right away.
+                      {second === false && ('This is a 100% automatic mode. We will configure your device with the recommended settings so you can start playing right away.')}
+                      {second === true && ("This mode will update EmuDeck in one click, you will retain your EmuDeck's customization if any where made by you at any time. If you made any customization outside EmuDeck this will be overwritten.")}
+
                     </p>
                   </Card>
                 </div>
@@ -92,11 +95,14 @@ const Welcome = ({
                     css={mode == 'expert' && 'is-selected'}
                     onClick={() => onClick('expert')}
                   >
-                    <span className="h3">Custom mode</span>
+                    <span className="h3">
+                      {second === false && ('Custom Mode')}
+                      {second === true && ('Update & Customize')}
+                    </span>
                     <p>
-                      This mode gives you a bit more of control on how EmuDeck
-                      configures your system. You will be able to configure Aspect
-                      Ratios, Bezels, Filters, RetroAchievments, Emulators, ESDE themes and Cloud Game Saving.
+                    {second === false && ('This mode gives you a bit more of control on how EmuDeck configures your system. You will be able to configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, ESDE themes and Cloud Game Saving.')}
+                    {second === true && ('This mode will update your EmuDeck installation and also allow you to customize your EmuDeck installation and keep any modifications made outside EmuDeck.')}
+
                     </p>
                   </Card>
                 </div>
