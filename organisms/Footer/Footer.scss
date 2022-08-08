@@ -9,3 +9,10 @@ footer.footer {
 footer.footer .button + .button {
   margin-left: 20px;
 }
+
+.list-two-cols {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 420px;
+}

@@ -26,6 +26,8 @@ const Welcome = ({
   onClick,
   next,
   back,
+  third,
+  thirdText,
   backText,
   alert,
   saveCommand,
@@ -114,7 +116,7 @@ const Welcome = ({
               <br/>
               <div className="container--grid">
                 <div data-col-sm="10">
-                  <Alert css="alert--warning">{alert}</Alert>
+                  <Alert css="alert--warning"><div dangerouslySetInnerHTML={{__html: alert}}></div></Alert>
                 </div>
               </div>
             </>
@@ -124,6 +126,8 @@ const Welcome = ({
         <Footer
           back={back}
           backText={backText}
+          third={third}
+          thirdText={thirdText}
           next={next}
           disabledNext={disabledNext}
           disabledBack={disabledBack}

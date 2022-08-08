@@ -7,10 +7,12 @@ import './Footer.scss';
 const Footer = ({
   back,
   next,
+  third,
   disabledNext,
   disabledBack,
   nextText,
   backText,
+  thirdText
 }) => {
   const navigate = useNavigate();
   const goTo = (href) => {
@@ -18,6 +20,16 @@ const Footer = ({
   };
   return (
     <footer className="footer">
+    {!!third && (
+      <BtnSimple
+        css="btn-simple--2"
+        type="button"
+       onClick={() => goTo(third)}
+        aria="Go Back"
+      >
+        {thirdText}
+      </BtnSimple>
+    )}
       {back !== false && (
         <BtnSimple
           css="btn-simple--2"
