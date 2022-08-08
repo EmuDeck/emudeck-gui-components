@@ -16,6 +16,7 @@ import imgcitra from 'assets/emulators/citra.png';
 import imgpcsx2 from 'assets/emulators/pcsx2.png';
 import imgrpcs3 from 'assets/emulators/rpcs3.png';
 import imgyuzu from 'assets/emulators/yuzu.png';
+import imgryujinx from 'assets/emulators/ryujinx.png';
 import imgcemu from 'assets/emulators/cemu.png';
 import imgxemu from 'assets/emulators/xemu.png';
 
@@ -29,6 +30,7 @@ const images = {
   pcsx2: { imgpcsx2 },
   rpcs3: { imgrpcs3 },
   yuzu: { imgyuzu },
+  ryujinx: { imgryujinx },
   cemu: { imgcemu },
   xemu: { imgxemu },
 };
@@ -69,7 +71,7 @@ const EmulatorSelector = ({
                     key={item.id}
                     onClick={() => onClick(item.id)}
                   >
-                    <img src={img} alt="RetroArch" />
+                    <img src={img} alt={item.name} />
                     <span className="h6">{item.name}</span>
                   </Card>
                 );
