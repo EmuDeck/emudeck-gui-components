@@ -97,11 +97,11 @@ const Welcome = ({
                   >
                     <span className="h3">
                       {second === false && ('Custom Mode')}
-                      {second === true && ('Update & Customize')}
+                      {second === true && ('Custom Update')}
                     </span>
                     <p>
                     {second === false && ('This mode gives you a bit more of control on how EmuDeck configures your system. You will be able to configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, ESDE themes and Cloud Game Saving.')}
-                    {second === true && ('This mode will update your EmuDeck installation and also allow you to customize your EmuDeck installation and keep any modifications made outside EmuDeck.')}
+                    {second === true && ('This mode will allow you to change your EmuDeck customizations while updating your EmuDeck installation and allowing you to keep any customizations made outside of EmuDeck.')}
 
                     </p>
                   </Card>
