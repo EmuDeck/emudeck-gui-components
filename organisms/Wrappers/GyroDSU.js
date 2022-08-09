@@ -24,6 +24,7 @@ const GyroDSU = ({
   downloadComplete,
   onChange,
   onClick,
+  install,
   next,
   back,
   hasSudo,
@@ -101,7 +102,7 @@ const GyroDSU = ({
                     css="btn-simple--1"
                     type="button"
                     aria="Install GyroDSU"
-                    onClick={()=> alert('Not implemented yet') }
+                    onClick={install}
                     disabled={disabledNext && 'true'}
                   >
                     Install GyroDSU
