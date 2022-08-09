@@ -63,7 +63,7 @@ const RAAchievements = ({
                   type="text"
                   name="user"
                   id="user"
-                  value={achievements.pass}
+                  value={achievements.user}
                   onChange={onChange}
                 />
                 <FormInputSimple
