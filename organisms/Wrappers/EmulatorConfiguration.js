@@ -20,6 +20,7 @@ import imgryujinx from 'assets/emulators/ryujinx.png';
 import imgcemu from 'assets/emulators/cemu.png';
 import imgxemu from 'assets/emulators/xemu.png';
 import imgsrm from 'assets/emulators/srm.png';
+import imgsupermodelista from 'assets/emulators/supermodelista.png';
 
 const images = {
   ra: { imgra },
@@ -34,6 +35,7 @@ const images = {
   ryujinx: { imgryujinx },
   cemu: { imgcemu },
   xemu: { imgxemu },
+  supermodelista: { imgsupermodelista },
   srm: { imgsrm },
 };
 
