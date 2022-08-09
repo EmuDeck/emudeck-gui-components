@@ -42,7 +42,7 @@ const ChangeLog = ({
           </p>
           <ul className="list-two-cols">
             <li>- NEW: Brand New UI</li>
-            <li>- IMPROVEMENT: Dolphin Performance on Win600</li>
+            <li>- IMPROVEMENT: Better Dolphin Performance on Anbernic Win600</li>
           </ul>
         </Main>
         <Footer

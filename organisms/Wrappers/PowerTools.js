@@ -24,6 +24,7 @@ const PowerTools = ({
   downloadComplete,
   onChange,
   onClick,
+  install,
   next,
   back,
   hasSudo,
@@ -103,7 +104,7 @@ const PowerTools = ({
                     css="btn-simple--1"
                     type="button"
                     aria="Install PowerTools"
-                    onClick={()=> alert('Not implemented yet') }
+                    onClick={install}
                     disabled={disabledNext && 'true'}
                   >
                     Install PowerTools
