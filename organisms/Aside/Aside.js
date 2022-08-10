@@ -25,7 +25,10 @@ const Aside = ({ props }) => {
     <aside>
       <div className="aside-debug" onClick={toggleDebug}></div>
       <video className="aside-bg" autoPlay loop preload="auto">
-        <source src="https://github.com/EmuDeck/emudeck-electron/blob/main/src/assets/bg.mp4?raw=true" type="video/mp4"/>
+        <source
+          src="https://github.com/EmuDeck/emudeck-electron/blob/main/src/assets/bg.mp4?raw=true"
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
     </aside>
