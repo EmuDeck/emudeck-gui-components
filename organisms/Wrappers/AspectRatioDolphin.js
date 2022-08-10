@@ -10,8 +10,8 @@ import Main from 'components/organisms/Main/Main.js';
 import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 
-import ar43 from 'assets/ar43gc.png';
-import ar169 from 'assets/ar169gc.png';
+import ar43gc from 'assets/ar43gc.png';
+import ar169gc from 'assets/ar169gc.png';
 
 const AspectRatioDolphin = ({
   disabledNext,
@@ -36,12 +36,12 @@ const AspectRatioDolphin = ({
             <SelectorMenu>
               <div className="selector-menu__img">
                 <img
-                  src={ar169}
+                  src={ar169gc}
                   className={ar.dolphin != '169' && 'is-hidden'}
                   alt="Background"
                 />
                 <img
-                  src={ar43}
+                  src={ar43gc}
                   className={ar.dolphin != '43' && 'is-hidden'}
                   alt="Background"
                 />

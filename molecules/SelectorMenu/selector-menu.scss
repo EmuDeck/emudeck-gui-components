@@ -4,7 +4,7 @@
 
   &__img {
     margin-right: 20px;
-    width: 55vw;
+    width: 55%;
     position: relative;
     img,
     .simple-carousel {
@@ -33,5 +33,55 @@
       font-size: 1.8rem;
       margin-bottom: 8px;
     }
+  }
+}
+
+.list-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 90%;
+  li {
+    flex-basis: 30%;
+  }
+}
+
+.list-grid {
+  .selector-menu__img {
+    img,
+    .simple-carousel {
+      min-height: 122px;
+    }
+  }
+
+  .h3 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+  .selector-menu__options {
+    width: 100%;
+    max-width: 150px;
+    > p {
+      margin-bottom: 12px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      font-weight: bold;
+    }
+    ul {
+      display: flex;
+      li {
+        margin-right: 10px;
+      }
+    }
+  }
+  .card {
+    padding: 6px;
+    margin-bottom: 0;
+  }
+  .selector-menu__details {
+    display: none;
   }
 }

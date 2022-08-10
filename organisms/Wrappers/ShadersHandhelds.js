@@ -10,8 +10,8 @@ import Main from 'components/organisms/Main/Main.js';
 import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 
-import lcdon from 'assets/lcdon.png';
-import lcdoff from 'assets/lcdoff.png';
+import lcdonH from 'assets/lcdon.png';
+import lcdoffH from 'assets/lcdoff.png';
 
 const ShadersHandhelds = ({
   disabledNext,
@@ -39,12 +39,12 @@ const ShadersHandhelds = ({
             <SelectorMenu>
               <div className="selector-menu__img">
                 <img
-                  src={lcdoff}
+                  src={lcdoffH}
                   className={shaders.handhelds == true && 'is-hidden'}
                   alt="Background"
                 />
                 <img
-                  src={lcdon}
+                  src={lcdonH}
                   className={shaders.handhelds == false && 'is-hidden'}
                   alt="Background"
                 />

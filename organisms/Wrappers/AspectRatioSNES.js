@@ -10,9 +10,9 @@ import Main from 'components/organisms/Main/Main.js';
 import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 
-import ar43 from 'assets/ar43snes.png';
-import ar87 from 'assets/ar87snes.png';
-import ar32 from 'assets/ar32snes.png';
+import ar43s from 'assets/ar43snes.png';
+import ar87s from 'assets/ar87snes.png';
+import ar32s from 'assets/ar32snes.png';
 
 const AspectRatioSNES = ({
   disabledNext,
@@ -39,17 +39,17 @@ const AspectRatioSNES = ({
             <SelectorMenu>
               <div className="selector-menu__img">
                 <img
-                  src={ar87}
+                  src={ar87s}
                   className={ar.snes != '87' && 'is-hidden'}
                   alt="Background"
                 />
                 <img
-                  src={ar43}
+                  src={ar43s}
                   className={ar.snes != '43' && 'is-hidden'}
                   alt="Background"
                 />
                 <img
-                  src={ar32}
+                  src={ar32s}
                   className={ar.snes != '32' && 'is-hidden'}
                   alt="Background"
                 />

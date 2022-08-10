@@ -42,44 +42,49 @@ const ToolsAndStuff = ({
         <Header title="Tools &" bold="Stuff" />
         <Main>
           <p className="lead">
-            In this section you'll find tools and scripts that will allow you to get the most of your Device.
+            In this section you'll find tools and scripts that will allow you to
+            get the most of your Device.
           </p>
           <div>
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            onClick={() => goTo('power-tools')}
-          >
-            PowerTools
-          </BtnSimple>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              onClick={() => goTo('power-tools')}
+            >
+              PowerTools
+            </BtnSimple>
 
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            onClick={() => goTo('gyrodsu')}
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              onClick={() => goTo('gyrodsu')}
+            >
+              GyroDSU
+            </BtnSimple>
 
-          >
-            GyroDSU
-          </BtnSimple>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              onClick={() => goTo('chd-tool')}
+            >
+              EmuDeck Compressor
+            </BtnSimple>
 
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            onClick={() => goTo('chd-tool')}
-
-          >
-            EmuDeck Compressor
-          </BtnSimple>
-
-
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            onClick={() => goTo('update-emulators')}
-          >
-            Update Emulators & Tools
-          </BtnSimple>
-        </div>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              onClick={() => goTo('update-emulators')}
+            >
+              Update Emulators & Tools
+            </BtnSimple>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              onClick={() => goTo('settings')}
+            >
+              Settings
+            </BtnSimple>
+          </div>
           <BtnSimple
             css="btn-simple--3"
             type="button"
@@ -87,8 +92,6 @@ const ToolsAndStuff = ({
           >
             Uninstall EmuDeck
           </BtnSimple>
-
-
         </Main>
         <Footer
           next={false}
