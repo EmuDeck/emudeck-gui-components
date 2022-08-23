@@ -24,14 +24,15 @@ const GyroDSU = ({
   downloadComplete,
   onChange,
   onClick,
-  install,
+  installClick,
   next,
   back,
   hasSudo,
   nextText,
+  sudoPass,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { sudoPass, GyroDSU } = state;
+  const { GyroDSU } = state;
 
   return (
     <div className="app">
@@ -89,7 +90,7 @@ const GyroDSU = ({
                   input empty an continue.
                 </p>
               )}
-              <Form>
+              <div class="form">
                 <FormInputSimple
                   label="Sudo Password"
                   type="password"
@@ -97,18 +98,18 @@ const GyroDSU = ({
                   id="pass"
                   onChange={onChange}
                 />
-                {GyroDSU === true && (
+                {sudoPass != '' && (
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
                     aria="Install GyroDSU"
-                    onClick={install}
+                    onClick={installClick}
                     disabled={disabledNext && 'true'}
                   >
                     Install GyroDSU
                   </BtnSimple>
                 )}
-              </Form>
+              </div>
             </div>
             <div data-col-sm="1"></div>
             <div data-col-sm="5">

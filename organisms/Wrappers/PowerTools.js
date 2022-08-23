@@ -24,14 +24,15 @@ const PowerTools = ({
   downloadComplete,
   onChange,
   onClick,
-  install,
+  installClick,
   next,
   back,
   hasSudo,
   nextText,
+  sudoPass,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { sudoPass, powerTools } = state;
+  const { powerTools } = state;
 
   return (
     <div className="app">
@@ -91,7 +92,7 @@ const PowerTools = ({
                   input empty an continue.
                 </p>
               )}
-              <Form>
+              <div class="form">
                 <FormInputSimple
                   label="Sudo Password"
                   type="password"
@@ -99,18 +100,18 @@ const PowerTools = ({
                   id="pass"
                   onChange={onChange}
                 />
-                {powerTools === true && (
+                {sudoPass !== '' && (
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
                     aria="Install PowerTools"
-                    onClick={install}
+                    onClick={installClick}
                     disabled={disabledNext && 'true'}
                   >
                     Install PowerTools
                   </BtnSimple>
                 )}
-              </Form>
+              </div>
             </div>
             <div data-col-sm="1"></div>
             <div data-col-sm="5">
