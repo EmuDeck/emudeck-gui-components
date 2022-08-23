@@ -5,7 +5,7 @@ import Footer from 'components/organisms/Footer/Footer.js';
 import Header from 'components/organisms/Header/Header.js';
 import Aside from 'components/organisms/Aside/Aside.js';
 import Main from 'components/organisms/Main/Main.js';
-
+import Notification from 'components/molecules/Notification/Notification.js';
 import {
   BtnSimple,
   ProgressBar,
@@ -30,6 +30,7 @@ const GyroDSU = ({
   hasSudo,
   nextText,
   sudoPass,
+  showNotification,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { GyroDSU } = state;
@@ -39,6 +40,9 @@ const GyroDSU = ({
       <Aside />
       <div className="wrapper">
         <Header title="Configure" bold="GyroDSU" />
+        <Notification css={showNotification ? 'is-animated' : 'nope'}>
+          🎉 GyroDSU Installed!
+        </Notification>
         <Main>
           <p className="lead">
             GyroDSU is a plugin that allows you to use your Steam Deck Gyroscope

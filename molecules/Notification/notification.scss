@@ -1,0 +1,31 @@
+// .notification {
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   transition: 0.5s;
+//   padding: 20px;
+//   background: --var(--color-info);
+// }
+// body {
+//   display: none;
+// }
+
+@keyframes slide {
+  100% {
+    right: 0;
+  }
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: -100%;
+  transition: 0.8s;
+  padding: 20px;
+  background: var(--color-info);
+  border-radius: 15px 0 0 15px;
+}
+
+.notification.is-animated {
+  right: 0;
+}

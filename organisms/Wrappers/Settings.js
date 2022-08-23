@@ -10,6 +10,7 @@ import Main from 'components/organisms/Main/Main.js';
 import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.js';
+import Notification from 'components/molecules/Notification/Notification.js';
 
 import ar43 from 'assets/ar43.png';
 import ar32 from 'assets/ar32.png';
@@ -69,7 +70,8 @@ const Settings = ({
   onClickLCD,
   next,
   back,
-  data,
+  notificationText,
+  showNotification,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { ar, bezels, shaders, theme } = state;
@@ -80,6 +82,9 @@ const Settings = ({
       <div className="app">
         <div className="wrapper">
           <Header title="Configure your" bold="Settings" />
+          <Notification css={showNotification ? 'is-animated' : 'nope'}>
+            {notificationText}
+          </Notification>
           <Main>
             <p className="lead">
               Selecting an option will set it up. You don't need to run a full
@@ -267,7 +272,7 @@ const Settings = ({
                     />
                   </div>
                   <div className="selector-menu__options selector-menu__options--full">
-                    <p>3D Aspect Ratio</p>
+                    <p>Dolphin Aspect Ratio</p>
                     <ul>
                       <li onClick={() => onClickGC('43')}>
                         <Card css={ar.dolphin == 43 && 'is-selected'}>

@@ -6,6 +6,7 @@ import Header from 'components/organisms/Header/Header.js';
 import Aside from 'components/organisms/Aside/Aside.js';
 import Main from 'components/organisms/Main/Main.js';
 
+import Notification from 'components/molecules/Notification/Notification.js';
 import {
   BtnSimple,
   ProgressBar,
@@ -30,6 +31,7 @@ const PowerTools = ({
   hasSudo,
   nextText,
   sudoPass,
+  showNotification,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { powerTools } = state;
@@ -39,6 +41,9 @@ const PowerTools = ({
       <Aside />
       <div className="wrapper">
         <Header title="Configure" bold="PowerTools" />
+        <Notification css={showNotification ? 'is-animated' : 'nope'}>
+          🎉 PowerTools Installed!
+        </Notification>
         <Main>
           <p className="lead">
             PowerTools is a plugin that allows you to tweak your CPU & GPU to

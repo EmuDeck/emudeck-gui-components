@@ -6,6 +6,8 @@ import Header from 'components/organisms/Header/Header.js';
 import Aside from 'components/organisms/Aside/Aside.js';
 import Main from 'components/organisms/Main/Main.js';
 
+import Notification from 'components/molecules/Notification/Notification.js';
+
 import {
   BtnSimple,
   ProgressBar,
@@ -16,58 +18,40 @@ import { Form } from 'getbasecore/Molecules';
 
 import Card from 'components/molecules/Card/Card.js';
 
-import CHDToolImg from 'assets/powertools.png';
-
-const CHDTool = ({
+const Reset = ({
   disabledNext,
   disabledBack,
-  downloadComplete,
-  onChange,
   onClick,
   next,
   back,
-  hasSudo,
   nextText,
+  showNotification,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { sudoPass, CHDTool } = state;
+  const { sudoPass, Uninstall } = state;
 
   return (
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title="EmuDeck" bold="Compression Tool" />
+        <Header title="Reset" bold="Emudeck" />
+        <Notification css={showNotification ? 'is-animated' : 'nope'}>
+          EmuDeck has been reset! Redirecting...
+        </Notification>
         <Main>
           <p className="lead">
-            Our Compression Tool is a script that looks through your roms and
-            compress them up to 70% of it's original disk size using CHD and RVZ
-            formats.
+            If you somehow messed your configuration you can always go back to
+            our safe defaults. Just press the reset button and go back to the
+            main screen to select Easy or Custom mode to start over
           </p>
-          <p>
-            The tool will find all your .iso, .gdi, etc roms and will convert
-            them to either CHD or RVZ files.
-          </p>
-
-          <p>
-            <strong>CHD format;</strong>
-            <br />
-            Used to compress PSX, PS2, SegaCD and Dreamcast games.
-          </p>
-
-          <p>
-            <strong>RVZ format:</strong>
-            <br />
-            Used to compress GameCube and Wii Games.
-          </p>
-
+          <br />
           <BtnSimple
-            css="btn-simple--1"
+            css="btn-simple--3"
             type="button"
-            aria="Install CHDTool"
             onClick={() => onClick()}
-            disabled={disabledNext && 'true'}
+            aria="Go Next"
           >
-            Run Compression Tool
+            Reset EmuDeck
           </BtnSimple>
         </Main>
         <Footer
@@ -81,4 +65,4 @@ const CHDTool = ({
   );
 };
 
-export default CHDTool;
+export default Reset;
