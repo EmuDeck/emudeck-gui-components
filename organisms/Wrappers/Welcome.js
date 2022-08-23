@@ -59,7 +59,8 @@ const Welcome = ({
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title="Welcome to" bold={`EmuDeck`} />
+        {second === true && <Header title="Welcome back to" bold={`EmuDeck`} />}
+        {second === false && <Header title="Welcome to" bold={`EmuDeck`} />}
         <Main>
           {downloadComplete === false && (
             <>
@@ -72,10 +73,17 @@ const Welcome = ({
           )}
           {downloadComplete === true && (
             <>
-              <p className="lead">
-                Please select how do you want EmuDeck to configure your device:
-              </p>
-
+              {second === true && (
+                <p className="lead">
+                  Please select how do you want to update your EmuDeck's
+                  installation:
+                </p>
+              )}
+              {second === false && (
+                <p className="lead">
+                  Please select how do you want to update your device:
+                </p>
+              )}
               <div className="container--grid">
                 <div data-col-sm="5">
                   <Card
@@ -90,7 +98,7 @@ const Welcome = ({
                       {second === false &&
                         'This is a 100% automatic mode. We will configure your device with the recommended settings so you can start playing right away.'}
                       {second === true &&
-                        "This mode will update EmuDeck in one click, you will retain your EmuDeck's customization if any where made by you at any time. If you made any customization outside EmuDeck this will be overwritten."}
+                        "This mode will update EmuDeck in one click, you will retain your EmuDeck's customization if any where made by you at any time. If you made any customizations outside EmuDeck those will be overwritten. Any new settings or emulators will be applied by default."}
                     </p>
                   </Card>
                 </div>
@@ -108,7 +116,7 @@ const Welcome = ({
                       {second === false &&
                         'This mode gives you a bit more of control on how EmuDeck configures your system. You will be able to configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, ESDE themes and Cloud Game Saving.'}
                       {second === true &&
-                        'This mode will allow you to change your EmuDeck customizations while updating your EmuDeck installation and allowing you to keep any customizations made outside of EmuDeck.'}
+                        'This mode will allow you to update your EmuDeck installation,  allowyou to keep any customizations made outside of EmuDeck and customize new settings or emulators if available.'}
                     </p>
                   </Card>
                 </div>
@@ -133,6 +141,8 @@ const Welcome = ({
           backText={backText}
           third={third}
           thirdText={thirdText}
+          forth={third}
+          forthText={thirdText}
           next={next}
           disabledNext={disabledNext}
           disabledBack={disabledBack}

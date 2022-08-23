@@ -16,7 +16,6 @@ import { Form } from 'getbasecore/Molecules';
 
 import Card from 'components/molecules/Card/Card.js';
 
-
 const ChangeLog = ({
   disabledNext,
   disabledBack,
@@ -42,7 +41,15 @@ const ChangeLog = ({
           </p>
           <ul className="list-two-cols">
             <li>- NEW: Brand New UI</li>
-            <li>- IMPROVEMENT: Better Dolphin Performance on Anbernic Win600</li>
+            <li>
+              - NEW: Settings page, configure some settings of your emulators
+              within EmuDeck
+            </li>
+            <li>- NEW: Reset page, to get EmuDeck back to default</li>
+            <li>- FIXES: Updated config files for Duckstation</li>
+            <li>
+              - IMPROVEMENT: Better Dolphin Performance on Anbernic Win600
+            </li>
           </ul>
         </Main>
         <Footer

@@ -85,6 +85,7 @@ const ToolsAndStuff = ({
               Settings
             </BtnSimple>
           </div>
+          <hr />
           <BtnSimple
             css="btn-simple--2"
             type="button"
