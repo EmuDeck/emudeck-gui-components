@@ -21,7 +21,7 @@ const RomStorage = ({
   sdCardName,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { storage, SDID } = state;
+  const { storage, SDID, mode, system } = state;
 
   return (
     <>
@@ -30,12 +30,14 @@ const RomStorage = ({
         <Aside />
 
         <div className="wrapper">
-
-          <Header title="Choose where you would like your roms" bold="to be stored" />
+          <Header
+            title="Choose where you would like your roms"
+            bold="to be stored"
+          />
           <Main>
             <p className="lead">
-              Where do you want to store your roms? Not seeing your SD Card? Make
-              sure you formatted it on Gaming Mode.
+              Where do you want to store your roms? Not seeing your SD Card?
+              Make sure you formatted it on Gaming Mode.
             </p>
             <div className="cards">
               {sdCardValid == true && (
@@ -56,18 +58,20 @@ const RomStorage = ({
                 <img src={imgInternal} width="100" alt="Background" />
                 <span className="h5">Internal Storage</span>
               </Card>
-
-              <Card
-                css={storage == 'Custom' && 'is-selected'}
-                onClick={() => onClick('Custom')}
-              >
-                <img src={imgInternal} width="100" alt="Background" />
-                <span className="h5">Custom Directory</span>
-              </Card>
+              {system != 'darwin' && (
+                <Card
+                  css={storage == 'Custom' && 'is-selected'}
+                  onClick={() => onClick('Custom')}
+                >
+                  <img src={imgInternal} width="100" alt="Background" />
+                  <span className="h5">Custom Directory</span>
+                </Card>
+              )}
             </div>
           </Main>
           <Footer
             next={next}
+            nextText={mode === 'easy' ? 'Finish ' : 'Next '}
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />

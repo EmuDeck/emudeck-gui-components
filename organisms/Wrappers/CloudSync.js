@@ -26,61 +26,60 @@ const CloudSync = ({
   const { cloudSync } = state;
 
   return (
-  <>
-    {/*  <ExploreContainer name="Tab 1 page" /> */}
-    <div className="app">
-    <div className="wrapper">
-      <Header
-      title="Configure "
-      bold="Cloud Sync"
-      />
-      <Main>
-      <p className="lead">
-        CloudSync is a plugin that allows you to sync your saved games to the cloud.
-      </p>
-      <SelectorMenu>
-        <div className="selector-menu__img">
-        <img
-          src={cloudSyncOn}
-          className={cloudSync == true && 'is-hidden'}
-          alt="Background"
-        />
-        <img
-          src={cloudSyncOff}
-          className={cloudSync == false && 'is-hidden'}
-          alt="Background"
-        />
+    <>
+      {/*  <ExploreContainer name="Tab 1 page" /> */}
+      <div className="app">
+        <div className="wrapper">
+          <Header title="Configure " bold="Cloud Sync" />
+          <Main>
+            <p className="lead">
+              CloudSync is a plugin that allows you to sync your saved games to
+              the cloud.
+            </p>
+            <SelectorMenu>
+              <div className="selector-menu__img">
+                <img
+                  src={cloudSyncOn}
+                  className={cloudSync == true && 'is-hidden'}
+                  alt="Background"
+                />
+                <img
+                  src={cloudSyncOff}
+                  className={cloudSync == false && 'is-hidden'}
+                  alt="Background"
+                />
+              </div>
+              <div className="selector-menu__options selector-menu__options--full">
+                <ul>
+                  <li onClick={() => onClick(true)}>
+                    <Card css={cloudSync == true && 'is-selected'}>
+                      <span className="h3">Enable</span>
+                    </Card>
+                  </li>
+                  <li onClick={() => onClick(false)}>
+                    <Card css={cloudSync == false && 'is-selected'}>
+                      <span className="h3">Disable</span>
+                    </Card>
+                  </li>
+                </ul>
+              </div>
+              <div className="selector-menu__details">
+                <p className="lead">Systems</p>
+                <ul>
+                  <li>All the emulators</li>
+                </ul>
+              </div>
+            </SelectorMenu>
+          </Main>
+          <Footer
+            next="end"
+            nextText="Finish "
+            disabledNext={disabledNext}
+            disabledBack={disabledBack}
+          />
         </div>
-        <div className="selector-menu__options selector-menu__options--full">
-        <ul>
-          <li onClick={() => onClick(true)}>
-          <Card css={cloudSync == true && 'is-selected'}>
-            <span className="h3">Enable</span>
-          </Card>
-          </li>
-          <li onClick={() => onClick(false)}>
-          <Card css={cloudSync == false && 'is-selected'}>
-            <span className="h3">Disable</span>
-          </Card>
-          </li>
-        </ul>
-        </div>
-        <div className="selector-menu__details">
-        <p className="lead">Systems</p>
-        <ul>
-          <li>All the emulators</li>
-        </ul>
-        </div>
-      </SelectorMenu>
-      </Main>
-      <Footer
-      next="end"
-      disabledNext={disabledNext}
-      disabledBack={disabledBack}
-      />
-    </div>
-    </div>
-  </>
+      </div>
+    </>
   );
 };
 

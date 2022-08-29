@@ -34,7 +34,7 @@ const Welcome = ({
   runCommand,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { mode, debug, command, version, second } = state;
+  const { mode, debug, command, version, second, system } = state;
 
   const debugMode = (debug) => {
     setState({ ...state, debug: debug });

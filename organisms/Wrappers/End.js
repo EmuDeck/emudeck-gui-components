@@ -66,6 +66,27 @@ const End = ({
   const slides = [
     <Card css="is-selected">
       <div className="container--grid">
+        <div data-col-sm="6">
+          <span className="h2">Adding games</span>
+          <p className="lead">
+            When the installation is completed SteamRomManager will open to scan
+            and add your games.
+            <br />
+            Copy your roms to your {storage}, in the Emulation/roms folder,
+            don't put your games on its own subdirectories.
+            <br />
+            <strong>
+              Tip:You can copy your roms using an external USB drive.
+            </strong>
+          </p>
+        </div>
+        <div data-col-sm="6">
+          <img src="https://www.emudeck.com/img/ss1.png" alt="bg" />
+        </div>
+      </div>
+    </Card>,
+    <Card css="is-selected">
+      <div className="container--grid">
         <div data-col-sm="9">
           <span className="h3">Emulation Folder</span>
           <p className="lead">
@@ -93,27 +114,6 @@ const End = ({
         </div>
         <div data-col-sm="3">
           <img src={sdlogo} alt="bg" />
-        </div>
-      </div>
-    </Card>,
-    <Card css="is-selected">
-      <div className="container--grid">
-        <div data-col-sm="6">
-          <span className="h2">Adding games</span>
-          <p className="lead">
-            When the installation is completed SteamRomManager will open to scan
-            and add your games.
-            <br />
-            Copy your roms to your {storage}, in the Emulation/roms folder,
-            don't put your games on its own subdirectories.
-            <br />
-            <strong>
-              Tip:You can copy your roms using an external USB drive.
-            </strong>
-          </p>
-        </div>
-        <div data-col-sm="6">
-          <img src="https://www.emudeck.com/img/ss1.png" alt="bg" />
         </div>
       </div>
     </Card>,
