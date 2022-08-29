@@ -11,12 +11,12 @@ import { Form } from 'getbasecore/Molecules';
 import './Header.scss';
 const Header = ({ title, bold }) => {
   const { state, setState, command } = useContext(GlobalContext);
-  const { debug, debugText, version } = state;
+  const { debug, debugText, version, branch } = state;
   const ipcChannel = window.electron.ipcRenderer;
 
   const runCommand = () => {
     let command = state.command;
-    const idMessage= Math.random();
+    const idMessage = Math.random();
     ipcChannel.sendMessage('emudeck', [`${idMessage}|||${command}`]);
     ipcChannel.once(idMessage, (message) => {
       console.log(message);
@@ -29,33 +29,31 @@ const Header = ({ title, bold }) => {
   return (
     <header className="header">
       <small className="version">{version}</small>
+      {branch === 'beta' && <div className="header__beta"> {branch}</div>}
       {!debug && (
         <h1 className="h2">
           {title} <span>{bold}</span>
         </h1>
       )}
       {debug && (
-
-      <Form>
-        <FormInputSimple
-          label="Test your Command"
-          type="text"
-          name="command"
-          id="command"
-          onChange={saveCommand}
-          value={command}
-        />
-        <button
-          onClick={runCommand}
-          className="btn-simple btn-simple--1"
-          type="button"
-        >
-          Test command
-        </button>
-        <br/>
-      </Form>
-
-
+        <Form>
+          <FormInputSimple
+            label="Test your Command"
+            type="text"
+            name="command"
+            id="command"
+            onChange={saveCommand}
+            value={command}
+          />
+          <button
+            onClick={runCommand}
+            className="btn-simple btn-simple--1"
+            type="button"
+          >
+            Test command
+          </button>
+          <br />
+        </Form>
       )}
     </header>
   );

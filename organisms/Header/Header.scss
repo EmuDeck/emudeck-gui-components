@@ -1,0 +1,13 @@
+.header {
+  &__beta {
+    position: fixed;
+    top: -8px;
+    right: -58px;
+    background: rgb(251, 109, 156);
+    padding: 20px;
+    padding-bottom: 10px;
+    width: 150px;
+    transform: rotate(45deg);
+    text-align: center;
+  }
+}
