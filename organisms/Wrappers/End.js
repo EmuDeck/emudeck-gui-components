@@ -76,7 +76,7 @@ const End = ({
             Manager" button
             <br />
             <br />
-            <strong>Swipe right to see more tips!</strong>
+            <strong>but first, swipe right to see more tips!</strong>
           </p>
         </div>
         <div data-col-sm="6">
@@ -122,7 +122,7 @@ const End = ({
           <span className="h2">Bios Paths</span>
           <p className="lead">
             Some games need the original system Bios to launch. <br />
-            SoAn exaple of these systems are:
+            You only need bios files for the following systems:
             <br />
             - Playstation 1, 2 and 3.
             <br />
@@ -191,14 +191,20 @@ const End = ({
     </Card>,
     <Card css="is-selected">
       <div className="container--grid">
-        <div data-col-sm="12">
-          <span className="h2">More Stuff</span>
+        <div data-col-sm="6">
+          <span className="h2">Two Frontends </span>
           <p className="lead">
-            EmuDeck comes bundled with more than emulators:
-            <ul>
-              <li>PowerTools</li>
-            </ul>
+            You can either use Steam Rom Manager to add yor games or use
+            EmulationStation DE <br />
+            If you have a small library we recomend using Steam Rom Manager, if
+            you have thousands of games EmulationStation DE will work better.
+            <br />
+            If you only want to use EmulationStation DE, disable all the other
+            parsers when you launch Steam Rom Manager
           </p>
+        </div>
+        <div data-col-sm="6">
+          <img src="https://www.emudeck.com/img/ss1.png" alt="bg" />
         </div>
       </div>
     </Card>,

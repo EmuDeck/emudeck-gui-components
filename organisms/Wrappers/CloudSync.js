@@ -30,10 +30,10 @@ const CloudSync = ({
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure " bold="Cloud Sync" />
+          <Header title="Configure " bold="SaveSync" />
           <Main>
             <p className="lead">
-              CloudSync is a plugin that allows you to sync your saved games to
+              SaveSync is a plugin that allows you to sync your saved games to
               the cloud.
             </p>
             <SelectorMenu>
