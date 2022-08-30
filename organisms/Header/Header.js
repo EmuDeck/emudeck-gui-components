@@ -14,6 +14,13 @@ const Header = ({ title, bold }) => {
   const { debug, debugText, version, branch } = state;
   const ipcChannel = window.electron.ipcRenderer;
 
+  const toggleDebug = () => {
+    setState({
+      ...state,
+      debug: !debug,
+    });
+  };
+
   const runCommand = () => {
     let command = state.command;
     const idMessage = Math.random();
@@ -28,7 +35,9 @@ const Header = ({ title, bold }) => {
 
   return (
     <header className="header">
-      <small className="version">{version}</small>
+      <small onClick={toggleDebug} className="version">
+        {version}
+      </small>
       {branch === 'beta' && <div className="header__beta"> {branch}</div>}
       {!debug && (
         <h1 className="h2">
