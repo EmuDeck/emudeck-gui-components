@@ -42,7 +42,8 @@ const Reset = ({
           <p className="lead">
             If you somehow messed your configuration you can always go back to
             our safe defaults. Just press the reset button and go back to the
-            main screen to select Easy or Custom mode to start over
+            main screen to select Easy or Custom mode to start over. This won't
+            delete anything and it won't affect until you install EmuDeck again.
           </p>
           <br />
           <BtnSimple

@@ -69,15 +69,14 @@ const End = ({
         <div data-col-sm="6">
           <span className="h2">Adding games</span>
           <p className="lead">
-            When the installation is completed SteamRomManager will open to scan
-            and add your games.
+            Copy your roms to your {storage}, you'll see a folder for each
+            system on the Emulation/roms folder.
             <br />
-            Copy your roms to your {storage}, in the Emulation/roms folder,
-            don't put your games on its own subdirectories.
+            Once you've copied your games click on the "Launch Steam Rom
+            Manager" button
             <br />
-            <strong>
-              Tip:You can copy your roms using an external USB drive.
-            </strong>
+            <br />
+            <strong>Swipe right to see more tips!</strong>
           </p>
         </div>
         <div data-col-sm="6">
@@ -187,6 +186,19 @@ const End = ({
         </div>
         <div data-col-sm="6">
           <img src="https://www.emudeck.com/img/citra1.png" alt="bg" />
+        </div>
+      </div>
+    </Card>,
+    <Card css="is-selected">
+      <div className="container--grid">
+        <div data-col-sm="12">
+          <span className="h2">More Stuff</span>
+          <p className="lead">
+            EmuDeck comes bundled with more than emulators:
+            <ul>
+              <li>PowerTools</li>
+            </ul>
+          </p>
         </div>
       </div>
     </Card>,
