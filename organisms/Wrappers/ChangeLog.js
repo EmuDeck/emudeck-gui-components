@@ -46,7 +46,12 @@ const ChangeLog = ({
               within EmuDeck
             </li>
             <li>- NEW: Reset page, to get EmuDeck back to default</li>
-            <li>- FIXES: Updated config files for Duckstation</li>
+            <li>- NEW: Default images for SRM, no more grey boxes!</li>
+            <li>- NEW: SaveSync. Sync your saved games on the cloud</li>
+            <li>- NEW: DooM SRM Parser</li>
+            <li>- FIX: Updated config files for Duckstation</li>
+            <li>- FIX: RetroArch Analog Stick for GB & GBC</li>
+            <li>- FIX: Uninstaller fixes</li>
             <li>
               - IMPROVEMENT: Better Dolphin Performance on Anbernic Win600
             </li>

@@ -131,8 +131,8 @@ const End = ({
             - Switch.
             <br />
             <strong>
-              Place then im Emulation/bios folder in your {storage}, don't use
-              subdirectories.
+              Place then in the Emulation/bios folder in your {storage}, don't
+              use subdirectories.
               <br />
               Switch has an special folder in Emulation/bios/yuzu
             </strong>
