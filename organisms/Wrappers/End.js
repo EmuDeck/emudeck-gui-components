@@ -147,6 +147,7 @@ const End = ({
             - Switch.
             <br />
             - MSX
+            <br/>
             <strong>
               Place then in the Emulation/bios folder in your {storage}, don't
               use subdirectories.
