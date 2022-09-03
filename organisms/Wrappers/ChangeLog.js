@@ -49,12 +49,16 @@ const ChangeLog = ({
             <li>- NEW: Default images for SRM, no more grey boxes!</li>
             <li>- NEW: SaveSync. Sync your saved games on the cloud</li>
             <li>- NEW: DooM SRM Parser</li>
+            <li>- NEW: BiosChecker</li>
+            <li>- NEW: SwanStation Core</li>
             <li>- FIX: Updated config files for Duckstation</li>
             <li>- FIX: RetroArch Analog Stick for GB & GBC</li>
             <li>- FIX: Uninstaller fixes</li>
             <li>
               - IMPROVEMENT: Better Dolphin Performance on Anbernic Win600
+              - IMPROVEMENT: Better Steam Input definitions
             </li>
+            <li>- And several small bug fixes</li>
           </ul>
         </Main>
         <Footer
