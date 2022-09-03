@@ -12,6 +12,7 @@ import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.j
 import { ProgressBar, BtnSimple } from 'getbasecore/Atoms';
 
 import sdlogo from 'assets/sdlogo.png';
+import remotelogo from 'assets/remotelogo.png';
 import amberlogo from 'assets/amberelec.jpg';
 const ipcChannel = window.electron.ipcRenderer;
 const End = ({
@@ -86,6 +87,21 @@ const End = ({
     </Card>,
     <Card css="is-selected">
       <div className="container--grid">
+        <div data-col-sm="6">
+          <span className="h2">Multiplayer</span>
+          <p className="lead">
+            Thanks to <strong>RemotePlayWhatever</strong> you can play your Emulators online with friends!
+            <br />
+            Add RemotePlayWhatever using SteamRomManager and when you are in gaming mode go to the Emulator collection and launch RemotePlayWhatever, invite your Steam Friend, go back to your library using the STEAM button, open your game and start playing!
+          </p>
+        </div>
+        <div data-col-sm="6">
+          <img src={remotelogo} alt="bg" />
+        </div>
+      </div>
+    </Card>,
+    <Card css="is-selected">
+      <div className="container--grid">
         <div data-col-sm="9">
           <span className="h3">Emulation Folder</span>
           <p className="lead">
@@ -130,6 +146,7 @@ const End = ({
             <br />
             - Switch.
             <br />
+            - MSX
             <strong>
               Place then in the Emulation/bios folder in your {storage}, don't
               use subdirectories.

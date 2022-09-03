@@ -75,7 +75,7 @@ const Welcome = ({
             <>
               {second === true && (
                 <p className="lead">
-                  Please select how do you want to update your EmuDeck's
+                  Please select how do you want to update your current EmuDeck's
                   installation:
                 </p>
               )}

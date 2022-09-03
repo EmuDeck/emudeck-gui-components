@@ -82,7 +82,14 @@ const ToolsAndStuff = ({
               type="button"
               onClick={() => goTo('settings')}
             >
-              Settings
+              Quick Settings
+            </BtnSimple>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              onClick={() => goTo('check-bios')}
+            >
+              Check Bios
             </BtnSimple>
           </div>
           <hr />
