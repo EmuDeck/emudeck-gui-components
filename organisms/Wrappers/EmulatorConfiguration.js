@@ -59,9 +59,18 @@ const EmulatorConfiguration = ({
         <div className="wrapper">
           <Header title="Update emulator's" bold="configuration" />
           <Main>
+
+          {second && (
             <p className="lead">
-              By default we will overwrite all configuration on these emulators. You may click/tap on an emulator to keep it's current configuration ( Not recommended ).
+              Are you an existing EmuDeck user? You can disable any emulator icon keep it's current configuration. We will remember your choises for your next update. ( Active means the emulator will be overwritten)
             </p>
+          )}
+          {!second && (
+            <p className="lead">
+              By default we will overwrite all configuration on these emulators. You can disable any emulator emulator to keep it's current configuration ( Not recommended ). ( Active means the emulator will be overwritten)
+            </p>
+          )}
+
 
             <div className="cards cards--mini">
               {overwriteConfigEmusArray.map((item, i) => {

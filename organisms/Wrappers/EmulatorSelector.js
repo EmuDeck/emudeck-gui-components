@@ -58,7 +58,7 @@ const EmulatorSelector = ({
           <Header title="Emulators for" bold={`${device}`} />
           <Main>
             <p className="lead">
-              These are the emulators EmuDeck recommends for your device. You may click/tap on an emulator to avoid installing / updating it on your installation.
+              These are the emulators EmuDeck recommends for your device. You can disable any emulator icon to avoid installing / updating it on your installation.
             </p>
 
             <div className="cards cards--mini">
@@ -81,7 +81,7 @@ const EmulatorSelector = ({
             </div>
           </Main>
           <Footer
-            next={second ? 'emulator-configuration' : 'ra-achievements'}
+            next='emulator-configuration'
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />
