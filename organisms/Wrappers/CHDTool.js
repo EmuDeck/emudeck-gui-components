@@ -17,7 +17,7 @@ import { Form } from 'getbasecore/Molecules';
 import Card from 'components/molecules/Card/Card.js';
 
 import CHDToolImg from 'assets/powertools.png';
-
+const ipcChannel = window.electron.ipcRenderer;
 const CHDTool = ({
   disabledNext,
   disabledBack,
@@ -31,6 +31,36 @@ const CHDTool = ({
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { sudoPass, CHDTool } = state;
+
+const readMSG = (command) => {
+  const idMessage = Math.random();
+  ipcChannel.sendMessage('emudeck', [`${idMessage}|||${command}`]);
+  ipcChannel.once(idMessage, (message) => {
+    let messageText = message.stdout
+
+    setMsg({ message: messageText });
+  });
+};
+
+  const [msg, setMsg] = useState({
+    message: ''
+  });
+
+  const { message } = msg;
+
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      let msg = readMSG('cat ~/emudeck/chdtool.log');
+
+      if (message.includes('All files converted to CHD')) {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="app">
@@ -60,6 +90,7 @@ const CHDTool = ({
             Used to compress GameCube and Wii Games.
           </p>
 
+
           <BtnSimple
             css="btn-simple--1"
             type="button"
@@ -69,6 +100,9 @@ const CHDTool = ({
           >
             Run Compression Tool
           </BtnSimple>
+
+          <code>{message}</code>
+
         </Main>
         <Footer
           next={false}
