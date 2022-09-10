@@ -19,6 +19,7 @@ import imgyuzu from 'assets/emulators/yuzu.png';
 import imgryujinx from 'assets/emulators/ryujinx.png';
 import imgcemu from 'assets/emulators/cemu.png';
 import imgxemu from 'assets/emulators/xemu.png';
+import imgmame from 'assets/emulators/mame.png';
 import imgsupermodelista from 'assets/emulators/supermodelista.png';
 
 const images = {
@@ -34,7 +35,9 @@ const images = {
   ryujinx: { imgryujinx },
   cemu: { imgcemu },
   xemu: { imgxemu },
+  mame: { imgmame },
   supermodelista: { imgsupermodelista },
+
 };
 
 const EmulatorSelector = ({

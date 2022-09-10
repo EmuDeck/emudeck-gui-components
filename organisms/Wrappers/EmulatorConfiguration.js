@@ -20,6 +20,7 @@ import imgryujinx from 'assets/emulators/ryujinx.png';
 import imgcemu from 'assets/emulators/cemu.png';
 import imgxemu from 'assets/emulators/xemu.png';
 import imgsrm from 'assets/emulators/srm.png';
+import imgmame from 'assets/emulators/mame.png';
 import imgsupermodelista from 'assets/emulators/supermodelista.png';
 
 const images = {
@@ -37,6 +38,7 @@ const images = {
   xemu: { imgxemu },
   supermodelista: { imgsupermodelista },
   srm: { imgsrm },
+  mame: { imgmame },
 };
 
 const EmulatorConfiguration = ({
