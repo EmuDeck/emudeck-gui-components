@@ -380,7 +380,6 @@ const Settings = ({
             </ul>
           </Main>
           <Footer
-            next="aspect-ratio-snes"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />
