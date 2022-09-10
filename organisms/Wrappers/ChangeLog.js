@@ -54,6 +54,8 @@ const ChangeLog = ({
             <li>- FIX: Updated config files for Duckstation</li>
             <li>- FIX: RetroArch Analog Stick for GB & GBC</li>
             <li>- FIX: Uninstaller fixes</li>
+            <li>- FIX: PCSX2-QT Config Changes</li>
+            <li>- FIX: Yuzu Config Changes</li>
             <li>
               - IMPROVEMENT: Better Dolphin Performance on Anbernic Win600
               - IMPROVEMENT: Better Steam Input definitions
