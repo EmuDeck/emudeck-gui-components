@@ -89,6 +89,22 @@ const End = ({
     <Card css="is-selected">
       <div className="container--grid">
         <div data-col-sm="6">
+          <span className="h2">Tools and Stuff</span>
+          <p className="lead">
+            After adding your games open EmuDeck again, a new menu called "tools
+            and stuff" is now available!
+            <br />
+            Over there you'll be able to install tools to improve performance,
+            use your Deck Gyroscope, have quick access to change your settings,
+            check if your bios are properly configured, update your emulators,
+            etc.
+          </p>
+        </div>
+      </div>
+    </Card>,
+    <Card css="is-selected">
+      <div className="container--grid">
+        <div data-col-sm="6">
           <span className="h2">Multiplayer</span>
           <p className="lead">
             Thanks to <strong>RemotePlayWhatever</strong> you can play your
