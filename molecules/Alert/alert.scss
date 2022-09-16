@@ -2,7 +2,7 @@
   --alert-padding: 20px;
   --alert-pr: 30px;
   --alert-border-radius: 10px;
-  --alert-mb: var(--margin-elements);
+  --alert-mb: 10px;
   --alert-border-size: 1px;
   --alert-icon-size: 20px;
   --alert-success-color-text: white;
@@ -17,4 +17,8 @@
   --alert-danger-color-text: white;
   --alert-danger-border-color: transparent;
   --alert-danger-icon-color: white;
+
+  &--mini {
+    --alert-padding: 10px;
+  }
 }

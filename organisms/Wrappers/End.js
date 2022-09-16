@@ -24,7 +24,7 @@ const End = ({
   next,
   back,
   data,
-  isGameMode
+  isGameMode,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { storage } = state;
@@ -91,9 +91,13 @@ const End = ({
         <div data-col-sm="6">
           <span className="h2">Multiplayer</span>
           <p className="lead">
-            Thanks to <strong>RemotePlayWhatever</strong> you can play your Emulators online with friends!
+            Thanks to <strong>RemotePlayWhatever</strong> you can play your
+            Emulators online with friends!
             <br />
-            Add RemotePlayWhatever using SteamRomManager and when you are in gaming mode go to the Emulator collection and launch RemotePlayWhatever, invite your Steam Friend, go back to your library using the STEAM button, open your game and start playing!
+            Add RemotePlayWhatever using SteamRomManager and when you are in
+            gaming mode go to the Emulator collection and launch
+            RemotePlayWhatever, invite your Steam Friend, go back to your
+            library using the STEAM button, open your game and start playing!
           </p>
         </div>
         <div data-col-sm="6">
@@ -139,21 +143,22 @@ const End = ({
           <span className="h2">Bios Paths</span>
           <p className="lead">
             Some games need the original system Bios to launch. <br />
-            You only need bios files for the following systems:
+            For instance you need bios files for the following systems:
             <br />
             - Playstation 1, 2 and 3.
             <br />
-            - SegaCD / MegaCD and Saturn.
+            - SegaCD / MegaCD, Dreamcast and Saturn.
             <br />
-            - Switch.
+            - Nintendo Switch and Nintendo DS
             <br />
             - MSX
-            <br/>
+            <br />
             <strong>
               Place then in the Emulation/bios folder in your {storage}, don't
               use subdirectories.
               <br />
-              Switch has an special folder in Emulation/bios/yuzu
+              Switch has special subfolders inside of Emulation/bios/yuzu, copy
+              your firmware and keys inside those folders, don't overwrite them
             </strong>
           </p>
         </div>
@@ -286,7 +291,7 @@ const End = ({
               </svg>
             </BtnSimple>
 
-            { isGameMode == false && (
+            {isGameMode == false && (
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
@@ -310,7 +315,6 @@ const End = ({
                 </svg>
               </BtnSimple>
             )}
-
           </footer>
         </div>
       </div>

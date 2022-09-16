@@ -95,7 +95,8 @@ const PegasusTheme = ({
             </SelectorMenu>
           </Main>
           <Footer
-            next="cloud-sync"
+            next="end"
+            nextText="Finish"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />
