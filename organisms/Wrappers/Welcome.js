@@ -98,7 +98,7 @@ const Welcome = ({
                       {second === false &&
                         'This is a 100% automatic mode. We will configure your device with the recommended settings so you can start playing right away.'}
                       {second === true &&
-                        "This mode will update EmuDeck in one click, you will retain your EmuDeck's customization if any where made by you at any time. If you made any customizations outside EmuDeck those will be overwritten. Any new settings or emulators will be applied by default."}
+                        "This mode will update EmuDeck in one click, you will retain your EmuDeck's customization if any where made by you at any time. If you made any customizations outside of EmuDeck those will be overwritten. Any new settings or emulators will be applied by default."}
                     </p>
                   </Card>
                 </div>
@@ -116,7 +116,7 @@ const Welcome = ({
                       {second === false &&
                         'This mode gives you a bit more of control on how EmuDeck configures your system. You will be able to configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, ESDE themes and Cloud Game Saving.'}
                       {second === true &&
-                        'This mode will allow you to update your EmuDeck installation,  allowyou to keep any customizations made outside of EmuDeck and customize new settings or emulators if available.'}
+                        'This mode will allow you to update your EmuDeck installation, and keep any customizations made outside of EmuDeck and customize new settings or emulators if available.'}
                     </p>
                   </Card>
                 </div>
