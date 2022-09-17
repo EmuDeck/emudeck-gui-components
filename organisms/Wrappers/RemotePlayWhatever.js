@@ -90,8 +90,8 @@ const RemotePlayWhatever = ({
           <div className="container--grid">
             <div data-col-sm="6">
               <p>
-                First click on install RemotePlayWhatever, then open Steam Rom
-                Manager to add its shorcut to Steam
+                First click on install RemotePlayWhatever, this will install it
+                and open Steam Rom Manager to add its shorcut to Steam
               </p>
               <p>
                 When you are in gaming mode go to the Emulator collection and
@@ -115,16 +115,6 @@ const RemotePlayWhatever = ({
                 disabled={disabledNext && 'true'}
               >
                 Install RemotePlayWhatever
-              </BtnSimple>
-              <br />
-              <BtnSimple
-                css="btn-simple--1"
-                type="button"
-                aria="Open Steam Rom Manager"
-                onClick={() => onClickSRM()}
-                disabled={disabledNext && 'true'}
-              >
-                Open Steam Rom Manager to add it
               </BtnSimple>
             </div>
             <div data-col-sm="6">
