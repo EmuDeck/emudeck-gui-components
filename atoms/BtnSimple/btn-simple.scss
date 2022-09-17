@@ -37,14 +37,14 @@
 );
 
 @include generate-btn-simple(
- 3,
-white,
- var(--color-danger),
- var(--color-danger),
- white,
- var(--color-danger),
- white,
- var(--color-disabled)
+  3,
+  white,
+  var(--color-danger),
+  var(--color-danger),
+  white,
+  var(--color-danger),
+  white,
+  var(--color-disabled)
 );
 
 @keyframes background {
@@ -83,5 +83,15 @@ white,
   }
   &:hover {
     transform: scale(1.05);
+  }
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  .btn-simple {
+    margin-left: 0;
+    margin-right: 20px;
   }
 }

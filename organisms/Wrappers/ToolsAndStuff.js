@@ -30,11 +30,18 @@ const ToolsAndStuff = ({
   nextText,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { achievements } = state;
+  const { achievements, storagePath } = state;
   const navigate = useNavigate();
   const goTo = (href) => {
     navigate('/' + href);
   };
+  const ipcChannel = window.electron.ipcRenderer;
+  const openSRM = () => {
+    ipcChannel.sendMessage('bash', [
+      `zenity --question --width 450 --title \"Close Steam/Steam Input?\" --text \"Exit Steam to launch Steam Rom Manager? Desktop controls will temporarily revert to touch/trackpad/L2/R2\" && (kill -15 \$(pidof steam) & ${storagePath}/Emulation/tools/srm/Steam-ROM-Manager.AppImage)`,
+    ]);
+  };
+
   return (
     <div className="app">
       <Aside />
@@ -45,7 +52,7 @@ const ToolsAndStuff = ({
             In this section you'll find tools and scripts that will allow you to
             get the most of your Device.
           </p>
-          <div>
+          <div className="btn-row">
             <BtnSimple
               css="btn-simple--1"
               type="button"
@@ -91,8 +98,23 @@ const ToolsAndStuff = ({
             >
               Check Bios
             </BtnSimple>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              onClick={() => goTo('remote-play-whatever')}
+            >
+              RemotePlayWhatever
+            </BtnSimple>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              onClick={() => openSRM()}
+            >
+              SteamRomManager
+            </BtnSimple>
           </div>
           <hr />
+
           <BtnSimple
             css="btn-simple--2"
             type="button"

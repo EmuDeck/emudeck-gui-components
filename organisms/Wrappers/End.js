@@ -110,10 +110,7 @@ const End = ({
             Thanks to <strong>RemotePlayWhatever</strong> you can play your
             Emulators online with friends!
             <br />
-            Add RemotePlayWhatever using SteamRomManager and when you are in
-            gaming mode go to the Emulator collection and launch
-            RemotePlayWhatever, invite your Steam Friend, go back to your
-            library using the STEAM button, open your game and start playing!
+            Come back to EmuDeck and find it under Tools and Stuff!
           </p>
         </div>
         <div data-col-sm="6">
