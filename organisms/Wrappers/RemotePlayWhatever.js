@@ -5,7 +5,7 @@ import Footer from 'components/organisms/Footer/Footer.js';
 import Header from 'components/organisms/Header/Header.js';
 import Aside from 'components/organisms/Aside/Aside.js';
 import Main from 'components/organisms/Main/Main.js';
-
+import Notification from 'components/molecules/Notification/Notification.js';
 import remotelogo from 'assets/remoteplay.png';
 
 import {
@@ -31,6 +31,8 @@ const RemotePlayWhatever = ({
   hasSudo,
   nextText,
   onClickSRM,
+  notificationText,
+  showNotification,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { sudoPass, RemotePlayWhatever } = state;
@@ -70,6 +72,9 @@ const RemotePlayWhatever = ({
       <Aside />
       <div className="wrapper">
         <Header title="Multiplayer with " bold="RemotePlayWhatever - Beta" />
+        <Notification css={showNotification ? 'is-animated' : 'nope'}>
+          {notificationText}
+        </Notification>
         <Main>
           <p className="lead">
             Play with your friends both locally and over the internet. More info
@@ -91,15 +96,15 @@ const RemotePlayWhatever = ({
               <p>
                 When you are in gaming mode go to the Emulator collection and
                 launch RemotePlayWhatever, invite your Steam Friend, go back to
-                your library using the STEAM button, open your game and start
-                playing!
+                your library using the STEAM button, open your game from
+                EmulationStation and start playing!
               </p>
               <p>
-                {' '}
-                This app is on beta, so sometimes it does not work 100% fine,
-                expect some crashes. At the moment launching games outside
-                EmulationStation is not supported by launching your games using
-                EmulationStation
+                <strong>
+                  This app is on beta, so sometimes it does not work 100% fine,
+                  expect some crashes and issues with the sound. At the moment
+                  launching games outside EmulationStation is not supported.
+                </strong>
               </p>
 
               <BtnSimple
