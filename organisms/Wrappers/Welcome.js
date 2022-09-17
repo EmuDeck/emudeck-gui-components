@@ -24,6 +24,7 @@ const Welcome = ({
   disabledBack,
   downloadComplete,
   onClick,
+  update,
   next,
   back,
   third,
@@ -56,99 +57,123 @@ const Welcome = ({
   }, []);
 
   return (
-    <div className="app">
-      <Aside />
-      <div className="wrapper">
-        {second === true && <Header title="Welcome back to" bold={`EmuDeck`} />}
-        {second === false && <Header title="Welcome to" bold={`EmuDeck`} />}
-        <Main>
-          {downloadComplete === false && (
-            <>
-              <p className="h5">
-                Downloading Files. If this progress bar won't disappear after a
-                couple of minutes please restart the app
-              </p>
-              <ProgressBar css="progress--success" value={counter} max="100" />
-            </>
-          )}
-          {downloadComplete === true && (
-            <>
-              {second === true && (
-                <p className="lead">
-                  Please select how do you want to update your current EmuDeck's
-                  installation:
-                </p>
+    <>
+      {update == 'up-to-date' && (
+        <div className="app">
+          <Aside />
+          <div className="wrapper">
+            {second === true && (
+              <Header title="Welcome back to" bold={`EmuDeck`} />
+            )}
+            {second === false && <Header title="Welcome to" bold={`EmuDeck`} />}
+            <Main>
+              {downloadComplete === false && (
+                <>
+                  <p className="h5">
+                    Downloading Files. If this progress bar won't disappear
+                    after a couple of minutes please restart the app
+                  </p>
+                  <ProgressBar
+                    css="progress--success"
+                    value={counter}
+                    max="100"
+                  />
+                </>
               )}
-              {second === false && (
-                <p className="lead">
-                  Please select how do you want to update your device:
-                </p>
-              )}
-              <div className="container--grid">
-                <div data-col-sm="5">
-                  <Card
-                    css={mode == 'easy' && 'is-selected'}
-                    onClick={() => onClick('easy')}
-                  >
-                    <span className="h3">
-                      {second === false && 'Easy mode'}
-                      {second === true && 'Quick Update'}
-                    </span>
-                    <p>
-                      {second === false &&
-                        'This is a 100% automatic mode. We will configure your device with the recommended settings so you can start playing right away.'}
-                      {second === true &&
-                        "This mode will update EmuDeck in one click, you will retain your EmuDeck's customization if any where made by you at any time. If you made any customizations outside of EmuDeck those will be overwritten. Any new settings or emulators will be applied by default."}
+              {downloadComplete === true && (
+                <>
+                  {second === true && (
+                    <p className="lead">
+                      Please select how do you want to update your current
+                      EmuDeck's installation:
                     </p>
-                  </Card>
-                </div>
+                  )}
+                  {second === false && (
+                    <p className="lead">
+                      Please select how do you want to update your device:
+                    </p>
+                  )}
+                  <div className="container--grid">
+                    <div data-col-sm="5">
+                      <Card
+                        css={mode == 'easy' && 'is-selected'}
+                        onClick={() => onClick('easy')}
+                      >
+                        <span className="h3">
+                          {second === false && 'Easy mode'}
+                          {second === true && 'Quick Update'}
+                        </span>
+                        <p>
+                          {second === false &&
+                            'This is a 100% automatic mode. We will configure your device with the recommended settings so you can start playing right away.'}
+                          {second === true &&
+                            "This mode will update EmuDeck in one click, you will retain your EmuDeck's customization if any where made by you at any time. If you made any customizations outside of EmuDeck those will be overwritten. Any new settings or emulators will be applied by default."}
+                        </p>
+                      </Card>
+                    </div>
 
-                <div data-col-sm="5">
-                  <Card
-                    css={mode == 'expert' && 'is-selected'}
-                    onClick={() => onClick('expert')}
-                  >
-                    <span className="h3">
-                      {second === false && 'Custom Mode'}
-                      {second === true && 'Custom Update'}
-                    </span>
-                    <p>
-                      {second === false &&
-                        'This mode gives you a bit more of control on how EmuDeck configures your system. You will be able to configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, ESDE themes and Cloud Game Saving.'}
-                      {second === true &&
-                        'This mode will allow you to update your EmuDeck installation, and keep any customizations made outside of EmuDeck and customize new settings or emulators if available.'}
-                    </p>
-                  </Card>
-                </div>
-              </div>
-            </>
-          )}
-          {alert && (
-            <>
-              <br />
-              <div className="container--grid">
-                <div data-col-sm="10">
-                  <Alert css="alert--warning">
-                    <div dangerouslySetInnerHTML={{ __html: alert }}></div>
-                  </Alert>
-                </div>
-              </div>
-            </>
-          )}
-        </Main>
-        <Footer
-          back={back}
-          backText={backText}
-          third={third}
-          thirdText={thirdText}
-          forth={third}
-          forthText={thirdText}
-          next={next}
-          disabledNext={disabledNext}
-          disabledBack={disabledBack}
-        />
-      </div>
-    </div>
+                    <div data-col-sm="5">
+                      <Card
+                        css={mode == 'expert' && 'is-selected'}
+                        onClick={() => onClick('expert')}
+                      >
+                        <span className="h3">
+                          {second === false && 'Custom Mode'}
+                          {second === true && 'Custom Update'}
+                        </span>
+                        <p>
+                          {second === false &&
+                            'This mode gives you a bit more of control on how EmuDeck configures your system. You will be able to configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, ESDE themes and Cloud Game Saving.'}
+                          {second === true &&
+                            'This mode will allow you to update your EmuDeck installation, and keep any customizations made outside of EmuDeck and customize new settings or emulators if available.'}
+                        </p>
+                      </Card>
+                    </div>
+                  </div>
+                </>
+              )}
+              {alert && (
+                <>
+                  <br />
+                  <div className="container--grid">
+                    <div data-col-sm="10">
+                      <Alert css="alert--warning">
+                        <div dangerouslySetInnerHTML={{ __html: alert }}></div>
+                      </Alert>
+                    </div>
+                  </div>
+                </>
+              )}
+            </Main>
+            <Footer
+              back={back}
+              backText={backText}
+              third={third}
+              thirdText={thirdText}
+              forth={third}
+              forthText={thirdText}
+              next={next}
+              disabledNext={disabledNext}
+              disabledBack={disabledBack}
+            />
+          </div>
+        </div>
+      )}
+
+      {update == 'updating' && (
+        <div className="app">
+          <Aside />
+          <div className="wrapper">
+            <Header title="Cheking for updates of" bold={`EmuDeck`} />
+            <p className="h5">
+              Please stand by...EmuDeck will restart itself if an update is
+              found
+            </p>
+            <ProgressBar css="progress--success" value={counter} max="100" />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
