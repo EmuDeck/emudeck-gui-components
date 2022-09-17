@@ -33,6 +33,7 @@ const CheckBiosPage = ({
   back,
   nextText,
   showNotification,
+  checkBiosAgain,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { sudoPass, Uninstall } = state;
@@ -152,6 +153,12 @@ const CheckBiosPage = ({
                   </li>
                 </ul>
               </Alert>
+              <button
+                className="btn-simple btn-simple--1"
+                onClick={checkBiosAgain}
+              >
+                Check Again
+              </button>
             </div>
           </div>
         </Main>
