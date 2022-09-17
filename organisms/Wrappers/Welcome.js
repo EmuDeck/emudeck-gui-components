@@ -90,7 +90,7 @@ const Welcome = ({
                   )}
                   {second === false && (
                     <p className="lead">
-                      Please select how do you want to update your device:
+                      Please select how do you want to set up your device:
                     </p>
                   )}
                   <div className="container--grid">
