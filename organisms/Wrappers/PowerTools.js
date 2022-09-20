@@ -34,6 +34,7 @@ const PowerTools = ({
   nextText,
   sudoPass,
   showNotification,
+  textNotification,
   passValidates,
 }) => {
   const { state, setState } = useContext(GlobalContext);
@@ -45,7 +46,7 @@ const PowerTools = ({
       <div className="wrapper">
         <Header title="Configure" bold="PowerTools" />
         <Notification css={showNotification ? 'is-animated' : 'nope'}>
-          🎉 PowerTools Installed!
+          {textNotification}
         </Notification>
         <Main>
           <p className="lead">

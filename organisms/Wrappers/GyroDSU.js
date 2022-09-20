@@ -34,6 +34,7 @@ const GyroDSU = ({
   nextText,
   sudoPass,
   showNotification,
+  textNotification,
   passValidates,
 }) => {
   const { state, setState } = useContext(GlobalContext);
@@ -45,7 +46,7 @@ const GyroDSU = ({
       <div className="wrapper">
         <Header title="Configure" bold="GyroDSU" />
         <Notification css={showNotification ? 'is-animated' : 'nope'}>
-          🎉 GyroDSU Installed!
+          {textNotification}
         </Notification>
         <Main>
           <p className="lead">
