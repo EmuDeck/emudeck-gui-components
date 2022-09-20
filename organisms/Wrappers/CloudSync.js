@@ -7,6 +7,10 @@ import Header from 'components/organisms/Header/Header.js';
 import Aside from 'components/organisms/Aside/Aside.js';
 import Main from 'components/organisms/Main/Main.js';
 
+import { BtnSimple } from 'getbasecore/Atoms';
+
+import { Alert } from 'getbasecore/Molecules';
+
 import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 
@@ -26,60 +30,40 @@ const CloudSync = ({
   const { cloudSync } = state;
 
   return (
-    <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <div className="wrapper">
-          <Header title="Configure " bold="SaveSync" />
-          <Main>
-            <p className="lead">
-              SaveSync is a plugin that allows you to sync your saved games to
-              the cloud.
-            </p>
-            <SelectorMenu>
-              <div className="selector-menu__img">
-                <img
-                  src={cloudSyncOn}
-                  className={cloudSync == true && 'is-hidden'}
-                  alt="Background"
-                />
-                <img
-                  src={cloudSyncOff}
-                  className={cloudSync == false && 'is-hidden'}
-                  alt="Background"
-                />
-              </div>
-              <div className="selector-menu__options selector-menu__options--full">
-                <ul>
-                  <li onClick={() => onClick(true)}>
-                    <Card css={cloudSync == true && 'is-selected'}>
-                      <span className="h3">Enable</span>
-                    </Card>
-                  </li>
-                  <li onClick={() => onClick(false)}>
-                    <Card css={cloudSync == false && 'is-selected'}>
-                      <span className="h3">Disable</span>
-                    </Card>
-                  </li>
-                </ul>
-              </div>
-              <div className="selector-menu__details">
-                <p className="lead">Systems</p>
-                <ul>
-                  <li>All the emulators</li>
-                </ul>
-              </div>
-            </SelectorMenu>
-          </Main>
-          <Footer
-            next="end"
-            nextText="Finish "
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
-        </div>
+    <div className="app">
+      <Aside />
+      <div className="wrapper">
+        <Header title="Sync your games on the " bold="cloud - Beta" />
+
+        <Main>
+          <p className="lead">
+            Sync your games to the cloud, start on your PC and keep playing on
+            the go on your Deck
+          </p>
+          <div className="container--grid">
+            <div data-col-sm="6">
+              <BtnSimple
+                css="btn-simple--1"
+                type="button"
+                aria="Install SaveSync"
+                onClick={() => onClick()}
+                disabled={disabledNext && 'true'}
+              >
+                Install SaveSync
+              </BtnSimple>
+            </div>
+            <div data-col-sm="6">
+              <img src={cloudSyncOn} alt="bg" />
+            </div>
+          </div>
+        </Main>
+        <Footer
+          next={false}
+          disabledNext={disabledNext}
+          disabledBack={disabledBack}
+        />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -26,7 +26,6 @@ const ToolsAndStuff = ({
   onClick,
   next,
   back,
-  hasSudo,
   nextText,
 }) => {
   const { state, setState } = useContext(GlobalContext);
@@ -104,6 +103,13 @@ const ToolsAndStuff = ({
               onClick={() => goTo('remote-play-whatever')}
             >
               RemotePlayWhatever
+            </BtnSimple>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              onClick={() => goTo('cloud-sync')}
+            >
+              SaveSync Cloud games
             </BtnSimple>
             <BtnSimple
               css="btn-simple--1"
