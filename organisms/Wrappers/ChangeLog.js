@@ -16,19 +16,8 @@ import { Form } from 'getbasecore/Molecules';
 
 import Card from 'components/molecules/Card/Card.js';
 
-const ChangeLog = ({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onChange,
-  onClick,
-  next,
-  back,
-  hasSudo,
-  nextText,
-}) => {
+const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { sudoPass, ChangeLog } = state;
 
   return (
     <div className="app">
@@ -45,22 +34,27 @@ const ChangeLog = ({
               - NEW: Settings page, configure some settings of your emulators
               within EmuDeck
             </li>
-            <li>- NEW: Reset page, to get EmuDeck back to default</li>
+            <li>- NEW: Reset page, EmuDeck back to default settings</li>
             <li>- NEW: Default images for SRM, no more grey boxes!</li>
-            <li>- NEW: SaveSync. Sync your saved games on the cloud</li>
+            <li>- NEW: SaveSync. Sync your saved games to the cloud</li>
             <li>- NEW: DooM SRM Parser</li>
             <li>- NEW: BiosChecker</li>
             <li>- NEW: SwanStation Core</li>
+            <li>- NEW: RemotePlatWhatever, online multiplayer!</li>
             <li>- FIX: Updated config files for Duckstation</li>
             <li>- FIX: RetroArch Analog Stick for GB & GBC</li>
             <li>- FIX: Uninstaller fixes</li>
             <li>- FIX: PCSX2-QT Config Changes</li>
             <li>- FIX: Yuzu Config Changes</li>
+            <li>- IMPROVEMENT: No more cluttered icons on desktop mode</li>
+            <li>- IMPROVEMENT: New emulator's hotkeys</li>
             <li>
-              - IMPROVEMENT: Better Dolphin Performance on Anbernic Win600
-              - IMPROVEMENT: Better Steam Input definitions
+              - IMPROVEMENT: Better Dolphin Performance on Anbernic Win600 -
+              IMPROVEMENT: Better Steam Input definitions
             </li>
-            <li>- And several small bug fixes</li>
+            <li>
+              <strong>- And several small bug fixes</strong>
+            </li>
           </ul>
         </Main>
         <Footer

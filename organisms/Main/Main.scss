@@ -70,6 +70,9 @@ main {
   flex-direction: column;
   flex-wrap: wrap;
   height: 220px;
+  li {
+    margin: 0 10px;
+  }
 }
 
 .version {

@@ -109,7 +109,7 @@ const ToolsAndStuff = ({
               type="button"
               onClick={() => goTo('cloud-sync')}
             >
-              SaveSync Cloud games
+              SaveSync
             </BtnSimple>
             <BtnSimple
               css="btn-simple--1"
