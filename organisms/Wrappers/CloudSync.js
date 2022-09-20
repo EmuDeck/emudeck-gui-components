@@ -22,6 +22,7 @@ import dropbox from 'assets/cloud/dropbox.png';
 import gdrive from 'assets/cloud/gdrive.png';
 import nextcloud from 'assets/cloud/nextcloud.png';
 import onedrive from 'assets/cloud/onedrive.png';
+import pcloud from 'assets/cloud/pcloud.png';
 
 const CloudSync = ({
   disabledNext,
@@ -84,6 +85,13 @@ const CloudSync = ({
             >
               <img src={onedrive} alt="onedrive" />
               <span className="h6">OneDrive</span>
+            </Card>
+            <Card
+              css={cloudSync == 'pcloud' && 'is-selected'}
+              onClick={() => onClick('pcloud')}
+            >
+              <img src={pcloud} alt="pcloud" />
+              <span className="h6">pCloud</span>
             </Card>
           </div>
           {cloudSync !== '' && cloudSync !== false && (
