@@ -29,6 +29,7 @@ const CloudSync = ({
   disabledBack,
   downloadComplete,
   onClick,
+  onClickInstall,
   next,
   back,
   data,
@@ -99,7 +100,7 @@ const CloudSync = ({
               css="btn-simple--1"
               type="button"
               aria="Install SaveSync"
-              onClick={() => onClick()}
+              onClick={() => onClickInstall()}
               disabled={disabledNext && 'true'}
             >
               Install SaveSync
