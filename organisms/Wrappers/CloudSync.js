@@ -39,7 +39,7 @@ const CloudSync = ({
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title="Sync your games on the " bold="cloud - Beta" />
+        <Header title="Sync your games to the " bold="cloud - Beta" />
 
         <Main>
           <p className="lead">
