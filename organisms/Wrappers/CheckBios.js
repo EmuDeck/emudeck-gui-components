@@ -19,7 +19,7 @@ import { Form } from 'getbasecore/Molecules';
 
 import Card from 'components/molecules/Card/Card.js';
 
-const CheckBiosPage = ({
+const CheckBios = ({
   disabledNext,
   disabledBack,
   ps1Bios,
@@ -38,6 +38,40 @@ const CheckBiosPage = ({
   const { state, setState } = useContext(GlobalContext);
   const { sudoPass, Uninstall } = state;
 
+  const biosText = (name) => {
+    switch (name) {
+      case true:
+        return 'detected!';
+        break;
+      case false:
+        return 'missing!';
+        break;
+      case null:
+        return '...searching...';
+        break;
+      default:
+        return '...searching...';
+        break;
+    }
+  };
+
+  const biosCSS = (name) => {
+    switch (name) {
+      case true:
+        return 'alert--success ';
+        break;
+      case false:
+        return 'alert--danger ';
+        break;
+      case null:
+        return ' ';
+        break;
+      default:
+        return ' ';
+        break;
+    }
+  };
+
   return (
     <div className="app">
       <Aside />
@@ -52,66 +86,28 @@ const CheckBiosPage = ({
           </p>
           <div className="container--grid">
             <div data-col-sm="6">
-              <Alert
-                css={
-                  ps1Bios
-                    ? 'alert--mini alert--success'
-                    : 'alert--mini alert--danger'
-                }
-              >
-                Playstation 1 Bios {ps1Bios ? 'detected!' : 'missing!'}
+              <Alert css={'alert--mini ' + biosCSS(ps1Bios)}>
+                Playstation 1 Bios {biosText(ps1Bios)}
+              </Alert>
+              <Alert css={'alert--mini ' + biosCSS(ps2Bios)}>
+                Playstation 2 Bios {biosText(ps2Bios)}
+              </Alert>
+              <Alert css={'alert--mini ' + biosCSS(switchBios)}>
+                Nintendo Switch Firmware {biosText(switchBios)}
+              </Alert>
+              <Alert css={'alert--mini ' + biosCSS(segaCDBios)}>
+                Sega CD Bios {biosText(segaCDBios)}
+              </Alert>
+              <Alert css={'alert--mini ' + biosCSS(saturnBios)}>
+                Saturn Bios {biosText(saturnBios)}
+              </Alert>
+              <Alert css={'alert--mini ' + biosCSS(DSBios)}>
+                Nintendo DS Bios {biosText(DSBios)}
               </Alert>
               <Alert
                 css={
-                  ps2Bios
-                    ? 'alert--mini alert--success'
-                    : 'alert--mini alert--danger'
-                }
-              >
-                Playstation 2 Bios {ps2Bios ? 'detected!' : ' missing!'}
-              </Alert>
-              <Alert
-                css={
-                  switchBios
-                    ? 'alert--mini alert--success'
-                    : 'alert--mini alert--danger'
-                }
-              >
-                Nintendo Switch Firmware
-                {switchBios ? 'detected!' : ' missing!'}
-              </Alert>
-              <Alert
-                css={
-                  segaCDBios
-                    ? 'alert--mini alert--success'
-                    : 'alert--mini alert--danger'
-                }
-              >
-                Sega CD Bios {segaCDBios ? 'detected!' : ' missing!'}
-              </Alert>
-              <Alert
-                css={
-                  saturnBios
-                    ? 'alert--mini alert--success'
-                    : 'alert--mini alert--danger'
-                }
-              >
-                Saturn Bios {saturnBios ? 'detected!' : ' missing!'}
-              </Alert>
-              <Alert
-                css={
-                  DSBios
-                    ? 'alert--mini alert--success'
-                    : 'alert--mini alert--danger'
-                }
-              >
-                Nintendo DS Bios {DSBios ? 'detected!' : ' missing!'}
-              </Alert>
-              <Alert
-                css={
-                  dreamcastBios
-                    ? 'alert--mini alert--success'
-                    : 'alert--mini alert--warning'
+                  'alert--mini ' +
+                  (dreamcastBios ? 'alert--success' : 'alert--warning')
                 }
               >
                 Dreamcast Bios{' '}
@@ -173,4 +169,4 @@ const CheckBiosPage = ({
   );
 };
 
-export default CheckBiosPage;
+export default CheckBios;
