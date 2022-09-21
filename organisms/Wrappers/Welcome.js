@@ -29,6 +29,7 @@ const Welcome = ({
   back,
   third,
   thirdText,
+  fourthText,
   backText,
   alert,
   saveCommand,
@@ -150,8 +151,7 @@ const Welcome = ({
               backText={backText}
               third={third}
               thirdText={thirdText}
-              forth={third}
-              forthText={thirdText}
+              fourthText={fourthText}
               next={next}
               disabledNext={disabledNext}
               disabledBack={disabledBack}

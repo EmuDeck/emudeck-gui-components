@@ -8,33 +8,51 @@ const Footer = ({
   back,
   next,
   third,
+  fourth,
+  fourthText,
   disabledNext,
   disabledBack,
   nextText,
   backText,
-  thirdText
+  thirdText,
 }) => {
+  const ipcChannel = window.electron.ipcRenderer;
   const navigate = useNavigate();
   const goTo = (href) => {
     navigate('/' + href);
   };
+
+  const CloseApp = () => {
+    window.close();
+  };
+
   return (
     <footer className="footer">
-    {!!third && (
-      <BtnSimple
-        css="btn-simple--2"
-        type="button"
-       onClick={() => goTo(third)}
-        aria="Go Back"
-      >
-        {thirdText}
-      </BtnSimple>
-    )}
+      {!!fourth && (
+        <BtnSimple
+          css="btn-simple--2"
+          type="button"
+          onClick={() => CloseApp()}
+          aria="Go Back"
+        >
+          {fourthText}
+        </BtnSimple>
+      )}
+      {!!third && (
+        <BtnSimple
+          css="btn-simple--2"
+          type="button"
+          onClick={() => goTo(third)}
+          aria="Go Back"
+        >
+          {thirdText}
+        </BtnSimple>
+      )}
       {back !== false && (
         <BtnSimple
           css="btn-simple--2"
           type="button"
-          onClick={ back ?  () => goTo(back) : () => navigate(-1) }
+          onClick={back ? () => goTo(back) : () => navigate(-1)}
           aria="Go Back"
           disabled={disabledBack && 'true'}
         >
