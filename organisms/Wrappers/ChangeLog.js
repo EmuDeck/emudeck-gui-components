@@ -46,8 +46,13 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
             <li>- FIX: Uninstaller fixes</li>
             <li>- FIX: PCSX2-QT Config Changes</li>
             <li>- FIX: Yuzu Config Changes</li>
+            <li>- NEW: Vita3K and ScummVM Emulators</li>
             <li>- IMPROVEMENT: No more cluttered icons on desktop mode</li>
             <li>- IMPROVEMENT: New emulator's hotkeys</li>
+            <li>
+              - IMPROVEMENT: Performance optimizations for Yuzu, PCSX2 and
+              Dolphin
+            </li>
             <li>
               - IMPROVEMENT: Better Dolphin Performance on Anbernic Win600 -
               IMPROVEMENT: Better Steam Input definitions

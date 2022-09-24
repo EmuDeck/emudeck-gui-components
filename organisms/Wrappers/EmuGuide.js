@@ -7,6 +7,7 @@ import Aside from 'components/organisms/Aside/Aside.js';
 import Main from 'components/organisms/Main/Main.js';
 import EmuTable from 'components/organisms/EmuTable/EmuTable.js';
 
+import imgdefault from 'assets/1x1.png';
 import imgra from 'assets/emulators/ra.png';
 import imgdolphin from 'assets/emulators/dolphin.png';
 import imgprimehacks from 'assets/emulators/primehacks.png';
@@ -51,9 +52,64 @@ const EmuGuide = (props) => {
     segacd,
     saturn,
     dreamcast,
-    ds,
+    nds,
   } = props;
-  console.log(props['ps1']);
+
+  let img;
+
+  switch (emuData.id) {
+    case 'ra':
+      img = imgra;
+      break;
+    case 'dolphin':
+      img = imgdolphin;
+      break;
+    case 'primehacks':
+      img = imgprimehacks;
+      break;
+    case 'ppsspp':
+      img = imgppsspp;
+      break;
+    case 'duckstation':
+      img = imgduckstation;
+      break;
+    case 'citra':
+      img = imgcitra;
+      break;
+    case 'pcsx2':
+      img = imgpcsx2;
+      break;
+    case 'rpcs3':
+      img = imgrpcs3;
+      break;
+    case 'yuzu':
+      img = imgyuzu;
+      break;
+    case 'ryujinx':
+      img = imgryujinx;
+      break;
+    case 'cemu':
+      img = imgcemu;
+      break;
+    case 'xemu':
+      img = imgxemu;
+      break;
+    case 'mame':
+      img = imgmame;
+      break;
+    case 'vita3k':
+      img = imgvita3k;
+      break;
+    case 'scummvm':
+      img = imgscummvm;
+      break;
+    case 'supermodelista':
+      img = imgsupermodelista;
+      break;
+    default:
+      img = imgdefault;
+      break;
+  }
 
   const biosText = (name) => {
     name = props[`${name}`];
@@ -115,7 +171,7 @@ const EmuGuide = (props) => {
         biosName = 'Dreamcast';
         break;
       case 'nds':
-        biosName = 'NintendoDS';
+        biosName = 'Nintendo DS';
         break;
       case 'nswitch':
         biosName = 'Nintendo Switch';
@@ -128,13 +184,15 @@ const EmuGuide = (props) => {
     biosCSS('ps1');
 
     return (
-      <Alert key={i} css={'alert--mini ' + biosCSS(item)}>
-        {biosName} Bios {biosText(item)}
-      </Alert>
+      <li>
+        <Alert key={i} css={'alert--mini ' + biosCSS(item)}>
+          {biosName} Bios {biosText(item)}
+        </Alert>
+      </li>
     );
   });
 
-  biosHTML = <div className="list-two-cols">{biosComponents}</div>;
+  biosHTML = <ul className="list-two-cols">{biosComponents}</ul>;
 
   return (
     <div className="app">
@@ -142,7 +200,14 @@ const EmuGuide = (props) => {
       <div className="wrapper">
         <Header title={emuData.name} bold="guide" />
         <Main>
-          <EmuTable img={imgra} emuData={emuData} bios={biosHTML} />
+          {emuData.id && (
+            <EmuTable
+              img={img}
+              emuData={emuData}
+              bios={biosHTML}
+              onChange={onChange}
+            />
+          )}
         </Main>
         <Footer
           next={false}

@@ -65,14 +65,20 @@ main {
   margin-bottom: 20px;
 }
 
-.list-two-cols {
+@mixin flex-grid-items($cols) {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  height: 220px;
-  li {
-    margin: 0 10px;
+
+  > * {
+    $item-width: 100% / $cols;
+    width: calc($item-width);
+    box-sizing: border-box;
+    padding: 0 5px;
   }
+}
+
+.list-two-cols {
+  @include flex-grid-items(2);
 }
 
 .version {

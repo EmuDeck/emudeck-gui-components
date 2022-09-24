@@ -10,3 +10,7 @@
   --desc-list-dt-width: 160px;
   --ol-padding: 30px;
 }
+
+ol.list li::before {
+  left: -20px;
+}

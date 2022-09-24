@@ -160,14 +160,27 @@ const Welcome = ({
         </div>
       )}
 
+      {update == null && (
+        <div className="app">
+          <Aside />
+          <div className="wrapper">
+            <Header title="Checking for updates..." />
+            <p className="h5">
+              Please stand by while we check if there is a new version
+            </p>
+            <ProgressBar css="progress--success" value={counter} max="100" />
+          </div>
+        </div>
+      )}
+
       {update == 'updating' && (
         <div className="app">
           <Aside />
           <div className="wrapper">
-            <Header title="Checking for updates of" bold={`EmuDeck`} />
+            <Header title="🎉 Update found! 🎉" />
             <p className="h5">
-              Please stand by...EmuDeck will restart itself if an update is
-              found
+              We are downloading the update, EmuDeck will restart as soon as it
+              finishes
             </p>
             <ProgressBar css="progress--success" value={counter} max="100" />
           </div>

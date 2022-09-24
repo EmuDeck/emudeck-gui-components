@@ -120,13 +120,15 @@ const ToolsAndStuff = ({
             </BtnSimple>
           </div>
           <hr />
+          <span class="h5">Guides</span>
+          {/*
           <BtnSimple
             css="btn-simple--1"
             type="button"
             onClick={() => goTo('video-guide')}
           >
             Video Guide
-          </BtnSimple>
+          </BtnSimple>*/}
           <BtnSimple
             css="btn-simple--1"
             type="button"
@@ -134,6 +136,7 @@ const ToolsAndStuff = ({
           >
             Emulators Guides
           </BtnSimple>
+          <hr />
           <BtnSimple
             css="btn-simple--2"
             type="button"

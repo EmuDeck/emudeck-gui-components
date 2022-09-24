@@ -17,6 +17,7 @@ const EmuTable = ({
   img,
   bios,
   emuData,
+  onChange,
 }) => {
   return (
     <div class="emutable">
@@ -26,25 +27,35 @@ const EmuTable = ({
           <div class="form">
             <FormSelectSimple
               name="formu-input"
-              label="Select another Emulator"
+              label="Select Emulator"
+              onChange={onChange}
             >
-              <option value="ra">RetroArch</option>
+              <option value="citra">Citra</option>
               <option value="cemu">Cemu</option>
+              <option value="dolphin">Dolphin</option>
+              <option value="duckstation">Duckstation</option>
+              <option value="mame">MAME</option>
+              <option value="pcsx2">PCSX2</option>
+              <option value="primehacks">PrimeHack</option>
+              <option value="ppsspp">PPSSPP</option>
+              <option value="ra">RetroArch</option>
+              <option value="rpcs3">RPCS3</option>
+              <option value="ryujinx">Ryujinx</option>
+              <option value="scummvm">ScummVM</option>
+              <option value="xemu">Xemu</option>
+              <option value="yuzu">Yuzu</option>
+              <option value="vita3k">Vita3K</option>
             </FormSelectSimple>
           </div>
         </div>
 
         <div data-col-sm="7">
-          {/*emuData.description && (
+          {emuData.description && (
             <>
               <p className="h5">Description</p>
-              <p>
-                RetroArch is a free and open-source, cross-platform frontend for
-                emulators, game engines, video games, media players and other
-                applications.
-              </p>
+              <p>{emuData.description}</p>
             </>
-          )*/}
+          )}
           {emuData.systems && (
             <>
               <p className="h5">Emulated Systems</p>
@@ -54,23 +65,28 @@ const EmuTable = ({
           {emuData.special_configuration && (
             <>
               <p className="h5">Special Configuration</p>
-              <p>{emuData.special_configuration}</p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: `${emuData.special_configuration}`,
+                }}
+              ></p>
             </>
           )}
-          {emuData.bios && (
+          {emuData.bios.length > 0 && (
             <>
               <p className="h5">Bios needed</p>
               {bios}
             </>
           )}
+          {/*
           <BtnSimple css="btn-simple--1" type="button" aria="Go Back">
             Reset configuration
           </BtnSimple>
+          */}
         </div>
         <div data-col-sm="3">
           {emuData.hotkeys && (
             <>
-              <p className="h5">Hotkeys</p>
               <Table
                 css="table-reflow"
                 description="Table description"

@@ -10,6 +10,22 @@ import Card from 'components/molecules/Card/Card.js';
 import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.js';
 
 import { ProgressBar, BtnSimple } from 'getbasecore/Atoms';
+import imgra from 'assets/emulators/ra.png';
+import imgdolphin from 'assets/emulators/dolphin.png';
+import imgprimehacks from 'assets/emulators/primehacks.png';
+import imgppsspp from 'assets/emulators/ppsspp.png';
+import imgduckstation from 'assets/emulators/duckstation.png';
+import imgcitra from 'assets/emulators/citra.png';
+import imgpcsx2 from 'assets/emulators/pcsx2.png';
+import imgrpcs3 from 'assets/emulators/rpcs3.png';
+import imgyuzu from 'assets/emulators/yuzu.png';
+import imgryujinx from 'assets/emulators/ryujinx.png';
+import imgcemu from 'assets/emulators/cemu.png';
+import imgxemu from 'assets/emulators/xemu.png';
+import imgmame from 'assets/emulators/mame.png';
+import imgvita3k from 'assets/emulators/vita3k.png';
+import imgscummvm from 'assets/emulators/scummvm.png';
+import imgsrm from 'assets/emulators/srm.png';
 
 import sdlogo from 'assets/sdlogo.png';
 import remotelogo from 'assets/remotelogo.png';
@@ -273,11 +289,68 @@ const End = ({
             )}
             <br />
             {disabledNext == true && (
-              <ProgressBar
-                css="progress--success"
-                value={percentage}
-                max={100}
-              />
+              <>
+                <ProgressBar
+                  css="progress--success"
+                  value={percentage}
+                  max={100}
+                />
+                <span class="h5">
+                  EmuDeck wouldn't be possible without all these open-source
+                  projects. We want to give them all a big shout out for their
+                  hard work!
+                </span>
+                <div class="cards cards--mini cards--center">
+                  <Card css="is-selected">
+                    <img src={imgra} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgdolphin} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgprimehacks} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgppsspp} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgduckstation} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgcitra} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgpcsx2} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgrpcs3} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgyuzu} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgryujinx} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgcemu} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgxemu} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgmame} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgvita3k} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgscummvm} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgsrm} alt="alt" />
+                  </Card>
+                </div>
+              </>
             )}
           </Main>
           <footer className="footer">

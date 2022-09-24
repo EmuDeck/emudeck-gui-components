@@ -1,18 +1,11 @@
 footer.footer {
   display: flex;
   justify-content: flex-end;
-  .btn-simple{
-    margin-bottom: 0
+  .btn-simple {
+    margin-bottom: 0;
   }
 }
 
 footer.footer .button + .button {
   margin-left: 20px;
-}
-
-.list-two-cols {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 420px;
 }

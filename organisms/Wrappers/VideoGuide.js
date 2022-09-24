@@ -44,43 +44,44 @@ const VideoGuide = ({
               />
             </div>
             <div data-col-sm="5">
-              <ul class="list">
-                <li>
+              <span className="h4">Sections</span>
+              <ol class="list">
+                <li className="h6">
                   <a href="#" onClick={() => onClick(76)}>
                     My setup
                   </a>
                 </li>
-                <li>
+                <li className="h6">
                   <a href="#" onClick={() => onClick(159)}>
                     RetroSystems
                   </a>
                 </li>
-                <li>
+                <li className="h6">
                   <a href="#" onClick={() => onClick(229)}>
                     GameCube
                   </a>{' '}
                 </li>
-                <li>
+                <li className="h6">
                   <a href="#" onClick={() => onClick(402)}>
                     3DS, PS2, Xbox
                   </a>{' '}
                 </li>
-                <li>
+                <li className="h6">
                   <a href="#" onClick={() => onClick(553)}>
                     WiiU And PS3
                   </a>{' '}
                 </li>
-                <li>
+                <li className="h6">
                   <a href="#" onClick={() => onClick(657)}>
                     Switch
                   </a>
                 </li>
-                <li>
+                <li className="h6">
                   <a href="#" onClick={() => onClick(810)}>
                     Summary
                   </a>
                 </li>
-              </ul>
+              </ol>
             </div>
           </div>
         </Main>
