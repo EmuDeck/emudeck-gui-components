@@ -120,7 +120,20 @@ const ToolsAndStuff = ({
             </BtnSimple>
           </div>
           <hr />
-
+          <BtnSimple
+            css="btn-simple--1"
+            type="button"
+            onClick={() => goTo('video-guide')}
+          >
+            Video Guide
+          </BtnSimple>
+          <BtnSimple
+            css="btn-simple--1"
+            type="button"
+            onClick={() => goTo('emulator-guide?emulator=pepe')}
+          >
+            Emulators Guides
+          </BtnSimple>
           <BtnSimple
             css="btn-simple--2"
             type="button"

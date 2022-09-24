@@ -20,6 +20,8 @@ import imgryujinx from 'assets/emulators/ryujinx.png';
 import imgcemu from 'assets/emulators/cemu.png';
 import imgxemu from 'assets/emulators/xemu.png';
 import imgmame from 'assets/emulators/mame.png';
+import imgvita3k from 'assets/emulators/vita3k.png';
+import imgscummvm from 'assets/emulators/scummvm.png';
 import imgsupermodelista from 'assets/emulators/supermodelista.png';
 
 const images = {
@@ -36,8 +38,10 @@ const images = {
   cemu: { imgcemu },
   xemu: { imgxemu },
   mame: { imgmame },
+  vita3k: { imgvita3k },
+  scummvm: { imgscummvm },
   supermodelista: { imgsupermodelista },
-
+  supermodelista: { imgsupermodelista },
 };
 
 const EmulatorSelector = ({
@@ -61,7 +65,9 @@ const EmulatorSelector = ({
           <Header title="Emulators for" bold={`${device}`} />
           <Main>
             <p className="lead">
-              These are the emulators EmuDeck recommends for your device. You can disable any emulator icon to avoid installing / updating it on your installation.
+              These are the emulators EmuDeck recommends for your device. You
+              can disable any emulator icon to avoid installing / updating it on
+              your installation.
             </p>
 
             <div className="cards cards--mini">
@@ -84,7 +90,7 @@ const EmulatorSelector = ({
             </div>
           </Main>
           <Footer
-            next='emulator-configuration'
+            next="emulator-configuration"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />

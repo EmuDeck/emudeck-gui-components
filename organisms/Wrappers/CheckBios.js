@@ -56,6 +56,7 @@ const CheckBios = ({
   };
 
   const biosCSS = (name) => {
+    console.log({ name });
     switch (name) {
       case true:
         return 'alert--success ';

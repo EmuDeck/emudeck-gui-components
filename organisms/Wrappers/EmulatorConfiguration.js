@@ -21,6 +21,8 @@ import imgcemu from 'assets/emulators/cemu.png';
 import imgxemu from 'assets/emulators/xemu.png';
 import imgsrm from 'assets/emulators/srm.png';
 import imgmame from 'assets/emulators/mame.png';
+import imgvita3k from 'assets/emulators/vita3k.png';
+import imgscummvm from 'assets/emulators/scummvm.png';
 import imgsupermodelista from 'assets/emulators/supermodelista.png';
 
 const images = {
@@ -38,6 +40,8 @@ const images = {
   xemu: { imgxemu },
   supermodelista: { imgsupermodelista },
   srm: { imgsrm },
+  vita3k: { imgvita3k },
+  scummvm: { imgscummvm },
   mame: { imgmame },
 };
 
@@ -61,18 +65,22 @@ const EmulatorConfiguration = ({
         <div className="wrapper">
           <Header title="Update emulator's" bold="configuration" />
           <Main>
-
-          {second && (
-            <p className="lead">
-              Are you an existing EmuDeck user? You can disable any emulator icon keep it's current configuration. We will remember your choises for your next update. ( Active means the emulator will be overwritten)
-            </p>
-          )}
-          {!second && (
-            <p className="lead">
-              By default we will overwrite all configuration on these emulators. You can disable any emulator emulator to keep it's current configuration ( Not recommended ). ( Active means the emulator will be overwritten)
-            </p>
-          )}
-
+            {second && (
+              <p className="lead">
+                Are you an existing EmuDeck user? You can disable any emulator
+                icon keep it's current configuration. We will remember your
+                choises for your next update. ( Active means the emulator will
+                be overwritten)
+              </p>
+            )}
+            {!second && (
+              <p className="lead">
+                By default we will overwrite all configuration on these
+                emulators. You can disable any emulator emulator to keep it's
+                current configuration ( Not recommended ). ( Active means the
+                emulator will be overwritten)
+              </p>
+            )}
 
             <div className="cards cards--mini">
               {overwriteConfigEmusArray.map((item, i) => {

@@ -11,7 +11,7 @@
   background-color: rgba(255, 255, 255, 0.6);
   text-align: left;
   height: 100%;
-  transition: .8s;
+  transition: 0.8s;
   .btn-simple {
     display: none;
   }
@@ -42,7 +42,7 @@
     background-color: rgba(255, 255, 255, 1);
     opacity: 1;
     outline: 2px solid #5bf;
-    transition: .8s;
+    transition: 0.8s;
     img {
       opacity: 1;
     }
@@ -79,7 +79,7 @@
 
   &--mini {
     .card {
-      max-width: 12%;
+      max-width: 10%;
     }
   }
 }

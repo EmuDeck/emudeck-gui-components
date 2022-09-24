@@ -164,7 +164,7 @@ const Welcome = ({
         <div className="app">
           <Aside />
           <div className="wrapper">
-            <Header title="Cheking for updates of" bold={`EmuDeck`} />
+            <Header title="Checking for updates of" bold={`EmuDeck`} />
             <p className="h5">
               Please stand by...EmuDeck will restart itself if an update is
               found
