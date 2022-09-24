@@ -71,7 +71,7 @@ const End = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      let msg = readMSG('cat ~/emudeck/msg.log');
+      let msg = readMSG('cat ~/.config/EmuDeck/msg.log');
 
       if (message.includes('100')) {
         clearInterval(interval);

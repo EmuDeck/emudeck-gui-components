@@ -57,7 +57,7 @@ const RemotePlayWhatever = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      let msg = readMSG('cat ~/emudeck/RemotePlayWhatever.log');
+      let msg = readMSG('cat ~/.config/EmuDeck/RemotePlayWhatever.log');
 
       if (message.includes('All files converted to CHD')) {
         clearInterval(interval);

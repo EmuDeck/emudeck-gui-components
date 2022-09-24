@@ -52,7 +52,7 @@ const readMSG = (command) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      let msg = readMSG('cat ~/emudeck/chdtool.log');
+      let msg = readMSG('cat ~/.config/EmuDeck/chdtool.log');
 
       if (message.includes('All files converted to CHD')) {
         clearInterval(interval);
