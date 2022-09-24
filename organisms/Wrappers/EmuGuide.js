@@ -55,61 +55,101 @@ const EmuGuide = (props) => {
     nds,
   } = props;
 
-  let img;
+  // const imgdefault =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/1x1.png';
+  // const imgra =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/ra.png';
+  // const imgdolphin =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/dolphin.png';
+  // const imgprimehacks =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/primehacks.png';
+  // const imgppsspp =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/ppsspp.png';
+  // const imgduckstation =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/duckstation.png';
+  // const imgcitra =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/citra.png';
+  // const imgpcsx2 =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/pcsx2.png';
+  // const imgrpcs3 =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/rpcs3.png';
+  // const imgyuzu =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/yuzu.png';
+  // const imgryujinx =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/ryujinx.png';
+  // const imgcemu =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/cemu.png';
+  // const imgxemu =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/xemu.png';
+  // const imgmame =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/mame.png';
+  // const imgvita3k =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/vita3k.png';
+  // const imgscummvm =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/scummvm.png';
+  // const imgsupermodelista =
+  //   'https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/src/assets/emulators/supermodelista.png';
 
-  switch (emuData.id) {
-    case 'ra':
-      img = imgra;
-      break;
-    case 'dolphin':
-      img = imgdolphin;
-      break;
-    case 'primehacks':
-      img = imgprimehacks;
-      break;
-    case 'ppsspp':
-      img = imgppsspp;
-      break;
-    case 'duckstation':
-      img = imgduckstation;
-      break;
-    case 'citra':
-      img = imgcitra;
-      break;
-    case 'pcsx2':
-      img = imgpcsx2;
-      break;
-    case 'rpcs3':
-      img = imgrpcs3;
-      break;
-    case 'yuzu':
-      img = imgyuzu;
-      break;
-    case 'ryujinx':
-      img = imgryujinx;
-      break;
-    case 'cemu':
-      img = imgcemu;
-      break;
-    case 'xemu':
-      img = imgxemu;
-      break;
-    case 'mame':
-      img = imgmame;
-      break;
-    case 'vita3k':
-      img = imgvita3k;
-      break;
-    case 'scummvm':
-      img = imgscummvm;
-      break;
-    case 'supermodelista':
-      img = imgsupermodelista;
-      break;
-    default:
-      img = imgdefault;
-      break;
-  }
+  const [stateImg, setStateImg] = useState({
+    img: imgdefault,
+  });
+  const { img } = stateImg;
+
+  useEffect(() => {
+    switch (emuData.id) {
+      case 'ra':
+        setStateImg({ img: imgra });
+        break;
+      case 'dolphin':
+        setStateImg({ img: imgdolphin });
+        break;
+      case 'primehacks':
+        setStateImg({ img: imgprimehacks });
+        break;
+      case 'ppsspp':
+        setStateImg({ img: imgppsspp });
+        break;
+      case 'duckstation':
+        setStateImg({ img: imgduckstation });
+        break;
+      case 'citra':
+        setStateImg({ img: imgcitra });
+        break;
+      case 'pcsx2':
+        setStateImg({ img: imgpcsx2 });
+        break;
+      case 'rpcs3':
+        setStateImg({ img: imgrpcs3 });
+        break;
+      case 'yuzu':
+        setStateImg({ img: imgyuzu });
+        break;
+      case 'ryujinx':
+        setStateImg({ img: imgryujinx });
+        break;
+      case 'cemu':
+        setStateImg({ img: imgcemu });
+        break;
+      case 'xemu':
+        setStateImg({ img: imgxemu });
+        break;
+      case 'mame':
+        setStateImg({ img: imgmame });
+        break;
+      case 'vita3k':
+        setStateImg({ img: imgvita3k });
+        break;
+      case 'scummvm':
+        setStateImg({ img: imgscummvm });
+        break;
+      case 'supermodelista':
+        setStateImg({ img: imgsupermodelista });
+        break;
+      default:
+        setStateImg({ img: imgdefault });
+        break;
+    }
+  }, [emuData]);
 
   const biosText = (name) => {
     name = props[`${name}`];
@@ -148,9 +188,6 @@ const EmuGuide = (props) => {
   };
 
   let biosHTML;
-
-  if ((emuData.id = 'ra')) {
-  }
 
   let biosName;
   const biosComponents = emuData.bios.map((item, i) => {
