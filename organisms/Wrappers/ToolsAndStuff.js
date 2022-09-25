@@ -41,6 +41,17 @@ const ToolsAndStuff = ({
     ]);
   };
 
+  const sprunge = () => {
+    const idMessage = Math.random();
+    ipcChannel.sendMessage('bash', [
+      `sprunge|||cat ~/emudeck/emudeck.log | curl -F 'sprunge=<-' http://sprunge.us`,
+    ]);
+    ipcChannel.once('sprunge', (message) => {
+      let messageText = message.stdout;
+      alert(`Copy this url: ${message}`);
+    });
+  };
+
   return (
     <div className="app">
       <Aside />
@@ -137,6 +148,13 @@ const ToolsAndStuff = ({
             Emulators Guides
           </BtnSimple>
           <hr />
+          <BtnSimple
+            css="btn-simple--1"
+            type="button"
+            onClick={() => sprunge()}
+          >
+            Get log
+          </BtnSimple>
           <BtnSimple
             css="btn-simple--2"
             type="button"
