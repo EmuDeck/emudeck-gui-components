@@ -34,7 +34,7 @@ const AspectRatio3D = ({
           <Header title="Configure Aspect Ratio for" bold="Classic 3D Games" />
           <Main>
             <p className="lead">
-              Choose your aspect ratio for Dreamcast, Saturn and Nintendo 64
+              Choose your aspect ratio for Dreamcast and Nintendo 64
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">
@@ -70,8 +70,6 @@ const AspectRatio3D = ({
                 <ul>
                   <li>Dreamcast</li>
                   <li>Nintendo 64</li>
-                  <li>Sega Saturn</li>
-                  <li>Xbox</li>
                 </ul>
               </div>
             </SelectorMenu>
