@@ -108,6 +108,7 @@ const ToolsAndStuff = ({
             >
               Check Bios
             </BtnSimple>
+            {/*
             <BtnSimple
               css="btn-simple--1"
               type="button"
@@ -115,6 +116,7 @@ const ToolsAndStuff = ({
             >
               RemotePlayWhatever
             </BtnSimple>
+            */}
             <BtnSimple
               css="btn-simple--1"
               type="button"

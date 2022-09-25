@@ -120,22 +120,6 @@ const End = ({
     </Card>,
     <Card css="is-selected">
       <div className="container--grid">
-        <div data-col-sm="6">
-          <span className="h2">Multiplayer</span>
-          <p className="lead">
-            Thanks to <strong>RemotePlayWhatever</strong> you can play your
-            Emulators online with friends!
-            <br />
-            Come back to EmuDeck and find it under Tools and Stuff!
-          </p>
-        </div>
-        <div data-col-sm="6">
-          <img src={remotelogo} alt="bg" />
-        </div>
-      </div>
-    </Card>,
-    <Card css="is-selected">
-      <div className="container--grid">
         <div data-col-sm="9">
           <span className="h3">Emulation Folder</span>
           <p className="lead">
