@@ -7,6 +7,8 @@ import Aside from 'components/organisms/Aside/Aside.js';
 import Main from 'components/organisms/Main/Main.js';
 import EmuTable from 'components/organisms/EmuTable/EmuTable.js';
 
+import Notification from 'components/molecules/Notification/Notification.js';
+
 import imgdefault from 'assets/1x1.png';
 import imgra from 'assets/emulators/ra.png';
 import imgdolphin from 'assets/emulators/dolphin.png';
@@ -43,6 +45,7 @@ const EmuGuide = (props) => {
     disabledBack,
     onChange,
     onClick,
+    onClickInstall,
     next,
     back,
     emuData,
@@ -53,6 +56,9 @@ const EmuGuide = (props) => {
     saturn,
     dreamcast,
     nds,
+    showNotification,
+    textNotification,
+    installEmus,
   } = props;
 
   // const imgdefault =
@@ -236,6 +242,9 @@ const EmuGuide = (props) => {
       <Aside />
       <div className="wrapper">
         <Header title={emuData.name} bold="guide" />
+        <Notification css={showNotification ? 'is-animated' : 'nope'}>
+          {textNotification}
+        </Notification>
         <Main>
           {emuData.id && (
             <EmuTable
@@ -243,6 +252,9 @@ const EmuGuide = (props) => {
               emuData={emuData}
               bios={biosHTML}
               onChange={onChange}
+              onClick={onClick}
+              onClickInstall={onClickInstall}
+              installEmus={Object.values(installEmus)}
             />
           )}
         </Main>

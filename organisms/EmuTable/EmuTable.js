@@ -18,6 +18,9 @@ const EmuTable = ({
   bios,
   emuData,
   onChange,
+  onClick,
+  onClickInstall,
+  installEmus,
 }) => {
   return (
     <div class="emutable">
@@ -78,11 +81,34 @@ const EmuTable = ({
               {bios}
             </>
           )}
-          {/*
-          <BtnSimple css="btn-simple--1" type="button" aria="Go Back">
+          <BtnSimple
+            css="btn-simple--1"
+            type="button"
+            aria="Go Back"
+            onClick={() => onClick(emuData.id, emuData.name)}
+          >
             Reset configuration
           </BtnSimple>
-          */}
+          {!installEmus[1] && (
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Go Back"
+              onClick={() => onClickInstall(emuData.id, emuData.name)}
+            >
+              Install
+            </BtnSimple>
+          )}
+          {installEmus[1] && (
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Go Back"
+              disabled={true}
+            >
+              Installed
+            </BtnSimple>
+          )}
         </div>
         <div data-col-sm="3">
           {emuData.hotkeys && (
