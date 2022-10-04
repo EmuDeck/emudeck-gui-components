@@ -60,9 +60,11 @@ body {
 
 main {
   flex: 1;
-  overflow: hidden;
   max-height: 70vh;
   margin-bottom: 20px;
+  @media (min-width: 601px) {
+    overflow: hidden;
+  }
 }
 
 @mixin flex-grid-items($cols) {
