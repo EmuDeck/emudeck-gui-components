@@ -10,6 +10,7 @@ import {
   BtnSimple,
   ProgressBar,
   FormInputSimple,
+  BtnSwitch,
   LinkSimple,
   nextText,
 } from 'getbasecore/Atoms';
@@ -24,6 +25,7 @@ const RAAchievements = ({
   disabledBack,
   downloadComplete,
   onChange,
+  onToggle,
   next,
   back,
   data,
@@ -73,6 +75,14 @@ const RAAchievements = ({
                   id="pass"
                   value={achievements.pass}
                   onChange={onChange}
+                />
+                HardCore mode
+                <BtnSwitch
+                  label="hardcore"
+                  name="hardcore"
+                  id="hardcore"
+                  value={achievements.hardcore}
+                  onChange={onToggle}
                 />
               </Form>
             </div>
