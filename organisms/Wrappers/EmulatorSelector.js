@@ -75,6 +75,9 @@ const EmulatorSelector = ({
                 if (item.id == 'srm') {
                   return;
                 }
+                if (item.id == 'xenia') {
+                  return;
+                }
                 const img = images[item.id][`img${item.id}`];
                 return (
                   <Card

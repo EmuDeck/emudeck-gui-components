@@ -48,6 +48,7 @@ const EmuTable = ({
               <option value="xemu">Xemu</option>
               <option value="yuzu">Yuzu</option>
               <option value="vita3k">Vita3K</option>
+              <option value="xenia">Xenia</option>
             </FormSelectSimple>
           </div>
         </div>
