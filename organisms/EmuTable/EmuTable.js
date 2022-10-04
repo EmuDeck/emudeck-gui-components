@@ -82,6 +82,7 @@ const EmuTable = ({
               {bios}
             </>
           )}
+          {/*
           <BtnSimple
             css="btn-simple--1"
             type="button"
@@ -90,7 +91,8 @@ const EmuTable = ({
           >
             Reset configuration
           </BtnSimple>
-          {!installEmus[1] && (
+        */}
+          {/*!installEmus[1] && (
             <BtnSimple
               css="btn-simple--1"
               type="button"
@@ -99,7 +101,7 @@ const EmuTable = ({
             >
               Install
             </BtnSimple>
-          )}
+          )*/}
           {installEmus[1] && (
             <BtnSimple
               css="btn-simple--1"
