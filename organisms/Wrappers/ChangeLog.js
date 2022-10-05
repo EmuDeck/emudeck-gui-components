@@ -30,17 +30,19 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
           </p>
           <ul className="list-two-cols">
             <li>- NEW: Brand New UI</li>
+            <li>- NEW: Tools & Stuff page with a lot of extra goodies</li>
             <li>
               - NEW: Settings page, configure some settings of your emulators
-              within EmuDeck
+              within EmuDeck without the need of reinstall everything
             </li>
             <li>- NEW: Reset page, EmuDeck back to default settings</li>
             <li>- NEW: Default images for SRM, no more grey boxes!</li>
             <li>- NEW: SaveSync. Sync your saved games to the cloud</li>
             <li>- NEW: DooM SRM Parser</li>
             <li>- NEW: BiosChecker</li>
+            <li>- NEW: RetroAchievments HardCore mode</li>
             <li>- NEW: SwanStation Core</li>
-            <li>- NEW: RemotePlatWhatever, online multiplayer!</li>
+            <li>- NEW: RemotePlayWhatever, online multiplayer!</li>
             <li>- FIX: Updated config files for Duckstation</li>
             <li>- FIX: RetroArch Analog Stick for GB & GBC</li>
             <li>- FIX: Uninstaller fixes</li>
@@ -49,14 +51,11 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
             <li>- NEW: Vita3K and ScummVM Emulators</li>
             <li>- IMPROVEMENT: No more cluttered icons on desktop mode</li>
             <li>- IMPROVEMENT: New emulator's hotkeys</li>
+            <li>- IMPROVEMENT: Performance optimizations for all systems</li>
             <li>
-              - IMPROVEMENT: Performance optimizations for Yuzu, PCSX2 and
-              Dolphin
+              - IMPROVEMENT: Better Dolphin Performance on Anbernic Win600
             </li>
-            <li>
-              - IMPROVEMENT: Better Dolphin Performance on Anbernic Win600 -
-              IMPROVEMENT: Better Steam Input definitions
-            </li>
+            <li>- IMPROVEMENT: Better Steam Input definitions</li>
             <li>
               <strong>- And several small bug fixes</strong>
             </li>
