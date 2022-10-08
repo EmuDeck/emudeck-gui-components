@@ -41,14 +41,14 @@ const CloudSync = ({
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title="Backup your games to the " bold="cloud - Beta" />
+        <Header title="SaveBackup - BETA" />
 
         <Main>
           <p className="lead">
             Backup your games to the cloud. This feature is in beta version, as
             of now it will just backup your games so this is not yet suitable to
-            use it as a sync...in future versions we will update the tool to add
-            sync functionalities.
+            use it to sync you saved games between systems...in future versions
+            we will update the tool to add sync functionalities.
           </p>
 
           <p>Select one of the following providers:</p>
