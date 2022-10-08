@@ -35,7 +35,8 @@ const VideoGuide = ({
         <Header title="Emulation Showcase" />
         <Main>
           <p className="lead">
-            Russ from RetroGameCorps will show you what you play with EmuDeck
+            Russ from RetroGameCorps will show you what can you expect while
+            emulating games with EmuDeck
           </p>
           <div className="container--grid">
             <div data-col-sm="7">
