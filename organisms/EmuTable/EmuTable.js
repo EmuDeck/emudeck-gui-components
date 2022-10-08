@@ -22,6 +22,7 @@ const EmuTable = ({
   onClickInstall,
   installEmus,
   disableInstallButton,
+  disableResetButton,
 }) => {
   return (
     <div class="emutable">
@@ -77,6 +78,13 @@ const EmuTable = ({
               ></p>
             </>
           )}
+          {emuData.wiki && (
+            <p
+              dangerouslySetInnerHTML={{
+                __html: `You can learn more about this emulator in <strong><a class="link" href="${emuData.wiki}" target="_blank">our Wiki</a></strong>`,
+              }}
+            ></p>
+          )}
           {emuData.bios.length > 0 && (
             <>
               <p className="h5">Bios needed</p>
@@ -89,21 +97,22 @@ const EmuTable = ({
             type="button"
             aria="Go Back"
             onClick={() => onClick(emuData.id, emuData.name)}
-            disabled={disableInstallButton}
+            disabled={disableResetButton}
           >
             Reset configuration
           </BtnSimple>
 
-          {/*!installEmus[1] && (
+          {!installEmus[1] && (
             <BtnSimple
               css="btn-simple--1"
               type="button"
               aria="Go Back"
+              disabled={disableInstallButton}
               onClick={() => onClickInstall(emuData.id, emuData.name)}
             >
               Install
             </BtnSimple>
-          )*/}
+          )}
           {installEmus[1] && (
             <BtnSimple
               css="btn-simple--1"

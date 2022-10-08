@@ -61,6 +61,7 @@ const EmuGuide = (props) => {
     textNotification,
     installEmus,
     disableInstallButton,
+    disableResetButton,
   } = props;
 
   // const imgdefault =
@@ -260,6 +261,7 @@ const EmuGuide = (props) => {
               onClick={onClick}
               onClickInstall={onClickInstall}
               disableInstallButton={disableInstallButton}
+              disableResetButton={disableResetButton}
               installEmus={Object.values(installEmus)}
             />
           )}
