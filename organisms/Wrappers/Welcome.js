@@ -167,6 +167,10 @@ const Welcome = ({
             <Header title="Checking for updates..." />
             <p className="h5">
               Please stand by while we check if there is a new version
+              available.
+              <br />
+              If this message doesn't disappear after a while please restart the
+              app.
             </p>
             <ProgressBar css="progress--success" value={counter} max="100" />
           </div>

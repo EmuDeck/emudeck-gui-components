@@ -21,6 +21,7 @@ const EmuTable = ({
   onClick,
   onClickInstall,
   installEmus,
+  disableInstallButton,
 }) => {
   return (
     <div class="emutable">
@@ -88,6 +89,7 @@ const EmuTable = ({
             type="button"
             aria="Go Back"
             onClick={() => onClick(emuData.id, emuData.name)}
+            disabled={disableInstallButton}
           >
             Reset configuration
           </BtnSimple>
