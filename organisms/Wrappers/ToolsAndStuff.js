@@ -122,7 +122,7 @@ const ToolsAndStuff = ({
               type="button"
               onClick={() => goTo('cloud-sync')}
             >
-              SaveSync
+              SaveBackup
             </BtnSimple>
             <BtnSimple
               css="btn-simple--1"
@@ -134,21 +134,21 @@ const ToolsAndStuff = ({
           </div>
           <hr />
           <span class="h5">Guides</span>
-          {/*
+          <BtnSimple
+            css="btn-simple--1"
+            type="button"
+            onClick={() => goTo('emulator-guide')}
+          >
+            Emulators Guides
+          </BtnSimple>
           <BtnSimple
             css="btn-simple--1"
             type="button"
             onClick={() => goTo('video-guide')}
           >
-            Video Guide
-          </BtnSimple>*/}
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            onClick={() => goTo('emulator-guide?emulator=pepe')}
-          >
-            Emulators Guides
+            Emulation Showcase
           </BtnSimple>
+
           <hr />
           <BtnSimple
             css="btn-simple--1"

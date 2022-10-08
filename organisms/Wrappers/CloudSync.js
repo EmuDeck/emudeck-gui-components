@@ -41,12 +41,14 @@ const CloudSync = ({
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title="Sync your games to the " bold="cloud - Beta" />
+        <Header title="Backup your games to the " bold="cloud - Beta" />
 
         <Main>
           <p className="lead">
-            Sync your games to the cloud, start on your PC and keep playing on
-            the go on your Deck
+            Backup your games to the cloud. This feature is in beta version, as
+            of now it will just backup your games so this is not yet suitable to
+            use it as a sync...in future versions we will update the tool to add
+            sync functionalities.
           </p>
 
           <p>Select one of the following providers:</p>
@@ -96,7 +98,7 @@ const CloudSync = ({
               onClick={() => onClickInstall()}
               disabled={disabledNext && 'true'}
             >
-              Install SaveSync
+              Run SaveBackup
             </BtnSimple>
           )}
         </Main>

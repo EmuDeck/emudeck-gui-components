@@ -32,10 +32,10 @@ const VideoGuide = ({
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title="Video" bold="guide" />
+        <Header title="Emulation Showcase" />
         <Main>
           <p className="lead">
-            Learn how to use EmuDeck with Russ from RetroGameCorps
+            Russ from RetroGameCorps will show you what you play with EmuDeck
           </p>
           <div className="container--grid">
             <div data-col-sm="7">
