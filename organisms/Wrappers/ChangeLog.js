@@ -36,13 +36,13 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
               within EmuDeck without the need of reinstall everything
             </li>
             <li>- NEW: Reset page, EmuDeck back to default settings</li>
-            <li>- NEW: Default images for SRM, no more grey boxes!</li>
+            <li>- NEW: Guides, learn more about your Emulators</li>
+            <li>- NEW: Default images for SRM to try and speed up downloads</li>
             <li>- NEW: SaveSync. Sync your saved games to the cloud</li>
             <li>- NEW: DooM SRM Parser</li>
             <li>- NEW: BiosChecker</li>
-            <li>- NEW: RetroAchievments HardCore mode</li>
+            <li>- NEW: RetroAchievements HardCore mode</li>
             <li>- NEW: SwanStation Core</li>
-            <li>- NEW: RemotePlayWhatever, online multiplayer!</li>
             <li>- FIX: Updated config files for Duckstation</li>
             <li>- FIX: RetroArch Analog Stick for GB & GBC</li>
             <li>- FIX: Uninstaller fixes</li>
@@ -56,6 +56,8 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
               - IMPROVEMENT: Better Dolphin Performance on Anbernic Win600
             </li>
             <li>- IMPROVEMENT: Better Steam Input definitions</li>
+            <li>- IMPROVEMENT: Better Saturn Performance using Beetle Core</li>
+
             <li>
               <strong>- And several small bug fixes</strong>
             </li>
