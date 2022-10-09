@@ -73,18 +73,12 @@ const EmuTable = ({
               <p className="h5">Special Configuration</p>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: `${emuData.special_configuration}`,
+                  __html: `${emuData.special_configuration} <br/>You can learn more about this emulator in <strong><a class="link" href="${emuData.wiki}" target="_blank">our Wiki</a></strong>`,
                 }}
               ></p>
             </>
           )}
-          {emuData.wiki && (
-            <p
-              dangerouslySetInnerHTML={{
-                __html: `You can learn more about this emulator in <strong><a class="link" href="${emuData.wiki}" target="_blank">our Wiki</a></strong>`,
-              }}
-            ></p>
-          )}
+
           {emuData.bios.length > 0 && (
             <>
               <p className="h5">Bios needed</p>

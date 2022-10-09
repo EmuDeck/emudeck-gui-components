@@ -183,6 +183,7 @@ const EmuGuide = (props) => {
 
   const biosCSS = (name) => {
     name = props[`${name}`];
+    console.log({ name });
     switch (name) {
       case true:
         return 'alert--success ';
@@ -230,12 +231,10 @@ const EmuGuide = (props) => {
         break;
     }
 
-    biosCSS('ps1');
-
     return (
       <li>
         <Alert key={i} css={'alert--mini ' + biosCSS(item)}>
-          {biosName} Bios {biosText(item)}
+          {biosName} Bios {item} {biosText(item)}
         </Alert>
       </li>
     );
