@@ -41,7 +41,7 @@ const VideoGuide = ({
           <div className="container--grid">
             <div data-col-sm="7">
               <Iframe
-                src={`https://www.youtube-nocookie.com/embed/BBf15Z2xoiY?start=${minute}&autoplay=1&modestbranding=1&rel=0&showinfo=0`}
+                src={`https://www.youtube-nocookie.com/embed/BBf15Z2xoiY?start=${minute}&autoplay=0&modestbranding=1&rel=0&showinfo=0`}
               />
             </div>
             <div data-col-sm="5">
