@@ -36,7 +36,9 @@ const Welcome = ({
   runCommand,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { mode, debug, command, version, second, system } = state;
+  const { mode, debug, command, version, second, system, language } = state;
+
+  //const content = require(`renderer/translations/${language}.json`);
 
   const debugMode = (debug) => {
     setState({ ...state, debug: debug });
