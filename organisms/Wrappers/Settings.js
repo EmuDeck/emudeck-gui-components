@@ -108,14 +108,14 @@ const Settings = ({
                   <div className="selector-menu__options">
                     <p>Bezels</p>
                     <ul>
-                      <li onClick={() => onClickBezel(true)}>
-                        <Card css={bezels == true && 'is-selected'}>
-                          <span className="h3">On</span>
-                        </Card>
-                      </li>
                       <li onClick={() => onClickBezel(false)}>
                         <Card css={bezels == false && 'is-selected'}>
                           <span className="h3">Off</span>
+                        </Card>
+                      </li>
+                      <li onClick={() => onClickBezel(true)}>
+                        <Card css={bezels == true && 'is-selected'}>
+                          <span className="h3">On</span>
                         </Card>
                       </li>
                     </ul>
@@ -379,10 +379,7 @@ const Settings = ({
               </li>
             </ul>
           </Main>
-          <Footer
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
+          <Footer disabledNext={disabledNext} disabledBack={disabledBack} />
         </div>
       </div>
     </>
