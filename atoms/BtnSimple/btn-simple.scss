@@ -47,6 +47,17 @@
   var(--color-disabled)
 );
 
+@include generate-btn-simple(
+  4,
+  white,
+  var(--grey2),
+  white,
+  var(--grey3),
+  var(--grey3),
+  white,
+  var(--color-disabled)
+);
+
 @keyframes background {
   0% {
     background-color: #f99;
@@ -83,6 +94,14 @@
   }
   &:hover {
     transform: scale(1.05);
+  }
+  &--4 {
+    padding: 2px 4px;
+    border-radius: 6px;
+    font-size: 10px;
+    + .btn-simple {
+      margin-left: 6px;
+    }
   }
 }
 

@@ -21,6 +21,13 @@ const Header = ({ title, bold }) => {
     });
   };
 
+  const moreZoom = () => {
+    ipcChannel.sendMessage('moreZoom');
+  };
+  const lessZoom = () => {
+    ipcChannel.sendMessage('lessZoom');
+  };
+
   const runCommand = () => {
     let command = state.command;
     const idMessage = Math.random();
@@ -35,9 +42,18 @@ const Header = ({ title, bold }) => {
 
   return (
     <header className="header">
-      <small onClick={toggleDebug} className="version">
+      <small onClick={toggleDebug} className="header__version">
         {version}
       </small>
+      <div class="header__accesibility">
+        <button className="btn-simple btn-simple--4" onClick={moreZoom}>
+          A+
+        </button>
+        <button className="btn-simple btn-simple--4" onClick={lessZoom}>
+          A-
+        </button>
+      </div>
+
       {branch === 'beta' && <div className="header__beta"> {branch}</div>}
       {!debug && (
         <h1 className="h2">
