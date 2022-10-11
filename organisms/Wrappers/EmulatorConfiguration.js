@@ -56,6 +56,20 @@ const EmulatorConfiguration = ({
   const { state, setState } = useContext(GlobalContext);
   const { device, overwriteConfigEmus, second } = state;
   const overwriteConfigEmusArray = Object.values(overwriteConfigEmus);
+
+  let nextPage;
+
+  if (overwriteConfigEmus.ra.status == true) {
+    nextPage = 'ra-achievements';
+  } else if (
+    overwriteConfigEmus.ra.status == false &&
+    overwriteConfigEmus.dolphin.status == false
+  ) {
+    nextPage = 'pegasus-theme';
+  } else {
+    nextPage = 'aspect-ratio-dolphin';
+  }
+
   return (
     <>
       {/*  <ExploreContainer name="Tab 1 page" /> */}
@@ -67,10 +81,9 @@ const EmulatorConfiguration = ({
           <Main>
             {second && (
               <p className="lead">
-                Are you an existing EmuDeck user? You can disable any emulator
-                icon keep it's current configuration. We will remember your
-                choises for your next update. ( Active means the emulator will
-                be overwritten)
+                You can choose whick emulators gets their settings configured by
+                EmuDeck (Active means the emulator configuration will be
+                overwritten)
               </p>
             )}
             {!second && (
@@ -102,7 +115,7 @@ const EmulatorConfiguration = ({
             </div>
           </Main>
           <Footer
-            next="ra-achievements"
+            next={nextPage}
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />

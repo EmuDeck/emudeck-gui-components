@@ -23,7 +23,7 @@ const AspectRatioDolphin = ({
   data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { ar } = state;
+  const { ar, overwriteConfigEmus } = state;
 
   return (
     <>
@@ -78,7 +78,11 @@ const AspectRatioDolphin = ({
             </SelectorMenu>
           </Main>
           <Footer
-            next="shaders-handhelds"
+            next={
+              overwriteConfigEmus.ra.status == true
+                ? 'shaders-handhelds'
+                : 'pegasus-theme'
+            }
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />
