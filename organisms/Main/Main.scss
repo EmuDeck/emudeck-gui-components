@@ -62,7 +62,8 @@ main {
   flex: 1;
   max-height: 70vh;
   margin-bottom: 20px;
-  @media (min-width: 601px) {
+  overflow: scroll;
+  @media (min-width: 701px) {
     overflow: hidden;
   }
 }
