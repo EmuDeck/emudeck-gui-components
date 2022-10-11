@@ -158,13 +158,6 @@ const ToolsAndStuff = ({
             Get log
           </BtnSimple>
           <BtnSimple
-            css="btn-simple--2"
-            type="button"
-            onClick={() => goTo('reset')}
-          >
-            Reset EmuDeck
-          </BtnSimple>
-          <BtnSimple
             css="btn-simple--3"
             type="button"
             onClick={() => goTo('uninstall')}
