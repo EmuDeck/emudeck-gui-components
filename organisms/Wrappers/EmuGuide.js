@@ -207,7 +207,7 @@ const EmuGuide = (props) => {
         biosName = 'Playstation 1';
         break;
       case 'ps2':
-        biosName = 'Playstation 1';
+        biosName = 'Playstation 2';
         break;
       case 'segacd':
         biosName = 'SegaCD';
