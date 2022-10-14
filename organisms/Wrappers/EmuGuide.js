@@ -183,7 +183,7 @@ const EmuGuide = (props) => {
 
   const biosCSS = (name) => {
     name = props[`${name}`];
-    console.log({ name });
+    //console.log({ name });
     switch (name) {
       case true:
         return 'alert--success ';
@@ -199,8 +199,6 @@ const EmuGuide = (props) => {
         break;
     }
   };
-
-  let biosHTML;
 
   let biosName;
   const biosComponents = emuData.bios.map((item, i) => {
@@ -232,14 +230,15 @@ const EmuGuide = (props) => {
     }
 
     return (
-      <li>
-        <Alert key={i} css={'alert--mini ' + biosCSS(item)}>
+      <li key={i}>
+        <Alert css={'alert--mini ' + biosCSS(item)}>
           {biosName} Bios {item} {biosText(item)}
         </Alert>
       </li>
     );
   });
 
+  let biosHTML;
   biosHTML = <ul className="list-two-cols">{biosComponents}</ul>;
 
   return (

@@ -30,6 +30,7 @@ const EmuTable = ({
         <div data-col-sm="2">
           <img src={img} alt="logo" />
           <div class="form">
+          {emuData && (
             <FormSelectSimple
               name="formu-input"
               label="Select Emulator"
@@ -52,6 +53,8 @@ const EmuTable = ({
               <option value="vita3k">Vita3K</option>
               <option value="xenia">Xenia</option>
             </FormSelectSimple>
+          )}
+
           </div>
         </div>
 
