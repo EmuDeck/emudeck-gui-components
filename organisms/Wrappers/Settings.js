@@ -32,6 +32,9 @@ import imgNoBezels from 'assets/no-bezels.png';
 import lcdon from 'assets/classic-shader-on.png';
 import lcdoff from 'assets/classic-shader-off.png';
 
+import lcd3don from 'assets/classic-3d-shader-on.png';
+import lcd3doff from 'assets/classic-3d-shader-off.png';
+
 import lcdonH from 'assets/lcdon.png';
 import lcdoffH from 'assets/lcdoff.png';
 
@@ -67,6 +70,7 @@ const Settings = ({
   onClick3D,
   onClickGC,
   onClickCRT,
+  onClickCRT3D,
   onClickLCD,
   next,
   back,
@@ -189,7 +193,7 @@ const Settings = ({
                     />
                   </div>
                   <div className="selector-menu__options">
-                    <p>SNES Aspect Ratio</p>
+                    <p>NES & SNES Aspect Ratio</p>
                     <ul>
                       <li onClick={() => onClickSNES('87')}>
                         <Card css={ar.snes == 87 && 'is-selected'}>
@@ -309,7 +313,7 @@ const Settings = ({
                     />
                   </div>
                   <div className="selector-menu__options selector-menu__options--full">
-                    <p>CRT Shader</p>
+                    <p>CRT Shader 2D</p>
                     <ul>
                       <li onClick={() => onClickCRT(false)}>
                         <Card css={shaders.classic == false && 'is-selected'}>
@@ -318,6 +322,49 @@ const Settings = ({
                       </li>
                       <li onClick={() => onClickCRT(true)}>
                         <Card css={shaders.classic == true && 'is-selected'}>
+                          <span className="h3">On</span>
+                        </Card>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="selector-menu__details">
+                    <p className="lead">Affected Systems</p>
+                    <ul>
+                      <li>Atari</li>
+                      <li>Master System</li>
+                      <li>Genesis</li>
+                      <li>SegaCD</li>
+                      <li>Sega32x</li>
+                      <li>Nes</li>
+                      <li>SuperNes</li>
+                    </ul>
+                  </div>
+                </SelectorMenu>
+              </li>
+              <li>
+                <SelectorMenu>
+                  <div className="selector-menu__img">
+                    <img
+                      src={lcd3doff}
+                      className={shaders.classic3d == true && 'is-hidden'}
+                      alt="Background"
+                    />
+                    <img
+                      src={lcd3don}
+                      className={shaders.classic3d == false && 'is-hidden'}
+                      alt="Background"
+                    />
+                  </div>
+                  <div className="selector-menu__options selector-menu__options--full">
+                    <p>CRT Shader 3D</p>
+                    <ul>
+                      <li onClick={() => onClickCRT3D(false)}>
+                        <Card css={shaders.classic3d == false && 'is-selected'}>
+                          <span className="h3">Off</span>
+                        </Card>
+                      </li>
+                      <li onClick={() => onClickCRT3D(true)}>
+                        <Card css={shaders.classic3d == true && 'is-selected'}>
                           <span className="h3">On</span>
                         </Card>
                       </li>
@@ -352,7 +399,7 @@ const Settings = ({
                     />
                   </div>
                   <div className="selector-menu__options selector-menu__options--full">
-                    <p>LCD Shader</p>
+                    <p>LCD Shader Handhelds</p>
                     <ul>
                       <li onClick={() => onClickLCD(false)}>
                         <Card css={shaders.handhelds == false && 'is-selected'}>

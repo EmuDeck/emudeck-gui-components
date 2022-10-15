@@ -10,10 +10,10 @@ import Main from 'components/organisms/Main/Main.js';
 import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 
-import lcdon from 'assets/classic-shader-on.png';
-import lcdoff from 'assets/classic-shader-off.png';
+import lcdon from 'assets/classic-3d-shader-on.png';
+import lcdoff from 'assets/classic-3d-shader-off.png';
 
-const Shaders2D = ({
+const Shaders3D = ({
   disabledNext,
   disabledBack,
   downloadComplete,
@@ -30,7 +30,7 @@ const Shaders2D = ({
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure CRT Shader for" bold="Classic 2d Games" />
+          <Header title="Configure CRT Shader for" bold="Classic 3d Games" />
           <Main>
             <p className="lead">
               The CRT Shader gives your classic systems a faux retro CRT vibe.
@@ -39,24 +39,24 @@ const Shaders2D = ({
               <div className="selector-menu__img">
                 <img
                   src={lcdoff}
-                  className={shaders.classic == true && 'is-hidden'}
+                  className={shaders.classic3d == true && 'is-hidden'}
                   alt="Background"
                 />
                 <img
                   src={lcdon}
-                  className={shaders.classic == false && 'is-hidden'}
+                  className={shaders.classic3d == false && 'is-hidden'}
                   alt="Background"
                 />
               </div>
               <div className="selector-menu__options selector-menu__options--full">
                 <ul>
                   <li onClick={() => onClick(false)}>
-                    <Card css={shaders.classic == false && 'is-selected'}>
+                    <Card css={shaders.classic3d == false && 'is-selected'}>
                       <span className="h3">Off</span>
                     </Card>
                   </li>
                   <li onClick={() => onClick(true)}>
-                    <Card css={shaders.classic == true && 'is-selected'}>
+                    <Card css={shaders.classic3d == true && 'is-selected'}>
                       <span className="h3">On</span>
                     </Card>
                   </li>
@@ -65,19 +65,16 @@ const Shaders2D = ({
               <div className="selector-menu__details">
                 <p className="lead">Affected Systems</p>
                 <ul>
-                  <li>Atari</li>
-                  <li>Master System</li>
-                  <li>Genesis</li>
-                  <li>SegaCD</li>
-                  <li>Sega32x</li>
-                  <li>Nes</li>
-                  <li>SuperNes</li>
+                  <li>Playstation 1</li>
+                  <li>Dreamcast</li>
+                  <li>Saturn</li>
+                  <li>Nintendo 64</li>
                 </ul>
               </div>
             </SelectorMenu>
           </Main>
           <Footer
-            next="shaders-3d-classic"
+            next="pegasus-theme"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />
@@ -87,4 +84,4 @@ const Shaders2D = ({
   );
 };
 
-export default Shaders2D;
+export default Shaders3D;
