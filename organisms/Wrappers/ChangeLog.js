@@ -32,6 +32,7 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
             <li>- FIX: Messages on PowerTools and Gyro Pages</li>
             <li>- FIX: Improved SD Card detection</li>
             <li>- FIX: Improved Backend detection</li>
+            <li>- FIX: RetroAchievments</li>
             <li>- NEW: Appimage file log</li>
           </ul>
           <br />
@@ -40,8 +41,8 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
             <li>- NEW: Brand New UI</li>
             <li>- NEW: Tools & Stuff page with a lot of extra goodies</li>
             <li>
-              - NEW: Settings page, configure some settings of your emulators
-              within EmuDeck without the need of reinstall everything
+              - NEW: Settings page, configure some settings without the need of
+              reinstall.
             </li>
             <li>- NEW: Guides, learn more about your Emulators</li>
             <li>- NEW: Default images for SRM to try and speed up downloads</li>
@@ -71,7 +72,7 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
           <br />
           <a
             target="_blank"
-            href="https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/CHANGELOG.md"
+            href="https://github.com/EmuDeck/emudeck-electron/blob/main/CHANGELOG.md"
           >
             See previous changelogs
           </a>
