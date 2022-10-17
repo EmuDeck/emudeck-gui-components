@@ -12,6 +12,9 @@
   text-align: left;
   height: 100%;
   transition: 0.8s;
+  &--mini {
+    padding: 10px;
+  }
   .btn-simple {
     display: none;
   }

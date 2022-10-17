@@ -17,6 +17,8 @@ import modern1 from 'assets/esdethemes/es-de_modern_01.png';
 import modern2 from 'assets/esdethemes/es-de_modern_02.png';
 import rbsimple1 from 'assets/esdethemes/es-de_rbsimple_01.png';
 import rbsimple2 from 'assets/esdethemes/es-de_rbsimple_02.png';
+import alekfull1 from 'assets/esdethemes/es-de_alekfull1.jpg';
+import alekfull2 from 'assets/esdethemes/es-de_alekfull2.jpg';
 
 import modern from 'assets/ES-DE_01.png';
 
@@ -31,6 +33,11 @@ const rbsimplePics = [
 const modernPics = [
   <img src={modern1} alt="Background" />,
   <img src={modern2} alt="Background" />,
+];
+
+const alekPics = [
+  <img src={alekfull1} alt="Background" />,
+  <img src={alekfull2} alt="Background" />,
 ];
 
 const PegasusTheme = ({
@@ -72,24 +79,37 @@ const PegasusTheme = ({
                   img={modernPics}
                   css={theme != 'MODERN-DE' && 'is-hidden'}
                 />
+                {/*}
+                <SimpleCarousel
+                  nav={false}
+                  img={alekPics}
+                  css={theme != 'ALEK-DE' && 'is-hidden'}
+                />*/}
               </div>
               <div className="selector-menu__options selector-menu__options--full">
                 <ul>
                   <li onClick={() => onClick('EPICNOIR')}>
                     <Card css={theme == 'EPICNOIR' && 'is-selected'}>
-                      <span className="h3">Epic Noir</span>
+                      <span className="h5">Epic Noir</span>
                     </Card>
                   </li>
                   <li onClick={() => onClick('RBSIMPLE-DE')}>
                     <Card css={theme == 'RBSIMPLE-DE' && 'is-selected'}>
-                      <span className="h3">RBSimple</span>
+                      <span className="h5">RBSimple</span>
                     </Card>
                   </li>
                   <li onClick={() => onClick('MODERN-DE')}>
                     <Card css={theme == 'MODERN-DE' && 'is-selected'}>
-                      <span className="h3">Modern</span>
+                      <span className="h5">Modern</span>
                     </Card>
                   </li>
+                  {/*
+                  <li onClick={() => onClick('ALEK-DE')}>
+                    <Card css={theme == 'ALEK-DE' && 'is-selected'}>
+                      <span className="h5">Alekfull NX</span>
+                    </Card>
+                  </li>
+                  */}
                 </ul>
               </div>
             </SelectorMenu>
