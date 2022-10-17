@@ -222,7 +222,7 @@ const Settings = ({
                 </SelectorMenu>
               </li>
               <li>
-                <SelectorMenu>
+                <SelectorMenu css="selector-menu--mini">
                   <div className="selector-menu__img">
                     <img
                       src={ar1693d}
@@ -262,7 +262,7 @@ const Settings = ({
                 </SelectorMenu>
               </li>
               <li>
-                <SelectorMenu>
+                <SelectorMenu css="selector-menu--mini">
                   <div className="selector-menu__img">
                     <img
                       src={ar169gc}
@@ -299,7 +299,7 @@ const Settings = ({
                 </SelectorMenu>
               </li>
               <li>
-                <SelectorMenu>
+                <SelectorMenu css="selector-menu--mini">
                   <div className="selector-menu__img">
                     <img
                       src={lcdoff}
@@ -342,7 +342,7 @@ const Settings = ({
                 </SelectorMenu>
               </li>
               <li>
-                <SelectorMenu>
+                <SelectorMenu css="selector-menu--mini">
                   <div className="selector-menu__img">
                     <img
                       src={lcd3doff}
@@ -385,7 +385,7 @@ const Settings = ({
                 </SelectorMenu>
               </li>
               <li>
-                <SelectorMenu>
+                <SelectorMenu css="selector-menu--mini">
                   <div className="selector-menu__img">
                     <img
                       src={lcdoffH}
