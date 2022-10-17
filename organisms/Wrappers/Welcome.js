@@ -70,7 +70,7 @@ const Welcome = ({
             )}
             {second === false && <Header title="Welcome to" bold={`EmuDeck`} />}
             <Main>
-              {downloadComplete === false && (
+              {downloadComplete === null && (
                 <>
                   <p className="h5">
                     Downloading Files. If this progress bar won't disappear
