@@ -47,7 +47,7 @@ const End = ({
 
   const readMSG = (command) => {
     const idMessage = Math.random();
-    ipcChannel.sendMessage('emudeck', [`${idMessage}|||${command}`]);
+    ipcChannel.sendMessage('emudeck-nolog', [`${idMessage}|||${command}`]);
     ipcChannel.once(idMessage, (message) => {
       let messageArray = message.stdout.split('#');
       let messageText = messageArray[1];
