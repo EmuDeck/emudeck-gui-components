@@ -25,9 +25,17 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
       <div className="wrapper">
         <Header title="Latest" bold="changes" />
         <Main>
-          <p className="lead">
-            See all the news and fixes on the latest version.
-          </p>
+          <strong>2.0.1</strong>
+          <ul className="list-two-cols">
+            <li>- FIX: Reset Config for PrimeHack and PCSX2</li>
+            <li>- FIX: Distorted images in certain resolutions</li>
+            <li>- FIX: Messages on PowerTools and Gyro Pages</li>
+            <li>- FIX: Improved SD Card detection</li>
+            <li>- FIX: Improved Backend detection</li>
+            <li>- NEW: Appimage file log</li>
+          </ul>
+          <br />
+          <strong>2.0</strong>
           <ul className="list-two-cols">
             <li>- NEW: Brand New UI</li>
             <li>- NEW: Tools & Stuff page with a lot of extra goodies</li>
@@ -35,18 +43,16 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
               - NEW: Settings page, configure some settings of your emulators
               within EmuDeck without the need of reinstall everything
             </li>
-            <li>- NEW: Reset page, EmuDeck back to default settings</li>
             <li>- NEW: Guides, learn more about your Emulators</li>
             <li>- NEW: Default images for SRM to try and speed up downloads</li>
             <li>- NEW: SaveSync. Backup your saved games to the cloud</li>
             <li>- NEW: DooM SRM Parser</li>
             <li>- NEW: BiosChecker</li>
             <li>- NEW: RetroAchievements HardCore mode</li>
-            <li>- NEW: SwanStation Core</li>
+            <li>- NEW: SwanStation and Kronos Core</li>
             <li>- FIX: Updated config files for Duckstation</li>
             <li>- FIX: RetroArch Analog Stick for GB & GBC</li>
             <li>- FIX: Uninstaller fixes</li>
-            <li>- FIX: PCSX2-QT Config Changes</li>
             <li>- FIX: Yuzu Config Changes</li>
             <li>- NEW: Vita3K and ScummVM Emulators</li>
             <li>
@@ -61,12 +67,14 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
               - IMPROVEMENT: Better Dolphin Performance on Anbernic Win600
             </li>
             <li>- IMPROVEMENT: Better Steam Input definitions</li>
-            <li>- IMPROVEMENT: Better Saturn Performance using Beetle Core</li>
-
-            <li>
-              <strong>- And several small bug fixes</strong>
-            </li>
           </ul>
+          <br />
+          <a
+            target="_blank"
+            href="https://raw.githubusercontent.com/EmuDeck/emudeck-electron/main/CHANGELOG.md"
+          >
+            See previous changelogs
+          </a>
         </Main>
         <Footer
           next={false}
