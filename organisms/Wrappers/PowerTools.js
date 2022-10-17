@@ -36,6 +36,7 @@ const PowerTools = ({
   showNotification,
   textNotification,
   passValidates,
+  disableButton,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { powerTools } = state;
@@ -120,7 +121,7 @@ const PowerTools = ({
                       type="button"
                       aria="Install PowerTools"
                       onClick={installClick}
-                      disabled={disabledNext && 'true'}
+                      disabled={disableButton && 'true'}
                     >
                       Install PowerTools
                     </BtnSimple>

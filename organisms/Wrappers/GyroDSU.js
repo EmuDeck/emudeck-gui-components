@@ -36,6 +36,7 @@ const GyroDSU = ({
   showNotification,
   textNotification,
   passValidates,
+  disableButton,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { GyroDSU } = state;
@@ -119,7 +120,7 @@ const GyroDSU = ({
                       type="button"
                       aria="Install GyroDSU"
                       onClick={installClick}
-                      disabled={disabledNext && 'true'}
+                      disabled={disableButton && 'true'}
                     >
                       Install GyroDSU
                     </BtnSimple>
