@@ -83,7 +83,7 @@ const RomStorage = ({
             </div>
           </Main>
 
-          {!!sdCardName && (
+          {sdCardName != null && (
             <Footer
               next={next}
               nextText={mode === 'easy' ? 'Finish ' : 'Next '}
