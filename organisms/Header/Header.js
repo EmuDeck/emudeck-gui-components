@@ -45,7 +45,7 @@ const Header = ({ title, bold }) => {
       <small onClick={toggleDebug} className="header__version">
         {version}
       </small>
-      <div class="header__accesibility">
+      <div className="header__accesibility">
         <button className="btn-simple btn-simple--4" onClick={moreZoom}>
           A+
         </button>
