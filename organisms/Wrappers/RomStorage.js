@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-
+import { useNavigate } from 'react-router-dom';
 import Footer from 'components/organisms/Footer/Footer.js';
 import Header from 'components/organisms/Header/Header.js';
 import Aside from 'components/organisms/Aside/Aside.js';
@@ -19,10 +19,14 @@ const RomStorage = ({
   data,
   sdCardValid,
   sdCardName,
+  reloadSDcard,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { storage, SDID, mode, system } = state;
-
+  const navigate = useNavigate();
+  const goTo = (href) => {
+    history.push('/same-route');
+  };
   return (
     <>
       {/*  <ExploreContainer name="Tab 1 page" /> */}
@@ -40,16 +44,19 @@ const RomStorage = ({
               Make sure you formatted it on Gaming Mode.
             </p>
             <div className="cards">
-              {sdCardValid == true && (
-                <Card
-                  css={storage == 'SD-Card' && 'is-selected'}
-                  onClick={() => onClick('SD-Card')}
-                >
-                  <img src={imgSD} width="100" alt="Background" />
-                  <span className="h5">SD Card</span>
-                  <span className="h6">{sdCardName}</span>
-                </Card>
-              )}
+              <Card
+                css={storage == 'SD-Card' && 'is-selected'}
+                onClick={() =>
+                  sdCardValid == true ? onClick('SD-Card') : reloadSDcard()
+                }
+              >
+                <img src={imgSD} width="100" alt="Background" />
+                <span className="h5">SD Card</span>
+                {sdCardName && <span className="h6">{sdCardName}</span>}
+                {!sdCardName && (
+                  <span className="h6">Not detected, click to try again</span>
+                )}
+              </Card>
 
               <Card
                 css={storage == 'Internal Storage' && 'is-selected'}
@@ -69,12 +76,14 @@ const RomStorage = ({
               )}
             </div>
           </Main>
-          <Footer
-            next={next}
-            nextText={mode === 'easy' ? 'Finish ' : 'Next '}
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
+          {sdCardValid != null && (
+            <Footer
+              next={next}
+              nextText={mode === 'easy' ? 'Finish ' : 'Next '}
+              disabledNext={disabledNext}
+              disabledBack={disabledBack}
+            />
+          )}
         </div>
       </div>
     </>
