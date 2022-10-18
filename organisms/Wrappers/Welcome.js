@@ -34,7 +34,7 @@ const Welcome = ({
   alert,
   saveCommand,
   runCommand,
-  data
+  data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { mode, debug, command, version, second, system, language } = state;
@@ -82,7 +82,6 @@ const Welcome = ({
                     value={counter}
                     max="100"
                   />
-                  <code>{data}</code>
                 </>
               )}
               {downloadComplete === true && (
