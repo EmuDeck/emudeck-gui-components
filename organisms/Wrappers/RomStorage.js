@@ -52,9 +52,15 @@ const RomStorage = ({
               >
                 <img src={imgSD} width="100" alt="Background" />
                 <span className="h5">SD Card</span>
-                {sdCardName && <span className="h6">{sdCardName}</span>}
-                {!sdCardName && (
-                  <span className="h6">Not detected, click to try again</span>
+                {sdCardName != 'nope' && (
+                  <span className="h6">{sdCardName}</span>
+                )}
+                {sdCardName == 'nope' && (
+                  <span className="h6">
+                    Not detected
+                    <br />
+                    Click here to try again
+                  </span>
                 )}
               </Card>
 
@@ -76,7 +82,8 @@ const RomStorage = ({
               )}
             </div>
           </Main>
-          {sdCardValid != null && (
+
+          {!!sdCardName && (
             <Footer
               next={next}
               nextText={mode === 'easy' ? 'Finish ' : 'Next '}
