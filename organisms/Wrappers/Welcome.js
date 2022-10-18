@@ -34,6 +34,7 @@ const Welcome = ({
   alert,
   saveCommand,
   runCommand,
+  data
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { mode, debug, command, version, second, system, language } = state;
@@ -81,6 +82,7 @@ const Welcome = ({
                     value={counter}
                     max="100"
                   />
+                  <code>{data}</code>
                 </>
               )}
               {downloadComplete === true && (
@@ -135,7 +137,7 @@ const Welcome = ({
                   </div>
                 </>
               )}
-              {alert && (
+              {alert && update == 'up-to-date' && downloadComplete && (
                 <>
                   <br />
                   <div className="container--grid">
