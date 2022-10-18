@@ -52,10 +52,8 @@ const RomStorage = ({
               >
                 <img src={imgSD} width="100" alt="Background" />
                 <span className="h5">SD Card</span>
-                {sdCardName != 'nope' && (
-                  <span className="h6">{sdCardName}</span>
-                )}
-                {sdCardName == 'nope' && (
+                {sdCardName != null && <span className="h6">{sdCardName}</span>}
+                {sdCardName == null && (
                   <span className="h6">
                     Not detected
                     <br />
