@@ -22,7 +22,7 @@ const RomStorage = ({
   reloadSDcard,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { storage, SDID, mode, system } = state;
+  const { storage, SDID, mode, system, storagePath } = state;
   const navigate = useNavigate();
   const goTo = (href) => {
     history.push('/same-route');
@@ -83,7 +83,7 @@ const RomStorage = ({
             </div>
           </Main>
 
-          {sdCardName != null && (
+          {sdCardName != null && storagePath != null && (
             <Footer
               next={next}
               nextText={mode === 'easy' ? 'Finish ' : 'Next '}
