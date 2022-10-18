@@ -25,7 +25,7 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
       <div className="wrapper">
         <Header title="Latest" bold="changes" />
         <Main>
-          <strong>2.0.1</strong>
+          <strong>2.0.1 & 2.0.2</strong>
           <ul className="list-two-cols">
             <li>- FIX: Reset Config for PrimeHack and PCSX2</li>
             <li>- FIX: Distorted images in certain resolutions</li>
@@ -33,7 +33,9 @@ const ChangeLog = ({ disabledNext, disabledBack, next, back, nextText }) => {
             <li>- FIX: Improved SD Card detection</li>
             <li>- FIX: Improved Backend detection</li>
             <li>- FIX: RetroAchievments</li>
-            <li>- NEW: Appimage file log</li>
+            <li>- FIX: Powertools & GyuroDSU Installation</li>
+            <li>- FIX: Checking for updates screen freeze</li>
+            <li>- NEW: Appimage logs</li>
           </ul>
           <br />
           <strong>2.0</strong>
