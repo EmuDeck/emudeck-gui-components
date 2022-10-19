@@ -35,30 +35,10 @@ const Welcome = ({
   saveCommand,
   runCommand,
   data,
+  counter,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { mode, debug, command, version, second, system, language } = state;
-
-  //const content = require(`renderer/translations/${language}.json`);
-
-  const debugMode = (debug) => {
-    setState({ ...state, debug: debug });
-  };
-
-  //Download files
-  const [counter, setCounter] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCounter((prevCounter) => {
-        if (prevCounter === 110) {
-          prevCounter = -10;
-        }
-        return prevCounter + 1;
-      });
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>
