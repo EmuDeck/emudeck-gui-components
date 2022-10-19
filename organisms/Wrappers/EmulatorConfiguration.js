@@ -89,7 +89,7 @@ const EmulatorConfiguration = ({
             {!second && (
               <p className="lead">
                 By default we will overwrite all configuration on these
-                emulators. You can disable any emulator emulator to keep it's
+                emulators. You can disable any emulator emulator to keep its
                 current configuration ( Not recommended ). ( Active means the
                 emulator will be overwritten)
               </p>
