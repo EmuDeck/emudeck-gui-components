@@ -41,45 +41,11 @@ const End = ({
   back,
   data,
   isGameMode,
+  message,
+  percentage,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { storage } = state;
-
-  const readMSG = (command) => {
-    const idMessage = Math.random();
-    ipcChannel.sendMessage('emudeck-nolog', [`${idMessage}|||${command}`]);
-    ipcChannel.once(idMessage, (message) => {
-      let messageArray = message.stdout.split('#');
-      let messageText = messageArray[1];
-      let messagePercent = messageArray[0];
-
-      messagePercent = messagePercent.replaceAll(' ', '');
-      messagePercent = messagePercent.replaceAll('\n', '');
-
-      setMsg({ message: messageText, percentage: messagePercent });
-    });
-  };
-
-  const [msg, setMsg] = useState({
-    message: '',
-    percentage: 0,
-  });
-
-  const { message, percentage } = msg;
-
-  const [counter, setCounter] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      let msg = readMSG('cat ~/.config/EmuDeck/msg.log');
-
-      if (message.includes('100')) {
-        clearInterval(interval);
-      }
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const slides = [
     <Card css="is-selected">
