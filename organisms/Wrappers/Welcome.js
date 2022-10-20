@@ -92,7 +92,7 @@ const Welcome = ({
                           {second === false &&
                             'This is a 100% automatic mode. We will configure your device with the recommended settings so you can start playing right away.'}
                           {second === true &&
-                            "This mode will update EmuDeck in one click, you will retain your EmuDeck's customization if any where made by you at any time. If you made any customizations outside of EmuDeck those will be overwritten. Any new settings or emulators will be applied by default."}
+                            'This mode will update EmuDeck in one click. You will retain any choices made in custom mode from previous runs. If you made any customizations outside of EmuDeck, those will be overwritten. Any new settings will be applied, and new emulators will be installed.'}
                         </p>
                       </Card>
                     </div>
