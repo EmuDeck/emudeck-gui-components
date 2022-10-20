@@ -73,6 +73,7 @@
     flex-direction: column;
 
     span {
+      word-break: break-word;
       flex: 1;
       display: flex;
       justify-content: space-around;
