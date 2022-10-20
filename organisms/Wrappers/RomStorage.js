@@ -71,18 +71,17 @@ const RomStorage = ({
                 <img src={imgInternal} width="100" alt="Background" />
                 <span className="h5">Internal Storage</span>
               </Card>
-              {system != 'darwin' && (
-                <Card
-                  css={storage == 'Custom' && 'is-selected'}
-                  onClick={() => onClick('Custom')}
-                >
-                  <img src={imgInternal} width="100" alt="Background" />
-                  <span className="h5">Custom Directory</span>
-                  {customPath && storage == 'Custom' && (
-                    <span className="h6">{customPath}</span>
-                  )}
-                </Card>
-              )}
+
+              <Card
+                css={storage == 'Custom' && 'is-selected'}
+                onClick={() => onClick('Custom')}
+              >
+                <img src={imgInternal} width="100" alt="Background" />
+                <span className="h5">Custom Directory</span>
+                {customPath && storage == 'Custom' && (
+                  <span className="h6">{customPath}</span>
+                )}
+              </Card>
             </div>
           </Main>
 
