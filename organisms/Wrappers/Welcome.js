@@ -62,7 +62,6 @@ const Welcome = ({
                     value={counter}
                     max="100"
                   />
-                  <code>{JSON.stringify(data)}</code>
                 </>
               )}
               {downloadComplete === true && (
