@@ -43,6 +43,7 @@ const End = ({
   isGameMode,
   message,
   percentage,
+  onClickLog,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { storage } = state;
@@ -304,6 +305,15 @@ const End = ({
             )}
           </Main>
           <footer className="footer">
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Go Back"
+              onClick={onClickLog}
+            >
+              See complete log
+            </BtnSimple>
+
             <BtnSimple
               css="btn-simple--1"
               type="button"
