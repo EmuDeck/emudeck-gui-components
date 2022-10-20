@@ -309,6 +309,15 @@ const End = ({
               css="btn-simple--1"
               type="button"
               aria="Go Back"
+              disabled={false}
+              onClick={onClickLog}
+            >
+              Watch Log
+            </BtnSimple>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Go Back"
               disabled={disabledNext && 'true'}
               onClick={onClose}
             >
