@@ -20,6 +20,7 @@ const RomStorage = ({
   sdCardValid,
   sdCardName,
   reloadSDcard,
+  customPath,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { storage, SDID, mode, system, storagePath } = state;
@@ -77,6 +78,7 @@ const RomStorage = ({
                 >
                   <img src={imgInternal} width="100" alt="Background" />
                   <span className="h5">Custom Directory</span>
+                  {customPath && <span className="h6">{customPath}</span>}
                 </Card>
               )}
             </div>
