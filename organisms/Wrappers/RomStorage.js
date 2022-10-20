@@ -78,7 +78,9 @@ const RomStorage = ({
                 >
                   <img src={imgInternal} width="100" alt="Background" />
                   <span className="h5">Custom Directory</span>
-                  {customPath && <span className="h6">{customPath}</span>}
+                  {customPath && storage == 'Custom' && (
+                    <span className="h6">{customPath}</span>
+                  )}
                 </Card>
               )}
             </div>
