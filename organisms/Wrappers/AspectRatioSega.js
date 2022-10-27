@@ -62,7 +62,7 @@ const AspectRatioSega = ({
                   <li onClick={() => onClick('32')}>
                     <Card css={ar.sega == 32 && 'is-selected'}>
                       <span className="h3">3:2</span>
-                      <p>Less black bars, slight distortion</p>
+                      <p>Smaller black bars, slight horizontal distortion</p>
                     </Card>
                   </li>
                 </ul>
