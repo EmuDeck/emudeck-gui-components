@@ -80,7 +80,7 @@ const CloudSync = ({
               onClick={() => onClick('Emudeck-NextCloud')}
             >
               <img src={nextcloud} alt="nextcloud" />
-              <span className="h6">NextCloud</span>
+              <span className="h6">Nextcloud</span>
             </Card>
             <Card
               css={cloudSync == 'Emudeck-OneDrive' && 'is-selected'}
