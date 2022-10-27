@@ -33,20 +33,20 @@ const Uninstall = ({
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title="Uninstall" bold="Emudeck" />
+        <Header title="Uninstall" bold="EmuDeck" />
         <Main>
           <p className="lead">
-            Do you really want to uninstall Emudek? If you are having issues, installing EmuDeck a second time usually solves them, if you are still having issues please go to our Discord or Reddit so we can help you.
+            Uninstalling EmuDeck should only be used if you are intending on removing EmuDeck from your system. If you are having issues, run a Custom Update or visit our Discord or Reddit for additional support.
           </p>
           <br />
           <div>
 
-          <a href="https://discord.gg/b9F7GpXtFP" aria-label="Go Next" class="btn-simple btn-simple--1" target="_blank">Go to Discord</a>
-          <a href="https://www.reddit.com/r/EmuDeck/" aria-label="Go Next" class="btn-simple btn-simple--1" target="_blank">Go to Reddit</a>
+          <a href="https://discord.gg/b9F7GpXtFP" aria-label="Go Next" class="btn-simple btn-simple--1" target="_blank">Our Discord</a>
+          <a href="https://www.reddit.com/r/EmuDeck/" aria-label="Go Next" class="btn-simple btn-simple--1" target="_blank">Our Reddit</a>
 
           </div>
           <p className="lead">
-            Thanks, but I don't need help, I want to uninstall.
+            I know what I am doing, I would like to uninstall EmuDeck.
           </p>
           <BtnSimple
             css="btn-simple--3"

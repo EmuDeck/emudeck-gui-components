@@ -26,12 +26,12 @@ const DeviceSelector = ({
         <Aside />
 
         <div className="wrapper">
-          <Header title="Choose your" bold="device" />
+          <Header title="Select your" bold="device" />
           <Main>
             <p className="lead">
-              We tailor the experience depending on the selected device, each
-              device has its own special configuration, different emulators and
-              adjusted bezels.
+              We tailor the install for different hardware. Each
+              device will have its own configuration, emulators and
+              pre-configured bezels.
             </p>
 
             <div className="cards">{children}</div>

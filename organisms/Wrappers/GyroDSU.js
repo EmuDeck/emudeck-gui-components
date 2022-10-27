@@ -45,14 +45,14 @@ const GyroDSU = ({
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title="Configure" bold="GyroDSU" />
+        <Header title="Configure" bold="SteamDeckGyroDSU" />
         <Notification css={showNotification ? 'is-animated' : 'nope'}>
           {textNotification}
         </Notification>
         <Main>
           <p className="lead">
             GyroDSU is a plugin that allows you to use your Steam Deck Gyroscope
-            in Cemu For Wii U games. More info about this tool{' '}
+            in Dolphin (Gamecube and Wii), Citra (3DS), CEMU (Wii U), Yuzu (Nintendo Switch), and Ryujinx (Nintendo Switch) games. Learn more about SteamDeckGyroDSU{' '}
             <LinkSimple
               css="link-simple--1"
               href="https://github.com/kmicki/SteamDeckGyroDSU"
@@ -67,7 +67,7 @@ const GyroDSU = ({
               <p>
                 This tool requires you to use a Linux sudo (SuperUser) password.{' '}
                 <strong>
-                  Never share the sudo password, if you forget it you'll need to
+                  Never share this password, if you forget it, you will need to
                   reset your Steam Deck.
                 </strong>
               </p>
@@ -104,8 +104,8 @@ const GyroDSU = ({
               {hasSudo === true && (
                 <div class="form">
                   <p>
-                    We've detected you already have set your sudo password, type
-                    it on the next input to install this tool.
+                  We have detected you already have set a sudo password, type
+                  it below to install Power Tools.
                   </p>
                   <FormInputSimple
                     label="Sudo Password"
@@ -122,7 +122,7 @@ const GyroDSU = ({
                       onClick={installClick}
                       disabled={disableButton && 'true'}
                     >
-                      Install GyroDSU
+                      Install SteamDeckGyroDSU
                     </BtnSimple>
                   )}
                 </div>

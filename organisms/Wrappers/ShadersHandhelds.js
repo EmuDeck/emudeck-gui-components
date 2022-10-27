@@ -30,7 +30,7 @@ const ShadersHandhelds = ({
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure LCD Shader for" bold="Handhelds" />
+          <Header title="Configure LCD Shader for" bold="Handheld Systems" />
           <Main>
             <p className="lead">
               The LCD Shader simulates the old LCD Matrix screens of handheld

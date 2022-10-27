@@ -45,14 +45,14 @@ const PowerTools = ({
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title="Configure" bold="PowerTools" />
+        <Header title="Configure" bold="Power Tools" />
         <Notification css={showNotification ? 'is-animated' : 'nope'}>
           {textNotification}
         </Notification>
         <Main>
           <p className="lead">
-            PowerTools is a plugin that allows you to tweak your CPU & GPU to
-            get maximum performance for the more demanding systems. You can read
+            Power Tools is a plugin that allows you to tweak your CPU & GPU to
+            for maximum performance on more demanding systems. You can read
             more about this great tool{' '}
             <LinkSimple
               css="link-simple--1"
@@ -68,7 +68,7 @@ const PowerTools = ({
               <p>
                 This tool requires you to use a Linux sudo (SuperUser) password.{' '}
                 <strong>
-                  Never share the sudo password, if you forget it you'll need to
+                  Never share this password, if you forget it, you will need to
                   reset your Steam Deck.
                 </strong>
               </p>
@@ -105,8 +105,8 @@ const PowerTools = ({
               {hasSudo === true && (
                 <div class="form">
                   <p>
-                    We've detected you already have set your sudo password, type
-                    it on the next input to install this tool.
+                    We have detected you already have set a sudo password, type
+                    it below to install Power Tools.
                   </p>
                   <FormInputSimple
                     label="Sudo Password"

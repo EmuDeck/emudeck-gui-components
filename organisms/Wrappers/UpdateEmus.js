@@ -39,11 +39,11 @@ const UpdateEmus = ({
         <Header title="Update your" bold="Emulators & Tools" />
         <Main>
           <p className="lead">
-            We use two types of emulators and tools. Some are installed from the
-            Discover Store ( Flatpaks ), and others downloaded directly from the
-            developer's website ( AppImages or binaries ).
+            Emulators and tools can be installed a multitude of ways. EmuDeck installs some emulators and tools as Flatpaks from the
+            Discover Store. Others are downloaded for you directly from the
+            developer's website as AppImages or Binaries.
           </p>
-          <p>Choose what do you want to update</p>
+          <p>Select which batch you want to update:</p>
           <BtnSimple
             css="btn-simple--1"
             type="button"

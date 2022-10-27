@@ -39,25 +39,25 @@ const CHDTool = ({
         <Header title="EmuDeck" bold="Compression Tool" />
         <Main>
           <p className="lead">
-            Our Compression Tool is a script that looks through your roms and
-            compress them up to 70% of it's original disk size using CHD and RVZ
-            formats.
+            Our Compression Tool is a script that looks through your ROM directory 
+            and compress your ROMs to CHD and RVZ. It will compress your ROMs
+            up to 70% of its original file size. 
           </p>
           <p>
-            The tool will find all your .iso, .gdi, etc roms and will convert
-            them to either CHD or RVZ files.
+            The tool will locate your ROMs, and convert
+            them to either CHD or RVZ.
           </p>
 
           <p>
             <strong>CHD format;</strong>
             <br />
-            Used to compress PSX, PS2, SegaCD and Dreamcast games.
+            For your PSX, PS2, SegaCD and Dreamcast games.
           </p>
 
           <p>
             <strong>RVZ format:</strong>
             <br />
-            Used to compress GameCube and Wii Games.
+            For your GameCube and Wii Games.
           </p>
 
           <BtnSimple
@@ -67,7 +67,7 @@ const CHDTool = ({
             onClick={() => onClick()}
             disabled={disabledNext && 'true'}
           >
-            Run Compression Tool
+            Run the Compression Tool
           </BtnSimple>
         </Main>
         <Footer

@@ -33,8 +33,8 @@ const RABezels = ({
           <Header title="Configure" bold="game bezels" />
           <Main>
             <p className="lead">
-              You can use our preconfigured bezels to hide the vertical black
-              vars on 8bit and 16bits games.
+              Use our pre-configured bezels to hide the vertical black
+              bars on 8 bit and 16 bit games.
             </p>
 
             <SelectorMenu>
