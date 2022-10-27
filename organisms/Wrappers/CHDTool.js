@@ -39,19 +39,30 @@ const CHDTool = ({
         <Header title="EmuDeck" bold="Compression Tool" />
         <Main>
           <p className="lead">
-            Our Compression Tool is a script that looks through your ROM directory 
-            and compress your ROMs to CHD and RVZ. It will compress your ROMs
-            up to 70% of its original file size. 
+            The compression Tool is a script that looks through certain rom
+            folders and can compress games by up to 70% of their original size
+            using CHD and RVZ formats.
           </p>
           <p>
-            The tool will locate your ROMs, and convert
-            them to either CHD or RVZ.
+            Once a disc is successfully converted, the original will be deleted from disk. 
+            Please run Steam Rom Manager again afterwards to update
+            Steam with your new files.
+          </p>
+          <p>
+            The tool will find .iso, .gdi, .cue/bin, .gcm roms and will convert
+            them to either CHD or RVZ files.
+          </p>
+          <p>
+            Important: CHD made from cue / bin will NOT work for Dreamcast. GDI is required.
+            if you have both CUE and GDI for your Dreamcast games, please remove any left
+            over cue files after parsing, or Steam Rom Manager will pick non-existant games.
           </p>
 
           <p>
-            <strong>CHD format;</strong>
+            <strong>CHD format:</strong>
             <br />
-            For your PSX, PS2, SegaCD and Dreamcast games.
+            Used to compress Dreamcast, PSX, PS2, Sega/MegaCD, 3DO, Saturn, 
+            TurboGraphix/PCEngineCD, pcfx, Amigacd32, NeoGeoCD
           </p>
 
           <p>
