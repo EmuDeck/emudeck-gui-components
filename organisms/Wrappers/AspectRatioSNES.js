@@ -31,10 +31,10 @@ const AspectRatioSNES = ({
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure Aspect Ratio for" bold="Super NES" />
+          <Header title="Configure Aspect Ratio for the" bold="Super Nintendo Entertainment System" />
           <Main>
             <p className="lead">
-              Choose the aspect ratio for your Super Nintendo games.
+              Select the aspect ratio for the Super Nintendo Entertainment System.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">

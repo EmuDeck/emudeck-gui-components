@@ -80,30 +80,29 @@ const CheckBios = ({
         <Header title="Bios files" bold="checker" />
         <Main>
           <p className="lead">
-            If you have issues loading some games, where you only get a black
-            screen for a second maybe it's because you haven't added a proper
-            bios for that system. These are the only systems that need you to
-            dump and copy your bios to the Emulation/bios directory
+          Some games will not load properly without BIOS files in place.
+          Place your BIOS in /Emulation/bios and use this BIOS Checker 
+          to ensure that you have the correct BIOS for your system. 
           </p>
           <div className="container--grid">
             <div data-col-sm="6">
               <Alert css={'alert--mini ' + biosCSS(ps1Bios)}>
-                Playstation 1 Bios {biosText(ps1Bios)}
+                Playstation 1 BIOS {biosText(ps1Bios)}
               </Alert>
               <Alert css={'alert--mini ' + biosCSS(ps2Bios)}>
-                Playstation 2 Bios {biosText(ps2Bios)}
+                Playstation 2 BIOS {biosText(ps2Bios)}
               </Alert>
               <Alert css={'alert--mini ' + biosCSS(switchBios)}>
                 Nintendo Switch Firmware {biosText(switchBios)}
               </Alert>
               <Alert css={'alert--mini ' + biosCSS(segaCDBios)}>
-                Sega CD Bios {biosText(segaCDBios)}
+                Sega CD BIOS {biosText(segaCDBios)}
               </Alert>
               <Alert css={'alert--mini ' + biosCSS(saturnBios)}>
-                Saturn Bios {biosText(saturnBios)}
+                Saturn BIOS {biosText(saturnBios)}
               </Alert>
               <Alert css={'alert--mini ' + biosCSS(DSBios)}>
-                Nintendo DS Bios {biosText(DSBios)}
+                Nintendo DS BIOS {biosText(DSBios)}
               </Alert>
               <Alert
                 css={
@@ -111,7 +110,7 @@ const CheckBios = ({
                   (dreamcastBios ? 'alert--success' : 'alert--warning')
                 }
               >
-                Dreamcast Bios{' '}
+                Dreamcast BIOS{' '}
                 {dreamcastBios
                   ? 'detected!'
                   : ' missing! It is not mandatory, but recommended'}
@@ -123,30 +122,35 @@ const CheckBios = ({
               <Alert css="alert--info">
                 <ul class="list">
                   <li>
-                    <strong>Tips regarding bios:</strong>
+                    <strong>Tips:</strong>
                   </li>
                   <li>
-                    Not all systems needs bios. There are the more commons,
-                    there are other systems like MSX2 that need bios but are not
-                    listed here
+                    Tip 1: Not all systems require additional BIOS files. Listed here are 
+                    the more common systems. Other systems, MSX2 for example, do need
+                    BIOS, but are not listed here.
                   </li>
                   <li>
-                    Make sure you have the bios for the same region your games
-                    are. ie: United States, Japan, Europe, etc.
+                    Tip 2: Make sure you have the correct BIOS for your ROM region. 
+                    Your ROMs may come from the United States, Japan, Europe, etc.
                   </li>
                   <li>
-                    Even if your bios is detected make sure you are using
-                    lowercase for Playstation 1 and Playstation 2
+                    Tip 3: Case matters. Even if your BIOS are detected, your BIOS must be
+                    lowercase for Playstation 1 and Playstation 2.
                   </li>
                   <li>
-                    You can check{' '}
+                    Tip 4: For the most part, your BIOS files must be placed in /Emulation/bios.
+                    Do not make a sub-folder for your BIOS. For Nintendo Switch, use our pre-created folders. 
+                    The primary exception is Dreamcast. Create a dc folder, for your Dreamcast ROMs.
+                  </li>
+                  <li>
+                    You can use this link{' '}
                     <a
                       href="https://emulation.gametechwiki.com/index.php/File_hashes"
                       target="_blank"
                     >
                       here
                     </a>{' '}
-                    how your bios are supposed to be named.
+                    as a handy guide for how your BIOS should be named.
                   </li>
                 </ul>
               </Alert>

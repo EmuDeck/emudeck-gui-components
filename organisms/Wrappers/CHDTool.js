@@ -68,7 +68,7 @@ const CHDTool = ({
           <p>
             <strong>RVZ format:</strong>
             <br />
-            Used to compress GameCube and Wii Games.
+            For your GameCube and Wii Games.
           </p>
 
           <BtnSimple
@@ -78,7 +78,7 @@ const CHDTool = ({
             onClick={() => onClick()}
             disabled={disabledNext && 'true'}
           >
-            Run Compression Tool
+            Run the Compression Tool
           </BtnSimple>
         </Main>
         <Footer
