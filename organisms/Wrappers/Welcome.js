@@ -54,8 +54,8 @@ const Welcome = ({
               {downloadComplete === null && (
                 <>
                   <p className="h5">
-                    Downloading Files. If this progress bar won't disappear
-                    after a couple of minutes please restart the app
+                    Downloading Files. If this progress bar does not disappear
+                    shortly, please restart the application.
                   </p>
                   <ProgressBar
                     css="progress--success"
@@ -68,13 +68,13 @@ const Welcome = ({
                 <>
                   {second === true && (
                     <p className="lead">
-                      Please select how do you want to update your current
-                      EmuDeck's installation:
+                      Select how you want to update your current
+                      EmuDeck installation:
                     </p>
                   )}
                   {second === false && (
                     <p className="lead">
-                      Please select how do you want to set up your device:
+                      Select how you want to set up your device:
                     </p>
                   )}
                   <div className="container--grid">
@@ -84,14 +84,14 @@ const Welcome = ({
                         onClick={() => onClick('easy')}
                       >
                         <span className="h3">
-                          {second === false && 'Easy mode'}
+                          {second === false && 'Easy Mode'}
                           {second === true && 'Quick Update'}
                         </span>
                         <p>
                           {second === false &&
-                            'This is a 100% automatic mode. We will configure your device with the recommended settings so you can start playing right away.'}
+                            'This mode automatically installs and configures your device with our recommended settings so you can start playing right away.'}
                           {second === true &&
-                            'This mode will update EmuDeck in one click. You will retain any choices made in custom mode from previous runs. If you made any customizations outside of EmuDeck, those will be overwritten. Any new settings will be applied, and new emulators will be installed.'}
+                            'This mode automatically updates EmuDeck in one click. New settings will be applied and new emulators will be installed. If you ran custom mode previously, you will retain any choices made. Customizations made, excluding per-game settings, will be overwritten.'}
                         </p>
                       </Card>
                     </div>
@@ -107,9 +107,9 @@ const Welcome = ({
                         </span>
                         <p>
                           {second === false &&
-                            'This mode gives you a bit more of control on how EmuDeck configures your system. You will be able to configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, ESDE themes and Cloud Game Saving.'}
+                            'This mode allows you to customize how EmuDeck installs to your system. Configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, EmulationStation-DE themes, and Cloud Saves.'}
                           {second === true &&
-                            'This mode will allow you to update your EmuDeck installation, and keep any customizations made outside of EmuDeck and customize new settings or emulators if available.'}
+                            'This mode allows you to customize how EmuDeck updates. New settings will be applied and new emulators will be installed. If you ran custom mode previously, you will retain any choices made. Customizations made, excluding per-game settings, will be overwritten.'}
                         </p>
                       </Card>
                     </div>
@@ -152,8 +152,8 @@ const Welcome = ({
               Please stand by while we check if there is a new version
               available.
               <br />
-              If this message doesn't disappear after a while please restart the
-              app.
+              If this message does not disappear shortly, please restart the
+              application.
             </p>
             <ProgressBar css="progress--success" value={counter} max="100" />
           </div>
@@ -166,8 +166,8 @@ const Welcome = ({
           <div className="wrapper">
             <Header title="🎉 Update found! 🎉" />
             <p className="h5">
-              We are downloading the update, EmuDeck will restart as soon as it
-              finishes
+              We found an update! EmuDeck will restart as soon as it
+              finishes installing the latest update. Hold on tight. 
             </p>
             <ProgressBar css="progress--success" value={counter} max="100" />
           </div>
