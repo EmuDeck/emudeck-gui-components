@@ -34,7 +34,7 @@ const AspectRatioSNES = ({
           <Header title="Configure Aspect Ratio for" bold="Super NES" />
           <Main>
             <p className="lead">
-              Choose your aspect ratio for Super Nintendo games.
+              Choose the aspect ratio for your Super Nintendo games.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">
@@ -71,7 +71,7 @@ const AspectRatioSNES = ({
                   <li onClick={() => onClick('32')}>
                     <Card css={ar.snes == 32 && 'is-selected'}>
                       <span className="h3">3:2</span>
-                      <p>Not recommended</p>
+                      <p>Not Recommended</p>
                     </Card>
                   </li>
                 </ul>
@@ -80,7 +80,7 @@ const AspectRatioSNES = ({
                 <p className="lead">Systems</p>
                 <ul>
                   <li>Super Nintendo</li>
-                  <li>Nintendo NES</li>
+                  {/* <li>Nintendo NES</li> */}
                 </ul>
               </div>
             </SelectorMenu>
