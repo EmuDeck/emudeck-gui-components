@@ -34,7 +34,7 @@ const AspectRatio3D = ({
           <Header title="Configure Aspect Ratio for" bold="Classic 3D Games" />
           <Main>
             <p className="lead">
-              Choose your aspect ratio for Dreamcast and Nintendo 64
+              Choose the aspect ratio for your Dreamcast and Nintendo 64 games.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">
@@ -54,13 +54,13 @@ const AspectRatio3D = ({
                   <li onClick={() => onClick('43')}>
                     <Card css={ar.classic3d == 43 && 'is-selected'}>
                       <span className="h3">4:3</span>
-                      <p>Original aspect ratio</p>
+                      <p>Original Aspect Ratio</p>
                     </Card>
                   </li>
                   <li onClick={() => onClick('169')}>
                     <Card css={ar.classic3d == 169 && 'is-selected'}>
                       <span className="h3">16:9</span>
-                      <p>Fullscreen using WideScreen hacks</p>
+                      <p>Widescreen using Widescreen hacks</p>
                     </Card>
                   </li>
                 </ul>
