@@ -41,8 +41,11 @@ const RomStorage = ({
           />
           <Main>
             <p className="lead">
-            Your ROM directory will be squared away within an Emulation folder in your selected directory. If you do not see your SD Card,
-              format it first in Game Mode.
+            Your ROM directory will be squared away 
+            within an Emulation folder 
+            in your selected directory. 
+            If you do not see your SD Card,
+            format it first in Game Mode.
             </p>
             <div className="cards">
               <Card

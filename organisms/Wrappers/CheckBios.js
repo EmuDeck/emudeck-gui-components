@@ -140,7 +140,7 @@ const CheckBios = ({
                   <li>
                     Tip 4: For the most part, your BIOS files must be placed in /Emulation/bios.
                     Do not make a sub-folder for your BIOS. For Nintendo Switch, use our pre-created folders. 
-                    The primary exception is Dreamcast. Create a dc folder, for your Dreamcast ROMs.
+                    The primary exception is Dreamcast. Create a dc folder in /Emulation/bios, and place your Dreamcast BIOS here.
                   </li>
                   <li>
                     You can use this link{' '}

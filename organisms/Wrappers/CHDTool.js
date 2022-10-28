@@ -39,36 +39,36 @@ const CHDTool = ({
         <Header title="EmuDeck" bold="Compression Tool" />
         <Main>
           <p className="lead">
-            The compression Tool is a script that looks through certain rom
-            folders and can compress games by up to 70% of their original size
+            The Compression Tool is a script that looks through certain ROM
+            folders and compresses games by up to 70% of their original file size
             using CHD and RVZ formats.
           </p>
           <p>
-            Once a disc is successfully converted, the original will be deleted from disk. 
-            Please run Steam Rom Manager again afterwards to update
+            Once a ROM is successfully converted, the original file will be deleted from your system. 
+            Please run Steam ROM Manager again after compressing your ROMs to update
             Steam with your new files.
           </p>
           <p>
-            The tool will find .iso, .gdi, .cue/bin, .gcm roms and will convert
-            them to either CHD or RVZ files.
+            The tool will locate ISO, GDI, CUE/BIN, GCM ROMs and convert
+            to either CHD or RVZ files.
           </p>
           <p>
             Important: CHD made from cue / bin will NOT work for Dreamcast. GDI is required.
             if you have both CUE and GDI for your Dreamcast games, please remove any left
-            over cue files after parsing, or Steam Rom Manager will pick non-existant games.
+            over cue files after parsing, or Steam ROM Manager will detect non-existant games.
           </p>
 
           <p>
             <strong>CHD format:</strong>
             <br />
             Used to compress Dreamcast, PSX, PS2, Sega/MegaCD, 3DO, Saturn, 
-            TurboGraphix/PCEngineCD, pcfx, Amigacd32, NeoGeoCD
+            TurboGraphix/PCEngineCD, PC-FX, Amiga CD32, NeoGeoCD games. 
           </p>
 
           <p>
             <strong>RVZ format:</strong>
             <br />
-            For your GameCube and Wii Games.
+            Used to compress Gamecube and Wii games. 
           </p>
 
           <BtnSimple
