@@ -41,7 +41,7 @@ const RAAchievements = ({
         <Main>
           <p className="lead">
             RetroAchievements.org is a community led effort to collaborate and create
-            custom-made achievements in classic games through emulation.
+            custom-made achievements in emulated classic games.
             Log in to set up Retroachievements for Retroarch.  
           </p>
           <br />

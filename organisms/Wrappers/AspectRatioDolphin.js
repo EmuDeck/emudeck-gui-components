@@ -30,7 +30,7 @@ const AspectRatioDolphin = ({
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure Aspect Ratio for" bold="GameCube" />
+          <Header title="Configure Aspect Ratio for the" bold="GameCube" />
           <Main>
             <p className="lead">
               Select the aspect ratio for the GameCube. You can change this

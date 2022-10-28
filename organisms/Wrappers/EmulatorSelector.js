@@ -30,8 +30,9 @@ const EmulatorSelector = ({
           <Header title="Emulators for" bold={`${device}`} />
           <Main>
             <p className="lead">
-              These are the emulators EmuDeck installs to your device. De-select an emulator icon by clicking it here
-              to prevent EmuDeck from installing it or updating it to your system.
+              These are the emulators EmuDeck installs to your system.
+              Selected emulators will be installed and updated to the latest version. 
+              De-selected emulators will not be installed or updated. 
             </p>
 
             <div className="cards cards--mini">

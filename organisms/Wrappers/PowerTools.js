@@ -52,8 +52,9 @@ const PowerTools = ({
         <Main>
           <p className="lead">
             Power Tools is a plugin that allows you to tweak your CPU & GPU to
-            for maximum performance on more demanding systems. You can read
-            more about this great tool{' '}
+            for maximum performance on more demanding emulators. Installing Power Tools
+            on this menu will also install Decky Loader, a plugin manager. You can read
+            more about Power Tools{' '}
             <LinkSimple
               css="link-simple--1"
               href="https://github.com/NGnius/PowerTools"
