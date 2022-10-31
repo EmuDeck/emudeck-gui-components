@@ -11,7 +11,7 @@ import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.js';
 import Notification from 'components/molecules/Notification/Notification.js';
-
+import { Iframe } from 'getbasecore/Atoms';
 import ar43 from 'assets/ar43.png';
 import ar32 from 'assets/ar32.png';
 
@@ -37,6 +37,9 @@ import lcd3doff from 'assets/classic-3d-shader-off.png';
 
 import lcdonH from 'assets/lcdon.png';
 import lcdoffH from 'assets/lcdoff.png';
+
+import saveon from 'assets/saveon.png';
+import saveoff from 'assets/saveoff.png';
 
 import noir1 from 'assets/esdethemes/es-de_epicnoir_01.png';
 import noir2 from 'assets/esdethemes/es-de_epicnoir_02.png';
@@ -72,13 +75,14 @@ const Settings = ({
   onClickCRT,
   onClickCRT3D,
   onClickLCD,
+  onClickAutoSave,
   next,
   back,
   notificationText,
   showNotification,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { ar, bezels, shaders, theme } = state;
+  const { ar, bezels, shaders, theme, autosave } = state;
   const ipcChannel = window.electron.ipcRenderer;
   return (
     <>
@@ -408,6 +412,46 @@ const Settings = ({
                       </li>
                       <li onClick={() => onClickLCD(true)}>
                         <Card css={shaders.handhelds == true && 'is-selected'}>
+                          <span className="h3">On</span>
+                        </Card>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="selector-menu__details">
+                    <p className="lead">Systems</p>
+                    <ul>
+                      <li>GameBoy</li>
+                      <li>GameBoy Color</li>
+                      <li>GameGear</li>
+                      <li>NeoGeo Pocket</li>
+                    </ul>
+                  </div>
+                </SelectorMenu>
+              </li>
+              <li>
+                <SelectorMenu css="selector-menu--mini">
+                  <div className="selector-menu__img">
+                    <img
+                      src={saveoff}
+                      className={autosave == true && 'is-hidden'}
+                      alt="Background"
+                    />
+                    <img
+                      src={saveon}
+                      className={autosave == false && 'is-hidden'}
+                      alt="Background"
+                    />
+                  </div>
+                  <div className="selector-menu__options selector-menu__options--full">
+                    <p>AutoSave</p>
+                    <ul>
+                      <li onClick={() => onClickAutoSave(false)}>
+                        <Card css={autosave == false && 'is-selected'}>
+                          <span className="h3">Off</span>
+                        </Card>
+                      </li>
+                      <li onClick={() => onClickAutoSave(true)}>
+                        <Card css={autosave == true && 'is-selected'}>
                           <span className="h3">On</span>
                         </Card>
                       </li>
