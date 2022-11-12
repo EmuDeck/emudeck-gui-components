@@ -82,6 +82,14 @@ const ToolsAndStuff = ({
             <BtnSimple
               css="btn-simple--1"
               type="button"
+              onClick={() => goTo('decky-controls')}
+            >
+              Decky Controls
+            </BtnSimple>
+
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
               onClick={() => goTo('chd-tool')}
             >
               EmuDeck Compressor
