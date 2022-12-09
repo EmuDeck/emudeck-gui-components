@@ -31,7 +31,7 @@ const EmulatorConfiguration = ({
           <Main>
             {second && (
               <p className="lead">
-                You can choose whick emulators gets their settings configured by
+                You can choose which emulators gets their settings configured by
                 EmuDeck (Active means the emulator configuration will be
                 overwritten)
               </p>
