@@ -50,6 +50,9 @@ import rbsimple2 from 'assets/esdethemes/es-de_rbsimple_02.png';
 
 import modern from 'assets/ES-DE_01.png';
 
+import imgYES from 'assets/HomebrewGamesYES.png';
+import imgNO from 'assets/HomebrewGamesNO.png';
+
 const noirPics = [
   <img src={noir1} alt="Background" />,
   <img src={noir2} alt="Background" />,
@@ -76,13 +79,14 @@ const Settings = ({
   onClickCRT3D,
   onClickLCD,
   onClickAutoSave,
+  onClickHomeBrew,
   next,
   back,
   notificationText,
   showNotification,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { ar, bezels, shaders, theme, autosave } = state;
+  const { ar, bezels, shaders, theme, autosave, homebrewGames } = state;
   const ipcChannel = window.electron.ipcRenderer;
   return (
     <>
@@ -99,6 +103,49 @@ const Settings = ({
               installation of EmuDeck to apply them
             </p>
             <ul class="list-grid">
+              <li>
+                <SelectorMenu>
+                  <div className="selector-menu__img">
+                    <img
+                      src={imgYES}
+                      className={homebrewGames == false && 'is-hidden'}
+                      alt="Background"
+                    />
+                    <img
+                      src={imgNO}
+                      className={homebrewGames == true && 'is-hidden'}
+                      alt="Background"
+                    />
+                  </div>
+                  <div className="selector-menu__options">
+                    <p>Homebrew Games</p>
+                    <ul>
+                      <li onClick={() => onClickHomeBrew(false)}>
+                        <Card css={homebrewGames == false && 'is-selected'}>
+                          <span className="h3">NO</span>
+                        </Card>
+                      </li>
+                      <li onClick={() => onClickHomeBrew(true)}>
+                        <Card css={homebrewGames == true && 'is-selected'}>
+                          <span className="h3">YES</span>
+                        </Card>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="selector-menu__details">
+                    <p className="lead">Systems</p>
+                    <ul>
+                      <li>GameBoy</li>
+                      <li>GameBoy Color</li>
+                      <li>Super Nintendo</li>
+                      <li>Nintendo NES</li>
+                      <li>Master System</li>
+                      <li>Genesis</li>
+                      <li>GameGear</li>
+                    </ul>
+                  </div>
+                </SelectorMenu>
+              </li>
               <li>
                 <SelectorMenu css="selector-menu--mini">
                   <div className="selector-menu__img">
