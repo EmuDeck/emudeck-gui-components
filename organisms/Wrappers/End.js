@@ -26,7 +26,7 @@ import imgmame from 'assets/emulators/mame.png';
 import imgvita3k from 'assets/emulators/vita3k.png';
 import imgscummvm from 'assets/emulators/scummvm.png';
 import imgsrm from 'assets/emulators/srm.png';
-import imgesde from 'assets/emulators/ede.png';
+import imgesde from 'assets/emulators/esde.png';
 
 import sdlogo from 'assets/sdlogo.png';
 import remotelogo from 'assets/remotelogo.png';
