@@ -27,6 +27,7 @@ const ToolsAndStuff = ({
   next,
   back,
   nextText,
+  isGameMode,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { achievements, storagePath } = state;
@@ -59,7 +60,9 @@ const ToolsAndStuff = ({
         <Header title="Tools &" bold="Stuff" />
         <Main>
           <p className="lead">
-            Welcome to the Tools & Stuff page! Here, you will find EmuDeck's suite of tools and scripts that will bring your EmuDeck install to the next level. 
+            Welcome to the Tools & Stuff page! Here, you will find EmuDeck's
+            suite of tools and scripts that will bring your EmuDeck install to
+            the next level.
           </p>
           <div className="btn-row">
             <BtnSimple
@@ -131,13 +134,15 @@ const ToolsAndStuff = ({
             >
               Save Backup
             </BtnSimple>
-            <BtnSimple
-              css="btn-simple--1"
-              type="button"
-              onClick={() => openSRM()}
-            >
-              Steam ROM Manager
-            </BtnSimple>
+            {isGameMode == false && (
+              <BtnSimple
+                css="btn-simple--1"
+                type="button"
+                onClick={() => openSRM()}
+              >
+                Steam ROM Manager
+              </BtnSimple>
+            )}
           </div>
           <hr />
           <span class="h5">Guides</span>

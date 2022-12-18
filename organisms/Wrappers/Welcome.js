@@ -38,7 +38,8 @@ const Welcome = ({
   counter,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { mode, debug, command, version, second, system, language } = state;
+  const { mode, debug, command, version, second, system, language, gamemode } =
+    state;
 
   return (
     <>
@@ -136,6 +137,7 @@ const Welcome = ({
               thirdText={thirdText}
               fourthText={fourthText}
               next={next}
+              exit={gamemode}
               disabledNext={disabledNext}
               disabledBack={disabledBack}
             />

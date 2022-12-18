@@ -15,6 +15,7 @@ const Footer = ({
   nextText,
   backText,
   thirdText,
+  exit,
 }) => {
   const ipcChannel = window.electron.ipcRenderer;
   const navigate = useNavigate();
@@ -28,6 +29,17 @@ const Footer = ({
 
   return (
     <footer className="footer">
+      {exit && (
+        <BtnSimple
+          css="btn-simple--1"
+          type="button"
+          aria="Go Back"
+          disabled={disabledNext && 'true'}
+          onClick={() => CloseApp()}
+        >
+          Exit To Gaming Mode
+        </BtnSimple>
+      )}
       {!!fourth && (
         <BtnSimple
           css="btn-simple--2"
