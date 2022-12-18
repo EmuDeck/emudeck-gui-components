@@ -66,7 +66,7 @@ const RAConfig = () => {
             {overlaysInstalled === true && (
               <>
                 <p className="lead">
-                  Please select the Aspect Ratio for Super Nintendo
+                  Select the Aspect Ratio for the Super Nintendo Entertainment System
                 </p>
 
                 <div className="steps">

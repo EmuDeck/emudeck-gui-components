@@ -45,10 +45,9 @@ const CloudSync = ({
 
         <Main>
           <p className="lead">
-            Backup your games to the cloud. This feature is in beta version, as
-            of now it will just backup your games so this is not yet suitable to
-            use it to sync you saved games between systems...in future versions
-            we will update the tool to add sync functionalities.
+            Backup your games to the cloud. This feature is currently in beta. At
+            the moment, it will backup your games on an adhoc basis. This feature does not support
+            continuous syncing at this time. Stay tuned for a future update! 
           </p>
 
           <p>Select one of the following providers:</p>
@@ -80,7 +79,7 @@ const CloudSync = ({
               onClick={() => onClick('Emudeck-NextCloud')}
             >
               <img src={nextcloud} alt="nextcloud" />
-              <span className="h6">NextCloud</span>
+              <span className="h6">Nextcloud</span>
             </Card>
             <Card
               css={cloudSync == 'Emudeck-OneDrive' && 'is-selected'}

@@ -32,11 +32,11 @@ const AspectRatioSega = ({
         <div className="wrapper">
           <Header
             title="Configure Aspect Ratio for"
-            bold="Classic Sega Games"
+            bold="Classic Sega Systems"
           />
           <Main>
             <p className="lead">
-              Choose your aspect ratio for your Classic Sega Games.
+              Select the aspect ratio for the Classic Sega Systems.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">
@@ -62,7 +62,7 @@ const AspectRatioSega = ({
                   <li onClick={() => onClick('32')}>
                     <Card css={ar.sega == 32 && 'is-selected'}>
                       <span className="h3">3:2</span>
-                      <p>Less black bars, slight distortion</p>
+                      <p>Smaller black bars, slight horizontal distortion</p>
                     </Card>
                   </li>
                 </ul>

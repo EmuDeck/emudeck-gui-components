@@ -30,11 +30,11 @@ const AspectRatioDolphin = ({
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure Aspect Ratio for" bold="GameCube" />
+          <Header title="Configure Aspect Ratio for the" bold="GameCube" />
           <Main>
             <p className="lead">
-              Choose your aspect ratio for GameCube games. You can change this
-              setting in game anytime with a hotkey.
+              Select the aspect ratio for the GameCube. You can change this
+              setting in game anytime by pressing Start and DPad Right.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">
@@ -54,16 +54,16 @@ const AspectRatioDolphin = ({
                   <li onClick={() => onClick('43')}>
                     <Card css={ar.dolphin == 43 && 'is-selected'}>
                       <span className="h3">4:3</span>
-                      <p>Original aspect ratio</p>
+                      <p>Original Aspect Ratio</p>
                     </Card>
                   </li>
                   <li onClick={() => onClick('169')}>
                     <Card css={ar.dolphin == 169 && 'is-selected'}>
                       <span className="h3">16:9</span>
                       <p>
-                        Fullscreen using WideScreen hacks
+                        Widescreen using Widescreen hacks
                         <br />
-                        (Expect some graphical glitches)
+                        (Expect some graphical glitches.)
                       </p>
                     </Card>
                   </li>

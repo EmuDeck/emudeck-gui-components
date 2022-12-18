@@ -59,8 +59,7 @@ const ToolsAndStuff = ({
         <Header title="Tools &" bold="Stuff" />
         <Main>
           <p className="lead">
-            In this section you'll find tools and scripts that will allow you to
-            get the most of your Device.
+            Welcome to the Tools & Stuff page! Here, you will find EmuDeck's suite of tools and scripts that will bring your EmuDeck install to the next level. 
           </p>
           <div className="btn-row">
             <BtnSimple
@@ -68,7 +67,7 @@ const ToolsAndStuff = ({
               type="button"
               onClick={() => goTo('power-tools')}
             >
-              PowerTools
+              Power Tools
             </BtnSimple>
 
             <BtnSimple
@@ -114,7 +113,7 @@ const ToolsAndStuff = ({
               type="button"
               onClick={() => goTo('check-bios')}
             >
-              Check Bios
+              BIOS Checker
             </BtnSimple>
             {/*
             <BtnSimple
@@ -130,14 +129,14 @@ const ToolsAndStuff = ({
               type="button"
               onClick={() => goTo('cloud-sync')}
             >
-              SaveBackup
+              Save Backup
             </BtnSimple>
             <BtnSimple
               css="btn-simple--1"
               type="button"
               onClick={() => openSRM()}
             >
-              SteamRomManager
+              Steam ROM Manager
             </BtnSimple>
           </div>
           <hr />
@@ -147,7 +146,7 @@ const ToolsAndStuff = ({
             type="button"
             onClick={() => goTo('emulator-guide')}
           >
-            Emulators Guides
+            Emulator Guides
           </BtnSimple>
           <BtnSimple
             css="btn-simple--1"
@@ -163,7 +162,7 @@ const ToolsAndStuff = ({
             type="button"
             onClick={() => sprunge()}
           >
-            Get log
+            Download Log
           </BtnSimple>
           <BtnSimple
             css="btn-simple--3"

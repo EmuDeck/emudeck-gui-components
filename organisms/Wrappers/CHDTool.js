@@ -39,25 +39,36 @@ const CHDTool = ({
         <Header title="EmuDeck" bold="Compression Tool" />
         <Main>
           <p className="lead">
-            Our Compression Tool is a script that looks through your roms and
-            compress them up to 70% of it's original disk size using CHD and RVZ
-            formats.
+            The Compression Tool is a script that looks through certain ROM
+            folders and compresses games by up to 70% of their original file size
+            using CHD and RVZ formats.
           </p>
           <p>
-            The tool will find all your .iso, .gdi, etc roms and will convert
-            them to either CHD or RVZ files.
+            Once a ROM is successfully converted, the original file will be deleted from your system. 
+            Please run Steam ROM Manager again after compressing your ROMs to update
+            Steam with your new files.
+          </p>
+          <p>
+            The tool will locate ISO, GDI, CUE/BIN, GCM ROMs and convert
+            to either CHD or RVZ files.
+          </p>
+          <p>
+            Important: CHD made from cue / bin will NOT work for Dreamcast. GDI is required.
+            if you have both CUE and GDI for your Dreamcast games, please remove any left
+            over cue files after parsing, or Steam ROM Manager will detect non-existant games.
           </p>
 
           <p>
-            <strong>CHD format;</strong>
+            <strong>CHD format:</strong>
             <br />
-            Used to compress PSX, PS2, SegaCD and Dreamcast games.
+            Used to compress Dreamcast, PSX, PS2, Sega/MegaCD, 3DO, Saturn, 
+            TurboGraphix/PCEngineCD, PC-FX, Amiga CD32, NeoGeoCD games. 
           </p>
 
           <p>
             <strong>RVZ format:</strong>
             <br />
-            Used to compress GameCube and Wii Games.
+            Used to compress Gamecube and Wii games. 
           </p>
 
           <BtnSimple
@@ -67,7 +78,7 @@ const CHDTool = ({
             onClick={() => onClick()}
             disabled={disabledNext && 'true'}
           >
-            Run Compression Tool
+            Run the Compression Tool
           </BtnSimple>
         </Main>
         <Footer

@@ -36,13 +36,16 @@ const RomStorage = ({
 
         <div className="wrapper">
           <Header
-            title="Choose where you would like your roms"
-            bold="to be stored"
+            title="Select your ROM Directory"
+            bold=""
           />
           <Main>
             <p className="lead">
-              Where do you want to store your roms? Not seeing your SD Card?
-              Make sure you formatted it on Gaming Mode.
+            Your ROM directory will be squared away 
+            within an Emulation folder 
+            in your selected directory. 
+            If you do not see your SD Card,
+            format it first in Game Mode.
             </p>
             <div className="cards">
               <Card

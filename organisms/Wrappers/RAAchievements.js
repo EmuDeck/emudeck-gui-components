@@ -40,15 +40,15 @@ const RAAchievements = ({
         <Header title="Configure" bold="RetroAchievements" />
         <Main>
           <p className="lead">
-            RetroAchievements.org is a community who collaborate and compete to
-            earn custom-made achievements in classic games through emulation.
-            You can use them on all the systems emulated on RetroArch
+            RetroAchievements.org is a community led effort to collaborate and create
+            custom-made achievements in emulated classic games.
+            Log in to set up Retroachievements for Retroarch.  
           </p>
           <br />
           <div className="container--grid">
             <div data-col-sm="6">
               <p>
-                If you dont have an account you can register now on
+                If you do not have an account, register now on
                 RetroAchievements.org by clicking{' '}
                 <LinkSimple
                   css="link-simple--1"

@@ -30,7 +30,7 @@ const Shaders2D = ({
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure CRT Shader for" bold="Classic 2d Games" />
+          <Header title="Configure CRT Shader for" bold="Classic 2D Games" />
           <Main>
             <p className="lead">
               The CRT Shader gives your classic systems a faux retro CRT vibe.

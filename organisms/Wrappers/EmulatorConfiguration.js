@@ -31,17 +31,18 @@ const EmulatorConfiguration = ({
           <Main>
             {second && (
               <p className="lead">
-                You can choose which emulators gets their settings configured by
-                EmuDeck (Active means the emulator configuration will be
-                overwritten)
+                EmuDeck will optimize and configure emulators during this install. 
+                Selected emulators will have their configurations reset and updated to EmuDeck's defaults. 
+                De-selected emulators will not be touched and 
+                EmuDeck will respect your configurations (Not Recommended).
               </p>
             )}
             {!second && (
               <p className="lead">
-                By default we will overwrite all configuration on these
-                emulators. You can disable any emulator emulator to keep it's
-                current configuration ( Not recommended ). ( Active means the
-                emulator will be overwritten)
+                EmuDeck will optimize and configure emulators during this install. 
+                Selected emulators will have their configurations reset and updated to EmuDeck's defaults. 
+                De-selected emulators will not be touched and 
+                EmuDeck will respect your configurations (Not Recommended).
               </p>
             )}
 

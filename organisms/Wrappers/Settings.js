@@ -99,8 +99,7 @@ const Settings = ({
           </Notification>
           <Main>
             <p className="lead">
-              Selecting an option will set it up. You don't need to run a full
-              installation of EmuDeck to apply them
+              Select an option to automatically apply it to your system. You do not need to do an EmuDeck Custom Update to apply these settings. 
             </p>
             <ul class="list-grid">
               <li>
