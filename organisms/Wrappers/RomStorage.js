@@ -90,7 +90,6 @@ const RomStorage = ({
 
           <Footer
             next={next}
-            nextText={mode === 'easy' ? 'Finish ' : 'Next '}
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />

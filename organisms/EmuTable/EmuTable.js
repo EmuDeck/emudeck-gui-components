@@ -30,31 +30,31 @@ const EmuTable = ({
         <div data-col-sm="2">
           <img src={img} alt="logo" />
           <div class="form">
-          {emuData && (
-            <FormSelectSimple
-              name="formu-input"
-              label="Select Emulator"
-              onChange={onChange}
-            >
-              <option value="citra">Citra</option>
-              <option value="cemu">Cemu</option>
-              <option value="dolphin">Dolphin</option>
-              <option value="duckstation">Duckstation</option>
-              <option value="mame">MAME</option>
-              <option value="pcsx2">PCSX2</option>
-              <option value="primehacks">PrimeHack</option>
-              <option value="ppsspp">PPSSPP</option>
-              <option value="ra">RetroArch</option>
-              <option value="rpcs3">RPCS3</option>
-              <option value="ryujinx">Ryujinx</option>
-              <option value="scummvm">ScummVM</option>
-              <option value="xemu">Xemu</option>
-              <option value="yuzu">Yuzu</option>
-              <option value="vita3k">Vita3K</option>
-              <option value="xenia">Xenia</option>
-            </FormSelectSimple>
-          )}
-
+            {emuData && (
+              <FormSelectSimple
+                name="formu-input"
+                label="Select Emulator"
+                onChange={onChange}
+              >
+                <option value="citra">Citra</option>
+                <option value="cemu">Cemu</option>
+                <option value="dolphin">Dolphin</option>
+                <option value="duckstation">Duckstation</option>
+                <option value="mame">MAME</option>
+                <option value="pcsx2">PCSX2</option>
+                <option value="primehacks">PrimeHack</option>
+                <option value="ppsspp">PPSSPP</option>
+                <option value="ra">RetroArch</option>
+                <option value="rpcs3">RPCS3</option>
+                <option value="ryujinx">Ryujinx</option>
+                <option value="scummvm">ScummVM</option>
+                <option value="xemu">Xemu</option>
+                <option value="yuzu">Yuzu</option>
+                <option value="vita3k">Vita3K</option>
+                <option value="xenia">Xenia</option>
+                <option value="srm">Steam Rom Manager</option>
+              </FormSelectSimple>
+            )}
           </div>
         </div>
 
@@ -93,7 +93,7 @@ const EmuTable = ({
             css="btn-simple--1"
             type="button"
             aria="Go Back"
-            onClick={() => onClick(emuData.id, emuData.name)}
+            onClick={() => onClick(emuData.id, emuData.code)}
             disabled={disableResetButton}
           >
             Reset configuration
@@ -105,7 +105,7 @@ const EmuTable = ({
               type="button"
               aria="Go Back"
               disabled={disableInstallButton}
-              onClick={() => onClickInstall(emuData.id, emuData.name)}
+              onClick={() => onClickInstall(emuData.id, emuData.code)}
             >
               Install
             </BtnSimple>

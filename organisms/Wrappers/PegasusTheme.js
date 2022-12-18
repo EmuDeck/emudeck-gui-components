@@ -115,8 +115,8 @@ const PegasusTheme = ({
             </SelectorMenu>
           </Main>
           <Footer
-            next="end"
-            nextText="Finish"
+            next="homebrew-games"
+            nextText="Next"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />

@@ -20,19 +20,6 @@ const EmulatorConfiguration = ({
   const { device, overwriteConfigEmus, second } = state;
   const overwriteConfigEmusArray = Object.values(overwriteConfigEmus);
 
-  let nextPage;
-
-  if (overwriteConfigEmus.ra.status == true) {
-    nextPage = 'ra-achievements';
-  } else if (
-    overwriteConfigEmus.ra.status == false &&
-    overwriteConfigEmus.dolphin.status == false
-  ) {
-    nextPage = 'pegasus-theme';
-  } else {
-    nextPage = 'aspect-ratio-dolphin';
-  }
-
   return (
     <>
       {/*  <ExploreContainer name="Tab 1 page" /> */}
@@ -79,7 +66,7 @@ const EmulatorConfiguration = ({
             </div>
           </Main>
           <Footer
-            next={nextPage}
+            next={next}
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />

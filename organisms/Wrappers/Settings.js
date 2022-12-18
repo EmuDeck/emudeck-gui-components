@@ -11,7 +11,7 @@ import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.js';
 import Notification from 'components/molecules/Notification/Notification.js';
-
+import { Iframe } from 'getbasecore/Atoms';
 import ar43 from 'assets/ar43.png';
 import ar32 from 'assets/ar32.png';
 
@@ -38,6 +38,9 @@ import lcd3doff from 'assets/classic-3d-shader-off.png';
 import lcdonH from 'assets/lcdon.png';
 import lcdoffH from 'assets/lcdoff.png';
 
+import saveon from 'assets/saveon.png';
+import saveoff from 'assets/saveoff.png';
+
 import noir1 from 'assets/esdethemes/es-de_epicnoir_01.png';
 import noir2 from 'assets/esdethemes/es-de_epicnoir_02.png';
 import modern1 from 'assets/esdethemes/es-de_modern_01.png';
@@ -46,6 +49,9 @@ import rbsimple1 from 'assets/esdethemes/es-de_rbsimple_01.png';
 import rbsimple2 from 'assets/esdethemes/es-de_rbsimple_02.png';
 
 import modern from 'assets/ES-DE_01.png';
+
+import imgYES from 'assets/HomebrewGamesYES.png';
+import imgNO from 'assets/HomebrewGamesNO.png';
 
 const noirPics = [
   <img src={noir1} alt="Background" />,
@@ -72,13 +78,15 @@ const Settings = ({
   onClickCRT,
   onClickCRT3D,
   onClickLCD,
+  onClickAutoSave,
+  onClickHomeBrew,
   next,
   back,
   notificationText,
   showNotification,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { ar, bezels, shaders, theme } = state;
+  const { ar, bezels, shaders, theme, autosave, homebrewGames } = state;
   const ipcChannel = window.electron.ipcRenderer;
   return (
     <>
@@ -94,6 +102,49 @@ const Settings = ({
               Select an option to automatically apply it to your system. You do not need to do an EmuDeck Custom Update to apply these settings. 
             </p>
             <ul class="list-grid">
+              <li>
+                <SelectorMenu>
+                  <div className="selector-menu__img">
+                    <img
+                      src={imgYES}
+                      className={homebrewGames == false && 'is-hidden'}
+                      alt="Background"
+                    />
+                    <img
+                      src={imgNO}
+                      className={homebrewGames == true && 'is-hidden'}
+                      alt="Background"
+                    />
+                  </div>
+                  <div className="selector-menu__options">
+                    <p>Homebrew Games</p>
+                    <ul>
+                      <li onClick={() => onClickHomeBrew(false)}>
+                        <Card css={homebrewGames == false && 'is-selected'}>
+                          <span className="h3">NO</span>
+                        </Card>
+                      </li>
+                      <li onClick={() => onClickHomeBrew(true)}>
+                        <Card css={homebrewGames == true && 'is-selected'}>
+                          <span className="h3">YES</span>
+                        </Card>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="selector-menu__details">
+                    <p className="lead">Systems</p>
+                    <ul>
+                      <li>GameBoy</li>
+                      <li>GameBoy Color</li>
+                      <li>Super Nintendo</li>
+                      <li>Nintendo NES</li>
+                      <li>Master System</li>
+                      <li>Genesis</li>
+                      <li>GameGear</li>
+                    </ul>
+                  </div>
+                </SelectorMenu>
+              </li>
               <li>
                 <SelectorMenu css="selector-menu--mini">
                   <div className="selector-menu__img">
@@ -407,6 +458,46 @@ const Settings = ({
                       </li>
                       <li onClick={() => onClickLCD(true)}>
                         <Card css={shaders.handhelds == true && 'is-selected'}>
+                          <span className="h3">On</span>
+                        </Card>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="selector-menu__details">
+                    <p className="lead">Systems</p>
+                    <ul>
+                      <li>GameBoy</li>
+                      <li>GameBoy Color</li>
+                      <li>GameGear</li>
+                      <li>NeoGeo Pocket</li>
+                    </ul>
+                  </div>
+                </SelectorMenu>
+              </li>
+              <li>
+                <SelectorMenu css="selector-menu--mini">
+                  <div className="selector-menu__img">
+                    <img
+                      src={saveoff}
+                      className={autosave == true && 'is-hidden'}
+                      alt="Background"
+                    />
+                    <img
+                      src={saveon}
+                      className={autosave == false && 'is-hidden'}
+                      alt="Background"
+                    />
+                  </div>
+                  <div className="selector-menu__options selector-menu__options--full">
+                    <p>AutoSave</p>
+                    <ul>
+                      <li onClick={() => onClickAutoSave(false)}>
+                        <Card css={autosave == false && 'is-selected'}>
+                          <span className="h3">Off</span>
+                        </Card>
+                      </li>
+                      <li onClick={() => onClickAutoSave(true)}>
+                        <Card css={autosave == true && 'is-selected'}>
                           <span className="h3">On</span>
                         </Card>
                       </li>

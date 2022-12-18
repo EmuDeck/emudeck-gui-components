@@ -40,8 +40,19 @@ const Header = ({ title, bold }) => {
     setState({ ...state, command: e.target.value });
   };
 
+  // Xmas
+  const d = new Date();
+  const month = d.getMonth();
+  let snowFlakes = [];
+  if (month == 11) {
+    for (let i = 0; i < 150; i++) {
+      snowFlakes.push(<div className="snow"></div>);
+    }
+  }
+
   return (
     <header className="header">
+      {month == 11 && snowFlakes && snowFlakes}
       <small onClick={toggleDebug} className="header__version">
         {version}
       </small>
