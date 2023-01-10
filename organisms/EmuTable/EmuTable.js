@@ -23,6 +23,7 @@ const EmuTable = ({
   installEmus,
   disableInstallButton,
   disableResetButton,
+  mode,
 }) => {
   return (
     <div class="emutable">
@@ -45,15 +46,19 @@ const EmuTable = ({
                 <option value="primehacks">PrimeHack</option>
                 <option value="ppsspp">PPSSPP</option>
                 <option value="ra">RetroArch</option>
-                <option value="rmg">Rosalie's Mupen Gui</option>
                 <option value="rpcs3">RPCS3</option>
-                <option value="ryujinx">Ryujinx</option>
                 <option value="scummvm">ScummVM</option>
                 <option value="xemu">Xemu</option>
                 <option value="yuzu">Yuzu</option>
                 <option value="vita3k">Vita3K</option>
-                <option value="xenia">Xenia</option>
                 <option value="srm">Steam Rom Manager</option>
+                {mode !== 'easy' && (
+                  <>
+                    <option value="rmg">Rosalie's Mupen Gui</option>
+                    <option value="ryujinx">Ryujinx</option>
+                    <option value="xenia">Xenia</option>
+                  </>
+                )}
               </FormSelectSimple>
             )}
           </div>

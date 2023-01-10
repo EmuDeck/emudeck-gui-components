@@ -79,8 +79,8 @@ const HomebrewGames = ({
             </SelectorMenu>
           </Main>
           <Footer
-            next="end"
-            nextText={'Finish'}
+            next={mode == 'easy' ? 'end' : 'confirmation'}
+            nextText={mode == 'easy' ? 'Finish' : 'Next'}
             disabledNext={disabledNext}
             disabledBack={disabledBack}
           />

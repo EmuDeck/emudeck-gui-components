@@ -64,6 +64,7 @@ const EmuGuide = (props) => {
     installEmus,
     disableInstallButton,
     disableResetButton,
+    mode,
   } = props;
 
   // const imgdefault =
@@ -260,6 +261,7 @@ const EmuGuide = (props) => {
         <Main>
           {emuData.id && (
             <EmuTable
+              mode={mode}
               img={img}
               emuData={emuData}
               bios={biosHTML}
