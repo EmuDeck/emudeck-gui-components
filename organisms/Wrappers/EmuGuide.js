@@ -26,6 +26,7 @@ import imgmame from 'assets/emulators/mame.png';
 import imgvita3k from 'assets/emulators/vita3k.png';
 import imgxenia from 'assets/emulators/xenia.png';
 import imgsrm from 'assets/emulators/srm.png';
+import imgrmg from 'assets/emulators/rmg.png';
 import imgscummvm from 'assets/emulators/scummvm.png';
 import imgsupermodelista from 'assets/emulators/supermodelista.png';
 
@@ -160,6 +161,9 @@ const EmuGuide = (props) => {
         break;
       case 'srm':
         setStateImg({ img: imgsrm });
+        break;
+      case 'rmg':
+        setStateImg({ img: imgrmg });
         break;
       default:
         setStateImg({ img: imgdefault });

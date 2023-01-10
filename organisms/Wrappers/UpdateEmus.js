@@ -60,7 +60,7 @@ const UpdateEmus = ({
             onClick={() => onClickAppImage()}
             disabled={disabledNext && 'true'}
           >
-            Update AppImages
+            Update AppImages and Binaries
           </BtnSimple>
         </Main>
         <Footer
