@@ -46,6 +46,7 @@ const EmuTable = ({
                 <option value="primehacks">PrimeHack</option>
                 <option value="ppsspp">PPSSPP</option>
                 <option value="ra">RetroArch</option>
+                <option value="melonds">melonDS</option>
                 <option value="rpcs3">RPCS3</option>
                 <option value="scummvm">ScummVM</option>
                 <option value="xemu">Xemu</option>

@@ -15,6 +15,7 @@ import imgdolphin from 'assets/emulators/dolphin.png';
 import imgprimehacks from 'assets/emulators/primehacks.png';
 import imgppsspp from 'assets/emulators/ppsspp.png';
 import imgduckstation from 'assets/emulators/duckstation.png';
+import imgmelonds from 'assets/emulators/melonds.png';
 import imgcitra from 'assets/emulators/citra.png';
 import imgpcsx2 from 'assets/emulators/pcsx2.png';
 import imgrpcs3 from 'assets/emulators/rpcs3.png';
@@ -267,6 +268,9 @@ const End = ({
                   </Card>
                   <Card css="is-selected">
                     <img src={imgduckstation} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgmelonds} alt="alt" />
                   </Card>
                   <Card css="is-selected">
                     <img src={imgcitra} alt="alt" />

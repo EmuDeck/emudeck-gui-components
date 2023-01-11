@@ -15,6 +15,7 @@ import imgdolphin from 'assets/emulators/dolphin.png';
 import imgprimehacks from 'assets/emulators/primehacks.png';
 import imgppsspp from 'assets/emulators/ppsspp.png';
 import imgduckstation from 'assets/emulators/duckstation.png';
+import imgmelonds from 'assets/emulators/melonds.png';
 import imgcitra from 'assets/emulators/citra.png';
 import imgpcsx2 from 'assets/emulators/pcsx2.png';
 import imgrpcs3 from 'assets/emulators/rpcs3.png';
@@ -123,6 +124,9 @@ const EmuGuide = (props) => {
         break;
       case 'duckstation':
         setStateImg({ img: imgduckstation });
+        break;
+      case 'melonds':
+        setStateImg({ img: imgmelonds });
         break;
       case 'citra':
         setStateImg({ img: imgcitra });
