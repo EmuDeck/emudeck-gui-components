@@ -124,7 +124,7 @@ const Confirmation = ({
                     ) : (
                       <Img src={iconDanger} css="icon icon--xs" alt="KO" />
                     )}{' '}
-                    - Handhelds Shader:
+                    - Handhelds Shader
                   </li>
                   <li>
                     {shaders.classic ? (

@@ -14,11 +14,16 @@ import {
   ProgressBar,
   FormInputSimple,
   LinkSimple,
+  Img,
 } from 'getbasecore/Atoms';
 import { Form } from 'getbasecore/Molecules';
 
 import Card from 'components/molecules/Card/Card.js';
-
+import {
+  iconSuccess,
+  iconDanger,
+  iconWarning,
+} from 'components/utils/images/images.js';
 const CheckBios = ({
   disabledNext,
   disabledBack,
@@ -80,28 +85,58 @@ const CheckBios = ({
         <Header title="Bios files" bold="checker" />
         <Main>
           <p className="lead">
-          Some games will not load properly without BIOS files in place.
-          Place your BIOS in /Emulation/bios and use this BIOS Checker 
-          to ensure that you have the correct BIOS for your system. 
+            Some games will not load properly without BIOS files in place. Place
+            your BIOS in /Emulation/bios and use this BIOS Checker to ensure
+            that you have the correct BIOS for your system.
           </p>
           <div className="container--grid">
             <div data-col-sm="6">
               <Alert css={'alert--mini ' + biosCSS(ps1Bios)}>
+                {biosText(ps1Bios).includes('missing') ? (
+                  <Img src={iconDanger} css="icon icon--xs" alt="OK" />
+                ) : (
+                  <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                )}{' '}
                 Playstation 1 BIOS {biosText(ps1Bios)}
               </Alert>
               <Alert css={'alert--mini ' + biosCSS(ps2Bios)}>
+                {biosText(ps2Bios).includes('missing') ? (
+                  <Img src={iconDanger} css="icon icon--xs" alt="OK" />
+                ) : (
+                  <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                )}{' '}
                 Playstation 2 BIOS {biosText(ps2Bios)}
               </Alert>
               <Alert css={'alert--mini ' + biosCSS(switchBios)}>
+                {biosText(switchBios).includes('missing') ? (
+                  <Img src={iconDanger} css="icon icon--xs" alt="OK" />
+                ) : (
+                  <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                )}{' '}
                 Nintendo Switch Firmware {biosText(switchBios)}
               </Alert>
               <Alert css={'alert--mini ' + biosCSS(segaCDBios)}>
+                {biosText(segaCDBios).includes('missing') ? (
+                  <Img src={iconDanger} css="icon icon--xs" alt="OK" />
+                ) : (
+                  <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                )}{' '}
                 Sega CD BIOS {biosText(segaCDBios)}
               </Alert>
               <Alert css={'alert--mini ' + biosCSS(saturnBios)}>
+                {biosText(saturnBios).includes('missing') ? (
+                  <Img src={iconDanger} css="icon icon--xs" alt="OK" />
+                ) : (
+                  <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                )}{' '}
                 Saturn BIOS {biosText(saturnBios)}
               </Alert>
               <Alert css={'alert--mini ' + biosCSS(DSBios)}>
+                {biosText(DSBios).includes('missing') ? (
+                  <Img src={iconDanger} css="icon icon--xs" alt="OK" />
+                ) : (
+                  <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                )}{' '}
                 Nintendo DS BIOS {biosText(DSBios)}
               </Alert>
               <Alert
@@ -110,37 +145,38 @@ const CheckBios = ({
                   (dreamcastBios ? 'alert--success' : 'alert--warning')
                 }
               >
+                {biosText(DSBios).includes('missing') ? (
+                  <Img src={iconWarning} css="icon icon--xs" alt="OK" />
+                ) : (
+                  <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                )}{' '}
                 Dreamcast BIOS{' '}
                 {dreamcastBios
                   ? 'detected!'
                   : ' missing! It is not mandatory, but recommended'}
               </Alert>
             </div>
-            <div data-col-sm="1"></div>
 
-            <div data-col-sm="5">
+            <div data-col-sm="6">
               <Alert css="alert--info">
                 <ul class="list">
                   <li>
-                    <strong>Tips:</strong>
+                    Tip 1: Not all systems require additional BIOS files. Listed
+                    here are the more common systems.
                   </li>
                   <li>
-                    Tip 1: Not all systems require additional BIOS files. Listed here are 
-                    the more common systems. Other systems, MSX2 for example, do need
-                    BIOS, but are not listed here.
+                    Tip 2: Make sure you have the correct BIOS for your ROM
+                    region. Your ROMs may come from the United States, Japan,
+                    Europe, etc.
                   </li>
                   <li>
-                    Tip 2: Make sure you have the correct BIOS for your ROM region. 
-                    Your ROMs may come from the United States, Japan, Europe, etc.
+                    Tip 3: Case matters. Even if your BIOS are detected, your
+                    BIOS must be lowercase for Playstation 1 and Playstation 2.
                   </li>
                   <li>
-                    Tip 3: Case matters. Even if your BIOS are detected, your BIOS must be
-                    lowercase for Playstation 1 and Playstation 2.
-                  </li>
-                  <li>
-                    Tip 4: For the most part, your BIOS files must be placed in /Emulation/bios.
-                    Do not make a sub-folder for your BIOS. For Nintendo Switch, use our pre-created folders. 
-                    The primary exception is Dreamcast. Create a dc folder in /Emulation/bios, and place your Dreamcast BIOS here.
+                    Tip 4: Your BIOS files must be placed in /Emulation/bios. Do
+                    not make sub-folders for your BIOS. For Switch, use our
+                    pre-created folders.
                   </li>
                   <li>
                     You can use this link{' '}
