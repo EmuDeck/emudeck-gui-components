@@ -34,7 +34,7 @@ const AspectRatioDolphin = ({
           <Main>
             <p className="lead">
               Select the aspect ratio for the GameCube. You can change this
-              setting in game anytime by pressing Start and DPad Right.
+              setting in game anytime by pressing Start+DPad Right.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">

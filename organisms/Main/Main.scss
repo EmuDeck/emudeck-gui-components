@@ -63,6 +63,7 @@ main {
   max-height: 70vh;
   margin-bottom: 20px;
   overflow: auto;
+  overflow-x: hidden;
   padding: 2px;
   // @media (min-width: 701px) {
   //   overflow: hidden;
@@ -2693,3 +2694,46 @@ main {
     transform: translate(78.2217vw, 100vh) scale(0.2784);
   }
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 18px;
+  left: -100px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5bf;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #99f;
+}
+
+.no-overflow {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// *::-webkit-scrollbar {
+//   width: 18px;
+// }
+// *::-webkit-scrollbar-track {
+//   background: green;
+//   /* change me to blue to match the background */
+// }
+// *::-webkit-scrollbar-thumb {
+//   background: red;
+//   border: 10px yellow solid;
+//   /* change border color to blue to match the background */
+// }

@@ -11,7 +11,7 @@
   --btn-simple-text-size-sm: 12px;
   --btn-simple-padding-lg: 10px 18px;
   --btn-simple-text-size-lg: 18px;
-  --btn-group-separation: 18px;
+  --btn-group-separation: 0px;
 }
 //@include generate-btn-simple(var(--name, $color, $bg, $color-hover, $bg-hover, $bg-active, $color-disabled, $bg-disabled));
 
@@ -113,4 +113,10 @@
     margin-left: 0;
     margin-right: 20px;
   }
+}
+.btn-group {
+  margin-bottom: 0;
+}
+.btn-group [class*='btn'] {
+  border-radius: var(--btn-simple-border-radius);
 }

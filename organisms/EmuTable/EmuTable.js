@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BtnSimple, FormSelectSimple } from 'getbasecore/Atoms';
-import { Table, Alert } from 'getbasecore/Molecules';
+import { BtnSimple, FormSelectSimple, BtnGroup } from 'getbasecore/Atoms';
+import { Table, Alert, BtnGroup } from 'getbasecore/Molecules';
 import './emutable.scss';
 const EmuTable = ({
   back,
@@ -95,38 +95,39 @@ const EmuTable = ({
               {bios}
             </>
           )}
-
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            aria="Go Back"
-            onClick={() => onClick(emuData.id, emuData.code)}
-            disabled={disableResetButton}
-          >
-            Reset configuration
-          </BtnSimple>
-
-          {!installEmus[1] && (
+          <BtnGroup>
             <BtnSimple
               css="btn-simple--1"
               type="button"
               aria="Go Back"
-              disabled={disableInstallButton}
-              onClick={() => onClickInstall(emuData.id, emuData.code)}
+              onClick={() => onClick(emuData.id, emuData.code)}
+              disabled={disableResetButton}
             >
-              Install
+              Reset configuration
             </BtnSimple>
-          )}
-          {installEmus[1] && (
-            <BtnSimple
-              css="btn-simple--1"
-              type="button"
-              aria="Go Back"
-              disabled={true}
-            >
-              Installed
-            </BtnSimple>
-          )}
+
+            {!installEmus[1] && (
+              <BtnSimple
+                css="btn-simple--3"
+                type="button"
+                aria="Go Back"
+                disabled={disableInstallButton}
+                onClick={() => onClickInstall(emuData.id, emuData.code)}
+              >
+                Install
+              </BtnSimple>
+            )}
+            {installEmus[1] && (
+              <BtnSimple
+                css="btn-simple--2"
+                type="button"
+                aria="Go Back"
+                disabled={true}
+              >
+                Installed
+              </BtnSimple>
+            )}
+          </BtnGroup>
         </div>
         <div data-col-sm="3">
           {emuData.hotkeys && (

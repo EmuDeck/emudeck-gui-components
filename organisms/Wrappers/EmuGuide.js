@@ -30,6 +30,7 @@ import {
   imgrmg,
   imgscummvm,
   imgsupermodelista,
+  imgmelonds,
 } from 'components/utils/images/images.js';
 
 import {
