@@ -53,13 +53,13 @@ const AspectRatio3D = ({
                 <ul>
                   <li onClick={() => onClick('43')}>
                     <Card css={ar.classic3d == 43 && 'is-selected'}>
-                      <span className="h3">4:3</span>
+                      <span className="h4">4:3</span>
                       <p>Original Aspect Ratio</p>
                     </Card>
                   </li>
                   <li onClick={() => onClick('169')}>
                     <Card css={ar.classic3d == 169 && 'is-selected'}>
-                      <span className="h3">16:9</span>
+                      <span className="h4">16:9</span>
                       <p>Widescreen using Widescreen hacks</p>
                     </Card>
                   </li>

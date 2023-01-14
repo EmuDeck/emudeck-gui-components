@@ -1,1 +1,5 @@
-@import "~getbasecore/src/components/atoms/Img/core_img.scss";
+img.icon--xs,
+picture.icon--xs {
+  width: 20px;
+  vertical-align: bottom;
+}

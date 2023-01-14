@@ -31,10 +31,11 @@ const AspectRatioSNES = ({
       {/*  <ExploreContainer name="Tab 1 page" /> */}
       <div className="app">
         <div className="wrapper">
-          <Header title="Configure Aspect Ratio for the" bold="Super Nintendo Entertainment System" />
+          <Header title="Configure Aspect Ratio for" bold="Classic Nintendo" />
           <Main>
             <p className="lead">
-              Select the aspect ratio for the Super Nintendo Entertainment System.
+              Select the aspect ratio for the Super Nintendo Entertainment
+              System.
             </p>
             <SelectorMenu>
               <div className="selector-menu__img">
@@ -58,19 +59,19 @@ const AspectRatioSNES = ({
                 <ul>
                   <li onClick={() => onClick('87')}>
                     <Card css={ar.snes == 87 && 'is-selected'}>
-                      <span className="h3">8:7</span>
+                      <span className="h4">8:7</span>
                       <p>The real SNES Resolution</p>
                     </Card>
                   </li>
                   <li onClick={() => onClick('43')}>
                     <Card css={ar.snes == 43 && 'is-selected'}>
-                      <span className="h3">4:3</span>
+                      <span className="h4">4:3</span>
                       <p>Default Original</p>
                     </Card>
                   </li>
                   <li onClick={() => onClick('32')}>
                     <Card css={ar.snes == 32 && 'is-selected'}>
-                      <span className="h3">3:2</span>
+                      <span className="h4">3:2</span>
                       <p>Not Recommended</p>
                     </Card>
                   </li>

@@ -54,12 +54,12 @@ const HomebrewGames = ({
                 <ul>
                   <li onClick={() => onClick(true)}>
                     <Card css={homebrewGames == true && 'is-selected'}>
-                      <span className="h3">YES</span>
+                      <span className="h4">YES</span>
                     </Card>
                   </li>
                   <li onClick={() => onClick(false)}>
                     <Card css={homebrewGames == false && 'is-selected'}>
-                      <span className="h3">NO</span>
+                      <span className="h4">NO</span>
                     </Card>
                   </li>
                 </ul>

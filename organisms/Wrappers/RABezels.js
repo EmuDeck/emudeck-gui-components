@@ -54,12 +54,12 @@ const RABezels = ({
                 <ul>
                   <li onClick={() => onClick(true)}>
                     <Card css={bezels == true && 'is-selected'}>
-                      <span className="h3">On</span>
+                      <span className="h4">On</span>
                     </Card>
                   </li>
                   <li onClick={() => onClick(false)}>
                     <Card css={bezels == false && 'is-selected'}>
-                      <span className="h3">Off</span>
+                      <span className="h4">Off</span>
                     </Card>
                   </li>
                 </ul>

@@ -53,13 +53,13 @@ const AspectRatioDolphin = ({
                 <ul>
                   <li onClick={() => onClick('43')}>
                     <Card css={ar.dolphin == 43 && 'is-selected'}>
-                      <span className="h3">4:3</span>
+                      <span className="h4">4:3</span>
                       <p>Original Aspect Ratio</p>
                     </Card>
                   </li>
                   <li onClick={() => onClick('169')}>
                     <Card css={ar.dolphin == 169 && 'is-selected'}>
-                      <span className="h3">16:9</span>
+                      <span className="h4">16:9</span>
                       <p>
                         Widescreen using Widescreen hacks
                         <br />

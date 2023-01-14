@@ -53,12 +53,12 @@ const ShadersHandhelds = ({
                 <ul>
                   <li onClick={() => onClick(false)}>
                     <Card css={shaders.handhelds == false && 'is-selected'}>
-                      <span className="h3">Off</span>
+                      <span className="h4">Off</span>
                     </Card>
                   </li>
                   <li onClick={() => onClick(true)}>
                     <Card css={shaders.handhelds == true && 'is-selected'}>
-                      <span className="h3">On</span>
+                      <span className="h4">On</span>
                     </Card>
                   </li>
                 </ul>

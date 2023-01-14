@@ -7,12 +7,14 @@ import Header from 'components/organisms/Header/Header.js';
 import Aside from 'components/organisms/Aside/Aside.js';
 import Main from 'components/organisms/Main/Main.js';
 
+import { Img } from 'getbasecore/Atoms';
+
 import Card from 'components/molecules/Card/Card.js';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu.js';
 
 import imgYES from 'assets/HomebrewGamesYES.png';
 import imgNO from 'assets/HomebrewGamesNO.png';
-
+import { iconSuccess, iconDanger } from 'components/utils/images/images.js';
 const Confirmation = ({
   disabledNext,
   disabledBack,
@@ -52,7 +54,12 @@ const Confirmation = ({
                   {installEmusArray.map((item) => {
                     return (
                       <li>
-                        {item.status ? `✅` : `❌`} - {item.name}
+                        {item.status ? (
+                          <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                        ) : (
+                          <Img src={iconDanger} css="icon icon--xs" alt="KO" />
+                        )}{' '}
+                        - {item.name}
                       </li>
                     );
                   })}
@@ -64,7 +71,12 @@ const Confirmation = ({
                   {overwriteConfigEmusArray.map((item) => {
                     return (
                       <li>
-                        {item.status ? `✅` : `❌`} - {item.name}
+                        {item.status ? (
+                          <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                        ) : (
+                          <Img src={iconDanger} css="icon icon--xs" alt="KO" />
+                        )}{' '}
+                        - {item.name}
                       </li>
                     );
                   })}
@@ -82,13 +94,62 @@ const Confirmation = ({
 
                 */}
                 <ul>
-                  <li>{autosave ? `✅` : `❌`} - AutoSave </li>
-                  <li>{achievements.name ? `✅` : `❌`} - RetroAchievements</li>
-                  <li>{bezels ? `✅` : `❌`} - Bezels</li>
-                  <li>{shaders.handhelds ? `✅` : `❌`} - Handhelds Shader:</li>
-                  <li>{shaders.classic ? `✅` : `❌`} - Classic 2D Shader</li>
-                  <li>{shaders.classic3d ? `✅` : `❌`} - Classic 3D Shader</li>
-                  <li>{homebrewGames ? `✅` : `❌`} - HomeBrew Games</li>
+                  <li>
+                    {autosave ? (
+                      <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                    ) : (
+                      <Img src={iconDanger} css="icon icon--xs" alt="KO" />
+                    )}{' '}
+                    - AutoSave{' '}
+                  </li>
+                  <li>
+                    {achievements.name ? (
+                      <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                    ) : (
+                      <Img src={iconDanger} css="icon icon--xs" alt="KO" />
+                    )}{' '}
+                    - RetroAchievements
+                  </li>
+                  <li>
+                    {bezels ? (
+                      <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                    ) : (
+                      <Img src={iconDanger} css="icon icon--xs" alt="KO" />
+                    )}{' '}
+                    - Bezels
+                  </li>
+                  <li>
+                    {shaders.handhelds ? (
+                      <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                    ) : (
+                      <Img src={iconDanger} css="icon icon--xs" alt="KO" />
+                    )}{' '}
+                    - Handhelds Shader:
+                  </li>
+                  <li>
+                    {shaders.classic ? (
+                      <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                    ) : (
+                      <Img src={iconDanger} css="icon icon--xs" alt="KO" />
+                    )}{' '}
+                    - Classic 2D Shader
+                  </li>
+                  <li>
+                    {shaders.classic3d ? (
+                      <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                    ) : (
+                      <Img src={iconDanger} css="icon icon--xs" alt="KO" />
+                    )}{' '}
+                    - Classic 3D Shader
+                  </li>
+                  <li>
+                    {homebrewGames ? (
+                      <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                    ) : (
+                      <Img src={iconDanger} css="icon icon--xs" alt="KO" />
+                    )}{' '}
+                    - HomeBrew Games
+                  </li>
                   <li>EmulationStation DE Theme: {theme}</li>
                   <li>
                     Sega Classic AR: <strong>{ar.sega}</strong>
@@ -107,7 +168,9 @@ const Confirmation = ({
               <div data-col-sm="3">
                 <span class="h5">Installation Path:</span>
                 <ul>
-                  <li>{storagePath}</li>
+                  <li>
+                    {storagePath == '$HOME' ? 'User Home Folder' : storagePath}
+                  </li>
                 </ul>
               </div>
             </div>
