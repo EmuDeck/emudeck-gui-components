@@ -143,6 +143,13 @@ const ToolsAndStuff = ({
                 Steam ROM Manager
               </BtnSimple>
             )}
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              onClick={() => goTo('RA-achievements-config')}
+            >
+              RetroAchievements
+            </BtnSimple>
           </div>
           <hr />
           <span class="h5">Guides</span>
