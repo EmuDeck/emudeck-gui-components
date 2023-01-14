@@ -276,6 +276,9 @@ const End = ({
                     <img src={imgduckstation} alt="alt" />
                   </Card>
                   <Card css="is-selected">
+                    <img src={imgmelonds} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
                     <img src={imgcitra} alt="alt" />
                   </Card>
                   <Card css="is-selected">

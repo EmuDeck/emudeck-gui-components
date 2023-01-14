@@ -90,6 +90,9 @@ const EmuGuide = (props) => {
       case 'duckstation':
         setStateImg({ img: imgduckstation });
         break;
+      case 'melonds':
+        setStateImg({ img: imgmelonds });
+        break;
       case 'citra':
         setStateImg({ img: imgcitra });
         break;
