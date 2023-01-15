@@ -52,6 +52,7 @@ const EmuGuide = (props) => {
     onChange,
     onClick,
     onClickInstall,
+    onClickUninstall,
     next,
     back,
     emuData,
@@ -65,7 +66,6 @@ const EmuGuide = (props) => {
     showNotification,
     textNotification,
     installEmus,
-    disableInstallButton,
     disableResetButton,
     mode,
   } = props;
@@ -73,6 +73,12 @@ const EmuGuide = (props) => {
     img: imgdefault,
   });
   const { img } = stateImg;
+
+  const [statePage, setStatePage] = useState({
+    disableInstallButton: false,
+  });
+
+  const { disableInstallButton } = statePage;
 
   useEffect(() => {
     switch (emuData.id) {
@@ -141,6 +147,37 @@ const EmuGuide = (props) => {
         break;
     }
   }, [emuData]);
+
+  useEffect(() => {
+    checkInstallation(installEmus);
+  }, [installEmus]);
+
+  const checkInstallation = (emulator) => {
+    console.log(`Checking ${emulator.name} status`);
+    const name = emulator.name;
+
+    ipcChannel.sendMessage('emudeck', [
+      `${name}_IsInstalled|||${name}_IsInstalled`,
+    ]);
+    ipcChannel.once(`${name}_IsInstalled`, (status) => {
+      console.log(`${name}_IsInstalled`);
+      status = status.stdout;
+      console.log({ status });
+      status = status.replace('\n', '');
+
+      if (status.includes('true')) {
+        setStatePage({
+          ...statePage,
+          disableInstallButton: true,
+        });
+      } else {
+        setStatePage({
+          ...statePage,
+          disableInstallButton: false,
+        });
+      }
+    });
+  };
 
   const biosText = (name) => {
     name = props[`${name}`];
@@ -224,7 +261,7 @@ const EmuGuide = (props) => {
     <div className="app">
       <Aside />
       <div className="wrapper">
-        <Header title={emuData.name} bold="guide" />
+        <Header title={emuData.name} />
         <Notification css={showNotification ? 'is-animated' : 'nope'}>
           {textNotification}
         </Notification>
@@ -238,6 +275,7 @@ const EmuGuide = (props) => {
               onChange={onChange}
               onClick={onClick}
               onClickInstall={onClickInstall}
+              onClickUninstall={onClickUninstall}
               disableInstallButton={disableInstallButton}
               disableResetButton={disableResetButton}
               installEmus={Object.values(installEmus)}

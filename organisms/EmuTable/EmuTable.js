@@ -20,11 +20,13 @@ const EmuTable = ({
   onChange,
   onClick,
   onClickInstall,
+  onClickUninstall,
   installEmus,
   disableInstallButton,
   disableResetButton,
   mode,
 }) => {
+  console.log({ disableInstallButton });
   return (
     <div class="emutable">
       <div className="container--grid">
@@ -106,7 +108,7 @@ const EmuTable = ({
               Reset configuration
             </BtnSimple>
 
-            {!installEmus[1] && (
+            {!disableInstallButton && (
               <BtnSimple
                 css="btn-simple--3"
                 type="button"
@@ -117,14 +119,15 @@ const EmuTable = ({
                 Install
               </BtnSimple>
             )}
-            {installEmus[1] && (
+            {disableInstallButton && (
               <BtnSimple
-                css="btn-simple--2"
+                css="btn-simple--3"
                 type="button"
                 aria="Go Back"
-                disabled={true}
+                disabled={false}
+                onClick={() => onClickUninstall(emuData.id, emuData.code)}
               >
-                Installed
+                Uninstall
               </BtnSimple>
             )}
           </BtnGroup>
