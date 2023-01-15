@@ -34,7 +34,7 @@ const ChangeLog = ({
         <Main>{children}</Main>
         <Footer
           next={false}
-          nextText={nextText}
+          backText="Back to Home"
           disabledNext={disabledNext}
           disabledBack={disabledBack}
         />

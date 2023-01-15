@@ -186,6 +186,7 @@ const ToolsAndStuff = ({
         </Main>
         <Footer
           next={false}
+          back="welcome"
           nextText={nextText}
           disabledNext={disabledNext}
           disabledBack={disabledBack}
