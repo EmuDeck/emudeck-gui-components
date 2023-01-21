@@ -150,6 +150,13 @@ const ToolsAndStuff = ({
             >
               RetroAchievements
             </BtnSimple>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              onClick={() => goTo('migration')}
+            >
+              Migration
+            </BtnSimple>
           </div>
           <hr />
           <span class="h5">Guides</span>

@@ -88,6 +88,12 @@
       padding: 10px;
     }
   }
+  &--half {
+    .card {
+      max-width: 28%;
+      padding: 10px;
+    }
+  }
   &--center {
     justify-content: space-between;
   }
