@@ -49,20 +49,20 @@ const PowerTools = ({
         <Notification css={showNotification ? 'is-animated' : 'nope'}>
           {textNotification}
         </Notification>
+        <p className="lead">
+          Power Tools is a plugin that allows you to tweak your CPU & GPU to for
+          maximum performance on more demanding emulators. Installing Power
+          Tools on this menu will also install Decky Loader, a plugin manager.
+          You can read more about Power Tools{' '}
+          <LinkSimple
+            css="link-simple--1"
+            href="https://github.com/NGnius/PowerTools"
+            target="_blank"
+          >
+            here
+          </LinkSimple>
+        </p>
         <Main>
-          <p className="lead">
-            Power Tools is a plugin that allows you to tweak your CPU & GPU to
-            for maximum performance on more demanding emulators. Installing Power Tools
-            on this menu will also install Decky Loader, a plugin manager. You can read
-            more about Power Tools{' '}
-            <LinkSimple
-              css="link-simple--1"
-              href="https://github.com/NGnius/PowerTools"
-              target="_blank"
-            >
-              here
-            </LinkSimple>
-          </p>
           <br />
           <div className="container--grid">
             <div data-col-sm="6">

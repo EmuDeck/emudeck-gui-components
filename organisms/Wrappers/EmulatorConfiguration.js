@@ -28,24 +28,25 @@ const EmulatorConfiguration = ({
 
         <div className="wrapper">
           <Header title="Update emulator's" bold="configuration" />
+          {second && (
+            <p className="lead">
+              EmuDeck will optimize and configure emulators during this install.
+              Selected emulators will have their configurations reset and
+              updated to EmuDeck's defaults. De-selected emulators will not be
+              touched and EmuDeck will respect your configurations (Not
+              Recommended).
+            </p>
+          )}
+          {!second && (
+            <p className="lead">
+              EmuDeck will optimize and configure emulators during this install.
+              Selected emulators will have their configurations reset and
+              updated to EmuDeck's defaults. De-selected emulators will not be
+              touched and EmuDeck will respect your configurations (Not
+              Recommended).
+            </p>
+          )}
           <Main>
-            {second && (
-              <p className="lead">
-                EmuDeck will optimize and configure emulators during this install. 
-                Selected emulators will have their configurations reset and updated to EmuDeck's defaults. 
-                De-selected emulators will not be touched and 
-                EmuDeck will respect your configurations (Not Recommended).
-              </p>
-            )}
-            {!second && (
-              <p className="lead">
-                EmuDeck will optimize and configure emulators during this install. 
-                Selected emulators will have their configurations reset and updated to EmuDeck's defaults. 
-                De-selected emulators will not be touched and 
-                EmuDeck will respect your configurations (Not Recommended).
-              </p>
-            )}
-
             <div className="cards cards--mini">
               {overwriteConfigEmusArray.map((item, i) => {
                 if (overwriteConfigEmusArray.id == 'srm') {

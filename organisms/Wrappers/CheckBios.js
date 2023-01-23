@@ -83,12 +83,12 @@ const CheckBios = ({
       <Aside />
       <div className="wrapper">
         <Header title="Bios files" bold="checker" />
+        <p className="lead">
+          Some games will not load properly without BIOS files in place. Place
+          your BIOS in /Emulation/bios and use this BIOS Checker to ensure that
+          you have the correct BIOS for your system.
+        </p>
         <Main>
-          <p className="lead">
-            Some games will not load properly without BIOS files in place. Place
-            your BIOS in /Emulation/bios and use this BIOS Checker to ensure
-            that you have the correct BIOS for your system.
-          </p>
           <div className="container--grid">
             <div data-col-sm="6">
               <Alert css={'alert--mini ' + biosCSS(ps1Bios)}>

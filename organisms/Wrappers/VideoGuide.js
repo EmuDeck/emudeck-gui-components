@@ -33,10 +33,11 @@ const VideoGuide = ({
       <Aside />
       <div className="wrapper">
         <Header title="Emulation Showcase" />
+        <p className="lead">
+          Learn how to set up EmuDeck with this wonderful guide from Russ at
+          RetroGameCorps.
+        </p>
         <Main>
-          <p className="lead">
-            Learn how to set up EmuDeck with this wonderful guide from Russ at RetroGameCorps.
-          </p>
           <div className="container--grid">
             <div data-col-sm="7">
               <Iframe

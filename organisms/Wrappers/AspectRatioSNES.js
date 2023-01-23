@@ -32,11 +32,10 @@ const AspectRatioSNES = ({
       <div className="app">
         <div className="wrapper">
           <Header title="Configure Aspect Ratio for" bold="Classic Nintendo" />
+          <p className="lead">
+            Select the aspect ratio for the Super Nintendo Entertainment System.
+          </p>
           <Main>
-            <p className="lead">
-              Select the aspect ratio for the Super Nintendo Entertainment
-              System.
-            </p>
             <SelectorMenu>
               <div className="selector-menu__img">
                 <img

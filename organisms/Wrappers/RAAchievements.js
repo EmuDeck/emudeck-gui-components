@@ -76,12 +76,12 @@ const RAAchievements = ({
     <div className="app">
       <div className="wrapper">
         <Header title="Configure" bold="RetroAchievements" />
+        <p className="lead">
+          RetroAchievements.org is a community led effort to collaborate and
+          create custom-made achievements in emulated classic games. Log in to
+          set up Retroachievements for Retroarch.
+        </p>
         <Main>
-          <p className="lead">
-            RetroAchievements.org is a community led effort to collaborate and
-            create custom-made achievements in emulated classic games. Log in to
-            set up Retroachievements for Retroarch.
-          </p>
           <br />
           <div className="container--grid">
             <div data-col-sm="6">

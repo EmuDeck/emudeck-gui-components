@@ -31,10 +31,10 @@ const Shaders2D = ({
       <div className="app">
         <div className="wrapper">
           <Header title="Configure CRT Shader for" bold="Classic 2D Games" />
+          <p className="lead">
+            The CRT Shader gives your classic systems a faux retro CRT vibe.
+          </p>
           <Main>
-            <p className="lead">
-              The CRT Shader gives your classic systems a faux retro CRT vibe.
-            </p>
             <SelectorMenu>
               <div className="selector-menu__img">
                 <img

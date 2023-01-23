@@ -49,21 +49,20 @@ const GyroDSU = ({
         <Notification css={showNotification ? 'is-animated' : 'nope'}>
           {textNotification}
         </Notification>
+        <p className="lead">
+          SteamDeckGyroDSU is a plugin that allows you to use your Steam Deck
+          Gyroscope in Dolphin (Gamecube and Wii), Citra (3DS), CEMU (Wii U),
+          Yuzu (Nintendo Switch), and Ryujinx (Nintendo Switch) games. Learn
+          more about SteamDeckGyroDSU{' '}
+          <LinkSimple
+            css="link-simple--1"
+            href="https://github.com/kmicki/SteamDeckGyroDSU"
+            target="_blank"
+          >
+            here
+          </LinkSimple>
+        </p>
         <Main>
-          <p className="lead">
-            SteamDeckGyroDSU is a plugin that 
-            allows you to use your Steam Deck Gyroscope
-            in Dolphin (Gamecube and Wii), Citra (3DS), 
-            CEMU (Wii U), Yuzu (Nintendo Switch), and Ryujinx (Nintendo Switch) games. 
-            Learn more about SteamDeckGyroDSU{' '}
-            <LinkSimple
-              css="link-simple--1"
-              href="https://github.com/kmicki/SteamDeckGyroDSU"
-              target="_blank"
-            >
-              here
-            </LinkSimple>
-          </p>
           <br />
           <div className="container--grid">
             <div data-col-sm="6">
@@ -107,8 +106,8 @@ const GyroDSU = ({
               {hasSudo === true && (
                 <div class="form">
                   <p>
-                  We have detected you already have set a sudo password, type
-                  it below to install SteamDeckGyroDSU.
+                    We have detected you already have set a sudo password, type
+                    it below to install SteamDeckGyroDSU.
                   </p>
                   <FormInputSimple
                     label="Sudo Password"

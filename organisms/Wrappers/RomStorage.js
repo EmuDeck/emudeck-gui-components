@@ -35,18 +35,13 @@ const RomStorage = ({
         <Aside />
 
         <div className="wrapper">
-          <Header
-            title="Select your ROM Directory"
-            bold=""
-          />
+          <Header title="Select your ROM Directory" bold="" />
+          <p className="lead">
+            Your ROM directory will be squared away within an Emulation folder
+            in your selected directory. If you do not see your SD Card, format
+            it first in Game Mode.
+          </p>
           <Main>
-            <p className="lead">
-            Your ROM directory will be squared away 
-            within an Emulation folder 
-            in your selected directory. 
-            If you do not see your SD Card,
-            format it first in Game Mode.
-            </p>
             <div className="cards">
               <Card
                 css={storage == 'SD-Card' && 'is-selected'}

@@ -34,10 +34,10 @@ const AspectRatioSega = ({
             title="Configure Aspect Ratio for"
             bold="Classic Sega Systems"
           />
+          <p className="lead">
+            Select the aspect ratio for the Classic Sega Systems.
+          </p>
           <Main>
-            <p className="lead">
-              Select the aspect ratio for the Classic Sega Systems.
-            </p>
             <SelectorMenu>
               <div className="selector-menu__img">
                 <img

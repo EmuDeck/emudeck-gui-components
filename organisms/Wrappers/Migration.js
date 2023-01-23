@@ -42,11 +42,11 @@ const Migration = ({
       <Aside />
       <div className="wrapper">
         <Header title="Migrate your installation" />
+        <p className="lead">
+          This will move all your roms to the selected destination aswell as
+          update your Steam Library paths.
+        </p>
         <Main>
-          <p className="lead">
-            This will move all your roms to the selected destination aswell as
-            update your Steam Library paths.
-          </p>
           <div className="container--grid">
             <div data-col-sm="6">
               <span className="h4">Current installation:</span>

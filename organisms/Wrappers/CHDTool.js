@@ -37,12 +37,12 @@ const CHDTool = ({
       <Aside />
       <div className="wrapper">
         <Header title="EmuDeck" bold="Compression Tool" />
+        <p className="lead">
+          The Compression Tool is a script that looks through certain ROM
+          folders and compresses games by up to 70% of their original file size
+          using CHD and RVZ formats.
+        </p>
         <Main>
-          <p className="lead">
-            The Compression Tool is a script that looks through certain ROM
-            folders and compresses games by up to 70% of their original file
-            size using CHD and RVZ formats.
-          </p>
           <p>
             Once a ROM is successfully converted, the original file will be
             deleted from your system. Please run Steam ROM Manager again after

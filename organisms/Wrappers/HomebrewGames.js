@@ -31,12 +31,11 @@ const HomebrewGames = ({
       <div className="app">
         <div className="wrapper">
           <Header title="Install" bold="Homebrew Games" />
+          <p className="lead">
+            Do you want to install our selection of homebrew games? They are
+            free non commercial games.
+          </p>
           <Main>
-            <p className="lead">
-              Do you want to install our selection of homebrew games? They are
-              free non commercial games.
-            </p>
-
             <SelectorMenu>
               <div className="selector-menu__img">
                 <img

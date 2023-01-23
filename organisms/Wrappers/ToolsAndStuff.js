@@ -41,7 +41,7 @@ const ToolsAndStuff = ({
       `zenity --question --width 450 --title "Close Steam/Steam Input?" --text "$(printf "<b>Exit Steam to launch Steam Rom Manager? </b>\n\n To add your Emulators and EmulationStation-DE to steam hit Preview, then Generate App List, then wait for the images to download\n\nWhen you are happy with your image choices hit Save App List and wait for it to say it's completed.\n\nDesktop controls will temporarily revert to touch/trackpad/L2/R2")" && (kill -15 $(pidof steam) & ${storagePath}/Emulation/tools/srm/Steam-ROM-Manager.AppImage)`,
     ]);
   };
-  
+
   const openCSM = () => {
     ipcChannel.sendMessage('bash', [
       'bash ~/.config/EmuDeck/backend/functions/cloudServicesManager.sh',
@@ -64,12 +64,12 @@ const ToolsAndStuff = ({
       <Aside />
       <div className="wrapper">
         <Header title="Tools &" bold="Stuff" />
+        <p className="lead">
+          Welcome to the Tools & Stuff page! Here, you will find EmuDeck's suite
+          of tools and scripts that will bring your EmuDeck install to the next
+          level.
+        </p>
         <Main>
-          <p className="lead">
-            Welcome to the Tools & Stuff page! Here, you will find EmuDeck's
-            suite of tools and scripts that will bring your EmuDeck install to
-            the next level.
-          </p>
           <div className="btn-row">
             <BtnSimple
               css="btn-simple--1"

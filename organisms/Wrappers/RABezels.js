@@ -31,12 +31,12 @@ const RABezels = ({
       <div className="app">
         <div className="wrapper">
           <Header title="Configure" bold="game bezels" />
-          <Main>
-            <p className="lead">
-              Use our pre-configured bezels to hide the vertical black
-              bars on 8 bit and 16 bit games.
-            </p>
+          <p className="lead">
+            Use our pre-configured bezels to hide the vertical black bars on 8
+            bit and 16 bit games.
+          </p>
 
+          <Main>
             <SelectorMenu>
               <div className="selector-menu__img">
                 <img

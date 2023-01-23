@@ -43,13 +43,13 @@ const CloudSync = ({
       <div className="wrapper">
         <Header title="SaveBackup - BETA" />
 
+        <p className="lead">
+          Backup your games to the cloud. This feature is currently in beta. At
+          the moment, it will backup your games on an adhoc basis. This feature
+          does not support continuous syncing at this time. Stay tuned for a
+          future update!
+        </p>
         <Main>
-          <p className="lead">
-            Backup your games to the cloud. This feature is currently in beta. At
-            the moment, it will backup your games on an adhoc basis. This feature does not support
-            continuous syncing at this time. Stay tuned for a future update! 
-          </p>
-
           <p>Select one of the following providers:</p>
 
           <div className="cards cards--mini">

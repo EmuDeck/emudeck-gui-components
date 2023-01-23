@@ -50,15 +50,15 @@ const Welcome = ({
             <Header title="Welcome back to" bold={`EmuDeck`} />
           )}
           {second === false && <Header title="Welcome to" bold={`EmuDeck`} />}
+          {second === true && (
+            <p className="lead">
+              Select how you want to update your current EmuDeck installation:
+            </p>
+          )}
+          {second === false && (
+            <p className="lead">Select how you want to set up your device:</p>
+          )}
           <Main>
-            {second === true && (
-              <p className="lead">
-                Select how you want to update your current EmuDeck installation:
-              </p>
-            )}
-            {second === false && (
-              <p className="lead">Select how you want to set up your device:</p>
-            )}
             <div className="container--grid">
               <div data-col-sm="5">
                 <Card

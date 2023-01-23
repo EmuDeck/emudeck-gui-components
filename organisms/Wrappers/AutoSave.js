@@ -33,11 +33,11 @@ const AutoSave = ({
       <div className="app">
         <div className="wrapper">
           <Header title="Configure Auto Save" />
+          <p className="lead">
+            If enabled, your game state will be saved on exit and automaticaly
+            loaded when opened again.
+          </p>
           <Main>
-            <p className="lead">
-              If enabled, your game state will be saved on exit and automaticaly
-              loaded when opened again.
-            </p>
             <SelectorMenu>
               <div className="selector-menu__img">
                 <div

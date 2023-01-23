@@ -49,11 +49,11 @@ const DeckyControls = ({
         <Notification css={showNotification ? 'is-animated' : 'nope'}>
           {textNotification}
         </Notification>
+        <p className="lead">
+          DeckyControls is a plugin that allows you to see all EmuDeck's
+          controls and hotkeys while you are gaming.
+        </p>
         <Main>
-          <p className="lead">
-            DeckyControls is a plugin that allows you to see all EmuDeck's
-            controls and hotkeys while you are gaming.
-          </p>
           <br />
           <div className="container--grid">
             <div data-col-sm="6">
