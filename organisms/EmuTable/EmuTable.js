@@ -55,6 +55,7 @@ const EmuTable = ({
                 <option value="yuzu">Yuzu</option>
                 <option value="vita3k">Vita3K</option>
                 <option value="srm">Steam Rom Manager</option>
+                <option value="esde">EmulationStation DE</option>
                 {mode !== 'easy' && (
                   <>
                     <option value="rmg">Rosalie's Mupen Gui</option>
@@ -124,10 +125,39 @@ const EmuTable = ({
                 css="btn-simple--3"
                 type="button"
                 aria="Go Back"
+                disabled={disableInstallButton}
+                onClick={() => onClickInstall(emuData.id, emuData.code)}
+              >
+                ReInstall
+              </BtnSimple>
+            )}
+            {disableInstallButton && (
+              <BtnSimple
+                css="btn-simple--3"
+                type="button"
+                aria="Go Back"
                 disabled={false}
                 onClick={() => onClickUninstall(emuData.id, emuData.code)}
               >
                 Uninstall
+              </BtnSimple>
+            )}
+          </BtnGroup>
+          <br />
+          <br />
+          <BtnGroup>
+            {emuData.alt > 0 && (
+              <BtnSimple
+                css="btn-simple--3"
+                type="button"
+                aria="Go Back"
+                onClick={() => {
+                  if (confirm(emuData.altWarning) == true) {
+                    onClickInstall(emuData.id, emuData.code, true);
+                  }
+                }}
+              >
+                {emuData.altButton}
               </BtnSimple>
             )}
           </BtnGroup>

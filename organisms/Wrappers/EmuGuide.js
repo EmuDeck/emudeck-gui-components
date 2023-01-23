@@ -27,6 +27,7 @@ import {
   imgvita3k,
   imgxenia,
   imgsrm,
+  imgesde,
   imgrmg,
   imgscummvm,
   imgsupermodelista,
@@ -138,6 +139,9 @@ const EmuGuide = (props) => {
         break;
       case 'srm':
         setStateImg({ img: imgsrm });
+        break;
+      case 'esde':
+        setStateImg({ img: imgesde });
         break;
       case 'rmg':
         setStateImg({ img: imgrmg });
