@@ -33,6 +33,7 @@ import {
   imgscummvm,
   imgsupermodelista,
   imgesde,
+  imgmelonds,
 } from 'components/utils/images/images.js';
 
 import sdlogo from 'assets/sdlogo.png';
