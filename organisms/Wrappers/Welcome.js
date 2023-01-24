@@ -32,6 +32,7 @@ const Welcome = ({
   fourthText,
   backText,
   alert,
+  alertCSS,
   saveCommand,
   runCommand,
   data,
@@ -102,7 +103,7 @@ const Welcome = ({
                 <br />
                 <div className="container--grid">
                   <div data-col-sm="10">
-                    <Alert css="alert--warning">
+                    <Alert css={alertCSS}>
                       <div dangerouslySetInnerHTML={{ __html: alert }}></div>
                     </Alert>
                   </div>
