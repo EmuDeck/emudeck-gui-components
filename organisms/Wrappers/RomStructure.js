@@ -21,6 +21,7 @@ import {
   FormRadioSimple,
   FormCheckboxSimple,
   FormInputRangeSimple,
+  showSDCard,
 } from 'getbasecore/Atoms';
 
 const RomStorage = () => {

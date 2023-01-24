@@ -21,6 +21,8 @@ const RomStorage = ({
   sdCardName,
   reloadSDcard,
   customPath,
+  showSDCard,
+  showInternal,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { storage, SDID, mode, system, storagePath } = state;
@@ -43,33 +45,37 @@ const RomStorage = ({
           </p>
           <Main>
             <div className="cards">
-              <Card
-                css={storage == 'SD-Card' && 'is-selected'}
-                onClick={() =>
-                  sdCardValid == true ? onClick('SD-Card') : reloadSDcard()
-                }
-              >
-                <img src={imgSD} width="100" alt="Background" />
-                <span className="h5">SD Card</span>
-                {sdCardName != null && <span className="h6">{sdCardName}</span>}
-                {sdCardName == null ||
-                  (sdCardValid == false && (
-                    <span className="h6">
-                      Not detected
-                      <br />
-                      Click here to try again
-                    </span>
-                  ))}
-              </Card>
-
-              <Card
-                css={storage == 'Internal Storage' && 'is-selected'}
-                onClick={() => onClick('Internal Storage')}
-              >
-                <img src={imgInternal} width="100" alt="Background" />
-                <span className="h5">Internal Storage</span>
-              </Card>
-
+              {!!showSDCard && (
+                <Card
+                  css={storage == 'SD-Card' && 'is-selected'}
+                  onClick={() =>
+                    sdCardValid == true ? onClick('SD-Card') : reloadSDcard()
+                  }
+                >
+                  <img src={imgSD} width="100" alt="Background" />
+                  <span className="h5">SD Card</span>
+                  {sdCardName != null && (
+                    <span className="h6">{sdCardName}</span>
+                  )}
+                  {sdCardName == null ||
+                    (sdCardValid == false && (
+                      <span className="h6">
+                        Not detected
+                        <br />
+                        Click here to try again
+                      </span>
+                    ))}
+                </Card>
+              )}
+              {!!showInternal && (
+                <Card
+                  css={storage == 'Internal Storage' && 'is-selected'}
+                  onClick={() => onClick('Internal Storage')}
+                >
+                  <img src={imgInternal} width="100" alt="Background" />
+                  <span className="h5">Internal Storage</span>
+                </Card>
+              )}
               <Card
                 css={storage == 'Custom' && 'is-selected'}
                 onClick={() => onClick('Custom')}
