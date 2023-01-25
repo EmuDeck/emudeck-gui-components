@@ -50,7 +50,7 @@ const PegasusTheme = ({
   data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { theme } = state;
+  const { theme, system } = state;
   return (
     <>
       {/*  <ExploreContainer name="Tab 1 page" /> */}
@@ -115,7 +115,7 @@ const PegasusTheme = ({
             </SelectorMenu>
           </Main>
           <Footer
-            next="homebrew-games"
+            next={system == 'win32' ? 'emulator-resolution' : 'homebrew-games'}
             nextText="Next"
             disabledNext={disabledNext}
             disabledBack={disabledBack}

@@ -30,7 +30,7 @@ const ToolsAndStuff = ({
   isGameMode,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { achievements, storagePath } = state;
+  const { achievements, storagePath, system } = state;
   const navigate = useNavigate();
   const goTo = (href) => {
     navigate('/' + href);
@@ -71,33 +71,38 @@ const ToolsAndStuff = ({
         </p>
         <Main>
           <div className="btn-row">
-            <BtnSimple
-              css="btn-simple--1"
-              type="button"
-              onClick={() => goTo('power-tools')}
-            >
-              Power Tools
-            </BtnSimple>
+            {system != 'win32' && (
+              <>
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  onClick={() => goTo('power-tools')}
+                >
+                  Power Tools
+                </BtnSimple>
+
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  onClick={() => goTo('gyrodsu')}
+                >
+                  GyroDSU
+                </BtnSimple>
+
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  onClick={() => goTo('decky-controls')}
+                >
+                  Decky Controls
+                </BtnSimple>
+              </>
+            )}
 
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              onClick={() => goTo('gyrodsu')}
-            >
-              GyroDSU
-            </BtnSimple>
-
-            <BtnSimple
-              css="btn-simple--1"
-              type="button"
-              onClick={() => goTo('decky-controls')}
-            >
-              Decky Controls
-            </BtnSimple>
-
-            <BtnSimple
-              css="btn-simple--1"
-              type="button"
+              disabled={system == 'win32' ? true : false}
               onClick={() => goTo('chd-tool')}
             >
               EmuDeck Compressor
@@ -106,6 +111,7 @@ const ToolsAndStuff = ({
             <BtnSimple
               css="btn-simple--1"
               type="button"
+              disabled={system == 'win32' ? true : false}
               onClick={() => goTo('update-emulators')}
             >
               Update Emulators & Tools
@@ -120,22 +126,15 @@ const ToolsAndStuff = ({
             <BtnSimple
               css="btn-simple--1"
               type="button"
+              disabled={system == 'win32' ? true : false}
               onClick={() => goTo('check-bios')}
             >
               BIOS Checker
             </BtnSimple>
-            {/*
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              onClick={() => goTo('remote-play-whatever')}
-            >
-              RemotePlayWhatever
-            </BtnSimple>
-            */}
-            <BtnSimple
-              css="btn-simple--1"
-              type="button"
+              disabled={system == 'win32' ? true : false}
               onClick={() => goTo('cloud-sync')}
             >
               Save Backup
@@ -143,6 +142,7 @@ const ToolsAndStuff = ({
             <BtnSimple
               css="btn-simple--1"
               type="button"
+              disabled={system == 'win32' ? true : false}
               onClick={() => openCSM()}
             >
               Cloud Services Manager
@@ -166,6 +166,7 @@ const ToolsAndStuff = ({
             <BtnSimple
               css="btn-simple--1"
               type="button"
+              disabled={system == 'win32' ? true : false}
               onClick={() => goTo('migration')}
             >
               Migration
@@ -176,6 +177,7 @@ const ToolsAndStuff = ({
           <BtnSimple
             css="btn-simple--1"
             type="button"
+            disabled={system == 'win32' ? true : false}
             onClick={() => goTo('emulator-guide')}
           >
             Emulator Guides
@@ -183,6 +185,7 @@ const ToolsAndStuff = ({
           <BtnSimple
             css="btn-simple--1"
             type="button"
+            disabled={system == 'win32' ? true : false}
             onClick={() => goTo('video-guide')}
           >
             Emulation Showcase

@@ -23,7 +23,7 @@ const HomebrewGames = ({
   data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { homebrewGames, mode } = state;
+  const { homebrewGames, mode, system } = state;
 
   return (
     <>
@@ -78,7 +78,13 @@ const HomebrewGames = ({
             </SelectorMenu>
           </Main>
           <Footer
-            next={mode == 'easy' ? 'end' : 'confirmation'}
+            next={
+              mode == 'easy'
+                ? 'end'
+                : system == 'win32'
+                ? 'emulator-resolution'
+                : 'confirmation'
+            }
             nextText={mode == 'easy' ? 'Finish' : 'Next'}
             disabledNext={disabledNext}
             disabledBack={disabledBack}
