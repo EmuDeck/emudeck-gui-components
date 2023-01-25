@@ -34,7 +34,7 @@ const Footer = ({
           css="btn-simple--1"
           type="button"
           aria="Go Back"
-          disabled={disabledNext && 'true'}
+          disabled={disabledNext && true}
           onClick={() => CloseApp()}
         >
           Exit To Gaming Mode
@@ -66,7 +66,7 @@ const Footer = ({
           type="button"
           onClick={back ? () => goTo(back) : () => navigate(-1)}
           aria="Go Back"
-          disabled={disabledBack && 'true'}
+          disabled={disabledBack && true}
         >
           {!backText && 'Go Back'}
           {backText}
@@ -79,7 +79,7 @@ const Footer = ({
           type="button"
           onClick={() => goTo(next)}
           aria="Go Next"
-          disabled={disabledNext && 'true'}
+          disabled={disabledNext && true}
         >
           {!nextText && 'Continue '}
           {nextText}
