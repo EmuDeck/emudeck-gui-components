@@ -176,7 +176,7 @@ const Confirmation = ({
             </div>
           </Main>
           <Footer
-            next="confirmation"
+            next="end"
             nextText="Finish"
             disabledNext={disabledNext}
             disabledBack={disabledBack}
