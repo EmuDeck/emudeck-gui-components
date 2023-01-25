@@ -37,21 +37,20 @@ const RAAchievements = ({
     //dragoonDorise
     //4049retro
 
-    ipcChannel.sendMessage('bash', [
-      `getToken|||curl --location --request POST 'https://retroachievements.org/dorequest.php?r=login&u=${achievements.user}&p=${achievements.pass}'`,
-    ]);
+    ipcChannel.sendMessage('getToken', {
+      user: achievements.user,
+      pass: achievements.pass,
+    });
 
-    ipcChannel.once('getToken', (message) => {
-      const messageJson = JSON.parse(message);
-
+    ipcChannel.once('getToken', (error, stdout, stderr) => {
+      const messageJson = JSON.parse(stdout);
+      console.log({ stdout });
       if (messageJson.Success) {
         //Second time? We can set everything from here - Used in the settings page
         if (second) {
-          ipcChannel.sendMessage('emudeck', [
-            `setTokens|||echo ${messageJson.Token} > "$HOME/.config/EmuDeck/.rat" && RetroArch_retroAchievementsSetLogin && DuckStation_retroAchievementsSetLogin && PCSX2_retroAchievementsSetLogin && echo true`,
-          ]);
-          ipcChannel.once('setTokens', (message) => {
-            console.log(message);
+          ipcChannel.sendMessage('setToken', messageJson.Token);
+          ipcChannel.once('setToken', (error, stdout, stderr) => {
+            console.log(error, stdout, stderr);
           });
         }
 
