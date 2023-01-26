@@ -37,6 +37,8 @@ const Confirmation = ({
     shaders,
     theme,
     homebrewGames,
+    system,
+    resolutions,
   } = state;
   const installEmusArray = Object.values(installEmus);
   const overwriteConfigEmusArray = Object.values(overwriteConfigEmus);
@@ -163,6 +165,25 @@ const Confirmation = ({
                   <li>
                     Gamecube AR: <strong>{ar.dolphin}</strong>
                   </li>
+                  {system == 'win32' && (
+                    <>
+                      <li>
+                        GameCube and Wii Resolution:{' '}
+                        <strong>{resolutions.dolphin}</strong>
+                      </li>
+                      <li>
+                        PlayStation 1 Resolution:{' '}
+                        <strong>{resolutions.duckstation}</strong>
+                      </li>
+                      <li>
+                        PlayStation 2 Resolution:{' '}
+                        <strong>{resolutions.pcsx2}</strong>
+                      </li>
+                      <li>
+                        Switch Resolution: <strong>{resolutions.yuzu}</strong>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
               <div data-col-sm="3">

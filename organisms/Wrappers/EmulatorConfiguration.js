@@ -17,7 +17,7 @@ const EmulatorConfiguration = ({
   images,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { device, overwriteConfigEmus, second } = state;
+  const { device, overwriteConfigEmus, second, system } = state;
   const overwriteConfigEmusArray = Object.values(overwriteConfigEmus);
 
   return (
@@ -52,6 +52,24 @@ const EmulatorConfiguration = ({
                 if (overwriteConfigEmusArray.id == 'srm') {
                   return;
                 }
+
+                if (system == 'win32') {
+                  if (
+                    item.id == 'primehacks' ||
+                    item.id == 'melonds' ||
+                    item.id == 'citra' ||
+                    item.id == 'rpcs3' ||
+                    item.id == 'ryujinx' ||
+                    item.id == 'rmg' ||
+                    item.id == 'mame' ||
+                    item.id == 'vita3k' ||
+                    item.id == 'scummvm' ||
+                    item.id == 'xemu'
+                  ) {
+                    return;
+                  }
+                }
+
                 const img = images[item.id];
                 return (
                   <Card

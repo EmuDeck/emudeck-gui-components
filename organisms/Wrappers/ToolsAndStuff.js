@@ -151,6 +151,7 @@ const ToolsAndStuff = ({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
+                disabled={system == 'win32' ? true : false}
                 onClick={() => openSRM()}
               >
                 Steam ROM Manager
@@ -195,6 +196,7 @@ const ToolsAndStuff = ({
           <BtnSimple
             css="btn-simple--1"
             type="button"
+            disabled={system == 'win32' ? true : false}
             onClick={() => sprunge()}
           >
             Download Log
@@ -202,6 +204,7 @@ const ToolsAndStuff = ({
           <BtnSimple
             css="btn-simple--3"
             type="button"
+            disabled={system == 'win32' ? true : false}
             onClick={() => goTo('uninstall')}
           >
             Uninstall EmuDeck

@@ -17,7 +17,7 @@ const EmulatorSelector = ({
   images,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { device, installEmus, second } = state;
+  const { device, installEmus, second, system } = state;
   const installEmusArray = Object.values(installEmus);
 
   return (
@@ -36,12 +36,27 @@ const EmulatorSelector = ({
           <Main>
             <div className="cards cards--mini">
               {installEmusArray.map((item, i) => {
-                if (item.id == 'srm') {
+                if (item.id == 'srm' || item.id == 'xenia') {
                   return;
                 }
-                if (item.id == 'xenia') {
-                  return;
+
+                if (system == 'win32') {
+                  if (
+                    item.id == 'primehacks' ||
+                    item.id == 'melonds' ||
+                    item.id == 'citra' ||
+                    item.id == 'rpcs3' ||
+                    item.id == 'ryujinx' ||
+                    item.id == 'rmg' ||
+                    item.id == 'mame' ||
+                    item.id == 'vita3k' ||
+                    item.id == 'scummvm' ||
+                    item.id == 'xemu'
+                  ) {
+                    return;
+                  }
                 }
+
                 const img = images[item.id];
                 return (
                   <Card

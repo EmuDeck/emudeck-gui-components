@@ -86,7 +86,7 @@ const Settings = ({
   showNotification,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { ar, bezels, shaders, theme, autosave, homebrewGames } = state;
+  const { ar, bezels, shaders, theme, autosave, homebrewGames, system } = state;
   const ipcChannel = window.electron.ipcRenderer;
   return (
     <>
@@ -103,49 +103,51 @@ const Settings = ({
           </p>
           <Main>
             <ul class="list-grid">
-              <li>
-                <SelectorMenu>
-                  <div className="selector-menu__img">
-                    <img
-                      src={imgYES}
-                      className={homebrewGames == false && 'is-hidden'}
-                      alt="Background"
-                    />
-                    <img
-                      src={imgNO}
-                      className={homebrewGames == true && 'is-hidden'}
-                      alt="Background"
-                    />
-                  </div>
-                  <div className="selector-menu__options">
-                    <p>Homebrew Games</p>
-                    <ul>
-                      <li onClick={() => onClickHomeBrew(false)}>
-                        <Card css={homebrewGames == false && 'is-selected'}>
-                          <span className="h3">NO</span>
-                        </Card>
-                      </li>
-                      <li onClick={() => onClickHomeBrew(true)}>
-                        <Card css={homebrewGames == true && 'is-selected'}>
-                          <span className="h3">YES</span>
-                        </Card>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="selector-menu__details">
-                    <p className="lead">Systems</p>
-                    <ul>
-                      <li>GameBoy</li>
-                      <li>GameBoy Color</li>
-                      <li>Super Nintendo</li>
-                      <li>Nintendo NES</li>
-                      <li>Master System</li>
-                      <li>Genesis</li>
-                      <li>GameGear</li>
-                    </ul>
-                  </div>
-                </SelectorMenu>
-              </li>
+              {system != 'win32' && (
+                <li>
+                  <SelectorMenu>
+                    <div className="selector-menu__img">
+                      <img
+                        src={imgYES}
+                        className={homebrewGames == false && 'is-hidden'}
+                        alt="Background"
+                      />
+                      <img
+                        src={imgNO}
+                        className={homebrewGames == true && 'is-hidden'}
+                        alt="Background"
+                      />
+                    </div>
+                    <div className="selector-menu__options">
+                      <p>Homebrew Games</p>
+                      <ul>
+                        <li onClick={() => onClickHomeBrew(false)}>
+                          <Card css={homebrewGames == false && 'is-selected'}>
+                            <span className="h3">NO</span>
+                          </Card>
+                        </li>
+                        <li onClick={() => onClickHomeBrew(true)}>
+                          <Card css={homebrewGames == true && 'is-selected'}>
+                            <span className="h3">YES</span>
+                          </Card>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="selector-menu__details">
+                      <p className="lead">Systems</p>
+                      <ul>
+                        <li>GameBoy</li>
+                        <li>GameBoy Color</li>
+                        <li>Super Nintendo</li>
+                        <li>Nintendo NES</li>
+                        <li>Master System</li>
+                        <li>Genesis</li>
+                        <li>GameGear</li>
+                      </ul>
+                    </div>
+                  </SelectorMenu>
+                </li>
+              )}
               <li>
                 <SelectorMenu css="selector-menu--mini">
                   <div className="selector-menu__img">
