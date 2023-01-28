@@ -2738,3 +2738,77 @@ main {
 //   border: 10px yellow solid;
 //   /* change border color to blue to match the background */
 // }
+
+img,
+picture {
+  width: 100%;
+  max-width: 100%;
+}
+
+.img-no-responsive {
+  width: auto;
+  max-width: auto;
+}
+
+.img {
+  position: relative;
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+  }
+
+  &--1-1 {
+    padding-bottom: 100%;
+  }
+
+  //Landscape
+  &--4-3 {
+    padding-bottom: calc(3 / 4 * 100%);
+  }
+
+  &--3-2 {
+    padding-bottom: calc(2 / 3 * 100%);
+  }
+
+  &--16-9 {
+    padding-bottom: calc(9 / 16 * 100%);
+  }
+
+  &--21-9 {
+    padding-bottom: calc(9 / 21 * 100%);
+  }
+
+  //Portrait
+
+  &--3-4 {
+    padding-bottom: calc(4 / 3 * 100%);
+  }
+
+  &--2-3 {
+    padding-bottom: calc(3 / 2 * 100%);
+  }
+}
+
+img.icon--xs,
+picture.icon--xs {
+  width: 20px;
+  height: 20px;
+  vertical-align: bottom;
+}
+
+img.icon--sm,
+picture.icon--sm {
+  width: 32px;
+  height: 32px;
+  vertical-align: bottom;
+}
+
+img.icon--md,
+picture.icon--md {
+  width: 48px;
+  height: 48px;
+  vertical-align: bottom;
+}
