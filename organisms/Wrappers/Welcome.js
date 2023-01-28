@@ -220,6 +220,17 @@ const Welcome = ({
       status: true,
       function: () => navigate('/uninstall'),
     },
+    {
+      icon: [iconPrize],
+      title: 'Become a Patreon',
+      description: 'Please consider supporting us on Patreon',
+      button: 'Donate',
+      btnCSS: 'btn-simple--3',
+      status: true,
+      type: 'link',
+      href: 'https://www.patreon.com/bePatron?u=29065992',
+      function: () => {},
+    },
   ];
 
   return (
@@ -263,7 +274,7 @@ const Welcome = ({
                           iconSize="md"
                           title="Quick Update"
                           onClick={() => onClick('easy')}
-                          description="This mode automatically updates your emulators & settings in one click."
+                          description="This option automatically updates your emulators & settings in one click. Chose this option if you haven't customized your emulator outside of EmuDeck's options"
                           button="Update and overwrite my configuration"
                         />
                       </div>
@@ -275,7 +286,7 @@ const Welcome = ({
                           iconSize="md"
                           title="Custom Update"
                           onClick={() => onClick('expert')}
-                          description="This mode allows you to customize your emulators & settings."
+                          description="This option allows you to customize your emulators & settings. Chose this one if you have customized your emulators outside of EmuDeck's options and want to preserve them"
                           button="Update and let me keep my configuration"
                         />
                       </div>
@@ -348,6 +359,8 @@ const Welcome = ({
                           btnCSS={item.btnCSS}
                           onClick={item.function}
                           description={item.description}
+                          type={item.type}
+                          href={item.href}
                         />
                       </div>
                     );

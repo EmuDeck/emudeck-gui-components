@@ -29,6 +29,9 @@ const CardSettings = ({
   description,
   button,
   iconSize,
+  type,
+  target,
+  href,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const [statePage, setStatePage] = useState({
@@ -36,8 +39,11 @@ const CardSettings = ({
     disabledBack: false,
   });
   const { disabledNext, disabledBack } = statePage;
+  if (!type) {
+    type = 'button';
+  }
   return (
-    <Card css={`card-setting ${css}`} onClick={() => onClick()}>
+    <div className={`card-setting ${css}`} onClick={() => onClick()}>
       <ul>
         <li className={`list--icons list--icons--${iconSize}`}>
           <div className="text">
@@ -53,14 +59,16 @@ const CardSettings = ({
             css={`
               ${btnCSS} btn-simple--xs
             `}
-            type="button"
+            type={type}
             aria="Next"
+            href={href}
+            target="_blank"
           >
             {button}
           </BtnSimple>
         </div>
       )}
-    </Card>
+    </div>
   );
 };
 

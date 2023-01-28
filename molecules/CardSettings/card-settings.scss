@@ -1,4 +1,12 @@
 .card-setting {
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  height: 100%;
+  transition: 0.8s;
+  cursor: pointer;
+
   opacity: 1;
   background: #fff;
   padding: 15px;
@@ -48,6 +56,9 @@
   }
   &__buttons {
     text-align: right;
+    .btn-simple {
+      margin-bottom: 0;
+    }
   }
   &.is-highlighted {
     background: #fff;
