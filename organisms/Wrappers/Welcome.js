@@ -168,6 +168,15 @@ const Welcome = ({
       function: () => navigate('/cloud-sync'),
     },
     {
+      icon: [iconCloud],
+      title: 'Cloud Services Manager',
+      description: 'Manage your cloud services enabled for Cloud Backup',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: true,
+      function: () => openCSM(),
+    },
+    {
       icon: [iconPrize],
       title: 'RetroAchievements',
       description:
