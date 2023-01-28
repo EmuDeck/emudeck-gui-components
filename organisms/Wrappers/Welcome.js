@@ -326,7 +326,7 @@ const Welcome = ({
                           icon={iconGear}
                           iconSize="md"
                           title="Quick Settings"
-                          onClick={() => functions.openSRM()}
+                          onClick={() => navigate('/settings')}
                           description="Customize bezels, shaders, aspect ratio, auto save and more"
                           button="Configure"
                         />
@@ -339,7 +339,7 @@ const Welcome = ({
                             icon={iconPackage}
                             iconSize="md"
                             title="Update Emulators"
-                            onClick={() => functions.openSRM()}
+                            onClick={() => navigate('/update-emulators')}
                             description="Update all your installed emulators right from EmuDeck"
                             button="Update"
                           />
