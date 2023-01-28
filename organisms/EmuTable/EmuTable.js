@@ -58,7 +58,7 @@ const EmuTable = ({
                 <option value="esde">EmulationStation DE</option>
                 {mode !== 'easy' && (
                   <>
-                    <option value="rmg">Rosalie's Mupen Gui</option>
+                    {/*<option value="rmg">Rosalie's Mupen Gui</option>*/}
                     <option value="ryujinx">Ryujinx</option>
                     <option value="xenia">Xenia</option>
                   </>

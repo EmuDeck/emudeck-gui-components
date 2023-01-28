@@ -145,6 +145,7 @@ const ToolsAndStuff = ({
             >
               Save Backup
             </BtnSimple>
+            {/*
             <BtnSimple
               css="btn-simple--1"
               type="button"
@@ -153,6 +154,7 @@ const ToolsAndStuff = ({
             >
               Cloud Services Manager
             </BtnSimple>
+            */}
             {isGameMode == false && (
               <BtnSimple
                 css="btn-simple--1"
@@ -163,6 +165,7 @@ const ToolsAndStuff = ({
                 Steam ROM Manager
               </BtnSimple>
             )}
+            {/*
             <BtnSimple
               css="btn-simple--1"
               type="button"
@@ -170,6 +173,7 @@ const ToolsAndStuff = ({
             >
               RetroAchievements
             </BtnSimple>
+
             <BtnSimple
               css="btn-simple--1"
               type="button"
@@ -177,7 +181,7 @@ const ToolsAndStuff = ({
               onClick={() => goTo('migration')}
             >
               Migration
-            </BtnSimple>
+            </BtnSimple>*/}
           </div>
           <hr />
           <span class="h5">Guides</span>
