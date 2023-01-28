@@ -23,6 +23,9 @@ import {
   iconCustom,
   iconDoc,
   iconHelp,
+  iconBooks,
+  iconJoystick,
+  iconPackage,
 } from 'components/utils/images/images.js';
 import {
   BtnSimple,
@@ -83,7 +86,7 @@ const Welcome = ({
       function: () => onClick('expert'),
     },
     {
-      icon: [iconList],
+      icon: [iconJoystick],
       title: 'Steam Rom Manager',
       description: 'Launch SRM to add more games to your Steam Library',
       button: 'Launch',
@@ -129,7 +132,7 @@ const Welcome = ({
       function: () => navigate('/chd-tool'),
     },
     {
-      icon: [iconGear],
+      icon: [iconPackage],
       title: 'Update Emulators',
       description: 'Update your emulators right from EmuDeck',
       button: 'More info',
@@ -184,9 +187,9 @@ const Welcome = ({
       function: () => navigate('/migration'),
     },
     {
-      icon: [iconHelp],
+      icon: [iconBooks],
       title: 'Emulator guides',
-      description: 'Check our hotkeys, read our wiki and more help',
+      description: 'Check our hotkeys, reset each emulator in case of issues',
       button: 'More info',
       btnCSS: 'btn-simple--5',
       status: true,
@@ -299,7 +302,7 @@ const Welcome = ({
                         <CardSettings
                           css="is-highlighted"
                           btnCSS="btn-simple--1"
-                          icon={iconList}
+                          icon={iconJoystick}
                           iconSize="md"
                           title="Steam Rom Manager"
                           onClick={() => functions.openSRM()}
@@ -311,7 +314,7 @@ const Welcome = ({
                         <CardSettings
                           css="is-highlighted"
                           btnCSS="btn-simple--1"
-                          icon={iconList}
+                          icon={iconGear}
                           iconSize="md"
                           title="Quick Settings"
                           onClick={() => functions.openSRM()}
@@ -324,7 +327,7 @@ const Welcome = ({
                           <CardSettings
                             css="is-highlighted"
                             btnCSS="btn-simple--1"
-                            icon={iconList}
+                            icon={iconPackage}
                             iconSize="md"
                             title="Update Emulators"
                             onClick={() => functions.openSRM()}

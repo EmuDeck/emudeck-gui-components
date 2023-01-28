@@ -37,6 +37,9 @@ import iconQuick from 'assets/icon/quick.svg';
 import iconCustom from 'assets/icon/custom.svg';
 import iconDoc from 'assets/icon/doc.svg';
 import iconHelp from 'assets/icon/help.svg';
+import iconBooks from 'assets/icon/books.svg';
+import iconJoystick from 'assets/icon/joystick.svg';
+import iconPackage from 'assets/icon/package.svg';
 
 export {
   imgdefault,
@@ -77,4 +80,7 @@ export {
   iconCustom,
   iconDoc,
   iconHelp,
+  iconBooks,
+  iconJoystick,
+  iconPackage,
 };
