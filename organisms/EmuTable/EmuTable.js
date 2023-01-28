@@ -28,11 +28,11 @@ const EmuTable = ({
 }) => {
   console.log({ disableInstallButton });
   return (
-    <div class="emutable">
+    <div className="emutable">
       <div className="container--grid">
         <div data-col-sm="2">
           <img src={img} alt="logo" />
-          <div class="form">
+          <div className="form">
             {emuData && (
               <FormSelectSimple
                 name="formu-input"

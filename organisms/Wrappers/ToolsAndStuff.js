@@ -180,7 +180,7 @@ const ToolsAndStuff = ({
             </BtnSimple>
           </div>
           <hr />
-          <span class="h5">Guides</span>
+          <span className="h5">Guides</span>
           <BtnSimple
             css="btn-simple--1"
             type="button"

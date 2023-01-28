@@ -54,7 +54,7 @@ const EmulatorResolution = ({
             <div className="container--grid">
               <div data-col-sm="6">
                 <div className="dolphin">
-                  <span class="h5">GameCube and Wii Games</span>
+                  <span className="h5">GameCube and Wii Games</span>
                   <div className="cards">
                     <Card
                       css={resolutions.dolphin == '720P' ? 'is-selected' : ''}
@@ -100,7 +100,7 @@ const EmulatorResolution = ({
                 </div>
                 <hr />
                 <div className="duckstation">
-                  <span class="h5">PlayStation 1 Games</span>
+                  <span className="h5">PlayStation 1 Games</span>
                   <div className="cards">
                     <Card
                       css={
@@ -153,7 +153,7 @@ const EmulatorResolution = ({
               </div>
               <div data-col-sm="6">
                 <div className="pcsx2">
-                  <span class="h5">PlayStation 2 Games</span>
+                  <span className="h5">PlayStation 2 Games</span>
                   <div className="cards">
                     <Card
                       css={resolutions.pcsx2 == '720P' ? 'is-selected' : ''}
@@ -197,7 +197,7 @@ const EmulatorResolution = ({
                 </div>
                 <hr />
                 <div className="yuzu">
-                  <span class="h5">Switch Games</span>
+                  <span className="h5">Switch Games</span>
                   <div className="cards">
                     <Card css={resolutions.yuzu == '720P' ? 'is-selected' : ''}>
                       <span

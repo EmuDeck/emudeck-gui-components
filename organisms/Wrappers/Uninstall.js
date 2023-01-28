@@ -45,7 +45,7 @@ const Uninstall = ({
             <a
               href="https://discord.gg/b9F7GpXtFP"
               aria-label="Go Next"
-              class="btn-simple btn-simple--1"
+              className="btn-simple btn-simple--1"
               target="_blank"
             >
               Our Discord
@@ -53,7 +53,7 @@ const Uninstall = ({
             <a
               href="https://www.reddit.com/r/EmuDeck/"
               aria-label="Go Next"
-              class="btn-simple btn-simple--1"
+              className="btn-simple btn-simple--1"
               target="_blank"
             >
               Our Reddit

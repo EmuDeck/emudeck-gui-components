@@ -71,7 +71,7 @@ const CHDTool = ({
             <br />
             Used to compress Gamecube and Wii games.
           </p>
-          <div class="form">
+          <div className="form">
             <BtnSimple
               css="btn-simple--1"
               type="button"

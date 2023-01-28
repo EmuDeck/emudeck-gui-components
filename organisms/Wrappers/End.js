@@ -243,7 +243,7 @@ const End = ({
 
           <Main>
             {disabledNext == false && (
-              <div class="tips">
+              <div className="tips">
                 <SimpleCarousel nav={false} img={slides} />
               </div>
             )}
@@ -255,12 +255,12 @@ const End = ({
                   value={percentage}
                   max={100}
                 />
-                <span class="h5">
+                <span className="h5">
                   EmuDeck wouldn't be possible without all these open-source
                   projects. We want to give them all a big shout out for their
                   hard work!
                 </span>
-                <div class="cards cards--mini cards--center">
+                <div className="cards cards--mini cards--center">
                   <Card css="is-selected">
                     <img src={imgra} alt="alt" />
                   </Card>

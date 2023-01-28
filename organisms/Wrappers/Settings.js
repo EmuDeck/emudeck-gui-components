@@ -102,7 +102,7 @@ const Settings = ({
             not need to do an EmuDeck Custom Update to apply these settings.
           </p>
           <Main>
-            <ul class="list-grid">
+            <ul className="list-grid">
               {system != 'win32' && (
                 <li>
                   <SelectorMenu>

@@ -75,7 +75,7 @@ const PowerTools = ({
               </p>
 
               {hasSudo === false && (
-                <div class="form">
+                <div className="form">
                   <FormInputSimple
                     label="Create sudo Password"
                     type="password"
@@ -104,7 +104,7 @@ const PowerTools = ({
                 </div>
               )}
               {hasSudo === true && (
-                <div class="form">
+                <div className="form">
                   <p>
                     We have detected you already have set a sudo password, type
                     it below to install Power Tools.

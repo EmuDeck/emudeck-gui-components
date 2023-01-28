@@ -66,7 +66,7 @@ const DeckyControls = ({
               </p>
 
               {hasSudo === false && (
-                <div class="form">
+                <div className="form">
                   <FormInputSimple
                     label="Create sudo Password"
                     type="password"
@@ -95,7 +95,7 @@ const DeckyControls = ({
                 </div>
               )}
               {hasSudo === true && (
-                <div class="form">
+                <div className="form">
                   <p>
                     We've detected you already have set your sudo password, type
                     it on the next input to install this tool.

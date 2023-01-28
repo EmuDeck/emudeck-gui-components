@@ -51,7 +51,7 @@ const Confirmation = ({
           <Main>
             <div className="container--grid">
               <div data-col-sm="3">
-                <span class="h5">We will install:</span>
+                <span className="h5">We will install:</span>
                 <ul>
                   {installEmusArray.map((item) => {
                     return (
@@ -68,7 +68,7 @@ const Confirmation = ({
                 </ul>
               </div>
               <div data-col-sm="3">
-                <span class="h5">We will configure:</span>
+                <span className="h5">We will configure:</span>
                 <ul>
                   {overwriteConfigEmusArray.map((item) => {
                     return (
@@ -85,7 +85,7 @@ const Confirmation = ({
                 </ul>
               </div>
               <div data-col-sm="3">
-                <span class="h5">Customization:</span>
+                <span className="h5">Customization:</span>
                 {/*
                 achievements,
                 bezels,
@@ -187,7 +187,7 @@ const Confirmation = ({
                 </ul>
               </div>
               <div data-col-sm="3">
-                <span class="h5">Installation Path:</span>
+                <span className="h5">Installation Path:</span>
                 <ul>
                   <li>
                     {storagePath == '$HOME' ? 'User Home Folder' : storagePath}

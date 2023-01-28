@@ -159,7 +159,7 @@ const CheckBios = ({
 
             <div data-col-sm="6">
               <Alert css="alert--info">
-                <ul class="list">
+                <ul className="list">
                   <li>
                     Tip 1: Not all systems require additional BIOS files. Listed
                     here are the more common systems.

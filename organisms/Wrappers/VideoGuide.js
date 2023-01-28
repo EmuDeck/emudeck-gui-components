@@ -48,7 +48,7 @@ const VideoGuide = ({
             </div>
             <div data-col-sm="5">
               <span className="h4">Sections</span>
-              <ol class="list">
+              <ol className="list">
                 <li className="h6">
                   <a href="#" onClick={() => onClick(76)}>
                     Introduction
