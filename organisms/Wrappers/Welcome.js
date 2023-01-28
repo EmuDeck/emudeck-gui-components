@@ -173,7 +173,7 @@ const Welcome = ({
       description: 'Manage your cloud services enabled for Cloud Backup',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: true,
+      status: false,
       function: () => functions.openCSM(),
     },
     {
