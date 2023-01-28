@@ -156,6 +156,7 @@ const RAAchievements = ({
                         id="hardcore"
                         value={achievements.hardcore}
                         onChange={onToggle}
+                        checked={achievements.hardcore ? true : false}
                       />
                     </div>
                   </>
