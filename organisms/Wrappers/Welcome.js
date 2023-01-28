@@ -308,27 +308,33 @@ const Welcome = ({
                           button="Configure"
                         />
                       </div>
-                      <div data-col-sm="3">
-                        <CardSettings
-                          css="is-highlighted"
-                          btnCSS="btn-simple--1"
-                          icon={iconList}
-                          iconSize="md"
-                          title="Update Emulators"
-                          onClick={() => functions.openSRM()}
-                          description="Update all your installed emulators right from EmuDeck"
-                          button="Update"
-                        />
-                      </div>
+                      {system != 'win32' && (
+                        <div data-col-sm="3">
+                          <CardSettings
+                            css="is-highlighted"
+                            btnCSS="btn-simple--1"
+                            icon={iconList}
+                            iconSize="md"
+                            title="Update Emulators"
+                            onClick={() => functions.openSRM()}
+                            description="Update all your installed emulators right from EmuDeck"
+                            button="Update"
+                          />
+                        </div>
+                      )}
                     </>
                   )}
                 </div>
+
                 <hr />
                 <p className="lead">Tools & Stuff:</p>
 
                 <div className="container--grid">
                   {settingsCards.map((item) => {
                     if (item.status == false) {
+                      return;
+                    }
+                    if (system == 'win32' && item.title != 'Custom Reset') {
                       return;
                     }
 
