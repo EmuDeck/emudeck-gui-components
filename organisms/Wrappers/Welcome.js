@@ -174,7 +174,7 @@ const Welcome = ({
       button: 'More info',
       btnCSS: 'btn-simple--5',
       status: true,
-      function: () => openCSM(),
+      function: () => functions.openCSM(),
     },
     {
       icon: [iconPrize],
