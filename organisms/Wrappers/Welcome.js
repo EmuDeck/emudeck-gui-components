@@ -331,7 +331,7 @@ const Welcome = ({
                           button="Configure"
                         />
                       </div>
-                      <div data-col-sm="3">
+                      {/* <div data-col-sm="3">
                         <CardSettings
                           css="is-highlighted"
                           btnCSS="btn-simple--1"
@@ -342,7 +342,7 @@ const Welcome = ({
                           description="Download free non-commercial homebrew games"
                           button="Configure"
                         />
-                      </div>
+                      </div> */}
                       {system != 'win32' && (
                         <div data-col-sm="3">
                           <CardSettings
