@@ -56,6 +56,7 @@ const EmuTable = ({
                 <option value="vita3k">Vita3K</option>
                 <option value="srm">Steam Rom Manager</option>
                 <option value="esde">EmulationStation DE</option>
+                <option value="mgba">mGBA</option>
                 {mode !== 'easy' && (
                   <>
                     <option value="rmg">Rosalie's Mupen Gui</option>

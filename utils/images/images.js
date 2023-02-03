@@ -20,11 +20,12 @@ import imgscummvm from 'assets/emulators/scummvm.png';
 import imgsupermodelista from 'assets/emulators/supermodelista.png';
 import imgesde from 'assets/emulators/esde.png';
 import imgmelonds from 'assets/emulators/melonds.png';
+import imgmgba from 'assets/emulators/mgba.png';
+
 import iconSuccess from 'assets/icon/success.svg';
 import iconForbidden from 'assets/icon/forbidden.svg';
 import iconDanger from 'assets/icon/danger.svg';
 import iconWarning from 'assets/icon/warning.svg';
-
 import iconCloud from 'assets/icon/cloud.svg';
 import iconCompress from 'assets/icon/compress.svg';
 import iconGear from 'assets/icon/gear.svg';
@@ -58,6 +59,7 @@ export {
   imgmame,
   imgvita3k,
   imgxenia,
+  imgmgba,
   imgsrm,
   imgrmg,
   imgscummvm,

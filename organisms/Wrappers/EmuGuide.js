@@ -26,6 +26,7 @@ import {
   imgmame,
   imgvita3k,
   imgxenia,
+  imgmgba,
   imgsrm,
   imgesde,
   imgrmg,
@@ -136,6 +137,9 @@ const EmuGuide = (props) => {
         break;
       case 'xenia':
         setStateImg({ img: imgxenia });
+        break;
+      case 'mgba':
+        setStateImg({ img: imgmgba });
         break;
       case 'srm':
         setStateImg({ img: imgsrm });
