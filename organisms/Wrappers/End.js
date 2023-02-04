@@ -7,10 +7,12 @@ import Header from 'components/organisms/Header/Header.js';
 import Aside from 'components/organisms/Aside/Aside.js';
 import Main from 'components/organisms/Main/Main.js';
 import Card from 'components/molecules/Card/Card.js';
+import CardSettings from 'components/molecules/CardSettings/CardSettings.js';
+
 import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel.js';
-
+import { Img } from 'getbasecore/Atoms';
 import { ProgressBar, BtnSimple } from 'getbasecore/Atoms';
-
+import { iconSuccess, iconDanger } from 'components/utils/images/images.js';
 import {
   imgdefault,
   imgra,
@@ -55,175 +57,113 @@ const End = ({
   onClickLog,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { storage } = state;
+  const { storage, installEmus } = state;
 
-  const slides = [
-    <Card css="is-selected">
-      <div className="container--grid">
-        <div data-col-sm="6">
-          <span className="h2">Adding games</span>
-          <p className="lead">
-            Copy your roms to your {storage}, you'll see a folder for each
-            system on the Emulation/roms folder.
-            <br />
-            Once you've copied your games click on the "Launch Steam Rom
-            Manager" button
-            <br />
-            <br />
-            <strong>but first, swipe right to see more tips!</strong>
-          </p>
-        </div>
-        <div data-col-sm="6">
-          <img src="https://www.emudeck.com/img/ss1.png" alt="bg" />
-        </div>
-      </div>
-    </Card>,
-    <Card css="is-selected">
-      <div className="container--grid">
-        <div data-col-sm="6">
-          <span className="h2">Tools and Stuff</span>
-          <p className="lead">
-            After adding your games open EmuDeck again, a new menu called "tools
-            and stuff" is now available!
-            <br />
-            Over there you'll be able to install tools to improve performance,
-            use your Deck Gyroscope, have quick access to change your settings,
-            check if your bios are properly configured, update your emulators,
-            etc.
-          </p>
-        </div>
-      </div>
-    </Card>,
-    <Card css="is-selected">
-      <div className="container--grid">
-        <div data-col-sm="9">
-          <span className="h3">Emulation Folder</span>
-          <p className="lead">
-            We've created the following folders in your {storage}: <br />
-            <br />
-            <ul>
-              <li>
-                <strong>Emulation/roms</strong> - For your games
-              </li>
-              <li>
-                <strong>Emulation/bios</strong> - For your Bios and Yuzu
-                firmware
-              </li>
-              <li>
-                <strong>Emulation/saves</strong> - Your saved games
-              </li>
-              <li>
-                <strong>Emulation/storage</strong> - Shaders, PS3 installed
-                games, etc.{' '}
-                {storage == 'SD-Card' &&
-                  'to save space in your internal storage'}{' '}
-              </li>
-            </ul>
-          </p>
-        </div>
-        <div data-col-sm="3">
-          <img src={sdlogo} alt="bg" />
-        </div>
-      </div>
-    </Card>,
-    <Card css="is-selected">
-      <div className="container--grid">
-        <div data-col-sm="12">
-          <span className="h2">Bios Paths</span>
-          <p className="lead">
-            Some games need the original system Bios to launch. <br />
-            For instance you need bios files for the following systems:
-            <br />
-            - Playstation 1, 2 and 3.
-            <br />
-            - SegaCD / MegaCD, Dreamcast and Saturn.
-            <br />
-            - Nintendo Switch and Nintendo DS
-            <br />
-            - MSX
-            <br />
-            <strong>
-              Place then in the Emulation/bios folder in your {storage}, don't
-              use subdirectories.
-              <br />
-              Switch has special subfolders inside of Emulation/bios/yuzu, copy
-              your firmware and keys inside those folders, don't overwrite them
-            </strong>
-          </p>
-        </div>
-      </div>
-    </Card>,
-    <Card css="is-selected">
-      <div className="container--grid">
-        <div data-col-sm="7">
-          <span className="h2">AmberElec Hotkeys</span>
-          <p className="lead">
-            Almost all of the emulators use the AmberElec convention: <br />
-            <br />
-            <ul>
-              <li>
-                <strong>Select + Start</strong> - Exit Emulator
-              </li>
-              <li>
-                <strong>Select + L1</strong> - Load state
-              </li>
-              <li>
-                <strong>Select + R1</strong> - Save state
-              </li>
-              <li>
-                <strong>Select + R2</strong> - Fast-forward
-              </li>
-              <li>
-                <strong>L3 + R3</strong> - Menu (Only RetroArch)
-              </li>
-            </ul>
-          </p>
-        </div>
-        <div data-col-sm="5">
-          <img src={amberlogo} alt="bg" />
-        </div>
-      </div>
-    </Card>,
-    <Card css="is-selected">
-      <div className="container--grid">
-        <div data-col-sm="6">
-          <span className="h2">Steam Input Profiles </span>
-          <p className="lead">
-            You can use Steam Deck's L4, L5, R4, R5 triggers to control some
-            emulators hotkeys. Just select the right EmuDeck template for the
-            system you want. <br />
-            <strong>
-              Do this for every 3DS, WiiU or Playstation 1 & 2 game.
-            </strong>
-          </p>
-        </div>
-        <div data-col-sm="6">
-          <img src="https://www.emudeck.com/img/citra1.png" alt="bg" />
-        </div>
-      </div>
-    </Card>,
-    <Card css="is-selected">
-      <div className="container--grid">
-        <div data-col-sm="6">
-          <span className="h2">Two Frontends </span>
-          <p className="lead">
-            You can either use Steam Rom Manager to add yor games or use
-            EmulationStation DE <br />
-            If you have a small library we recomend using Steam Rom Manager, if
-            you have thousands of games EmulationStation DE will work better.
-            <br />
-            If you only want to use EmulationStation DE, disable all the other
-            parsers when you launch Steam Rom Manager
-          </p>
-        </div>
-        <div data-col-sm="6">
-          <img src="https://www.emudeck.com/img/ss1.png" alt="bg" />
-        </div>
-      </div>
-    </Card>,
-  ];
+  const [statePage, setStatePage] = useState({
+    installEmusStart: installEmus,
+    installEmusPage: installEmus,
+    statusSlide: [],
+  });
 
-  //console.log({ width });
+  const { statusSlide, installEmusPage, installEmusStart } = statePage;
+
+  const installEmusPageArray = Object.values(installEmusPage);
+  const installEmusStartArray = Object.values(installEmusStart);
+  let installEmusUpdate;
+
+  const checkInstallation = (emulator) => {
+    //console.log({ emulator });
+    //console.log(`Checking ${emulator.name} status`);
+    const name = emulator.name;
+
+    ipcChannel.sendMessage('emudeck', [
+      `${name}_IsInstalled|||${name}_IsInstalled`,
+    ]);
+    ipcChannel.once(`${name}_IsInstalled`, (status) => {
+      console.log(`${name}_IsInstalled`);
+      status = status.stdout;
+      //console.log({ status });
+      status = status.replace('\n', '');
+      //console.log({ status });
+      //console.log({ installEmusUpdate });
+      if (status.includes('true')) {
+        installEmusUpdate = {
+          ...installEmusUpdate,
+          [emulator.id]: {
+            id: emulator.id,
+            status: emulator.status,
+            installed: true,
+            name: emulator.name,
+          },
+        };
+        //return true;
+      } else {
+        installEmusUpdate = {
+          ...installEmusUpdate,
+          [emulator.id]: {
+            id: emulator.id,
+            status: emulator.status,
+            installed: false,
+            name: emulator.name,
+          },
+        };
+        // return true;
+      }
+      setStatePage({
+        ...statePage,
+        installEmusPage: installEmusUpdate,
+      });
+      console.log({ installEmusUpdate });
+      console.log({ installEmusPage });
+    });
+  };
+
+  // We create the Cards everytime we check if a emu was created
+  // useEffect(() => {
+  //   //console.log('installEmusUpdate updated');
+  //   setStatePage({
+  //     ...statePage,
+  //     statusSlide: [
+  //       <CardSettings css="is-highlighted">
+  //         <div className="container--grid">
+  //           <span data-col-sm="12" className="h2">
+  //             Post Installation Statuss
+  //           </span>
+  //           <p class="lead">
+  //             Please check that all your selected emulators got installed
+  //             properly
+  //           </p>
+  //           {installEmusPageArray.map((item, i) => {
+  //             if (item.status == false) {
+  //               return;
+  //             }
+  //             if (item.id == 'srm') {
+  //               return;
+  //             }
+  //             return (
+  //               <div data-col-sm="4" className="h5">
+  //                 {item.name} -
+  //                 {item.installed ? (
+  //                   <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+  //                 ) : (
+  //                   <Img src={iconDanger} css="icon icon--xs" alt="KO" />
+  //                 )}{' '}
+  //               </div>
+  //             );
+  //           })}
+  //         </div>
+  //       </CardSettings>,
+  //     ],
+  //   });
+  // }, [installEmusPage]);
+
+  //We check if everything installed
+  useEffect(() => {
+    installEmusStartArray.forEach((item) => {
+      checkInstallation(installEmus[item.id]);
+    });
+  }, [disabledNext]);
+
   return (
     <>
       {/*  <ExploreContainer name="Tab 1 page" /> */}
@@ -244,7 +184,101 @@ const End = ({
           <Main>
             {disabledNext == false && (
               <div className="tips">
-                <SimpleCarousel nav={false} img={slides} />
+                <Card css="is-selected">
+                  <div className="container--grid">
+                    <span data-col-sm="12" className="h2">
+                      Post Installation Status
+                    </span>
+                    <p class="lead">
+                      Please check if all your selected emulators got installed
+                      properly
+                    </p>
+                    {installEmusPageArray.map((item, i) => {
+                      if (item.status == false) {
+                        return;
+                      }
+                      if (item.id == 'srm') {
+                        return;
+                      }
+                      return (
+                        <div data-col-sm="4" className="h5">
+                          {item.name} -
+                          {item.installed ? (
+                            <Img
+                              src={iconSuccess}
+                              css="icon icon--xs"
+                              alt="OK"
+                            />
+                          ) : (
+                            <Img
+                              src={iconDanger}
+                              css="icon icon--xs"
+                              alt="KO"
+                            />
+                          )}{' '}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </Card>
+                <Card css="is-selected">
+                  <div className="container--grid">
+                    <div data-col-sm="6">
+                      <span className="h2">Adding games</span>
+                      <p className="lead">
+                        Copy your roms to your {storage}, you'll see a folder
+                        for each system on the Emulation/roms folder.
+                        <br />
+                        Once you've copied your games click on the "Launch Steam
+                        Rom Manager" button
+                      </p>
+                    </div>
+                    <div data-col-sm="6">
+                      <img src="https://www.emudeck.com/img/ss1.png" alt="bg" />
+                    </div>
+                  </div>
+                </Card>
+                <Card css="is-selected">
+                  <div className="container--grid">
+                    <div data-col-sm="6">
+                      <span className="h2">Steam Input Profiles </span>
+                      <p className="lead">
+                        You can use Steam Deck's L4, L5, R4, R5 triggers to
+                        control some emulators hotkeys. Just select the right
+                        EmuDeck template for the system you want. <br />
+                        <strong>
+                          Do this for every 3DS, WiiU or Playstation 1 & 2 game.
+                        </strong>
+                      </p>
+                    </div>
+                    <div data-col-sm="6">
+                      <img
+                        src="https://www.emudeck.com/img/citra1.png"
+                        alt="bg"
+                      />
+                    </div>
+                  </div>
+                </Card>
+                <Card css="is-selected">
+                  <div className="container--grid">
+                    <div data-col-sm="6">
+                      <span className="h2">Two Frontends </span>
+                      <p className="lead">
+                        You can either use Steam Rom Manager to add yor games or
+                        use EmulationStation DE <br />
+                        If you have a small library we recomend using Steam Rom
+                        Manager, if you have thousands of games EmulationStation
+                        DE will work better.
+                        <br />
+                        If you only want to use EmulationStation DE, disable all
+                        the other parsers when you launch Steam Rom Manager
+                      </p>
+                    </div>
+                    <div data-col-sm="6">
+                      <img src="https://www.emudeck.com/img/ss1.png" alt="bg" />
+                    </div>
+                  </div>
+                </Card>
               </div>
             )}
             <br />
