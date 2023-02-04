@@ -126,7 +126,6 @@ const EmuTable = ({
                 css="btn-simple--3"
                 type="button"
                 aria="Go Back"
-                disabled={disableInstallButton}
                 onClick={() => onClickInstall(emuData.id, emuData.code)}
               >
                 ReInstall
@@ -154,11 +153,25 @@ const EmuTable = ({
                 aria="Go Back"
                 onClick={() => {
                   if (confirm(emuData.altWarning) == true) {
-                    onClickInstall(emuData.id, emuData.code, true);
+                    onClickInstall(emuData.altId, emuData.altCode);
                   }
                 }}
               >
                 {emuData.altButton}
+              </BtnSimple>
+            )}
+            {emuData.alt2 > 0 && (
+              <BtnSimple
+                css="btn-simple--3"
+                type="button"
+                aria="Go Back"
+                onClick={() => {
+                  if (confirm(emuData.alt2Warning) == true) {
+                    onClickInstall(emuData.alt2Id, emuData.alt2Code);
+                  }
+                }}
+              >
+                {emuData.alt2Button}
               </BtnSimple>
             )}
           </BtnGroup>
