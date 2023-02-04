@@ -162,13 +162,11 @@ const EmuTable = ({
             )}
             {emuData.alt2 > 0 && (
               <BtnSimple
-                css="btn-simple--3"
+                css="btn-simple--1"
                 type="button"
                 aria="Go Back"
                 onClick={() => {
-                  if (confirm(emuData.alt2Warning) == true) {
-                    onClickInstall(emuData.alt2Id, emuData.alt2Code);
-                  }
+                  onClick(emuData.alt2Id, emuData.alt2Code);
                 }}
               >
                 {emuData.alt2Button}
