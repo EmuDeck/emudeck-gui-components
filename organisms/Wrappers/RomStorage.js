@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-import { useNavigate } from 'react-router-dom';
 import Footer from 'components/organisms/Footer/Footer.js';
 import Header from 'components/organisms/Header/Header.js';
 import Aside from 'components/organisms/Aside/Aside.js';
@@ -26,10 +25,7 @@ const RomStorage = ({
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { storage, SDID, mode, system, storagePath } = state;
-  const navigate = useNavigate();
-  const goTo = (href) => {
-    history.push('/same-route');
-  };
+
   return (
     <>
       {/*  <ExploreContainer name="Tab 1 page" /> */}
