@@ -170,10 +170,10 @@ const Welcome = ({
     {
       icon: [iconCloud],
       title: 'Cloud Services Manager',
-      description: 'Manage your cloud services enabled for Cloud Backup',
+      description: 'Manage your cloud services',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: false,
+      status: true,
       function: () => functions.openCSM(),
     },
     {
