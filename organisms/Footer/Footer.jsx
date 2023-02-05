@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { PropTypes } from 'prop-types';
-import { GlobalContext } from 'context/globalContext';
-import FooterElectron from './FooterElectron';
-import FooterIonic from './FooterIonic';
+import React, { useContext } from "react";
+import { PropTypes } from "prop-types";
+import { GlobalContext } from "context/globalContext";
+import FooterElectron from "./FooterElectron";
+import FooterIonic from "./FooterIonic";
 
 const Footer = ({
   back,
@@ -20,7 +20,7 @@ const Footer = ({
   const { state } = useContext(GlobalContext);
   const { app } = state;
 
-  return app === 'electron' ? (
+  return app === "electron" ? (
     <FooterElectron
       back={back}
       next={next}
@@ -67,15 +67,15 @@ Footer.propTypes = {
   exit: PropTypes.string,
 };
 Footer.defaultProps = {
-  back: '',
-  next: '',
-  third: '',
-  fourth: '',
-  fourthText: '',
-  disabledNext: '',
-  disabledBack: '',
-  nextText: '',
-  backText: '',
-  thirdText: '',
-  exit: '',
+  back: "",
+  next: "",
+  third: "",
+  fourth: "",
+  fourthText: "",
+  disabledNext: "",
+  disabledBack: "",
+  nextText: "",
+  backText: "",
+  thirdText: "",
+  exit: "",
 };
