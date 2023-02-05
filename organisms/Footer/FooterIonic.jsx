@@ -63,7 +63,9 @@ const FooterIonic = ({
         <BtnSimple
           css="btn-simple--2"
           type="button"
-          onClick={back ? () => goTo(back) : () => navigate(-1)}
+          onClick={
+            back ? () => goTo(back) : () => this.context.router.history.goBack
+          }
           aria="Go Back"
           disabled={disabledBack && true}
         >
