@@ -51,61 +51,56 @@ const RAConfig = () => {
 
   return (
     <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <div className="wrapper">
-          <Header title="Configure" bold="RetroArch" />
-          <Main>
-            {overlaysInstalled === false && (
-              <>
-                <p>Configuring Overlays</p>
-                <ProgressBar type="indeterminate"></ProgressBar>
-              </>
-            )}
+      <Header title="Configure" bold="RetroArch" />
+      <Main>
+        {overlaysInstalled === false && (
+          <>
+            <p>Configuring Overlays</p>
+            <ProgressBar type="indeterminate"></ProgressBar>
+          </>
+        )}
 
-            {overlaysInstalled === true && (
-              <>
-                <p className="lead">
-                  Select the Aspect Ratio for the Super Nintendo Entertainment
-                  System
-                </p>
+        {overlaysInstalled === true && (
+          <>
+            <p className="lead">
+              Select the Aspect Ratio for the Super Nintendo Entertainment
+              System
+            </p>
 
-                <div className="steps">
-                  <input
-                    type="radio"
-                    id="43"
-                    name="snes"
-                    onChange={() => snesSet(43)}
-                  />
-                  <label for="43" className="step step--snes">
-                    <div className="step-img">
-                      <img src="assets/43.png" alt="Background" />
-                    </div>
-                    <figcaption>4:3 - Classic TV Resolution </figcaption>
-                  </label>
-                  <input
-                    type="radio"
-                    id="87"
-                    name="snes"
-                    onChange={() => snesSet(87)}
-                  />
-                  <label for="87" className="step step--snes">
-                    <div className="step-img">
-                      <img src="assets/87.png" alt="Background" />
-                    </div>
-                    <figcaption>8:7 - Real Internal Resolution</figcaption>
-                  </label>
+            <div className="steps">
+              <input
+                type="radio"
+                id="43"
+                name="snes"
+                onChange={() => snesSet(43)}
+              />
+              <label for="43" className="step step--snes">
+                <div className="step-img">
+                  <img src="assets/43.png" alt="Background" />
                 </div>
-              </>
-            )}
-          </Main>
-          <Footer
-            next="pegasus-install"
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
-        </div>
-      </div>
+                <figcaption>4:3 - Classic TV Resolution </figcaption>
+              </label>
+              <input
+                type="radio"
+                id="87"
+                name="snes"
+                onChange={() => snesSet(87)}
+              />
+              <label for="87" className="step step--snes">
+                <div className="step-img">
+                  <img src="assets/87.png" alt="Background" />
+                </div>
+                <figcaption>8:7 - Real Internal Resolution</figcaption>
+              </label>
+            </div>
+          </>
+        )}
+      </Main>
+      <Footer
+        next="pegasus-install"
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
     </>
   );
 };

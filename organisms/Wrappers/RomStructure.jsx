@@ -39,74 +39,65 @@ const RomStorage = () => {
 
   return (
     <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <Aside />
+      <Header title="Rom Systems" bold="Structure" />
+      <Main>
+        {structureCreated === false && (
+          <>
+            <p>Creating folders</p>
+            <ProgressBar type="indeterminate"></ProgressBar>
+          </>
+        )}
 
-        <div className="wrapper">
-          <Header title="Rom Systems" bold="Structure" />
-          <Main>
-            {structureCreated === false && (
-              <>
-                <p>Creating folders</p>
-                <ProgressBar type="indeterminate"></ProgressBar>
-              </>
-            )}
-
-            {storage === 'SD-Card' && structureCreated === true && (
-              <>
-                <p>
-                  You'll have to copy your roms in this folder on your SD Card:
-                </p>
-                <ul className="folder-structure">
-                  <li>
-                    <strong>
-                      {SDID}/Android/data/roms.pegasus.installer/files/
-                    </strong>
-                    <ul>
-                      <li>gamecube/</li>
-                      <li>genesis/</li>
-                      <li>saturn/</li>
-                      <li>snes/</li>
-                      <li>...</li>
-                    </ul>
-                  </li>
+        {storage === 'SD-Card' && structureCreated === true && (
+          <>
+            <p>You'll have to copy your roms in this folder on your SD Card:</p>
+            <ul className="folder-structure">
+              <li>
+                <strong>
+                  {SDID}/Android/data/roms.pegasus.installer/files/
+                </strong>
+                <ul>
+                  <li>gamecube/</li>
+                  <li>genesis/</li>
+                  <li>saturn/</li>
+                  <li>snes/</li>
+                  <li>...</li>
                 </ul>
-              </>
-            )}
-            {storage === 'Internal' && structureCreated === true && (
-              <>
-                <p>
-                  You'll have to copy your roms in this folder on your internal
-                  storage:
-                </p>
-                <ul className="folder-structure">
-                  <li>
-                    <strong>/roms/</strong>
-                    <ul>
-                      <li>gamecube/</li>
-                      <li>genesis/</li>
-                      <li>saturn/</li>
-                      <li>snes/</li>
-                      <li>...</li>
-                    </ul>
-                  </li>
+              </li>
+            </ul>
+          </>
+        )}
+        {storage === 'Internal' && structureCreated === true && (
+          <>
+            <p>
+              You'll have to copy your roms in this folder on your internal
+              storage:
+            </p>
+            <ul className="folder-structure">
+              <li>
+                <strong>/roms/</strong>
+                <ul>
+                  <li>gamecube/</li>
+                  <li>genesis/</li>
+                  <li>saturn/</li>
+                  <li>snes/</li>
+                  <li>...</li>
                 </ul>
-              </>
-            )}
-            {storage && structureCreated === true && (
-              <p>
-                You can't use other folders because of Android Security measures
-              </p>
-            )}
-          </Main>
-          <Footer
-            next="ra-bezels"
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
-        </div>
-      </div>
+              </li>
+            </ul>
+          </>
+        )}
+        {storage && structureCreated === true && (
+          <p>
+            You can't use other folders because of Android Security measures
+          </p>
+        )}
+      </Main>
+      <Footer
+        next="ra-bezels"
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
     </>
   );
 };

@@ -34,24 +34,17 @@ const PegasusInstall = () => {
 
   return (
     <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <Aside />
-
-        <div className="wrapper">
-          <Header title="Let's install" bold="Pegasus" />
-          <p className="lead">This is doing nothing, it's just the UI</p>
-          <Main>
-            <p>Downloading Pegasus</p>
-            <ProgressBar type="indeterminate"></ProgressBar>
-          </Main>
-          <Footer
-            next="pegasus-theme"
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
-        </div>
-      </div>
+      <Header title="Let's install" bold="Pegasus" />
+      <p className="lead">This is doing nothing, it's just the UI</p>
+      <Main>
+        <p>Downloading Pegasus</p>
+        <ProgressBar type="indeterminate"></ProgressBar>
+      </Main>
+      <Footer
+        next="pegasus-theme"
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
     </>
   );
 };

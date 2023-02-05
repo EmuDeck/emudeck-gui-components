@@ -27,19 +27,16 @@ const ChangeLog = ({
   const { state, setState } = useContext(GlobalContext);
 
   return (
-    <div className="app">
-      <Aside />
-      <div className="wrapper">
-        <Header title="Latest" bold="changes" />
-        <Main>{children}</Main>
-        <Footer
-          next={false}
-          backText="Back to Home"
-          disabledNext={disabledNext}
-          disabledBack={disabledBack}
-        />
-      </div>
-    </div>
+    <>
+      <Header title="Latest" bold="changes" />
+      <Main>{children}</Main>
+      <Footer
+        next={false}
+        backText="Back to Home"
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
+    </>
   );
 };
 

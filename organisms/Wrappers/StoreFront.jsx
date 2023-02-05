@@ -72,56 +72,53 @@ const StoreFront = ({
 
   return (
     <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <div className="wrapper">
-          <Header title="" />
-          <Main>
-            <p className="h4" onClick={toggleModal}>
-              Featured games
-            </p>
-            <hr />
-            <ul className="featured-games-list">
-              {featured.map((item, i) => {
-                return (
-                  <StoreGame
-                    title={item.title}
-                    img={item.pictures.titlescreens[0]}
-                    system={logo_genesis}
-                    tags={item.tags}
-                    css="store-game--featured"
-                    onMore={() => toggleModal(item)}
-                    onInstall={() => installGame(item)}
-                  />
-                );
-              })}
-            </ul>
+      <Header title="" />
+      <Main>
+        <p className="h4" onClick={toggleModal}>
+          Featured games
+        </p>
+        <hr />
+        <ul className="featured-games-list">
+          {featured.map((item, i) => {
+            return (
+              <StoreGame
+                title={item.title}
+                img={item.pictures.titlescreens[0]}
+                system={logo_genesis}
+                tags={item.tags}
+                css="store-game--featured"
+                onMore={() => toggleModal(item)}
+                onInstall={() => installGame(item)}
+              />
+            );
+          })}
+        </ul>
 
-            {console.log({ store })}
+        {console.log({ store })}
 
-            {store.map((item, i) => {
-              return (
-                <>
-                  <p className="h4">{item.name}</p>
-                  <hr />
-                  <ul className="games-list">
-                    {item.games.map((item, i) => {
-                      return (
-                        <StoreGame
-                          title={item.title}
-                          img={item.pictures.titlescreens[0]}
-                          system={logo_gb}
-                          onMore={() => toggleModal(item)}
-                          onInstall={() => installGame(item)}
-                        />
-                      );
-                    })}
-                  </ul>
-                </>
-              );
-            })}
+        {store.map((item, i) => {
+          return (
+            <>
+              <p className="h4">{item.name}</p>
+              <hr />
+              <ul className="games-list">
+                {item.games.map((item, i) => {
+                  return (
+                    <StoreGame
+                      title={item.title}
+                      img={item.pictures.titlescreens[0]}
+                      system={logo_gb}
+                      onMore={() => toggleModal(item)}
+                      onInstall={() => installGame(item)}
+                    />
+                  );
+                })}
+              </ul>
+            </>
+          );
+        })}
 
-            {/*
+        {/*
             <p className="h4">Game Boy</p>
             <hr />
             <ul className="games-list">
@@ -154,73 +151,67 @@ const StoreFront = ({
                 );
               })}
             </ul> */}
-          </Main>
+      </Main>
 
-          <div class={`game-details ${modal ? 'is-shown' : ''}`}>
-            <div class="game-details__box">
-              <div class="game-details__head">
-                <div className="container--grid">
-                  <div data-col-sm="6">
-                    <span class="h2">{game.title}</span>
-                    <div class="game-details__tags">
-                      {game.tags &&
-                        game.tags.map((item, i) => {
-                          return (
-                            <small
-                              className="tag"
-                              style={{ background: `var(--${item})` }}
-                            >
-                              {item}
-                            </small>
-                          );
-                        })}
-                    </div>
-                    <img
-                      class="game-details__logo"
-                      src={logo_genesis}
-                      alt="Logo"
-                    />
-                    <p>{game.description}</p>
-                    <BtnSimple css="btn-simple--1" type="button" aria="Next">
-                      Install
-                    </BtnSimple>
-                  </div>
-                  <div data-col-sm="6">
-                    <img src={game.pictures.screenshots[0]} alt="Screenshot" />
-                    {/* <div class="game-details__thumbnails">
+      <div class={`game-details ${modal ? 'is-shown' : ''}`}>
+        <div class="game-details__box">
+          <div class="game-details__head">
+            <div className="container--grid">
+              <div data-col-sm="6">
+                <span class="h2">{game.title}</span>
+                <div class="game-details__tags">
+                  {game.tags &&
+                    game.tags.map((item, i) => {
+                      return (
+                        <small
+                          className="tag"
+                          style={{ background: `var(--${item})` }}
+                        >
+                          {item}
+                        </small>
+                      );
+                    })}
+                </div>
+                <img class="game-details__logo" src={logo_genesis} alt="Logo" />
+                <p>{game.description}</p>
+                <BtnSimple css="btn-simple--1" type="button" aria="Next">
+                  Install
+                </BtnSimple>
+              </div>
+              <div data-col-sm="6">
+                <img src={game.pictures.screenshots[0]} alt="Screenshot" />
+                {/* <div class="game-details__thumbnails">
                       {game.pictures.screenshots.map((item, i) => {
                         return <img src={item} alt="Screenshot" />;
                       })}
                     </div> */}
-                  </div>
-                </div>
-              </div>
-              <div class="game-details__footer">
-                <BtnSimple
-                  css="btn-simple--1"
-                  type="button"
-                  aria="Next"
-                  onClick={() => toggleModal()}
-                >
-                  Close
-                </BtnSimple>
               </div>
             </div>
           </div>
-
-          <footer className="footer">
+          <div class="game-details__footer">
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              aria="Go Back"
-              disabled={false}
-              onClick={() => navigate(-1)}
+              aria="Next"
+              onClick={() => toggleModal()}
             >
-              Go Back
+              Close
             </BtnSimple>
-          </footer>
+          </div>
         </div>
       </div>
+
+      <footer className="footer">
+        <BtnSimple
+          css="btn-simple--1"
+          type="button"
+          aria="Go Back"
+          disabled={false}
+          onClick={() => navigate(-1)}
+        >
+          Go Back
+        </BtnSimple>
+      </footer>
     </>
   );
 };

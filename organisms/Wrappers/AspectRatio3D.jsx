@@ -28,59 +28,56 @@ const AspectRatio3D = ({
 
   return (
     <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <div className="wrapper">
-          <Header title="Configure Aspect Ratio for" bold="Classic 3D Games" />
-          <p className="lead">
-            Select the aspect ratio for the Dreamcast and Nintendo 64 Systems.
-          </p>
-          <Main>
-            <SelectorMenu>
-              <div className="selector-menu__img">
-                <img
-                  src={ar169}
-                  className={ar.classic3d != '169' && 'is-hidden'}
-                  alt="Background"
-                />
-                <img
-                  src={ar43}
-                  className={ar.classic3d != '43' && 'is-hidden'}
-                  alt="Background"
-                />
-              </div>
-              <div className="selector-menu__options selector-menu__options--full">
-                <ul>
-                  <li onClick={() => onClick('43')}>
-                    <Card css={ar.classic3d == 43 && 'is-selected'}>
-                      <span className="h4">4:3</span>
-                      <p>Original Aspect Ratio</p>
-                    </Card>
-                  </li>
-                  <li onClick={() => onClick('169')}>
-                    <Card css={ar.classic3d == 169 && 'is-selected'}>
-                      <span className="h4">16:9</span>
-                      <p>Widescreen using Widescreen hacks</p>
-                    </Card>
-                  </li>
-                </ul>
-              </div>
-              <div className="selector-menu__details">
-                <p className="lead">Systems</p>
-                <ul>
-                  <li>Dreamcast</li>
-                  <li>Nintendo 64</li>
-                </ul>
-              </div>
-            </SelectorMenu>
-          </Main>
-          <Footer
-            next="aspect-ratio-dolphin"
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
-        </div>
-      </div>
+      
+
+      <Header title="Configure Aspect Ratio for" bold="Classic 3D Games" />
+      <p className="lead">
+        Select the aspect ratio for the Dreamcast and Nintendo 64 Systems.
+      </p>
+      <Main>
+        <SelectorMenu>
+          <div className="selector-menu__img">
+            <img
+              src={ar169}
+              className={ar.classic3d != '169' && 'is-hidden'}
+              alt="Background"
+            />
+            <img
+              src={ar43}
+              className={ar.classic3d != '43' && 'is-hidden'}
+              alt="Background"
+            />
+          </div>
+          <div className="selector-menu__options selector-menu__options--full">
+            <ul>
+              <li onClick={() => onClick('43')}>
+                <Card css={ar.classic3d == 43 && 'is-selected'}>
+                  <span className="h4">4:3</span>
+                  <p>Original Aspect Ratio</p>
+                </Card>
+              </li>
+              <li onClick={() => onClick('169')}>
+                <Card css={ar.classic3d == 169 && 'is-selected'}>
+                  <span className="h4">16:9</span>
+                  <p>Widescreen using Widescreen hacks</p>
+                </Card>
+              </li>
+            </ul>
+          </div>
+          <div className="selector-menu__details">
+            <p className="lead">Systems</p>
+            <ul>
+              <li>Dreamcast</li>
+              <li>Nintendo 64</li>
+            </ul>
+          </div>
+        </SelectorMenu>
+      </Main>
+      <Footer
+        next="aspect-ratio-dolphin"
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
     </>
   );
 };

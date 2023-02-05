@@ -27,62 +27,57 @@ const Shaders2D = ({
 
   return (
     <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <div className="wrapper">
-          <Header title="Configure CRT Shader for" bold="Classic 2D Games" />
-          <p className="lead">
-            The CRT Shader gives your classic systems a faux retro CRT vibe.
-          </p>
-          <Main>
-            <SelectorMenu>
-              <div className="selector-menu__img">
-                <img
-                  src={lcdoff}
-                  className={shaders.classic == true && 'is-hidden'}
-                  alt="Background"
-                />
-                <img
-                  src={lcdon}
-                  className={shaders.classic == false && 'is-hidden'}
-                  alt="Background"
-                />
-              </div>
-              <div className="selector-menu__options selector-menu__options--full">
-                <ul>
-                  <li onClick={() => onClick(false)}>
-                    <Card css={shaders.classic == false && 'is-selected'}>
-                      <span className="h4">Off</span>
-                    </Card>
-                  </li>
-                  <li onClick={() => onClick(true)}>
-                    <Card css={shaders.classic == true && 'is-selected'}>
-                      <span className="h4">On</span>
-                    </Card>
-                  </li>
-                </ul>
-              </div>
-              <div className="selector-menu__details">
-                <p className="lead">Affected Systems</p>
-                <ul>
-                  <li>Atari</li>
-                  <li>Master System</li>
-                  <li>Genesis</li>
-                  <li>SegaCD</li>
-                  <li>Sega32x</li>
-                  <li>Nes</li>
-                  <li>SuperNes</li>
-                </ul>
-              </div>
-            </SelectorMenu>
-          </Main>
-          <Footer
-            next="shaders-3d-classic"
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
-        </div>
-      </div>
+      <Header title="Configure CRT Shader for" bold="Classic 2D Games" />
+      <p className="lead">
+        The CRT Shader gives your classic systems a faux retro CRT vibe.
+      </p>
+      <Main>
+        <SelectorMenu>
+          <div className="selector-menu__img">
+            <img
+              src={lcdoff}
+              className={shaders.classic == true && 'is-hidden'}
+              alt="Background"
+            />
+            <img
+              src={lcdon}
+              className={shaders.classic == false && 'is-hidden'}
+              alt="Background"
+            />
+          </div>
+          <div className="selector-menu__options selector-menu__options--full">
+            <ul>
+              <li onClick={() => onClick(false)}>
+                <Card css={shaders.classic == false && 'is-selected'}>
+                  <span className="h4">Off</span>
+                </Card>
+              </li>
+              <li onClick={() => onClick(true)}>
+                <Card css={shaders.classic == true && 'is-selected'}>
+                  <span className="h4">On</span>
+                </Card>
+              </li>
+            </ul>
+          </div>
+          <div className="selector-menu__details">
+            <p className="lead">Affected Systems</p>
+            <ul>
+              <li>Atari</li>
+              <li>Master System</li>
+              <li>Genesis</li>
+              <li>SegaCD</li>
+              <li>Sega32x</li>
+              <li>Nes</li>
+              <li>SuperNes</li>
+            </ul>
+          </div>
+        </SelectorMenu>
+      </Main>
+      <Footer
+        next="shaders-3d-classic"
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
     </>
   );
 };

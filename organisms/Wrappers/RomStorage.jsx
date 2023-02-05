@@ -28,70 +28,61 @@ const RomStorage = ({
 
   return (
     <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <Aside />
-
-        <div className="wrapper">
-          <Header title="Select your ROM Directory" bold="" />
-          <p className="lead">
-            Your ROM directory will be squared away within an Emulation folder
-            in your selected directory. If you do not see your SD Card, format
-            it first in Game Mode.
-          </p>
-          <Main>
-            <div className="cards">
-              {!!showSDCard && (
-                <Card
-                  css={storage == 'SD-Card' && 'is-selected'}
-                  onClick={() =>
-                    sdCardValid == true ? onClick('SD-Card') : reloadSDcard()
-                  }
-                >
-                  <img src={imgSD} width="100" alt="Background" />
-                  <span className="h5">SD Card</span>
-                  {sdCardName != null && (
-                    <span className="h6">{sdCardName}</span>
-                  )}
-                  {sdCardName == null ||
-                    (sdCardValid == false && (
-                      <span className="h6">
-                        Not detected
-                        <br />
-                        Click here to try again
-                      </span>
-                    ))}
-                </Card>
-              )}
-              {!!showInternal && (
-                <Card
-                  css={storage == 'Internal Storage' && 'is-selected'}
-                  onClick={() => onClick('Internal Storage')}
-                >
-                  <img src={imgInternal} width="100" alt="Background" />
-                  <span className="h5">Internal Storage</span>
-                </Card>
-              )}
-              <Card
-                css={storage == 'Custom' && 'is-selected'}
-                onClick={() => onClick('Custom')}
-              >
-                <img src={imgInternal} width="100" alt="Background" />
-                <span className="h5">Custom Directory</span>
-                {customPath && storage == 'Custom' && (
-                  <span className="h6">{customPath}</span>
-                )}
-              </Card>
-            </div>
-          </Main>
-
-          <Footer
-            next={next}
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
+      <Header title="Select your ROM Directory" bold="" />
+      <p className="lead">
+        Your ROM directory will be squared away within an Emulation folder in
+        your selected directory. If you do not see your SD Card, format it first
+        in Game Mode.
+      </p>
+      <Main>
+        <div className="cards">
+          {!!showSDCard && (
+            <Card
+              css={storage == 'SD-Card' && 'is-selected'}
+              onClick={() =>
+                sdCardValid == true ? onClick('SD-Card') : reloadSDcard()
+              }
+            >
+              <img src={imgSD} width="100" alt="Background" />
+              <span className="h5">SD Card</span>
+              {sdCardName != null && <span className="h6">{sdCardName}</span>}
+              {sdCardName == null ||
+                (sdCardValid == false && (
+                  <span className="h6">
+                    Not detected
+                    <br />
+                    Click here to try again
+                  </span>
+                ))}
+            </Card>
+          )}
+          {!!showInternal && (
+            <Card
+              css={storage == 'Internal Storage' && 'is-selected'}
+              onClick={() => onClick('Internal Storage')}
+            >
+              <img src={imgInternal} width="100" alt="Background" />
+              <span className="h5">Internal Storage</span>
+            </Card>
+          )}
+          <Card
+            css={storage == 'Custom' && 'is-selected'}
+            onClick={() => onClick('Custom')}
+          >
+            <img src={imgInternal} width="100" alt="Background" />
+            <span className="h5">Custom Directory</span>
+            {customPath && storage == 'Custom' && (
+              <span className="h6">{customPath}</span>
+            )}
+          </Card>
         </div>
-      </div>
+      </Main>
+
+      <Footer
+        next={next}
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
     </>
   );
 };

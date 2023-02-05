@@ -27,59 +27,54 @@ const Shaders3D = ({
 
   return (
     <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <div className="wrapper">
-          <Header title="Configure CRT Shader for" bold="Classic 3D Games" />
-          <p className="lead">
-            The CRT Shader gives your classic systems a faux retro CRT vibe.
-          </p>
-          <Main>
-            <SelectorMenu>
-              <div className="selector-menu__img">
-                <img
-                  src={lcdoff}
-                  className={shaders.classic3d == true && 'is-hidden'}
-                  alt="Background"
-                />
-                <img
-                  src={lcdon}
-                  className={shaders.classic3d == false && 'is-hidden'}
-                  alt="Background"
-                />
-              </div>
-              <div className="selector-menu__options selector-menu__options--full">
-                <ul>
-                  <li onClick={() => onClick(false)}>
-                    <Card css={shaders.classic3d == false && 'is-selected'}>
-                      <span className="h4">Off</span>
-                    </Card>
-                  </li>
-                  <li onClick={() => onClick(true)}>
-                    <Card css={shaders.classic3d == true && 'is-selected'}>
-                      <span className="h4">On</span>
-                    </Card>
-                  </li>
-                </ul>
-              </div>
-              <div className="selector-menu__details">
-                <p className="lead">Affected Systems</p>
-                <ul>
-                  <li>Playstation 1</li>
-                  <li>Dreamcast</li>
-                  <li>Saturn</li>
-                  <li>Nintendo 64</li>
-                </ul>
-              </div>
-            </SelectorMenu>
-          </Main>
-          <Footer
-            next="pegasus-theme"
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
-        </div>
-      </div>
+      <Header title="Configure CRT Shader for" bold="Classic 3D Games" />
+      <p className="lead">
+        The CRT Shader gives your classic systems a faux retro CRT vibe.
+      </p>
+      <Main>
+        <SelectorMenu>
+          <div className="selector-menu__img">
+            <img
+              src={lcdoff}
+              className={shaders.classic3d == true && 'is-hidden'}
+              alt="Background"
+            />
+            <img
+              src={lcdon}
+              className={shaders.classic3d == false && 'is-hidden'}
+              alt="Background"
+            />
+          </div>
+          <div className="selector-menu__options selector-menu__options--full">
+            <ul>
+              <li onClick={() => onClick(false)}>
+                <Card css={shaders.classic3d == false && 'is-selected'}>
+                  <span className="h4">Off</span>
+                </Card>
+              </li>
+              <li onClick={() => onClick(true)}>
+                <Card css={shaders.classic3d == true && 'is-selected'}>
+                  <span className="h4">On</span>
+                </Card>
+              </li>
+            </ul>
+          </div>
+          <div className="selector-menu__details">
+            <p className="lead">Affected Systems</p>
+            <ul>
+              <li>Playstation 1</li>
+              <li>Dreamcast</li>
+              <li>Saturn</li>
+              <li>Nintendo 64</li>
+            </ul>
+          </div>
+        </SelectorMenu>
+      </Main>
+      <Footer
+        next="pegasus-theme"
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
     </>
   );
 };

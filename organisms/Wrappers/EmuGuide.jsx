@@ -266,37 +266,34 @@ const EmuGuide = (props) => {
   biosHTML = <ul className="list-two-cols">{biosComponents}</ul>;
 
   return (
-    <div className="app">
-      <Aside />
-      <div className="wrapper">
-        <Header title={emuData.name} />
-        <Notification css={showNotification ? 'is-animated' : 'nope'}>
-          {textNotification}
-        </Notification>
-        <Main>
-          {emuData.id && (
-            <EmuTable
-              mode={mode}
-              img={img}
-              emuData={emuData}
-              bios={biosHTML}
-              onChange={onChange}
-              onClick={onClick}
-              onClickInstall={onClickInstall}
-              onClickUninstall={onClickUninstall}
-              disableInstallButton={disableInstallButton}
-              disableResetButton={disableResetButton}
-              installEmus={Object.values(installEmus)}
-            />
-          )}
-        </Main>
-        <Footer
-          next={false}
-          disabledNext={disabledNext}
-          disabledBack={disabledBack}
-        />
-      </div>
-    </div>
+    <>
+      <Header title={emuData.name} />
+      <Notification css={showNotification ? 'is-animated' : 'nope'}>
+        {textNotification}
+      </Notification>
+      <Main>
+        {emuData.id && (
+          <EmuTable
+            mode={mode}
+            img={img}
+            emuData={emuData}
+            bios={biosHTML}
+            onChange={onChange}
+            onClick={onClick}
+            onClickInstall={onClickInstall}
+            onClickUninstall={onClickUninstall}
+            disableInstallButton={disableInstallButton}
+            disableResetButton={disableResetButton}
+            installEmus={Object.values(installEmus)}
+          />
+        )}
+      </Main>
+      <Footer
+        next={false}
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
+    </>
   );
 };
 

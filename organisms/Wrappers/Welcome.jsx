@@ -326,7 +326,6 @@ const Welcome = ({ onClick, alert, alertCSS, functions }) => {
                 if (system === 'win32' && item.title != 'Custom Reset') {
                   return;
                 }
-
                 return (
                   <div data-col-sm="3" key={item.title}>
                     <CardSettings

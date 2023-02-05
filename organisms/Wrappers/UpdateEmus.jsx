@@ -33,45 +33,42 @@ const UpdateEmus = ({
   const { sudoPass, UpdateEmus } = state;
 
   return (
-    <div className="app">
-      <Aside />
-      <div className="wrapper">
-        <Header title="Update your" bold="Emulators & Tools" />
-        <p className="lead">
-          Emulators and tools can be installed a multitude of ways. EmuDeck
-          installs some emulators and tools as Flatpaks from the Discover Store.
-          Others are downloaded for you directly from the developer's website as
-          AppImages or Binaries.
-        </p>
-        <Main>
-          <p>Select which batch you want to update:</p>
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            aria="Update Emulators from the Discover Store"
-            onClick={() => onClickFlatpak()}
-            disabled={disabledNext && 'true'}
-          >
-            Update Flatpaks
-          </BtnSimple>
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            aria="Update appImages and binaries"
-            onClick={() => onClickAppImage()}
-            disabled={disabledNext && 'true'}
-          >
-            Update AppImages and Binaries
-          </BtnSimple>
-        </Main>
-        <Footer
-          next={false}
-          nextText={nextText}
-          disabledNext={disabledNext}
-          disabledBack={disabledBack}
-        />
-      </div>
-    </div>
+    <>
+      <Header title="Update your" bold="Emulators & Tools" />
+      <p className="lead">
+        Emulators and tools can be installed a multitude of ways. EmuDeck
+        installs some emulators and tools as Flatpaks from the Discover Store.
+        Others are downloaded for you directly from the developer's website as
+        AppImages or Binaries.
+      </p>
+      <Main>
+        <p>Select which batch you want to update:</p>
+        <BtnSimple
+          css="btn-simple--1"
+          type="button"
+          aria="Update Emulators from the Discover Store"
+          onClick={() => onClickFlatpak()}
+          disabled={disabledNext && 'true'}
+        >
+          Update Flatpaks
+        </BtnSimple>
+        <BtnSimple
+          css="btn-simple--1"
+          type="button"
+          aria="Update appImages and binaries"
+          onClick={() => onClickAppImage()}
+          disabled={disabledNext && 'true'}
+        >
+          Update AppImages and Binaries
+        </BtnSimple>
+      </Main>
+      <Footer
+        next={false}
+        nextText={nextText}
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
+    </>
   );
 };
 

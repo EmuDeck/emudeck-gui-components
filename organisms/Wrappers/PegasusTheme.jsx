@@ -53,75 +53,70 @@ const PegasusTheme = ({
   const { theme, system } = state;
   return (
     <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <div className="wrapper">
-          <Header title="EmulationStation DE " bold="Theme" />
-          <p className="lead">
-            Choose your theme for EmulationStation DE, swipe to see more
-            screenshots.
-          </p>
-          <Main>
-            <SelectorMenu>
-              <div className="selector-menu__img">
-                <SimpleCarousel
-                  nav={false}
-                  img={noirPics}
-                  css={theme != 'EPICNOIR' && 'is-hidden'}
-                />
-                <SimpleCarousel
-                  nav={false}
-                  img={rbsimplePics}
-                  css={theme != 'RBSIMPLE-DE' && 'is-hidden'}
-                />
-                <SimpleCarousel
-                  nav={false}
-                  img={modernPics}
-                  css={theme != 'MODERN-DE' && 'is-hidden'}
-                />
-                {/*}
+      <Header title="EmulationStation DE " bold="Theme" />
+      <p className="lead">
+        Choose your theme for EmulationStation DE, swipe to see more
+        screenshots.
+      </p>
+      <Main>
+        <SelectorMenu>
+          <div className="selector-menu__img">
+            <SimpleCarousel
+              nav={false}
+              img={noirPics}
+              css={theme != 'EPICNOIR' && 'is-hidden'}
+            />
+            <SimpleCarousel
+              nav={false}
+              img={rbsimplePics}
+              css={theme != 'RBSIMPLE-DE' && 'is-hidden'}
+            />
+            <SimpleCarousel
+              nav={false}
+              img={modernPics}
+              css={theme != 'MODERN-DE' && 'is-hidden'}
+            />
+            {/*}
                 <SimpleCarousel
                   nav={false}
                   img={alekPics}
                   css={theme != 'ALEK-DE' && 'is-hidden'}
                 />*/}
-              </div>
-              <div className="selector-menu__options selector-menu__options--full">
-                <ul>
-                  <li onClick={() => onClick('EPICNOIR')}>
-                    <Card css={theme == 'EPICNOIR' && 'is-selected'}>
-                      <span className="h5">Epic Noir</span>
-                    </Card>
-                  </li>
-                  <li onClick={() => onClick('RBSIMPLE-DE')}>
-                    <Card css={theme == 'RBSIMPLE-DE' && 'is-selected'}>
-                      <span className="h5">RBSimple</span>
-                    </Card>
-                  </li>
-                  <li onClick={() => onClick('MODERN-DE')}>
-                    <Card css={theme == 'MODERN-DE' && 'is-selected'}>
-                      <span className="h5">Modern</span>
-                    </Card>
-                  </li>
-                  {/*
+          </div>
+          <div className="selector-menu__options selector-menu__options--full">
+            <ul>
+              <li onClick={() => onClick('EPICNOIR')}>
+                <Card css={theme == 'EPICNOIR' && 'is-selected'}>
+                  <span className="h5">Epic Noir</span>
+                </Card>
+              </li>
+              <li onClick={() => onClick('RBSIMPLE-DE')}>
+                <Card css={theme == 'RBSIMPLE-DE' && 'is-selected'}>
+                  <span className="h5">RBSimple</span>
+                </Card>
+              </li>
+              <li onClick={() => onClick('MODERN-DE')}>
+                <Card css={theme == 'MODERN-DE' && 'is-selected'}>
+                  <span className="h5">Modern</span>
+                </Card>
+              </li>
+              {/*
                   <li onClick={() => onClick('ALEK-DE')}>
                     <Card css={theme == 'ALEK-DE' && 'is-selected'}>
                       <span className="h5">Alekfull NX</span>
                     </Card>
                   </li>
                   */}
-                </ul>
-              </div>
-            </SelectorMenu>
-          </Main>
-          <Footer
-            next={system == 'win32' ? 'emulator-resolution' : 'homebrew-games'}
-            nextText="Next"
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
-        </div>
-      </div>
+            </ul>
+          </div>
+        </SelectorMenu>
+      </Main>
+      <Footer
+        next={system == 'win32' ? 'emulator-resolution' : 'homebrew-games'}
+        nextText="Next"
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
     </>
   );
 };

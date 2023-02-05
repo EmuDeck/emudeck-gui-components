@@ -22,75 +22,68 @@ const EmulatorConfiguration = ({
 
   return (
     <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <Aside />
+      
 
-        <div className="wrapper">
-          <Header title="Update emulator's" bold="configuration" />
-          {second && (
-            <p className="lead">
-              EmuDeck will optimize and configure emulators during this install.
-              Selected emulators will have their configurations reset and
-              updated to EmuDeck's defaults. De-selected emulators will not be
-              touched and EmuDeck will respect your configurations (Not
-              Recommended).
-            </p>
-          )}
-          {!second && (
-            <p className="lead">
-              EmuDeck will optimize and configure emulators during this install.
-              Selected emulators will have their configurations reset and
-              updated to EmuDeck's defaults. De-selected emulators will not be
-              touched and EmuDeck will respect your configurations (Not
-              Recommended).
-            </p>
-          )}
-          <Main>
-            <div className="cards cards--mini">
-              {overwriteConfigEmusArray.map((item, i) => {
-                if (overwriteConfigEmusArray.id == 'srm') {
-                  return;
-                }
+      <Header title="Update emulator's" bold="configuration" />
+      {second && (
+        <p className="lead">
+          EmuDeck will optimize and configure emulators during this install.
+          Selected emulators will have their configurations reset and updated to
+          EmuDeck's defaults. De-selected emulators will not be touched and
+          EmuDeck will respect your configurations (Not Recommended).
+        </p>
+      )}
+      {!second && (
+        <p className="lead">
+          EmuDeck will optimize and configure emulators during this install.
+          Selected emulators will have their configurations reset and updated to
+          EmuDeck's defaults. De-selected emulators will not be touched and
+          EmuDeck will respect your configurations (Not Recommended).
+        </p>
+      )}
+      <Main>
+        <div className="cards cards--mini">
+          {overwriteConfigEmusArray.map((item, i) => {
+            if (overwriteConfigEmusArray.id == 'srm') {
+              return;
+            }
 
-                if (system == 'win32') {
-                  if (
-                    item.id == 'primehacks' ||
-                    item.id == 'melonds' ||
-                    item.id == 'citra' ||
-                    item.id == 'rpcs3' ||
-                    item.id == 'ryujinx' ||
-                    item.id == 'rmg' ||
-                    item.id == 'mame' ||
-                    item.id == 'vita3k' ||
-                    item.id == 'scummvm' ||
-                    item.id == 'xemu'
-                  ) {
-                    return;
-                  }
-                }
+            if (system == 'win32') {
+              if (
+                item.id == 'primehacks' ||
+                item.id == 'melonds' ||
+                item.id == 'citra' ||
+                item.id == 'rpcs3' ||
+                item.id == 'ryujinx' ||
+                item.id == 'rmg' ||
+                item.id == 'mame' ||
+                item.id == 'vita3k' ||
+                item.id == 'scummvm' ||
+                item.id == 'xemu'
+              ) {
+                return;
+              }
+            }
 
-                const img = images[item.id];
-                return (
-                  <Card
-                    css={item.status == true && 'is-selected'}
-                    key={item.id}
-                    onClick={() => onClick(item.id)}
-                  >
-                    <img src={img} alt="RetroArch" />
-                    <span className="h6">{item.name}</span>
-                  </Card>
-                );
-              })}
-            </div>
-          </Main>
-          <Footer
-            next={next}
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
+            const img = images[item.id];
+            return (
+              <Card
+                css={item.status == true && 'is-selected'}
+                key={item.id}
+                onClick={() => onClick(item.id)}
+              >
+                <img src={img} alt="RetroArch" />
+                <span className="h6">{item.name}</span>
+              </Card>
+            );
+          })}
         </div>
-      </div>
+      </Main>
+      <Footer
+        next={next}
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
     </>
   );
 };

@@ -68,68 +68,65 @@ const RemotePlayWhatever = ({
   }, []);
 
   return (
-    <div className="app">
-      <Aside />
-      <div className="wrapper">
-        <Header title="Multiplayer with " bold="RemotePlayWhatever - Beta" />
-        <Notification css={showNotification ? 'is-animated' : 'nope'}>
-          {notificationText}
-        </Notification>
-        <Main>
-          <p className="lead">
-            Play with your friends both locally and over the internet. More info
-            on this tool{' '}
-            <LinkSimple
-              css="link-simple--1"
-              href="https://github.com/m4dEngi/RemotePlayWhatever"
-              target="_blank"
-            >
-              here
-            </LinkSimple>
-          </p>
-          <div className="container--grid">
-            <div data-col-sm="6">
-              <p>
-                First click on install RemotePlayWhatever, this will install it
-                and open Steam Rom Manager to add its shorcut to Steam
-              </p>
-              <p>
-                When you are in gaming mode go to the Emulator collection and
-                launch RemotePlayWhatever, invite your Steam Friend, go back to
-                your library using the STEAM button, open your game from
-                EmulationStation and start playing!
-              </p>
-              <p>
-                <strong>
-                  This app is on beta, so sometimes it does not work 100% fine,
-                  expect some crashes and issues with the sound. At the moment
-                  launching games outside EmulationStation is not supported.
-                </strong>
-              </p>
+    <>
+      <Header title="Multiplayer with " bold="RemotePlayWhatever - Beta" />
+      <Notification css={showNotification ? 'is-animated' : 'nope'}>
+        {notificationText}
+      </Notification>
+      <Main>
+        <p className="lead">
+          Play with your friends both locally and over the internet. More info
+          on this tool{' '}
+          <LinkSimple
+            css="link-simple--1"
+            href="https://github.com/m4dEngi/RemotePlayWhatever"
+            target="_blank"
+          >
+            here
+          </LinkSimple>
+        </p>
+        <div className="container--grid">
+          <div data-col-sm="6">
+            <p>
+              First click on install RemotePlayWhatever, this will install it
+              and open Steam Rom Manager to add its shorcut to Steam
+            </p>
+            <p>
+              When you are in gaming mode go to the Emulator collection and
+              launch RemotePlayWhatever, invite your Steam Friend, go back to
+              your library using the STEAM button, open your game from
+              EmulationStation and start playing!
+            </p>
+            <p>
+              <strong>
+                This app is on beta, so sometimes it does not work 100% fine,
+                expect some crashes and issues with the sound. At the moment
+                launching games outside EmulationStation is not supported.
+              </strong>
+            </p>
 
-              <BtnSimple
-                css="btn-simple--1"
-                type="button"
-                aria="Install RemotePlayWhatever"
-                onClick={() => onClick()}
-                disabled={disabledNext && 'true'}
-              >
-                Install RemotePlayWhatever
-              </BtnSimple>
-            </div>
-            <div data-col-sm="6">
-              <img src={remotelogo} alt="bg" />
-            </div>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Install RemotePlayWhatever"
+              onClick={() => onClick()}
+              disabled={disabledNext && 'true'}
+            >
+              Install RemotePlayWhatever
+            </BtnSimple>
           </div>
-        </Main>
-        <Footer
-          next={false}
-          nextText={nextText}
-          disabledNext={disabledNext}
-          disabledBack={disabledBack}
-        />
-      </div>
-    </div>
+          <div data-col-sm="6">
+            <img src={remotelogo} alt="bg" />
+          </div>
+        </div>
+      </Main>
+      <Footer
+        next={false}
+        nextText={nextText}
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
+    </>
   );
 };
 

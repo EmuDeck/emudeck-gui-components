@@ -29,75 +29,68 @@ const AutoSave = ({
 
   return (
     <>
-      {/*  <ExploreContainer name="Tab 1 page" /> */}
-      <div className="app">
-        <div className="wrapper">
-          <Header title="Configure Auto Save" />
-          <p className="lead">
-            If enabled, your game state will be saved on exit and automaticaly
-            loaded when opened again.
-          </p>
-          <Main>
-            <SelectorMenu>
-              <div className="selector-menu__img">
-                <div
-                  className={`simple-carousel ${
-                    autosave == true && 'is-hidden'
-                  }`}
-                >
-                  <Iframe
-                    src={`https://www.youtube-nocookie.com/embed/kpIJnIBEq9o?autoplay=1&playlist=kpIJnIBEq9o&loop=1&controls=0&mute=1&rel=0&modestbranding=1`}
-                  />
-                </div>
-                <div
-                  className={`simple-carousel ${
-                    autosave == false && 'is-hidden'
-                  }`}
-                >
-                  <Iframe
-                    src={`https://www.youtube-nocookie.com/embed/2EV_zU-tNv4?autoplay=1&playlist=2EV_zU-tNv4&loop=1&controls=0&mute=1&rel=0&modestbranding=1`}
-                  />
-                </div>
-              </div>
-              <div className="selector-menu__options selector-menu__options--full">
-                <ul>
-                  <li onClick={() => onClick(false)}>
-                    <Card css={autosave == false && 'is-selected'}>
-                      <span className="h4">Off</span>
-                    </Card>
-                  </li>
-                  <li onClick={() => onClick(true)}>
-                    <Card css={autosave == true && 'is-selected'}>
-                      <span className="h4">On</span>
-                    </Card>
-                  </li>
-                </ul>
-              </div>
-              <div className="selector-menu__details">
-                <p className="lead">Affected Systems</p>
-                <ul>
-                  <li>Atari</li>
-                  <li>GameBoy & GameBoy Color</li>
-                  <li>GameBoy Advance</li>
-                  <li>Super Nintendo</li>
-                  <li>Nintendo NES</li>
-                  <li>Master System</li>
-                  <li>Genesis</li>
-                  <li>SegaCD</li>
-                  <li>Sega32x</li>
-                  <li>GameGear</li>
-                  <li>NeoGeo Pocket</li>
-                </ul>
-              </div>
-            </SelectorMenu>
-          </Main>
-          <Footer
-            next="ra-achievements"
-            disabledNext={disabledNext}
-            disabledBack={disabledBack}
-          />
-        </div>
-      </div>
+      
+
+      <Header title="Configure Auto Save" />
+      <p className="lead">
+        If enabled, your game state will be saved on exit and automaticaly
+        loaded when opened again.
+      </p>
+      <Main>
+        <SelectorMenu>
+          <div className="selector-menu__img">
+            <div
+              className={`simple-carousel ${autosave == true && 'is-hidden'}`}
+            >
+              <Iframe
+                src={`https://www.youtube-nocookie.com/embed/kpIJnIBEq9o?autoplay=1&playlist=kpIJnIBEq9o&loop=1&controls=0&mute=1&rel=0&modestbranding=1`}
+              />
+            </div>
+            <div
+              className={`simple-carousel ${autosave == false && 'is-hidden'}`}
+            >
+              <Iframe
+                src={`https://www.youtube-nocookie.com/embed/2EV_zU-tNv4?autoplay=1&playlist=2EV_zU-tNv4&loop=1&controls=0&mute=1&rel=0&modestbranding=1`}
+              />
+            </div>
+          </div>
+          <div className="selector-menu__options selector-menu__options--full">
+            <ul>
+              <li onClick={() => onClick(false)}>
+                <Card css={autosave == false && 'is-selected'}>
+                  <span className="h4">Off</span>
+                </Card>
+              </li>
+              <li onClick={() => onClick(true)}>
+                <Card css={autosave == true && 'is-selected'}>
+                  <span className="h4">On</span>
+                </Card>
+              </li>
+            </ul>
+          </div>
+          <div className="selector-menu__details">
+            <p className="lead">Affected Systems</p>
+            <ul>
+              <li>Atari</li>
+              <li>GameBoy & GameBoy Color</li>
+              <li>GameBoy Advance</li>
+              <li>Super Nintendo</li>
+              <li>Nintendo NES</li>
+              <li>Master System</li>
+              <li>Genesis</li>
+              <li>SegaCD</li>
+              <li>Sega32x</li>
+              <li>GameGear</li>
+              <li>NeoGeo Pocket</li>
+            </ul>
+          </div>
+        </SelectorMenu>
+      </Main>
+      <Footer
+        next="ra-achievements"
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
     </>
   );
 };

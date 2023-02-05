@@ -30,55 +30,52 @@ const Uninstall = ({
   const { sudoPass, Uninstall } = state;
 
   return (
-    <div className="app">
-      <Aside />
-      <div className="wrapper">
-        <Header title="Uninstall" bold="EmuDeck" />
-        <p className="lead">
-          Uninstalling EmuDeck should only be used if you are intending on
-          removing EmuDeck from your system. If you are having issues, run a
-          Custom Update or visit our Discord or Reddit for additional support.
-        </p>
-        <Main>
-          <br />
-          <div>
-            <a
-              href="https://discord.gg/b9F7GpXtFP"
-              aria-label="Go Next"
-              className="btn-simple btn-simple--1"
-              target="_blank"
-            >
-              Our Discord
-            </a>
-            <a
-              href="https://www.reddit.com/r/EmuDeck/"
-              aria-label="Go Next"
-              className="btn-simple btn-simple--1"
-              target="_blank"
-            >
-              Our Reddit
-            </a>
-          </div>
-          <p className="lead">
-            I know what I am doing, I would like to uninstall EmuDeck.
-          </p>
-          <BtnSimple
-            css="btn-simple--3"
-            type="button"
-            onClick={() => onClick()}
-            aria="Go Next"
+    <>
+      <Header title="Uninstall" bold="EmuDeck" />
+      <p className="lead">
+        Uninstalling EmuDeck should only be used if you are intending on
+        removing EmuDeck from your system. If you are having issues, run a
+        Custom Update or visit our Discord or Reddit for additional support.
+      </p>
+      <Main>
+        <br />
+        <div>
+          <a
+            href="https://discord.gg/b9F7GpXtFP"
+            aria-label="Go Next"
+            className="btn-simple btn-simple--1"
+            target="_blank"
           >
-            Uninstall EmuDeck
-          </BtnSimple>
-        </Main>
-        <Footer
-          next={false}
-          nextText={nextText}
-          disabledNext={disabledNext}
-          disabledBack={disabledBack}
-        />
-      </div>
-    </div>
+            Our Discord
+          </a>
+          <a
+            href="https://www.reddit.com/r/EmuDeck/"
+            aria-label="Go Next"
+            className="btn-simple btn-simple--1"
+            target="_blank"
+          >
+            Our Reddit
+          </a>
+        </div>
+        <p className="lead">
+          I know what I am doing, I would like to uninstall EmuDeck.
+        </p>
+        <BtnSimple
+          css="btn-simple--3"
+          type="button"
+          onClick={() => onClick()}
+          aria="Go Next"
+        >
+          Uninstall EmuDeck
+        </BtnSimple>
+      </Main>
+      <Footer
+        next={false}
+        nextText={nextText}
+        disabledNext={disabledNext}
+        disabledBack={disabledBack}
+      />
+    </>
   );
 };
 
