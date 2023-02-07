@@ -22,7 +22,7 @@ const EmulatorSelector = ({
 
   return (
     <>
-      
+
 
       <Header title="Emulators for" bold={`${device}`} />
       <p className="lead">
@@ -39,7 +39,7 @@ const EmulatorSelector = ({
 
             if (system == 'win32') {
               if (
-                item.id == 'primehacks' ||
+                item.id == 'primehack' ||
                 item.id == 'melonds' ||
                 item.id == 'citra' ||
                 item.id == 'rpcs3' ||

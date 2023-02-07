@@ -22,7 +22,7 @@ const EmulatorConfiguration = ({
 
   return (
     <>
-      
+
 
       <Header title="Update emulator's" bold="configuration" />
       {second && (
@@ -50,7 +50,7 @@ const EmulatorConfiguration = ({
 
             if (system == 'win32') {
               if (
-                item.id == 'primehacks' ||
+                item.id == 'primehack' ||
                 item.id == 'melonds' ||
                 item.id == 'citra' ||
                 item.id == 'rpcs3' ||

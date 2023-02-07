@@ -13,7 +13,7 @@ import {
   imgdefault,
   imgra,
   imgdolphin,
-  imgprimehacks,
+  imgprimehack,
   imgppsspp,
   imgduckstation,
   imgcitra,
@@ -90,8 +90,8 @@ const EmuGuide = (props) => {
       case 'dolphin':
         setStateImg({ img: imgdolphin });
         break;
-      case 'primehacks':
-        setStateImg({ img: imgprimehacks });
+      case 'primehack':
+        setStateImg({ img: imgprimehack });
         break;
       case 'ppsspp':
         setStateImg({ img: imgppsspp });

@@ -17,7 +17,7 @@ import {
   imgdefault,
   imgra,
   imgdolphin,
-  imgprimehacks,
+  imgprimehack,
   imgppsspp,
   imgduckstation,
   imgcitra,
@@ -166,7 +166,7 @@ const End = ({
 
   return (
     <>
-      
+
       {disabledNext == true && (
         <>
           <Header title="We are completing your" bold="installation..." />
@@ -283,7 +283,7 @@ const End = ({
                 <img src={imgdolphin} alt="alt" />
               </Card>
               <Card css="is-selected">
-                <img src={imgprimehacks} alt="alt" />
+                <img src={imgprimehack} alt="alt" />
               </Card>
               <Card css="is-selected">
                 <img src={imgppsspp} alt="alt" />

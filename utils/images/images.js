@@ -1,7 +1,7 @@
 import imgdefault from 'assets/1x1.png';
 import imgra from 'assets/emulators/ra.png';
 import imgdolphin from 'assets/emulators/dolphin.png';
-import imgprimehacks from 'assets/emulators/primehacks.png';
+import imgprimehack from 'assets/emulators/primehack.png';
 import imgppsspp from 'assets/emulators/ppsspp.png';
 import imgduckstation from 'assets/emulators/duckstation.png';
 import imgcitra from 'assets/emulators/citra.png';
@@ -47,7 +47,7 @@ export {
   imgdefault,
   imgra,
   imgdolphin,
-  imgprimehacks,
+  imgprimehack,
   imgppsspp,
   imgduckstation,
   imgcitra,
