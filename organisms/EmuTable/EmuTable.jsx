@@ -55,15 +55,11 @@ const EmuTable = ({
                 <option value="yuzu">Yuzu</option>
                 <option value="vita3k">Vita3K</option>
                 <option value="srm">Steam Rom Manager</option>
-                <option value="esde">EmulationStation DE</option>
+                <option value="esde">EmulationStation-DE</option>
                 <option value="mgba">mGBA</option>
-                {mode !== 'easy' && (
-                  <>
-                    <option value="rmg">Rosalie's Mupen Gui</option>
-                    <option value="ryujinx">Ryujinx</option>
-                    <option value="xenia">Xenia</option>
-                  </>
-                )}
+                <option value="rmg">Rosalie&apos;s Mupen Gui</option>
+                <option value="ryujinx">Ryujinx</option>
+                <option value="xenia">Xenia</option>
               </FormSelectSimple>
             )}
           </div>

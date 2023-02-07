@@ -162,7 +162,7 @@ const EmuGuide = (props) => {
 
   const checkInstallation = (emulator) => {
     console.log(`Checking ${emulator.name} status`);
-    const name = emulator.name;
+    const name = emuData.code;
 
     ipcChannel.sendMessage('emudeck', [
       `${name}_IsInstalled|||${name}_IsInstalled`,
