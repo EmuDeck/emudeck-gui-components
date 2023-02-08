@@ -71,8 +71,8 @@ const RAAchievements = ({
     <>
       <p className="lead">
         RetroAchievements.org is a community led effort to collaborate and
-        create custom-made achievements in emulated classic games. Log in to set
-        up Retroachievements for Retroarch.
+        create custom-made achievements in emulated classic games. Enter your account information to set
+        up Retroachievements for Retroarch, Duckstation, and PCSX2.
       </p>
       <Main>
         <br />

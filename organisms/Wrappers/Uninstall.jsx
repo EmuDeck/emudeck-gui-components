@@ -31,7 +31,7 @@ const Uninstall = ({
       <p className="lead">
         Uninstalling EmuDeck should only be used if you are intending on
         removing EmuDeck from your system. If you are having issues, run a
-        Custom Update or visit our Discord or Reddit for additional support.
+        Custom Reset, troubleshoot the specific tool or emulator, or visit EmuDeck's Discord or Reddit for additional support.
       </p>
       <Main>
         <br />

@@ -37,7 +37,7 @@ const Migration = ({
   return (
     <>
       <p className="lead">
-        This will move all your roms to the selected destination aswell as
+        This will move all your roms to the selected destination as well as
         update your Steam Library paths.
       </p>
       <Main>

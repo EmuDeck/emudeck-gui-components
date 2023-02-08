@@ -31,8 +31,8 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
   const settingsCards = [
     {
       icon: [iconQuick],
-      title: 'Quick Update',
-      description: 'Update to the latest EmuDeck version in one easy click',
+      title: 'Quick Reset',
+      description: 'Update or reset your installation to the latest EmuDeck version in one easy click',
       button: 'Reinstall',
       btnCSS: 'btn-simple--5',
       status: pendingUpdate === 'true' ? false : true,
@@ -40,8 +40,8 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
     },
     {
       icon: [iconCustom],
-      title: 'Custom Update',
-      description: 'Update to the latest EmuDeck version in custom mode',
+      title: 'Custom Reset',
+      description: 'Update or reset your installation to the latest EmuDeck version in custom mode',
       button: 'Reinstall',
       btnCSS: 'btn-simple--5',
       status: pendingUpdate === 'true' ? false : true,
@@ -50,7 +50,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
     {
       icon: [iconJoystick],
       title: 'Steam ROM Manager',
-      description: 'Launch Steam ROM Manager to add Tools and ROMs to your Steam Library',
+      description: 'Launch Steam ROM Manager to add emulators, tools, and ROMs to your Steam Library',
       button: 'Launch',
       btnCSS: 'btn-simple--5',
       status: pendingUpdate === 'true' ? true : false,
@@ -87,7 +87,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
     {
       icon: [iconCompress],
       title: 'EmuDeck Compression Tool',
-      description: 'Compress your ROMs and optimize your storage',
+      description: 'Compress your ROMs to optimize your storage',
       button: 'More info',
       btnCSS: 'btn-simple--5',
       status: true,
@@ -114,7 +114,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
     {
       icon: [iconSuccess],
       title: 'BIOS Checker',
-      description: 'Quickly check if you have the correct BIOS',
+      description: 'Check if you have the correct BIOS using EmuDeck\'s BIOS Checker',
       button: 'More info',
       btnCSS: 'btn-simple--5',
       status: true,
@@ -142,7 +142,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
       icon: [iconPrize],
       title: 'RetroAchievements',
       description:
-        'Configure RetroAchievements for RetroArch, PCSX2 and DuckStation',
+        'Configure RetroAchievements for RetroArch, Duckstation, and PCSX2',
       button: 'More info',
       btnCSS: 'btn-simple--5',
       status: true,
@@ -160,7 +160,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
     {
       icon: [iconBooks],
       title: 'Emulator Guides',
-      description: 'Reset emulators, emulator guides, and hotkey lists',
+      description: 'Reset emulators or view EmuDeck\'s emulator guides',
       button: 'More info',
       btnCSS: 'btn-simple--5',
       status: true,
@@ -169,7 +169,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
     {
       icon: [iconDoc],
       title: 'EmuDeck Log',
-      description: 'Troubleshoot what went wrong with your EmuDeck install',
+      description: 'Troubleshoot your EmuDeck install by reading the log',
       button: 'Upload',
       btnCSS: 'btn-simple--5',
       status: true,
@@ -179,7 +179,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
       icon: [iconList],
       title: 'Changelog',
       description:
-        'Read all about the latest changes to EmuDeck',
+        'Read about the latest changes to EmuDeck',
       button: 'Read',
       btnCSS: 'btn-simple--5',
       status: true,
@@ -264,7 +264,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                       iconSize="md"
                       title="Steam Rom Manager"
                       onClick={() => functions.openSRM()}
-                      description="Launch Steam ROM Manager to add Tools and ROMs to your Steam Library"
+                      description="Launch Steam ROM Manager to add emulators, tools, and ROMs to your Steam Library"
                       button="Add more games"
                     />
                   </div>

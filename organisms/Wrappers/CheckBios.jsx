@@ -79,7 +79,7 @@ const CheckBios = ({
     <>
       <p className="lead">
         Some games will not load properly without BIOS files in place. Place
-        your BIOS in /Emulation/bios and use this BIOS Checker to ensure that
+        your BIOS in Emulation/bios and use this BIOS Checker to ensure that
         you have the correct BIOS for your system.
       </p>
       <Main>
@@ -168,9 +168,18 @@ const CheckBios = ({
                   must be lowercase for Playstation 1 and Playstation 2.
                 </li>
                 <li>
-                  Tip 4: Your BIOS files must be placed in /Emulation/bios. Do
-                  not make sub-folders for your BIOS. For Switch, use our
+                  Tip 4: Your BIOS files must be placed in Emulation/bios. Do
+                  not make sub-folders for BIOS files. For the Nintendo Switch, use EmuDeck's
                   pre-created folders.
+                </li>
+                <li>
+                  Tip 5: For systems not listed here, check the {' '}
+                  <a
+                    href="https://github.com/dragoonDorise/EmuDeck/wiki/Cheat-Sheet"
+                    target="_blank"
+                  >
+                    EmuDeck Wiki Cheat Sheet.
+                  </a>{' '}
                 </li>
                 <li>
                   You can use this link{' '}
