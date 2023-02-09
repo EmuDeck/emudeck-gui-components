@@ -132,7 +132,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
     {
       icon: [iconCloud],
       title: 'Cloud Services Manager',
-      description: 'Manage your cloud services, Netflix, Spotify, Xbox Gaming, and more!',
+      description: 'Manage your cloud services, Netflix, Spotify, Xbox Cloud Gaming, and more!',
       button: 'More Info',
       btnCSS: 'btn-simple--5',
       status: true,
