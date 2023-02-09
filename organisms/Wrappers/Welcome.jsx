@@ -50,7 +50,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
     {
       icon: [iconJoystick],
       title: 'Steam ROM Manager',
-      description: 'Launch Steam ROM Manager to add emulators, tools, and ROMs to your Steam Library',
+      description: 'Launch Steam ROM Manager to add emulators, tools, or ROMs to your Steam Library',
       button: 'Launch',
       btnCSS: 'btn-simple--5',
       status: pendingUpdate === 'true' ? true : false,
@@ -169,7 +169,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
     {
       icon: [iconDoc],
       title: 'EmuDeck Log',
-      description: 'Troubleshoot your EmuDeck install by reading the log',
+      description: 'Troubleshoot your EmuDeck install by reading the log or sharing it with the EmuDeck team',
       button: 'Retrieve Log',
       btnCSS: 'btn-simple--5',
       status: true,
