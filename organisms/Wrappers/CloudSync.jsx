@@ -37,9 +37,12 @@ const CloudSync = ({
   return (
     <>
       <p className="lead">
-        Backup your games to the cloud. This feature is currently in beta. At
-        the moment, it will backup your games on an adhoc basis. This feature
-        does not support continuous syncing at this time. Stay tuned for a
+        Backup your games to the cloud. After selecting one of the cloud providers below, 
+        EmuDeck Save Backup will be added to your desktop. Use this application
+        to manage and create backups. 
+        This feature is currently in beta. At
+        the moment, it will backup your games on an adhoc basis. 
+        This feature does not support continuous syncing at this time. Stay tuned for a
         future update!
       </p>
       <Main>
