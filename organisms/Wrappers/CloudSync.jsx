@@ -41,7 +41,7 @@ const CloudSync = ({
         EmuDeck Save Backup will be added as a shortcut to your desktop. Use this application
         to manage and create backups. 
         This feature is currently in beta. At
-        the moment, it will backup your games on an adhoc basis. 
+        the moment, it will backup your games on an ad hoc basis. 
         This feature does not support continuous syncing at this time. Stay tuned for a
         future update!
       </p>
