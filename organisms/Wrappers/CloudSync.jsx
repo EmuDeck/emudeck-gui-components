@@ -38,7 +38,7 @@ const CloudSync = ({
     <>
       <p className="lead">
         Backup your games to the cloud. After selecting one of the cloud providers below, 
-        EmuDeck Save Backup will be added to your desktop. Use this application
+        EmuDeck Save Backup will be added as a shortcut to your desktop. Use this application
         to manage and create backups. 
         This feature is currently in beta. At
         the moment, it will backup your games on an adhoc basis. 
