@@ -1,9 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import {
@@ -34,7 +30,6 @@ const UpdateEmus = ({
 
   return (
     <>
-      <Header title="Update your" bold="Emulators & Tools" />
       <p className="lead">
         Emulators and tools can be installed a multitude of ways. EmuDeck
         installs some emulators and tools as Flatpaks from the Discover Store.
@@ -62,12 +57,6 @@ const UpdateEmus = ({
           Update AppImages and Binaries
         </BtnSimple>
       </Main>
-      <Footer
-        next={false}
-        nextText={nextText}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

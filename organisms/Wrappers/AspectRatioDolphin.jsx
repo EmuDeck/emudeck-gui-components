@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import Card from 'components/molecules/Card/Card';
@@ -27,9 +24,6 @@ const AspectRatioDolphin = ({
 
   return (
     <>
-      
-
-      <Header title="Configure Aspect Ratio for the" bold="GameCube" />
       <p className="lead">
         Select the aspect ratio for the GameCube. You can change this setting in
         game anytime by pressing Start+DPad Right.
@@ -76,15 +70,6 @@ const AspectRatioDolphin = ({
           </div>
         </SelectorMenu>
       </Main>
-      <Footer
-        next={
-          overwriteConfigEmus.ra.status == true
-            ? 'shaders-handhelds'
-            : 'pegasus-theme'
-        }
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

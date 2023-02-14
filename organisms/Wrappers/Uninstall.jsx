@@ -1,9 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import {
@@ -31,7 +28,6 @@ const Uninstall = ({
 
   return (
     <>
-      <Header title="Uninstall" bold="EmuDeck" />
       <p className="lead">
         Uninstalling EmuDeck should only be used if you are intending on
         removing EmuDeck from your system. If you are having issues, run a
@@ -69,12 +65,6 @@ const Uninstall = ({
           Uninstall EmuDeck
         </BtnSimple>
       </Main>
-      <Footer
-        next={false}
-        nextText={nextText}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

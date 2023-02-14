@@ -1,9 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import Notification from 'components/molecules/Notification/Notification';
@@ -43,7 +40,6 @@ const DeckyControls = ({
 
   return (
     <>
-      <Header title="Configure" bold="DeckyControls" />
       <Notification css={showNotification ? 'is-animated' : 'nope'}>
         {textNotification}
       </Notification>
@@ -119,18 +115,12 @@ const DeckyControls = ({
               </div>
             )}
           </div>
-          <div data-col-sm="1"></div>
+          <div data-col-sm="1" />
           <div data-col-sm="5">
             <img src={DeckyControlsImg} alt="RetroAchievements" />
           </div>
         </div>
       </Main>
-      <Footer
-        next={false}
-        nextText={nextText}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

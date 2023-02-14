@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 import CardSettings from 'components/molecules/CardSettings/CardSettings';
@@ -17,7 +14,7 @@ import {
   imgdefault,
   imgra,
   imgdolphin,
-  imgprimehacks,
+  imgprimehack,
   imgppsspp,
   imgduckstation,
   imgcitra,
@@ -166,7 +163,6 @@ const End = ({
 
   return (
     <>
-      
       {disabledNext == true && (
         <>
           <Header title="We are completing your" bold="installation..." />
@@ -283,7 +279,7 @@ const End = ({
                 <img src={imgdolphin} alt="alt" />
               </Card>
               <Card css="is-selected">
-                <img src={imgprimehacks} alt="alt" />
+                <img src={imgprimehack} alt="alt" />
               </Card>
               <Card css="is-selected">
                 <img src={imgppsspp} alt="alt" />
@@ -334,64 +330,6 @@ const End = ({
           </>
         )}
       </Main>
-      <footer className="footer">
-        <BtnSimple
-          css="btn-simple--1"
-          type="button"
-          aria="Go Back"
-          disabled={false}
-          onClick={onClickLog}
-        >
-          Watch Log
-        </BtnSimple>
-        <BtnSimple
-          css="btn-simple--1"
-          type="button"
-          aria="Go Back"
-          disabled={disabledNext && 'true'}
-          onClick={onClose}
-        >
-          Exit
-          <svg
-            className="rightarrow"
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="currentColor"
-              d="M16.4091 8.48003L21.5024 13.5734L1.98242 13.5734L1.98242 18.0178H21.5024L16.4091 23.1111L19.5558 26.2578L30.018 15.7956L19.5558 5.33337L16.4091 8.48003Z"
-            ></path>
-          </svg>
-        </BtnSimple>
-
-        {isGameMode == false && (
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            aria="Go Next"
-            disabled={disabledNext && 'true'}
-            onClick={onClick}
-          >
-            Launch Steam Rom Manager
-            <svg
-              className="rightarrow"
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="currentColor"
-                d="M16.4091 8.48003L21.5024 13.5734L1.98242 13.5734L1.98242 18.0178H21.5024L16.4091 23.1111L19.5558 26.2578L30.018 15.7956L19.5558 5.33337L16.4091 8.48003Z"
-              ></path>
-            </svg>
-          </BtnSimple>
-        )}
-      </footer>
     </>
   );
 };

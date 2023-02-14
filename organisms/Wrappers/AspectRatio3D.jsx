@@ -1,12 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
-
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
-
 import Card from 'components/molecules/Card/Card';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 
@@ -14,23 +9,12 @@ import ar43 from 'assets/ar433d.png';
 import ar32 from 'assets/ar323d.png';
 import ar169 from 'assets/ar1693d.png';
 
-const AspectRatio3D = ({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onClick,
-  next,
-  back,
-  data,
-}) => {
+const AspectRatio3D = ({ downloadComplete, onClick, next, back, data }) => {
   const { state, setState } = useContext(GlobalContext);
   const { ar } = state;
 
   return (
     <>
-      
-
-      <Header title="Configure Aspect Ratio for" bold="Classic 3D Games" />
       <p className="lead">
         Select the aspect ratio for the Dreamcast and Nintendo 64 Systems.
       </p>
@@ -73,11 +57,6 @@ const AspectRatio3D = ({
           </div>
         </SelectorMenu>
       </Main>
-      <Footer
-        next="aspect-ratio-dolphin"
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

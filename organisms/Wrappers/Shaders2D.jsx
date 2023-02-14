@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import Card from 'components/molecules/Card/Card';
@@ -27,7 +24,6 @@ const Shaders2D = ({
 
   return (
     <>
-      <Header title="Configure CRT Shader for" bold="Classic 2D Games" />
       <p className="lead">
         The CRT Shader gives your classic systems a faux retro CRT vibe.
       </p>
@@ -73,11 +69,6 @@ const Shaders2D = ({
           </div>
         </SelectorMenu>
       </Main>
-      <Footer
-        next="shaders-3d-classic"
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

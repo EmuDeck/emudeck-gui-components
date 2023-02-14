@@ -1,9 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
@@ -22,9 +19,6 @@ const EmulatorConfiguration = ({
 
   return (
     <>
-      
-
-      <Header title="Update emulator's" bold="configuration" />
       {second && (
         <p className="lead">
           EmuDeck will optimize and configure emulators during this install.
@@ -50,7 +44,7 @@ const EmulatorConfiguration = ({
 
             if (system == 'win32') {
               if (
-                item.id == 'primehacks' ||
+                item.id == 'primehack' ||
                 item.id == 'melonds' ||
                 item.id == 'citra' ||
                 item.id == 'rpcs3' ||
@@ -79,11 +73,6 @@ const EmulatorConfiguration = ({
           })}
         </div>
       </Main>
-      <Footer
-        next={next}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

@@ -1,9 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import {
@@ -73,7 +69,6 @@ const RAAchievements = ({
 
   return (
     <>
-      <Header title="Configure" bold="RetroAchievements" />
       <p className="lead">
         RetroAchievements.org is a community led effort to collaborate and
         create custom-made achievements in emulated classic games. Log in to set
@@ -168,12 +163,6 @@ const RAAchievements = ({
           </div>
         </div>
       </Main>
-      <Footer
-        next={next}
-        nextText={achievements.token != '' ? 'Continue' : 'Skip'}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

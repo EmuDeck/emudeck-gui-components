@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import { BtnSimple } from 'getbasecore/Atoms';
@@ -39,8 +36,6 @@ const CloudSync = ({
 
   return (
     <>
-      <Header title="SaveBackup - BETA" />
-
       <p className="lead">
         Backup your games to the cloud. This feature is currently in beta. At
         the moment, it will backup your games on an adhoc basis. This feature
@@ -99,11 +94,6 @@ const CloudSync = ({
           </BtnSimple>
         )}
       </Main>
-      <Footer
-        next={false}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

@@ -1,9 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 import { Alert } from 'getbasecore/Molecules';
 
@@ -80,7 +77,6 @@ const CheckBios = ({
 
   return (
     <>
-      <Header title="Bios files" bold="checker" />
       <p className="lead">
         Some games will not load properly without BIOS files in place. Place
         your BIOS in /Emulation/bios and use this BIOS Checker to ensure that
@@ -197,12 +193,6 @@ const CheckBios = ({
           </div>
         </div>
       </Main>
-      <Footer
-        next={false}
-        nextText={nextText}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

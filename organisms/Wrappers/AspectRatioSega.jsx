@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import Card from 'components/molecules/Card/Card';
@@ -27,9 +24,6 @@ const AspectRatioSega = ({
 
   return (
     <>
-      
-
-      <Header title="Configure Aspect Ratio for" bold="Classic Sega Systems" />
       <p className="lead">
         Select the aspect ratio for the Classic Sega Systems.
       </p>
@@ -74,11 +68,6 @@ const AspectRatioSega = ({
           </div>
         </SelectorMenu>
       </Main>
-      <Footer
-        next="aspect-ratio-snes"
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

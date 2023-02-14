@@ -1,9 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 import EmuTable from 'components/organisms/EmuTable/EmuTable';
 
@@ -267,7 +264,6 @@ const EmuGuide = (props) => {
 
   return (
     <>
-      <Header title={emuData.name} />
       <Notification css={showNotification ? 'is-animated' : 'nope'}>
         {textNotification}
       </Notification>
@@ -288,11 +284,6 @@ const EmuGuide = (props) => {
           />
         )}
       </Main>
-      <Footer
-        next={false}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

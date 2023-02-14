@@ -42,9 +42,6 @@ const EmulatorResolution = ({
   const resolutionsArray = Object.values(resolutions);
   return (
     <>
-      
-
-      <Header title="Emulator Resolution" />
       <p className="lead">
         Choose the resolution you want for your emulator. Keep in mind the
         bigger the resolution, the beefer computer you'll need
@@ -194,12 +191,6 @@ const EmulatorResolution = ({
           </div>
         </div>
       </Main>
-      <Footer
-        next="confirmation"
-        nextText="Next"
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

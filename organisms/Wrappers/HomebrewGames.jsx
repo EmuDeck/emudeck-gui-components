@@ -1,10 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
-
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import Card from 'components/molecules/Card/Card';
@@ -27,7 +23,6 @@ const HomebrewGames = ({
 
   return (
     <>
-      <Header title="Install" bold="Homebrew Games" />
       <p className="lead">
         Do you want to install our selection of homebrew games? They are free
         non commercial games.
@@ -74,18 +69,6 @@ const HomebrewGames = ({
           </div>
         </SelectorMenu>
       </Main>
-      <Footer
-        next={
-          mode == 'easy'
-            ? 'end'
-            : system == 'win32'
-            ? 'emulator-resolution'
-            : 'confirmation'
-        }
-        nextText={mode == 'easy' ? 'Finish' : 'Next'}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import Card from 'components/molecules/Card/Card';
@@ -27,7 +24,6 @@ const ShadersHandhelds = ({
 
   return (
     <>
-      <Header title="Configure LCD Shader for" bold="Handheld Systems" />
       <p className="lead">
         The LCD Shader simulates the old LCD Matrix screens of handheld systems.
       </p>
@@ -70,11 +66,6 @@ const ShadersHandhelds = ({
           </div>
         </SelectorMenu>
       </Main>
-      <Footer
-        next="shaders-classic"
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

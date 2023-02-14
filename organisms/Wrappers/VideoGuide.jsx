@@ -1,9 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import {
@@ -13,12 +9,8 @@ import {
   LinkSimple,
   Iframe,
 } from 'getbasecore/Atoms';
-import { Form } from 'getbasecore/Molecules';
-
-import Card from 'components/molecules/Card/Card';
 
 import VideoGuideImg from 'assets/powertools.png';
-const ipcChannel = window.electron.ipcRenderer;
 const VideoGuide = ({
   disabledNext,
   disabledBack,
@@ -30,7 +22,6 @@ const VideoGuide = ({
 }) => {
   return (
     <>
-      <Header title="Emulation Showcase" />
       <p className="lead">
         Learn how to set up EmuDeck with this wonderful guide from Russ at
         RetroGameCorps.
@@ -86,11 +77,7 @@ const VideoGuide = ({
           </div>
         </div>
       </Main>
-      <Footer
-        next={false}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
+      z
     </>
   );
 };

@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import { Iframe } from 'getbasecore/Atoms';
@@ -29,9 +26,6 @@ const AutoSave = ({
 
   return (
     <>
-      
-
-      <Header title="Configure Auto Save" />
       <p className="lead">
         If enabled, your game state will be saved on exit and automaticaly
         loaded when opened again.
@@ -86,11 +80,6 @@ const AutoSave = ({
           </div>
         </SelectorMenu>
       </Main>
-      <Footer
-        next="ra-achievements"
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

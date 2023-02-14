@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import { Img, BtnSimple } from 'getbasecore/Atoms';
@@ -72,7 +69,6 @@ const StoreFront = ({
 
   return (
     <>
-      <Header title="" />
       <Main>
         <p className="h4" onClick={toggleModal}>
           Featured games
@@ -200,18 +196,6 @@ const StoreFront = ({
           </div>
         </div>
       </div>
-
-      <footer className="footer">
-        <BtnSimple
-          css="btn-simple--1"
-          type="button"
-          aria="Go Back"
-          disabled={false}
-          onClick={() => navigate(-1)}
-        >
-          Go Back
-        </BtnSimple>
-      </footer>
     </>
   );
 };

@@ -1,9 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 import imgSD from 'assets/sdcard.png';
 import imgInternal from 'assets/internal.png';
@@ -39,7 +36,6 @@ const Migration = ({
   const { SDID, mode, system } = state;
   return (
     <>
-      <Header title="Migrate your installation" />
       <p className="lead">
         This will move all your roms to the selected destination aswell as
         update your Steam Library paths.
@@ -128,11 +124,6 @@ const Migration = ({
           </div>
         </div>
       </Main>
-      <Footer
-        next={false}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

@@ -1,9 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 import Notification from 'components/molecules/Notification/Notification';
 import remotelogo from 'assets/remoteplay.png';
@@ -69,7 +65,6 @@ const RemotePlayWhatever = ({
 
   return (
     <>
-      <Header title="Multiplayer with " bold="RemotePlayWhatever - Beta" />
       <Notification css={showNotification ? 'is-animated' : 'nope'}>
         {notificationText}
       </Notification>
@@ -120,12 +115,6 @@ const RemotePlayWhatever = ({
           </div>
         </div>
       </Main>
-      <Footer
-        next={false}
-        nextText={nextText}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

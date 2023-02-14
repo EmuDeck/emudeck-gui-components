@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
+
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 import imgSD from 'assets/sdcard.png';
@@ -28,7 +26,6 @@ const RomStorage = ({
 
   return (
     <>
-      <Header title="Select your ROM Directory" bold="" />
       <p className="lead">
         Your ROM directory will be squared away within an Emulation folder in
         your selected directory. If you do not see your SD Card, format it first
@@ -77,12 +74,6 @@ const RomStorage = ({
           </Card>
         </div>
       </Main>
-
-      <Footer
-        next={next}
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

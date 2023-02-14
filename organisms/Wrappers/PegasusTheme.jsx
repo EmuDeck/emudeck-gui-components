@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import Card from 'components/molecules/Card/Card';
@@ -53,7 +50,6 @@ const PegasusTheme = ({
   const { theme, system } = state;
   return (
     <>
-      <Header title="EmulationStation DE " bold="Theme" />
       <p className="lead">
         Choose your theme for EmulationStation DE, swipe to see more
         screenshots.
@@ -111,12 +107,6 @@ const PegasusTheme = ({
           </div>
         </SelectorMenu>
       </Main>
-      <Footer
-        next={system == 'win32' ? 'emulator-resolution' : 'homebrew-games'}
-        nextText="Next"
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };

@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import Card from 'components/molecules/Card/Card';
@@ -90,7 +87,6 @@ const Settings = ({
   const ipcChannel = window.electron.ipcRenderer;
   return (
     <>
-      <Header title="Configure your" bold="Settings" />
       <Notification css={showNotification ? 'is-animated' : 'nope'}>
         {notificationText}
       </Notification>
@@ -516,7 +512,6 @@ const Settings = ({
           </li>
         </ul>
       </Main>
-      <Footer disabledNext={disabledNext} disabledBack={disabledBack} />
     </>
   );
 };

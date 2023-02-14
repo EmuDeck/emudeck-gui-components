@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import { GlobalContext } from 'context/globalContext';
 
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
 import Main from 'components/organisms/Main/Main';
 
 import Card from 'components/molecules/Card/Card';
@@ -20,14 +17,12 @@ const RABezels = ({
   onClick,
   next,
   back,
-  data,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { bezels } = state;
 
   return (
     <>
-      <Header title="Configure" bold="game bezels" />
       <p className="lead">
         Use our pre-configured bezels to hide the vertical black bars on 8 bit
         and 16 bit games.
@@ -79,11 +74,6 @@ const RABezels = ({
           </div>
         </SelectorMenu>
       </Main>
-      <Footer
-        next="aspect-ratio-sega"
-        disabledNext={disabledNext}
-        disabledBack={disabledBack}
-      />
     </>
   );
 };
