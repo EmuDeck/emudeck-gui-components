@@ -163,15 +163,7 @@ const End = ({
 
   return (
     <>
-      {disabledNext == true && (
-        <>
-          <Header title="We are completing your" bold="installation..." />
-          <p className="lead">{message}...</p>
-        </>
-      )}
-      {disabledNext == false && (
-        <Header title="Installation" bold="complete!" />
-      )}
+      {disabledNext == true && <p className="lead">{message}...</p>}
 
       <Main>
         {disabledNext == false && (

@@ -38,7 +38,10 @@ const EmulatorConfiguration = ({
       <Main>
         <div className="cards cards--mini">
           {overwriteConfigEmusArray.map((item, i) => {
-            if (overwriteConfigEmusArray.id == 'srm') {
+            if (
+              overwriteConfigEmusArray.id == 'srm' ||
+              item.id == 'primehacks'
+            ) {
               return;
             }
 
@@ -66,7 +69,7 @@ const EmulatorConfiguration = ({
                 key={item.id}
                 onClick={() => onClick(item.id)}
               >
-                <img src={img} alt="RetroArch" />
+                <img src={img} alt={item.name} />
                 <span className="h6">{item.name}</span>
               </Card>
             );

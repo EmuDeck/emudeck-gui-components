@@ -27,7 +27,11 @@ const EmulatorSelector = ({
       <Main>
         <div className="cards cards--mini">
           {installEmusArray.map((item, i) => {
-            if (item.id == 'srm' || item.id == 'xenia') {
+            if (
+              item.id == 'srm' ||
+              item.id == 'xenia' ||
+              item.id == 'primehacks'
+            ) {
               return;
             }
 
