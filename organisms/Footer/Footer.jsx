@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { PropTypes } from "prop-types";
-import { GlobalContext } from "context/globalContext";
-import FooterElectron from "./FooterElectron";
-import FooterIonic from "./FooterIonic";
+import { PropTypes } from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import { BtnSimple } from 'getbasecore/Atoms';
+
+import './Footer.scss';
 
 const Footer = ({
   back,
@@ -17,37 +17,87 @@ const Footer = ({
   thirdText,
   exit,
 }) => {
-  const { state } = useContext(GlobalContext);
-  const { app } = state;
+  const navigate = useNavigate();
+  const goTo = (href) => {
+    navigate(`/${href}`);
+  };
 
-  return app === "electron" ? (
-    <FooterElectron
-      back={back}
-      next={next}
-      third={third}
-      fourth={fourth}
-      fourthText={fourthText}
-      disabledNext={disabledNext}
-      disabledBack={disabledBack}
-      nextText={nextText}
-      backText={backText}
-      thirdText={thirdText}
-      exit={exit}
-    />
-  ) : (
-    <FooterIonic
-      back={back}
-      next={next}
-      third={third}
-      fourth={fourth}
-      fourthText={fourthText}
-      disabledNext={disabledNext}
-      disabledBack={disabledBack}
-      nextText={nextText}
-      backText={backText}
-      thirdText={thirdText}
-      exit={exit}
-    />
+  const CloseApp = () => {
+    window.close();
+  };
+
+  return (
+    <footer className="footer">
+      {exit && (
+        <BtnSimple
+          css="btn-simple--1"
+          type="button"
+          aria="Go Back"
+          disabled={disabledNext && true}
+          onClick={() => CloseApp()}
+        >
+          Exit To Gaming Mode
+        </BtnSimple>
+      )}
+      {!!fourth && (
+        <BtnSimple
+          css="btn-simple--2"
+          type="button"
+          onClick={() => CloseApp()}
+          aria="Go Back"
+        >
+          {fourthText}
+        </BtnSimple>
+      )}
+      {!!third && (
+        <BtnSimple
+          css="btn-simple--2"
+          type="button"
+          onClick={() => goTo(third)}
+          aria="Go Back"
+        >
+          {thirdText}
+        </BtnSimple>
+      )}
+      {back !== false && (
+        <BtnSimple
+          css="btn-simple--2"
+          type="button"
+          onClick={back ? () => goTo(back) : () => navigate(-1)}
+          aria="Go Back"
+          disabled={disabledBack && true}
+        >
+          {!backText && 'Go Back'}
+          {backText}
+        </BtnSimple>
+      )}
+
+      {next && (
+        <BtnSimple
+          css="btn-simple--1"
+          type="button"
+          onClick={() => goTo(next)}
+          aria="Go Next"
+          disabled={disabledNext && true}
+        >
+          {!nextText && 'Continue '}
+          {nextText}
+          <svg
+            className="rightarrow"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="currentColor"
+              d="M16.4091 8.48003L21.5024 13.5734L1.98242 13.5734L1.98242 18.0178H21.5024L16.4091 23.1111L19.5558 26.2578L30.018 15.7956L19.5558 5.33337L16.4091 8.48003Z"
+            />
+          </svg>
+        </BtnSimple>
+      )}
+    </footer>
   );
 };
 
@@ -67,15 +117,15 @@ Footer.propTypes = {
   exit: PropTypes.string,
 };
 Footer.defaultProps = {
-  back: "",
-  next: "",
-  third: "",
-  fourth: "",
-  fourthText: "",
-  disabledNext: "",
-  disabledBack: "",
-  nextText: "",
-  backText: "",
-  thirdText: "",
-  exit: "",
+  back: '',
+  next: '',
+  third: '',
+  fourth: '',
+  fourthText: '',
+  disabledNext: '',
+  disabledBack: '',
+  nextText: '',
+  backText: '',
+  thirdText: '',
+  exit: '',
 };
