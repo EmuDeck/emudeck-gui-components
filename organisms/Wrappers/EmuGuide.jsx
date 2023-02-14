@@ -10,7 +10,7 @@ import {
   imgdefault,
   imgra,
   imgdolphin,
-  imgprimehacks,
+  imgprimehack,
   imgppsspp,
   imgduckstation,
   imgcitra,
@@ -87,8 +87,8 @@ const EmuGuide = (props) => {
       case 'dolphin':
         setStateImg({ img: imgdolphin });
         break;
-      case 'primehacks':
-        setStateImg({ img: imgprimehacks });
+      case 'primehack':
+        setStateImg({ img: imgprimehack });
         break;
       case 'ppsspp':
         setStateImg({ img: imgppsspp });
@@ -159,7 +159,7 @@ const EmuGuide = (props) => {
 
   const checkInstallation = (emulator) => {
     console.log(`Checking ${emulator.name} status`);
-    const name = emulator.name;
+    const name = emuData.code;
 
     ipcChannel.sendMessage('emudeck', [
       `${name}_IsInstalled|||${name}_IsInstalled`,

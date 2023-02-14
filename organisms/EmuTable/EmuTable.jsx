@@ -45,7 +45,7 @@ const EmuTable = ({
                 <option value="duckstation">Duckstation</option>
                 <option value="mame">MAME</option>
                 <option value="pcsx2">PCSX2</option>
-                <option value="primehacks">PrimeHack</option>
+                <option value="primehack">PrimeHack</option>
                 <option value="ppsspp">PPSSPP</option>
                 <option value="ra">RetroArch</option>
                 <option value="melonds">melonDS</option>
@@ -55,15 +55,11 @@ const EmuTable = ({
                 <option value="yuzu">Yuzu</option>
                 <option value="vita3k">Vita3K</option>
                 <option value="srm">Steam Rom Manager</option>
-                <option value="esde">EmulationStation DE</option>
+                <option value="esde">EmulationStation-DE</option>
                 <option value="mgba">mGBA</option>
-                {mode !== 'easy' && (
-                  <>
-                    <option value="rmg">Rosalie's Mupen Gui</option>
-                    <option value="ryujinx">Ryujinx</option>
-                    <option value="xenia">Xenia</option>
-                  </>
-                )}
+                <option value="rmg">Rosalie&apos;s Mupen Gui</option>
+                <option value="ryujinx">Ryujinx</option>
+                <option value="xenia">Xenia</option>
               </FormSelectSimple>
             )}
           </div>
