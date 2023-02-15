@@ -26,186 +26,7 @@ import {
 const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
   const { state } = useContext(GlobalContext);
   const { mode, second, system } = state;
-  const pendingUpdate = localStorage.getItem('pending_update');
-
-  const settingsCards = [
-    {
-      icon: [iconQuick],
-      title: 'Quick Reset',
-      description: 'Update or reset your installation to the latest EmuDeck version in one easy click',
-      button: 'Reinstall',
-      btnCSS: 'btn-simple--5',
-      status: pendingUpdate === 'true' ? false : true,
-      function: () => onClick('easy'),
-    },
-    {
-      icon: [iconCustom],
-      title: 'Custom Reset',
-      description: 'Update or reset your installation to the latest EmuDeck version in custom mode',
-      button: 'Reinstall',
-      btnCSS: 'btn-simple--5',
-      status: pendingUpdate === 'true' ? false : true,
-      function: () => onClick('expert'),
-    },
-    {
-      icon: [iconJoystick],
-      title: 'Steam ROM Manager',
-      description: 'Launch Steam ROM Manager to add emulators, tools, or ROMs to your Steam Library',
-      button: 'Launch',
-      btnCSS: 'btn-simple--5',
-      status: pendingUpdate === 'true' ? true : false,
-      function: () => functions.openSRM(),
-    },
-    {
-      icon: [iconPlugin],
-      title: 'Power Tools',
-      description: 'A Decky Loader Plugin to tweak performance in Game Mode',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.navigate('/power-tools'),
-    },
-    {
-      icon: [iconPlugin],
-      title: 'DeckyControls',
-      description:
-        'An EmuDeck Decky Loader Plugin to easily view emulator hotkeys in Game Mode',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.navigate('/decky-controls'),
-    },
-    {
-      icon: [iconPlugin],
-      title: 'Gyroscope',
-      description: 'Enable your Steam Deck gyroscope in emulation',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.navigate('/gyrodsu'),
-    },
-    {
-      icon: [iconCompress],
-      title: 'EmuDeck Compression Tool',
-      description: 'Compress your ROMs to optimize your storage',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.navigate('/chd-tool'),
-    },
-    {
-      icon: [iconPackage],
-      title: 'Update Emulators',
-      description: 'Update all of your emulators and tools in one nifty package',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: pendingUpdate === 'true' ? true : false,
-      function: () => functions.navigate('/update-emulators'),
-    },
-    {
-      icon: [iconGear],
-      title: 'Quick Settings',
-      description: 'Customize bezels, shaders, aspect ratio, and more',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: pendingUpdate === 'true' ? true : false,
-      function: () => functions.navigate('/settings'),
-    },
-    {
-      icon: [iconSuccess],
-      title: 'BIOS Checker',
-      description: 'Check if you have the correct BIOS using EmuDeck\'s BIOS Checker',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.navigate('/check-bios'),
-    },
-    {
-      icon: [iconCloud],
-      title: 'Cloud Backup',
-      description: 'Backup your saves and save states to the cloud',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.navigate('/cloud-sync'),
-    },
-    {
-      icon: [iconCloud],
-      title: 'Cloud Services Manager',
-      description: 'Manage your cloud services, Netflix, Spotify, Xbox Cloud Gaming, and more!',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.openCSM(),
-    },
-    {
-      icon: [iconPrize],
-      title: 'RetroAchievements',
-      description:
-        'Configure RetroAchievements for RetroArch, Duckstation, and PCSX2',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.navigate('/RA-achievements-config'),
-    },
-    {
-      icon: [iconMigrate],
-      title: 'Migrate Installation',
-      description: 'Migrate your EmuDeck installation to your SD Card or vice versa',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.navigate('/migration'),
-    },
-    {
-      icon: [iconBooks],
-      title: 'Emulator Guides',
-      description: 'Reset emulator configurations or view EmuDeck\'s emulator guides',
-      button: 'More Info',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.navigate('/emulator-guide'),
-    },
-    {
-      icon: [iconDoc],
-      title: 'EmuDeck Log',
-      description: 'Troubleshoot your EmuDeck install by reading the log or sharing it with the EmuDeck team',
-      button: 'Retrieve Log',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.sprunge(),
-    },
-    {
-      icon: [iconList],
-      title: 'Changelog',
-      description:
-        'Read about the latest changes to EmuDeck',
-      button: 'Read',
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.navigate('/change-log'),
-    },
-    {
-      icon: [iconUninstall],
-      title: 'Uninstall',
-      description: 'Uninstall EmuDeck from your system',
-      button: 'Uninstall',
-      btnCSS: 'btn-simple--3',
-      status: true,
-      function: () => functions.navigate('/uninstall'),
-    },
-    {
-      icon: [iconPrize],
-      title: 'Become a Patreon',
-      description: 'Consider supporting EmuDeck on Patreon',
-      button: 'Donate',
-      btnCSS: 'btn-simple--3',
-      status: true,
-      type: 'link',
-      href: 'https://www.patreon.com/bePatron?u=29065992',
-      function: () => {},
-    },
-  ];
+  const pendingUpdate = localStorage.getItem("pending_update");
 
   return (
     <>
@@ -213,7 +34,8 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
 
       {pendingUpdate === "true" && second === true && (
         <p className="lead">
-          There is an update available! Update to receive the latest EmuDeck configuration and optimizations for your emulators and tools.
+          You have a pending update, its recommended to update so you have the latest version of EmuDeck's configuration
+          and optimization for your emulators.
         </p>
       )}
       {pendingUpdate === "false" && second === true && <p className="lead">Quick actions:</p>}
@@ -264,7 +86,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                       iconSize="md"
                       title="Steam Rom Manager"
                       onClick={() => functions.openSRM()}
-                      description="Launch Steam ROM Manager to add emulators, tools, and ROMs to your Steam Library"
+                      description="Launch SRM to add more games to your Steam Library"
                       button="Add more games"
                     />
                   </div>
@@ -300,8 +122,8 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                         icon={iconPackage}
                         iconSize="md"
                         title="Update Emulators"
-                        onClick={() => functions.navigate('/update-emulators')}
-                        description="Update all of your emulators and tools in one nifty package"
+                        onClick={() => functions.navigate("/update-emulators")}
+                        description="Update all your installed emulators right from EmuDeck"
                         button="Update"
                       />
                     </div>
