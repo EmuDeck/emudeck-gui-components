@@ -134,7 +134,7 @@ const Confirmation = ({
                 - AutoSave{' '}
               </li>
               <li>
-                {achievements.name ? (
+                {achievements.token ? (
                   <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                 ) : (
                   <Img src={iconDanger} css="icon icon--xs" alt="KO" />
