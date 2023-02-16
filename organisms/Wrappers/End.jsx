@@ -156,9 +156,11 @@ const End = ({
 
   //We check if everything installed
   useEffect(() => {
-    installEmusStartArray.forEach((item) => {
-      checkInstallation(installEmus[item.id]);
-    });
+    if (disabledNext == false) {
+      installEmusStartArray.forEach((item) => {
+        checkInstallation(installEmus[item.id]);
+      });
+    }
   }, [disabledNext]);
 
   return (
