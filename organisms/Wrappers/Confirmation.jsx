@@ -59,7 +59,8 @@ const Confirmation = ({
                     item.id === 'vita3k' ||
                     item.id === 'scummvm' ||
                     item.id === 'xemu' ||
-                    item.id === 'mgba'
+                    item.id === 'mgba' ||
+                    item.id === 'xenia'
                   ) {
                     return;
                   }
@@ -81,6 +82,24 @@ const Confirmation = ({
             <span className="h5">We will configure:</span>
             <ul>
               {overwriteConfigEmusArray.map((item) => {
+                if (system === 'win32') {
+                  if (
+                    item.id === 'primehack' ||
+                    item.id === 'melonds' ||
+                    item.id === 'citra' ||
+                    item.id === 'rpcs3' ||
+                    item.id === 'ryujinx' ||
+                    item.id === 'rmg' ||
+                    item.id === 'mame' ||
+                    item.id === 'vita3k' ||
+                    item.id === 'scummvm' ||
+                    item.id === 'xemu' ||
+                    item.id === 'mgba' ||
+                    item.id === 'xenia'
+                  ) {
+                    return;
+                  }
+                }
                 return (
                   <li>
                     {item.status ? (
