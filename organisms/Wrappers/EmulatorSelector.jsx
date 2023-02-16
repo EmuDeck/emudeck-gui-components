@@ -46,7 +46,8 @@ const EmulatorSelector = ({
                 item.id == 'mame' ||
                 item.id == 'vita3k' ||
                 item.id == 'scummvm' ||
-                item.id == 'xemu'
+                item.id == 'xemu' ||
+                item.id == 'mgba'
               ) {
                 return;
               }
