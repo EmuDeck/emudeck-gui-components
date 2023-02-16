@@ -54,7 +54,7 @@ const End = ({
   onClickLog,
 }) => {
   const { state, setState } = useContext(GlobalContext);
-  const { storage, installEmus } = state;
+  const { storage, installEmus, system } = state;
 
   const [statePage, setStatePage] = useState({
     installEmusStart: installEmus,
@@ -156,7 +156,7 @@ const End = ({
 
   //We check if everything installed
   useEffect(() => {
-    if (disabledNext == false) {
+    if (disabledNext == false && system !== 'win32') {
       installEmusStartArray.forEach((item) => {
         checkInstallation(installEmus[item.id]);
       });
@@ -170,35 +170,37 @@ const End = ({
       <Main>
         {disabledNext == false && (
           <div className="tips">
-            <Card css="is-selected">
-              <div className="container--grid">
-                <span data-col-sm="12" className="h2">
-                  Post Installation Status
-                </span>
-                <p class="lead">
-                  Please check if all your selected emulators got installed
-                  properly
-                </p>
-                {installEmusPageArray.map((item, i) => {
-                  if (item.status == false) {
-                    return;
-                  }
-                  if (item.id == 'srm') {
-                    return;
-                  }
-                  return (
-                    <div data-col-sm="4" className="h5">
-                      {item.name} -
-                      {item.installed ? (
-                        <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                      ) : (
-                        <Img src={iconDanger} css="icon icon--xs" alt="KO" />
-                      )}{' '}
-                    </div>
-                  );
-                })}
-              </div>
-            </Card>
+            {system !== 'win32' && (
+              <Card css="is-selected">
+                <div className="container--grid">
+                  <span data-col-sm="12" className="h2">
+                    Post Installation Status
+                  </span>
+                  <p class="lead">
+                    Please check if all your selected emulators got installed
+                    properly
+                  </p>
+                  {installEmusPageArray.map((item, i) => {
+                    if (item.status == false) {
+                      return;
+                    }
+                    if (item.id == 'srm') {
+                      return;
+                    }
+                    return (
+                      <div data-col-sm="4" className="h5">
+                        {item.name} -
+                        {item.installed ? (
+                          <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                        ) : (
+                          <Img src={iconDanger} css="icon icon--xs" alt="KO" />
+                        )}{' '}
+                      </div>
+                    );
+                  })}
+                </div>
+              </Card>
+            )}
             <Card css="is-selected">
               <div className="container--grid">
                 <div data-col-sm="6">
