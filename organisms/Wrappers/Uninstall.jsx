@@ -13,8 +13,6 @@ import { Form } from 'getbasecore/Molecules';
 
 import Card from 'components/molecules/Card/Card';
 
-import Uninstall from 'assets/Uninstall.png';
-
 const Uninstall = ({
   disabledNext,
   disabledBack,
