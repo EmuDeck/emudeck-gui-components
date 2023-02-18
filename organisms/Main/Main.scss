@@ -76,7 +76,7 @@ main {
   flex-wrap: wrap;
 
   > * {
-    $item-width: 100% / $cols;
+    $item-width: calc(100% / $cols);
     width: calc($item-width);
     box-sizing: border-box;
     padding: 0 5px;
