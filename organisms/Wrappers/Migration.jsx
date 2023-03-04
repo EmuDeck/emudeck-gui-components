@@ -37,8 +37,8 @@ const Migration = ({
   return (
     <>
       <p className="lead">
-        This will move all your roms to the selected destination as well as
-        update your Steam Library paths.
+        This will move all your Emulation folder with your roms to the selected
+        destination aswell as update your Steam Library paths.
       </p>
       <Main>
         <div className="container--grid">

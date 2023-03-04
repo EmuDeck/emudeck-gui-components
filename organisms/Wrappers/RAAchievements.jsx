@@ -44,7 +44,10 @@ const RAAchievements = ({
       if (messageJson.Success) {
         //Second time? We can set everything from here - Used in the settings page
         if (second) {
-          ipcChannel.sendMessage('setToken', messageJson.Token);
+          ipcChannel.sendMessage('setToken', [
+            messageJson.Token,
+            achievements.user,
+          ]);
           ipcChannel.once('setToken', (error, stdout, stderr) => {
             console.log(error, stdout, stderr);
           });
