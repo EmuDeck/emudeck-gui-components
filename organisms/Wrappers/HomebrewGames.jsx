@@ -24,8 +24,7 @@ const HomebrewGames = ({
   return (
     <>
       <p className="lead">
-        Do you want to install our selection of homebrew games? They are free
-        non commercial games.
+        Do you want to install EmuDeck's selection of homebrew games?
       </p>
       <Main>
         <SelectorMenu>
