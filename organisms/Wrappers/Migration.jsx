@@ -32,6 +32,7 @@ const Migration = ({
   storageDestination,
   storagePath,
   storagePathDestination,
+  statusMigration,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { SDID, mode, system } = state;
@@ -114,14 +115,27 @@ const Migration = ({
                 )}
               </Card>
             </div>
-            <BtnSimple
-              css="btn-simple--1"
-              type="button"
-              aria="Start Migration"
-              onClick={() => onClickStart()}
-            >
-              Start Migration
-            </BtnSimple>
+            {statusMigration === null && (
+              <BtnSimple
+                css="btn-simple--1"
+                type="button"
+                aria="Start Migration"
+                onClick={() => onClickStart()}
+              >
+                Start Migration
+              </BtnSimple>
+            )}
+
+            {statusMigration !== null && (
+              <BtnSimple
+                css="btn-simple--1"
+                type="button"
+                aria="Waiting Migration"
+                disabled
+              >
+                Doing Migration...
+              </BtnSimple>
+            )}
           </div>
         </div>
       </Main>
