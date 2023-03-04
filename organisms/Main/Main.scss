@@ -2794,5 +2794,20 @@ picture {
 img.icon--xs,
 picture.icon--xs {
   width: 20px;
+  height: 20px;
+  vertical-align: bottom;
+}
+
+img.icon--sm,
+picture.icon--sm {
+  width: 32px;
+  height: 32px;
+  vertical-align: bottom;
+}
+
+img.icon--md,
+picture.icon--md {
+  width: 48px;
+  height: 48px;
   vertical-align: bottom;
 }
