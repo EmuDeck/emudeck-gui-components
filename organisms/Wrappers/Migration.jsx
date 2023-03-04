@@ -31,7 +31,7 @@ const Migration = ({
   storage,
   storageDestination,
   storagePath,
-  storageDestinationPath,
+  storagePathDestination,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { SDID, mode, system } = state;
@@ -109,8 +109,8 @@ const Migration = ({
               >
                 <img src={imgInternal} width="100" alt="Background" />
                 <span className="h6">Custom Directory</span>
-                {storageDestinationPath && storageDestination == 'Custom' && (
-                  <span className="h6">{storageDestinationPath}</span>
+                {storagePathDestination && storageDestination == 'Custom' && (
+                  <span className="h6">{storagePathDestination}</span>
                 )}
               </Card>
             </div>
