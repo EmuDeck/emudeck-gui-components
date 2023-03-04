@@ -6,8 +6,8 @@ import { Form } from 'getbasecore/Molecules';
 import './Header.scss';
 
 const HeaderElectron = ({ title, bold }) => {
-  const { state, setState, command } = useContext(GlobalContext);
-  const { debug, version, branch } = state;
+  const { state, setState } = useContext(GlobalContext);
+  const { debug, version, branch, command } = state;
   const ipcChannel = window.electron.ipcRenderer;
 
   const toggleDebug = (e) => {
