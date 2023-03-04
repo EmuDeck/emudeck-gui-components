@@ -45,7 +45,8 @@ const DeckyControls = ({
       </Notification>
       <p className="lead">
         DeckyControls is a plugin that allows you to see all EmuDeck's controls
-        and hotkeys while you are gaming.
+        and hotkeys while you are gaming. To use DeckyControls: In Game Mode, press the ... button, 
+        press the socket icon, and select the Emulator Hotkeys button.  
       </p>
       <Main>
         <br />
@@ -91,7 +92,7 @@ const DeckyControls = ({
             {hasSudo === true && (
               <div className="form">
                 <p>
-                  We've detected you already have set your sudo password, type
+                  We have detected you already have set your sudo password, type
                   it on the next input to install this tool.
                 </p>
                 <FormInputSimple
