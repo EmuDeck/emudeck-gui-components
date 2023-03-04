@@ -28,9 +28,10 @@ const Migration = ({
   sdCardValid,
   sdCardName,
   reloadSDcard,
-  customPath,
   storage,
+  storageDestination,
   storagePath,
+  storageDestinationPath,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const { SDID, mode, system } = state;
@@ -69,8 +70,8 @@ const Migration = ({
                 <Card css={storage == 'Custom' && 'is-selected'}>
                   <img src={imgInternal} width="100" alt="Background" />
                   <span className="h6">Custom Directory</span>
-                  {customPath && storage == 'Custom' && (
-                    <span className="h6">{customPath}</span>
+                  {storagePath && storage == 'Custom' && (
+                    <span className="h6">{storagePath}</span>
                   )}
                 </Card>
               )}
@@ -80,7 +81,7 @@ const Migration = ({
             <span className="h4">Pick your destination</span>
             <div className="cards cards--half">
               <Card
-                css={storage == 'SD-Card' && 'is-selected'}
+                css={storageDestination == 'SD-Card' && 'is-selected'}
                 onClick={() =>
                   sdCardValid == true ? onClick('SD-Card') : reloadSDcard()
                 }
@@ -95,7 +96,7 @@ const Migration = ({
               </Card>
 
               <Card
-                css={storage == 'Internal Storage' && 'is-selected'}
+                css={storageDestination == 'Internal Storage' && 'is-selected'}
                 onClick={() => onClick('Internal Storage')}
               >
                 <img src={imgInternal} width="100" alt="Background" />
@@ -103,13 +104,13 @@ const Migration = ({
               </Card>
 
               <Card
-                css={storage == 'Custom' && 'is-selected'}
+                css={storageDestination == 'Custom' && 'is-selected'}
                 onClick={() => onClick('Custom')}
               >
                 <img src={imgInternal} width="100" alt="Background" />
                 <span className="h6">Custom Directory</span>
-                {customPath && storage == 'Custom' && (
-                  <span className="h6">{customPath}</span>
+                {storageDestinationPath && storageDestination == 'Custom' && (
+                  <span className="h6">{storageDestinationPath}</span>
                 )}
               </Card>
             </div>
