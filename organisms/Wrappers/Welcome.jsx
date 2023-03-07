@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { GlobalContext } from "context/globalContext";
-import Main from "components/organisms/Main/Main";
+import React, { useContext } from 'react';
+import { GlobalContext } from 'context/globalContext';
+import Main from 'components/organisms/Main/Main';
 
-import { Alert } from "getbasecore/Molecules";
-import Card from "components/molecules/Card/Card";
-import CardSettings from "components/molecules/CardSettings/CardSettings";
+import { Alert } from 'getbasecore/Molecules';
+import Card from 'components/molecules/Card/Card';
+import CardSettings from 'components/molecules/CardSettings/CardSettings';
 import {
   iconSuccess,
   iconCloud,
@@ -21,24 +21,29 @@ import {
   iconBooks,
   iconJoystick,
   iconPackage,
-} from "components/utils/images/images";
+} from 'components/utils/images/images';
 
 const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
   const { state } = useContext(GlobalContext);
-  const { mode, second, system } = state;
-  const pendingUpdate = localStorage.getItem("pending_update");
+  const { mode, second, system, gamemode } = state;
+  const pendingUpdate = localStorage.getItem('pending_update');
 
   return (
     <>
-      {second === false && <p className="lead">Select how you want to set up your device:</p>}
+      {second === false && (
+        <p className="lead">Select how you want to set up your device:</p>
+      )}
 
-      {pendingUpdate === "true" && second === true && (
+      {pendingUpdate === 'true' && second === true && (
         <p className="lead">
-          You have a pending update, its recommended to update so you have the latest version of EmuDeck's configuration
-          and optimization for your emulators.
+          You have a pending update, its recommended to update so you have the
+          latest version of EmuDeck's configuration and optimization for your
+          emulators.
         </p>
       )}
-      {pendingUpdate === "false" && second === true && <p className="lead">Quick actions:</p>}
+      {pendingUpdate === 'false' && second === true && (
+        <p className="lead">Quick actions:</p>
+      )}
 
       <Main>
         {/*
@@ -47,7 +52,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
         {second === true && (
           <>
             <div className="container--grid">
-              {pendingUpdate === "true" && (
+              {pendingUpdate === 'true' && (
                 <>
                   <div data-col-sm="4">
                     <CardSettings
@@ -56,7 +61,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                       icon={iconQuick}
                       iconSize="md"
                       title="Quick Update"
-                      onClick={() => onClick("easy")}
+                      onClick={() => onClick('easy')}
                       description="This option automatically updates your emulators & settings in one click. Chose this option if you haven't customized your emulator outside of EmuDeck's options"
                       button="Update and overwrite my configuration"
                     />
@@ -68,7 +73,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                       icon={iconCustom}
                       iconSize="md"
                       title="Custom Update"
-                      onClick={() => onClick("expert")}
+                      onClick={() => onClick('expert')}
                       description="This option allows you to customize your emulators & settings. Chose this one if you have customized your emulators outside of EmuDeck's options and want to preserve them"
                       button="Update and let me keep my configuration"
                     />
@@ -76,20 +81,22 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                 </>
               )}
 
-              {pendingUpdate === "false" && (
+              {pendingUpdate === 'false' && (
                 <>
-                  <div data-col-sm="3">
-                    <CardSettings
-                      css="is-highlighted"
-                      btnCSS="btn-simple--1"
-                      icon={iconJoystick}
-                      iconSize="md"
-                      title="Steam Rom Manager"
-                      onClick={() => functions.openSRM()}
-                      description="Launch SRM to add more games to your Steam Library"
-                      button="Add more games"
-                    />
-                  </div>
+                  {gamemode || (
+                    <div data-col-sm="3">
+                      <CardSettings
+                        css="is-highlighted"
+                        btnCSS="btn-simple--1"
+                        icon={iconJoystick}
+                        iconSize="md"
+                        title="Steam Rom Manager"
+                        onClick={() => functions.openSRM()}
+                        description="Launch SRM to add more games to your Steam Library"
+                        button="Add more games"
+                      />
+                    </div>
+                  )}
                   <div data-col-sm="3">
                     <CardSettings
                       css="is-highlighted"
@@ -97,7 +104,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                       icon={iconGear}
                       iconSize="md"
                       title="Quick Settings"
-                      onClick={() => functions.navigate("/settings")}
+                      onClick={() => functions.navigate('/settings')}
                       description="Customize bezels, shaders, aspect ratio, auto save and more"
                       button="Configure"
                     />
@@ -114,7 +121,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                           button="Configure"
                         />
                       </div> */}
-                  {system != "win32" && (
+                  {system != 'win32' && (
                     <div data-col-sm="3">
                       <CardSettings
                         css="is-highlighted"
@@ -122,7 +129,7 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                         icon={iconPackage}
                         iconSize="md"
                         title="Update Emulators"
-                        onClick={() => functions.navigate("/update-emulators")}
+                        onClick={() => functions.navigate('/update-emulators')}
                         description="Update all your installed emulators right from EmuDeck"
                         button="Update"
                       />
@@ -140,9 +147,18 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                 if (item.status === false) {
                   return;
                 }
-                if (system === "win32" && item.title != "Custom Reset") {
+                if (system === 'win32' && item.title != 'Custom Reset') {
                   return;
                 }
+
+                if (gamemode === true && item.title == 'Steam Rom Manager') {
+                  return;
+                }
+
+                if (gamemode === true && item.title == 'Cloud Backup') {
+                  return;
+                }
+
                 return (
                   <div data-col-sm="3" key={item.title}>
                     <CardSettings
@@ -169,31 +185,37 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
         {second === false && (
           <div className="container--grid">
             <div data-col-sm="5">
-              <Card css={mode === "easy" && "is-selected"} onClick={() => onClick("easy")}>
+              <Card
+                css={mode === 'easy' && 'is-selected'}
+                onClick={() => onClick('easy')}
+              >
                 <span className="h3">
-                  {second === false && "Easy Mode"}
-                  {second === true && "Quick Update"}
+                  {second === false && 'Easy Mode'}
+                  {second === true && 'Quick Update'}
                 </span>
                 <p>
                   {second === false &&
-                    "This mode automatically installs and configures your device with our recommended settings so you can start playing right away."}
+                    'This mode automatically installs and configures your device with our recommended settings so you can start playing right away.'}
                   {second === true &&
-                    "This mode automatically updates EmuDeck in one click. New settings will be applied and new emulators will be installed. If you ran custom mode previously, you will retain any choices made. Customizations made, excluding per-game settings, will be overwritten."}
+                    'This mode automatically updates EmuDeck in one click. New settings will be applied and new emulators will be installed. If you ran custom mode previously, you will retain any choices made. Customizations made, excluding per-game settings, will be overwritten.'}
                 </p>
               </Card>
             </div>
 
             <div data-col-sm="5">
-              <Card css={mode === "expert" && "is-selected"} onClick={() => onClick("expert")}>
+              <Card
+                css={mode === 'expert' && 'is-selected'}
+                onClick={() => onClick('expert')}
+              >
                 <span className="h3">
-                  {second === false && "Custom Mode"}
-                  {second === true && "Custom Update"}
+                  {second === false && 'Custom Mode'}
+                  {second === true && 'Custom Update'}
                 </span>
                 <p>
                   {second === false &&
-                    "This mode allows you to customize how EmuDeck installs to your system. Configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, EmulationStation-DE themes, and Cloud Saves."}
+                    'This mode allows you to customize how EmuDeck installs to your system. Configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, EmulationStation-DE themes, and Cloud Saves.'}
                   {second === true &&
-                    "This mode allows you to customize how EmuDeck updates. New settings will be applied and new emulators will be installed. If you ran custom mode previously, you will retain any choices made. Customizations made, excluding per-game settings, will be overwritten."}
+                    'This mode allows you to customize how EmuDeck updates. New settings will be applied and new emulators will be installed. If you ran custom mode previously, you will retain any choices made. Customizations made, excluding per-game settings, will be overwritten.'}
                 </p>
               </Card>
             </div>
