@@ -78,6 +78,18 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                       button="Update and let me keep my configuration"
                     />
                   </div>
+                  <div data-col-sm="4">
+                    <CardSettings
+                      css="is-highlighted"
+                      btnCSS="btn-simple--1"
+                      icon={iconPackage}
+                      iconSize="md"
+                      title="SteamOS 3.5 FIX"
+                      onClick={() => functions.fixSDPATHS()}
+                      description="SteamOS 3.5 brought new changes to the way the SD Cards are named, you need to update all your paths to fix it. Do this only if you have your roms on your SD Card"
+                      button="Fix my SD Card Paths"
+                    />
+                  </div>
                 </>
               )}
 
