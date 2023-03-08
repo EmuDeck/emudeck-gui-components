@@ -96,22 +96,19 @@ function Welcome({
                         />
                       </div> */}
 
-                {!!updates && (
-                  <div data-col-sm="3">
-                    <CardSettings
-                      css="is-highlighted"
-                      btnCSS="btn-simple--1"
-                      icon={iconPackage}
-                      iconSize="md"
-                      title="Update Configurations"
-                      onClick={() =>
-                        functions.navigate('/update-configurators')
-                      }
-                      description="You have somes updates pending that may improve your performance"
-                      button="Update"
-                    />
-                  </div>
-                )}
+                <div data-col-sm="3">
+                  <CardSettings
+                    css="is-highlighted"
+                    btnCSS="btn-simple--1"
+                    icon={iconPackage}
+                    iconSize="md"
+                    title="Manage Emulators"
+                    onClick={() => functions.navigate('/emulators')}
+                    description="Update, install your emulators and its configurations"
+                    button="Update"
+                    notification={updates ? true : false}
+                  />
+                </div>
               </>
             </div>
 

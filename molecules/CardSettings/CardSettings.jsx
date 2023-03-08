@@ -32,6 +32,7 @@ const CardSettings = ({
   type,
   target,
   href,
+  notification,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const [statePage, setStatePage] = useState({
@@ -44,6 +45,7 @@ const CardSettings = ({
   }
   return (
     <div className={`card-setting ${css}`} onClick={() => onClick()}>
+      {notification && <span className="card-setting__notification">!</span>}
       <ul>
         <li className={`list--icons list--icons--${iconSize}`}>
           <div className="text">

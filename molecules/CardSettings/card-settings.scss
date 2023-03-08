@@ -16,6 +16,7 @@
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   outline: #858585 1px solid;
+  position: relative;
   &:hover {
     transform: scale(1.02);
   }
@@ -58,10 +59,27 @@
       margin-bottom: 0;
     }
   }
-  &.is-highlighted {
+
+  &__notification {
+    background: var(--color-warning);
+    color: #fff !important;
+    border: 2px solid white;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 26px;
+    position: absolute;
+    border-radius: 0 8px 0 4px;
+    top: 0px;
+    right: 0px;
+    z-index: 20;
+  }
+  &.is-highlighted.is-highlighted {
     background: #fff;
     * {
-      color: #444 !important;
+      color: #444;
     }
     .btn-simple {
       color: #fff !important;

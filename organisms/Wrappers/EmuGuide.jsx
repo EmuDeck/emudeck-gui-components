@@ -44,7 +44,7 @@ import { Form, Table, Alert } from 'getbasecore/Molecules';
 import Card from 'components/molecules/Card/Card';
 
 const ipcChannel = window.electron.ipcRenderer;
-const EmuGuide = (props) => {
+function EmuGuide(props) {
   const {
     disabledNext,
     disabledBack,
@@ -67,6 +67,7 @@ const EmuGuide = (props) => {
     installEmus,
     disableResetButton,
     mode,
+    updateAvailable,
   } = props;
   const [stateImg, setStateImg] = useState({
     img: imgdefault,
@@ -280,12 +281,13 @@ const EmuGuide = (props) => {
             onClickUninstall={onClickUninstall}
             disableInstallButton={disableInstallButton}
             disableResetButton={disableResetButton}
+            updateAvailable={updateAvailable}
             installEmus={Object.values(installEmus)}
           />
         )}
       </Main>
     </>
   );
-};
+}
 
 export default EmuGuide;

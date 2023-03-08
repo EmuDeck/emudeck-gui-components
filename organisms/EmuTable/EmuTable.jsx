@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { BtnSimple, FormSelectSimple, BtnGroup } from 'getbasecore/Atoms';
 import { Table, Alert, BtnGroup } from 'getbasecore/Molecules';
 import './emutable.scss';
-const EmuTable = ({
+function EmuTable({
   back,
   next,
   third,
@@ -25,44 +25,14 @@ const EmuTable = ({
   disableInstallButton,
   disableResetButton,
   mode,
-}) => {
+  updateAvailable,
+}) {
   console.log({ disableInstallButton });
   return (
     <div className="emutable">
       <div className="container--grid">
         <div data-col-sm="2">
           <img src={img} alt="logo" />
-          <div className="form">
-            {emuData && (
-              <FormSelectSimple
-                name="formu-input"
-                label="Select Emulator"
-                onChange={onChange}
-              >
-                <option value="citra">Citra</option>
-                <option value="cemu">Cemu</option>
-                <option value="dolphin">Dolphin</option>
-                <option value="duckstation">Duckstation</option>
-                <option value="mame">MAME</option>
-                <option value="pcsx2">PCSX2</option>
-                <option value="primehack">PrimeHack</option>
-                <option value="ppsspp">PPSSPP</option>
-                <option value="ra">RetroArch</option>
-                <option value="melonds">melonDS</option>
-                <option value="rpcs3">RPCS3</option>
-                <option value="scummvm">ScummVM</option>
-                <option value="xemu">Xemu</option>
-                <option value="yuzu">Yuzu</option>
-                <option value="vita3k">Vita3K</option>
-                <option value="srm">Steam Rom Manager</option>
-                <option value="esde">EmulationStation-DE</option>
-                <option value="mgba">mGBA</option>
-                <option value="rmg">Rosalie&apos;s Mupen Gui</option>
-                <option value="ryujinx">Ryujinx</option>
-                <option value="xenia">Xenia</option>
-              </FormSelectSimple>
-            )}
-          </div>
         </div>
 
         <div data-col-sm="7">
@@ -100,10 +70,11 @@ const EmuTable = ({
               css="btn-simple--1"
               type="button"
               aria="Go Back"
-              onClick={() => onClick(emuData.id, emuData.code)}
+              onClick={() => onClick(emuData.code, emuData.name, emuData.id)}
               disabled={disableResetButton}
             >
-              Reset configuration
+              {updateAvailable && 'Update configuration'}
+              {updateAvailable || 'Reset configuration'}
             </BtnSimple>
 
             {!disableInstallButton && (
@@ -184,6 +155,6 @@ const EmuTable = ({
       </div>
     </div>
   );
-};
+}
 
 export default EmuTable;
