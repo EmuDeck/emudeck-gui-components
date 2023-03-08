@@ -23,10 +23,16 @@ import {
   iconPackage,
 } from 'components/utils/images/images';
 
-const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
+function Welcome({
+  onClick,
+  alert,
+  alertCSS,
+  functions,
+  settingsCards,
+  updates,
+}) {
   const { state } = useContext(GlobalContext);
   const { mode, second, system, gamemode } = state;
-  const pendingUpdate = localStorage.getItem('pending_update');
 
   return (
     <>
@@ -34,16 +40,14 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
         <p className="lead">Select how you want to set up your device:</p>
       )}
 
-      {pendingUpdate === 'true' && second === true && (
+      {updates && (
         <p className="lead">
-          You have a pending update, its recommended to update so you have the
+          You have a pending updates, its recommended to update so you have the
           latest version of EmuDeck's configuration and optimization for your
           emulators.
         </p>
       )}
-      {pendingUpdate === 'false' && second === true && (
-        <p className="lead">Quick actions:</p>
-      )}
+      {!updates && <p className="lead">Quick actions:</p>}
 
       <Main>
         {/*
@@ -52,76 +56,34 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
         {second === true && (
           <>
             <div className="container--grid">
-              {pendingUpdate === 'true' && (
-                <>
-                  <div data-col-sm="4">
-                    <CardSettings
-                      css="is-highlighted"
-                      btnCSS="btn-simple--1"
-                      icon={iconQuick}
-                      iconSize="md"
-                      title="Quick Update"
-                      onClick={() => onClick('easy')}
-                      description="This option automatically updates your emulators & settings in one click. Chose this option if you haven't customized your emulator outside of EmuDeck's options"
-                      button="Update and overwrite my configuration"
-                    />
-                  </div>
-                  <div data-col-sm="4">
-                    <CardSettings
-                      css="is-highlighted"
-                      btnCSS="btn-simple--1"
-                      icon={iconCustom}
-                      iconSize="md"
-                      title="Custom Update"
-                      onClick={() => onClick('expert')}
-                      description="This option allows you to customize your emulators & settings. Chose this one if you have customized your emulators outside of EmuDeck's options and want to preserve them"
-                      button="Update and let me keep my configuration"
-                    />
-                  </div>
-                  <div data-col-sm="4">
-                    <CardSettings
-                      css="is-highlighted"
-                      btnCSS="btn-simple--1"
-                      icon={iconPackage}
-                      iconSize="md"
-                      title="SteamOS 3.5 FIX"
-                      onClick={() => functions.fixSDPATHS()}
-                      description="SteamOS 3.5 brought new changes to the way the SD Cards are named, you need to update all your paths to fix it. Do this only if you have your roms on your SD Card"
-                      button="Fix my SD Card Paths"
-                    />
-                  </div>
-                </>
-              )}
-
-              {pendingUpdate === 'false' && (
-                <>
-                  {gamemode || (
-                    <div data-col-sm="3">
-                      <CardSettings
-                        css="is-highlighted"
-                        btnCSS="btn-simple--1"
-                        icon={iconJoystick}
-                        iconSize="md"
-                        title="Steam Rom Manager"
-                        onClick={() => functions.openSRM()}
-                        description="Launch SRM to add more games to your Steam Library"
-                        button="Add more games"
-                      />
-                    </div>
-                  )}
+              <>
+                {gamemode || (
                   <div data-col-sm="3">
                     <CardSettings
                       css="is-highlighted"
                       btnCSS="btn-simple--1"
-                      icon={iconGear}
+                      icon={iconJoystick}
                       iconSize="md"
-                      title="Quick Settings"
-                      onClick={() => functions.navigate('/settings')}
-                      description="Customize bezels, shaders, aspect ratio, auto save and more"
-                      button="Configure"
+                      title="Steam Rom Manager"
+                      onClick={() => functions.openSRM()}
+                      description="Launch SRM to add more games to your Steam Library"
+                      button="Add more games"
                     />
                   </div>
-                  {/* <div data-col-sm="3">
+                )}
+                <div data-col-sm="3">
+                  <CardSettings
+                    css="is-highlighted"
+                    btnCSS="btn-simple--1"
+                    icon={iconGear}
+                    iconSize="md"
+                    title="Quick Settings"
+                    onClick={() => functions.navigate('/settings')}
+                    description="Customize bezels, shaders, aspect ratio, auto save and more"
+                    button="Configure"
+                  />
+                </div>
+                {/* <div data-col-sm="3">
                         <CardSettings
                           css="is-highlighted"
                           btnCSS="btn-simple--1"
@@ -133,22 +95,24 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
                           button="Configure"
                         />
                       </div> */}
-                  {system != 'win32' && (
-                    <div data-col-sm="3">
-                      <CardSettings
-                        css="is-highlighted"
-                        btnCSS="btn-simple--1"
-                        icon={iconPackage}
-                        iconSize="md"
-                        title="Update Emulators"
-                        onClick={() => functions.navigate('/update-emulators')}
-                        description="Update all your installed emulators right from EmuDeck"
-                        button="Update"
-                      />
-                    </div>
-                  )}
-                </>
-              )}
+
+                {!!updates && (
+                  <div data-col-sm="3">
+                    <CardSettings
+                      css="is-highlighted"
+                      btnCSS="btn-simple--1"
+                      icon={iconPackage}
+                      iconSize="md"
+                      title="Update Configurations"
+                      onClick={() =>
+                        functions.navigate('/update-configurators')
+                      }
+                      description="You have somes updates pending that may improve your performance"
+                      button="Update"
+                    />
+                  </div>
+                )}
+              </>
             </div>
 
             <hr />
@@ -249,6 +213,6 @@ const Welcome = ({ onClick, alert, alertCSS, functions, settingsCards }) => {
       </Main>
     </>
   );
-};
+}
 
 export default Welcome;

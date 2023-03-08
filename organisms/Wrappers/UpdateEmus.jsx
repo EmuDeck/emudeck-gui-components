@@ -34,7 +34,8 @@ const UpdateEmus = ({
         Emulators and tools can be installed a multitude of ways. EmuDeck
         installs some emulators and tools as Flatpaks from the Discover Store.
         Others are downloaded for you directly from the developer's website as
-        AppImages or Binaries. A few are Windows Executables, downloaded and run through Proton. 
+        AppImages or Binaries. A few are Windows Executables, downloaded and run
+        through Proton.
       </p>
       <Main>
         <p>Select which batch you want to update:</p>
