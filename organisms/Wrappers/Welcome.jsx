@@ -42,7 +42,7 @@ function Welcome({
 
       {updates && (
         <p className="lead">
-          You have a pending updates, its recommended to update so you have the
+          You have pending updates, its recommended to update so you have the
           latest version of EmuDeck's configuration and optimization for your
           emulators.
         </p>
