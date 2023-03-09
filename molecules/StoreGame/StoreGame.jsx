@@ -40,7 +40,7 @@ const StoreGame = ({
   return (
     <li className={`store-game ${css}`}>
       <div className="store-game__img">
-        <img src={img} alt="Game" />
+        <img src={img} />
       </div>
 
       <div className="store-game__info">

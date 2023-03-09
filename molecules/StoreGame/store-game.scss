@@ -26,6 +26,32 @@
 
   &__img {
     order: 1;
+
+    img {
+      display: inline-block;
+      font-family: Arial, sans-serif;
+      font-weight: 300;
+      line-height: 2;
+      text-align: center;
+
+      min-width: 100%;
+      min-height: 250px;
+      position: relative;
+      pointer-events: none;
+    }
+    img::after {
+      content: '\2639'' Image Not Found';
+
+      font-size: 18px;
+      color: rgb(100, 100, 100);
+      display: block;
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
   &__info {
     order: 2;
