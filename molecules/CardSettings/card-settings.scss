@@ -1,3 +1,20 @@
+@keyframes pulse-black {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
 .card-setting {
   border-radius: 8px;
   display: flex;
@@ -78,6 +95,7 @@
     top: 0px;
     right: 0px;
     z-index: 20;
+    animation: pulse-black 2s infinite;
   }
   &.is-highlighted.is-highlighted {
     background: #fff;
