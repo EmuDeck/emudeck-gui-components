@@ -17,6 +17,7 @@
   backdrop-filter: blur(10px);
   outline: #858585 1px solid;
   position: relative;
+  height: calc(100% - var(--margin3));
   &:hover {
     transform: scale(1.02);
   }
@@ -53,6 +54,7 @@
     margin-bottom: var(--margin2);
     font-size: 1.5rem;
     text-align: left;
+    flex: 1;
   }
   &__buttons {
     text-align: right;
