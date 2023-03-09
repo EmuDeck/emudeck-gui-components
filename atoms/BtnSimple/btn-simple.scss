@@ -69,6 +69,17 @@
   var(--color-disabled)
 );
 
+@include generate-btn-simple(
+  5,
+  white,
+  var(--color-warning),
+  white,
+  var(--deck-1),
+  var(--grey3),
+  white,
+  var(--color-disabled)
+);
+
 @keyframes background {
   0% {
     background-color: var(--deck-1);

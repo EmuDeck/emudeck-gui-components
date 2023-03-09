@@ -66,16 +66,18 @@ function EmuTable({
             </>
           )}
           <BtnGroup>
-            <BtnSimple
-              css="btn-simple--1"
-              type="button"
-              aria="Go Back"
-              onClick={() => onClick(emuData.code, emuData.name, emuData.id)}
-              disabled={disableResetButton}
-            >
-              {updateAvailable && 'Update configuration'}
-              {updateAvailable || 'Reset configuration'}
-            </BtnSimple>
+            {disableInstallButton && (
+              <BtnSimple
+                css={updateAvailable ? 'btn-simple--5' : 'btn-simple--1'}
+                type="button"
+                aria="Go Back"
+                onClick={() => onClick(emuData.code, emuData.name, emuData.id)}
+                disabled={disableResetButton}
+              >
+                {updateAvailable && 'Update configuration'}
+                {updateAvailable || 'Reset configuration'}
+              </BtnSimple>
+            )}
 
             {!disableInstallButton && (
               <BtnSimple
@@ -95,7 +97,7 @@ function EmuTable({
                 aria="Go Back"
                 onClick={() => onClickInstall(emuData.id, emuData.code)}
               >
-                ReInstall
+                ReInstall / Update
               </BtnSimple>
             )}
             {disableInstallButton && (
