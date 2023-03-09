@@ -68,7 +68,7 @@ function EmuTable({
           <BtnGroup>
             {disableInstallButton && (
               <BtnSimple
-                css={updateAvailable ? 'btn-simple--5' : 'btn-simple--1'}
+                css={updateAvailable ? 'btn-simple--6' : 'btn-simple--1'}
                 type="button"
                 aria="Go Back"
                 onClick={() => onClick(emuData.code, emuData.name, emuData.id)}
