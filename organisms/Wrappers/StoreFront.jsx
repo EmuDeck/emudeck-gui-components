@@ -155,8 +155,9 @@ function StoreFront({
       title: undefined,
       pictures: { titlescreens: [undefined], screenshots: [undefined] },
     },
+    games: [],
   });
-  const { modal, game, installing } = statePage;
+  const { modal, game, installing, games } = statePage;
 
   const [stateSystem, setStateSystem] = useState({
     system: null,
@@ -164,6 +165,13 @@ function StoreFront({
   const { system } = stateSystem;
 
   const { featured, store } = dataJson;
+
+  useEffect(() => {
+    setStatePage({
+      ...statePage,
+      games: store,
+    });
+  }, []);
 
   const toggleModal = (item) => {
     if (!!item) {
@@ -242,22 +250,23 @@ function StoreFront({
           </ul>
         </div>
         <div className="container--grid">
-          {store.map((item, i) => {
-            return (
-              <div data-col-md="2">
-                <CardSettings
-                  disabled={installing}
-                  key={item.name}
-                  css="is-highlighted"
-                  btnCSS="btn-simple--1"
-                  icon={icon[`icon_${item.system}`]}
-                  iconSize="md"
-                  title={item.name}
-                  onClick={() => showSystem(item.system)}
-                />
-              </div>
-            );
-          })}
+          {!!games &&
+            games.map((item, i) => {
+              return (
+                <div data-col-md="2">
+                  <CardSettings
+                    disabled={installing}
+                    key={item.name}
+                    css="is-highlighted"
+                    btnCSS="btn-simple--1"
+                    icon={icon[`icon_${item.system}`]}
+                    iconSize="md"
+                    title={item.name}
+                    onClick={() => showSystem(item.system)}
+                  />
+                </div>
+              );
+            })}
         </div>
 
         <div className="games-details">
