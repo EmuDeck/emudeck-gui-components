@@ -29,8 +29,6 @@ const StoreGame = ({
   onMore,
   onInstall,
 }) => {
-  console.log({ tags });
-
   const { state, setState } = useContext(GlobalContext);
   const [statePage, setStatePage] = useState({
     disabledNext: false,

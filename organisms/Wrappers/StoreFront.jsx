@@ -188,8 +188,6 @@ const StoreFront = ({
   const showSystem = (id) => {
     const showThis = store.filter((item) => item.system == id);
 
-    console.log(showThis);
-
     setStateSystem({
       system: showThis,
     });
