@@ -133,6 +133,10 @@ import './store-front.scss';
 
 import dataJson from 'data/store.json';
 
+// import dataStore from 'data/store.json';
+//
+// const { store } = dataStore;
+
 import { iconSuccess, iconDanger } from 'components/utils/images/images';
 function StoreFront({
   disabledNext,
@@ -155,7 +159,7 @@ function StoreFront({
       title: undefined,
       pictures: { titlescreens: [undefined], screenshots: [undefined] },
     },
-    games: [],
+    games: null,
   });
   const { modal, game, installing, games } = statePage;
 
@@ -164,12 +168,19 @@ function StoreFront({
   });
   const { system } = stateSystem;
 
-  const { featured, store } = dataJson;
+  const { featured } = dataJson;
 
   useEffect(() => {
-    setStatePage({
-      ...statePage,
-      games: store,
+    ipcChannel.sendMessage('get-store');
+    ipcChannel.once('get-store', (store) => {
+      // No versioning found, what to do?
+
+      console.log({ store });
+
+      setStatePage({
+        ...statePage,
+        games: store.store,
+      });
     });
   }, []);
 
@@ -215,8 +226,7 @@ function StoreFront({
   };
 
   const showSystem = (id) => {
-    const showThis = store.filter((item) => item.system == id);
-
+    const showThis = games.filter((item) => item.system === id);
     setStateSystem({
       system: showThis,
     });
@@ -249,8 +259,9 @@ function StoreFront({
             })}
           </ul>
         </div>
+
         <div className="container--grid">
-          {!!games &&
+          {games != null &&
             games.map((item, i) => {
               return (
                 <div data-col-md="2">
