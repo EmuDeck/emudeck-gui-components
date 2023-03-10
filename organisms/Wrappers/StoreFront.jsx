@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from 'context/globalContext';
-
+import CardSettings from 'components/molecules/CardSettings/CardSettings';
 import Main from 'components/organisms/Main/Main';
 
 import { Img, BtnSimple } from 'getbasecore/Atoms';
@@ -14,7 +14,121 @@ import {
   logo_snes,
   logo_gb,
   logo_mastersystem,
+  icon_32X,
+  icon_5200,
+  icon_7800,
+  icon_X68000,
+  icon_amiga,
+  icon_arcade,
+  icon_atari,
+  icon_atarist,
+  icon_c64,
+  icon_col,
+  icon_cpc,
+  icon_cps1,
+  icon_cps2,
+  icon_cps3,
+  icon_dos,
+  icon_fairchild,
+  icon_nes,
+  icon_fds,
+  icon_gb,
+  icon_gba,
+  icon_gbc,
+  icon_gg,
+  icon_gw,
+  icon_itv,
+  icon_lynx,
+  icon_genesis,
+  icon_megaduck,
+  icon_mastersystem,
+  icon_mastersystemx,
+  icon_neocd,
+  icon_neogeo,
+  icon_ngp,
+  icon_ody,
+  icon_pce,
+  icon_pcecd,
+  icon_pico,
+  icon_poke,
+  icon_ports,
+  icon_ps,
+  icon_satella,
+  icon_scummvm,
+  icon_search,
+  icon_segacd,
+  icon_segasgone,
+  icon_snes,
+  icon_sgb,
+  icon_sgfx,
+  icon_sufami,
+  icon_supervision,
+  icon_tic,
+  icon_vb,
+  icon_vdp,
+  icon_vectrex,
+  icon_ws,
+  icon_zxs,
 } from 'components/utils/images/systems';
+
+const icon = {
+  icon_32X: icon_32X,
+  icon_5200: icon_5200,
+  icon_7800: icon_7800,
+  icon_X68000: icon_X68000,
+  icon_amiga: icon_amiga,
+  icon_arcade: icon_arcade,
+  icon_atari: icon_atari,
+  icon_atarist: icon_atarist,
+  icon_c64: icon_c64,
+  icon_col: icon_col,
+  icon_cpc: icon_cpc,
+  icon_cps1: icon_cps1,
+  icon_cps2: icon_cps2,
+  icon_cps3: icon_cps3,
+  icon_dos: icon_dos,
+  icon_fairchild: icon_fairchild,
+  icon_nes: icon_nes,
+  icon_fds: icon_fds,
+  icon_gb: icon_gb,
+  icon_gba: icon_gba,
+  icon_gbc: icon_gbc,
+  icon_gg: icon_gg,
+  icon_gw: icon_gw,
+  icon_itv: icon_itv,
+  icon_lynx: icon_lynx,
+  icon_genesis: icon_genesis,
+  icon_megaduck: icon_megaduck,
+  icon_mastersystem: icon_mastersystem,
+  icon_mastersystemx: icon_mastersystemx,
+  icon_neocd: icon_neocd,
+  icon_neogeo: icon_neogeo,
+  icon_ngp: icon_ngp,
+  icon_ody: icon_ody,
+  icon_pce: icon_pce,
+  icon_pcecd: icon_pcecd,
+  icon_pico: icon_pico,
+  icon_poke: icon_poke,
+  icon_ports: icon_ports,
+  icon_ps: icon_ps,
+  icon_satella: icon_satella,
+  icon_scummvm: icon_scummvm,
+  icon_search: icon_search,
+  icon_segacd: icon_segacd,
+  icon_segasgone: icon_segasgone,
+  icon_snes: icon_snes,
+  icon_sgb: icon_sgb,
+  icon_sgfx: icon_sgfx,
+  icon_sufami: icon_sufami,
+  icon_supervision: icon_supervision,
+  icon_tic: icon_tic,
+  icon_vb: icon_vb,
+  icon_vdp: icon_vdp,
+  icon_vectrex: icon_vectrex,
+  icon_ws: icon_ws,
+  icon_zxs: icon_zxs,
+};
+
 import './store-front.scss';
 
 import dataJson from 'data/store.json';
@@ -31,7 +145,6 @@ const StoreFront = ({
 }) => {
   const navigate = useNavigate();
   const { state, setState } = useContext(GlobalContext);
-  const { system } = state;
 
   const [statePage, setStatePage] = useState({
     modal: false,
@@ -41,6 +154,11 @@ const StoreFront = ({
     },
   });
   const { modal, game } = statePage;
+
+  const [stateSystem, setStateSystem] = useState({
+    system: null,
+  });
+  const { system } = stateSystem;
 
   const { featured, store } = dataJson;
 
@@ -67,6 +185,16 @@ const StoreFront = ({
     console.log('install!');
   };
 
+  const showSystem = (id) => {
+    const showThis = store.filter((item) => item.system == id);
+
+    console.log(showThis);
+
+    setStateSystem({
+      system: showThis,
+    });
+  };
+
   return (
     <>
       <Main>
@@ -89,64 +217,47 @@ const StoreFront = ({
             );
           })}
         </ul>
+        <div className="container--grid">
+          {store.map((item, i) => {
+            return (
+              <div data-col-md="2">
+                <CardSettings
+                  css="is-highlighted"
+                  btnCSS="btn-simple--1"
+                  icon={icon[`icon_${item.system}`]}
+                  iconSize="md"
+                  title={item.name}
+                  onClick={() => showSystem(item.system)}
+                />
+              </div>
+            );
+          })}
+        </div>
 
-        {console.log({ store })}
-
-        {store.map((item, i) => {
-          return (
-            <>
-              <p className="h4">{item.name}</p>
-              <hr />
-              <ul className="games-list">
-                {item.games.map((item, i) => {
-                  return (
-                    <StoreGame
-                      title={item.title}
-                      img={item.pictures.titlescreens[0]}
-                      system={logo_gb}
-                      onMore={() => toggleModal(item)}
-                      onInstall={() => installGame(item)}
-                    />
-                  );
-                })}
-              </ul>
-            </>
-          );
-        })}
-
-        {/*
-            <p className="h4">Game Boy</p>
-            <hr />
-            <ul className="games-list">
-              {store.gb.map((item, i) => {
-                return (
-                  <StoreGame
-                    title={item.title}
-                    img={item.pictures.titlescreens[0]}
-                    system={logo_gb}
-                    onMore={() => toggleModal(item)}
-                    onInstall={() => installGame(item)}
-                  />
-                );
-              })}
-            </ul>
-
-
-            <p className="h4">Game Boy Advance</p>
-            <hr />
-            <ul className="games-list">
-              {store.gba.map((item, i) => {
-                return (
-                  <StoreGame
-                    title={item.title}
-                    img={item.pictures.titlescreens[0]}
-                    system={logo_gb}
-                    onMore={() => toggleModal(item)}
-                    onInstall={() => installGame(item)}
-                  />
-                );
-              })}
-            </ul> */}
+        <div class="games-details">
+          {system !== null &&
+            system.map((item, i) => {
+              return (
+                <>
+                  <p className="h4">{item.name}</p>
+                  <hr />
+                  <ul className="games-list">
+                    {item.games.map((item, i) => {
+                      return (
+                        <StoreGame
+                          title={item.title}
+                          img={item.pictures.titlescreens[0]}
+                          system={logo_gb}
+                          onMore={() => toggleModal(item)}
+                          onInstall={() => installGame(item)}
+                        />
+                      );
+                    })}
+                  </ul>
+                </>
+              );
+            })}
+        </div>
       </Main>
 
       <div class={`game-details ${modal ? 'is-shown' : ''}`}>

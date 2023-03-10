@@ -104,7 +104,7 @@ function Welcome({
                   title="EmuDeck Store"
                   onClick={() => functions.navigate('/store-front')}
                   description="Download free non-commercial homebrew games"
-                  button="Configure"
+                  button="Get free games"
                 />
               </div>
             </div>

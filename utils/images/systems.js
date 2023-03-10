@@ -69,10 +69,10 @@ import logo_model2 from 'assets/systems/model2.svg';
 import logo_model3 from 'assets/systems/model3.svg';
 import logo_moonlight from 'assets/systems/moonlight.svg';
 import logo_moto from 'assets/systems/moto.svg';
-import logo_msx from 'assets/systems/msx.svg';
-import logo_msx1 from 'assets/systems/msx1.svg';
-import logo_msx2 from 'assets/systems/msx2.svg';
-import logo_msxturbor from 'assets/systems/msxturbor.svg';
+import logo_mastersystemx from 'assets/systems/msx.svg';
+import logo_mastersystemx1 from 'assets/systems/msx1.svg';
+import logo_mastersystemx2 from 'assets/systems/msx2.svg';
+import logo_mastersystemxturbor from 'assets/systems/msxturbor.svg';
 import logo_mugen from 'assets/systems/mugen.svg';
 import logo_multivision from 'assets/systems/multivision.svg';
 import logo_n3ds from 'assets/systems/n3ds.svg';
@@ -115,7 +115,7 @@ import logo_sega32x from 'assets/systems/sega32x.svg';
 import logo_sega32xjp from 'assets/systems/sega32xjp.svg';
 import logo_sega32xna from 'assets/systems/sega32xna.svg';
 import logo_segacd from 'assets/systems/segacd.svg';
-import logo_sfc from 'assets/systems/sfc.svg';
+import logo_snes from 'assets/systems/sfc.svg';
 import logo_sgb from 'assets/systems/sgb.svg';
 import logo_snes from 'assets/systems/snes.svg';
 import logo_snesna from 'assets/systems/snesna.svg';
@@ -166,7 +166,7 @@ import icon_cps2 from 'assets/store/cps2.png';
 import icon_cps3 from 'assets/store/cps3.png';
 import icon_dos from 'assets/store/dos.png';
 import icon_fairchild from 'assets/store/fairchild.png';
-import icon_fc from 'assets/store/fc.png';
+import icon_nes from 'assets/store/fc.png';
 import icon_fds from 'assets/store/fds.png';
 import icon_gb from 'assets/store/gb.png';
 import icon_gba from 'assets/store/gba.png';
@@ -175,10 +175,10 @@ import icon_gg from 'assets/store/gg.png';
 import icon_gw from 'assets/store/gw.png';
 import icon_itv from 'assets/store/itv.png';
 import icon_lynx from 'assets/store/lynx.png';
-import icon_md from 'assets/store/md.png';
+import icon_genesis from 'assets/store/md.png';
 import icon_megaduck from 'assets/store/megaduck.png';
-import icon_ms from 'assets/store/ms.png';
-import icon_msx from 'assets/store/msx.png';
+import icon_mastersystem from 'assets/store/ms.png';
+import icon_mastersystemx from 'assets/store/msx.png';
 import icon_neocd from 'assets/store/neocd.png';
 import icon_neogeo from 'assets/store/neogeo.png';
 import icon_ngp from 'assets/store/ngp.png';
@@ -194,7 +194,7 @@ import icon_scummvm from 'assets/store/scummvm.png';
 import icon_search from 'assets/store/search.png';
 import icon_segacd from 'assets/store/segacd.png';
 import icon_segasgone from 'assets/store/segasgone.png';
-import icon_sfc from 'assets/store/sfc.png';
+import icon_snes from 'assets/store/sfc.png';
 import icon_sgb from 'assets/store/sgb.png';
 import icon_sgfx from 'assets/store/sgfx.png';
 import icon_sufami from 'assets/store/sufami.png';
@@ -282,10 +282,10 @@ export {
   logo_model3,
   logo_moonlight,
   logo_moto,
-  logo_msx,
-  logo_msx1,
-  logo_msx2,
-  logo_msxturbor,
+  logo_mastersystemx,
+  logo_mastersystemx1,
+  logo_mastersystemx2,
+  logo_mastersystemxturbor,
   logo_mugen,
   logo_multivision,
   logo_n3ds,
@@ -328,7 +328,7 @@ export {
   logo_sega32xjp,
   logo_sega32xna,
   logo_segacd,
-  logo_sfc,
+  logo_snes,
   logo_sg1000,
   logo_sgb,
   logo_snes,
@@ -379,7 +379,7 @@ export {
   icon_cps3,
   icon_dos,
   icon_fairchild,
-  icon_fc,
+  icon_nes,
   icon_fds,
   icon_gb,
   icon_gba,
@@ -388,10 +388,10 @@ export {
   icon_gw,
   icon_itv,
   icon_lynx,
-  icon_md,
+  icon_genesis,
   icon_megaduck,
-  icon_ms,
-  icon_msx,
+  icon_mastersystem,
+  icon_mastersystemx,
   icon_neocd,
   icon_neogeo,
   icon_ngp,
@@ -407,7 +407,7 @@ export {
   icon_search,
   icon_segacd,
   icon_segasgone,
-  icon_sfc,
+  icon_snes,
   icon_sgb,
   icon_sgfx,
   icon_sufami,

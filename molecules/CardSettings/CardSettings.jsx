@@ -54,7 +54,7 @@ const CardSettings = ({
           </div>
         </li>
       </ul>
-      <p>{description}</p>
+      {description && <p>{description}</p>}
       {button && (
         <div className="card-setting__buttons">
           <BtnSimple
