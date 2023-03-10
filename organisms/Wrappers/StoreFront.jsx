@@ -134,7 +134,7 @@ import './store-front.scss';
 import dataJson from 'data/store.json';
 
 import { iconSuccess, iconDanger } from 'components/utils/images/images';
-const StoreFront = ({
+function StoreFront({
   disabledNext,
   disabledBack,
   downloadComplete,
@@ -142,18 +142,21 @@ const StoreFront = ({
   next,
   back,
   data,
-}) => {
+}) {
   const navigate = useNavigate();
   const { state, setState } = useContext(GlobalContext);
 
+  const { storagePath } = state;
+
   const [statePage, setStatePage] = useState({
+    installing: false,
     modal: false,
     game: {
       title: undefined,
       pictures: { titlescreens: [undefined], screenshots: [undefined] },
     },
   });
-  const { modal, game } = statePage;
+  const { modal, game, installing } = statePage;
 
   const [stateSystem, setStateSystem] = useState({
     system: null,
@@ -181,8 +184,26 @@ const StoreFront = ({
     }
   };
 
-  const installGame = (game) => {
-    console.log('install!');
+  const ipcChannel = window.electron.ipcRenderer;
+
+  const installGame = (game, system) => {
+    setStatePage({
+      ...statePage,
+      installing: true,
+    });
+    ipcChannel.sendMessage('installGame', [game, storagePath, system]);
+    ipcChannel.once('installGame', (error, stdout, stderr) => {
+      console.log({ error, stdout, stderr });
+      if (stdout.includes('true')) {
+        alert('Game Installed.\nGo back to EmulationStation to play it');
+      } else {
+        alert('There was an error installing the game');
+      }
+      setStatePage({
+        ...statePage,
+        installing: false,
+      });
+    });
   };
 
   const showSystem = (id) => {
@@ -204,13 +225,14 @@ const StoreFront = ({
           {featured.map((item, i) => {
             return (
               <StoreGame
+                disabled={installing}
+                key={item.title}
                 title={item.title}
                 img={item.pictures.titlescreens[0]}
-                system={logo_genesis}
                 tags={item.tags}
                 css="store-game--featured"
                 onMore={() => toggleModal(item)}
-                onInstall={() => installGame(item)}
+                onInstall={() => installGame(item.file, item.system)}
               />
             );
           })}
@@ -220,6 +242,8 @@ const StoreFront = ({
             return (
               <div data-col-md="2">
                 <CardSettings
+                  disabled={installing}
+                  key={item.name}
                   css="is-highlighted"
                   btnCSS="btn-simple--1"
                   icon={icon[`icon_${item.system}`]}
@@ -232,7 +256,7 @@ const StoreFront = ({
           })}
         </div>
 
-        <div class="games-details">
+        <div className="games-details">
           {system !== null &&
             system.map((item, i) => {
               return (
@@ -243,11 +267,13 @@ const StoreFront = ({
                     {item.games.map((item, i) => {
                       return (
                         <StoreGame
+                          disabled={installing}
+                          key={item.title}
                           title={item.title}
                           img={item.pictures.titlescreens[0]}
                           system={logo_gb}
                           onMore={() => toggleModal(item)}
-                          onInstall={() => installGame(item)}
+                          onInstall={() => installGame(item.file, item.system)}
                         />
                       );
                     })}
@@ -258,17 +284,18 @@ const StoreFront = ({
         </div>
       </Main>
 
-      <div class={`game-details ${modal ? 'is-shown' : ''}`}>
-        <div class="game-details__box">
-          <div class="game-details__head">
+      <div className={`game-details ${modal ? 'is-shown' : ''}`}>
+        <div className="game-details__box">
+          <div className="game-details__head">
             <div className="container--grid">
               <div data-col-sm="6">
-                <span class="h2">{game.title}</span>
-                <div class="game-details__tags">
+                <span className="h2">{game.title}</span>
+                <div className="game-details__tags">
                   {game.tags &&
                     game.tags.map((item, i) => {
                       return (
                         <small
+                          key={item}
                           className="tag"
                           style={{ background: `var(--${item})` }}
                         >
@@ -277,15 +304,25 @@ const StoreFront = ({
                       );
                     })}
                 </div>
-                <img class="game-details__logo" src={logo_genesis} alt="Logo" />
+                <img
+                  className="game-details__logo"
+                  src={logo_genesis}
+                  alt="Logo"
+                />
                 <p>{game.description}</p>
-                <BtnSimple css="btn-simple--1" type="button" aria="Next">
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  aria="Next"
+                  onClick={() => installGame(game.file, game.system)}
+                  disabled={installing}
+                >
                   Install
                 </BtnSimple>
               </div>
               <div data-col-sm="6">
                 <img src={game.pictures.screenshots[0]} alt="Screenshot" />
-                {/* <div class="game-details__thumbnails">
+                {/* <div className="game-details__thumbnails">
                       {game.pictures.screenshots.map((item, i) => {
                         return <img src={item} alt="Screenshot" />;
                       })}
@@ -293,7 +330,7 @@ const StoreFront = ({
               </div>
             </div>
           </div>
-          <div class="game-details__footer">
+          <div className="game-details__footer">
             <BtnSimple
               css="btn-simple--1"
               type="button"
@@ -307,6 +344,6 @@ const StoreFront = ({
       </div>
     </>
   );
-};
+}
 
 export default StoreFront;

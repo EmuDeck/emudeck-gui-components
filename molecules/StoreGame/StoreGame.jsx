@@ -19,7 +19,7 @@ import {
   FormInputRangeSimple,
 } from 'getbasecore/Atoms';
 
-const StoreGame = ({
+function StoreGame({
   children,
   css,
   img,
@@ -28,7 +28,8 @@ const StoreGame = ({
   system,
   onMore,
   onInstall,
-}) => {
+  disabled,
+}) {
   const { state, setState } = useContext(GlobalContext);
   const [statePage, setStatePage] = useState({
     disabledNext: false,
@@ -43,7 +44,7 @@ const StoreGame = ({
 
       <div className="store-game__info">
         <div className="store-game__title">
-          <span class="h6">{title}</span>
+          <span className="h6">{title}</span>
         </div>
         <div className="store-game__logo">
           <img src={system} alt="Logo" />
@@ -54,7 +55,11 @@ const StoreGame = ({
         {tags &&
           tags.map((item, i) => {
             return (
-              <small className="tag" style={{ background: `var(--${item})` }}>
+              <small
+                key={item}
+                className="tag"
+                style={{ background: `var(--${item})` }}
+              >
                 {item}
               </small>
             );
@@ -66,6 +71,7 @@ const StoreGame = ({
           type="button"
           aria="Next"
           onClick={() => onInstall()}
+          disabled={disabled}
         >
           Install
         </BtnSimple>
@@ -81,6 +87,6 @@ const StoreGame = ({
       </div>
     </li>
   );
-};
+}
 
 export default StoreGame;

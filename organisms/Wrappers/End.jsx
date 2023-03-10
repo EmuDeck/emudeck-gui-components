@@ -126,7 +126,7 @@ const End = ({
   //           <span data-col-sm="12" className="h2">
   //             Post Installation Statuss
   //           </span>
-  //           <p class="lead">
+  //           <p className="lead">
   //             Please check that all your selected emulators got installed
   //             properly
   //           </p>
@@ -176,7 +176,7 @@ const End = ({
                   <span data-col-sm="12" className="h2">
                     Post Installation Status
                   </span>
-                  <p class="lead">
+                  <p className="lead">
                     Please check if all your selected emulators got installed
                     properly
                   </p>
