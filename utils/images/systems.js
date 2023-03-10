@@ -150,6 +150,62 @@ import logo_zmachine from 'assets/systems/zmachine.svg';
 import logo_zx81 from 'assets/systems/zx81.svg';
 import logo_zxspectrum from 'assets/systems/zxspectrum.svg';
 
+import icon_32X from 'assets/store/32X.png';
+import icon_5200 from 'assets/store/5200.png';
+import icon_7800 from 'assets/store/7800.png';
+import icon_X68000 from 'assets/store/X68000.png';
+import icon_amiga from 'assets/store/amiga.png';
+import icon_arcade from 'assets/store/arcade.png';
+import icon_atari from 'assets/store/atari.png';
+import icon_atarist from 'assets/store/atarist.png';
+import icon_c64 from 'assets/store/c64.png';
+import icon_col from 'assets/store/col.png';
+import icon_cpc from 'assets/store/cpc.png';
+import icon_cps1 from 'assets/store/cps1.png';
+import icon_cps2 from 'assets/store/cps2.png';
+import icon_cps3 from 'assets/store/cps3.png';
+import icon_dos from 'assets/store/dos.png';
+import icon_fairchild from 'assets/store/fairchild.png';
+import icon_fc from 'assets/store/fc.png';
+import icon_fds from 'assets/store/fds.png';
+import icon_gb from 'assets/store/gb.png';
+import icon_gba from 'assets/store/gba.png';
+import icon_gbc from 'assets/store/gbc.png';
+import icon_gg from 'assets/store/gg.png';
+import icon_gw from 'assets/store/gw.png';
+import icon_itv from 'assets/store/itv.png';
+import icon_lynx from 'assets/store/lynx.png';
+import icon_md from 'assets/store/md.png';
+import icon_megaduck from 'assets/store/megaduck.png';
+import icon_ms from 'assets/store/ms.png';
+import icon_msx from 'assets/store/msx.png';
+import icon_neocd from 'assets/store/neocd.png';
+import icon_neogeo from 'assets/store/neogeo.png';
+import icon_ngp from 'assets/store/ngp.png';
+import icon_ody from 'assets/store/ody.png';
+import icon_pce from 'assets/store/pce.png';
+import icon_pcecd from 'assets/store/pcecd.png';
+import icon_pico from 'assets/store/pico.png';
+import icon_poke from 'assets/store/poke.png';
+import icon_ports from 'assets/store/ports.png';
+import icon_ps from 'assets/store/ps.png';
+import icon_satella from 'assets/store/satella.png';
+import icon_scummvm from 'assets/store/scummvm.png';
+import icon_search from 'assets/store/search.png';
+import icon_segacd from 'assets/store/segacd.png';
+import icon_segasgone from 'assets/store/segasgone.png';
+import icon_sfc from 'assets/store/sfc.png';
+import icon_sgb from 'assets/store/sgb.png';
+import icon_sgfx from 'assets/store/sgfx.png';
+import icon_sufami from 'assets/store/sufami.png';
+import icon_supervision from 'assets/store/supervision.png';
+import icon_tic from 'assets/store/tic.png';
+import icon_vb from 'assets/store/vb.png';
+import icon_vdp from 'assets/store/vdp.png';
+import icon_vectrex from 'assets/store/vectrex.png';
+import icon_ws from 'assets/store/ws.png';
+import icon_zxs from 'assets/store/zxs.png';
+
 export {
   logo_3do,
   logo_ags,
@@ -307,4 +363,59 @@ export {
   logo_zmachine,
   logo_zx81,
   logo_zxspectrum,
+  icon_32X,
+  icon_5200,
+  icon_7800,
+  icon_X68000,
+  icon_amiga,
+  icon_arcade,
+  icon_atari,
+  icon_atarist,
+  icon_c64,
+  icon_col,
+  icon_cpc,
+  icon_cps1,
+  icon_cps2,
+  icon_cps3,
+  icon_dos,
+  icon_fairchild,
+  icon_fc,
+  icon_fds,
+  icon_gb,
+  icon_gba,
+  icon_gbc,
+  icon_gg,
+  icon_gw,
+  icon_itv,
+  icon_lynx,
+  icon_md,
+  icon_megaduck,
+  icon_ms,
+  icon_msx,
+  icon_neocd,
+  icon_neogeo,
+  icon_ngp,
+  icon_ody,
+  icon_pce,
+  icon_pcecd,
+  icon_pico,
+  icon_poke,
+  icon_ports,
+  icon_ps,
+  icon_satella,
+  icon_scummvm,
+  icon_search,
+  icon_segacd,
+  icon_segasgone,
+  icon_sfc,
+  icon_sgb,
+  icon_sgfx,
+  icon_sufami,
+  icon_supervision,
+  icon_tic,
+  icon_vb,
+  icon_vdp,
+  icon_vectrex,
+  icon_ws,
+  icon_zxs,
 };
