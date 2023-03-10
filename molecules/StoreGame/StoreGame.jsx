@@ -46,9 +46,6 @@ function StoreGame({
         <div className="store-game__title">
           <span className="h6">{title}</span>
         </div>
-        <div className="store-game__logo">
-          <img src={system} alt="Logo" />
-        </div>
       </div>
 
       <div className="store-game__tags">

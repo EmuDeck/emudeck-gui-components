@@ -213,30 +213,34 @@ function StoreFront({
       system: showThis,
     });
   };
+  let extraCSS;
+  system !== null ? (extraCSS = 'is-hidden') : (extraCSS = '');
 
   return (
     <>
       <Main>
-        <p className="h4" onClick={toggleModal}>
-          Featured games
-        </p>
-        <hr />
-        <ul className="featured-games-list">
-          {featured.map((item, i) => {
-            return (
-              <StoreGame
-                disabled={installing}
-                key={item.title}
-                title={item.title}
-                img={item.pictures.titlescreens[0]}
-                tags={item.tags}
-                css="store-game--featured"
-                onMore={() => toggleModal(item)}
-                onInstall={() => installGame(item.file, item.system)}
-              />
-            );
-          })}
-        </ul>
+        <div className={`featured-games-list ${extraCSS}`}>
+          <p className="h4" onClick={toggleModal}>
+            Featured games
+          </p>
+          <hr />
+          <ul>
+            {featured.map((item, i) => {
+              return (
+                <StoreGame
+                  disabled={installing}
+                  key={item.title}
+                  title={item.title}
+                  img={item.pictures.titlescreens[0]}
+                  tags={item.tags}
+                  css="store-game--featured"
+                  onMore={() => toggleModal(item)}
+                  onInstall={() => installGame(item.file, item.system)}
+                />
+              );
+            })}
+          </ul>
+        </div>
         <div className="container--grid">
           {store.map((item, i) => {
             return (
@@ -304,11 +308,6 @@ function StoreFront({
                       );
                     })}
                 </div>
-                <img
-                  className="game-details__logo"
-                  src={logo_genesis}
-                  alt="Logo"
-                />
                 <p>{game.description}</p>
                 <BtnSimple
                   css="btn-simple--1"
