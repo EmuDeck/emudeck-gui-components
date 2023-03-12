@@ -39,7 +39,7 @@ import sdlogo from 'assets/sdlogo.png';
 import remotelogo from 'assets/remotelogo.png';
 import amberlogo from 'assets/amberelec.jpg';
 const ipcChannel = window.electron.ipcRenderer;
-const End = ({
+function End({
   disabledNext,
   disabledBack,
   downloadComplete,
@@ -52,7 +52,7 @@ const End = ({
   message,
   percentage,
   onClickLog,
-}) => {
+}) {
   const { state, setState } = useContext(GlobalContext);
   const { storage, installEmus, system } = state;
 
@@ -74,7 +74,7 @@ const End = ({
     const name = emulator.name;
 
     ipcChannel.sendMessage('emudeck', [
-      `${name}_IsInstalled|||${name}_IsInstalled`,
+      `${name}_IsInstalled|||sleep 1 && ${name}_IsInstalled`,
     ]);
     ipcChannel.once(`${name}_IsInstalled`, (status) => {
       console.log(`${name}_IsInstalled`);
@@ -100,7 +100,7 @@ const End = ({
           [emulator.id]: {
             id: emulator.id,
             status: emulator.status,
-            installed: false,
+            installed: null,
             name: emulator.name,
           },
         };
@@ -190,11 +190,15 @@ const End = ({
                     return (
                       <div data-col-sm="4" className="h5">
                         {item.name} -
-                        {item.installed ? (
+                        {item.installed === true && (
                           <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                        ) : (
-                          <Img src={iconDanger} css="icon icon--xs" alt="KO" />
-                        )}{' '}
+                        )}
+                        {item.installed === null && (
+                          <Img src={iconDanger} css="icon icon--xs" alt="OK" />
+                        )}
+                        {item.installed === undefined && (
+                          <span> Detecting..</span>
+                        )}
                       </div>
                     );
                   })}
@@ -291,6 +295,6 @@ const End = ({
       </Main>
     </>
   );
-};
+}
 
 export default End;
