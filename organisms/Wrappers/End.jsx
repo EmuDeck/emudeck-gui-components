@@ -74,7 +74,7 @@ function End({
     const name = emulator.name;
 
     ipcChannel.sendMessage('emudeck', [
-      `${name}_IsInstalled|||sleep 1 && ${name}_IsInstalled`,
+      `${name}_IsInstalled|||sleep 2 && ${name}_IsInstalled`,
     ]);
     ipcChannel.once(`${name}_IsInstalled`, (status) => {
       console.log(`${name}_IsInstalled`);
