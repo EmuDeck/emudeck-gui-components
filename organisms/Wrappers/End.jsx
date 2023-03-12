@@ -204,23 +204,6 @@ const End = ({
             <Card css="is-selected">
               <div className="container--grid">
                 <div data-col-sm="6">
-                  <span className="h2">Adding games</span>
-                  <p className="lead">
-                    Copy your roms to your {storage}, you'll see a folder for
-                    each system on the Emulation/roms folder.
-                    <br />
-                    Once you've copied your games click on the "Launch Steam Rom
-                    Manager" button
-                  </p>
-                </div>
-                <div data-col-sm="6">
-                  <img src="https://www.emudeck.com/img/ss1.png" alt="bg" />
-                </div>
-              </div>
-            </Card>
-            <Card css="is-selected">
-              <div className="container--grid">
-                <div data-col-sm="6">
                   <span className="h2">Steam Input Profiles </span>
                   <p className="lead">
                     You can use Steam Deck's L4, L5, R4, R5 triggers to control
@@ -233,26 +216,6 @@ const End = ({
                 </div>
                 <div data-col-sm="6">
                   <img src="https://www.emudeck.com/img/citra1.png" alt="bg" />
-                </div>
-              </div>
-            </Card>
-            <Card css="is-selected">
-              <div className="container--grid">
-                <div data-col-sm="6">
-                  <span className="h2">Two Frontends </span>
-                  <p className="lead">
-                    You can either use Steam Rom Manager to add yor games or use
-                    EmulationStation DE <br />
-                    If you have a small library we recomend using Steam Rom
-                    Manager, if you have thousands of games EmulationStation DE
-                    will work better.
-                    <br />
-                    If you only want to use EmulationStation DE, disable all the
-                    other parsers when you launch Steam Rom Manager
-                  </p>
-                </div>
-                <div data-col-sm="6">
-                  <img src="https://www.emudeck.com/img/ss1.png" alt="bg" />
                 </div>
               </div>
             </Card>
