@@ -63,9 +63,9 @@ function Welcome({
                     btnCSS="btn-simple--1"
                     icon={iconJoystick}
                     iconSize="md"
-                    title="Steam Rom Manager"
-                    onClick={() => functions.openSRM()}
-                    description="Launch SRM to add more games to your Steam Library"
+                    title="Add more games"
+                    onClick={() => functions.navigate('/copy-games')}
+                    description="Import and launch SRM to add more games to your Steam Deck"
                     button="Add more games"
                   />
                 </div>
