@@ -42,8 +42,8 @@ function CopyGames({
       {statusCopyGames !== true && (
         <p className="lead">
           Insert a USB Drive in your Deck's USB C port. We will create a roms
-          folder so you can copy your roms on your PC and then transfer them to
-          your Sream Deck
+          and bios folder so you can copy your roms and bios on your PC and then
+          transfer them to your Steam Deck
         </p>
       )}
       <Main>
