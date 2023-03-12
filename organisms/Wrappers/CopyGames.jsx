@@ -37,6 +37,9 @@ function CopyGames({
 }) {
   const { state, setState } = useContext(GlobalContext);
   const { SDID, mode, system } = state;
+
+  console.log({ statusCopyGames, storageUSBPath, statusCreateStructure });
+
   return (
     <>
       {statusCopyGames !== true && (
