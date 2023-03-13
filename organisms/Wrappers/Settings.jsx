@@ -116,12 +116,7 @@ const Settings = ({
                   <ul>
                     <li onClick={() => onClickHomeBrew(false)}>
                       <Card css={homebrewGames == false && 'is-selected'}>
-                        <span className="h3">NO</span>
-                      </Card>
-                    </li>
-                    <li onClick={() => onClickHomeBrew(true)}>
-                      <Card css={homebrewGames == true && 'is-selected'}>
-                        <span className="h3">YES</span>
+                        <span className="h3">Remove old installation</span>
                       </Card>
                     </li>
                   </ul>
