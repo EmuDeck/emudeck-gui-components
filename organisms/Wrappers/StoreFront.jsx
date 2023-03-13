@@ -93,7 +93,7 @@ const icon = {
   icon_gb: icon_gb,
   icon_gba: icon_gba,
   icon_gbc: icon_gbc,
-  icon_gg: icon_gg,
+  icon_gamegear: icon_gg,
   icon_gw: icon_gw,
   icon_itv: icon_itv,
   icon_lynx: icon_lynx,
