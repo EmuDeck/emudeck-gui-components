@@ -60,59 +60,79 @@ function End({
     installEmusStart: installEmus,
     installEmusPage: installEmus,
     statusSlide: [],
+    getEmuInstallStatus: undefined,
   });
 
-  const { statusSlide, installEmusPage, installEmusStart } = statePage;
+  const {
+    statusSlide,
+    installEmusPage,
+    installEmusStart,
+    getEmuInstallStatus,
+  } = statePage;
 
   const installEmusPageArray = Object.values(installEmusPage);
   const installEmusStartArray = Object.values(installEmusStart);
   let installEmusUpdate;
 
-  const checkInstallation = (emulator) => {
-    //console.log({ emulator });
-    //console.log(`Checking ${emulator.name} status`);
-    const name = emulator.name;
-
+  const checkInstallation = () => {
     ipcChannel.sendMessage('emudeck', [
-      `${name}_IsInstalled|||sleep 2 && ${name}_IsInstalled`,
+      `getEmuInstallStatus|||getEmuInstallStatus`,
     ]);
-    ipcChannel.once(`${name}_IsInstalled`, (status) => {
-      console.log(`${name}_IsInstalled`);
-      status = status.stdout;
-      //console.log({ status });
-      status = status.replace('\n', '');
-      //console.log({ status });
-      //console.log({ installEmusUpdate });
-      if (status.includes('true')) {
-        installEmusUpdate = {
-          ...installEmusUpdate,
-          [emulator.id]: {
-            id: emulator.id,
-            status: emulator.status,
-            installed: true,
-            name: emulator.name,
-          },
-        };
-        //return true;
-      } else {
-        installEmusUpdate = {
-          ...installEmusUpdate,
-          [emulator.id]: {
-            id: emulator.id,
-            status: emulator.status,
-            installed: null,
-            name: emulator.name,
-          },
-        };
-        // return true;
-      }
+
+    ipcChannel.once(`getEmuInstallStatus`, (status) => {
+      console.log({ status });
       setStatePage({
         ...statePage,
-        installEmusPage: installEmusUpdate,
+        getEmuInstallStatus: status.stdout,
       });
-      console.log({ installEmusUpdate });
-      console.log({ installEmusPage });
     });
+
+    //
+    //     console.log({ emulator });
+    //     console.log(`Checking ${emulator.name} status`);
+    //     const name = emulator.name;
+    //
+    //     ipcChannel.sendMessage('emudeck', [
+    //       `${name}_IsInstalled|||${name}_IsInstalled`,
+    //     ]);
+    //     ipcChannel.once(`${name}_IsInstalled`, (status) => {
+    //       console.log(`${name}_IsInstalled`);
+    //       status = status.stdout;
+    //       //console.log({ status });
+    //       status = status.replace('\n', '');
+    //       //console.log({ status });
+    //       //console.log({ installEmusUpdate });
+    //       if (status.includes('true')) {
+    //         installEmusUpdate = {
+    //           ...installEmusUpdate,
+    //           [emulator.id]: {
+    //             id: emulator.id,
+    //             status: emulator.status,
+    //             installed: true,
+    //             name: emulator.name,
+    //           },
+    //         };
+    //         //return true;
+    //       } else {
+    //         installEmusUpdate = {
+    //           ...installEmusUpdate,
+    //           [emulator.id]: {
+    //             id: emulator.id,
+    //             status: emulator.status,
+    //             installed: null,
+    //             name: emulator.name,
+    //           },
+    //         };
+    //         // return true;
+    //       }
+    //       setStatePage({
+    //         ...statePage,
+    //         installEmusPage: installEmusUpdate,
+    //       });
+    //       console.log({ installEmusUpdate });
+    //       console.log({ installEmusPage });
+    //       i++;
+    //     });
   };
 
   // We create the Cards everytime we check if a emu was created
@@ -156,11 +176,7 @@ function End({
 
   //We check if everything installed
   useEffect(() => {
-    if (disabledNext == false && system !== 'win32') {
-      installEmusStartArray.forEach((item) => {
-        checkInstallation(installEmus[item.id]);
-      });
-    }
+    checkInstallation();
   }, [disabledNext]);
 
   return (
@@ -180,24 +196,15 @@ function End({
                     Please check if all your selected emulators got installed
                     properly
                   </p>
-                  {installEmusPageArray.map((item, i) => {
-                    if (item.status == false) {
-                      return;
-                    }
-                    if (item.id == 'srm') {
-                      return;
-                    }
+                  {Object.keys(getEmuInstallStatus).map((item, i) => {
                     return (
                       <div data-col-sm="4" className="h5">
-                        {item.name} -
-                        {item.installed === true && (
+                        {item.Name} -
+                        {item.Installed === 'true' && (
                           <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                         )}
-                        {item.installed === null && (
+                        {item.Installed === 'false' && (
                           <Img src={iconDanger} css="icon icon--xs" alt="OK" />
-                        )}
-                        {item.installed === undefined && (
-                          <span> Detecting..</span>
                         )}
                       </div>
                     );
