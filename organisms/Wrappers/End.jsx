@@ -57,7 +57,7 @@ function End({
   const { storage, installEmus, system } = state;
 
   const [statePage, setStatePage] = useState({
-    emusInstalledStatus: [],
+    emusInstalledStatus: undefined,
   });
 
   const { emusInstalledStatus } = statePage;
@@ -208,19 +208,28 @@ function End({
                     Please check if all your selected emulators got installed
                     properly
                   </p>
-                  {emusInstalledStatus.map((item) => {
-                    return (
-                      <div data-col-sm="4" className="h5">
-                        {item.Name} -
-                        {item.Installed === 'true' && (
-                          <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                        )}
-                        {item.Installed === 'false' && (
-                          <Img src={iconDanger} css="icon icon--xs" alt="OK" />
-                        )}
-                      </div>
-                    );
-                  })}
+                  {emusInstalledStatus !== undefined &&
+                    Object.values(emusInstalledStatus.Emulators).map((item) => {
+                      return (
+                        <div data-col-sm="4" className="h5">
+                          {item.Name} -
+                          {item.Installed === 'true' && (
+                            <Img
+                              src={iconSuccess}
+                              css="icon icon--xs"
+                              alt="OK"
+                            />
+                          )}
+                          {item.Installed === 'false' && (
+                            <Img
+                              src={iconDanger}
+                              css="icon icon--xs"
+                              alt="OK"
+                            />
+                          )}
+                        </div>
+                      );
+                    })}
                 </div>
               </Card>
             )}
