@@ -57,36 +57,48 @@ function End({
   const { storage, installEmus, system } = state;
 
   const [statePage, setStatePage] = useState({
-    installEmusStart: installEmus,
-    installEmusPage: installEmus,
-    statusSlide: [],
-    getEmuInstallStatus: undefined,
+    emusInstalledStatus: [],
   });
 
-  const {
-    statusSlide,
-    installEmusPage,
-    installEmusStart,
-    getEmuInstallStatus,
-  } = statePage;
-
-  const installEmusPageArray = Object.values(installEmusPage);
-  const installEmusStartArray = Object.values(installEmusStart);
-  let installEmusUpdate;
+  const { emusInstalledStatus } = statePage;
 
   const checkInstallation = () => {
-    ipcChannel.sendMessage('emudeck', [
-      `getEmuInstallStatus|||getEmuInstallStatus`,
-    ]);
+    const installEmusArray = Object.values(installEmus);
 
-    ipcChannel.once(`getEmuInstallStatus`, (status) => {
-      console.log({ status });
+    const onlySelectedEmus = installEmusArray.filter(
+      (item) => item.status === true
+    );
+
+    let bashArray = [];
+    onlySelectedEmus.forEach((item) => {
+      bashArray.push(item.name);
+    });
+
+    const emuList = bashArray.join(' ');
+
+    ipcChannel.sendMessage('emudeck', [
+      `getEmuInstallStatus|||getEmuInstallStatus ${emuList}`,
+    ]);
+    ipcChannel.once('getEmuInstallStatus', (message) => {
+      console.log(message);
+      console.log(JSON.parse(message.stdout));
       setStatePage({
         ...statePage,
-        getEmuInstallStatus: status.stdout,
+        emusInstalledStatus: JSON.parse(message.stdout),
       });
     });
 
+    //     ipcChannel.sendMessage('emudeck', [
+    //       `getEmuInstallStatus|||getEmuInstallStatus`,
+    //     ]);
+    //
+    //     ipcChannel.once(`getEmuInstallStatus`, (status) => {
+    //       console.log({ status });
+    //       setStatePage({
+    //         ...statePage,
+    //         getEmuInstallStatus: status.stdout,
+    //       });
+    //     });
     //
     //     console.log({ emulator });
     //     console.log(`Checking ${emulator.name} status`);
@@ -196,7 +208,7 @@ function End({
                     Please check if all your selected emulators got installed
                     properly
                   </p>
-                  {Object.keys(getEmuInstallStatus).map((item, i) => {
+                  {emusInstalledStatus.map((item) => {
                     return (
                       <div data-col-sm="4" className="h5">
                         {item.Name} -
