@@ -74,10 +74,15 @@ function End({
       bashArray.push(item.name);
     });
 
-    const emuList = bashArray.join(' ');
+    let emuList = bashArray.join(' ');
+
+    //Bash mismatch namings
+    emuList.replace('EmulationStation-DE', 'ESDE');
+    emuList.replace('PCSX2', 'PCSX2QT');
+    emuList.replace("Rosalie's Mupen Gui", 'RMG');
 
     ipcChannel.sendMessage('emudeck', [
-      `getEmuInstallStatus|||getEmuInstallStatus ${emuList}`,
+      `getEmuInstallStatus|||getEmuInstallStatus "${emuList}"`,
     ]);
     ipcChannel.once('getEmuInstallStatus', (message) => {
       console.log(message);
