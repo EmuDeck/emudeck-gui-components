@@ -88,9 +88,9 @@ function Welcome({
                   btnCSS="btn-simple--1"
                   icon={iconGear}
                   iconSize="md"
-                  title="Manage Emulators"
+                  title="Manage Configurations"
                   onClick={() => functions.navigate('/emulators')}
-                  description="Update, install your emulators and its configurations"
+                  description="Manage and update your configuration to our latests optimizations"
                   button="Update"
                   notification={updates ? true : false}
                 />
