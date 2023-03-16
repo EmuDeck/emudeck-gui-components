@@ -33,6 +33,7 @@ const CardSettings = ({
   target,
   href,
   notification,
+  disabled,
 }) => {
   const { state, setState } = useContext(GlobalContext);
   const [statePage, setStatePage] = useState({
@@ -65,6 +66,7 @@ const CardSettings = ({
             aria="Next"
             href={href}
             target="_blank"
+            disabled={disabled}
           >
             {button}
           </BtnSimple>
