@@ -47,7 +47,7 @@ function Welcome({
           emulators.
         </p>
       )}
-      {!updates && <p className="lead">Quick actions:</p>}
+      {second === true && <p className="lead">Quick actions:</p>}
 
       <Main>
         {/*
