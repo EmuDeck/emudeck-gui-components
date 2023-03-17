@@ -4,7 +4,8 @@ import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
 import imgESDE from 'assets/ESDE.jpg';
 import imgSTEAM from 'assets/STEAMGAMES.png';
-import imgInternal from 'assets/internal.png';
+import imgExternal from 'assets/external.png';
+import imgUSBDeck from 'assets/usb-in-deck.png';
 import {
   BtnSimple,
   ProgressBar,
@@ -46,72 +47,77 @@ function CopyGames({
         <p className="lead">
           Insert a USB Drive in your Deck's USB C port. We will create a roms
           and bios folder so you can copy your roms and bios on your PC and then
-          transfer them to your Steam Deck
+          transfer them to your Steam Deck with this same utility
         </p>
       )}
       <Main>
         <div className="container--grid">
           {statusCopyGames !== true && (
-            <div data-col-sm="6">
-              <span className="h4">Pick your USB Drive</span>
-              <div className="cards cards--half">
-                <Card
-                  css={storageUSB == 'Custom' && 'is-selected'}
-                  onClick={() => onClick('Custom')}
-                >
-                  <img src={imgInternal} width="100" alt="Background" />
-                  <span className="h6">Custom Directory</span>
-                  {storageUSBPath && storageUSB == 'Custom' && (
-                    <span className="h6">{storagePathDestination}</span>
-                  )}
-                </Card>
-              </div>
-              {statusCopyGames === null &&
-                storageUSBPath !== undefined &&
-                statusCreateStructure === null && (
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Start CopyGames"
-                    onClick={() => onClickStart()}
+            <>
+              <div data-col-sm="6">
+                <span className="h4">Pick your USB Drive</span>
+                <div className="cards cards--half">
+                  <Card
+                    css={storageUSB == 'Custom' && 'is-selected'}
+                    onClick={() => onClick('Custom')}
                   >
-                    Create ROM structure on USB
-                  </BtnSimple>
-                )}
-              {statusCopyGames === null &&
-                storageUSBPath !== undefined &&
-                statusCreateStructure === 'waiting' && (
+                    <img src={imgExternal} width="100" alt="Background" />
+                    <span className="h6">USB Drive</span>
+                    {storageUSBPath && storageUSB == 'Custom' && (
+                      <span className="h6">{storagePathDestination}</span>
+                    )}
+                  </Card>
+                </div>
+                {statusCopyGames === null &&
+                  storageUSBPath !== undefined &&
+                  statusCreateStructure === null && (
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Start CopyGames"
+                      onClick={() => onClickStart()}
+                    >
+                      Create ROM structure on USB
+                    </BtnSimple>
+                  )}
+                {statusCopyGames === null &&
+                  storageUSBPath !== undefined &&
+                  statusCreateStructure === 'waiting' && (
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Waiting CopyGames"
+                    >
+                      Creating Rom Structure...
+                    </BtnSimple>
+                  )}
+
+                {statusCreateStructure === true && (
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
                     aria="Waiting CopyGames"
+                    onClick={() => onClickCopyGames()}
                   >
-                    Creating Rom Structure...
+                    Copy your roms & bios to your Steam Deck
                   </BtnSimple>
                 )}
 
-              {statusCreateStructure === true && (
-                <BtnSimple
-                  css="btn-simple--1"
-                  type="button"
-                  aria="Waiting CopyGames"
-                  onClick={() => onClickCopyGames()}
-                >
-                  Copy your roms & bios to your Steam Deck
-                </BtnSimple>
-              )}
-
-              {statusCopyGames === 'waiting' && (
-                <BtnSimple
-                  css="btn-simple--1"
-                  type="button"
-                  aria="Waiting CopyGames"
-                  disabled
-                >
-                  Copying games...
-                </BtnSimple>
-              )}
-            </div>
+                {statusCopyGames === 'waiting' && (
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Waiting CopyGames"
+                    disabled
+                  >
+                    Copying games...
+                  </BtnSimple>
+                )}
+              </div>
+              <div data-col-sm="6">
+                <img src={imgUSBDeck} alt="Insert USB" />
+              </div>
+            </>
           )}
           {statusCopyGames === true && (
             <>
