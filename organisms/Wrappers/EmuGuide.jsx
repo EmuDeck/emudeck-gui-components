@@ -66,6 +66,7 @@ function EmuGuide(props) {
     textNotification,
     installEmus,
     disableResetButton,
+    hideInstallButton,
     mode,
     updateAvailable,
   } = props;
@@ -281,6 +282,7 @@ function EmuGuide(props) {
             onClickUninstall={onClickUninstall}
             disableInstallButton={disableInstallButton}
             disableResetButton={disableResetButton}
+            hideInstallButton={hideInstallButton}
             updateAvailable={updateAvailable}
             installEmus={Object.values(installEmus)}
           />
