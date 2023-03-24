@@ -167,19 +167,19 @@ function StoreFront({
   });
   const { system } = stateSystem;
 
-  //   useEffect(() => {
-  //     ipcChannel.sendMessage('get-store-featured');
-  //     ipcChannel.once('get-store-featured', (store) => {
-  //       // No versioning found, what to do?
-  //
-  //       console.log(store.featured);
-  //
-  //       setStatePage({
-  //         ...statePage,
-  //         featured: store.featured,
-  //       });
-  //     });
-  //   }, []);
+  useEffect(() => {
+    ipcChannel.sendMessage('get-store-featured');
+    ipcChannel.once('get-store-featured', (store) => {
+      // No versioning found, what to do?
+
+      console.log(store.featured);
+
+      setStatePage({
+        ...statePage,
+        featured: store.featured,
+      });
+    });
+  }, []);
 
   useEffect(() => {
     ipcChannel.sendMessage('get-store');
@@ -193,7 +193,7 @@ function StoreFront({
         games: store.store,
       });
     });
-  }, []);
+  }, [featured]);
   const toggleModal = (item) => {
     if (!!item) {
       setStatePage({
@@ -247,7 +247,6 @@ function StoreFront({
   return (
     <>
       <Main>
-        {/*
         <div className={`featured-games-list ${extraCSS}`}>
           <p className="h4" onClick={toggleModal}>
             Featured games
@@ -270,7 +269,6 @@ function StoreFront({
             })}
           </ul>
         </div>
-        */}
 
         <div className="container--grid">
           {games != null &&
