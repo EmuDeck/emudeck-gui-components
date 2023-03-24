@@ -122,6 +122,7 @@ function EmuTable({
                 css="btn-simple--3"
                 type="button"
                 aria="Go Back"
+                disabled={hideInstallButton}
                 onClick={() => {
                   if (confirm(emuData.altWarning) == true) {
                     onClickInstall(emuData.altId, emuData.altCode);
@@ -136,6 +137,7 @@ function EmuTable({
                 css="btn-simple--1"
                 type="button"
                 aria="Go Back"
+                disabled={disableResetButton}
                 onClick={() => {
                   onClick(emuData.alt2Id, emuData.alt2Code);
                 }}
