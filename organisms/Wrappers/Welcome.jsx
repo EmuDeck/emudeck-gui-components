@@ -63,9 +63,9 @@ function Welcome({
                     btnCSS="btn-simple--1"
                     icon={iconJoystick}
                     iconSize="md"
-                    title="Add more games"
+                    title="USB Transfer Wizard"
                     onClick={() => functions.navigate('/copy-games')}
-                    description="Import and launch SRM to add more games to your Steam Deck"
+                    description="Import new games to your Steam Deck using an USB Drive"
                     button="Add more games"
                   />
                 </div>
