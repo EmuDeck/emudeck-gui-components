@@ -131,8 +131,6 @@ const icon = {
 
 import './store-front.scss';
 
-import dataJson from 'data/store.json';
-
 // import dataStore from 'data/store.json';
 //
 // const { store } = dataStore;
@@ -160,30 +158,42 @@ function StoreFront({
       pictures: { titlescreens: [undefined], screenshots: [undefined] },
     },
     games: null,
+    featured: [],
   });
-  const { modal, game, installing, games } = statePage;
+  const { modal, game, installing, games, featured } = statePage;
 
   const [stateSystem, setStateSystem] = useState({
     system: null,
   });
   const { system } = stateSystem;
 
-  const { featured } = dataJson;
+  useEffect(() => {
+    ipcChannel.sendMessage('get-store-featured');
+    ipcChannel.once('get-store-featured', (store) => {
+      // No versioning found, what to do?
+
+      console.log(store.featured);
+
+      setStatePage({
+        ...statePage,
+        featured: store.featured,
+      });
+    });
+  }, []);
 
   useEffect(() => {
     ipcChannel.sendMessage('get-store');
     ipcChannel.once('get-store', (store) => {
       // No versioning found, what to do?
 
-      console.log({ store });
+      //console.log({ store });
 
       setStatePage({
         ...statePage,
         games: store.store,
       });
     });
-  }, []);
-
+  }, [featured]);
   const toggleModal = (item) => {
     if (!!item) {
       setStatePage({
