@@ -193,7 +193,9 @@ function End({
 
   //We check if everything installed
   useEffect(() => {
-    checkInstallation();
+    if (system !== 'win32') {
+      checkInstallation();
+    }
   }, [disabledNext]);
 
   return (
