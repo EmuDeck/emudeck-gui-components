@@ -29,6 +29,7 @@ function Welcome({
   alertCSS,
   functions,
   settingsCards,
+  settingsCardsFeatured,
   updates,
 }) {
   const { state } = useContext(GlobalContext);
@@ -56,62 +57,28 @@ function Welcome({
         {second === true && (
           <>
             <div className="container--grid">
-              {system !== 'win32' && (
-                <div data-col-sm="3">
-                  <CardSettings
-                    css="is-highlighted"
-                    btnCSS="btn-simple--1"
-                    icon={iconJoystick}
-                    iconSize="md"
-                    title="USB Transfer Wizard"
-                    onClick={() => functions.navigate('/copy-games')}
-                    description="Import new games to your Steam Deck using an USB Drive"
-                    button="Add more games"
-                  />
-                </div>
-              )}
-              <div data-col-sm="3">
-                <CardSettings
-                  css="is-highlighted"
-                  btnCSS="btn-simple--1"
-                  icon={iconGear}
-                  iconSize="md"
-                  title="Quick Settings"
-                  onClick={() => functions.navigate('/settings')}
-                  description="Customize bezels, shaders, aspect ratio, auto save and more"
-                  button="Configure"
-                />
-              </div>
-              {system !== 'win32' && (
-                <>
-                  <div data-col-sm="3">
-                    <CardSettings
-                      css="is-highlighted"
-                      btnCSS="btn-simple--1"
-                      icon={iconGear}
-                      iconSize="md"
-                      title="Manage Emulators"
-                      onClick={() => functions.navigate('/emulators')}
-                      description="Manage and update your Emulators and configurations"
-                      button="Update"
-                      notification={updates ? true : false}
-                    />
-                  </div>
+              {settingsCardsFeatured.map((item) => {
+                if (item.status === false) {
+                  return;
+                }
 
-                  <div data-col-sm="3">
+                return (
+                  <div data-col-sm="3" key={item.title}>
                     <CardSettings
                       css="is-highlighted"
-                      btnCSS="btn-simple--1"
-                      icon={iconPackage}
+                      icon={item.icon[0]}
                       iconSize="md"
-                      title="EmuDeck Store"
-                      onClick={() => functions.navigate('/store-front')}
-                      description="Download free non-commercial homebrew games"
-                      button="Get free games"
+                      title={item.title}
+                      button={item.button}
+                      btnCSS={item.btnCSS}
+                      onClick={item.function}
+                      description={item.description}
+                      type={item.type}
+                      href={item.href}
                     />
                   </div>
-                </>
-              )}
+                );
+              })}
             </div>
 
             <hr />
@@ -120,17 +87,6 @@ function Welcome({
             <div className="container--grid">
               {settingsCards.map((item) => {
                 if (item.status === false) {
-                  return;
-                }
-                if (system === 'win32' && item.title != 'Custom Reset') {
-                  return;
-                }
-
-                if (gamemode === true && item.title == 'Steam Rom Manager') {
-                  return;
-                }
-
-                if (gamemode === true && item.title == 'Cloud Backup') {
                   return;
                 }
 
