@@ -212,8 +212,10 @@ function End({
                     Post Installation Status
                   </span>
                   <p className="lead">
-                    Please check if all your selected emulators got installed
-                    properly
+                    EmuDeck has detected the following emulators and tools are
+                    currently installed on your system. If an emulator or tool
+                    failed to install, run a "Custom Reset" or install the
+                    emulator on the "Manage Emulators" page
                   </p>
                   {emusInstalledStatus !== undefined &&
                     Object.values(emusInstalledStatus.Emulators).map((item) => {
