@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { GlobalContext } from 'context/globalContext';
 import { useNavigate } from 'react-router-dom';
 import { BtnSimple, FormSelectSimple, BtnGroup } from 'getbasecore/Atoms';
 import { Table, Alert, BtnGroup } from 'getbasecore/Molecules';
@@ -38,6 +39,9 @@ function EmuTable({
         : alert(`There was an error adding your Yuzu Token`);
     });
   };
+
+  const { state } = useContext(GlobalContext);
+  const { system } = state;
 
   return (
     <div className="emutable">
@@ -112,7 +116,7 @@ function EmuTable({
                 ReInstall / Update
               </BtnSimple>
             )}
-            {disableInstallButton && (
+            {disableInstallButton && system !== 'win32' && (
               <BtnSimple
                 css="btn-simple--3"
                 type="button"
