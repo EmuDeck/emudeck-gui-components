@@ -29,6 +29,16 @@ function EmuTable({
   updateAvailable,
 }) {
   console.log({ disableInstallButton });
+  const ipcChannel = window.electron.ipcRenderer;
+  const YuzuEAaddToken = () => {
+    ipcChannel.sendMessage('emudeck', [`YuzuEA_addToken|||YuzuEA_addToken`]);
+    ipcChannel.once('YuzuEA_addToken', (message) => {
+      message.includes('true')
+        ? alert(`Yuzu Token Added`)
+        : alert(`There was an error adding your Yuzu Token`);
+    });
+  };
+
   return (
     <div className="emutable">
       <div className="container--grid">
@@ -143,6 +153,19 @@ function EmuTable({
                 }}
               >
                 {emuData.alt2Button}
+              </BtnSimple>
+            )}
+
+            {emuData.id == 'yuzu' && (
+              <BtnSimple
+                css="btn-simple--1"
+                type="button"
+                aria="Go Back"
+                onClick={() => {
+                  YuzuEAaddToken();
+                }}
+              >
+                Early Access Token
               </BtnSimple>
             )}
           </BtnGroup>
