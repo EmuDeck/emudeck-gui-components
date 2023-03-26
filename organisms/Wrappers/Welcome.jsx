@@ -56,7 +56,7 @@ function Welcome({
         {second === true && (
           <>
             <div className="container--grid">
-              {gamemode || (
+              {system !== 'win32' && (
                 <div data-col-sm="3">
                   <CardSettings
                     css="is-highlighted"
@@ -82,31 +82,36 @@ function Welcome({
                   button="Configure"
                 />
               </div>
-              <div data-col-sm="3">
-                <CardSettings
-                  css="is-highlighted"
-                  btnCSS="btn-simple--1"
-                  icon={iconGear}
-                  iconSize="md"
-                  title="Manage Emulators"
-                  onClick={() => functions.navigate('/emulators')}
-                  description="Manage and update your Emulators and configurations"
-                  button="Update"
-                  notification={updates ? true : false}
-                />
-              </div>
-              <div data-col-sm="3">
-                <CardSettings
-                  css="is-highlighted"
-                  btnCSS="btn-simple--1"
-                  icon={iconPackage}
-                  iconSize="md"
-                  title="EmuDeck Store"
-                  onClick={() => functions.navigate('/store-front')}
-                  description="Download free non-commercial homebrew games"
-                  button="Get free games"
-                />
-              </div>
+              {system !== 'win32' && (
+                <>
+                  <div data-col-sm="3">
+                    <CardSettings
+                      css="is-highlighted"
+                      btnCSS="btn-simple--1"
+                      icon={iconGear}
+                      iconSize="md"
+                      title="Manage Emulators"
+                      onClick={() => functions.navigate('/emulators')}
+                      description="Manage and update your Emulators and configurations"
+                      button="Update"
+                      notification={updates ? true : false}
+                    />
+                  </div>
+
+                  <div data-col-sm="3">
+                    <CardSettings
+                      css="is-highlighted"
+                      btnCSS="btn-simple--1"
+                      icon={iconPackage}
+                      iconSize="md"
+                      title="EmuDeck Store"
+                      onClick={() => functions.navigate('/store-front')}
+                      description="Download free non-commercial homebrew games"
+                      button="Get free games"
+                    />
+                  </div>
+                </>
+              )}
             </div>
 
             <hr />
