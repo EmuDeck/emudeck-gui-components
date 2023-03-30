@@ -34,9 +34,7 @@ function EmuTable({
   const YuzuEAaddToken = () => {
     ipcChannel.sendMessage('emudeck', [`YuzuEA_addToken|||YuzuEA_addToken`]);
     ipcChannel.once('YuzuEA_addToken', (message) => {
-      message.includes('true')
-        ? alert(`Yuzu Token Added`)
-        : alert(`There was an error adding your Yuzu Token`);
+      console.log({ message });
     });
   };
 
@@ -160,7 +158,7 @@ function EmuTable({
               </BtnSimple>
             )}
 
-            {emuData.id == 'yuzu' && (
+            {emuData.id === 'yuzu' && system !== 'win32' && (
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
