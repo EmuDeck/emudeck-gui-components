@@ -215,16 +215,37 @@ function StoreFront({
 
   const ipcChannel = window.electron.ipcRenderer;
 
-  const installGame = (game, system) => {
+  const installGame = (game, system, title) => {
     setStatePage({
       ...statePage,
-      installing: true,
+      installing: title,
     });
+    console.log({ game, system, title });
     ipcChannel.sendMessage('installGame', [game, storagePath, system]);
     ipcChannel.once('installGame', (error, stdout, stderr) => {
       console.log({ error, stdout, stderr });
       if (stdout.includes('true')) {
         alert('Game Installed.\nGo back to EmulationStation to play it');
+      } else {
+        alert('There was an error installing the game');
+      }
+      setStatePage({
+        ...statePage,
+        installing: false,
+      });
+    });
+  };
+
+  const unInstallGame = (game, system, title) => {
+    setStatePage({
+      ...statePage,
+      installing: title,
+    });
+    ipcChannel.sendMessage('unInstallGame', [title, storagePath, system]);
+    ipcChannel.once('unInstallGame', (error, stdout, stderr) => {
+      console.log({ error, stdout, stderr });
+      if (stdout.includes('true')) {
+        alert('Game Uninstalled');
       } else {
         alert('There was an error installing the game');
       }
@@ -256,14 +277,16 @@ function StoreFront({
             {featured.map((item, i) => {
               return (
                 <StoreGame
-                  disabled={installing}
+                  disabled={installing === item.title}
                   key={item.title}
                   title={item.title}
                   img={item.pictures.titlescreens[0]}
                   tags={item.tags}
                   css="store-game--featured"
                   onMore={() => toggleModal(item)}
-                  onInstall={() => installGame(item.file, item.system)}
+                  onInstall={() =>
+                    installGame(item.file, item.system, item.title)
+                  }
                 />
               );
             })}
@@ -276,7 +299,7 @@ function StoreFront({
               return (
                 <div data-col-md="2">
                   <CardSettings
-                    disabled={installing}
+                    disabled={installing === item.title}
                     key={item.name}
                     css="is-highlighted"
                     btnCSS="btn-simple--1"
@@ -301,13 +324,15 @@ function StoreFront({
                     {item.games.map((item, i) => {
                       return (
                         <StoreGame
-                          disabled={installing}
+                          disabled={installing === item.title}
                           key={item.title}
                           title={item.title}
                           img={item.pictures.titlescreens[0]}
                           system={logo_gb}
                           onMore={() => toggleModal(item)}
-                          onInstall={() => installGame(item.file, item.system)}
+                          onInstall={() =>
+                            installGame(item.file, item.system, item.title)
+                          }
                         />
                       );
                     })}
@@ -343,10 +368,23 @@ function StoreFront({
                   css="btn-simple--1"
                   type="button"
                   aria="Next"
-                  onClick={() => installGame(game.file, game.system)}
-                  disabled={installing}
+                  onClick={() =>
+                    installGame(game.file, game.system, game.title)
+                  }
+                  disabled={installing === game.title}
                 >
                   Install
+                </BtnSimple>
+                <BtnSimple
+                  css="btn-simple--3"
+                  type="button"
+                  aria="Next"
+                  onClick={() =>
+                    unInstallGame(game.file, game.system, game.title)
+                  }
+                  disabled={installing === game.title}
+                >
+                  Uninstall
                 </BtnSimple>
               </div>
               <div data-col-sm="6">
