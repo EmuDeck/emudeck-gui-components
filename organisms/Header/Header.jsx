@@ -4,11 +4,30 @@ import { GlobalContext } from 'context/globalContext';
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
 import { Form } from 'getbasecore/Molecules';
 import './Header.scss';
+import { useTranslation, Trans } from 'react-i18next';
 
-const HeaderElectron = ({ title, bold }) => {
+import flagEN from 'assets/flags/en.svg';
+import flagES from 'assets/flags/es.svg';
+
+function HeaderElectron({ title, bold }) {
+  const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
   const { debug, version, branch, command } = state;
   const ipcChannel = window.electron.ipcRenderer;
+
+  // const lngs = {
+  //   en: {
+  //     nativeName: (
+  //       <img className="header__flag" width="12" src={flagEN} alt="English" />
+  //     ),
+  //   },
+  //   es: {
+  //     nativeName: (
+  //       <img className="header__flag" width="12" src={flagES} alt="Spanish" />
+  //     ),
+  //   },
+  // };
+  const lngs = '';
 
   const toggleDebug = (e) => {
     switch (e.detail) {
@@ -82,6 +101,18 @@ const HeaderElectron = ({ title, bold }) => {
         >
           A-
         </BtnSimple>
+        {Object.keys(lngs).map((lng) => (
+          <button
+            key={lng}
+            style={{
+              fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal',
+            }}
+            type="submit"
+            onClick={() => i18n.changeLanguage(lng)}
+          >
+            {lngs[lng].nativeName}
+          </button>
+        ))}
       </div>
 
       {branch === 'beta' && <div className="header__beta"> {branch}</div>}
@@ -112,7 +143,7 @@ const HeaderElectron = ({ title, bold }) => {
       )}
     </header>
   );
-};
+}
 
 export default HeaderElectron;
 
