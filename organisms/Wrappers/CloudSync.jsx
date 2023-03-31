@@ -21,7 +21,7 @@ import nextcloud from 'assets/cloud/nextcloud.png';
 import onedrive from 'assets/cloud/onedrive.png';
 import pcloud from 'assets/cloud/pcloud.png';
 
-const CloudSync = ({
+function CloudSync({
   disabledNext,
   disabledBack,
   downloadComplete,
@@ -30,17 +30,19 @@ const CloudSync = ({
   next,
   back,
   data,
-}) => {
+  disableButton,
+}) {
   const { state, setState } = useContext(GlobalContext);
   const { cloudSync } = state;
 
   return (
     <>
       <p className="lead">
-        Backup your saves and save states to the cloud. After selecting one of the cloud providers below, 
-        EmuDeck Save Backup will be added as a shortcut to your desktop. Use this application
-        to manage and create backups. This feature is currently in beta. At
-        the moment, it is only a one way backup. Stay tuned for additional features!
+        Backup your saves and save states to the cloud. After selecting one of
+        the cloud providers below, EmuDeck Save Backup will be added as a
+        shortcut to your desktop. Use this application to manage and create
+        backups. This feature is currently in beta. At the moment, it is only a
+        one way backup. Stay tuned for additional features!
       </p>
       <Main>
         <p>Select one of the following providers:</p>
@@ -88,7 +90,7 @@ const CloudSync = ({
             type="button"
             aria="Install SaveSync"
             onClick={() => onClickInstall()}
-            disabled={disabledNext && 'true'}
+            disabled={disableButton}
           >
             Run SaveBackup
           </BtnSimple>
@@ -96,6 +98,6 @@ const CloudSync = ({
       </Main>
     </>
   );
-};
+}
 
 export default CloudSync;
