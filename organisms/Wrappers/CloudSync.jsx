@@ -92,7 +92,9 @@ function CloudSync({
             onClick={() => onClickInstall()}
             disabled={disableButton}
           >
-            Run SaveBackup
+            {disableButton && 'Please wait...'}
+
+            {disableButton || 'Run SaveBackup'}
           </BtnSimple>
         )}
       </Main>
