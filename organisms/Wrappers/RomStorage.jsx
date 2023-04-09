@@ -6,7 +6,7 @@ import Card from 'components/molecules/Card/Card';
 import imgSD from 'assets/sdcard.png';
 import imgInternal from 'assets/internal.png';
 
-const RomStorage = ({
+function RomStorage({
   onClick,
   disabledNext,
   disabledBack,
@@ -20,7 +20,7 @@ const RomStorage = ({
   customPath,
   showSDCard,
   showInternal,
-}) => {
+}) {
   const { state, setState } = useContext(GlobalContext);
   const { storage, SDID, mode, system, storagePath } = state;
 
@@ -67,7 +67,10 @@ const RomStorage = ({
             onClick={() => onClick('Custom')}
           >
             <img src={imgInternal} width="100" alt="Background" />
-            <span className="h5">Custom Directory</span>
+            <span className="h5">
+              {system === 'win32' && 'Select your drive'}
+              {system !== 'win32' && 'Custom Directory'}
+            </span>
             {customPath && storage == 'Custom' && (
               <span className="h6">{customPath}</span>
             )}
@@ -76,6 +79,6 @@ const RomStorage = ({
       </Main>
     </>
   );
-};
+}
 
 export default RomStorage;
