@@ -151,11 +151,9 @@ function End({
                   <span className="h2">Steam Input Profiles </span>
                   <p className="lead">
                     You can use Steam Deck's L4, L5, R4, R5 triggers to control
-                    some emulators hotkeys. Just select the right EmuDeck
-                    template for the system you want. <br />
-                    <strong>
-                      Do this for every 3DS, WiiU or Playstation 1 & 2 game.
-                    </strong>
+                    some emulators hotkeys. Using Steam Rom Manager will add the
+                    automatically for you for 3DS, WiiU and Playstation 1 games
+                    <br />
                   </p>
                 </div>
                 <div data-col-sm="6">
