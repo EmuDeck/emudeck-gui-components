@@ -81,7 +81,7 @@ function HeaderElectron({ title, bold }) {
   return (
     <header className="header">
       {month === 11 && snowFlakes && snowFlakes}
-      <small onClick={() => toggleDebug()} className="header__version">
+      <small onClick={toggleDebug} className="header__version">
         {version}
       </small>
       <div className="header__accesibility">
