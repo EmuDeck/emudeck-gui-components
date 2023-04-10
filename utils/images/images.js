@@ -42,6 +42,7 @@ import iconBooks from 'assets/icon/books.svg';
 import iconJoystick from 'assets/icon/joystick.svg';
 import iconPackage from 'assets/icon/package.svg';
 import iconQuestion from 'assets/icon/question.svg';
+import iconDisk from 'assets/icon/disk.svg';
 
 export {
   imgdefault,
@@ -87,4 +88,5 @@ export {
   iconJoystick,
   iconPackage,
   iconQuestion,
+  iconDisk,
 };
