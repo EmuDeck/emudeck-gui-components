@@ -4,7 +4,7 @@ import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
 import Step from 'components/molecules/Step/Step';
 
-functio DeviceSelector({
+function DeviceSelector({
   onClick,
   disabledNext,
   disabledBack,
@@ -13,7 +13,7 @@ functio DeviceSelector({
   back,
   data,
   children,
-}){
+}) {
   const { state, setState } = useContext(GlobalContext);
   const { device, system } = state;
 
@@ -31,6 +31,6 @@ functio DeviceSelector({
       </Main>
     </>
   );
-};
+}
 
 export default DeviceSelector;
