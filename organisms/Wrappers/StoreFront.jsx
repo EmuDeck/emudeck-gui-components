@@ -241,7 +241,7 @@ function StoreFront({
       ...statePage,
       installing: title,
     });
-    ipcChannel.sendMessage('unInstallGame', [title, storagePath, system]);
+    ipcChannel.sendMessage('unInstallGame', [game, storagePath, system]);
     ipcChannel.once('unInstallGame', (error, stdout, stderr) => {
       console.log({ error, stdout, stderr });
       if (stdout.includes('true')) {
