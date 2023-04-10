@@ -4,7 +4,7 @@ import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
 import Step from 'components/molecules/Step/Step';
 
-const DeviceSelector = ({
+functio DeviceSelector({
   onClick,
   disabledNext,
   disabledBack,
@@ -13,15 +13,18 @@ const DeviceSelector = ({
   back,
   data,
   children,
-}) => {
+}){
   const { state, setState } = useContext(GlobalContext);
-  const { device } = state;
+  const { device, system } = state;
 
   return (
     <>
       <p className="lead">
-        We tailor the install for different hardware. Each device will have its
-        own configuration, emulators and pre-configured bezels.
+        {system === 'win32' &&
+          'We tailor the install for different hardware. Please select your controller.'}
+
+        {system !== 'win32' &&
+          'We tailor the install for different hardware. Each device will have its own configuration, emulators and pre-configured bezels.'}
       </p>
       <Main>
         <div className="cards">{children}</div>
