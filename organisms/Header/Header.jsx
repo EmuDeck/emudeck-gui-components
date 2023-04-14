@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
 import { Form } from 'getbasecore/Molecules';
+import Toasty from 'components/atoms/Toasty/Toasty';
 import './Header.scss';
 import { useTranslation, Trans } from 'react-i18next';
 
@@ -80,6 +81,7 @@ function HeaderElectron({ title, bold }) {
 
   return (
     <header className="header">
+      <Toasty/>
       {month === 11 && snowFlakes && snowFlakes}
       <small onClick={toggleDebug} className="header__version">
         {version}
