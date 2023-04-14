@@ -83,7 +83,7 @@ function EmuTable({
               <BtnSimple
                 css={updateAvailable ? 'btn-simple--6' : 'btn-simple--1'}
                 type="button"
-                aria="Go Back"
+                aria="Update or reset configuration"
                 onClick={() => onClick(emuData.code, emuData.name, emuData.id)}
                 disabled={disableResetButton}
               >
@@ -96,7 +96,7 @@ function EmuTable({
               <BtnSimple
                 css="btn-simple--3"
                 type="button"
-                aria="Go Back"
+                aria="Install"
                 disabled={disableInstallButton}
                 onClick={() => onClickInstall(emuData.id, emuData.code)}
               >
@@ -107,7 +107,7 @@ function EmuTable({
               <BtnSimple
                 css="btn-simple--3"
                 type="button"
-                aria="Go Back"
+                aria="ReInstall / Update"
                 disabled={hideInstallButton}
                 onClick={() => onClickInstall(emuData.id, emuData.code)}
               >
@@ -118,7 +118,7 @@ function EmuTable({
               <BtnSimple
                 css="btn-simple--3"
                 type="button"
-                aria="Go Back"
+                aria="Uninstall"
                 disabled={false}
                 onClick={() => onClickUninstall(emuData.id, emuData.code)}
               >
@@ -129,33 +129,33 @@ function EmuTable({
           <br />
           <br />
           <BtnGroup>
-            {emuData.alt > 0 && (
-              <BtnSimple
-                css="btn-simple--3"
-                type="button"
-                aria="Go Back"
-                disabled={hideInstallButton}
-                onClick={() => {
-                  if (confirm(emuData.altWarning) == true) {
-                    onClickInstall(emuData.altId, emuData.altCode);
-                  }
-                }}
-              >
-                {emuData.altButton}
-              </BtnSimple>
-            )}
-            {emuData.alt2 > 0 && (
+            {emuData.id === 'cemu' && system !== 'win32' && (
+              <>
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Go Back"
-                disabled={disableResetButton}
+                aria="install Cemu Appimage"
+                disabled={hideInstallButton}
                 onClick={() => {
-                  onClick(emuData.alt2Id, emuData.alt2Code);
+                  if (confirm('This action will install Cemu Appimage alongside your current Cemu') == true) {
+                    onClickInstall('cemunative', 'CemuNative');
+                  }
                 }}
               >
-                {emuData.alt2Button}
+                Install Cemu AppImage
               </BtnSimple>
+              <BtnSimple
+                css="btn-simple--1"
+                type="button"
+                aria="Install Cemu AppImage"
+                disabled={disableResetButton}
+                onClick={() => {
+                  onClick('cemunative', 'CemuNative');
+                }}
+              >
+                Reset Cemu AppImage
+              </BtnSimple>
+              </>
             )}
 
             {emuData.id === 'yuzu' && system !== 'win32' && (
