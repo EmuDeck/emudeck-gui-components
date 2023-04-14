@@ -1,0 +1,18 @@
+.toasty{
+  position: absolute;
+  right: -250px;
+  bottom:0;
+  width: 250px;
+  z-index:9999;
+  &.is-animated{
+    @keyframes showToastyGuy
+    {
+      0% {right: -200px;}
+      40% {right: 0;}
+      60% {right: 0;}
+      100% {right: -200px;}
+    }
+    animation:showToastyGuy 1.5s;
+  }
+
+}
