@@ -163,6 +163,38 @@ const EmulatorResolution = ({
               </div>
             </div>
             <hr />
+            <div className="rpcs3">
+              <span className="h5">PlayStation 3 Games</span>
+              <div className="cards">
+                <Card css={resolutions.rpcs3 == '720P' ? 'is-selected' : ''}>
+                  <span className="h6" onClick={() => onClick('rpcs3', '720P')}>
+                    720P
+                  </span>
+                </Card>
+                <Card css={resolutions.pcsx2 == '1080P' ? 'is-selected' : ''}>
+                  <span
+                    className="h6"
+                    onClick={() => onClick('rpcs3', '1080P')}
+                  >
+                    1080P
+                  </span>
+                </Card>
+                <Card css={resolutions.pcsx2 == '1440P' ? 'is-selected' : ''}>
+                  <span
+                    className="h6"
+                    onClick={() => onClick('rpcs3', '1440P')}
+                  >
+                    1440P
+                  </span>
+                </Card>
+                <Card css={resolutions.pcsx2 == '4K' ? 'is-selected' : ''}>
+                  <span className="h6" onClick={() => onClick('rpcs3', '4K')}>
+                    4K
+                  </span>
+                </Card>
+              </div>
+            </div>
+            <hr />
             <div className="yuzu">
               <span className="h5">Switch Games</span>
               <div className="cards">

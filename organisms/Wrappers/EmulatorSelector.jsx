@@ -40,7 +40,6 @@ const EmulatorSelector = ({
                 item.id == 'primehack' ||
                 item.id == 'melonds' ||
                 item.id == 'citra' ||
-                item.id == 'rpcs3' ||
                 item.id == 'ryujinx' ||
                 item.id == 'rmg' ||
                 item.id == 'mame' ||
