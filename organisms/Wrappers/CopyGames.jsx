@@ -141,10 +141,10 @@ function CopyGames({
                   EmulationStation-DE is recommended if you have a lot of games.
                   <br />
                   <br />
-                  You need to use Steam ROM Manager to add EmulationStation DE
-                  to your library. Follow the same steps as instructed before
-                  but disable all parsers but the one named{' '}
-                  <strong>"EmulationStation DE"</strong>
+                  You will need to use Steam ROM Manager to add EmulationStation DE
+                  to your library. Follow the same steps as instructed previously, but
+                  you will only need to enable the{' '}
+                  <strong>"EmulationStation DE"</strong> parser.
                 </p>
               </div>
             </>
