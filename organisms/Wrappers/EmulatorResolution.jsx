@@ -44,7 +44,7 @@ const EmulatorResolution = ({
     <>
       <p className="lead">
         Choose the resolution you would like to use for your emulators. Keep in mind the
-        higher the resolution, the beefier computer you will need
+        higher the resolution, the beefier computer you will need.
       </p>
       <Main>
         <div className="container--grid">
