@@ -50,7 +50,7 @@ const CHDTool = ({
           Important: CHD made from cue / bin will NOT work for Dreamcast. GDI is
           required. if you have both CUE and GDI for your Dreamcast games,
           please remove any left over cue files after parsing, or Steam ROM
-          Manager will detect non-existant games.
+          Manager will detect non-existent games.
         </p>
 
         <p>

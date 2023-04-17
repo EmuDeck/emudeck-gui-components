@@ -21,10 +21,10 @@ function DeviceSelector({
     <>
       <p className="lead">
         {system === 'win32' &&
-          'We tailor the install for different hardware. Please select your controller.'}
+          'EmuDeck tailors the install for different hardware. Please select your controller.'}
 
         {system !== 'win32' &&
-          'We tailor the install for different hardware. Each device will have its own configuration, emulators and pre-configured bezels.'}
+          'EmuDeck tailors the install for different hardware. Each device will have its own configuration, emulators and pre-configured bezels.'}
       </p>
       <Main>
         <div className="cards">{children}</div>
