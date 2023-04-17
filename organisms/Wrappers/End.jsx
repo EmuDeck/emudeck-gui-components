@@ -118,7 +118,7 @@ function End({
                     EmuDeck has detected the following emulators and tools are
                     currently installed on your system. If an emulator or tool
                     failed to install, run a "Custom Reset" or install the
-                    emulator on the "Manage Emulators" page
+                    emulator on the "Manage Emulators" page.
                   </p>
                   {emusInstalledStatus !== undefined &&
                     Object.values(emusInstalledStatus.Emulators).map((item) => {
@@ -150,9 +150,9 @@ function End({
                 <div data-col-sm="6">
                   <span className="h2">Steam Input Profiles </span>
                   <p className="lead">
-                    You can use Steam Deck's L4, L5, R4, R5 triggers to control
-                    some emulators hotkeys. Using Steam Rom Manager will add the
-                    automatically for you for 3DS, WiiU and Playstation 1 games
+                    Steam ROM Manager is configured to
+                    automatically apply EmuDeck's Steam Input profiles for 3DS, GB/GBC/GBA, N64, NDS, Playstation 1, PSP, and Wii U games. Use
+                    the Steam Input profiles to access emulator hotkeys in game. 
                     <br />
                   </p>
                 </div>
@@ -168,7 +168,7 @@ function End({
           <>
             <ProgressBar css="progress--success" value={percentage} max={100} />
             <span className="h5">
-              EmuDeck wouldn't be possible without all these open-source
+              EmuDeck would not be possible without all these open-source
               projects. We want to give them all a big shout out for their hard
               work!
             </span>
