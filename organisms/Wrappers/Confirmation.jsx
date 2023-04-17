@@ -197,7 +197,7 @@ const Confirmation = ({
               {system == 'win32' && (
                 <>
                   <li>
-                    GameCube and Wii Resolution:{' '}
+                    GameCube Resolution:{' '}
                     <strong>{resolutions.dolphin}</strong>
                   </li>
                   <li>

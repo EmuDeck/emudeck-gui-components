@@ -25,7 +25,7 @@ const AspectRatioDolphin = ({
   return (
     <>
       <p className="lead">
-        Select the aspect ratio for Gamecube and Wii games. You can change this setting in
+        Select the aspect ratio for Gamecube games. You can change this setting in
         game anytime by pressing Start + DPad Right.
       </p>
       <Main>
@@ -66,7 +66,6 @@ const AspectRatioDolphin = ({
             <p className="lead">Systems</p>
             <ul>
               <li>Gamecube</li>
-              <li>Wii</li>
             </ul>
           </div>
         </SelectorMenu>
