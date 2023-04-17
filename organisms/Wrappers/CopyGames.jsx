@@ -128,10 +128,10 @@ function CopyGames({
                   EmuDeck can add your games to Steam as non-Steam game shortcuts.
                   <br />
                   <br />
-                  When opening Steam ROM Manager just click on{' '}
+                  When you open Steam ROM Manager, enable your desired parsers, click on{' '}
                   <strong>"Preview" &gt; "Generate App List"</strong> and wait
                   until it finishes, then "Save apps to Steam". When it finishes, 
-                  you can switch back to Game Mode and play your newly copied games.
+                  you can switch back to Game Mode and play your newly transferred games.
                 </p>
               </div>
               <div data-col-sm="6">
