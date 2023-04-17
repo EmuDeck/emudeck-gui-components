@@ -44,7 +44,7 @@ const Confirmation = ({
       <Main>
         <div className="container--grid">
           <div data-col-sm="3">
-            <span className="h5">We will install:</span>
+            <span className="h5">EmuDeck will install:</span>
             <ul>
               {installEmusArray.map((item) => {
                 if (system === 'win32') {
@@ -79,7 +79,7 @@ const Confirmation = ({
             </ul>
           </div>
           <div data-col-sm="3">
-            <span className="h5">We will configure:</span>
+            <span className="h5">EmuDeck will configure:</span>
             <ul>
               {overwriteConfigEmusArray.map((item) => {
                 if (system === 'win32') {
@@ -114,7 +114,7 @@ const Confirmation = ({
             </ul>
           </div>
           <div data-col-sm="3">
-            <span className="h5">Customization:</span>
+            <span className="h5">Your Customizations:</span>
             {/*
                 achievements,
                 bezels,
@@ -216,7 +216,7 @@ const Confirmation = ({
             </ul>
           </div>
           <div data-col-sm="3">
-            <span className="h5">Installation Path:</span>
+            <span className="h5">Your Installation Path:</span>
             <ul>
               <li>
                 {storagePath == '$HOME' ? 'User Home Folder' : storagePath}
