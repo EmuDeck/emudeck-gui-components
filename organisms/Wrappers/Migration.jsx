@@ -45,7 +45,7 @@ const Migration = ({
       <Main>
         <div className="container--grid">
           <div data-col-sm="6">
-            <span className="h4">Current installation:</span>
+            <span className="h4">Current Installation:</span>
             <div className="cards cards--half">
               {storage == 'SD-Card' && (
                 <Card css={storage == 'SD-Card' && 'is-selected'}>
@@ -79,7 +79,7 @@ const Migration = ({
             </div>
           </div>
           <div data-col-sm="6">
-            <span className="h4">Pick your destination:</span>
+            <span className="h4">Pick your Destination:</span>
             <div className="cards cards--half">
               <Card
                 css={storageDestination == 'SD-Card' && 'is-selected'}
@@ -133,7 +133,7 @@ const Migration = ({
                 aria="Waiting Migration"
                 disabled
               >
-                Doing Migration...
+                Migrating...
               </BtnSimple>
             )}
           </div>
