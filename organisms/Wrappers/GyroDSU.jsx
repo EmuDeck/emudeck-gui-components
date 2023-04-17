@@ -44,7 +44,7 @@ const GyroDSU = ({
       </Notification>
       <p className="lead">
         SteamDeckGyroDSU is a plugin that allows you to use your Steam Deck
-        Gyroscope in Dolphin (Gamecube and Wii), Citra (3DS), CEMU (Wii U), Yuzu
+        Gyroscope in Dolphin (Gamecube and Wii), Citra (3DS), Cemu (Wii U), Yuzu
         (Nintendo Switch), and Ryujinx (Nintendo Switch) games. Learn more about
         SteamDeckGyroDSU{' '}
         <LinkSimple
