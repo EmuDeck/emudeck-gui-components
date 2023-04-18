@@ -164,7 +164,7 @@ const CheckBios = ({
                   Europe, etc.
                 </li>
                 <li>
-                  Tip 3: Case matters. Even if your BIOS are detected, your BIOS
+                  Tip 3: Casing matters. Even if your BIOS are detected, your BIOS
                   must be lowercase for Playstation 1 and Playstation 2.
                 </li>
                 <li>

@@ -27,7 +27,7 @@ const AutoSave = ({
   return (
     <>
       <p className="lead">
-        If enabled, your game state will be saved on exit and automaticaly
+        If enabled, your game state will be saved on exit and automatically
         loaded when opened again.
       </p>
       <Main>

@@ -53,7 +53,7 @@ const PowerTools = ({
           href="https://github.com/NGnius/PowerTools"
           target="_blank"
         >
-          here
+          here 
         </LinkSimple>
         and Decky Loader, {' '}
         <LinkSimple

@@ -27,7 +27,7 @@ const Uninstall = ({
   return (
     <>
       <p className="lead">
-        Uninstalling EmuDeck should only be used if you are intending on
+        The EmuDeck Uninstallation utility should only be used if you are intending on
         removing EmuDeck from your system. If you are having issues, run a
         Custom Reset, troubleshoot the specific tool or emulator, or visit EmuDeck's Discord or Reddit for additional support.
       </p>

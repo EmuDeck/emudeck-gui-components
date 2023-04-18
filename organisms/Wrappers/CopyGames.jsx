@@ -45,9 +45,9 @@ function CopyGames({
     <>
       {statusCopyGames !== true && (
         <p className="lead">
-          Insert a USB Drive in your Deck's USB C port. We will create a roms
-          and bios folder so you can copy your roms and bios on your PC and then
-          transfer them to your Steam Deck with this same utility
+          Plug a USB Drive into the Steam Deck's USB C port, using a hub or adapter. EmuDeck will create a ROMs
+          and BIOS folder, allowing you to copy your ROMs and BIOS to your USB Drive on another device. When you are ready, 
+          return to this page, and EmuDeck will transfer your newly copied files to your Steam Deck.
         </p>
       )}
       <Main>
@@ -55,7 +55,7 @@ function CopyGames({
           {statusCopyGames !== true && (
             <>
               <div data-col-sm="6">
-                <span className="h4">Pick your USB Drive</span>
+                <span className="h4">Select your USB Drive</span>
                 <div className="cards cards--half">
                   <Card
                     css={storageUSB == 'Custom' && 'is-selected'}
@@ -77,7 +77,7 @@ function CopyGames({
                       aria="Start CopyGames"
                       onClick={() => onClickStart()}
                     >
-                      Create ROM structure on USB
+                      Create EmuDeck folders on USB Drive
                     </BtnSimple>
                   )}
                 {statusCopyGames === null &&
@@ -88,7 +88,7 @@ function CopyGames({
                       type="button"
                       aria="Waiting CopyGames"
                     >
-                      Creating Rom Structure...
+                      Creating EmuDeck folders...
                     </BtnSimple>
                   )}
 
@@ -99,7 +99,7 @@ function CopyGames({
                     aria="Waiting CopyGames"
                     onClick={() => onClickCopyGames()}
                   >
-                    Copy your roms & bios to your Steam Deck
+                    Copy your ROMs & BIOS to your Steam Deck
                   </BtnSimple>
                 )}
 
@@ -122,29 +122,29 @@ function CopyGames({
           {statusCopyGames === true && (
             <>
               <div data-col-sm="6">
-                <span className="h4">Play Using Steam Rom Manager</span>
+                <span className="h4">Play Using Steam ROM Manager</span>
                 <img src={imgSTEAM} alt="ESDE" />
                 <p>
-                  We can add your games to Steam to look like Steam Games.
+                  EmuDeck can add your games to Steam as non-Steam game shortcuts.
                   <br />
                   <br />
-                  When opening Steam Rom Manager just click on{' '}
+                  When you open Steam ROM Manager, enable your desired parsers, click on{' '}
                   <strong>"Preview" &gt; "Generate App List"</strong> and wait
-                  until it finishes, then "Save App List" and went back to Game
-                  Mode when it finishes creating VDF entries
+                  until it finishes, then "Save apps to Steam". When it finishes, 
+                  you can switch back to Game Mode and play your newly transferred games.
                 </p>
               </div>
               <div data-col-sm="6">
                 <span className="h4">Play Using EmulationStation DE</span>
                 <img src={imgESDE} alt="ESDE" />
                 <p>
-                  This is recommended if you have a lot of games.
+                  EmulationStation-DE is recommended if you have a lot of games.
                   <br />
                   <br />
-                  You need to use Steam Rom Manager to add EmulationStation DE
-                  to your library. Follow the same steps as instructed before
-                  but disable all parsers but the one named{' '}
-                  <strong>"EmulationStation DE"</strong>
+                  You will need to use Steam ROM Manager to add EmulationStation DE
+                  to your library. Follow the same steps as instructed previously, but
+                  you will only need to enable the{' '}
+                  <strong>"EmulationStation DE"</strong> parser.
                 </p>
               </div>
             </>

@@ -55,7 +55,7 @@ const DeckyControls = ({
             <p>
               This tool requires you to use a Linux sudo (SuperUser) password.{' '}
               <strong>
-                Never share the sudo password, if you forget it you'll need to
+                Never share the sudo password, if you forget it you will need to
                 reset your Steam Deck.
               </strong>
             </p>
