@@ -145,22 +145,6 @@ function End({
                 </div>
               </Card>
             )}
-            <Card css="is-selected">
-              <div className="container--grid">
-                <div data-col-sm="6">
-                  <span className="h2">Steam Input Profiles </span>
-                  <p className="lead">
-                    Steam ROM Manager is configured to
-                    automatically apply EmuDeck's Steam Input profiles for 3DS, GB/GBC/GBA, N64, NDS, Playstation 1, PSP, and Wii U games. Use
-                    the Steam Input profiles to access emulator hotkeys in game. 
-                    <br />
-                  </p>
-                </div>
-                <div data-col-sm="6">
-                  <img src="https://www.emudeck.com/img/citra1.png" alt="bg" />
-                </div>
-              </div>
-            </Card>
           </div>
         )}
         <br />
