@@ -71,21 +71,36 @@ function End({
 
     let bashArray = [];
     onlySelectedEmus.forEach((item) => {
+      console.log(item.name);
+      if (item.name === 'EmulationStation-DE') {
+        item.name = 'ESDE';
+      }
+
+      if (item.name === 'PCSX2') {
+        item.name = 'PCSX2QT';
+      }
+
+      if (item.name === "Rosalie's Mupen Gui") {
+        item.name = 'RMG';
+      }
+
+      if (item.name === 'Steam Rom Manager') {
+        return;
+      }
+
       bashArray.push(item.name);
     });
 
-    let emuList = bashArray.join(' ');
+    let emuList = bashArray.join('" "');
 
-    //Bash mismatch namings
-    emuList.replace('EmulationStation-DE', 'ESDE');
-    emuList.replace('PCSX2', 'PCSX2QT');
-    emuList.replace("Rosalie's Mupen Gui", 'RMG');
+    emuList = emuList.replace(/(\r\n|\n|\r)/gm, '');
 
     ipcChannel.sendMessage('emudeck', [
       `getEmuInstallStatus|||getEmuInstallStatus "${emuList}"`,
     ]);
     ipcChannel.once('getEmuInstallStatus', (message) => {
-      console.log(message);
+      const emusChecked = message;
+
       console.log(JSON.parse(message.stdout));
       setStatePage({
         ...statePage,
@@ -115,10 +130,9 @@ function End({
                     Post Installation Status
                   </span>
                   <p className="lead">
-                    EmuDeck has detected the following emulators and tools are
-                    currently installed on your system. If an emulator or tool
-                    failed to install, run a "Custom Reset" or install the
-                    emulator on the "Manage Emulators" page.
+                    Please check that all your emulators has been installed. If
+                    an emulator or tool failed to install, run a "Custom Reset"
+                    or install the emulator on the "Manage Emulators" page.
                   </p>
                   {emusInstalledStatus !== undefined &&
                     Object.values(emusInstalledStatus.Emulators).map((item) => {
