@@ -1,6 +1,7 @@
 .header {
   padding-top: 10px;
-  &__beta {
+  &__beta,
+  &__early {
     position: fixed;
     top: -8px;
     right: -58px;
@@ -11,6 +12,10 @@
     width: 150px;
     transform: rotate(45deg);
     text-align: center;
+  }
+  &__early {
+    background: rgb(251, 225, 109);
+    color: #000;
   }
   &__accesibility {
     position: absolute;

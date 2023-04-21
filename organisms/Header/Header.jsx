@@ -81,7 +81,7 @@ function HeaderElectron({ title, bold }) {
 
   return (
     <header className="header">
-      <Toasty/>
+      <Toasty />
       {month === 11 && snowFlakes && snowFlakes}
       <small onClick={toggleDebug} className="header__version">
         {version}
@@ -117,7 +117,11 @@ function HeaderElectron({ title, bold }) {
         ))}
       </div>
 
-      {branch === 'beta' && <div className="header__beta"> {branch}</div>}
+      {branch === 'beta' ||
+        (branch === 'early' && (
+          <div className={`header__${branch}`}> {branch}</div>
+        ))}
+
       {!debug && (
         <h1 className="h2">
           {title} <span>{bold}</span>
