@@ -83,6 +83,12 @@
     }
     .store-game__img {
       order: 1;
+      overflow: hidden;
+      position: relative;      
+      padding-bottom: 75%;
+      img{
+        position: absolute;
+      }
     }
     .store-game__tags {
       display: flex;

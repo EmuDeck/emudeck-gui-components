@@ -1,6 +1,6 @@
 @import '/src/global.scss';
 .featured-games-list {
-  max-height: 600px;
+  max-height: 85vh;
   transition: 0.5s;
   &.is-hidden {
     overflow: hidden;
