@@ -167,7 +167,7 @@ function EmuTable({
                   YuzuEAaddToken();
                 }}
               >
-                Early Access Token
+                Setup Early Access
               </BtnSimple>
             )}
           </BtnGroup>
