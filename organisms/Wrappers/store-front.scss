@@ -1,0 +1,116 @@
+@import '/src/global.scss';
+.featured-games-list {
+  max-height: 600px;
+  transition: 0.5s;
+  &.is-hidden {
+    overflow: hidden;
+    max-height: 0;
+    transition: 0.5s;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    //margin: 0 -12px;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    transition: 0.5s;
+
+    .store-game {
+      width: 32%;
+      margin-bottom: 2%; /* (100-32*3)/2 */
+      position: relative;
+
+      @media (max-width: $screen-xs-max) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.games-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+  justify-content: flex-start;
+  //margin-bottom: 20px;
+  .store-game {
+    margin: 0 12px;
+    //flex-basis: 10%;
+    width: 18%;
+    margin-bottom: 2%; /* (100-32*3)/2 */
+    position: relative;
+    @media (max-width: $screen-sm-max) {
+      width: 32%;
+    }
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+    }
+  }
+}
+
+.game-details {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -200vh;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  transition: 0.5s;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  &__box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 90vw;
+    height: 90vh;
+    margin: auto;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    .h2 {
+      color: #444;
+      margin-bottom: 0;
+    }
+    p {
+      color: #444;
+    }
+  }
+  &__thumbnails {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 -8px;
+    justify-content: flex-start;
+    img {
+      margin: 0 8px;
+      max-width: 30%;
+    }
+  }
+  &__tags {
+    margin-bottom: 24px;
+  }
+  &__head {
+    flex: 1;
+  }
+  &__logo {
+    width: 100px;
+    margin-bottom: 24px;
+  }
+  &__footer {
+    text-align: right;
+    .btn-simple {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.game-details.is-shown {
+  bottom: 0vh;
+  transition: 0.5s;
+}

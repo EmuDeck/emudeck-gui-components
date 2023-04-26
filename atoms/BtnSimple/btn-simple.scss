@@ -1,12 +1,12 @@
 .btn-simple {
-  --btn-simple-padding: 0.8em 1.4em 0.82em 1.8em;
+  --btn-simple-padding: 0.8em 1.4em 0.82em 1.4em;
   --btn-simple-text-size: 1.7rem;
   --btn-simple-mt: 10px;
   --btn-simple-border-radius: 30em;
   --btn-simple-transition-in: 0.2s;
   --btn-simple-transition-out: 0.2s;
-  --btn-simple-padding-xs: 4px 5px;
-  --btn-simple-text-size-xs: 10px;
+  --btn-simple-padding-xs: 8px 18px;
+  --btn-simple-text-size-xs: 12px;
   --btn-simple-padding-sm: 6px 10px;
   --btn-simple-text-size-sm: 12px;
   --btn-simple-padding-lg: 10px 18px;
@@ -58,18 +58,40 @@
   var(--color-disabled)
 );
 
+@include generate-btn-simple(
+  5,
+  white,
+  var(--deck-2),
+  white,
+  var(--deck-1),
+  var(--grey3),
+  white,
+  var(--color-disabled)
+);
+
+@include generate-btn-simple(
+  6,
+  white,
+  var(--color-warning),
+  white,
+  var(--deck-1),
+  var(--grey3),
+  white,
+  var(--color-disabled)
+);
+
 @keyframes background {
   0% {
-    background-color: #f99;
+    background-color: var(--deck-1);
   }
   33% {
-    background-color: #5bf;
+    background-color: var(--deck-2);
   }
   67% {
-    background-color: #99f;
+    background-color: var(--deck-3);
   }
   100% {
-    background-color: #f99;
+    background-color: var(--deck-4);
   }
 }
 
