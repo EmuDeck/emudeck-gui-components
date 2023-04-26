@@ -21,6 +21,7 @@ function EmuTable({
   onChange,
   onClick,
   onClickInstall,
+  onClickReInstall,
   onClickUninstall,
   installEmus,
   disableInstallButton,
@@ -109,7 +110,7 @@ function EmuTable({
                 type="button"
                 aria="ReInstall / Update"
                 disabled={hideInstallButton}
-                onClick={() => onClickInstall(emuData.id, emuData.code)}
+                onClick={() => onClickReInstall(emuData.id, emuData.code)}
               >
                 ReInstall / Update
               </BtnSimple>

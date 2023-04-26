@@ -52,6 +52,7 @@ function EmuGuide(props) {
     onClick,
     onClickInstall,
     onClickUninstall,
+    onClickReInstall,
     next,
     back,
     emuData,
@@ -279,6 +280,7 @@ function EmuGuide(props) {
             onChange={onChange}
             onClick={onClick}
             onClickInstall={onClickInstall}
+            onClickReInstall={onClickReInstall}
             onClickUninstall={onClickUninstall}
             disableInstallButton={disableInstallButton}
             disableResetButton={disableResetButton}
