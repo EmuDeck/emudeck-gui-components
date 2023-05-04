@@ -4,7 +4,7 @@ import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
-const EmulatorSelector = ({
+function EmulatorSelector({
   disabledNext,
   disabledBack,
   onClick,
@@ -12,7 +12,7 @@ const EmulatorSelector = ({
   back,
   data,
   images,
-}) => {
+}) {
   const { state, setState } = useContext(GlobalContext);
   const { device, installEmus, second, system } = state;
   const installEmusArray = Object.values(installEmus);
@@ -39,8 +39,6 @@ const EmulatorSelector = ({
               if (
                 item.id == 'primehack' ||
                 item.id == 'melonds' ||
-                item.id == 'citra' ||
-                item.id == 'ryujinx' ||
                 item.id == 'rmg' ||
                 item.id == 'mame' ||
                 item.id == 'vita3k' ||
@@ -68,6 +66,6 @@ const EmulatorSelector = ({
       </Main>
     </>
   );
-};
+}
 
 export default EmulatorSelector;

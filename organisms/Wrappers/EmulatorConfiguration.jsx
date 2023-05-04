@@ -4,7 +4,7 @@ import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
-const EmulatorConfiguration = ({
+function EmulatorConfiguration({
   disabledNext,
   disabledBack,
   onClick,
@@ -12,7 +12,7 @@ const EmulatorConfiguration = ({
   back,
   data,
   images,
-}) => {
+}) {
   const { state, setState } = useContext(GlobalContext);
   const { device, overwriteConfigEmus, second, system } = state;
   const overwriteConfigEmusArray = Object.values(overwriteConfigEmus);
@@ -49,8 +49,6 @@ const EmulatorConfiguration = ({
               if (
                 item.id == 'primehack' ||
                 item.id == 'melonds' ||
-                item.id == 'citra' ||
-                item.id == 'ryujinx' ||
                 item.id == 'rmg' ||
                 item.id == 'mame' ||
                 item.id == 'vita3k' ||
@@ -78,6 +76,6 @@ const EmulatorConfiguration = ({
       </Main>
     </>
   );
-};
+}
 
 export default EmulatorConfiguration;

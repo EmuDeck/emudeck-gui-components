@@ -15,7 +15,8 @@ import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 import imgYES from 'assets/HomebrewGamesYES.png';
 import imgNO from 'assets/HomebrewGamesNO.png';
 import { iconSuccess, iconDanger } from 'components/utils/images/images';
-const EmulatorResolution = ({
+
+function EmulatorResolution({
   disabledNext,
   disabledBack,
   downloadComplete,
@@ -23,7 +24,7 @@ const EmulatorResolution = ({
   next,
   back,
   data,
-}) => {
+}) {
   const { state, setState } = useContext(GlobalContext);
   const {
     mode,
@@ -43,47 +44,12 @@ const EmulatorResolution = ({
   return (
     <>
       <p className="lead">
-        Choose the resolution you would like to use for your emulators. Keep in mind the
-        higher the resolution, the beefier computer you will need.
+        Choose the resolution you would like to use for your emulators. Keep in
+        mind the higher the resolution, the beefier computer you will need.
       </p>
       <Main>
         <div className="container--grid">
           <div data-col-sm="6">
-            <div className="dolphin">
-              <span className="h5">GameCube and Wii Games</span>
-              <div className="cards">
-                <Card css={resolutions.dolphin == '720P' ? 'is-selected' : ''}>
-                  <span
-                    className="h6"
-                    onClick={() => onClick('dolphin', '720P')}
-                  >
-                    720P
-                  </span>
-                </Card>
-                <Card css={resolutions.dolphin == '1080P' ? 'is-selected' : ''}>
-                  <span
-                    className="h6"
-                    onClick={() => onClick('dolphin', '1080P')}
-                  >
-                    1080P
-                  </span>
-                </Card>
-                <Card css={resolutions.dolphin == '1440P' ? 'is-selected' : ''}>
-                  <span
-                    className="h6"
-                    onClick={() => onClick('dolphin', '1440P')}
-                  >
-                    1440P
-                  </span>
-                </Card>
-                <Card css={resolutions.dolphin == '4K' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('dolphin', '4K')}>
-                    4K
-                  </span>
-                </Card>
-              </div>
-            </div>
-            <hr />
             <div className="duckstation">
               <span className="h5">PlayStation 1 Games</span>
               <div className="cards">
@@ -129,8 +95,7 @@ const EmulatorResolution = ({
                 </Card>
               </div>
             </div>
-          </div>
-          <div data-col-sm="6">
+            <hr />
             <div className="pcsx2">
               <span className="h5">PlayStation 2 Games</span>
               <div className="cards">
@@ -171,7 +136,7 @@ const EmulatorResolution = ({
                     720P
                   </span>
                 </Card>
-                <Card css={resolutions.pcsx2 == '1080P' ? 'is-selected' : ''}>
+                <Card css={resolutions.rpcs3 == '1080P' ? 'is-selected' : ''}>
                   <span
                     className="h6"
                     onClick={() => onClick('rpcs3', '1080P')}
@@ -179,7 +144,7 @@ const EmulatorResolution = ({
                     1080P
                   </span>
                 </Card>
-                <Card css={resolutions.pcsx2 == '1440P' ? 'is-selected' : ''}>
+                <Card css={resolutions.rpcs3 == '1440P' ? 'is-selected' : ''}>
                   <span
                     className="h6"
                     onClick={() => onClick('rpcs3', '1440P')}
@@ -187,8 +152,103 @@ const EmulatorResolution = ({
                     1440P
                   </span>
                 </Card>
-                <Card css={resolutions.pcsx2 == '4K' ? 'is-selected' : ''}>
+                <Card css={resolutions.rpcs3 == '4K' ? 'is-selected' : ''}>
                   <span className="h6" onClick={() => onClick('rpcs3', '4K')}>
+                    4K
+                  </span>
+                </Card>
+              </div>
+            </div>
+          </div>
+          <div data-col-sm="6">
+            <div className="dolphin">
+              <span className="h5">GameCube and Wii Games</span>
+              <div className="cards">
+                <Card css={resolutions.dolphin == '720P' ? 'is-selected' : ''}>
+                  <span
+                    className="h6"
+                    onClick={() => onClick('dolphin', '720P')}
+                  >
+                    720P
+                  </span>
+                </Card>
+                <Card css={resolutions.dolphin == '1080P' ? 'is-selected' : ''}>
+                  <span
+                    className="h6"
+                    onClick={() => onClick('dolphin', '1080P')}
+                  >
+                    1080P
+                  </span>
+                </Card>
+                <Card css={resolutions.dolphin == '1440P' ? 'is-selected' : ''}>
+                  <span
+                    className="h6"
+                    onClick={() => onClick('dolphin', '1440P')}
+                  >
+                    1440P
+                  </span>
+                </Card>
+                <Card css={resolutions.dolphin == '4K' ? 'is-selected' : ''}>
+                  <span className="h6" onClick={() => onClick('dolphin', '4K')}>
+                    4K
+                  </span>
+                </Card>
+              </div>
+            </div>
+
+            <hr />
+            <div className="cemu">
+              <span className="h5">Wii U Games</span>
+              <div className="cards">
+                <Card css={resolutions.cemu == '720P' ? 'is-selected' : ''}>
+                  <span className="h6" onClick={() => onClick('cemu', '720P')}>
+                    720P
+                  </span>
+                </Card>
+                <Card css={resolutions.cemu == '1080P' ? 'is-selected' : ''}>
+                  <span className="h6" onClick={() => onClick('cemu', '1080P')}>
+                    1080P
+                  </span>
+                </Card>
+                <Card css={resolutions.cemu == '1440P' ? 'is-selected' : ''}>
+                  <span className="h6" onClick={() => onClick('cemu', '1440P')}>
+                    1440P
+                  </span>
+                </Card>
+                <Card css={resolutions.cemu == '4K' ? 'is-selected' : ''}>
+                  <span className="h6" onClick={() => onClick('cemu', '4K')}>
+                    4K
+                  </span>
+                </Card>
+              </div>
+            </div>
+            <hr />
+            <div className="citra">
+              <span className="h5">Nintendo 3DS Games</span>
+              <div className="cards">
+                <Card css={resolutions.citra == '720P' ? 'is-selected' : ''}>
+                  <span className="h6" onClick={() => onClick('citra', '720P')}>
+                    720P
+                  </span>
+                </Card>
+                <Card css={resolutions.citra == '1080P' ? 'is-selected' : ''}>
+                  <span
+                    className="h6"
+                    onClick={() => onClick('citra', '1080P')}
+                  >
+                    1080P
+                  </span>
+                </Card>
+                <Card css={resolutions.citra == '1440P' ? 'is-selected' : ''}>
+                  <span
+                    className="h6"
+                    onClick={() => onClick('citra', '1440P')}
+                  >
+                    1440P
+                  </span>
+                </Card>
+                <Card css={resolutions.citra == '4K' ? 'is-selected' : ''}>
+                  <span className="h6" onClick={() => onClick('citra', '4K')}>
                     4K
                   </span>
                 </Card>
@@ -225,6 +285,6 @@ const EmulatorResolution = ({
       </Main>
     </>
   );
-};
+}
 
 export default EmulatorResolution;
