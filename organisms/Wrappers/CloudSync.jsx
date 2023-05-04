@@ -38,9 +38,11 @@ function CloudSync({
   return (
     <>
       <p className="lead">
-        Sync your saves and save states to the cloud. After selecting one of the
-        cloud providers below, this feature is currently in beta, so use it with
-        caution.
+        Backup your saves and save states to the cloud. After selecting one of
+        the cloud providers below, EmuDeck Save Backup will be added as a
+        shortcut to your desktop. Use this application to manage and create
+        backups. This feature is currently in beta. At the moment, it is only a
+        one way backup. Stay tuned for additional features!
       </p>
       <Main>
         <p>Select one of the following providers:</p>
@@ -92,20 +94,9 @@ function CloudSync({
           >
             {disableButton && 'Please wait...'}
 
-            {disableButton || 'Install Cloud Sync'}
+            {disableButton || 'Run SaveBackup'}
           </BtnSimple>
         )}
-        <BtnSimple
-          css="btn-simple--1"
-          type="button"
-          aria="Uninstall SaveSync"
-          onClick={() => onClickUninstall()}
-          disabled={disableButton}
-        >
-          {disableButton && 'Please wait...'}
-
-          {disableButton || 'Uninstall'}
-        </BtnSimple>
       </Main>
     </>
   );
