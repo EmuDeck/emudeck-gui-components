@@ -81,6 +81,13 @@ function CloudSync({
             <img src={onedrive} alt="onedrive" />
             <span className="h6">OneDrive</span>
           </Card>
+          <Card
+            css={cloudSync == 'Emudeck-pCloud' && 'is-selected'}
+            onClick={() => onClick('Emudeck-pCloud')}
+          >
+            <img src={pcloud} alt="Emudeck-pCloud" />
+            <span className="h6">pCloud</span>
+          </Card>
         </div>
         {cloudSync !== '' && cloudSync !== false && (
           <BtnSimple
