@@ -118,8 +118,8 @@ function CloudSyncConfig({
               {disableButton && 'Please wait...'}
 
               {disableButton || cloudSyncType === 'Sync'
-                ? 'Installing Cloud Sync'
-                : 'Installing Save Backup'}
+                ? 'Install Cloud Sync'
+                : 'Install Save Backup'}
             </BtnSimple>
           )}
 
