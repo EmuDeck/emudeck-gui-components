@@ -4,131 +4,78 @@ import { GlobalContext } from 'context/globalContext';
 
 import Main from 'components/organisms/Main/Main';
 
-import { BtnSimple } from 'getbasecore/Atoms';
-
-import { Alert } from 'getbasecore/Molecules';
-
 import Card from 'components/molecules/Card/Card';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 
-import cloudSyncOn from 'assets/CloudSync.png';
-import cloudSyncOff from 'assets/CloudSync.png';
-
-import box from 'assets/cloud/box.png';
-import dropbox from 'assets/cloud/dropbox.png';
-import gdrive from 'assets/cloud/gdrive.png';
-import nextcloud from 'assets/cloud/nextcloud.png';
-import onedrive from 'assets/cloud/onedrive.png';
-import pcloud from 'assets/cloud/pcloud.png';
-import sftp from 'assets/cloud/sftp.png';
-import smb from 'assets/cloud/smb.png';
+import none from 'assets/cloud/none.png';
+import backup from 'assets/cloud/backup.png';
+import sync from 'assets/cloud/sync.png';
 
 function CloudSync({
   disabledNext,
   disabledBack,
   downloadComplete,
   onClick,
-  onClickInstall,
   next,
   back,
   data,
-  disableButton,
 }) {
   const { state, setState } = useContext(GlobalContext);
-  const { cloudSync } = state;
+  const { cloudSyncType, system } = state;
 
   return (
     <>
-      <p className="lead">
-        Sync your saves and save states to the cloud. After selecting one of the
-        cloud providers below, this feature is currently in beta, so use it with
-        caution.
-      </p>
+      <p className="lead">Select the type of Cloud saves you want.</p>
       <Main>
-        <p>Select one of the following providers:</p>
-
-        <div className="cards cards--mini">
-          <Card
-            css={cloudSync == 'Emudeck-Box' && 'is-selected'}
-            onClick={() => onClick('Emudeck-Box')}
-          >
-            <img src={box} alt="Box" />
-            <span className="h6">Box</span>
-          </Card>
-          <Card
-            css={cloudSync == 'Emudeck-DropBox' && 'is-selected'}
-            onClick={() => onClick('Emudeck-DropBox')}
-          >
-            <img src={dropbox} alt="dropbox" />
-            <span className="h6">DropBox</span>
-          </Card>
-          <Card
-            css={cloudSync == 'Emudeck-GDrive' && 'is-selected'}
-            onClick={() => onClick('Emudeck-GDrive')}
-          >
-            <img src={gdrive} alt="gdrive" />
-            <span className="h6">Google Drive</span>
-          </Card>
-          <Card
-            css={cloudSync == 'Emudeck-NextCloud' && 'is-selected'}
-            onClick={() => onClick('Emudeck-NextCloud')}
-          >
-            <img src={nextcloud} alt="nextcloud" />
-            <span className="h6">Nextcloud</span>
-          </Card>
-          <Card
-            css={cloudSync == 'Emudeck-OneDrive' && 'is-selected'}
-            onClick={() => onClick('Emudeck-OneDrive')}
-          >
-            <img src={onedrive} alt="onedrive" />
-            <span className="h6">OneDrive</span>
-          </Card>
-          <Card
-            css={cloudSync == 'Emudeck-pCloud' && 'is-selected'}
-            onClick={() => onClick('Emudeck-pCloud')}
-          >
-            <img src={pcloud} alt="Emudeck-pCloud" />
-            <span className="h6">pCloud</span>
-          </Card>
-          <Card
-            css={cloudSync == 'Emudeck-SFTP' && 'is-selected'}
-            onClick={() => onClick('Emudeck-SFTP')}
-          >
-            <img src={sftp} alt="Emudeck-SFTP" />
-            <span className="h6">SFTP</span>
-          </Card>
-          <Card
-            css={cloudSync == 'Emudeck-SMB' && 'is-selected'}
-            onClick={() => onClick('Emudeck-SMB')}
-          >
-            <img src={smb} alt="Emudeck-SMB" />
-            <span className="h6">SMB</span>
-          </Card>
-        </div>
-        {cloudSync !== '' && cloudSync !== false && (
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            aria="Install SaveSync"
-            onClick={() => onClickInstall()}
-            disabled={disableButton}
-          >
-            {disableButton && 'Please wait...'}
-
-            {disableButton || 'Install Cloud Sync'}
-          </BtnSimple>
-        )}
-        <BtnSimple
-          css="btn-simple--1"
-          type="button"
-          aria="Uninstall SaveSync"
-          onClick={() => onClickUninstall()}
-          disabled={disableButton}
-        >
-          {disableButton && 'Please wait...'}
-
-          {disableButton || 'Uninstall'}
-        </BtnSimple>
+        <SelectorMenu>
+          <div className="selector-menu__img">
+            <img
+              src={sync}
+              className={cloudSyncType != 'Sync' && 'is-hidden'}
+              alt="Background"
+            />
+            <img
+              src={backup}
+              className={cloudSyncType != 'Save' && 'is-hidden'}
+              alt="Background"
+            />
+            <img
+              src={none}
+              className={cloudSyncType != 'none' && 'is-hidden'}
+              alt="Background"
+            />
+          </div>
+          <div className="selector-menu__options selector-menu__options--full">
+            <ul>
+              <li onClick={() => onClick('Sync')}>
+                <Card css={cloudSyncType == 'Sync' && 'is-selected'}>
+                  <span className="h4">Sync</span>
+                  <p>Sync between EmuDeck installations</p>
+                </Card>
+              </li>
+              {system !== 'win32' && (
+                <li onClick={() => onClick('Save')}>
+                  <Card css={cloudSyncType == 'Save' && 'is-selected'}>
+                    <span className="h4">Backup</span>
+                    <p>Backup to the cloud</p>
+                  </Card>
+                </li>
+              )}
+              <li onClick={() => onClick('none')}>
+                <Card css={cloudSyncType == 'none' && 'is-selected'}>
+                  <span className="h4">None</span>
+                </Card>
+              </li>
+            </ul>
+          </div>
+          <div className="selector-menu__details">
+            <p className="lead">Systems</p>
+            <ul>
+              <li>All</li>
+              {/* <li>Nintendo NES</li> */}
+            </ul>
+          </div>
+        </SelectorMenu>
       </Main>
     </>
   );
