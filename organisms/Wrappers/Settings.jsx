@@ -50,6 +50,10 @@ import modern from 'assets/ES-DE_01.png';
 import imgYES from 'assets/HomebrewGamesYES.png';
 import imgNO from 'assets/HomebrewGamesNO.png';
 
+import none from 'assets/cloud/none.png';
+import backup from 'assets/cloud/backup.png';
+import sync from 'assets/cloud/sync.png';
+
 const noirPics = [
   <img src={noir1} alt="Background" />,
   <img src={noir2} alt="Background" />,
@@ -63,7 +67,7 @@ const modernPics = [
   <img src={modern2} alt="Background" />,
 ];
 
-const Settings = ({
+function Settings({
   disabledNext,
   disabledBack,
   downloadComplete,
@@ -77,13 +81,25 @@ const Settings = ({
   onClickLCD,
   onClickAutoSave,
   onClickHomeBrew,
+  onClickCloudSync,
   next,
   back,
   notificationText,
   showNotification,
-}) => {
+}) {
   const { state, setState } = useContext(GlobalContext);
-  const { ar, bezels, shaders, theme, autosave, homebrewGames, system } = state;
+  const {
+    ar,
+    bezels,
+    shaders,
+    theme,
+    autosave,
+    homebrewGames,
+    system,
+    cloudSync,
+    cloudSyncStatus,
+    cloudSyncType,
+  } = state;
   const ipcChannel = window.electron.ipcRenderer;
   return (
     <>
@@ -131,6 +147,55 @@ const Settings = ({
                     <li>Master System</li>
                     <li>Genesis</li>
                     <li>GameGear</li>
+                  </ul>
+                </div>
+              </SelectorMenu>
+            </li>
+          )}
+          {cloudSyncType === 'Sync' && (
+            <li>
+              <SelectorMenu css="selector-menu--mini">
+                <div className="selector-menu__img">
+                  <img
+                    src={sync}
+                    className={cloudSyncStatus === false && 'is-hidden'}
+                    alt="Background"
+                  />
+                  <img
+                    src={none}
+                    className={cloudSyncStatus === true && 'is-hidden'}
+                    alt="Background"
+                  />
+                </div>
+                <div className="selector-menu__options">
+                  <p>CloudSync</p>
+                  <ul>
+                    <li onClick={() => onClickCloudSync(false)}>
+                      <Card css={cloudSyncStatus == false && 'is-selected'}>
+                        <span className="h3">Off</span>
+                      </Card>
+                    </li>
+                    <li onClick={() => onClickCloudSync(true)}>
+                      <Card css={cloudSyncStatus == true && 'is-selected'}>
+                        <span className="h3">On</span>
+                      </Card>
+                    </li>
+                  </ul>
+                </div>
+                <div className="selector-menu__details">
+                  <p className="lead">Systems</p>
+                  <ul>
+                    <li>GameBoy</li>
+                    <li>GameBoy Color</li>
+                    <li>Super Nintendo</li>
+                    <li>Nintendo NES</li>
+                    <li>Atari</li>
+                    <li>Master System</li>
+                    <li>Genesis</li>
+                    <li>SegaCD</li>
+                    <li>Sega32x</li>
+                    <li>GameGear</li>
+                    <li>NeoGeo Pocket</li>
                   </ul>
                 </div>
               </SelectorMenu>
@@ -509,6 +574,6 @@ const Settings = ({
       </Main>
     </>
   );
-};
+}
 
 export default Settings;

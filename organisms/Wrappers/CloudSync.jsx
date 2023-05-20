@@ -16,6 +16,7 @@ function CloudSync({
   disabledBack,
   downloadComplete,
   onClick,
+  showNo,
   next,
   back,
   data,
@@ -61,11 +62,13 @@ function CloudSync({
                   </Card>
                 </li>
               )}
-              <li onClick={() => onClick('none')}>
-                <Card css={cloudSyncType == 'none' && 'is-selected'}>
-                  <span className="h4">None</span>
-                </Card>
-              </li>
+              {showNo && (
+                <li onClick={() => onClick('none')}>
+                  <Card css={cloudSyncType == 'none' && 'is-selected'}>
+                    <span className="h4">None</span>
+                  </Card>
+                </li>
+              )}
             </ul>
           </div>
           <div className="selector-menu__details">
