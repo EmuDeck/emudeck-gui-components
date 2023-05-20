@@ -27,6 +27,7 @@ function CloudSyncConfig({
   downloadComplete,
   onClick,
   onClickInstall,
+  onClickUninstall,
   next,
   back,
   data,
@@ -97,7 +98,9 @@ function CloudSyncConfig({
           >
             {disableButton && 'Please wait...'}
 
-            {disableButton || cloudSyncType === "Sync" ? 'Install Cloud Sync' : 'Install Save Backup'}
+            {disableButton || cloudSyncType === 'Sync'
+              ? 'Install Cloud Sync'
+              : 'Install Save Backup'}
           </BtnSimple>
         )}
         <BtnSimple
