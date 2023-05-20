@@ -34,6 +34,7 @@ function CloudSyncConfig({
   back,
   data,
   disableButton,
+  showTrybutton,
 }) {
   const { state, setState } = useContext(GlobalContext);
   const { cloudSync, cloudSyncType } = state;
@@ -104,7 +105,7 @@ function CloudSyncConfig({
             <span className="h6">SMB</span>
           </Card>
         </div>
-        {CloudSyncConfig !== '' && CloudSyncConfig !== false && (
+        {cloudSync !== '' && cloudSync !== false && showTrybutton === false && (
           <BtnSimple
             css="btn-simple--1"
             type="button"
@@ -119,17 +120,31 @@ function CloudSyncConfig({
               : 'Install Save Backup'}
           </BtnSimple>
         )}
-        <BtnSimple
-          css="btn-simple--1"
-          type="button"
-          aria="Uninstall SaveSync"
-          onClick={() => onClickUninstall()}
-          disabled={disableButton}
-        >
-          {disableButton && 'Please wait...'}
 
-          {disableButton || 'Uninstall'}
-        </BtnSimple>
+        {showTrybutton !== false && (
+          <a
+            href={showTrybutton}
+            aria-label="Go Next"
+            className="btn-simple btn-simple--1"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Login to your cloud provider
+          </a>
+        )}
+        {showTrybutton === false && (
+          <BtnSimple
+            css="btn-simple--1"
+            type="button"
+            aria="Uninstall SaveSync"
+            onClick={() => onClickUninstall()}
+            disabled={disableButton}
+          >
+            {disableButton && 'Please wait...'}
+
+            {disableButton || 'Uninstall'}
+          </BtnSimple>
+        )}
       </Main>
     </>
   );
