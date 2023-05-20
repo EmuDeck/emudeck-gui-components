@@ -20,6 +20,8 @@ import gdrive from 'assets/cloud/gdrive.png';
 import nextcloud from 'assets/cloud/nextcloud.png';
 import onedrive from 'assets/cloud/onedrive.png';
 import pcloud from 'assets/cloud/pcloud.png';
+import sftp from 'assets/cloud/sftp.png';
+import smb from 'assets/cloud/smb.png';
 
 function CloudSyncConfig({
   disabledNext,
@@ -27,6 +29,7 @@ function CloudSyncConfig({
   downloadComplete,
   onClick,
   onClickInstall,
+  onClickUninstall,
   next,
   back,
   data,
@@ -86,6 +89,20 @@ function CloudSyncConfig({
             <img src={pcloud} alt="Emudeck-pCloud" />
             <span className="h6">pCloud</span>
           </Card>
+          <Card
+            css={cloudSync == 'Emudeck-SFTP' && 'is-selected'}
+            onClick={() => onClick('Emudeck-SFTP')}
+          >
+            <img src={sftp} alt="Emudeck-SFTP" />
+            <span className="h6">SFTP</span>
+          </Card>
+          <Card
+            css={cloudSync == 'Emudeck-SMB' && 'is-selected'}
+            onClick={() => onClick('Emudeck-SMB')}
+          >
+            <img src={smb} alt="Emudeck-SMB" />
+            <span className="h6">SMB</span>
+          </Card>
         </div>
         {CloudSyncConfig !== '' && CloudSyncConfig !== false && (
           <BtnSimple
@@ -97,7 +114,9 @@ function CloudSyncConfig({
           >
             {disableButton && 'Please wait...'}
 
-            {disableButton || cloudSyncType === "Sync" ? 'Install Cloud Sync' : 'Install Save Backup'}
+            {disableButton || cloudSyncType === 'Sync'
+              ? 'Install Cloud Sync'
+              : 'Install Save Backup'}
           </BtnSimple>
         )}
         <BtnSimple
