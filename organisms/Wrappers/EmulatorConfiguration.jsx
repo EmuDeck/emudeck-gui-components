@@ -48,7 +48,6 @@ function EmulatorConfiguration({
             if (system == 'win32') {
               if (
                 item.id == 'primehack' ||
-                item.id == 'melonds' ||
                 item.id == 'rmg' ||
                 item.id == 'mame' ||
                 item.id == 'vita3k' ||
