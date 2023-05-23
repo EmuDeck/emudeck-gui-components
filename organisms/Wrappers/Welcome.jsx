@@ -48,12 +48,12 @@ function Welcome({
           emulators.
         </p>
       )}
-      {second === true && <p className="lead">Quick actions:</p>}
 
       <Main>
         {/*
             Second install screen
           */}
+        {second === true && <p className="lead">Quick actions:</p>}
         {second === true && (
           <>
             <div className="container--grid">
