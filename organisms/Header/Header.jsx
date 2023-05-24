@@ -75,7 +75,7 @@ function HeaderElectron({ title, bold }) {
 
   if (month === 11) {
     for (let i = 0; i < 150; i++) {
-      snowFlakes.push(<div className="snow"></div>);
+      snowFlakes.push(<div className="snow" />);
     }
   }
 
@@ -118,7 +118,7 @@ function HeaderElectron({ title, bold }) {
       </div>
 
       {branch !== 'main' && (
-        <div className={`header__${branch}`}> {branch}</div>
+        <div className={`header__badge header__${branch}`}> {branch}</div>
       )}
 
       {!debug && (
@@ -127,7 +127,7 @@ function HeaderElectron({ title, bold }) {
         </h1>
       )}
       {debug && (
-        <Form>
+        <div className="form">
           <FormInputSimple
             label="Test your Command"
             type="text"
@@ -144,7 +144,7 @@ function HeaderElectron({ title, bold }) {
             Test command
           </button>
           <br />
-        </Form>
+        </div>
       )}
     </header>
   );
