@@ -1,17 +1,20 @@
 .header {
   padding-top: 10px;
-  &__beta,
-  &__early {
+  &__badge {
     position: fixed;
     top: -8px;
     right: -58px;
-    background: rgb(251, 109, 156);
+    background: rgb(56, 128, 162);
     padding: 20px;
     padding-bottom: 10px;
 
     width: 150px;
     transform: rotate(45deg);
     text-align: center;
+  }
+  &__dev {
+    background: rgb(251, 109, 156);
+    color: white;
   }
   &__early {
     background: rgb(251, 225, 109);

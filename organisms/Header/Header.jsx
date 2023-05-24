@@ -118,7 +118,7 @@ function HeaderElectron({ title, bold }) {
       </div>
 
       {branch !== 'main' && (
-        <div className={`header__${branch}`}> {branch}</div>
+        <div className={`header__badge header__${branch}`}> {branch}</div>
       )}
 
       {!debug && (
