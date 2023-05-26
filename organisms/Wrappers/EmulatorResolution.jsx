@@ -223,6 +223,41 @@ function EmulatorResolution({
               </div>
             </div>
             <hr />
+            <div className="melonds">
+              <span className="h5">Nintendo DS Games</span>
+              <div className="cards">
+                <Card css={resolutions.melonds == '720P' ? 'is-selected' : ''}>
+                  <span
+                    className="h6"
+                    onClick={() => onClick('melonds', '720P')}
+                  >
+                    720P
+                  </span>
+                </Card>
+                <Card css={resolutions.melonds == '1080P' ? 'is-selected' : ''}>
+                  <span
+                    className="h6"
+                    onClick={() => onClick('melonds', '1080P')}
+                  >
+                    1080P
+                  </span>
+                </Card>
+                <Card css={resolutions.melonds == '1440P' ? 'is-selected' : ''}>
+                  <span
+                    className="h6"
+                    onClick={() => onClick('melonds', '1440P')}
+                  >
+                    1440P
+                  </span>
+                </Card>
+                <Card css={resolutions.melonds == '4K' ? 'is-selected' : ''}>
+                  <span className="h6" onClick={() => onClick('melonds', '4K')}>
+                    4K
+                  </span>
+                </Card>
+              </div>
+            </div>
+            <hr />
             <div className="citra">
               <span className="h5">Nintendo 3DS Games</span>
               <div className="cards">
