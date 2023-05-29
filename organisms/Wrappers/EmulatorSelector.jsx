@@ -1,20 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-
+import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
-function EmulatorSelector({
-  disabledNext,
-  disabledBack,
-  onClick,
-  next,
-  back,
-  data,
-  images,
-}) {
-  const { state, setState } = useContext(GlobalContext);
-  const { device, installEmus, second, system } = state;
+function EmulatorSelector({ onClick, images }) {
+  const { state } = useContext(GlobalContext);
+  const { installEmus, system } = state;
   const installEmusArray = Object.values(installEmus);
 
   return (
@@ -26,33 +18,34 @@ function EmulatorSelector({
       </p>
       <Main>
         <div className="cards cards--mini">
-          {installEmusArray.map((item, i) => {
+          {installEmusArray.map((item) => {
             if (
-              item.id == 'srm' ||
-              item.id == 'xenia' ||
-              item.id == 'primehacks'
+              item.id === 'srm' ||
+              item.id === 'xenia' ||
+              item.id === 'primehacks'
             ) {
               return;
             }
 
-            if (system == 'win32') {
+            if (system === 'win32') {
               if (
-                item.id == 'primehack' ||
-                item.id == 'rmg' ||
-                item.id == 'mame' ||
-                item.id == 'vita3k' ||
-                item.id == 'scummvm' ||
-                item.id == 'xemu' ||
-                item.id == 'mgba'
+                item.id === 'primehack' ||
+                item.id === 'rmg' ||
+                item.id === 'mame' ||
+                item.id === 'vita3k' ||
+                item.id === 'scummvm' ||
+                item.id === 'xemu' ||
+                item.id === 'mgba'
               ) {
                 return;
               }
             }
 
             const img = images[item.id];
+            // eslint-disable-next-line consistent-return
             return (
               <Card
-                css={item.status == true && 'is-selected'}
+                css={item.status === true && 'is-selected'}
                 key={item.id}
                 onClick={() => onClick(item.id)}
               >
@@ -66,5 +59,15 @@ function EmulatorSelector({
     </>
   );
 }
+
+EmulatorSelector.propTypes = {
+  onClick: PropTypes.func,
+  images: PropTypes.array,
+};
+
+EmulatorSelector.defaultProps = {
+  onClick: '',
+  images: '',
+};
 
 export default EmulatorSelector;

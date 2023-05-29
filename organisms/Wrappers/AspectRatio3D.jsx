@@ -1,16 +1,13 @@
-import React, { useEffect, useState, useContext } from 'react';
-
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
-import Main from 'components/organisms/Main/Main';
-import Card from 'components/molecules/Card/Card';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
+import Main from 'components/organisms/Main/Main';
 
-import ar43 from 'assets/ar433d.png';
-import ar32 from 'assets/ar323d.png';
-import ar169 from 'assets/ar1693d.png';
+import { ar433d, ar1693d } from 'components/utils/images/images';
 
-const AspectRatio3D = ({ downloadComplete, onClick, next, back, data }) => {
-  const { state, setState } = useContext(GlobalContext);
+function AspectRatio3D({ onClick }) {
+  const { state } = useContext(GlobalContext);
   const { ar } = state;
 
   return (
@@ -19,46 +16,40 @@ const AspectRatio3D = ({ downloadComplete, onClick, next, back, data }) => {
         Select the aspect ratio for the Dreamcast and Nintendo 64 Systems.
       </p>
       <Main>
-        <SelectorMenu>
-          <div className="selector-menu__img">
-            <img
-              src={ar169}
-              className={ar.classic3d != '169' && 'is-hidden'}
-              alt="Background"
-            />
-            <img
-              src={ar43}
-              className={ar.classic3d != '43' && 'is-hidden'}
-              alt="Background"
-            />
-          </div>
-          <div className="selector-menu__options selector-menu__options--full">
-            <ul>
-              <li onClick={() => onClick('43')}>
-                <Card css={ar.classic3d == 43 && 'is-selected'}>
-                  <span className="h4">4:3</span>
-                  <p>Original Aspect Ratio</p>
-                </Card>
-              </li>
-              <li onClick={() => onClick('169')}>
-                <Card css={ar.classic3d == 169 && 'is-selected'}>
-                  <span className="h4">16:9</span>
-                  <p>Widescreen using Widescreen hacks</p>
-                </Card>
-              </li>
-            </ul>
-          </div>
-          <div className="selector-menu__details">
-            <p className="lead">Systems</p>
-            <ul>
-              <li>Dreamcast</li>
-              <li>Nintendo 64</li>
-            </ul>
-          </div>
-        </SelectorMenu>
+        <SelectorMenu
+          imgs={[
+            [ar1693d, ar.classic3d !== 169 ? 'is-hidden' : ''],
+            [ar433d, ar.classic3d !== 43 ? 'is-hidden' : ''],
+          ]}
+          options={[
+            [
+              () => onClick(43),
+              ar.classic3d === 43 ? 'is-selected' : '',
+              '4:3',
+              'Original Aspect Ratio',
+              true,
+            ],
+            [
+              () => onClick(169),
+              ar.classic3d === 169 ? 'is-selected' : '',
+              '16:9',
+              ' Widescreen using Widescreen hacks <br /> (Expect some graphical glitches.)',
+              true,
+            ],
+          ]}
+          details={['Dreamcast', 'Nintendo 64']}
+        />
       </Main>
     </>
   );
+}
+
+AspectRatio3D.propTypes = {
+  onClick: PropTypes.func,
+};
+
+AspectRatio3D.defaultProps = {
+  onClick: '',
 };
 
 export default AspectRatio3D;

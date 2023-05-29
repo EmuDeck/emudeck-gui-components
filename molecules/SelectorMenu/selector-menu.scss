@@ -1,16 +1,18 @@
 .selector-menu {
   display: flex;
   flex-wrap: nowrap;
-
+  .lead {
+    margin-bottom: var(--margin1);
+  }
   &__img {
     margin-right: 20px;
     // width: 55%;
     position: relative;
     img,
     .simple-carousel {
-      min-height: 396px;
+      min-height: 360px;
       max-width: 671px;
-      max-height: 396px;
+      max-height: calc(100vh - 290px);
       width: auto;
       height: auto;
       &.is-hidden {
@@ -37,8 +39,8 @@
   &__details {
     margin-left: 20px;
     li {
-      font-size: 1.8rem;
-      margin-bottom: 8px;
+      font-size: 1.6rem;
+      margin-bottom: 4px;
     }
   }
 }

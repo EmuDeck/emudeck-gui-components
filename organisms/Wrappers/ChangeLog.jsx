@@ -1,33 +1,24 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 
 import Main from 'components/organisms/Main/Main';
 
-import {
-  BtnSimple,
-  ProgressBar,
-  FormInputSimple,
-  LinkSimple,
-} from 'getbasecore/Atoms';
-import { Form } from 'getbasecore/Molecules';
+function ChangeLog({ children }) {
+  return <Main>{children}</Main>;
+}
 
-import Card from 'components/molecules/Card/Card';
+ChangeLog.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.element,
+    PropTypes.string,
+  ]),
+};
 
-const ChangeLog = ({
-  disabledNext,
-  disabledBack,
-  next,
-  back,
-  nextText,
-  children,
-}) => {
-  const { state, setState } = useContext(GlobalContext);
-
-  return (
-    <>
-      <Main>{children}</Main>
-    </>
-  );
+ChangeLog.defaultProps = {
+  children: '',
 };
 
 export default ChangeLog;

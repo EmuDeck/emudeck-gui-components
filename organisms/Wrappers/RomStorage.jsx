@@ -1,19 +1,13 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-
+import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
-import imgSD from 'assets/sdcard.png';
-import imgInternal from 'assets/internal.png';
+
+import { imgSD, imgInternal } from 'components/utils/images/images';
 
 function RomStorage({
   onClick,
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  next,
-  back,
-  data,
   sdCardValid,
   sdCardName,
   reloadSDcard,
@@ -21,8 +15,8 @@ function RomStorage({
   showSDCard,
   showInternal,
 }) {
-  const { state, setState } = useContext(GlobalContext);
-  const { storage, SDID, mode, system, storagePath } = state;
+  const { state } = useContext(GlobalContext);
+  const { storage, system } = state;
 
   return (
     <>
@@ -35,16 +29,16 @@ function RomStorage({
         <div className="cards">
           {!!showSDCard && (
             <Card
-              css={storage == 'SD-Card' && 'is-selected'}
+              css={storage === 'SD-Card' && 'is-selected'}
               onClick={() =>
-                sdCardValid == true ? onClick('SD-Card') : reloadSDcard()
+                sdCardValid === true ? onClick('SD-Card') : reloadSDcard()
               }
             >
               <img src={imgSD} width="100" alt="Background" />
               <span className="h5">SD Card</span>
               {sdCardName != null && <span className="h6">{sdCardName}</span>}
-              {sdCardName == null ||
-                (sdCardValid == false && (
+              {sdCardName === null ||
+                (sdCardValid === false && (
                   <span className="h6">
                     Not detected
                     <br />
@@ -55,7 +49,7 @@ function RomStorage({
           )}
           {!!showInternal && (
             <Card
-              css={storage == 'Internal Storage' && 'is-selected'}
+              css={storage === 'Internal Storage' && 'is-selected'}
               onClick={() => onClick('Internal Storage')}
             >
               <img src={imgInternal} width="100" alt="Background" />
@@ -63,7 +57,7 @@ function RomStorage({
             </Card>
           )}
           <Card
-            css={storage == 'Custom' && 'is-selected'}
+            css={storage === 'Custom' && 'is-selected'}
             onClick={() => onClick('Custom')}
           >
             <img src={imgInternal} width="100" alt="Background" />
@@ -71,7 +65,7 @@ function RomStorage({
               {system === 'win32' && 'Select your drive'}
               {system !== 'win32' && 'Custom Directory'}
             </span>
-            {customPath && storage == 'Custom' && (
+            {customPath && storage === 'Custom' && (
               <span className="h6">{customPath}</span>
             )}
           </Card>
@@ -80,5 +74,25 @@ function RomStorage({
     </>
   );
 }
+
+RomStorage.propTypes = {
+  onClick: PropTypes.func,
+  sdCardValid: PropTypes.func,
+  sdCardName: PropTypes.func,
+  reloadSDcard: PropTypes.func,
+  customPath: PropTypes.string,
+  showSDCard: PropTypes.bool,
+  showInternal: PropTypes.bool,
+};
+
+RomStorage.defaultProps = {
+  onClick: '',
+  sdCardValid: '',
+  sdCardName: '',
+  reloadSDcard: '',
+  customPath: '',
+  showSDCard: '',
+  showInternal: '',
+};
 
 export default RomStorage;

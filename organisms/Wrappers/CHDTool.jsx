@@ -1,34 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { GlobalContext } from 'context/globalContext';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Main from 'components/organisms/Main/Main';
 
-import {
-  BtnSimple,
-  ProgressBar,
-  FormInputSimple,
-  LinkSimple,
-} from 'getbasecore/Atoms';
-import { Form } from 'getbasecore/Molecules';
+import { BtnSimple } from 'getbasecore/Atoms';
 
-import Card from 'components/molecules/Card/Card';
-
-import CHDToolImg from 'assets/powertools.png';
-const ipcChannel = window.electron.ipcRenderer;
-const CHDTool = ({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onChange,
-  onClick,
-  next,
-  back,
-  hasSudo,
-  nextText,
-}) => {
-  const { state, setState } = useContext(GlobalContext);
-  const { sudoPass, CHDTool } = state;
-
+function CHDTool({ disabledNext, onClick }) {
   return (
     <>
       <p className="lead">
@@ -49,8 +26,8 @@ const CHDTool = ({
         <p>
           Important: CHD made from cue / bin will NOT work for Dreamcast. GDI is
           required. if you have both CUE and GDI for your Dreamcast games,
-          remove any left over cue files after parsing, or Steam ROM
-          Manager will detect non-existent games.
+          remove any left over cue files after parsing, or Steam ROM Manager
+          will detect non-existent games.
         </p>
 
         <p>
@@ -79,6 +56,16 @@ const CHDTool = ({
       </Main>
     </>
   );
+}
+
+CHDTool.propTypes = {
+  disabledNext: PropTypes.bool,
+  onClick: PropTypes.func,
+};
+
+CHDTool.defaultProps = {
+  disabledNext: true,
+  onClick: '',
 };
 
 export default CHDTool;

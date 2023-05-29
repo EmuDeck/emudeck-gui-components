@@ -1,42 +1,24 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { GlobalContext } from 'context/globalContext';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { BtnSimple, FormInputSimple, LinkSimple } from 'getbasecore/Atoms';
+import Notification from 'components/molecules/Notification/Notification';
 import Main from 'components/organisms/Main/Main';
 
-import Notification from 'components/molecules/Notification/Notification';
-import {
-  BtnSimple,
-  ProgressBar,
-  FormInputSimple,
-  LinkSimple,
-} from 'getbasecore/Atoms';
-import { Form } from 'getbasecore/Molecules';
+import { gyroDsuImg } from 'components/utils/images/images';
 
-import Card from 'components/molecules/Card/Card';
-
-import gyroDsu from 'assets/gyroDsu.png';
-
-const GyroDSU = ({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
+function GyroDSU({
   onChange,
   onChangeSetPass,
   onChangeCheckPass,
   onClick,
   installClick,
-  next,
-  back,
   hasSudo,
-  nextText,
   sudoPass,
   showNotification,
   textNotification,
   passValidates,
   disableButton,
-}) => {
-  const { state, setState } = useContext(GlobalContext);
-  const { GyroDSU } = state;
-
+}) {
   return (
     <>
       <Notification css={showNotification ? 'is-animated' : 'nope'}>
@@ -44,9 +26,9 @@ const GyroDSU = ({
       </Notification>
       <p className="lead">
         SteamDeckGyroDSU is a plugin that allows you to use your Steam Deck
-        Gyroscope in Cemu (Wii U), Citra (3DS), Dolphin (Gamecube and Wii), Ryujinx (Nintendo Switch), and 
-        Yuzu (Nintendo Switch) games. Learn more about
-        SteamDeckGyroDSU{' '}
+        Gyroscope in Cemu (Wii U), Citra (3DS), Dolphin (Gamecube and Wii),
+        Ryujinx (Nintendo Switch), and Yuzu (Nintendo Switch) games. Learn more
+        about SteamDeckGyroDSU{' '}
         <LinkSimple
           css="link-simple--1"
           href="https://github.com/kmicki/SteamDeckGyroDSU"
@@ -125,12 +107,40 @@ const GyroDSU = ({
           </div>
           <div data-col-sm="1" />
           <div data-col-sm="5">
-            <img src={gyroDsu} alt="RetroAchievements" />
+            <img src={gyroDsuImg} alt="RetroAchievements" />
           </div>
         </div>
       </Main>
     </>
   );
+}
+
+GyroDSU.propTypes = {
+  onChange: PropTypes.func,
+  onChangeSetPass: PropTypes.func,
+  onChangeCheckPass: PropTypes.func,
+  onClick: PropTypes.func,
+  installClick: PropTypes.func,
+  hasSudo: PropTypes.bool,
+  sudoPass: PropTypes.string,
+  showNotification: PropTypes.bool,
+  textNotification: PropTypes.string,
+  passValidates: PropTypes.bool,
+  disableButton: PropTypes.bool,
+};
+
+GyroDSU.defaultProps = {
+  onChange: '',
+  onChangeSetPass: '',
+  onChangeCheckPass: '',
+  onClick: '',
+  installClick: '',
+  hasSudo: '',
+  sudoPass: '',
+  showNotification: '',
+  textNotification: '',
+  passValidates: '',
+  disableButton: '',
 };
 
 export default GyroDSU;
