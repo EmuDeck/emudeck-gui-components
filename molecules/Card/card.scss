@@ -13,6 +13,8 @@
   height: 100%;
   transition: 0.8s;
   cursor: pointer;
+  display: block;
+  width: 100%;
   &--mini {
     padding: 10px;
   }

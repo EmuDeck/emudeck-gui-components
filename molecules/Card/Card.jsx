@@ -1,36 +1,30 @@
-import React, { useEffect, useState, useContext } from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './card.scss';
 
-import { GlobalContext } from "context/globalContext";
-import "./card.scss";
-import {
-  BtnSimple,
-  BtnGroup,
-  BtnSwitch,
-  Icon,
-  LinkSimple,
-  Img,
-  Iframe,
-  List,
-  ProgressBar,
-  FormInputSimple,
-  FormSelectSimple,
-  FormRadioSimple,
-  FormCheckboxSimple,
-  FormInputRangeSimple,
-} from "getbasecore/Atoms";
-
-const Card = ({ children, css, onClick }) => {
-  const { state, setState } = useContext(GlobalContext);
-  const [statePage, setStatePage] = useState({
-    disabledNext: false,
-    disabledBack: false,
-  });
-  const { disabledNext, disabledBack } = statePage;
+function Card({ children, css, onClick }) {
   return (
-    <div className={`card ${css}`} onClick={onClick}>
+    <button type="button" className={`card ${css}`} onClick={onClick}>
       {children}
-    </div>
+    </button>
   );
+}
+
+Card.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.element,
+    PropTypes.string,
+  ]),
+  css: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+Card.defaultProps = {
+  children: '',
+  css: '',
+  onClick: '',
 };
 
 export default Card;

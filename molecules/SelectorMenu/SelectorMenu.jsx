@@ -1,30 +1,24 @@
-import React, { useEffect, useState, useContext } from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './selector-menu.scss';
 
-import { GlobalContext } from "context/globalContext";
-import "./selector-menu.scss"
-import {
-  BtnSimple,
-  BtnGroup,
-  BtnSwitch,
-  Icon,
-  LinkSimple,
-  Img,
-  Iframe,
-  List,
-  ProgressBar,
-  FormInputSimple,
-  FormSelectSimple,
-  FormRadioSimple,
-  FormCheckboxSimple,
-  FormInputRangeSimple,
-} from "getbasecore/Atoms";
+function SelectorMenu({ children, css }) {
+  return <div className={`selector-menu ${css}`}>{children}</div>;
+}
 
-const SelectorMenu = ({children,css}) => {
-  return (
-	<div className={`selector-menu ${css}`}>
-      {children}
-	</div>
-  );
+SelectorMenu.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.element,
+    PropTypes.string,
+  ]),
+  css: PropTypes.string,
+};
+
+SelectorMenu.defaultProps = {
+  children: '',
+  css: '',
 };
 
 export default SelectorMenu;

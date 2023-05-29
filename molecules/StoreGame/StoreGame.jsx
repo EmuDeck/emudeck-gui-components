@@ -1,45 +1,14 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { BtnSimple } from 'getbasecore/Atoms';
 
-import { GlobalContext } from 'context/globalContext';
 import './store-game.scss';
-import {
-  BtnSimple,
-  BtnGroup,
-  BtnSwitch,
-  Icon,
-  LinkSimple,
-  Img,
-  Iframe,
-  List,
-  ProgressBar,
-  FormInputSimple,
-  FormSelectSimple,
-  FormRadioSimple,
-  FormCheckboxSimple,
-  FormInputRangeSimple,
-} from 'getbasecore/Atoms';
 
-function StoreGame({
-  children,
-  css,
-  img,
-  title,
-  tags,
-  system,
-  onMore,
-  onInstall,
-  disabled,
-}) {
-  const { state, setState } = useContext(GlobalContext);
-  const [statePage, setStatePage] = useState({
-    disabledNext: false,
-    disabledBack: false,
-  });
-  const { disabledNext, disabledBack } = statePage;
+function StoreGame({ css, img, title, tags, onMore, onInstall, disabled }) {
   return (
     <li className={`store-game ${css}`}>
       <div className="store-game__img">
-        <img src={img} />
+        <img src={img} alt={title} />
       </div>
 
       <div className="store-game__info">
@@ -50,7 +19,7 @@ function StoreGame({
 
       <div className="store-game__tags">
         {tags &&
-          tags.map((item, i) => {
+          tags.map((item) => {
             return (
               <small
                 key={item}
@@ -85,5 +54,25 @@ function StoreGame({
     </li>
   );
 }
+
+StoreGame.propTypes = {
+  css: PropTypes.string,
+  img: PropTypes.string,
+  title: PropTypes.string,
+  tags: PropTypes.string,
+  onMore: PropTypes.func,
+  onInstall: PropTypes.func,
+  disabled: PropTypes.string,
+};
+
+StoreGame.defaultProps = {
+  css: '',
+  img: '',
+  title: '',
+  tags: '',
+  onMore: () => {},
+  onInstall: () => {},
+  disabled: '',
+};
 
 export default StoreGame;

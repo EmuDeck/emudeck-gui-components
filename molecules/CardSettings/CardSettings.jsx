@@ -1,26 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
-
-import { GlobalContext } from 'context/globalContext';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { BtnSimple, Img } from 'getbasecore/Atoms';
 import './card-settings.scss';
-import {
-  BtnSimple,
-  BtnGroup,
-  BtnSwitch,
-  Icon,
-  LinkSimple,
-  Img,
-  Iframe,
-  List,
-  ProgressBar,
-  FormInputSimple,
-  FormSelectSimple,
-  FormRadioSimple,
-  FormCheckboxSimple,
-  FormInputRangeSimple,
-} from 'getbasecore/Atoms';
-import Card from 'components/molecules/Card/Card';
-const CardSettings = ({
-  children,
+
+function CardSettings({
   css,
   btnCSS,
   onClick,
@@ -30,22 +13,16 @@ const CardSettings = ({
   button,
   iconSize,
   type,
-  target,
   href,
   notification,
   disabled,
-}) => {
-  const { state, setState } = useContext(GlobalContext);
-  const [statePage, setStatePage] = useState({
-    disabledNext: false,
-    disabledBack: false,
-  });
-  const { disabledNext, disabledBack } = statePage;
-  if (!type) {
-    type = 'button';
-  }
+}) {
   return (
-    <div className={`card-setting ${css}`} onClick={() => onClick()}>
+    <button
+      type="button"
+      className={`card-setting ${css}`}
+      onClick={() => onClick()}
+    >
       {notification && <span className="card-setting__notification">!</span>}
       <ul>
         <li className={`list--icons list--icons--${iconSize}`}>
@@ -72,8 +49,42 @@ const CardSettings = ({
           </BtnSimple>
         </div>
       )}
-    </div>
+    </button>
   );
+}
+
+CardSettings.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.element,
+    PropTypes.string,
+  ]),
+  css: PropTypes.string,
+  btnCSS: PropTypes.string,
+  onClick: PropTypes.func,
+  icon: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  button: PropTypes.string,
+  iconSize: PropTypes.string,
+  type: PropTypes.string,
+  href: PropTypes.string,
+  notification: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
+CardSettings.defaultProps = {
+  btnCSS: '',
+  onClick: '',
+  icon: '',
+  title: '',
+  description: '',
+  button: '',
+  iconSize: '',
+  type: 'button',
+  href: '',
+  notification: '',
+  disabled: '',
+};
 export default CardSettings;
