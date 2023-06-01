@@ -40,7 +40,7 @@ const Uninstall = ({
             className="btn-simple btn-simple--1"
             target="_blank"
           >
-            Our Discord
+            EmuDeck's Discord
           </a>
           <a
             href="https://www.reddit.com/r/EmuDeck/"
@@ -48,7 +48,7 @@ const Uninstall = ({
             className="btn-simple btn-simple--1"
             target="_blank"
           >
-            Our Reddit
+            EmuDeck's Reddit
           </a>
         </div>
         <p className="lead">
