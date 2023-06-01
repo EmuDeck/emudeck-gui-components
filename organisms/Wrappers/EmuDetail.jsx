@@ -147,7 +147,7 @@ function EmuDetail(props) {
       console.log(`${name}_IsInstalled`);
       let { stdout } = status;
       console.log({ stdout });
-      stdout = status.replace('\n', '');
+      stdout = stdout.replace('\n', '');
 
       if (stdout.includes('true')) {
         setStatePage({
