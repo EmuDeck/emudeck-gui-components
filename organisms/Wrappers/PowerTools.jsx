@@ -55,7 +55,7 @@ const PowerTools = ({
         >
           here 
         </LinkSimple>
-        and Decky Loader, {' '}
+         and Decky Loader, {' '}
         <LinkSimple
           css="link-simple--1"
           href="https://github.com/SteamDeckHomebrew/decky-loader"

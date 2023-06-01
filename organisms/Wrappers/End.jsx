@@ -130,7 +130,7 @@ function End({
                     Post Installation Status
                   </span>
                   <p className="lead">
-                    Please check that all your emulators has been installed. If
+                    Please check that all your emulators have been installed. If
                     an emulator or tool failed to install, run a "Custom Reset"
                     or install the emulator on the "Manage Emulators" page.
                   </p>
