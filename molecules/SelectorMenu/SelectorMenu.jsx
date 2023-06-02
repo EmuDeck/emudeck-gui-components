@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from 'components/molecules/Card/Card';
 import './selector-menu.scss';
 
-function SelectorMenu({ css, imgs, options, details }) {
+function SelectorMenu({ css, imgs, options, details, title }) {
   return (
     <div className={`selector-menu ${css}`}>
       <div className="selector-menu__img">
@@ -15,6 +15,7 @@ function SelectorMenu({ css, imgs, options, details }) {
           })}
       </div>
       <div className="selector-menu__options selector-menu__options--full">
+        {title && <p>{title}</p>}
         <ul>
           {options &&
             options.map((item) => {
@@ -28,7 +29,7 @@ function SelectorMenu({ css, imgs, options, details }) {
                 <li className={enabled ? '' : 'is-hidden'}>
                   <Card onClick={() => func()} css={cssOption}>
                     <span className="h4">{title}</span>
-                    <p dangerouslySetInnerHTML={{ __html: desc }} />
+                    {desc && <p dangerouslySetInnerHTML={{ __html: desc }} />}
                   </Card>
                 </li>
               );
@@ -62,6 +63,7 @@ SelectorMenu.propTypes = {
   details: PropTypes.arrayOf(
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.bool]))
   ),
+  title: PropTypes.string,
 };
 
 SelectorMenu.defaultProps = {
@@ -69,6 +71,7 @@ SelectorMenu.defaultProps = {
   imgs: '',
   options: '',
   details: '',
+  title: '',
 };
 
 export default SelectorMenu;

@@ -43,6 +43,31 @@
       margin-bottom: 4px;
     }
   }
+
+  &.selector-menu--mini {
+    .card {
+      padding: 6px;
+      margin-bottom: 0;
+      .h4 {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        margin-bottom: 0;
+      }
+    }
+
+    .selector-menu__img {
+      max-width: 220px;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        &.is-hidden {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 .list-grid {
@@ -95,20 +120,5 @@
   }
   .selector-menu__details {
     display: none;
-  }
-}
-
-.selector-menu--mini {
-  .selector-menu__img {
-    max-width: 220px;
-    img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      &.is-hidden {
-        display: none;
-      }
-    }
   }
 }

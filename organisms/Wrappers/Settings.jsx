@@ -84,54 +84,34 @@ function Settings({
       <Main>
         <ul className="list-grid">
           <li>
-            <div css="selector-menu--mini">
-              <div className="selector-menu__img">
-                <img
-                  src={sync}
-                  className={cloudSyncStatus === false && 'is-hidden'}
-                  alt="Background"
-                />
-                <img
-                  src={none}
-                  className={cloudSyncStatus === true && 'is-hidden'}
-                  alt="Background"
-                />
-              </div>
-              <div className="selector-menu__options">
-                <p>CloudSync</p>
-                <ul>
-                  <li onClick={() => onClickCloudSync(false)}>
-                    <Card css={cloudSyncStatus === false && 'is-selected'}>
-                      <span className="h3">Off</span>
-                    </Card>
-                  </li>
-                  <li onClick={() => onClickCloudSync(true)}>
-                    <Card css={cloudSyncStatus === true && 'is-selected'}>
-                      <span className="h3">On</span>
-                    </Card>
-                  </li>
-                </ul>
-              </div>
-              <div className="selector-menu__details">
-                <p className="lead">Systems</p>
-                <ul>
-                  <li>GameBoy</li>
-                  <li>GameBoy Color</li>
-                  <li>Super Nintendo</li>
-                  <li>Nintendo NES</li>
-                  <li>Atari</li>
-                  <li>Master System</li>
-                  <li>Genesis</li>
-                  <li>SegaCD</li>
-                  <li>Sega32x</li>
-                  <li>GameGear</li>
-                  <li>NeoGeo Pocket</li>
-                </ul>
-              </div>
-            </div>
+            <SelectorMenu
+              title="AutoSave"
+              css="selector-menu--mini"
+              imgs={[
+                [saveoff, autosave === true ? 'is-hidden' : ''],
+                [saveon, autosave === false ? 'is-hidden' : ''],
+              ]}
+              options={[
+                [
+                  () => onClickAutoSave(false),
+                  autosave === false ? 'is-selected' : '',
+                  'Off',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickAutoSave(true),
+                  autosave === true ? 'is-selected' : '',
+                  'On',
+                  '',
+                  true,
+                ],
+              ]}
+            />
           </li>
           <li>
             <SelectorMenu
+              title="CloudSync"
               css="selector-menu--mini"
               imgs={[
                 [sync, cloudSyncStatus === false ? 'is-hidden' : ''],
@@ -148,6 +128,214 @@ function Settings({
                 [
                   () => onClickCloudSync(true),
                   cloudSyncStatus === true ? 'is-selected' : '',
+                  'On',
+                  '',
+                  true,
+                ],
+              ]}
+            />
+          </li>
+          <li>
+            <SelectorMenu
+              title="Bezels"
+              css="selector-menu--mini"
+              imgs={[
+                [imgBezels, bezels === false ? 'is-hidden' : ''],
+                [imgNoBezels, bezels === true ? 'is-hidden' : ''],
+              ]}
+              options={[
+                [
+                  () => onClickBezel(false),
+                  bezels === false ? 'is-selected' : '',
+                  'Off',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickBezel(true),
+                  bezels === true ? 'is-selected' : '',
+                  'On',
+                  '',
+                  true,
+                ],
+              ]}
+            />
+          </li>
+          <li>
+            <SelectorMenu
+              title="Sega Classic AR"
+              css="selector-menu--mini"
+              imgs={[
+                [ar43, ar.sega !== 43 ? 'is-hidden' : ''],
+                [ar32, ar.sega !== 32 ? 'is-hidden' : ''],
+              ]}
+              options={[
+                [
+                  () => onClickSega(43),
+                  ar.sega === 43 ? 'is-selected' : '',
+                  'Off',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickSega(32),
+                  ar.sega === 32 ? 'is-selected' : '',
+                  'On',
+                  '',
+                  true,
+                ],
+              ]}
+            />
+          </li>
+          <li>
+            <SelectorMenu
+              title="Nintendo Classic AR"
+              css="selector-menu--mini"
+              imgs={[
+                [ar87s, ar.snes !== 87 ? 'is-hidden' : ''],
+                [ar43s, ar.snes !== 43 ? 'is-hidden' : ''],
+              ]}
+              options={[
+                [
+                  () => onClickSNES(87),
+                  ar.snes === 87 ? 'is-selected' : '',
+                  'Off',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickSNES(43),
+                  ar.snes === 43 ? 'is-selected' : '',
+                  'On',
+                  '',
+                  true,
+                ],
+              ]}
+            />
+          </li>
+          <li>
+            <SelectorMenu
+              title="3D Classics AR"
+              css="selector-menu--mini"
+              imgs={[
+                [ar1693d, ar.classic3d !== 169 ? 'is-hidden' : ''],
+                [ar433d, ar.classic3d !== 43 ? 'is-hidden' : ''],
+              ]}
+              options={[
+                [
+                  () => onClickCRT3D(169),
+                  ar.classic3d === 169 ? 'is-selected' : '',
+                  'Off',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickCRT3D(43),
+                  ar.classic3d === 43 ? 'is-selected' : '',
+                  'On',
+                  '',
+                  true,
+                ],
+              ]}
+            />
+          </li>
+          <li>
+            <SelectorMenu
+              title="GameCube AR"
+              css="selector-menu--mini"
+              imgs={[
+                [ar169gc, ar.dolphin !== 169 ? 'is-hidden' : ''],
+                [ar43gc, ar.dolphin !== 43 ? 'is-hidden' : ''],
+              ]}
+              options={[
+                [
+                  () => onClickGC(169),
+                  ar.dolphin !== 169 ? 'is-selected' : '',
+                  'Off',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickGC(43),
+                  ar.dolphin !== 43 ? 'is-selected' : '',
+                  'On',
+                  '',
+                  true,
+                ],
+              ]}
+            />
+          </li>
+          <li>
+            <SelectorMenu
+              title="LCD Handhelds"
+              css="selector-menu--mini"
+              imgs={[
+                [lcdoffH, shaders.handhelds !== true ? 'is-hidden' : ''],
+                [lcdonH, shaders.handhelds !== false ? 'is-hidden' : ''],
+              ]}
+              options={[
+                [
+                  () => onClickLCD(false),
+                  shaders.handhelds === false ? 'is-selected' : '',
+                  'Off',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickLCD(true),
+                  shaders.handhelds === true ? 'is-selected' : '',
+                  'On',
+                  '',
+                  true,
+                ],
+              ]}
+            />
+          </li>
+          <li>
+            <SelectorMenu
+              title="CRT 2D"
+              css="selector-menu--mini"
+              imgs={[
+                [lcdon, shaders.classic !== true ? 'is-hidden' : ''],
+                [lcdoff, shaders.classic !== false ? 'is-hidden' : ''],
+              ]}
+              options={[
+                [
+                  () => onClickCRT(false),
+                  shaders.classic === false ? 'is-selected' : '',
+                  'Off',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickCRT(true),
+                  shaders.classic === true ? 'is-selected' : '',
+                  'On',
+                  '',
+                  true,
+                ],
+              ]}
+            />
+          </li>
+          <li>
+            <SelectorMenu
+              title="CRT 3D"
+              css="selector-menu--mini"
+              imgs={[
+                [lcd3don, shaders.classic3d !== true ? 'is-hidden' : ''],
+                [lcd3doff, shaders.classic3d !== false ? 'is-hidden' : ''],
+              ]}
+              options={[
+                [
+                  () => onClickCRT3D(false),
+                  shaders.classic3d === false ? 'is-selected' : '',
+                  'Off',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickCRT3D(true),
+                  shaders.classic3d === true ? 'is-selected' : '',
                   'On',
                   '',
                   true,
