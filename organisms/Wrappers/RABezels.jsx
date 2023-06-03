@@ -1,24 +1,14 @@
-import React, { useEffect, useState, useContext } from 'react';
-
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 
+import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 import Main from 'components/organisms/Main/Main';
 
-import Card from 'components/molecules/Card/Card';
-import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
+import { imgBezels, imgNoBezels } from 'components/utils/images/images';
 
-import imgBezels from 'assets/bezels.png';
-import imgNoBezels from 'assets/no-bezels.png';
-
-const RABezels = ({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onClick,
-  next,
-  back,
-}) => {
-  const { state, setState } = useContext(GlobalContext);
+function RABezels({ onClick }) {
+  const { state } = useContext(GlobalContext);
   const { bezels } = state;
 
   return (
@@ -29,53 +19,52 @@ const RABezels = ({
       </p>
 
       <Main>
-        <SelectorMenu>
-          <div className="selector-menu__img">
-            <img
-              src={imgBezels}
-              className={bezels == false && 'is-hidden'}
-              alt="Background"
-            />
-            <img
-              src={imgNoBezels}
-              className={bezels == true && 'is-hidden'}
-              alt="Background"
-            />
-          </div>
-          <div className="selector-menu__options">
-            <ul>
-              <li onClick={() => onClick(true)}>
-                <Card css={bezels == true && 'is-selected'}>
-                  <span className="h4">On</span>
-                </Card>
-              </li>
-              <li onClick={() => onClick(false)}>
-                <Card css={bezels == false && 'is-selected'}>
-                  <span className="h4">Off</span>
-                </Card>
-              </li>
-            </ul>
-          </div>
-          <div className="selector-menu__details">
-            <p className="lead">Systems</p>
-            <ul>
-              <li>GameBoy</li>
-              <li>GameBoy Color</li>
-              <li>Super Nintendo</li>
-              <li>Nintendo NES</li>
-              <li>Atari</li>
-              <li>Master System</li>
-              <li>Genesis</li>
-              <li>SegaCD</li>
-              <li>Sega32x</li>
-              <li>GameGear</li>
-              <li>NeoGeo Pocket</li>
-            </ul>
-          </div>
-        </SelectorMenu>
+        <SelectorMenu
+          imgs={[
+            [imgBezels, bezels === false ? 'is-hidden' : ''],
+            [imgNoBezels, bezels === true ? 'is-hidden' : ''],
+          ]}
+          options={[
+            [
+              () => onClick(false),
+              bezels === false ? 'is-selected' : '',
+              'Off',
+              '',
+              true,
+            ],
+            [
+              () => onClick(true),
+              bezels === true ? 'is-selected' : '',
+              'On',
+              '',
+              true,
+            ],
+          ]}
+          details={[
+            'GameBoy',
+            'GameBoy Color',
+            'Super Nintendo',
+            'Nintendo NES',
+            'Atari',
+            'Master System',
+            'Genesis',
+            'SegaCD',
+            'Sega32x',
+            'GameGear',
+            'NeoGeo Pocket',
+          ]}
+        />
       </Main>
     </>
   );
+}
+
+RABezels.propTypes = {
+  onClick: PropTypes.func,
+};
+
+RABezels.defaultProps = {
+  onClick: '',
 };
 
 export default RABezels;

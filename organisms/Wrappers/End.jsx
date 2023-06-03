@@ -1,17 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
-
+import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
+import Card from 'components/molecules/Card/Card';
 import Header from 'components/organisms/Header/Header';
 import Main from 'components/organisms/Main/Main';
-import Card from 'components/molecules/Card/Card';
-import CardSettings from 'components/molecules/CardSettings/CardSettings';
 
-import SimpleCarousel from 'components/molecules/SimpleCarousel/SimpleCarousel';
 import { Img, ProgressBar, BtnSimple, Iframe } from 'getbasecore/Atoms';
 import {
   iconSuccess,
   iconDanger,
-  imgdefault,
   imgra,
   imgdolphin,
   imgprimehack,
@@ -26,38 +23,16 @@ import {
   imgxemu,
   imgmame,
   imgvita3k,
-  imgxenia,
   imgsrm,
-  imgrmg,
   imgscummvm,
-  imgsupermodelista,
   imgesde,
   imgmelonds,
 } from 'components/utils/images/images';
 
-import sdlogo from 'assets/sdlogo.png';
-import remotelogo from 'assets/remotelogo.png';
-import amberlogo from 'assets/amberelec.jpg';
-
 const ipcChannel = window.electron.ipcRenderer;
-function End({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onClick,
-  onClose,
-  next,
-  back,
-  data,
-  isGameMode,
-  message,
-  percentage,
-  onClickLog,
-  onClickWin32Config,
-  step,
-}) {
-  const { state, setState } = useContext(GlobalContext);
-  const { storage, installEmus, system } = state;
+function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
+  const { state } = useContext(GlobalContext);
+  const { installEmus, system } = state;
 
   const [statePage, setStatePage] = useState({
     emusInstalledStatus: undefined,
@@ -101,13 +76,10 @@ function End({
     ipcChannel.sendMessage('emudeck', [
       `getEmuInstallStatus|||getEmuInstallStatus "${emuList}"`,
     ]);
-    ipcChannel.once('getEmuInstallStatus', (message) => {
-      const emusChecked = message;
-
-      // console.log(JSON.parse(message.stdout));
+    ipcChannel.once('getEmuInstallStatus', (messageInstallStatus) => {
       setStatePage({
         ...statePage,
-        emusInstalledStatus: JSON.parse(message.stdout),
+        emusInstalledStatus: JSON.parse(messageInstallStatus.stdout),
       });
     });
   };
@@ -134,8 +106,10 @@ function End({
                   </span>
                   <p className="lead">
                     Please check that all your emulators has been installed. If
-                    an emulator or tool failed to install, run a "Custom Reset"
-                    or install the emulator on the "Manage Emulators" page.
+                    an emulator or tool failed to install, run a{' '}
+                    <strong>Custom Reset</strong>
+                    or install the emulator on the{' '}
+                    <strong>Manage Emulators</strong> page.
                   </p>
                   {emusInstalledStatus !== undefined &&
                     Object.values(emusInstalledStatus.Emulators).map((item) => {
@@ -321,5 +295,21 @@ function End({
     </>
   );
 }
+
+End.propTypes = {
+  message: PropTypes.string,
+  percentage: PropTypes.string,
+  onClickWin32Config: PropTypes.string,
+  step: PropTypes.string,
+  disabledNext: PropTypes.bool,
+};
+
+End.defaultProps = {
+  message: '',
+  percentage: '',
+  onClickWin32Config: '',
+  step: '',
+  disabledNext: true,
+};
 
 export default End;

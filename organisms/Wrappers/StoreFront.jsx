@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from 'context/globalContext';
+import { BtnSimple } from 'getbasecore/Atoms';
+
 import CardSettings from 'components/molecules/CardSettings/CardSettings';
+import StoreGame from 'components/molecules/StoreGame/StoreGame';
 import Main from 'components/organisms/Main/Main';
 
-import { Img, BtnSimple } from 'getbasecore/Atoms';
+import './store-front.scss';
 
-import Card from 'components/molecules/Card/Card';
-import StoreGame from 'components/molecules/StoreGame/StoreGame';
-
+/* eslint-disable */
 import {
   logo_genesis,
   logo_snes,
@@ -72,81 +72,67 @@ import {
 } from 'components/utils/images/systems';
 
 const icon = {
-  icon_32X: icon_32X,
-  icon_5200: icon_5200,
-  icon_7800: icon_7800,
-  icon_X68000: icon_X68000,
-  icon_amiga: icon_amiga,
-  icon_arcade: icon_arcade,
-  icon_atari: icon_atari,
-  icon_atarist: icon_atarist,
-  icon_c64: icon_c64,
-  icon_col: icon_col,
-  icon_cpc: icon_cpc,
-  icon_cps1: icon_cps1,
-  icon_cps2: icon_cps2,
-  icon_cps3: icon_cps3,
-  icon_dos: icon_dos,
-  icon_fairchild: icon_fairchild,
-  icon_nes: icon_nes,
-  icon_fds: icon_fds,
-  icon_gb: icon_gb,
-  icon_gba: icon_gba,
-  icon_gbc: icon_gbc,
+  // eslint-disable-next-line camelcase, no-unused-vars
+  icon_32X,
+  icon_5200,
+  icon_7800,
+  icon_X68000,
+  icon_amiga,
+  icon_arcade,
+  icon_atari,
+  icon_atarist,
+  icon_c64,
+  icon_col,
+  icon_cpc,
+  icon_cps1,
+  icon_cps2,
+  icon_cps3,
+  icon_dos,
+  icon_fairchild,
+  icon_nes,
+  icon_fds,
+  icon_gb,
+  icon_gba,
+  icon_gbc,
   icon_gamegear: icon_gg,
-  icon_gw: icon_gw,
-  icon_itv: icon_itv,
-  icon_lynx: icon_lynx,
-  icon_genesis: icon_genesis,
-  icon_megaduck: icon_megaduck,
-  icon_mastersystem: icon_mastersystem,
-  icon_mastersystemx: icon_mastersystemx,
-  icon_neocd: icon_neocd,
-  icon_neogeo: icon_neogeo,
-  icon_ngp: icon_ngp,
-  icon_ody: icon_ody,
-  icon_pce: icon_pce,
-  icon_pcecd: icon_pcecd,
-  icon_pico: icon_pico,
-  icon_poke: icon_poke,
-  icon_ports: icon_ports,
-  icon_ps: icon_ps,
-  icon_satella: icon_satella,
-  icon_scummvm: icon_scummvm,
-  icon_search: icon_search,
-  icon_segacd: icon_segacd,
-  icon_segasgone: icon_segasgone,
-  icon_snes: icon_snes,
-  icon_sgb: icon_sgb,
-  icon_sgfx: icon_sgfx,
-  icon_sufami: icon_sufami,
-  icon_supervision: icon_supervision,
-  icon_tic: icon_tic,
-  icon_vb: icon_vb,
-  icon_vdp: icon_vdp,
-  icon_vectrex: icon_vectrex,
-  icon_ws: icon_ws,
-  icon_zxs: icon_zxs,
+  icon_gw,
+  icon_itv,
+  icon_lynx,
+  icon_genesis,
+  icon_megaduck,
+  icon_mastersystem,
+  icon_mastersystemx,
+  icon_neocd,
+  icon_neogeo,
+  icon_ngp,
+  icon_ody,
+  icon_pce,
+  icon_pcecd,
+  icon_pico,
+  icon_poke,
+  icon_ports,
+  icon_ps,
+  icon_satella,
+  icon_scummvm,
+  icon_search,
+  icon_segacd,
+  icon_segasgone,
+  icon_snes,
+  icon_sgb,
+  icon_sgfx,
+  icon_sufami,
+  icon_supervision,
+  icon_tic,
+  icon_vb,
+  icon_vdp,
+  icon_vectrex,
+  icon_ws,
+  icon_zxs,
 };
+/* eslint-enable */
 
-import './store-front.scss';
-
-// import dataStore from 'data/store.json';
-//
-// const { store } = dataStore;
-
-import { iconSuccess, iconDanger } from 'components/utils/images/images';
-function StoreFront({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onClick,
-  next,
-  back,
-  data,
-}) {
-  const navigate = useNavigate();
-  const { state, setState } = useContext(GlobalContext);
+function StoreFront() {
+  const { state } = useContext(GlobalContext);
 
   const { storagePath } = state;
 
@@ -166,7 +152,7 @@ function StoreFront({
     system: null,
   });
   const { system } = stateSystem;
-
+  const ipcChannel = window.electron.ipcRenderer;
   useEffect(() => {
     ipcChannel.sendMessage('get-store-featured');
     ipcChannel.once('get-store-featured', (store) => {
@@ -186,7 +172,7 @@ function StoreFront({
     ipcChannel.once('get-store', (store) => {
       // No versioning found, what to do?
 
-      //console.log({ store });
+      // console.log({ store });
 
       setStatePage({
         ...statePage,
@@ -195,7 +181,7 @@ function StoreFront({
     });
   }, [featured]);
   const toggleModal = (item) => {
-    if (!!item) {
+    if (item) {
       setStatePage({
         ...statePage,
         game: item,
@@ -212,8 +198,6 @@ function StoreFront({
       });
     }
   };
-
-  const ipcChannel = window.electron.ipcRenderer;
 
   const installGame = (game, system, title) => {
     setStatePage({
@@ -263,18 +247,17 @@ function StoreFront({
     });
   };
   let extraCSS;
+  // eslint-disable-next-line no-unused-expressions
   system !== null ? (extraCSS = 'is-hidden') : (extraCSS = '');
 
   return (
     <>
       <Main>
         <div className={`featured-games-list ${extraCSS}`}>
-          <p className="h4" onClick={toggleModal}>
-            Featured games
-          </p>
+          <p className="h4">Featured games</p>
           <hr />
           <ul>
-            {featured.map((item, i) => {
+            {featured.map((item) => {
               return (
                 <StoreGame
                   disabled={installing === item.title}
@@ -295,7 +278,7 @@ function StoreFront({
 
         <div className="container--grid">
           {games != null &&
-            games.map((item, i) => {
+            games.map((item) => {
               return (
                 <div data-col-md="2">
                   <CardSettings
@@ -315,13 +298,13 @@ function StoreFront({
 
         <div className="games-details">
           {system !== null &&
-            system.map((item, i) => {
+            system.map((item) => {
               return (
                 <>
                   <p className="h4">{item.name}</p>
                   <hr />
                   <ul className="games-list">
-                    {item.games.map((item, i) => {
+                    {item.games.map((item) => {
                       return (
                         <StoreGame
                           disabled={installing === item.title}
@@ -351,7 +334,7 @@ function StoreFront({
                 <span className="h2">{game.title}</span>
                 <div className="game-details__tags">
                   {game.tags &&
-                    game.tags.map((item, i) => {
+                    game.tags.map((item) => {
                       return (
                         <small
                           key={item}
@@ -412,5 +395,4 @@ function StoreFront({
     </>
   );
 }
-
 export default StoreFront;

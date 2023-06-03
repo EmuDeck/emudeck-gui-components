@@ -1,30 +1,16 @@
-import React, { useEffect, useState, useContext } from 'react';
-
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 
 import Main from 'components/organisms/Main/Main';
 
 import { Img } from 'getbasecore/Atoms';
 
-import Card from 'components/molecules/Card/Card';
-import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
-
-import imgYES from 'assets/HomebrewGamesYES.png';
-import imgNO from 'assets/HomebrewGamesNO.png';
 import { iconSuccess, iconDanger } from 'components/utils/images/images';
 
-function Confirmation({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onClick,
-  next,
-  back,
-  data,
-}) {
-  const { state, setState } = useContext(GlobalContext);
+function Confirmation() {
+  const { state } = useContext(GlobalContext);
   const {
-    mode,
     storagePath,
     installEmus,
     overwriteConfigEmus,
@@ -34,7 +20,6 @@ function Confirmation({
     ar,
     shaders,
     theme,
-    homebrewGames,
     system,
     resolutions,
   } = state;
@@ -61,6 +46,7 @@ function Confirmation({
                   return;
                 }
               }
+              // eslint-disable-next-line consistent-return
               return (
                 <li>
                   {item.status ? (
@@ -92,6 +78,7 @@ function Confirmation({
                   return;
                 }
               }
+              // eslint-disable-next-line consistent-return
               return (
                 <li>
                   {item.status ? (
@@ -107,15 +94,7 @@ function Confirmation({
         </div>
         <div data-col-sm="3">
           <span className="h5">Your Customizations:</span>
-          {/*
-                achievements,
-                bezels,
-                ar,
-                shaders,
-                theme,
-                homebrewGames,
 
-                */}
           <ul>
             <li>
               {autosave ? (
@@ -165,14 +144,6 @@ function Confirmation({
               )}{' '}
               - Classic 3D Shader
             </li>
-            <li>
-              {homebrewGames ? (
-                <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-              ) : (
-                <Img src={iconDanger} css="icon icon--xs" alt="KO" />
-              )}{' '}
-              - HomeBrew Games
-            </li>
             <li>EmulationStation DE Theme: {theme}</li>
             <li>
               Sega Classic AR: <strong>{ar.sega}</strong>
@@ -186,7 +157,7 @@ function Confirmation({
             <li>
               Gamecube AR: <strong>{ar.dolphin}</strong>
             </li>
-            {system == 'win32' && (
+            {system === 'win32' && (
               <>
                 <li>
                   GameCube and Wii Resolution:{' '}
@@ -200,7 +171,16 @@ function Confirmation({
                   PlayStation 2 Resolution: <strong>{resolutions.pcsx2}</strong>
                 </li>
                 <li>
+                  PlayStation32 Resolution: <strong>{resolutions.rpcs3}</strong>
+                </li>
+                <li>
                   Switch Resolution: <strong>{resolutions.yuzu}</strong>
+                </li>
+                <li>
+                  Nintendo DS Resolution: <strong>{resolutions.melonds}</strong>
+                </li>
+                <li>
+                  Nintendo 3DS Resolution: <strong>{resolutions.citra}</strong>
                 </li>
               </>
             )}
@@ -209,7 +189,9 @@ function Confirmation({
         <div data-col-sm="3">
           <span className="h5">Your Installation Path:</span>
           <ul>
-            <li>{storagePath == '$HOME' ? 'User Home Folder' : storagePath}</li>
+            <li>
+              {storagePath === '$HOME' ? 'User Home Folder' : storagePath}
+            </li>
           </ul>
         </div>
       </div>

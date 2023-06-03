@@ -43,6 +43,56 @@ import iconJoystick from 'assets/icon/joystick.svg';
 import iconPackage from 'assets/icon/package.svg';
 import iconQuestion from 'assets/icon/question.svg';
 import iconDisk from 'assets/icon/disk.svg';
+import ar43 from 'assets/ar43.png';
+import ar32 from 'assets/ar32.png';
+import ar43s from 'assets/ar43snes.png';
+import ar87s from 'assets/ar87snes.png';
+import ar32s from 'assets/ar32snes.png';
+import ar433d from 'assets/ar433d.png';
+import ar323d from 'assets/ar323d.png';
+import ar1693d from 'assets/ar1693d.png';
+import ar43gc from 'assets/ar43gc.png';
+import ar169gc from 'assets/ar169gc.png';
+import imgBezels from 'assets/bezels.png';
+import imgNoBezels from 'assets/no-bezels.png';
+import lcdon from 'assets/classic-shader-on.png';
+import lcdoff from 'assets/classic-shader-off.png';
+import lcd3don from 'assets/classic-3d-shader-on.png';
+import lcd3doff from 'assets/classic-3d-shader-off.png';
+import lcdonH from 'assets/lcdon.png';
+import lcdoffH from 'assets/lcdoff.png';
+import saveon from 'assets/saveon.png';
+import saveoff from 'assets/saveoff.png';
+import noir1 from 'assets/esdethemes/es-de_epicnoir_01.png';
+import noir2 from 'assets/esdethemes/es-de_epicnoir_02.png';
+import modern1 from 'assets/esdethemes/es-de_modern_01.png';
+import modern2 from 'assets/esdethemes/es-de_modern_02.png';
+import rbsimple1 from 'assets/esdethemes/es-de_rbsimple_01.png';
+import rbsimple2 from 'assets/esdethemes/es-de_rbsimple_02.png';
+import modern from 'assets/ES-DE_01.png';
+import imgYES from 'assets/HomebrewGamesYES.png';
+import imgNO from 'assets/HomebrewGamesNO.png';
+import none from 'assets/cloud/none.png';
+import backup from 'assets/cloud/backup.png';
+import sync from 'assets/cloud/sync.png';
+import box from 'assets/cloud/box.png';
+import dropbox from 'assets/cloud/dropbox.png';
+import gdrive from 'assets/cloud/gdrive.png';
+import nextcloud from 'assets/cloud/nextcloud.png';
+import onedrive from 'assets/cloud/onedrive.png';
+import pcloud from 'assets/cloud/pcloud.png';
+import sftp from 'assets/cloud/sftp.png';
+import smb from 'assets/cloud/smb.png';
+import imgESDE from 'assets/ESDE.jpg';
+import imgSTEAM from 'assets/STEAMGAMES.png';
+import imgExternal from 'assets/external.png';
+import imgUSBDeck from 'assets/usb-in-deck.png';
+import DeckyControlsImg from 'assets/DeckyControls.jpg';
+import gyroDsuImg from 'assets/gyroDsu.png';
+import imgSD from 'assets/sdcard.png';
+import imgInternal from 'assets/internal.png';
+import powerToolsImg from 'assets/powertools.png';
+import raLogo from 'assets/RetroAchievements.png';
 
 export {
   imgdefault,
@@ -89,4 +139,54 @@ export {
   iconPackage,
   iconQuestion,
   iconDisk,
+  ar43,
+  ar32,
+  ar43s,
+  ar87s,
+  ar32s,
+  ar433d,
+  ar323d,
+  ar1693d,
+  ar43gc,
+  ar169gc,
+  imgBezels,
+  imgNoBezels,
+  lcdon,
+  lcdoff,
+  lcd3don,
+  lcd3doff,
+  lcdonH,
+  lcdoffH,
+  saveon,
+  saveoff,
+  noir1,
+  noir2,
+  modern1,
+  modern2,
+  rbsimple1,
+  rbsimple2,
+  modern,
+  imgYES,
+  imgNO,
+  none,
+  backup,
+  sync,
+  box,
+  dropbox,
+  gdrive,
+  nextcloud,
+  onedrive,
+  pcloud,
+  sftp,
+  smb,
+  imgESDE,
+  imgSTEAM,
+  imgExternal,
+  imgUSBDeck,
+  DeckyControlsImg,
+  gyroDsuImg,
+  imgInternal,
+  imgSD,
+  powerToolsImg,
+  raLogo,
 };

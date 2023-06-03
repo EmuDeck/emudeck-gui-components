@@ -1,12 +1,11 @@
 import React, { useContext, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { PropTypes } from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
-import { Form } from 'getbasecore/Molecules';
 import Toasty from 'components/atoms/Toasty/Toasty';
-import './Header.scss';
-import { useTranslation, Trans } from 'react-i18next';
 
+import './Header.scss';
 import flagEN from 'assets/flags/en.svg';
 import flagES from 'assets/flags/es.svg';
 
@@ -16,19 +15,29 @@ function HeaderElectron({ title, bold }) {
   const { debug, version, branch, command } = state;
   const ipcChannel = window.electron.ipcRenderer;
 
-  // const lngs = {
-  //   en: {
-  //     nativeName: (
-  //       <img className="header__flag" width="12" src={flagEN} alt="English" />
-  //     ),
-  //   },
-  //   es: {
-  //     nativeName: (
-  //       <img className="header__flag" width="12" src={flagES} alt="Spanish" />
-  //     ),
-  //   },
-  // };
-  const lngs = '';
+  let lngs = {
+    en: {
+      nativeName: (
+        <img
+          className="header__flag"
+          width="12"
+          src={flagEN}
+          alt={t('English')}
+        />
+      ),
+    },
+    es: {
+      nativeName: (
+        <img
+          className="header__flag"
+          width="12"
+          src={flagES}
+          alt={t('Spanish')}
+        />
+      ),
+    },
+  };
+  lngs = '';
 
   const toggleDebug = (e) => {
     switch (e.detail) {
@@ -39,7 +48,6 @@ function HeaderElectron({ title, bold }) {
         });
         break;
       default:
-        console.log('click');
         break;
     }
   };
@@ -66,7 +74,7 @@ function HeaderElectron({ title, bold }) {
     if (debug === true) {
       ipcChannel.sendMessage('debug');
     }
-  }, [debug]);
+  }, [debug, ipcChannel]);
 
   // Xmas
   const d = new Date();
@@ -74,6 +82,7 @@ function HeaderElectron({ title, bold }) {
   const snowFlakes = [];
 
   if (month === 11) {
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < 150; i++) {
       snowFlakes.push(<div className="snow" />);
     }
@@ -83,9 +92,9 @@ function HeaderElectron({ title, bold }) {
     <header className="header">
       <Toasty />
       {month === 11 && snowFlakes && snowFlakes}
-      <small onClick={toggleDebug} className="header__version">
-        {version}
-      </small>
+      <button type="button" onClick={toggleDebug} className="header__version">
+        <small>{version}</small>
+      </button>
       <div className="header__accesibility">
         <BtnSimple
           css="btn-simple--4"
@@ -150,8 +159,6 @@ function HeaderElectron({ title, bold }) {
   );
 }
 
-export default HeaderElectron;
-
 HeaderElectron.propTypes = {
   title: PropTypes.string.isRequired,
   bold: PropTypes.string,
@@ -159,3 +166,5 @@ HeaderElectron.propTypes = {
 HeaderElectron.defaultProps = {
   bold: '',
 };
+
+export default HeaderElectron;

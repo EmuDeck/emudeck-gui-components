@@ -1,46 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react';
-
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
-
-import Footer from 'components/organisms/Footer/Footer';
-import Header from 'components/organisms/Header/Header';
-import Aside from 'components/organisms/Aside/Aside';
+import Card from 'components/molecules/Card/Card';
 import Main from 'components/organisms/Main/Main';
 
-import { Img } from 'getbasecore/Atoms';
-
-import Card from 'components/molecules/Card/Card';
-import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
-
-import imgYES from 'assets/HomebrewGamesYES.png';
-import imgNO from 'assets/HomebrewGamesNO.png';
-import { iconSuccess, iconDanger } from 'components/utils/images/images';
-
-function EmulatorResolution({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onClick,
-  next,
-  back,
-  data,
-}) {
-  const { state, setState } = useContext(GlobalContext);
-  const {
-    mode,
-    storagePath,
-    installEmus,
-    overwriteConfigEmus,
-    autosave,
-    achievements,
-    bezels,
-    ar,
-    shaders,
-    theme,
-    homebrewGames,
-    resolutions,
-  } = state;
-  const resolutionsArray = Object.values(resolutions);
+function EmulatorResolution({ onClick }) {
+  const { state } = useContext(GlobalContext);
+  const { resolutions } = state;
   return (
     <>
       <p className="lead">
@@ -51,267 +17,371 @@ function EmulatorResolution({
         <div className="container--grid">
           <div data-col-sm="6">
             <div className="duckstation">
-              <span className="h5">PlayStation 1 Games</span>
+              <button type="button" className="h5">
+                PlayStation 1 Games
+              </button>
               <div className="cards">
                 <Card
-                  css={resolutions.duckstation == '720P' ? 'is-selected' : ''}
+                  css={resolutions.duckstation === '720P' ? 'is-selected' : ''}
                 >
-                  <span
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('duckstation', '720P')}
                   >
                     720P
-                  </span>
+                  </button>
                 </Card>
                 <Card
-                  css={resolutions.duckstation == '1080P' ? 'is-selected' : ''}
+                  css={resolutions.duckstation === '1080P' ? 'is-selected' : ''}
                 >
-                  <span
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('duckstation', '1080P')}
                   >
                     1080P
-                  </span>
+                  </button>
                 </Card>
                 <Card
-                  css={resolutions.duckstation == '1440P' ? 'is-selected' : ''}
+                  css={resolutions.duckstation === '1440P' ? 'is-selected' : ''}
                 >
-                  <span
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('duckstation', '1440P')}
                   >
                     1440P
-                  </span>
+                  </button>
                 </Card>
                 <Card
-                  css={resolutions.duckstation == '4K' ? 'is-selected' : ''}
+                  css={resolutions.duckstation === '4K' ? 'is-selected' : ''}
                 >
-                  <span
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('duckstation', '4K')}
                   >
                     4K
-                  </span>
+                  </button>
                 </Card>
               </div>
             </div>
             <hr />
             <div className="pcsx2">
-              <span className="h5">PlayStation 2 Games</span>
+              <button type="button" className="h5">
+                PlayStation 2 Games
+              </button>
               <div className="cards">
-                <Card css={resolutions.pcsx2 == '720P' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('pcsx2', '720P')}>
+                <Card css={resolutions.pcsx2 === '720P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('pcsx2', '720P')}
+                  >
                     720P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.pcsx2 == '1080P' ? 'is-selected' : ''}>
-                  <span
+                <Card css={resolutions.pcsx2 === '1080P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('pcsx2', '1080P')}
                   >
                     1080P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.pcsx2 == '1440P' ? 'is-selected' : ''}>
-                  <span
+                <Card css={resolutions.pcsx2 === '1440P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('pcsx2', '1440P')}
                   >
                     1440P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.pcsx2 == '4K' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('pcsx2', '4K')}>
+                <Card css={resolutions.pcsx2 === '4K' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('pcsx2', '4K')}
+                  >
                     4K
-                  </span>
+                  </button>
                 </Card>
               </div>
             </div>
             <hr />
             <div className="rpcs3">
-              <span className="h5">PlayStation 3 Games</span>
+              <button type="button" className="h5">
+                PlayStation 3 Games
+              </button>
               <div className="cards">
-                <Card css={resolutions.rpcs3 == '720P' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('rpcs3', '720P')}>
+                <Card css={resolutions.rpcs3 === '720P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('rpcs3', '720P')}
+                  >
                     720P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.rpcs3 == '1080P' ? 'is-selected' : ''}>
-                  <span
+                <Card css={resolutions.rpcs3 === '1080P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('rpcs3', '1080P')}
                   >
                     1080P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.rpcs3 == '1440P' ? 'is-selected' : ''}>
-                  <span
+                <Card css={resolutions.rpcs3 === '1440P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('rpcs3', '1440P')}
                   >
                     1440P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.rpcs3 == '4K' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('rpcs3', '4K')}>
+                <Card css={resolutions.rpcs3 === '4K' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('rpcs3', '4K')}
+                  >
                     4K
-                  </span>
+                  </button>
                 </Card>
               </div>
             </div>
           </div>
           <div data-col-sm="6">
             <div className="dolphin">
-              <span className="h5">GameCube and Wii Games</span>
+              <button type="button" className="h5">
+                GameCube and Wii Games
+              </button>
               <div className="cards">
-                <Card css={resolutions.dolphin == '720P' ? 'is-selected' : ''}>
-                  <span
+                <Card css={resolutions.dolphin === '720P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('dolphin', '720P')}
                   >
                     720P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.dolphin == '1080P' ? 'is-selected' : ''}>
-                  <span
+                <Card
+                  css={resolutions.dolphin === '1080P' ? 'is-selected' : ''}
+                >
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('dolphin', '1080P')}
                   >
                     1080P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.dolphin == '1440P' ? 'is-selected' : ''}>
-                  <span
+                <Card
+                  css={resolutions.dolphin === '1440P' ? 'is-selected' : ''}
+                >
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('dolphin', '1440P')}
                   >
                     1440P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.dolphin == '4K' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('dolphin', '4K')}>
+                <Card css={resolutions.dolphin === '4K' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('dolphin', '4K')}
+                  >
                     4K
-                  </span>
+                  </button>
                 </Card>
               </div>
             </div>
 
             <hr />
             <div className="cemu">
-              <span className="h5">Wii U Games</span>
+              <button type="button" className="h5">
+                Wii U Games
+              </button>
               <div className="cards">
-                <Card css={resolutions.cemu == '720P' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('cemu', '720P')}>
+                <Card css={resolutions.cemu === '720P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('cemu', '720P')}
+                  >
                     720P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.cemu == '1080P' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('cemu', '1080P')}>
+                <Card css={resolutions.cemu === '1080P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('cemu', '1080P')}
+                  >
                     1080P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.cemu == '1440P' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('cemu', '1440P')}>
+                <Card css={resolutions.cemu === '1440P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('cemu', '1440P')}
+                  >
                     1440P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.cemu == '4K' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('cemu', '4K')}>
+                <Card css={resolutions.cemu === '4K' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('cemu', '4K')}
+                  >
                     4K
-                  </span>
+                  </button>
                 </Card>
               </div>
             </div>
             <hr />
             <div className="melonds">
-              <span className="h5">Nintendo DS Games</span>
+              <button type="button" className="h5">
+                Nintendo DS Games
+              </button>
               <div className="cards">
-                <Card css={resolutions.melonds == '720P' ? 'is-selected' : ''}>
-                  <span
+                <Card css={resolutions.melonds === '720P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('melonds', '720P')}
                   >
                     720P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.melonds == '1080P' ? 'is-selected' : ''}>
-                  <span
+                <Card
+                  css={resolutions.melonds === '1080P' ? 'is-selected' : ''}
+                >
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('melonds', '1080P')}
                   >
                     1080P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.melonds == '1440P' ? 'is-selected' : ''}>
-                  <span
+                <Card
+                  css={resolutions.melonds === '1440P' ? 'is-selected' : ''}
+                >
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('melonds', '1440P')}
                   >
                     1440P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.melonds == '4K' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('melonds', '4K')}>
+                <Card css={resolutions.melonds === '4K' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('melonds', '4K')}
+                  >
                     4K
-                  </span>
+                  </button>
                 </Card>
               </div>
             </div>
             <hr />
             <div className="citra">
-              <span className="h5">Nintendo 3DS Games</span>
+              <button type="button" className="h5">
+                Nintendo 3DS Games
+              </button>
               <div className="cards">
-                <Card css={resolutions.citra == '720P' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('citra', '720P')}>
+                <Card css={resolutions.citra === '720P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('citra', '720P')}
+                  >
                     720P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.citra == '1080P' ? 'is-selected' : ''}>
-                  <span
+                <Card css={resolutions.citra === '1080P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('citra', '1080P')}
                   >
                     1080P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.citra == '1440P' ? 'is-selected' : ''}>
-                  <span
+                <Card css={resolutions.citra === '1440P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
                     className="h6"
                     onClick={() => onClick('citra', '1440P')}
                   >
                     1440P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.citra == '4K' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('citra', '4K')}>
+                <Card css={resolutions.citra === '4K' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('citra', '4K')}
+                  >
                     4K
-                  </span>
+                  </button>
                 </Card>
               </div>
             </div>
             <hr />
             <div className="yuzu">
-              <span className="h5">Switch Games</span>
+              <button type="button" className="h5">
+                Switch Games
+              </button>
               <div className="cards">
-                <Card css={resolutions.yuzu == '720P' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('yuzu', '720P')}>
+                <Card css={resolutions.yuzu === '720P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('yuzu', '720P')}
+                  >
                     720P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.yuzu == '1080P' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('yuzu', '1080P')}>
+                <Card css={resolutions.yuzu === '1080P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('yuzu', '1080P')}
+                  >
                     1080P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.yuzu == '1440P' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('yuzu', '1440P')}>
+                <Card css={resolutions.yuzu === '1440P' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('yuzu', '1440P')}
+                  >
                     1440P
-                  </span>
+                  </button>
                 </Card>
-                <Card css={resolutions.yuzu == '4K' ? 'is-selected' : ''}>
-                  <span className="h6" onClick={() => onClick('yuzu', '4K')}>
+                <Card css={resolutions.yuzu === '4K' ? 'is-selected' : ''}>
+                  <button
+                    type="button"
+                    className="h6"
+                    onClick={() => onClick('yuzu', '4K')}
+                  >
                     4K
-                  </span>
+                  </button>
                 </Card>
               </div>
             </div>
@@ -321,5 +391,13 @@ function EmulatorResolution({
     </>
   );
 }
+
+EmulatorResolution.propTypes = {
+  onClick: PropTypes.func,
+};
+
+EmulatorResolution.defaultProps = {
+  onClick: '',
+};
 
 export default EmulatorResolution;

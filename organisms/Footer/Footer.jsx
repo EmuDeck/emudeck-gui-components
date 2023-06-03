@@ -4,7 +4,7 @@ import { BtnSimple } from 'getbasecore/Atoms';
 
 import './Footer.scss';
 
-const Footer = ({
+function Footer({
   back,
   next,
   third,
@@ -16,7 +16,7 @@ const Footer = ({
   backText,
   thirdText,
   exit,
-}) => {
+}) {
   const navigate = useNavigate();
   const goTo = (href) => {
     navigate(`/${href}`);
@@ -99,9 +99,7 @@ const Footer = ({
       )}
     </footer>
   );
-};
-
-export default Footer;
+}
 
 Footer.propTypes = {
   back: PropTypes.string,
@@ -129,3 +127,5 @@ Footer.defaultProps = {
   thirdText: '',
   exit: '',
 };
+
+export default Footer;

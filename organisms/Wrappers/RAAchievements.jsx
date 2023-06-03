@@ -1,56 +1,42 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-import Main from 'components/organisms/Main/Main';
-
+import PropTypes from 'prop-types';
 import {
   BtnSimple,
-  ProgressBar,
   FormInputSimple,
   BtnSwitch,
   LinkSimple,
 } from 'getbasecore/Atoms';
 import { Form } from 'getbasecore/Molecules';
+import Main from 'components/organisms/Main/Main';
+import { raLogo } from 'components/utils/images/images';
 
-import Card from 'components/molecules/Card/Card';
-
-import raLogo from 'assets/RetroAchievements.png';
-
-const RAAchievements = ({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onChange,
-  onToggle,
-  next,
-  back,
-  data,
-  nextText,
-}) => {
+function RAAchievements({ onChange, onToggle }) {
   const { state, setState } = useContext(GlobalContext);
   const { achievements, second } = state;
   const ipcChannel = window.electron.ipcRenderer;
   const fetchToken = () => {
-    //dragoonDorise
-    //4049retro
-
     ipcChannel.sendMessage('getToken', {
       user: achievements.user,
       pass: achievements.pass,
     });
 
-    ipcChannel.once('getToken', (error, stdout, stderr) => {
+    ipcChannel.once('getToken', (error, stdout) => {
       const messageJson = JSON.parse(stdout);
       console.log({ stdout });
       if (messageJson.Success) {
-        //Second time? We can set everything from here - Used in the settings page
+        // Second time? We can set everything from here - Used in the settings page
         if (second) {
           ipcChannel.sendMessage('setToken', [
             messageJson.Token,
             achievements.user,
           ]);
-          ipcChannel.once('setToken', (error, stdout, stderr) => {
-            console.log(error, stdout, stderr);
-          });
+          ipcChannel.once(
+            'setToken',
+            (errorToken, stdoutToken, stderrToken) => {
+              console.log(errorToken, stdoutToken, stderrToken);
+            }
+          );
         }
 
         setState({
@@ -74,15 +60,16 @@ const RAAchievements = ({
     <>
       <p className="lead">
         RetroAchievements.org is a community led effort to collaborate and
-        create custom-made achievements in emulated classic games. Enter your account information to set
-        up RetroAchievements for Duckstation, PCSX2, and RetroArch.
+        create custom-made achievements in emulated classic games. Enter your
+        account information to set up RetroAchievements for Duckstation, PCSX2,
+        and RetroArch.
       </p>
       <Main>
         <br />
         <div className="container--grid">
           <div data-col-sm="6">
             <Form>
-              {achievements.token == '' && (
+              {achievements.token === '' && (
                 <>
                   <p>
                     If you do not have an account, register now on
@@ -130,7 +117,7 @@ const RAAchievements = ({
                   </BtnSimple>
                 </>
               )}
-              {achievements.token != '' && (
+              {achievements.token !== '' && (
                 <>
                   <p>
                     <span className="h4">
@@ -153,14 +140,14 @@ const RAAchievements = ({
                       id="hardcore"
                       value={achievements.hardcore}
                       onChange={onToggle}
-                      checked={achievements.hardcore ? true : false}
+                      checked={!!achievements.hardcore}
                     />
                   </div>
                 </>
               )}
             </Form>
           </div>
-          <div data-col-sm="1"></div>
+          <div data-col-sm="1" />
           <div data-col-sm="5">
             <img src={raLogo} alt="RetroAchievements" />
           </div>
@@ -168,6 +155,16 @@ const RAAchievements = ({
       </Main>
     </>
   );
+}
+
+RAAchievements.propTypes = {
+  onChange: PropTypes.func,
+  onToggle: PropTypes.func,
+};
+
+RAAchievements.defaultProps = {
+  onChange: '',
+  onToggle: '',
 };
 
 export default RAAchievements;

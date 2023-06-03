@@ -1,33 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { GlobalContext } from 'context/globalContext';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 
-import {
-  BtnSimple,
-  ProgressBar,
-  FormInputSimple,
-  LinkSimple,
-} from 'getbasecore/Atoms';
-import { Form } from 'getbasecore/Molecules';
+import { BtnSimple } from 'getbasecore/Atoms';
 
-import Card from 'components/molecules/Card/Card';
-
-import UpdateEmusImg from 'assets/powertools.png';
-
-const UpdateEmus = ({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onClickFlatpak,
-  onClickAppImage,
-  next,
-  back,
-  hasSudo,
-  nextText,
-}) => {
-  const { state, setState } = useContext(GlobalContext);
-  const { sudoPass, UpdateEmus } = state;
-
+function UpdateEmus({ onClickFlatpak, onClickAppImage, disabledNext }) {
   return (
     <>
       <p className="lead">
@@ -60,6 +37,18 @@ const UpdateEmus = ({
       </Main>
     </>
   );
+}
+
+UpdateEmus.propTypes = {
+  onClickFlatpak: PropTypes.func,
+  onClickAppImage: PropTypes.func,
+  disabledNext: PropTypes.bool,
+};
+
+UpdateEmus.defaultProps = {
+  onClickFlatpak: '',
+  onClickAppImage: '',
+  disabledNext: false,
 };
 
 export default UpdateEmus;
