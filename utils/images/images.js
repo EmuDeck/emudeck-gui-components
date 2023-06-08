@@ -93,6 +93,8 @@ import imgSD from 'assets/sdcard.png';
 import imgInternal from 'assets/internal.png';
 import powerToolsImg from 'assets/powertools.png';
 import raLogo from 'assets/RetroAchievements.png';
+import steamUI from 'assets/steamUI.png';
+import winDesktop from 'assets/winDesktop.png';
 
 export {
   imgdefault,
@@ -189,4 +191,6 @@ export {
   imgSD,
   powerToolsImg,
   raLogo,
+  steamUI,
+  winDesktop,
 };
