@@ -93,6 +93,16 @@ import imgSD from 'assets/sdcard.png';
 import imgInternal from 'assets/internal.png';
 import powerToolsImg from 'assets/powertools.png';
 import raLogo from 'assets/RetroAchievements.png';
+import steamUI from 'assets/steamUI.png';
+import winDesktop from 'assets/winDesktop.png';
+import imgDeck from 'assets/devices/deck.png';
+import imgWin600 from 'assets/devices/win600.png';
+import imgally from 'assets/devices/ally.png';
+import imgaokzoepro from 'assets/devices/aokzoepro.png';
+import imgayaneo2 from 'assets/devices/ayaneo2.png';
+import imgayaneogeek from 'assets/devices/ayaneogeek.png';
+import imglinux from 'assets/devices/linux.png';
+import imgwindows from 'assets/devices/windows.png';
 
 export {
   imgdefault,
@@ -189,4 +199,14 @@ export {
   imgSD,
   powerToolsImg,
   raLogo,
+  steamUI,
+  winDesktop,
+  imgDeck,
+  imgWin600,
+  imgally,
+  imgaokzoepro,
+  imgayaneo2,
+  imgayaneogeek,
+  imglinux,
+  imgwindows,
 };
