@@ -1,25 +1,15 @@
-import React, { useEffect, useState, useContext } from 'react';
-
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 
 import Main from 'components/organisms/Main/Main';
 
-import Card from 'components/molecules/Card/Card';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 
-import lcdon from 'assets/classic-shader-on.png';
-import lcdoff from 'assets/classic-shader-off.png';
+import { lcdon, lcdoff } from 'components/utils/images/images';
 
-const Shaders2D = ({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onClick,
-  next,
-  back,
-  data,
-}) => {
-  const { state, setState } = useContext(GlobalContext);
+function Shaders2D({ onClick }) {
+  const { state } = useContext(GlobalContext);
   const { shaders } = state;
 
   return (
@@ -28,49 +18,48 @@ const Shaders2D = ({
         The CRT Shader gives your classic systems a faux retro CRT vibe.
       </p>
       <Main>
-        <SelectorMenu>
-          <div className="selector-menu__img">
-            <img
-              src={lcdoff}
-              className={shaders.classic == true && 'is-hidden'}
-              alt="Background"
-            />
-            <img
-              src={lcdon}
-              className={shaders.classic == false && 'is-hidden'}
-              alt="Background"
-            />
-          </div>
-          <div className="selector-menu__options selector-menu__options--full">
-            <ul>
-              <li onClick={() => onClick(false)}>
-                <Card css={shaders.classic == false && 'is-selected'}>
-                  <span className="h4">Off</span>
-                </Card>
-              </li>
-              <li onClick={() => onClick(true)}>
-                <Card css={shaders.classic == true && 'is-selected'}>
-                  <span className="h4">On</span>
-                </Card>
-              </li>
-            </ul>
-          </div>
-          <div className="selector-menu__details">
-            <p className="lead">Affected Systems</p>
-            <ul>
-              <li>Atari</li>
-              <li>Master System</li>
-              <li>Genesis</li>
-              <li>SegaCD</li>
-              <li>Sega32x</li>
-              <li>Nes</li>
-              <li>SuperNes</li>
-            </ul>
-          </div>
-        </SelectorMenu>
+        <SelectorMenu
+          imgs={[
+            [lcdon, shaders.classic !== true ? 'is-hidden' : ''],
+            [lcdoff, shaders.classic !== false ? 'is-hidden' : ''],
+          ]}
+          options={[
+            [
+              () => onClick(false),
+              shaders.classic === false ? 'is-selected' : '',
+              'Off',
+              '',
+              true,
+            ],
+            [
+              () => onClick(true),
+              shaders.classic === true ? 'is-selected' : '',
+              'On',
+              ' ',
+              true,
+            ],
+          ]}
+          details={[
+            'Atari',
+            'Master System',
+            'Genesis',
+            'SegaCD',
+            'Sega32x',
+            'Nes',
+            'SuperNes',
+          ]}
+        />
       </Main>
     </>
   );
+}
+
+Shaders2D.propTypes = {
+  onClick: PropTypes.func,
+};
+
+Shaders2D.defaultProps = {
+  onClick: '',
 };
 
 export default Shaders2D;

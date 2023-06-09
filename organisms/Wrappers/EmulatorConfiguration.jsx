@@ -1,20 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
-
+import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
-function EmulatorConfiguration({
-  disabledNext,
-  disabledBack,
-  onClick,
-  next,
-  back,
-  data,
-  images,
-}) {
-  const { state, setState } = useContext(GlobalContext);
-  const { device, overwriteConfigEmus, second, system } = state;
+function EmulatorConfiguration({ onClick, images }) {
+  const { state } = useContext(GlobalContext);
+  const { overwriteConfigEmus, second, system } = state;
   const overwriteConfigEmusArray = Object.values(overwriteConfigEmus);
 
   return (
@@ -23,7 +15,7 @@ function EmulatorConfiguration({
         <p className="lead">
           EmuDeck will optimize and configure emulators during this install.
           Selected emulators will have their configurations reset and updated to
-          EmuDeck's defaults. De-selected emulators will not be touched and
+          EmuDeck defaults. De-selected emulators will not be touched and
           EmuDeck will respect your configurations (Not Recommended).
         </p>
       )}
@@ -31,39 +23,39 @@ function EmulatorConfiguration({
         <p className="lead">
           EmuDeck will optimize and configure emulators during this install.
           Selected emulators will have their configurations reset and updated to
-          EmuDeck's defaults. De-selected emulators will not be touched and
+          EmuDeck defaults. De-selected emulators will not be touched and
           EmuDeck will respect your configurations (Not Recommended).
         </p>
       )}
       <Main>
         <div className="cards cards--mini">
-          {overwriteConfigEmusArray.map((item, i) => {
+          {overwriteConfigEmusArray.map((item) => {
             if (
-              overwriteConfigEmusArray.id == 'srm' ||
-              item.id == 'primehacks'
+              overwriteConfigEmusArray.id === 'srm' ||
+              item.id === 'primehacks'
             ) {
               return;
             }
 
-            if (system == 'win32') {
+            if (system === 'win32') {
               if (
-                item.id == 'primehack' ||
-                item.id == 'melonds' ||
-                item.id == 'rmg' ||
-                item.id == 'mame' ||
-                item.id == 'vita3k' ||
-                item.id == 'scummvm' ||
-                item.id == 'xemu' ||
-                item.id == 'mgba'
+                item.id === 'primehack' ||
+                item.id === 'rmg' ||
+                item.id === 'mame' ||
+                item.id === 'vita3k' ||
+                item.id === 'scummvm' ||
+                item.id === 'xemu' ||
+                item.id === 'mgba'
               ) {
                 return;
               }
             }
 
             const img = images[item.id];
+            // eslint-disable-next-line consistent-return
             return (
               <Card
-                css={item.status == true && 'is-selected'}
+                css={item.status === true && 'is-selected'}
                 key={item.id}
                 onClick={() => onClick(item.id)}
               >
@@ -77,5 +69,15 @@ function EmulatorConfiguration({
     </>
   );
 }
+
+EmulatorConfiguration.propTypes = {
+  onClick: PropTypes.func,
+  images: PropTypes.array,
+};
+
+EmulatorConfiguration.defaultProps = {
+  onClick: '',
+  images: '',
+};
 
 export default EmulatorConfiguration;

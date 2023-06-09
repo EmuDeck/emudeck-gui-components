@@ -1,43 +1,25 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { GlobalContext } from 'context/globalContext';
-
+import React from 'react';
+import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 
 import Notification from 'components/molecules/Notification/Notification';
-import {
-  BtnSimple,
-  ProgressBar,
-  FormInputSimple,
-  LinkSimple,
-} from 'getbasecore/Atoms';
-import { Form } from 'getbasecore/Molecules';
+import { BtnSimple, FormInputSimple, LinkSimple } from 'getbasecore/Atoms';
 
-import Card from 'components/molecules/Card/Card';
+import { powerToolsImg } from 'components/utils/images/images';
 
-import powerToolsImg from 'assets/powertools.png';
-
-const PowerTools = ({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
+function PowerTools({
   onChange,
   onChangeSetPass,
   onChangeCheckPass,
   onClick,
   installClick,
-  next,
-  back,
   hasSudo,
-  nextText,
   sudoPass,
   showNotification,
   textNotification,
   passValidates,
   disableButton,
-}) => {
-  const { state, setState } = useContext(GlobalContext);
-  const { powerTools } = state;
-
+}) {
   return (
     <>
       <Notification css={showNotification ? 'is-animated' : 'nope'}>
@@ -47,15 +29,15 @@ const PowerTools = ({
         Power Tools is a plugin that allows you to tweak your CPU & GPU to for
         maximum performance on more demanding emulators. Installing Power Tools
         on this menu will also install Decky Loader, a plugin manager. You can
-        read more about Power Tools, {' '}
+        read more about Power Tools,{' '}
         <LinkSimple
           css="link-simple--1"
           href="https://github.com/NGnius/PowerTools"
           target="_blank"
         >
-          here 
+          here
         </LinkSimple>
-        and Decky Loader, {' '}
+        and Decky Loader,{' '}
         <LinkSimple
           css="link-simple--1"
           href="https://github.com/SteamDeckHomebrew/decky-loader"
@@ -140,6 +122,34 @@ const PowerTools = ({
       </Main>
     </>
   );
+}
+
+PowerTools.propTypes = {
+  onClick: PropTypes.func,
+  onChange: PropTypes.func,
+  onChangeSetPass: PropTypes.func,
+  onChangeCheckPass: PropTypes.func,
+  installClick: PropTypes.func,
+  hasSudo: PropTypes.bool,
+  sudoPass: PropTypes.string,
+  showNotification: PropTypes.bool,
+  textNotification: PropTypes.string,
+  passValidates: PropTypes.bool,
+  disableButton: PropTypes.bool,
+};
+
+PowerTools.defaultProps = {
+  onClick: '',
+  onChange: '',
+  onChangeSetPass: '',
+  onChangeCheckPass: '',
+  installClick: '',
+  hasSudo: '',
+  sudoPass: '',
+  showNotification: '',
+  textNotification: '',
+  passValidates: '',
+  disableButton: '',
 };
 
 export default PowerTools;

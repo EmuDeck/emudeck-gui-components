@@ -1,27 +1,10 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
-
+import PropTypes from 'prop-types';
 import { Alert } from 'getbasecore/Molecules';
 import Card from 'components/molecules/Card/Card';
 import CardSettings from 'components/molecules/CardSettings/CardSettings';
-import {
-  iconSuccess,
-  iconCloud,
-  iconCompress,
-  iconGear,
-  iconList,
-  iconMigrate,
-  iconPlugin,
-  iconPrize,
-  iconUninstall,
-  iconQuick,
-  iconCustom,
-  iconDoc,
-  iconBooks,
-  iconJoystick,
-  iconPackage,
-} from 'components/utils/images/images';
 
 function Welcome({
   onClick,
@@ -48,12 +31,12 @@ function Welcome({
           emulators.
         </p>
       )}
-      {second === true && <p className="lead">Quick actions:</p>}
 
       <Main>
         {/*
             Second install screen
           */}
+        {second === true && <p className="lead">Quick actions:</p>}
         {second === true && (
           <>
             <div className="container--grid">
@@ -169,5 +152,22 @@ function Welcome({
     </>
   );
 }
+
+Welcome.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.element,
+    PropTypes.string,
+  ]),
+  css: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+Welcome.defaultProps = {
+  children: '',
+  css: '',
+  onClick: '',
+};
 
 export default Welcome;

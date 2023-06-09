@@ -1,30 +1,14 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { GlobalContext } from 'context/globalContext';
-
-import Main from 'components/organisms/Main/Main';
-import imgSD from 'assets/sdcard.png';
-import imgInternal from 'assets/internal.png';
-import {
-  BtnSimple,
-  ProgressBar,
-  FormInputSimple,
-  LinkSimple,
-  Iframe,
-} from 'getbasecore/Atoms';
-import { Form } from 'getbasecore/Molecules';
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import { BtnSimple } from 'getbasecore/Atoms';
 import Card from 'components/molecules/Card/Card';
+import Main from 'components/organisms/Main/Main';
 
-const ipcChannel = window.electron.ipcRenderer;
-const Migration = ({
-  disabledNext,
-  disabledBack,
-  onChange,
+import { imgInternal, imgSD } from 'components/utils/images/images';
+
+function Migration({
   onClick,
   onClickStart,
-  next,
-  back,
-  minute,
   sdCardValid,
   sdCardName,
   reloadSDcard,
@@ -33,45 +17,44 @@ const Migration = ({
   storagePath,
   storagePathDestination,
   statusMigration,
-}) => {
-  const { state, setState } = useContext(GlobalContext);
-  const { SDID, mode, system } = state;
+}) {
   return (
     <>
       <p className="lead">
-        This utility will move your EmuDeck installation, with your ROMs in tact, to the selected
-        destination as well as update your Steam Library paths.
+        This utility will move your EmuDeck installation, with your ROMs in
+        tact, to the selected destination as well as update your Steam Library
+        paths.
       </p>
       <Main>
         <div className="container--grid">
           <div data-col-sm="6">
             <span className="h4">Current Installation:</span>
             <div className="cards cards--half">
-              {storage == 'SD-Card' && (
-                <Card css={storage == 'SD-Card' && 'is-selected'}>
+              {storage === 'SD-Card' && (
+                <Card css={storage === 'SD-Card' && 'is-selected'}>
                   <img src={imgSD} width="100" alt="Background" />
                   <span className="h5">SD Card</span>
                   {sdCardName != null && (
                     <span className="h6">{sdCardName}</span>
                   )}
-                  {sdCardName == null ||
-                    (sdCardValid == false && (
+                  {sdCardName === null ||
+                    (sdCardValid === false && (
                       <span className="h6">Not detected</span>
                     ))}
                 </Card>
               )}
 
-              {storage == 'Internal Storage' && (
-                <Card css={storage == 'Internal Storage' && 'is-selected'}>
+              {storage === 'Internal Storage' && (
+                <Card css={storage === 'Internal Storage' && 'is-selected'}>
                   <img src={imgInternal} width="100" alt="Background" />
                   <span className="h6">Internal Storage</span>
                 </Card>
               )}
-              {storage == 'Custom' && (
-                <Card css={storage == 'Custom' && 'is-selected'}>
+              {storage === 'Custom' && (
+                <Card css={storage === 'Custom' && 'is-selected'}>
                   <img src={imgInternal} width="100" alt="Background" />
                   <span className="h6">Custom Directory</span>
-                  {storagePath && storage == 'Custom' && (
+                  {storagePath && storage === 'Custom' && (
                     <span className="h6">{storagePath}</span>
                   )}
                 </Card>
@@ -82,22 +65,22 @@ const Migration = ({
             <span className="h4">Pick your Destination:</span>
             <div className="cards cards--half">
               <Card
-                css={storageDestination == 'SD-Card' && 'is-selected'}
+                css={storageDestination === 'SD-Card' && 'is-selected'}
                 onClick={() =>
-                  sdCardValid == true ? onClick('SD-Card') : reloadSDcard()
+                  sdCardValid === true ? onClick('SD-Card') : reloadSDcard()
                 }
               >
                 <img src={imgSD} width="100" alt="Background" />
                 <span className="h5">SD Card</span>
                 {sdCardName != null && <span className="h6">{sdCardName}</span>}
-                {sdCardName == null ||
-                  (sdCardValid == false && (
+                {sdCardName === null ||
+                  (sdCardValid === false && (
                     <span className="h6">Not detected</span>
                   ))}
               </Card>
 
               <Card
-                css={storageDestination == 'Internal Storage' && 'is-selected'}
+                css={storageDestination === 'Internal Storage' && 'is-selected'}
                 onClick={() => onClick('Internal Storage')}
               >
                 <img src={imgInternal} width="100" alt="Background" />
@@ -105,12 +88,12 @@ const Migration = ({
               </Card>
 
               <Card
-                css={storageDestination == 'Custom' && 'is-selected'}
+                css={storageDestination === 'Custom' && 'is-selected'}
                 onClick={() => onClick('Custom')}
               >
                 <img src={imgInternal} width="100" alt="Background" />
                 <span className="h6">Custom Directory</span>
-                {storagePathDestination && storageDestination == 'Custom' && (
+                {storagePathDestination && storageDestination === 'Custom' && (
                   <span className="h6">{storagePathDestination}</span>
                 )}
               </Card>
@@ -141,6 +124,31 @@ const Migration = ({
       </Main>
     </>
   );
+}
+
+Migration.propTypes = {
+  onClick: PropTypes.func,
+  onClickStart: PropTypes.func,
+  sdCardValid: PropTypes.bool,
+  sdCardName: PropTypes.string,
+  reloadSDcard: PropTypes.func,
+  storage: PropTypes.string,
+  storageDestination: PropTypes.string,
+  storagePath: PropTypes.string,
+  storagePathDestination: PropTypes.string,
+  statusMigration: PropTypes.string,
 };
 
+Migration.defaultProps = {
+  onClick: '',
+  onClickStart: '',
+  sdCardValid: '',
+  sdCardName: '',
+  reloadSDcard: '',
+  storage: '',
+  storageDestination: '',
+  storagePath: '',
+  storagePathDestination: '',
+  statusMigration: '',
+};
 export default Migration;

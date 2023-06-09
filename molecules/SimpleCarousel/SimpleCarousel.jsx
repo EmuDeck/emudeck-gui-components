@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { GlobalContext } from 'context/globalContext';
 import './simple-carousel.scss';
 
-const SimpleCarousel = ({ children, css, img, nav }) => {
+function SimpleCarousel({ css, img }) {
   return (
     <div className={`simple-carousel ${css}`}>
       <div className="simple-carousel-wrap">
@@ -11,9 +11,8 @@ const SimpleCarousel = ({ children, css, img, nav }) => {
           return (
             <div
               id={`carousel__slide${i + 1}`}
-              tabindex="0"
               className="simple-carousel__slide"
-              key={i}
+              key={item}
             >
               {item}
             </div>
@@ -22,6 +21,16 @@ const SimpleCarousel = ({ children, css, img, nav }) => {
       </div>
     </div>
   );
+}
+
+SimpleCarousel.propTypes = {
+  img: PropTypes.string,
+  css: PropTypes.string,
+};
+
+SimpleCarousel.defaultProps = {
+  img: '',
+  css: PropTypes.string,
 };
 
 export default SimpleCarousel;
