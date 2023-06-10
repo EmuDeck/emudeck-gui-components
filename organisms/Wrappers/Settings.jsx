@@ -4,7 +4,6 @@ import { GlobalContext } from 'context/globalContext';
 
 import Main from 'components/organisms/Main/Main';
 
-import Card from 'components/molecules/Card/Card';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 import Notification from 'components/molecules/Notification/Notification';
 
@@ -13,9 +12,7 @@ import {
   ar32,
   ar43s,
   ar87s,
-  ar32s,
   ar433d,
-  ar323d,
   ar1693d,
   ar43gc,
   ar169gc,
@@ -29,18 +26,10 @@ import {
   lcdoffH,
   saveon,
   saveoff,
-  noir1,
-  noir2,
-  modern1,
-  modern2,
-  rbsimple1,
-  rbsimple2,
-  modern,
-  imgYES,
-  imgNO,
   none,
-  backup,
   sync,
+  steamUI,
+  winDesktop,
 } from 'components/utils/images/images';
 
 function Settings({
@@ -53,25 +42,15 @@ function Settings({
   onClickCRT3D,
   onClickLCD,
   onClickAutoSave,
-  onClickHomeBrew,
+  onClickBoot,
   onClickCloudSync,
   notificationText,
   showNotification,
 }) {
-  const { state, setState } = useContext(GlobalContext);
-  const {
-    ar,
-    bezels,
-    shaders,
-    theme,
-    autosave,
-    homebrewGames,
-    system,
-    cloudSync,
-    cloudSyncStatus,
-    cloudSyncType,
-  } = state;
-  const ipcChannel = window.electron.ipcRenderer;
+  const { state } = useContext(GlobalContext);
+  const { ar, bezels, shaders, autosave, system, cloudSyncStatus, gamemode } =
+    state;
+
   return (
     <>
       <Notification css={showNotification ? 'is-animated' : 'nope'}>
@@ -83,6 +62,34 @@ function Settings({
       </p>
       <Main>
         <ul className="list-grid">
+          {system === 'win32' && (
+            <li>
+              <SelectorMenu
+                title="Boot Mode"
+                css="selector-menu--mini"
+                imgs={[
+                  [steamUI, gamemode === false ? 'is-hidden' : ''],
+                  [winDesktop, gamemode === true ? 'is-hidden' : ''],
+                ]}
+                options={[
+                  [
+                    () => onClickBoot(true),
+                    gamemode === true ? 'is-selected' : '',
+                    'SteamUI',
+                    '',
+                    true,
+                  ],
+                  [
+                    () => onClickBoot(false),
+                    gamemode === false ? 'is-selected' : '',
+                    'Desktop',
+                    '',
+                    true,
+                  ],
+                ]}
+              />
+            </li>
+          )}
           <li>
             <SelectorMenu
               title="AutoSave"
@@ -327,14 +334,14 @@ function Settings({
               ]}
               options={[
                 [
-                  () => onClickCRT3D(false),
+                  () => onClick3D(false),
                   shaders.classic3d === false ? 'is-selected' : '',
                   'Off',
                   '',
                   true,
                 ],
                 [
-                  () => onClickCRT3D(true),
+                  () => onClick3D(true),
                   shaders.classic3d === true ? 'is-selected' : '',
                   'On',
                   '',
@@ -359,7 +366,7 @@ Settings.propTypes = {
   onClickCRT3D: PropTypes.func,
   onClickLCD: PropTypes.func,
   onClickAutoSave: PropTypes.func,
-  onClickHomeBrew: PropTypes.func,
+  onClickBoot: PropTypes.func,
   onClickCloudSync: PropTypes.func,
   notificationText: PropTypes.string,
   showNotification: PropTypes.bool,
@@ -374,6 +381,7 @@ Settings.defaultProps = {
   onClickCRT: '',
   onClickCRT3D: '',
   onClickLCD: '',
+  onClickBoot: '',
   onClickAutoSave: '',
   onClickHomeBrew: '',
   onClickCloudSync: '',
