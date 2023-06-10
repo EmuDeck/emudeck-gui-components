@@ -19,61 +19,39 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.duckstation.status && (
               <>
                 <div className="duckstation">
-                  <button type="button" className="h5">
-                    PlayStation 1 Games
-                  </button>
+                  <span className="h5">PlayStation 1 Games</span>
                   <div className="cards">
                     <Card
                       css={
                         resolutions.duckstation === '720P' ? 'is-selected' : ''
                       }
+                      onClick={() => onClick('duckstation', '720P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('duckstation', '720P')}
-                      >
-                        720P
-                      </button>
+                      <span className="h6">720P</span>
                     </Card>
                     <Card
                       css={
                         resolutions.duckstation === '1080P' ? 'is-selected' : ''
                       }
+                      onClick={() => onClick('duckstation', '1080P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('duckstation', '1080P')}
-                      >
-                        1080P
-                      </button>
+                      <span className="h6">1080P</span>
                     </Card>
                     <Card
                       css={
                         resolutions.duckstation === '1440P' ? 'is-selected' : ''
                       }
+                      onClick={() => onClick('duckstation', '1440P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('duckstation', '1440P')}
-                      >
-                        1440P
-                      </button>
+                      <span className="h6">1440P</span>
                     </Card>
                     <Card
                       css={
                         resolutions.duckstation === '4K' ? 'is-selected' : ''
                       }
+                      onClick={() => onClick('duckstation', '4K')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('duckstation', '4K')}
-                      >
-                        4K
-                      </button>
+                      <span className="h6">4K</span>
                     </Card>
                   </div>
                 </div>
@@ -83,51 +61,31 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.pcsx2.status && (
               <>
                 <div className="pcsx2">
-                  <button type="button" className="h5">
-                    PlayStation 2 Games
-                  </button>
+                  <span className="h5">PlayStation 2 Games</span>
                   <div className="cards">
                     <Card
                       css={resolutions.pcsx2 === '720P' ? 'is-selected' : ''}
+                      onClick={() => onClick('pcsx2', '720P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('pcsx2', '720P')}
-                      >
-                        720P
-                      </button>
+                      <span className="h6">720P</span>
                     </Card>
                     <Card
                       css={resolutions.pcsx2 === '1080P' ? 'is-selected' : ''}
+                      onClick={() => onClick('pcsx2', '1080P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('pcsx2', '1080P')}
-                      >
-                        1080P
-                      </button>
+                      <span className="h6">1080P</span>
                     </Card>
                     <Card
                       css={resolutions.pcsx2 === '1440P' ? 'is-selected' : ''}
+                      onClick={() => onClick('pcsx2', '1440P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('pcsx2', '1440P')}
-                      >
-                        1440P
-                      </button>
+                      <span className="h6">1440P</span>
                     </Card>
-                    <Card css={resolutions.pcsx2 === '4K' ? 'is-selected' : ''}>
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('pcsx2', '4K')}
-                      >
-                        4K
-                      </button>
+                    <Card
+                      css={resolutions.pcsx2 === '4K' ? 'is-selected' : ''}
+                      onClick={() => onClick('pcsx2', '4K')}
+                    >
+                      <span className="h6">4K</span>
                     </Card>
                   </div>
                 </div>
@@ -137,51 +95,31 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.rpcs3.status && (
               <>
                 <div className="rpcs3">
-                  <button type="button" className="h5">
-                    PlayStation 3 Games
-                  </button>
+                  <span className="h5">PlayStation 3 Games</span>
                   <div className="cards">
                     <Card
                       css={resolutions.rpcs3 === '720P' ? 'is-selected' : ''}
+                      onClick={() => onClick('rpcs3', '720P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('rpcs3', '720P')}
-                      >
-                        720P
-                      </button>
+                      <span className="h6">720P</span>
                     </Card>
                     <Card
                       css={resolutions.rpcs3 === '1080P' ? 'is-selected' : ''}
+                      onClick={() => onClick('rpcs3', '1080P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('rpcs3', '1080P')}
-                      >
-                        1080P
-                      </button>
+                      <span className="h6">1080P</span>
                     </Card>
                     <Card
                       css={resolutions.rpcs3 === '1440P' ? 'is-selected' : ''}
+                      onClick={() => onClick('rpcs3', '1440P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('rpcs3', '1440P')}
-                      >
-                        1440P
-                      </button>
+                      <span className="h6">1440P</span>
                     </Card>
-                    <Card css={resolutions.rpcs3 === '4K' ? 'is-selected' : ''}>
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('rpcs3', '4K')}
-                      >
-                        4K
-                      </button>
+                    <Card
+                      css={resolutions.rpcs3 === '4K' ? 'is-selected' : ''}
+                      onClick={() => onClick('rpcs3', '4K')}
+                    >
+                      <span className="h6">4K</span>
                     </Card>
                   </div>
                 </div>
@@ -190,45 +128,31 @@ function EmulatorResolution({ onClick }) {
             )}
             {overwriteConfigEmus.yuzu.status && (
               <div className="yuzu">
-                <button type="button" className="h5">
-                  Switch Games
-                </button>
+                <span className="h5">Switch Games</span>
                 <div className="cards">
-                  <Card css={resolutions.yuzu === '720P' ? 'is-selected' : ''}>
-                    <button
-                      type="button"
-                      className="h6"
-                      onClick={() => onClick('yuzu', '720P')}
-                    >
-                      720P
-                    </button>
+                  <Card
+                    css={resolutions.yuzu === '720P' ? 'is-selected' : ''}
+                    onClick={() => onClick('yuzu', '720P')}
+                  >
+                    <span className="h6">720P</span>
                   </Card>
-                  <Card css={resolutions.yuzu === '1080P' ? 'is-selected' : ''}>
-                    <button
-                      type="button"
-                      className="h6"
-                      onClick={() => onClick('yuzu', '1080P')}
-                    >
-                      1080P
-                    </button>
+                  <Card
+                    css={resolutions.yuzu === '1080P' ? 'is-selected' : ''}
+                    onClick={() => onClick('yuzu', '1080P')}
+                  >
+                    <span className="h6">1080P</span>
                   </Card>
-                  <Card css={resolutions.yuzu === '1440P' ? 'is-selected' : ''}>
-                    <button
-                      type="button"
-                      className="h6"
-                      onClick={() => onClick('yuzu', '1440P')}
-                    >
-                      1440P
-                    </button>
+                  <Card
+                    css={resolutions.yuzu === '1440P' ? 'is-selected' : ''}
+                    onClick={() => onClick('yuzu', '1440P')}
+                  >
+                    <span className="h6">1440P</span>
                   </Card>
-                  <Card css={resolutions.yuzu === '4K' ? 'is-selected' : ''}>
-                    <button
-                      type="button"
-                      className="h6"
-                      onClick={() => onClick('yuzu', '4K')}
-                    >
-                      4K
-                    </button>
+                  <Card
+                    css={resolutions.yuzu === '4K' ? 'is-selected' : ''}
+                    onClick={() => onClick('yuzu', '4K')}
+                  >
+                    <span className="h6">4K</span>
                   </Card>
                 </div>
               </div>
@@ -238,53 +162,31 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.duckstation.status && (
               <>
                 <div className="dolphin">
-                  <button type="button" className="h5">
-                    GameCube and Wii Games
-                  </button>
+                  <span className="h5">GameCube and Wii Games</span>
                   <div className="cards">
                     <Card
                       css={resolutions.dolphin === '720P' ? 'is-selected' : ''}
+                      onClick={() => onClick('dolphin', '720P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('dolphin', '720P')}
-                      >
-                        720P
-                      </button>
+                      <span className="h6">720P</span>
                     </Card>
                     <Card
                       css={resolutions.dolphin === '1080P' ? 'is-selected' : ''}
+                      onClick={() => onClick('dolphin', '1080P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('dolphin', '1080P')}
-                      >
-                        1080P
-                      </button>
+                      <span className="h6">1080P</span>
                     </Card>
                     <Card
                       css={resolutions.dolphin === '1440P' ? 'is-selected' : ''}
+                      onClick={() => onClick('dolphin', '1440P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('dolphin', '1440P')}
-                      >
-                        1440P
-                      </button>
+                      <span className="h6">1440P</span>
                     </Card>
                     <Card
                       css={resolutions.dolphin === '4K' ? 'is-selected' : ''}
+                      onClick={() => onClick('dolphin', '4K')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('dolphin', '4K')}
-                      >
-                        4K
-                      </button>
+                      <span className="h6">4K</span>
                     </Card>
                   </div>
                 </div>
@@ -295,51 +197,31 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.duckstation.status && (
               <>
                 <div className="cemu">
-                  <button type="button" className="h5">
-                    Wii U Games
-                  </button>
+                  <span className="h5">Wii U Games</span>
                   <div className="cards">
                     <Card
                       css={resolutions.cemu === '720P' ? 'is-selected' : ''}
+                      onClick={() => onClick('cemu', '720P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('cemu', '720P')}
-                      >
-                        720P
-                      </button>
+                      <span className="h6">720P</span>
                     </Card>
                     <Card
                       css={resolutions.cemu === '1080P' ? 'is-selected' : ''}
+                      onClick={() => onClick('cemu', '1080P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('cemu', '1080P')}
-                      >
-                        1080P
-                      </button>
+                      <span className="h6">1080P</span>
                     </Card>
                     <Card
                       css={resolutions.cemu === '1440P' ? 'is-selected' : ''}
+                      onClick={() => onClick('cemu', '1440P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('cemu', '1440P')}
-                      >
-                        1440P
-                      </button>
+                      <span className="h6">1440P</span>
                     </Card>
-                    <Card css={resolutions.cemu === '4K' ? 'is-selected' : ''}>
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('cemu', '4K')}
-                      >
-                        4K
-                      </button>
+                    <Card
+                      css={resolutions.cemu === '4K' ? 'is-selected' : ''}
+                      onClick={() => onClick('cemu', '4K')}
+                    >
+                      <span className="h6">4K</span>
                     </Card>
                   </div>
                 </div>
@@ -349,53 +231,31 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.duckstation.status && (
               <>
                 <div className="melonds">
-                  <button type="button" className="h5">
-                    Nintendo DS Games
-                  </button>
+                  <span className="h5">Nintendo DS Games</span>
                   <div className="cards">
                     <Card
                       css={resolutions.melonds === '720P' ? 'is-selected' : ''}
+                      onClick={() => onClick('melonds', '720P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('melonds', '720P')}
-                      >
-                        720P
-                      </button>
+                      <span className="h6">720P</span>
                     </Card>
                     <Card
                       css={resolutions.melonds === '1080P' ? 'is-selected' : ''}
+                      onClick={() => onClick('melonds', '1080P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('melonds', '1080P')}
-                      >
-                        1080P
-                      </button>
+                      <span className="h6">1080P</span>
                     </Card>
                     <Card
                       css={resolutions.melonds === '1440P' ? 'is-selected' : ''}
+                      onClick={() => onClick('melonds', '1440P')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('melonds', '1440P')}
-                      >
-                        1440P
-                      </button>
+                      <span className="h6">1440P</span>
                     </Card>
                     <Card
                       css={resolutions.melonds === '4K' ? 'is-selected' : ''}
+                      onClick={() => onClick('melonds', '4K')}
                     >
-                      <button
-                        type="button"
-                        className="h6"
-                        onClick={() => onClick('melonds', '4K')}
-                      >
-                        4K
-                      </button>
+                      <span className="h6">4K</span>
                     </Card>
                   </div>
                 </div>
@@ -404,49 +264,31 @@ function EmulatorResolution({ onClick }) {
             )}
             {overwriteConfigEmus.duckstation.status && (
               <div className="citra">
-                <button type="button" className="h5">
-                  Nintendo 3DS Games
-                </button>
+                <span className="h5">Nintendo 3DS Games</span>
                 <div className="cards">
-                  <Card css={resolutions.citra === '720P' ? 'is-selected' : ''}>
-                    <button
-                      type="button"
-                      className="h6"
-                      onClick={() => onClick('citra', '720P')}
-                    >
-                      720P
-                    </button>
+                  <Card
+                    css={resolutions.citra === '720P' ? 'is-selected' : ''}
+                    onClick={() => onClick('citra', '720P')}
+                  >
+                    <span className="h6">720P</span>
                   </Card>
                   <Card
                     css={resolutions.citra === '1080P' ? 'is-selected' : ''}
+                    onClick={() => onClick('citra', '1080P')}
                   >
-                    <button
-                      type="button"
-                      className="h6"
-                      onClick={() => onClick('citra', '1080P')}
-                    >
-                      1080P
-                    </button>
+                    <span className="h6">1080P</span>
                   </Card>
                   <Card
                     css={resolutions.citra === '1440P' ? 'is-selected' : ''}
+                    onClick={() => onClick('citra', '1440P')}
                   >
-                    <button
-                      type="button"
-                      className="h6"
-                      onClick={() => onClick('citra', '1440P')}
-                    >
-                      1440P
-                    </button>
+                    <span className="h6">1440P</span>
                   </Card>
-                  <Card css={resolutions.citra === '4K' ? 'is-selected' : ''}>
-                    <button
-                      type="button"
-                      className="h6"
-                      onClick={() => onClick('citra', '4K')}
-                    >
-                      4K
-                    </button>
+                  <Card
+                    css={resolutions.citra === '4K' ? 'is-selected' : ''}
+                    onClick={() => onClick('citra', '4K')}
+                  >
+                    <span className="h6">4K</span>
                   </Card>
                 </div>
               </div>
