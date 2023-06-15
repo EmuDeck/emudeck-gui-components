@@ -51,6 +51,10 @@ function EmulatorConfiguration({ onClick, images }) {
               }
             }
 
+            if (item.id === 'srm' && second == false) {
+              return;
+            }
+
             const img = images[item.id];
             // eslint-disable-next-line consistent-return
             return (

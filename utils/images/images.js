@@ -103,6 +103,7 @@ import imgayaneo2 from 'assets/devices/ayaneo2.png';
 import imgayaneogeek from 'assets/devices/ayaneogeek.png';
 import imglinux from 'assets/devices/linux.png';
 import imgwindows from 'assets/devices/windows.png';
+import allyCrate from 'assets/allyCrate.png';
 
 export {
   imgdefault,
@@ -209,4 +210,5 @@ export {
   imgayaneogeek,
   imglinux,
   imgwindows,
+  allyCrate,
 };

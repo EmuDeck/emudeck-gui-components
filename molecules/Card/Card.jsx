@@ -24,7 +24,9 @@ Card.propTypes = {
 Card.defaultProps = {
   children: '',
   css: '',
-  onClick: '',
+  onClick: () => {
+    console.log('none');
+  },
 };
 
 export default Card;
