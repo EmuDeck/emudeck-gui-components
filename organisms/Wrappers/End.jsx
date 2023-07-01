@@ -28,6 +28,8 @@ import {
   imgesde,
   imgmelonds,
   allyCrate,
+  steamInput,
+  onClickWin32Config,
 } from 'components/utils/images/images';
 
 const ipcChannel = window.electron.ipcRenderer;
@@ -137,27 +139,54 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
                 </div>
               </Card>
             )}
-            {device !== 'Asus Rog Ally' && system === 'win32' && (
-              <Card css="is-selected">
-                <div className="container--grid">
-                  <div data-col-sm="6">
-                    <span className="h2">3 easy steps</span>
-                    <p className="lead">
-                      EmuDeck is designed to work using Steam input, you need to
-                      launch the games using Steam after adding them with Steam
-                      Rom Manager, same with the Emulators or EmulationStation,
-                      otherwise the controls won't work.
-                    </p>
+            {device !== 'Asus Rog Ally' &&
+              system === 'win32' &&
+              step !== 'steam' && (
+                <Card css="is-selected">
+                  <div className="container--grid">
+                    <div data-col-sm="6">
+                      <p className="lead">
+                        EmuDeck is designed to work using Steam input, you need
+                        to launch the games using Steam after adding them with
+                        Steam Rom Manager, same with the Emulators or
+                        EmulationStation, otherwise the controls won't work.
+                      </p>
+                      <p className="lead">
+                        <strong>
+                          If you want to use other Frontends like Playnite you
+                          will need to activate Steam Input on the Desktop:
+                        </strong>
+                      </p>
+                      <BtnSimple
+                        css="btn-simple--1"
+                        type="button"
+                        aria="Star manual configuration"
+                        onClick={() => onClickWin32Config()}
+                      >
+                        Start Steam Input Desktop configuration
+                        <svg
+                          className="rightarrow"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M16.4091 8.48003L21.5024 13.5734L1.98242 13.5734L1.98242 18.0178H21.5024L16.4091 23.1111L19.5558 26.2578L30.018 15.7956L19.5558 5.33337L16.4091 8.48003Z"
+                          />
+                        </svg>
+                      </BtnSimple>
+                    </div>
+                    <img src={steamInput} alt="alt" data-col-sm="6" />
                   </div>
-                  <img src={allyCrate} alt="alt" data-col-sm="6" />
-                </div>
-              </Card>
-            )}
-            {device === 'Asus Rog Ally' && (
+                </Card>
+              )}
+            {device === 'Asus Rog Ally' && step !== 'steam' && (
               <Card css="is-selected">
                 <div className="container--grid">
                   <div data-col-sm="6">
-                    <span className="h2">3 easy steps</span>
                     <ol className="list">
                       <li>
                         Set the Ally's Control Mode as GamePad like in the
@@ -170,11 +199,54 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
                         EmulationStation, otherwise the controls won't work.
                       </li>
                       <li>Enjoy your retro games!</li>
+                      <p className="lead">
+                        <strong>
+                          If you want to use other Frontends like Playnite you
+                          will need to activate Steam Input on the Desktop:
+                        </strong>
+                      </p>
+                      <BtnSimple
+                        css="btn-simple--1"
+                        type="button"
+                        aria="Star manual configuration"
+                        onClick={() => onClickWin32Config()}
+                      >
+                        Start Steam Input Desktop configuration
+                        <svg
+                          className="rightarrow"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M16.4091 8.48003L21.5024 13.5734L1.98242 13.5734L1.98242 18.0178H21.5024L16.4091 23.1111L19.5558 26.2578L30.018 15.7956L19.5558 5.33337L16.4091 8.48003Z"
+                          />
+                        </svg>
+                      </BtnSimple>
                     </ol>
                   </div>
                   <img src={allyCrate} alt="alt" data-col-sm="6" />
                 </div>
               </Card>
+            )}
+
+            {system === 'win32' && step === 'steam' && (
+              <>
+                <Header title="Steam configuration" />
+                <p className="lead">
+                  Open Steam by yourself, go to Settings, Controller, make sure
+                  Steam Input is enabled for your controller, scroll down to
+                  Desktop Layout, click on the current layout and then go to
+                  Templates and select the EmuDeck WE Template for your
+                  controller.
+                  <br />
+                  When you finish this step you can continue to the next page.
+                </p>
+                <Iframe src="https://www.youtube-nocookie.com/embed/ra_B1axeFqU?autoplay=1&playlist=ra_B1axeFqU&loop=1&controls=0&mute=1&rel=0&modestbranding=1" />
+              </>
             )}
           </div>
         )}

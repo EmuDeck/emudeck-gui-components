@@ -18,9 +18,7 @@
   &--mini {
     padding: 10px;
   }
-  .btn-simple {
-    display: none;
-  }
+
   p {
     flex: 1;
   }
@@ -53,12 +51,6 @@
     transition: 0.8s;
     img {
       opacity: 1;
-    }
-    .btn-simple {
-      display: none;
-      animation: none;
-      background: #fff;
-      color: #444;
     }
   }
 }
