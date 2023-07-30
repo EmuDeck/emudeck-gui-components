@@ -36,8 +36,7 @@ function EmuModal({ modal }) {
         <div className="emumodal__header">{modalHeader}</div>
         <div className="emumodal__body">{modalBody}</div>
         <div className="emumodal__footer">
-          {modalFooter}
-          {modalFooter || (
+          {!modalFooter && (
             <BtnSimple
               css="btn-simple--1"
               type="button"
@@ -47,6 +46,7 @@ function EmuModal({ modal }) {
               Close
             </BtnSimple>
           )}
+          {modalFooter}
         </div>
       </div>
     </div>
