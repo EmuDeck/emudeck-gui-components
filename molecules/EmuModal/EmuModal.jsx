@@ -13,13 +13,13 @@ function EmuModal({ modal }) {
   });
   const { modalActive, modalHeader, modalBody, modalFooter, modalCSS } =
     stateModal;
-  console.log({ modal });
+
   const closeModal = () => {
     setStateModal({ ...stateModal, modalActive: false });
   };
 
   useEffect(() => {
-    if (modal) {
+    if (modal != undefined) {
       setStateModal({
         modalActive: modal.active,
         modalHeader: modal.header,
