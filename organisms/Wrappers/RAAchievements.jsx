@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import {
@@ -9,11 +9,18 @@ import {
 } from 'getbasecore/Atoms';
 import { Form } from 'getbasecore/Molecules';
 import Main from 'components/organisms/Main/Main';
+import EmuModal from 'components/molecules/EmuModal/EmuModal';
 import { raLogo } from 'components/utils/images/images';
 
 function RAAchievements({ onChange, onToggle }) {
   const { state, setState } = useContext(GlobalContext);
   const { achievements, second } = state;
+
+  const [statePage, setStatePage] = useState({
+    modal: undefined,
+  });
+  const { modal } = statePage;
+
   const ipcChannel = window.electron.ipcRenderer;
   const fetchToken = () => {
     ipcChannel.sendMessage('getToken', {
@@ -44,7 +51,18 @@ function RAAchievements({ onChange, onToggle }) {
           achievements: { ...achievements, token: messageJson.Token },
         });
       } else {
-        alert('Wrong username or password');
+        const modalData = {
+          active: true,
+          header: <span className="h4">Wrong username or password</span>,
+          body: (
+            <p>
+              If your password contains special characters like _ or ' you need
+              to change it on retroachievements.org
+            </p>
+          ),
+          css: 'emumodal--xs',
+        };
+        setStatePage({ ...statePage, modal: modalData });
       }
     });
   };
@@ -152,6 +170,7 @@ function RAAchievements({ onChange, onToggle }) {
             <img src={raLogo} alt="RetroAchievements" />
           </div>
         </div>
+        <EmuModal modal={modal} />
       </Main>
     </>
   );

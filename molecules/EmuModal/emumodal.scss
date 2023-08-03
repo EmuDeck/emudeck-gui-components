@@ -1,0 +1,80 @@
+.emumodal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  transition: 0.5s;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #444;
+  opacity: 0;
+  pointer-events: none;
+  &.is-shown {
+    opacity: 1;
+    transition: 0.5s;
+    pointer-events: all;
+    .emumodal__box {
+      bottom: 0;
+      transition: bottom 0.5s;
+    }
+  }
+
+  &__box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -200vh;
+    width: 90vw;
+    height: 90vh;
+    margin: auto;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .lead,
+    p,
+    small {
+      color: #444 !important;
+      margin-bottom: 0;
+    }
+  }
+
+  &__header {
+    margin-bottom: 24px;
+  }
+  &__body {
+    flex: 1;
+  }
+  &__footer {
+    text-align: right;
+    .btn-simple {
+      margin-bottom: 0;
+    }
+  }
+  &--xs {
+    .emumodal__box {
+      width: 40vw;
+      height: auto;
+      max-height: 35vh;
+    }
+  }
+  &--sm {
+    .emumodal__box {
+      width: 50vw;
+      height: auto;
+      max-height: 40vh;
+    }
+  }
+}
