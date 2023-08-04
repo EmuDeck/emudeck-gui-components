@@ -254,66 +254,73 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
         {disabledNext === true && (
           <>
             <ProgressBar css="progress--success" value={percentage} max={100} />
-            <span className="h5">
-              EmuDeck would not be possible without all these open-source
-              projects. We want to give them all a big shout out for their hard
-              work!
-            </span>
-            <div className="cards cards--mini cards--center">
-              <Card css="is-selected">
-                <img src={imgra} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgdolphin} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgprimehack} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgppsspp} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgduckstation} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgmelonds} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgcitra} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgpcsx2} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgrpcs3} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgyuzu} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgryujinx} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgcemu} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgxemu} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgmame} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgvita3k} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgscummvm} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgsrm} alt="alt" />
-              </Card>
-              <Card css="is-selected">
-                <img src={imgesde} alt="alt" />
-              </Card>
+            <div className="container--grid">
+              <div data-col-sm="7">
+                <span className="h5">
+                  EmuDeck would not be possible without all these open-source
+                  projects. We want to give them all a big shout out for their
+                  hard work!
+                </span>
+                <div className="cards cards--mini cards--center">
+                  <Card css="is-selected">
+                    <img src={imgra} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgdolphin} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgprimehack} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgppsspp} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgduckstation} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgmelonds} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgcitra} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgpcsx2} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgrpcs3} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgyuzu} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgryujinx} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgcemu} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgxemu} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgmame} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgvita3k} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgscummvm} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgsrm} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgesde} alt="alt" />
+                  </Card>
+                </div>
+              </div>
+              <div data-col-sm="5">
+                <Iframe src="https://funhtml5games.com?embed=spaceinvaders" />
+              </div>
             </div>
           </>
         )}
