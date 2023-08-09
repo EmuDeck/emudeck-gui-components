@@ -9,6 +9,7 @@ import Main from 'components/organisms/Main/Main';
 import {
   imgdefault,
   imgra,
+  imgares,
   imgdolphin,
   imgprimehack,
   imgppsspp,
@@ -129,6 +130,9 @@ function EmuDetail(props) {
         break;
       case 'rmg':
         setStateImg({ img: imgrmg });
+        break;
+      case 'ares':
+        setStateImg({ img: imgares });
         break;
       default:
         setStateImg({ img: imgdefault });

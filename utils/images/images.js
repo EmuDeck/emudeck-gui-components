@@ -1,5 +1,6 @@
 import imgdefault from 'assets/1x1.png';
 import imgra from 'assets/emulators/ra.png';
+import imgares from 'assets/emulators/ares.png';
 import imgdolphin from 'assets/emulators/dolphin.png';
 import imgprimehack from 'assets/emulators/primehack.png';
 import imgppsspp from 'assets/emulators/ppsspp.png';
@@ -109,6 +110,7 @@ import steamInput from 'assets/steaminput.png';
 export {
   imgdefault,
   imgra,
+  imgares,
   imgdolphin,
   imgprimehack,
   imgppsspp,
