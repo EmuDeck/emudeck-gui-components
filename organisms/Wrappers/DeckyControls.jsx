@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
-
-import Notification from 'components/molecules/Notification/Notification';
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
 
 import { DeckyControlsImg } from 'components/utils/images/images';
@@ -22,9 +20,6 @@ function DeckyControls({
 }) {
   return (
     <>
-      <Notification css={showNotification ? 'is-animated' : 'nope'}>
-        {textNotification}
-      </Notification>
       <p className="lead">
         DeckyControls is a plugin that allows you to see all of EmuDeck controls
         and hotkeys while you are gaming. To use DeckyControls: In Game Mode,

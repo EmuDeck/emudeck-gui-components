@@ -22,9 +22,6 @@ function PowerTools({
 }) {
   return (
     <>
-      <Notification css={showNotification ? 'is-animated' : 'nope'}>
-        {textNotification}
-      </Notification>
       <p className="lead">
         Power Tools is a plugin that allows you to tweak your CPU & GPU to for
         maximum performance on more demanding emulators. Installing Power Tools

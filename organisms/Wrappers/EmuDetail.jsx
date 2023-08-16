@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 import { BtnSimple, BtnGroup } from 'getbasecore/Atoms';
 import { Table, Alert } from 'getbasecore/Molecules';
-import Notification from 'components/molecules/Notification/Notification';
 import Main from 'components/organisms/Main/Main';
 
 import {
@@ -41,8 +40,6 @@ function EmuDetail(props) {
     onClickUninstall,
     onClickReInstall,
     emuData,
-    showNotification,
-    textNotification,
     installEmus,
     disableResetButton,
     hideInstallButton,
@@ -244,9 +241,6 @@ function EmuDetail(props) {
 
   return (
     <>
-      <Notification css={showNotification ? 'is-animated' : 'nope'}>
-        {textNotification}
-      </Notification>
       <Main>
         {emuData.id && (
           <div className="container--grid">
@@ -406,8 +400,6 @@ EmuDetail.propTypes = {
   onClickUninstall: PropTypes.func,
   onClickReInstall: PropTypes.func,
   emuData: PropTypes.any,
-  showNotification: PropTypes.bool,
-  textNotification: PropTypes.string,
   installEmus: PropTypes.array,
   disableResetButton: PropTypes.bool,
   hideInstallButton: PropTypes.bool,
@@ -421,8 +413,6 @@ EmuDetail.defaultProps = {
   onClickUninstall: '',
   onClickReInstall: '',
   emuData: '',
-  showNotification: '',
-  textNotification: '',
   installEmus: '',
   disableResetButton: '',
   hideInstallButton: '',

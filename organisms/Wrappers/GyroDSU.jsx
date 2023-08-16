@@ -21,9 +21,6 @@ function GyroDSU({
 }) {
   return (
     <>
-      <Notification css={showNotification ? 'is-animated' : 'nope'}>
-        {textNotification}
-      </Notification>
       <p className="lead">
         SteamDeckGyroDSU is a plugin that allows you to use your Steam Deck
         Gyroscope in Cemu (Wii U), Citra (3DS), Dolphin (Gamecube and Wii),
