@@ -30,6 +30,8 @@ function EmulatorSelector({ onClick, images }) {
                 item.id === 'mame' ||
                 item.id === 'vita3k' ||
                 item.id === 'scummvm' ||
+                item.id === 'xenia' ||
+                item.id === 'ares' ||
                 item.id === 'xemu' ||
                 item.id === 'mgba'
               ) {
