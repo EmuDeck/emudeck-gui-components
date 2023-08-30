@@ -38,42 +38,16 @@ function GyroDSU({
         <br />
         <div className="container--grid">
           <div data-col-sm="6">
-            <p>
-              This tool requires you to use a Linux sudo (SuperUser) password.{' '}
-              <strong>
-                Never share this password, if you forget it, you will need to
-                reset your Steam Deck.
-              </strong>
-            </p>
-
             {hasSudo === false && (
-              <div className="form">
-                <FormInputSimple
-                  label="Create sudo Password"
-                  type="password"
-                  name="pass1"
-                  id="pass1"
-                  onChange={onChangeSetPass}
-                />
-
-                <FormInputSimple
-                  label="Repeat sudo Password"
-                  type="password"
-                  name="pass2"
-                  id="pass2"
-                  onChange={onChangeCheckPass}
-                />
-                {passValidates === true && (
-                  <BtnSimple
-                    type="button"
-                    onClick={onClick}
-                    css="btn-simple--1"
-                    aria="Create Password"
-                  >
-                    Create Password
-                  </BtnSimple>
-                )}
-              </div>
+              <BtnSimple
+                css="btn-simple--1"
+                type="button"
+                aria="Install GyroDSU"
+                onClick={installClick}
+                disabled={disableButton && 'true'}
+              >
+                Install SteamDeckGyroDSU
+              </BtnSimple>
             )}
             {hasSudo === true && (
               <div className="form">
@@ -133,7 +107,7 @@ GyroDSU.defaultProps = {
   onClick: '',
   installClick: '',
   hasSudo: '',
-  sudoPass: '',
+  sudoPass: 'Decky!',
   showNotification: '',
   textNotification: '',
   passValidates: '',
