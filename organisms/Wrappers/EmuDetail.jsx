@@ -338,12 +338,12 @@ function EmuDetail(props) {
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
-                      aria="install Cemu Appimage"
+                      aria="Install Cemu AppImage"
                       disabled={hideInstallButton}
                       onClick={() => {
                         if (
                           window.confirm(
-                            'This action will install Cemu Appimage alongside your current Cemu'
+                            'This action will install Cemu AppImage alongside your current Cemu'
                           ) === true
                         ) {
                           onClickInstall('cemunative', 'CemuNative');
@@ -355,10 +355,10 @@ function EmuDetail(props) {
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
-                      aria="Install Cemu AppImage"
+                      aria="Reset Cemu AppImage Configuration"
                       disabled={disableResetButton}
                       onClick={() => {
-                        onClick('cemunative', 'CemuNative');
+                        onClick('CemuNative', 'CemuNative', 'cemunative');
                       }}
                     >
                       Reset Cemu AppImage
