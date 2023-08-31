@@ -45,7 +45,7 @@ function CopyGames({
     <>
       {statusCopyGames !== true && (
         <p className="lead">
-          Plug a USB Drive into the Steam Deck's USB C port, using a hub or adapter. EmuDeck will create a ROMs
+          Plug a USB Drive into the Steam Deck's USB C port. EmuDeck will create a ROMs
           and BIOS folder, allowing you to copy your ROMs and BIOS to your USB Drive on another device. When you are ready, 
           return to this page, and EmuDeck will transfer your newly copied files to your Steam Deck.
         </p>

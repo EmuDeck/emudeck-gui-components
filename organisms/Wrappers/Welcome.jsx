@@ -43,9 +43,12 @@ function Welcome({
 
       {updates && (
         <p className="lead">
-          You have pending updates, its recommended to update so you have the
-          latest version of EmuDeck's configuration and optimization for your
-          emulators.
+          You have pending configuration updates. 
+          Use the "Manage Emulators" page to update 
+          to the latest EmuDeck configurations. 
+          These updates are optional 
+          but may contain important 
+          new optimizations for your tools and emulators.
         </p>
       )}
       {second === true && <p className="lead">Quick actions:</p>}
