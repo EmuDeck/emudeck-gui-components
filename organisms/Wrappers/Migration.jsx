@@ -21,9 +21,8 @@ function Migration({
   return (
     <>
       <p className="lead">
-        This utility will move your EmuDeck installation, with your ROMs in
-        tact, to the selected destination as well as update your Steam Library
-        paths.
+        This utility will move your EmuDeck installation, with your ROMs intact,
+        to the selected destination as well as update your Steam Library paths.
       </p>
       <Main>
         <div className="container--grid">
