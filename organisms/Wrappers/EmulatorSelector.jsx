@@ -19,11 +19,7 @@ function EmulatorSelector({ onClick, images }) {
       <Main>
         <div className="cards cards--mini">
           {installEmusArray.map((item) => {
-            if (
-              item.id === 'srm' ||
-              item.id === 'xenia' ||
-              item.id === 'primehacks'
-            ) {
+            if (item.id === 'srm' || item.id === 'primehacks') {
               return;
             }
 
@@ -34,6 +30,8 @@ function EmulatorSelector({ onClick, images }) {
                 item.id === 'mame' ||
                 item.id === 'vita3k' ||
                 item.id === 'scummvm' ||
+                item.id === 'xenia' ||
+                item.id === 'ares' ||
                 item.id === 'xemu' ||
                 item.id === 'mgba'
               ) {

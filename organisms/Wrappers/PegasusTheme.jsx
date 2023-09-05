@@ -11,10 +11,7 @@ function PegasusTheme({ onClick }) {
   const { theme } = state;
   return (
     <>
-      <p className="lead">
-        Choose your theme for EmulationStation DE, swipe to see more
-        screenshots.
-      </p>
+      <p className="lead">Choose your default theme for EmulationStation DE.</p>
       <Main>
         <SelectorMenu
           imgs={[

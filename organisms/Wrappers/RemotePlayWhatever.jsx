@@ -65,9 +65,6 @@ const RemotePlayWhatever = ({
 
   return (
     <>
-      <Notification css={showNotification ? 'is-animated' : 'nope'}>
-        {notificationText}
-      </Notification>
       <Main>
         <p className="lead">
           Play with your friends both locally and over the internet. More info
