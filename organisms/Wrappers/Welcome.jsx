@@ -1,27 +1,10 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
-
+import PropTypes from 'prop-types';
 import { Alert } from 'getbasecore/Molecules';
 import Card from 'components/molecules/Card/Card';
 import CardSettings from 'components/molecules/CardSettings/CardSettings';
-import {
-  iconSuccess,
-  iconCloud,
-  iconCompress,
-  iconGear,
-  iconList,
-  iconMigrate,
-  iconPlugin,
-  iconPrize,
-  iconUninstall,
-  iconQuick,
-  iconCustom,
-  iconDoc,
-  iconBooks,
-  iconJoystick,
-  iconPackage,
-} from 'components/utils/images/images';
 
 function Welcome({
   onClick,
@@ -43,20 +26,17 @@ function Welcome({
 
       {updates && (
         <p className="lead">
-          You have pending configuration updates. 
-          Use the "Manage Emulators" page to update 
-          to the latest EmuDeck configurations. 
-          These updates are optional 
-          but may contain important 
-          new optimizations for your tools and emulators.
+          You have pending updates in Manage Emulators, it's recommended to
+          update so you have the latest version of EmuDeck's configurations and
+          optimizations for your emulators.
         </p>
       )}
-      {second === true && <p className="lead">Quick actions:</p>}
 
       <Main>
         {/*
             Second install screen
           */}
+        {second === true && <p className="lead">Quick actions:</p>}
         {second === true && (
           <>
             <div className="container--grid">
@@ -172,5 +152,22 @@ function Welcome({
     </>
   );
 }
+
+Welcome.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.element,
+    PropTypes.string,
+  ]),
+  css: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+Welcome.defaultProps = {
+  children: '',
+  css: '',
+  onClick: '',
+};
 
 export default Welcome;

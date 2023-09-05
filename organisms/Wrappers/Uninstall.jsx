@@ -1,35 +1,17 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { GlobalContext } from 'context/globalContext';
-
+import React from 'react';
+import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 
-import {
-  BtnSimple,
-  ProgressBar,
-  FormInputSimple,
-  LinkSimple,
-} from 'getbasecore/Atoms';
-import { Form } from 'getbasecore/Molecules';
+import { BtnSimple } from 'getbasecore/Atoms';
 
-import Card from 'components/molecules/Card/Card';
-
-const Uninstall = ({
-  disabledNext,
-  disabledBack,
-  onClick,
-  next,
-  back,
-  nextText,
-}) => {
-  const { state, setState } = useContext(GlobalContext);
-  const { sudoPass, Uninstall } = state;
-
+function Uninstall({ onClick }) {
   return (
     <>
       <p className="lead">
-        The EmuDeck Uninstallation utility should only be used if you are intending on
-        removing EmuDeck from your system. If you are having issues, run a
-        Custom Reset, troubleshoot the specific tool or emulator, or visit EmuDeck's Discord or Reddit for additional support.
+        The EmuDeck Uninstallation utility should only be used if you are
+        intending on removing EmuDeck from your system. If you are having
+        issues, run a Custom Reset, troubleshoot the specific tool or emulator,
+        or visit EmuDeck Discord or Reddit for additional support.
       </p>
       <Main>
         <br />
@@ -39,6 +21,7 @@ const Uninstall = ({
             aria-label="Go Next"
             className="btn-simple btn-simple--1"
             target="_blank"
+            rel="noreferrer"
           >
             EmuDeck's Discord
           </a>
@@ -47,6 +30,7 @@ const Uninstall = ({
             aria-label="Go Next"
             className="btn-simple btn-simple--1"
             target="_blank"
+            rel="noreferrer"
           >
             EmuDeck's Reddit
           </a>
@@ -65,6 +49,14 @@ const Uninstall = ({
       </Main>
     </>
   );
+}
+
+Uninstall.propTypes = {
+  onClick: PropTypes.func,
+};
+
+Uninstall.defaultProps = {
+  onClick: '',
 };
 
 export default Uninstall;

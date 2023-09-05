@@ -1,0 +1,92 @@
+.emumodal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  transition: 0.5s;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #444;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  &.is-shown {
+    opacity: 1;
+    transition: 0.5s;
+    pointer-events: all;
+    .emumodal__box {
+      margin-bottom: 0;
+      transition: 0.5s;
+    }
+  }
+
+  &__box {
+    margin-bottom: -200vh;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    // display: flex;
+    // flex-direction: column;
+    border: 1px solid #cbcbcb;
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .lead,
+    p,
+    small {
+      color: #444 !important;
+    }
+  }
+
+  &__header {
+    margin-bottom: 24px;
+  }
+  &__body {
+    flex: 1;
+    max-height: 50vh;
+    overflow: auto;
+  }
+  &__footer {
+    margin-top: 24px;
+    text-align: right;
+    .btn-simple {
+      margin-bottom: 0;
+    }
+  }
+  &--xs {
+    .emumodal__box {
+      width: 40vw;
+      max-height: 80vh;
+    }
+  }
+  &--sm {
+    .emumodal__box {
+      width: 50vw;
+    }
+  }
+}
+
+.embed-responsive {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: 0;
+  .embed-responsive__item {
+    flex-grow: 1;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+}

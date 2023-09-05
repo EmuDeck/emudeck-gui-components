@@ -1,53 +1,35 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { GlobalContext } from 'context/globalContext';
-
-import Main from 'components/organisms/Main/Main';
-import imgESDE from 'assets/ESDE.jpg';
-import imgSTEAM from 'assets/STEAMGAMES.png';
-import imgExternal from 'assets/external.png';
-import imgUSBDeck from 'assets/usb-in-deck.png';
-import {
-  BtnSimple,
-  ProgressBar,
-  FormInputSimple,
-  LinkSimple,
-  Iframe,
-} from 'getbasecore/Atoms';
-import { Form } from 'getbasecore/Molecules';
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import { BtnSimple } from 'getbasecore/Atoms';
 import Card from 'components/molecules/Card/Card';
+import Main from 'components/organisms/Main/Main';
 
-const ipcChannel = window.electron.ipcRenderer;
+import {
+  imgESDE,
+  imgSTEAM,
+  imgExternal,
+  imgUSBDeck,
+} from 'components/utils/images/images';
+
 function CopyGames({
-  disabledNext,
-  disabledBack,
-  onChange,
   onClick,
   onClickStart,
   onClickCopyGames,
-  next,
-  back,
-  minute,
-  sdCardValid,
-  sdCardName,
-  reloadSDcard,
   storageUSB,
   storageUSBPath,
+  storagePathDestination,
   statusCopyGames,
   statusCreateStructure,
 }) {
-  const { state, setState } = useContext(GlobalContext);
-  const { SDID, mode, system } = state;
-
-  console.log({ statusCopyGames, storageUSBPath, statusCreateStructure });
-
   return (
     <>
       {statusCopyGames !== true && (
         <p className="lead">
-          Plug a USB Drive into the Steam Deck's USB C port. EmuDeck will create a ROMs
-          and BIOS folder, allowing you to copy your ROMs and BIOS to your USB Drive on another device. When you are ready, 
-          return to this page, and EmuDeck will transfer your newly copied files to your Steam Deck.
+          Plug a USB Drive into the Steam Deck USB C port, using a hub or
+          adapter. EmuDeck will create a ROMs and BIOS folder, allowing you to
+          copy your ROMs and BIOS to your USB Drive on another device. When you
+          are ready, return to this page, and EmuDeck will transfer your newly
+          copied files to your Steam Deck.
         </p>
       )}
       <Main>
@@ -58,12 +40,12 @@ function CopyGames({
                 <span className="h4">Select your USB Drive</span>
                 <div className="cards cards--half">
                   <Card
-                    css={storageUSB == 'Custom' && 'is-selected'}
+                    css={storageUSB === 'Custom' && 'is-selected'}
                     onClick={() => onClick('Custom')}
                   >
                     <img src={imgExternal} width="100" alt="Background" />
                     <span className="h6">USB Drive</span>
-                    {storageUSBPath && storageUSB == 'Custom' && (
+                    {storageUSBPath && storageUSB === 'Custom' && (
                       <span className="h6">{storagePathDestination}</span>
                     )}
                   </Card>
@@ -125,13 +107,16 @@ function CopyGames({
                 <span className="h4">Play Using Steam ROM Manager</span>
                 <img src={imgSTEAM} alt="ESDE" />
                 <p>
-                  EmuDeck can add your games to Steam as non-Steam game shortcuts.
+                  EmuDeck can add your games to Steam as non-Steam game
+                  shortcuts.
                   <br />
                   <br />
-                  When you open Steam ROM Manager, enable your desired parsers, click on{' '}
-                  <strong>"Preview" &gt; "Generate App List"</strong> and wait
-                  until it finishes, then "Save apps to Steam". When it finishes, 
-                  you can switch back to Game Mode and play your newly transferred games.
+                  When you open Steam ROM Manager, enable your desired parsers,
+                  click on <strong>Preview, Parse</strong>
+                  and wait until it finishes, then{' '}
+                  <strong>Save apps to Steam</strong>. When it finishes, you can
+                  switch back to Game Mode and play your newly transferred
+                  games.
                 </p>
               </div>
               <div data-col-sm="6">
@@ -141,10 +126,10 @@ function CopyGames({
                   EmulationStation-DE is recommended if you have a lot of games.
                   <br />
                   <br />
-                  You will need to use Steam ROM Manager to add EmulationStation DE
-                  to your library. Follow the same steps as instructed previously, but
-                  you will only need to enable the{' '}
-                  <strong>"EmulationStation DE"</strong> parser.
+                  You will need to use Steam ROM Manager to add EmulationStation
+                  DE to your library. Follow the same steps as instructed
+                  previously, but you will only need to enable the
+                  <strong>EmulationStation DE</strong> parser.
                 </p>
               </div>
             </>
@@ -154,5 +139,27 @@ function CopyGames({
     </>
   );
 }
+
+CopyGames.propTypes = {
+  onClick: PropTypes.func,
+  onClickStart: PropTypes.func,
+  onClickCopyGames: PropTypes.func,
+  storageUSB: PropTypes.string,
+  storageUSBPath: PropTypes.string,
+  storagePathDestination: PropTypes.string,
+  statusCopyGames: PropTypes.string,
+  statusCreateStructure: PropTypes.bool,
+};
+
+CopyGames.defaultProps = {
+  onClick: '',
+  onClickStart: '',
+  onClickCopyGames: '',
+  storageUSB: '',
+  storageUSBPath: '',
+  storagePathDestination: '',
+  statusCopyGames: '',
+  statusCreateStructure: '',
+};
 
 export default CopyGames;

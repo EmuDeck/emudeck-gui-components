@@ -1,25 +1,14 @@
-import React, { useEffect, useState, useContext } from 'react';
-
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 
 import Main from 'components/organisms/Main/Main';
 
-import Card from 'components/molecules/Card/Card';
 import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
+import { lcdonH, lcdoffH } from 'components/utils/images/images';
 
-import lcdonH from 'assets/lcdon.png';
-import lcdoffH from 'assets/lcdoff.png';
-
-const ShadersHandhelds = ({
-  disabledNext,
-  disabledBack,
-  downloadComplete,
-  onClick,
-  next,
-  back,
-  data,
-}) => {
-  const { state, setState } = useContext(GlobalContext);
+function ShadersHandhelds({ onClick }) {
+  const { state } = useContext(GlobalContext);
   const { shaders } = state;
 
   return (
@@ -28,46 +17,40 @@ const ShadersHandhelds = ({
         The LCD Shader simulates the old LCD Matrix screens of handheld systems.
       </p>
       <Main>
-        <SelectorMenu>
-          <div className="selector-menu__img">
-            <img
-              src={lcdoffH}
-              className={shaders.handhelds == true && 'is-hidden'}
-              alt="Background"
-            />
-            <img
-              src={lcdonH}
-              className={shaders.handhelds == false && 'is-hidden'}
-              alt="Background"
-            />
-          </div>
-          <div className="selector-menu__options selector-menu__options--full">
-            <ul>
-              <li onClick={() => onClick(false)}>
-                <Card css={shaders.handhelds == false && 'is-selected'}>
-                  <span className="h4">Off</span>
-                </Card>
-              </li>
-              <li onClick={() => onClick(true)}>
-                <Card css={shaders.handhelds == true && 'is-selected'}>
-                  <span className="h4">On</span>
-                </Card>
-              </li>
-            </ul>
-          </div>
-          <div className="selector-menu__details">
-            <p className="lead">Systems</p>
-            <ul>
-              <li>GameBoy</li>
-              <li>GameBoy Color</li>
-              <li>GameGear</li>
-              <li>NeoGeo Pocket</li>
-            </ul>
-          </div>
-        </SelectorMenu>
+        <SelectorMenu
+          imgs={[
+            [lcdoffH, shaders.handhelds === true ? 'is-hidden' : ''],
+            [lcdonH, shaders.handhelds === false ? 'is-hidden' : ''],
+          ]}
+          options={[
+            [
+              () => onClick(false),
+              shaders.handhelds === false ? 'is-selected' : '',
+              'Off',
+              '',
+              true,
+            ],
+            [
+              () => onClick(true),
+              shaders.handhelds === true ? 'is-selected' : '',
+              'On',
+              ' ',
+              true,
+            ],
+          ]}
+          details={['GameBoy', 'GameBoy Color', 'GameGear', 'NeoGeo Pocket']}
+        />
       </Main>
     </>
   );
+}
+
+ShadersHandhelds.propTypes = {
+  onClick: PropTypes.func,
+};
+
+ShadersHandhelds.defaultProps = {
+  onClick: '',
 };
 
 export default ShadersHandhelds;
