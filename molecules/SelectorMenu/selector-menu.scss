@@ -7,14 +7,16 @@
   &__img {
     margin-right: 20px;
     // width: 55%;
+    text-align: right;
     position: relative;
     img,
     .simple-carousel {
-      min-height: 360px;
-      max-width: 671px;
-      max-height: calc(100vh - 290px);
+      //min-height: 360px;
+      //max-width: 671px;
+      //max-height: calc(100vh - 290px);
+      max-height: 58vh;
       width: auto;
-      height: auto;
+      // height: auto;
       &.is-hidden {
         display: none;
       }

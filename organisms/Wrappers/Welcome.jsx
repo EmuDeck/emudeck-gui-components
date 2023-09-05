@@ -26,9 +26,9 @@ function Welcome({
 
       {updates && (
         <p className="lead">
-          You have pending updates, its recommended to update so you have the
-          latest version of EmuDeck's configuration and optimization for your
-          emulators.
+          You have pending updates in Manage Emulators, it's recommended to
+          update so you have the latest version of EmuDeck's configurations and
+          optimizations for your emulators.
         </p>
       )}
 

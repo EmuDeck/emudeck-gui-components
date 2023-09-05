@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 import { BtnSimple, BtnGroup } from 'getbasecore/Atoms';
 import { Table, Alert } from 'getbasecore/Molecules';
-import Notification from 'components/molecules/Notification/Notification';
 import Main from 'components/organisms/Main/Main';
 
 import {
   imgdefault,
   imgra,
+  imgares,
   imgdolphin,
   imgprimehack,
   imgppsspp,
@@ -40,8 +40,6 @@ function EmuDetail(props) {
     onClickUninstall,
     onClickReInstall,
     emuData,
-    showNotification,
-    textNotification,
     installEmus,
     disableResetButton,
     hideInstallButton,
@@ -129,6 +127,9 @@ function EmuDetail(props) {
         break;
       case 'rmg':
         setStateImg({ img: imgrmg });
+        break;
+      case 'ares':
+        setStateImg({ img: imgares });
         break;
       default:
         setStateImg({ img: imgdefault });
@@ -240,9 +241,6 @@ function EmuDetail(props) {
 
   return (
     <>
-      <Notification css={showNotification ? 'is-animated' : 'nope'}>
-        {textNotification}
-      </Notification>
       <Main>
         {emuData.id && (
           <div className="container--grid">
@@ -338,12 +336,12 @@ function EmuDetail(props) {
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
-                      aria="install Cemu Appimage"
+                      aria="Install Cemu AppImage"
                       disabled={hideInstallButton}
                       onClick={() => {
                         if (
                           window.confirm(
-                            'This action will install Cemu Appimage alongside your current Cemu'
+                            'This action will install Cemu AppImage alongside your current Cemu'
                           ) === true
                         ) {
                           onClickInstall('cemunative', 'CemuNative');
@@ -355,10 +353,10 @@ function EmuDetail(props) {
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
-                      aria="Install Cemu AppImage"
+                      aria="Reset Cemu AppImage Configuration"
                       disabled={disableResetButton}
                       onClick={() => {
-                        onClick('cemunative', 'CemuNative');
+                        onClick('CemuNative', 'CemuNative', 'cemunative');
                       }}
                     >
                       Reset Cemu AppImage
@@ -402,8 +400,6 @@ EmuDetail.propTypes = {
   onClickUninstall: PropTypes.func,
   onClickReInstall: PropTypes.func,
   emuData: PropTypes.any,
-  showNotification: PropTypes.bool,
-  textNotification: PropTypes.string,
   installEmus: PropTypes.array,
   disableResetButton: PropTypes.bool,
   hideInstallButton: PropTypes.bool,
@@ -417,8 +413,6 @@ EmuDetail.defaultProps = {
   onClickUninstall: '',
   onClickReInstall: '',
   emuData: '',
-  showNotification: '',
-  textNotification: '',
   installEmus: '',
   disableResetButton: '',
   hideInstallButton: '',

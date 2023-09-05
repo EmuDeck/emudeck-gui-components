@@ -45,10 +45,15 @@ function EmulatorConfiguration({ onClick, images }) {
                 item.id === 'vita3k' ||
                 item.id === 'scummvm' ||
                 item.id === 'xemu' ||
+                item.id === 'ares' ||
                 item.id === 'mgba'
               ) {
                 return;
               }
+            }
+
+            if (item.id === 'srm' && second == false) {
+              return;
             }
 
             const img = images[item.id];

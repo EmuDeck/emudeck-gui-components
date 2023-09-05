@@ -1,5 +1,6 @@
 import imgdefault from 'assets/1x1.png';
 import imgra from 'assets/emulators/ra.png';
+import imgares from 'assets/emulators/ares.png';
 import imgdolphin from 'assets/emulators/dolphin.png';
 import imgprimehack from 'assets/emulators/primehack.png';
 import imgppsspp from 'assets/emulators/ppsspp.png';
@@ -103,10 +104,13 @@ import imgayaneo2 from 'assets/devices/ayaneo2.png';
 import imgayaneogeek from 'assets/devices/ayaneogeek.png';
 import imglinux from 'assets/devices/linux.png';
 import imgwindows from 'assets/devices/windows.png';
+import allyCrate from 'assets/allyCrate.png';
+import steamInput from 'assets/steaminput.png';
 
 export {
   imgdefault,
   imgra,
+  imgares,
   imgdolphin,
   imgprimehack,
   imgppsspp,
@@ -209,4 +213,6 @@ export {
   imgayaneogeek,
   imglinux,
   imgwindows,
+  allyCrate,
+  steamInput,
 };

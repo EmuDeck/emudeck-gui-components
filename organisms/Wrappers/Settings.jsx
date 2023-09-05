@@ -62,7 +62,7 @@ function Settings({
       </p>
       <Main>
         <ul className="list-grid">
-          {system === 'win32' && (
+          {system === 'win33' && (
             <li>
               <SelectorMenu
                 title="Boot Mode"
@@ -180,14 +180,14 @@ function Settings({
                 [
                   () => onClickSega(43),
                   ar.sega === 43 ? 'is-selected' : '',
-                  'Off',
+                  '4:3',
                   '',
                   true,
                 ],
                 [
                   () => onClickSega(32),
                   ar.sega === 32 ? 'is-selected' : '',
-                  'On',
+                  '3:2',
                   '',
                   true,
                 ],
@@ -206,14 +206,14 @@ function Settings({
                 [
                   () => onClickSNES(87),
                   ar.snes === 87 ? 'is-selected' : '',
-                  'Off',
+                  '8:7',
                   '',
                   true,
                 ],
                 [
                   () => onClickSNES(43),
                   ar.snes === 43 ? 'is-selected' : '',
-                  'On',
+                  '4:3',
                   '',
                   true,
                 ],
@@ -230,16 +230,16 @@ function Settings({
               ]}
               options={[
                 [
-                  () => onClickCRT3D(169),
+                  () => onClick3D(169),
                   ar.classic3d === 169 ? 'is-selected' : '',
-                  'Off',
+                  '16:9',
                   '',
                   true,
                 ],
                 [
-                  () => onClickCRT3D(43),
+                  () => onClick3D(43),
                   ar.classic3d === 43 ? 'is-selected' : '',
-                  'On',
+                  '4:3',
                   '',
                   true,
                 ],
@@ -257,15 +257,15 @@ function Settings({
               options={[
                 [
                   () => onClickGC(169),
-                  ar.dolphin !== 169 ? 'is-selected' : '',
-                  'Off',
+                  ar.dolphin === 169 ? 'is-selected' : '',
+                  '16:9',
                   '',
                   true,
                 ],
                 [
                   () => onClickGC(43),
-                  ar.dolphin !== 43 ? 'is-selected' : '',
-                  'On',
+                  ar.dolphin === 43 ? 'is-selected' : '',
+                  '4:3',
                   '',
                   true,
                 ],
@@ -277,8 +277,8 @@ function Settings({
               title="LCD Handhelds"
               css="selector-menu--mini"
               imgs={[
-                [lcdoffH, shaders.handhelds !== true ? 'is-hidden' : ''],
-                [lcdonH, shaders.handhelds !== false ? 'is-hidden' : ''],
+                [lcdonH, shaders.handhelds !== true ? 'is-hidden' : ''],
+                [lcdoffH, shaders.handhelds !== false ? 'is-hidden' : ''],
               ]}
               options={[
                 [
@@ -334,14 +334,14 @@ function Settings({
               ]}
               options={[
                 [
-                  () => onClick3D(false),
+                  () => onClickCRT3D(false),
                   shaders.classic3d === false ? 'is-selected' : '',
                   'Off',
                   '',
                   true,
                 ],
                 [
-                  () => onClick3D(true),
+                  () => onClickCRT3D(true),
                   shaders.classic3d === true ? 'is-selected' : '',
                   'On',
                   '',

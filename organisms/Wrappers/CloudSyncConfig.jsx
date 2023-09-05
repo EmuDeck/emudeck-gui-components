@@ -112,17 +112,6 @@ function CloudSyncConfig({
             </BtnSimple>
           )}
 
-        {showLoginButton !== false && (
-          <a
-            href={showLoginButton}
-            aria-label="Go Next"
-            className="btn-simple btn-simple--1"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Login to your cloud provider
-          </a>
-        )}
         {showLoginButton === false && (
           <BtnSimple
             css="btn-simple--1"
