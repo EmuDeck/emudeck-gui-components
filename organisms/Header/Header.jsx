@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { PropTypes } from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
@@ -10,7 +10,7 @@ import flagEN from 'assets/flags/en.svg';
 import flagES from 'assets/flags/es.svg';
 
 function HeaderElectron({ title, bold }) {
-  const { t, i18n } = useTranslation();
+  // const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
   const { debug, version, branch, command } = state;
   const ipcChannel = window.electron.ipcRenderer;
@@ -18,22 +18,12 @@ function HeaderElectron({ title, bold }) {
   let lngs = {
     en: {
       nativeName: (
-        <img
-          className="header__flag"
-          width="12"
-          src={flagEN}
-          alt={t('English')}
-        />
+        <img className="header__flag" width="12" src={flagEN} alt="English" />
       ),
     },
     es: {
       nativeName: (
-        <img
-          className="header__flag"
-          width="12"
-          src={flagES}
-          alt={t('Spanish')}
-        />
+        <img className="header__flag" width="12" src={flagES} alt="Spanish" />
       ),
     },
   };
@@ -112,7 +102,7 @@ function HeaderElectron({ title, bold }) {
         >
           A-
         </BtnSimple>
-        {Object.keys(lngs).map((lng) => (
+        {/* {Object.keys(lngs).map((lng) => (
           <button
             key={lng}
             style={{
@@ -123,7 +113,7 @@ function HeaderElectron({ title, bold }) {
           >
             {lngs[lng].nativeName}
           </button>
-        ))}
+        ))} */}
       </div>
 
       {branch !== 'main' && (
