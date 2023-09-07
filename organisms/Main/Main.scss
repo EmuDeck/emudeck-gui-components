@@ -87,6 +87,10 @@ main {
   @include flex-grid-items(2);
 }
 
+.list-three-cols {
+  @include flex-grid-items(3);
+}
+
 .snow {
   position: absolute;
   width: 10px;
