@@ -4,7 +4,7 @@ import { GlobalContext } from 'context/globalContext';
 import { BtnSimple, BtnGroup } from 'getbasecore/Atoms';
 import { Table, Alert } from 'getbasecore/Molecules';
 import Main from 'components/organisms/Main/Main';
-
+import './emudetail.scss';
 import {
   imgdefault,
   imgra,
@@ -45,6 +45,8 @@ function EmuDetail(props) {
     hideInstallButton,
     updateAvailable,
     yuzuEAaddToken,
+    onClickHotkeys,
+    onClickControls,
   } = props;
   const [stateImg, setStateImg] = useState({
     img: imgdefault,
@@ -138,16 +140,14 @@ function EmuDetail(props) {
   }, [emuData]);
 
   const checkInstallation = (emulator) => {
-    
     const name = emuData.code;
 
     ipcChannel.sendMessage('emudeck', [
       `${name}_IsInstalled|||${name}_IsInstalled`,
     ]);
     ipcChannel.once(`${name}_IsInstalled`, (status) => {
-      
       let { stdout } = status;
-      
+
       stdout = stdout.replace('\n', '');
 
       if (stdout.includes('true')) {
@@ -182,7 +182,7 @@ function EmuDetail(props) {
   const biosCSS = (name) => {
     // eslint-disable-next-line react/destructuring-assignment
     const nameProp = props[`${name}`];
-    
+
     switch (nameProp) {
       case true:
         return 'alert--success ';
@@ -275,10 +275,13 @@ function EmuDetail(props) {
               {emuData.bios.length > 0 && (
                 <>
                   <p className="h5">Bios needed</p>
-                  {biosHTML}
+                  <p>{biosHTML}</p>
                 </>
               )}
-              <BtnGroup>
+            </div>
+            <div data-col-sm="3">
+              <p className="h5">Actions</p>
+              <div className="emudetail__actions">
                 {disableInstallButton && (
                   <BtnSimple
                     css={updateAvailable ? 'btn-simple--6' : 'btn-simple--1'}
@@ -327,10 +330,149 @@ function EmuDetail(props) {
                     Uninstall
                   </BtnSimple>
                 )}
-              </BtnGroup>
-              <br />
-              <br />
-              <BtnGroup>
+              </div>
+              {system !== 'win32' &&
+                emuData.id !== 'ppsspp' &&
+                emuData.id !== 'ryujinx' &&
+                emuData.id !== 'melonds' &&
+                emuData.id !== 'rpcs3' &&
+                emuData.id !== 'xemu' &&
+                emuData.id !== 'cemu' &&
+                emuData.id !== 'srm' &&
+                emuData.id !== 'rmg' &&
+                emuData.id !== 'esde' &&
+                emuData.id !== 'mame' &&
+                emuData.id !== 'vita3k' &&
+                emuData.id !== 'scummvm' &&
+                emuData.id !== 'xenia' &&
+                emuData.id !== 'mgba' &&
+                emuData.id !== 'ares' &&
+                emuData.id !== 'dolphin' && <p className="h5">Controls</p>}
+              <div className="emudetail__actions">
+                {system !== 'win32' &&
+                  emuData.id !== 'ppsspp' &&
+                  emuData.id !== 'ryujinx' &&
+                  emuData.id !== 'melonds' &&
+                  emuData.id !== 'rpcs3' &&
+                  emuData.id !== 'xemu' &&
+                  emuData.id !== 'cemu' &&
+                  emuData.id !== 'srm' &&
+                  emuData.id !== 'rmg' &&
+                  emuData.id !== 'esde' &&
+                  emuData.id !== 'mame' &&
+                  emuData.id !== 'vita3k' &&
+                  emuData.id !== 'scummvm' &&
+                  emuData.id !== 'xenia' &&
+                  emuData.id !== 'mgba' &&
+                  emuData.id !== 'ares' &&
+                  emuData.id !== 'dolphin' && (
+                    <>
+                      {emuData.id !== 'ra' && (
+                        <BtnSimple
+                          css="btn-simple--1"
+                          type="button"
+                          aria="Controls"
+                          onClick={() =>
+                            onClickControls(emuData.id, emuData.code)
+                          }
+                        >
+                          Controls
+                        </BtnSimple>
+                      )}
+                      <BtnSimple
+                        css="btn-simple--1"
+                        type="button"
+                        aria="Hotkeys"
+                        onClick={() => onClickHotkeys(emuData.id, emuData.code)}
+                      >
+                        Hotkeys
+                      </BtnSimple>
+                    </>
+                  )}
+
+                {emuData.id === 'pcsx2' && (
+                  <>
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Hotkeys"
+                      onClick={() => onClickHotkeys('pcsx2_expert')}
+                    >
+                      Hotkeys - Expert
+                    </BtnSimple>
+                  </>
+                )}
+                {system !== 'win32' && emuData.id === 'dolphin' && (
+                  <>
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Controls"
+                      onClick={() => onClickControls('gamecube')}
+                    >
+                      Controls GameCube
+                    </BtnSimple>
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Hotkeys"
+                      onClick={() => onClickHotkeys('gamecube')}
+                    >
+                      Hotkeys GameCube
+                    </BtnSimple>
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Controls"
+                      onClick={() => onClickHotkeys('gamecube_expert')}
+                    >
+                      Hotkeys GameCube - Expert
+                    </BtnSimple>
+
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Controls"
+                      onClick={() => onClickControls('wii_classic')}
+                    >
+                      Classic Controls Wii
+                    </BtnSimple>
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Hotkeys"
+                      onClick={() => onClickControls('wii')}
+                    >
+                      Controls Wii
+                    </BtnSimple>
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Controls"
+                      onClick={() => onClickControls('wii')}
+                    >
+                      Hotkeys Wii
+                    </BtnSimple>
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Hotkeys"
+                      onClick={() => onClickHotkeys('wii_expert')}
+                    >
+                      Hotkeys Wii - Expert
+                    </BtnSimple>
+
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Hotkeys"
+                      onClick={() => onClickControls('wii_nunchuck')}
+                    >
+                      Nunchuck Controls Wii
+                    </BtnSimple>
+                  </>
+                )}
+
                 {emuData.id === 'cemu' && system !== 'win32' && (
                   <>
                     <BtnSimple
@@ -376,16 +518,7 @@ function EmuDetail(props) {
                     Setup Early Access
                   </BtnSimple>
                 )}
-              </BtnGroup>
-            </div>
-            <div data-col-sm="3">
-              {emuData.hotkeys && (
-                <Table
-                  css="table-reflow"
-                  description="Table description"
-                  items={emuData.hotkeys}
-                />
-              )}
+              </div>
             </div>
           </div>
         )}
