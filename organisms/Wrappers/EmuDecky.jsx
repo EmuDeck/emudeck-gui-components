@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
 
-import { DeckyControlsImg } from 'components/utils/images/images';
+import { emuDeckyImg } from 'components/utils/images/images';
 
-function DeckyControls({
+function EmuDecky({
   onChange,
   onChangeSetPass,
   onChangeCheckPass,
@@ -21,10 +21,10 @@ function DeckyControls({
   return (
     <>
       <p className="lead">
-        DeckyControls is a plugin that allows you to see all of EmuDeck controls
-        and hotkeys while you are gaming. To use DeckyControls: In Game Mode,
-        press the ... button, press the socket icon, and select the Emulator
-        Hotkeys button.
+        EmuDecky is a plugin that allows you to see all of EmuDeck controls and
+        hotkeys while you are gaming and event configure EmuDeck!. To use
+        EmuDecky: In Game Mode, press the ... button, press the socket icon, and
+        select EmuDecky.
       </p>
       <Main>
         <br />
@@ -34,18 +34,18 @@ function DeckyControls({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Install DeckyControls"
+                aria="Install EmuDecky"
                 onClick={installClick}
                 disabled={disableButton && 'true'}
               >
-                Install DeckyControls
+                Install EmuDecky
               </BtnSimple>
             )}
             {hasSudo === true && (
               <div className="form">
                 <p>
-                  We have detected you have set a sudo password, type
-                  it on the next input to install this tool.
+                  We have detected you have set a sudo password, type it on the
+                  next input to install this tool.
                 </p>
                 <FormInputSimple
                   label="Sudo Password"
@@ -58,11 +58,11 @@ function DeckyControls({
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
-                    aria="Install DeckyControls"
+                    aria="Install EmuDecky"
                     onClick={installClick}
                     disabled={disableButton && 'true'}
                   >
-                    Install DeckyControls
+                    Install EmuDecky
                   </BtnSimple>
                 )}
               </div>
@@ -70,7 +70,7 @@ function DeckyControls({
           </div>
           <div data-col-sm="1" />
           <div data-col-sm="5">
-            <img src={DeckyControlsImg} alt="RetroAchievements" />
+            <img src={emuDeckyImg} alt="EmuDecky" />
           </div>
         </div>
       </Main>
@@ -78,7 +78,7 @@ function DeckyControls({
   );
 }
 
-DeckyControls.propTypes = {
+EmuDecky.propTypes = {
   onChange: PropTypes.func,
   onChangeSetPass: PropTypes.func,
   onChangeCheckPass: PropTypes.func,
@@ -92,7 +92,7 @@ DeckyControls.propTypes = {
   disableButton: PropTypes.bool,
 };
 
-DeckyControls.defaultProps = {
+EmuDecky.defaultProps = {
   onChange: '',
   onChangeSetPass: '',
   onChangeCheckPass: '',
@@ -106,4 +106,4 @@ DeckyControls.defaultProps = {
   disableButton: '',
 };
 
-export default DeckyControls;
+export default EmuDecky;

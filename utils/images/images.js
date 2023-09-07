@@ -88,7 +88,7 @@ import imgESDE from 'assets/ESDE.jpg';
 import imgSTEAM from 'assets/STEAMGAMES.png';
 import imgExternal from 'assets/external.png';
 import imgUSBDeck from 'assets/usb-in-deck.png';
-import DeckyControlsImg from 'assets/DeckyControls.jpg';
+import emuDeckyImg from 'assets/EmuDecky.png';
 import gyroDsuImg from 'assets/gyroDsu.png';
 import imgSD from 'assets/sdcard.png';
 import imgInternal from 'assets/internal.png';
@@ -197,7 +197,7 @@ export {
   imgSTEAM,
   imgExternal,
   imgUSBDeck,
-  DeckyControlsImg,
+  emuDeckyImg,
   gyroDsuImg,
   imgInternal,
   imgSD,
