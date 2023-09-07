@@ -44,7 +44,7 @@ function EmuDetail(props) {
     disableResetButton,
     hideInstallButton,
     updateAvailable,
-    yuzuEAaddToken,
+    yuzuEAaskToken,
     onClickHotkeys,
     onClickControls,
   } = props;
@@ -330,6 +330,19 @@ function EmuDetail(props) {
                     Uninstall
                   </BtnSimple>
                 )}
+
+                {emuData.id === 'yuzu' && system !== 'win32' && (
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Go Back"
+                    onClick={() => {
+                      yuzuEAaskToken();
+                    }}
+                  >
+                    Setup Early Access
+                  </BtnSimple>
+                )}
               </div>
               {system !== 'win32' &&
                 emuData.id !== 'ppsspp' &&
@@ -505,19 +518,6 @@ function EmuDetail(props) {
                     </BtnSimple>
                   </>
                 )}
-
-                {emuData.id === 'yuzu' && system !== 'win32' && (
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Go Back"
-                    onClick={() => {
-                      yuzuEAaddToken();
-                    }}
-                  >
-                    Setup Early Access
-                  </BtnSimple>
-                )}
               </div>
             </div>
           </div>
@@ -537,7 +537,7 @@ EmuDetail.propTypes = {
   disableResetButton: PropTypes.bool,
   hideInstallButton: PropTypes.bool,
   updateAvailable: PropTypes.bool,
-  yuzuEAaddToken: PropTypes.func,
+  yuzuEAaskToken: PropTypes.func,
 };
 
 EmuDetail.defaultProps = {
@@ -550,7 +550,7 @@ EmuDetail.defaultProps = {
   disableResetButton: '',
   hideInstallButton: '',
   updateAvailable: '',
-  yuzuEAaddToken: '',
+  yuzuEAaskToken: () => {},
 };
 
 export default EmuDetail;

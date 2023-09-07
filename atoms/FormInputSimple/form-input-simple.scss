@@ -26,6 +26,10 @@
   border-radius: 4px;
   padding: 20px;
   font-family: inherit;
+  .emumodal__body & {
+    background: #444;
+    color: #fff;
+  }
 }
 
 .form__group {
