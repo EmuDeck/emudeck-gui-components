@@ -138,16 +138,16 @@ function EmuDetail(props) {
   }, [emuData]);
 
   const checkInstallation = (emulator) => {
-    console.log(`Checking ${emulator.name} status`);
+    
     const name = emuData.code;
 
     ipcChannel.sendMessage('emudeck', [
       `${name}_IsInstalled|||${name}_IsInstalled`,
     ]);
     ipcChannel.once(`${name}_IsInstalled`, (status) => {
-      console.log(`${name}_IsInstalled`);
+      
       let { stdout } = status;
-      console.log({ stdout });
+      
       stdout = stdout.replace('\n', '');
 
       if (stdout.includes('true')) {
@@ -182,7 +182,7 @@ function EmuDetail(props) {
   const biosCSS = (name) => {
     // eslint-disable-next-line react/destructuring-assignment
     const nameProp = props[`${name}`];
-    // console.log({ name });
+    
     switch (nameProp) {
       case true:
         return 'alert--success ';

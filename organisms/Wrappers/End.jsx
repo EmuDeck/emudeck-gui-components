@@ -52,7 +52,7 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
 
     const bashArray = [];
     onlySelectedEmus.forEach((item) => {
-      // console.log(item.name);
+      
       if (item.name === 'EmulationStation-DE') {
         item.name = 'ESDE';
       }

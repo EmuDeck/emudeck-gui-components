@@ -53,7 +53,7 @@ function HeaderElectron({ title, bold }) {
     const idMessage = Math.random();
     ipcChannel.sendMessage('emudeck', [`${idMessage}|||${command}`]);
     ipcChannel.once(idMessage, (message) => {
-      console.log(message);
+      
     });
   };
   const saveCommand = (e) => {
