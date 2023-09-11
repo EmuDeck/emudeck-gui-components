@@ -319,7 +319,7 @@ function EmuDetail(props) {
                     ReInstall / Update
                   </BtnSimple>
                 )}
-                {disableInstallButton && system !== 'win32' && (
+                {disableInstallButton && (
                   <BtnSimple
                     css="btn-simple--3"
                     type="button"
@@ -331,7 +331,7 @@ function EmuDetail(props) {
                   </BtnSimple>
                 )}
 
-                {emuData.id === 'yuzu' && system !== 'win32' && (
+                {emuData.id === 'yuzu' && (
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
