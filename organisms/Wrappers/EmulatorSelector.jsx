@@ -39,6 +39,12 @@ function EmulatorSelector({ onClick, images }) {
               }
             }
 
+            if (system === 'darwin') {
+              if (item.id !== 'ra') {
+                return;
+              }
+            }
+
             const img = images[item.id];
             // eslint-disable-next-line consistent-return
             return (

@@ -104,6 +104,7 @@ import imgayaneo2 from 'assets/devices/ayaneo2.png';
 import imgayaneogeek from 'assets/devices/ayaneogeek.png';
 import imglinux from 'assets/devices/linux.png';
 import imgwindows from 'assets/devices/windows.png';
+import imgmac from 'assets/devices/mac.png';
 import allyCrate from 'assets/allyCrate.png';
 import steamInput from 'assets/steaminput.png';
 
@@ -213,6 +214,7 @@ export {
   imgayaneogeek,
   imglinux,
   imgwindows,
+  imgmac,
   allyCrate,
   steamInput,
 };
