@@ -57,7 +57,11 @@ function EmulatorConfiguration({ onClick, images }) {
               }
             }
 
-            if (item.id === 'srm' && second == false) {
+            if (item.id === 'ares') {
+              return;
+            }
+
+            if (item.id === 'srm' && second === false) {
               return;
             }
 
