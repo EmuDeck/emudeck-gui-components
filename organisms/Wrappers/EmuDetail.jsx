@@ -39,6 +39,7 @@ function EmuDetail(props) {
     onClickInstall,
     onClickUninstall,
     onClickReInstall,
+    onClickMigrate,
     emuData,
     installEmus,
     disableResetButton,
@@ -240,110 +241,140 @@ function EmuDetail(props) {
   }, [installEmus]);
 
   return (
-    <>
-      <Main>
-        {emuData.id && (
-          <div className="container--grid">
-            <div data-col-sm="2">
-              <img src={img} alt="logo" />
+    <Main>
+      {emuData.id && (
+        <div className="container--grid">
+          <div data-col-sm="2">
+            <img src={img} alt="logo" />
+          </div>
+
+          <div data-col-sm="7">
+            {emuData.description && (
+              <>
+                <p className="h5">Description</p>
+                <p>{emuData.description}</p>
+              </>
+            )}
+            {emuData.systems && (
+              <>
+                <p className="h5">Emulated Systems</p>
+                <p>{emuData.systems}</p>
+              </>
+            )}
+            {emuData.special_configuration && (
+              <>
+                <p className="h5">Special Configuration</p>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: `${emuData.special_configuration} <br/>You can learn more about this emulator in <strong><a className="link" href="${emuData.wiki}" target="_blank">our Wiki</a></strong>`,
+                  }}
+                />
+              </>
+            )}
+
+            {emuData.bios.length > 0 && (
+              <>
+                <p className="h5">Bios needed</p>
+                <p>{biosHTML}</p>
+              </>
+            )}
+          </div>
+          <div data-col-sm="3">
+            <p className="h5">Actions</p>
+            <div className="emudetail__actions">
+              {disableInstallButton && (
+                <BtnSimple
+                  css={updateAvailable ? 'btn-simple--6' : 'btn-simple--1'}
+                  type="button"
+                  aria="Update or reset configuration"
+                  onClick={() =>
+                    onClick(emuData.code, emuData.name, emuData.id)
+                  }
+                  disabled={disableResetButton}
+                >
+                  {updateAvailable && 'Update configuration'}
+                  {updateAvailable || 'Reset configuration'}
+                </BtnSimple>
+              )}
+
+              {!disableInstallButton && (
+                <BtnSimple
+                  css="btn-simple--3"
+                  type="button"
+                  aria="Install"
+                  disabled={disableInstallButton}
+                  onClick={() => onClickInstall(emuData.id, emuData.code)}
+                >
+                  Install
+                </BtnSimple>
+              )}
+              {disableInstallButton && (
+                <BtnSimple
+                  css="btn-simple--3"
+                  type="button"
+                  aria="ReInstall / Update"
+                  disabled={hideInstallButton}
+                  onClick={() => onClickReInstall(emuData.id, emuData.code)}
+                >
+                  ReInstall / Update
+                </BtnSimple>
+              )}
+              {disableInstallButton && (
+                <BtnSimple
+                  css="btn-simple--3"
+                  type="button"
+                  aria="Uninstall"
+                  disabled={false}
+                  onClick={() => onClickUninstall(emuData.id, emuData.code)}
+                >
+                  Uninstall
+                </BtnSimple>
+              )}
+
+              {emuData.id === 'yuzu' && (
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  aria="Go Back"
+                  onClick={() => {
+                    yuzuEAaskToken();
+                  }}
+                >
+                  Setup Early Access
+                </BtnSimple>
+              )}
+
+              {emuData.id === 'rpcs3' && system !== 'win32' && (
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  aria="Go Back"
+                  onClick={() => {
+                    onClickMigrate('RPCS3');
+                  }}
+                >
+                  Migrate
+                </BtnSimple>
+              )}
             </div>
-
-            <div data-col-sm="7">
-              {emuData.description && (
-                <>
-                  <p className="h5">Description</p>
-                  <p>{emuData.description}</p>
-                </>
-              )}
-              {emuData.systems && (
-                <>
-                  <p className="h5">Emulated Systems</p>
-                  <p>{emuData.systems}</p>
-                </>
-              )}
-              {emuData.special_configuration && (
-                <>
-                  <p className="h5">Special Configuration</p>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: `${emuData.special_configuration} <br/>You can learn more about this emulator in <strong><a className="link" href="${emuData.wiki}" target="_blank">our Wiki</a></strong>`,
-                    }}
-                  />
-                </>
-              )}
-
-              {emuData.bios.length > 0 && (
-                <>
-                  <p className="h5">Bios needed</p>
-                  <p>{biosHTML}</p>
-                </>
-              )}
-            </div>
-            <div data-col-sm="3">
-              <p className="h5">Actions</p>
-              <div className="emudetail__actions">
-                {disableInstallButton && (
-                  <BtnSimple
-                    css={updateAvailable ? 'btn-simple--6' : 'btn-simple--1'}
-                    type="button"
-                    aria="Update or reset configuration"
-                    onClick={() =>
-                      onClick(emuData.code, emuData.name, emuData.id)
-                    }
-                    disabled={disableResetButton}
-                  >
-                    {updateAvailable && 'Update configuration'}
-                    {updateAvailable || 'Reset configuration'}
-                  </BtnSimple>
-                )}
-
-                {!disableInstallButton && (
-                  <BtnSimple
-                    css="btn-simple--3"
-                    type="button"
-                    aria="Install"
-                    disabled={disableInstallButton}
-                    onClick={() => onClickInstall(emuData.id, emuData.code)}
-                  >
-                    Install
-                  </BtnSimple>
-                )}
-                {disableInstallButton && (
-                  <BtnSimple
-                    css="btn-simple--3"
-                    type="button"
-                    aria="ReInstall / Update"
-                    disabled={hideInstallButton}
-                    onClick={() => onClickReInstall(emuData.id, emuData.code)}
-                  >
-                    ReInstall / Update
-                  </BtnSimple>
-                )}
-                {disableInstallButton && (
-                  <BtnSimple
-                    css="btn-simple--3"
-                    type="button"
-                    aria="Uninstall"
-                    disabled={false}
-                    onClick={() => onClickUninstall(emuData.id, emuData.code)}
-                  >
-                    Uninstall
-                  </BtnSimple>
-                )}
-
-                {emuData.id === 'yuzu' && (
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Go Back"
-                    onClick={() => {
-                      yuzuEAaskToken();
-                    }}
-                  >
-                    Setup Early Access
-                  </BtnSimple>
-                )}
-              </div>
+            {system !== 'win32' &&
+              emuData.id !== 'ppsspp' &&
+              emuData.id !== 'ryujinx' &&
+              emuData.id !== 'melonds' &&
+              emuData.id !== 'rpcs3' &&
+              emuData.id !== 'xemu' &&
+              emuData.id !== 'cemu' &&
+              emuData.id !== 'srm' &&
+              emuData.id !== 'rmg' &&
+              emuData.id !== 'esde' &&
+              emuData.id !== 'mame' &&
+              emuData.id !== 'vita3k' &&
+              emuData.id !== 'scummvm' &&
+              emuData.id !== 'xenia' &&
+              emuData.id !== 'mgba' &&
+              emuData.id !== 'ares' &&
+              emuData.id !== 'dolphin' && <p className="h5">Controls</p>}
+            <div className="emudetail__actions">
               {system !== 'win32' &&
                 emuData.id !== 'ppsspp' &&
                 emuData.id !== 'ryujinx' &&
@@ -360,170 +391,149 @@ function EmuDetail(props) {
                 emuData.id !== 'xenia' &&
                 emuData.id !== 'mgba' &&
                 emuData.id !== 'ares' &&
-                emuData.id !== 'dolphin' && <p className="h5">Controls</p>}
-              <div className="emudetail__actions">
-                {system !== 'win32' &&
-                  emuData.id !== 'ppsspp' &&
-                  emuData.id !== 'ryujinx' &&
-                  emuData.id !== 'melonds' &&
-                  emuData.id !== 'rpcs3' &&
-                  emuData.id !== 'xemu' &&
-                  emuData.id !== 'cemu' &&
-                  emuData.id !== 'srm' &&
-                  emuData.id !== 'rmg' &&
-                  emuData.id !== 'esde' &&
-                  emuData.id !== 'mame' &&
-                  emuData.id !== 'vita3k' &&
-                  emuData.id !== 'scummvm' &&
-                  emuData.id !== 'xenia' &&
-                  emuData.id !== 'mgba' &&
-                  emuData.id !== 'ares' &&
-                  emuData.id !== 'dolphin' && (
-                    <>
-                      {emuData.id !== 'ra' && (
-                        <BtnSimple
-                          css="btn-simple--1"
-                          type="button"
-                          aria="Controls"
-                          onClick={() =>
-                            onClickControls(emuData.id, emuData.code)
-                          }
-                        >
-                          Controls
-                        </BtnSimple>
-                      )}
+                emuData.id !== 'dolphin' && (
+                  <>
+                    {emuData.id !== 'ra' && (
                       <BtnSimple
                         css="btn-simple--1"
                         type="button"
-                        aria="Hotkeys"
-                        onClick={() => onClickHotkeys(emuData.id, emuData.code)}
-                      >
-                        Hotkeys
-                      </BtnSimple>
-                    </>
-                  )}
-
-                {emuData.id === 'pcsx2' && (
-                  <>
-                    <BtnSimple
-                      css="btn-simple--1"
-                      type="button"
-                      aria="Hotkeys"
-                      onClick={() => onClickHotkeys('pcsx2_expert')}
-                    >
-                      Hotkeys - Expert
-                    </BtnSimple>
-                  </>
-                )}
-                {system !== 'win32' && emuData.id === 'dolphin' && (
-                  <>
-                    <BtnSimple
-                      css="btn-simple--1"
-                      type="button"
-                      aria="Controls"
-                      onClick={() => onClickControls('gamecube')}
-                    >
-                      Controls GameCube
-                    </BtnSimple>
-                    <BtnSimple
-                      css="btn-simple--1"
-                      type="button"
-                      aria="Hotkeys"
-                      onClick={() => onClickHotkeys('gamecube')}
-                    >
-                      Hotkeys GameCube
-                    </BtnSimple>
-                    <BtnSimple
-                      css="btn-simple--1"
-                      type="button"
-                      aria="Controls"
-                      onClick={() => onClickHotkeys('gamecube_expert')}
-                    >
-                      Hotkeys GameCube - Expert
-                    </BtnSimple>
-
-                    <BtnSimple
-                      css="btn-simple--1"
-                      type="button"
-                      aria="Controls"
-                      onClick={() => onClickControls('wii_classic')}
-                    >
-                      Classic Controls Wii
-                    </BtnSimple>
-                    <BtnSimple
-                      css="btn-simple--1"
-                      type="button"
-                      aria="Hotkeys"
-                      onClick={() => onClickControls('wii')}
-                    >
-                      Controls Wii
-                    </BtnSimple>
-                    <BtnSimple
-                      css="btn-simple--1"
-                      type="button"
-                      aria="Controls"
-                      onClick={() => onClickControls('wii')}
-                    >
-                      Hotkeys Wii
-                    </BtnSimple>
-                    <BtnSimple
-                      css="btn-simple--1"
-                      type="button"
-                      aria="Hotkeys"
-                      onClick={() => onClickHotkeys('wii_expert')}
-                    >
-                      Hotkeys Wii - Expert
-                    </BtnSimple>
-
-                    <BtnSimple
-                      css="btn-simple--1"
-                      type="button"
-                      aria="Hotkeys"
-                      onClick={() => onClickControls('wii_nunchuck')}
-                    >
-                      Nunchuck Controls Wii
-                    </BtnSimple>
-                  </>
-                )}
-
-                {emuData.id === 'cemu' && system !== 'win32' && (
-                  <>
-                    <BtnSimple
-                      css="btn-simple--1"
-                      type="button"
-                      aria="Install Cemu AppImage"
-                      disabled={hideInstallButton}
-                      onClick={() => {
-                        if (
-                          window.confirm(
-                            'This action will install Cemu AppImage alongside your current Cemu'
-                          ) === true
-                        ) {
-                          onClickInstall('cemunative', 'CemuNative');
+                        aria="Controls"
+                        onClick={() =>
+                          onClickControls(emuData.id, emuData.code)
                         }
-                      }}
-                    >
-                      Install Cemu AppImage
-                    </BtnSimple>
+                      >
+                        Controls
+                      </BtnSimple>
+                    )}
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
-                      aria="Reset Cemu AppImage Configuration"
-                      disabled={disableResetButton}
-                      onClick={() => {
-                        onClick('CemuNative', 'CemuNative', 'cemunative');
-                      }}
+                      aria="Hotkeys"
+                      onClick={() => onClickHotkeys(emuData.id, emuData.code)}
                     >
-                      Reset Cemu AppImage
+                      Hotkeys
                     </BtnSimple>
                   </>
                 )}
-              </div>
+
+              {emuData.id === 'pcsx2' && (
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  aria="Hotkeys"
+                  onClick={() => onClickHotkeys('pcsx2_expert')}
+                >
+                  Hotkeys - Expert
+                </BtnSimple>
+              )}
+              {system !== 'win32' && emuData.id === 'dolphin' && (
+                <>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Controls"
+                    onClick={() => onClickControls('gamecube')}
+                  >
+                    Controls GameCube
+                  </BtnSimple>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Hotkeys"
+                    onClick={() => onClickHotkeys('gamecube')}
+                  >
+                    Hotkeys GameCube
+                  </BtnSimple>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Controls"
+                    onClick={() => onClickHotkeys('gamecube_expert')}
+                  >
+                    Hotkeys GameCube - Expert
+                  </BtnSimple>
+
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Controls"
+                    onClick={() => onClickControls('wii_classic')}
+                  >
+                    Classic Controls Wii
+                  </BtnSimple>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Hotkeys"
+                    onClick={() => onClickControls('wii')}
+                  >
+                    Controls Wii
+                  </BtnSimple>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Controls"
+                    onClick={() => onClickControls('wii')}
+                  >
+                    Hotkeys Wii
+                  </BtnSimple>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Hotkeys"
+                    onClick={() => onClickHotkeys('wii_expert')}
+                  >
+                    Hotkeys Wii - Expert
+                  </BtnSimple>
+
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Hotkeys"
+                    onClick={() => onClickControls('wii_nunchuck')}
+                  >
+                    Nunchuck Controls Wii
+                  </BtnSimple>
+                </>
+              )}
+
+              {emuData.id === 'cemu' && system !== 'win32' && (
+                <>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Install Cemu AppImage"
+                    disabled={hideInstallButton}
+                    onClick={() => {
+                      if (
+                        window.confirm(
+                          'This action will install Cemu AppImage alongside your current Cemu'
+                        ) === true
+                      ) {
+                        onClickInstall('cemunative', 'CemuNative');
+                      }
+                    }}
+                  >
+                    Install Cemu AppImage
+                  </BtnSimple>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Reset Cemu AppImage Configuration"
+                    disabled={disableResetButton}
+                    onClick={() => {
+                      onClick('CemuNative', 'CemuNative', 'cemunative');
+                    }}
+                  >
+                    Reset Cemu AppImage
+                  </BtnSimple>
+                </>
+              )}
             </div>
           </div>
-        )}
-      </Main>
-    </>
+        </div>
+      )}
+    </Main>
   );
 }
 
