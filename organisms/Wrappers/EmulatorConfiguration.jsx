@@ -51,8 +51,17 @@ function EmulatorConfiguration({ onClick, images }) {
                 return;
               }
             }
+            if (system === 'darwin') {
+              if (item.id !== 'ra') {
+                return;
+              }
+            }
 
-            if (item.id === 'srm' && second == false) {
+            if (item.id === 'ares') {
+              return;
+            }
+
+            if (item.id === 'srm' && second === false) {
               return;
             }
 

@@ -102,13 +102,13 @@ function Footer({
 }
 
 Footer.propTypes = {
-  back: PropTypes.string,
-  next: PropTypes.string,
+  back: PropTypes.any,
+  next: PropTypes.bool,
   third: PropTypes.string,
   fourth: PropTypes.string,
   fourthText: PropTypes.string,
-  disabledNext: PropTypes.string,
-  disabledBack: PropTypes.string,
+  disabledNext: PropTypes.bool,
+  disabledBack: PropTypes.bool,
   nextText: PropTypes.string,
   backText: PropTypes.string,
   thirdText: PropTypes.string,
@@ -116,12 +116,12 @@ Footer.propTypes = {
 };
 Footer.defaultProps = {
   back: '',
-  next: '',
+  next: false,
   third: '',
   fourth: '',
   fourthText: '',
-  disabledNext: '',
-  disabledBack: '',
+  disabledNext: false,
+  disabledBack: false,
   nextText: '',
   backText: '',
   thirdText: '',

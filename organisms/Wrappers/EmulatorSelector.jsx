@@ -22,7 +22,9 @@ function EmulatorSelector({ onClick, images }) {
             if (item.id === 'srm' || item.id === 'primehacks') {
               return;
             }
-
+            if (item.id === 'ares') {
+              return;
+            }
             if (system === 'win32') {
               if (
                 item.id === 'primehack' ||
@@ -35,6 +37,12 @@ function EmulatorSelector({ onClick, images }) {
                 item.id === 'xemu' ||
                 item.id === 'mgba'
               ) {
+                return;
+              }
+            }
+
+            if (system === 'darwin') {
+              if (item.id !== 'ra') {
                 return;
               }
             }

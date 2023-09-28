@@ -88,7 +88,7 @@ import imgESDE from 'assets/ESDE.jpg';
 import imgSTEAM from 'assets/STEAMGAMES.png';
 import imgExternal from 'assets/external.png';
 import imgUSBDeck from 'assets/usb-in-deck.png';
-import DeckyControlsImg from 'assets/DeckyControls.jpg';
+import emuDeckyImg from 'assets/emuDecky.png';
 import gyroDsuImg from 'assets/gyroDsu.png';
 import imgSD from 'assets/sdcard.png';
 import imgInternal from 'assets/internal.png';
@@ -104,6 +104,7 @@ import imgayaneo2 from 'assets/devices/ayaneo2.png';
 import imgayaneogeek from 'assets/devices/ayaneogeek.png';
 import imglinux from 'assets/devices/linux.png';
 import imgwindows from 'assets/devices/windows.png';
+import imgmac from 'assets/devices/mac.png';
 import allyCrate from 'assets/allyCrate.png';
 import steamInput from 'assets/steaminput.png';
 
@@ -197,7 +198,7 @@ export {
   imgSTEAM,
   imgExternal,
   imgUSBDeck,
-  DeckyControlsImg,
+  emuDeckyImg,
   gyroDsuImg,
   imgInternal,
   imgSD,
@@ -213,6 +214,7 @@ export {
   imgayaneogeek,
   imglinux,
   imgwindows,
+  imgmac,
   allyCrate,
   steamInput,
 };

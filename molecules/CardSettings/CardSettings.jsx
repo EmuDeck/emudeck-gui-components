@@ -35,18 +35,9 @@ function CardSettings({
       {description && <p>{description}</p>}
       {button && (
         <div className="card-setting__buttons">
-          <BtnSimple
-            css={`
-              ${btnCSS} btn-simple--xs
-            `}
-            type={type}
-            aria="Next"
-            href={href}
-            target="_blank"
-            disabled={disabled}
-          >
+          <span className="btn-simple btn-simple--1 btn-simple--xs">
             {button}
-          </BtnSimple>
+          </span>
         </div>
       )}
     </button>
@@ -70,7 +61,7 @@ CardSettings.propTypes = {
   iconSize: PropTypes.string,
   type: PropTypes.string,
   href: PropTypes.string,
-  notification: PropTypes.string,
+  notification: PropTypes.bool,
   disabled: PropTypes.bool,
 };
 
@@ -84,7 +75,7 @@ CardSettings.defaultProps = {
   iconSize: '',
   type: 'button',
   href: '',
-  notification: '',
-  disabled: '',
+  notification: false,
+  disabled: false,
 };
 export default CardSettings;

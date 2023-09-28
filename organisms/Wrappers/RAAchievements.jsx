@@ -30,7 +30,7 @@ function RAAchievements({ onChange, onToggle }) {
 
     ipcChannel.once('getToken', (error, stdout) => {
       const messageJson = JSON.parse(stdout);
-      console.log({ stdout });
+      
       if (messageJson.Success) {
         // Second time? We can set everything from here - Used in the settings page
         if (second) {
@@ -41,7 +41,7 @@ function RAAchievements({ onChange, onToggle }) {
           ipcChannel.once(
             'setToken',
             (errorToken, stdoutToken, stderrToken) => {
-              console.log(errorToken, stdoutToken, stderrToken);
+              
             }
           );
         }
