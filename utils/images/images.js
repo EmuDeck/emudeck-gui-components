@@ -108,6 +108,8 @@ import imgmac from 'assets/devices/mac.png';
 import allyCrate from 'assets/allyCrate.png';
 import steamInput from 'assets/steaminput.png';
 
+import imgchimeraOS from 'assets/devices/chimeraOS.png';
+
 export {
   imgdefault,
   imgra,
@@ -217,4 +219,5 @@ export {
   imgmac,
   allyCrate,
   steamInput,
+  imgchimeraOS
 };
