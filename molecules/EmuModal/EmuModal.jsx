@@ -75,7 +75,7 @@ EmuModal.defaultProps = {
   footer: '',
   css: '',
   onClick: () => {
-    console.log('none');
+    
   },
 };
 

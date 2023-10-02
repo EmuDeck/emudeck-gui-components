@@ -138,6 +138,9 @@
 }
 .btn-group {
   margin-bottom: 0;
+  + .btn-group {
+    margin-top: 10px;
+  }
 }
 .btn-group [class*='btn'] {
   border-radius: var(--btn-simple-border-radius);

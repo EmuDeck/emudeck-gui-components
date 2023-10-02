@@ -25,7 +25,7 @@ Card.defaultProps = {
   children: '',
   css: '',
   onClick: () => {
-    console.log('none');
+    
   },
 };
 

@@ -158,7 +158,7 @@ function StoreFront() {
     ipcChannel.once('get-store-featured', (store) => {
       // No versioning found, what to do?
 
-      console.log(store.featured);
+      
 
       setStatePage({
         ...statePage,
@@ -172,7 +172,7 @@ function StoreFront() {
     ipcChannel.once('get-store', (store) => {
       // No versioning found, what to do?
 
-      // console.log({ store });
+      
 
       setStatePage({
         ...statePage,
@@ -204,10 +204,10 @@ function StoreFront() {
       ...statePage,
       installing: title,
     });
-    console.log({ game, system, title });
+    
     ipcChannel.sendMessage('installGame', [game, storagePath, system]);
     ipcChannel.once('installGame', (error, stdout, stderr) => {
-      console.log({ error, stdout, stderr });
+      
       if (stdout.includes('true')) {
         alert('Game Installed.\nGo back to EmulationStation to play it');
       } else {
@@ -227,7 +227,7 @@ function StoreFront() {
     });
     ipcChannel.sendMessage('unInstallGame', [game, storagePath, system]);
     ipcChannel.once('unInstallGame', (error, stdout, stderr) => {
-      console.log({ error, stdout, stderr });
+      
       if (stdout.includes('true')) {
         alert('Game Uninstalled');
       } else {

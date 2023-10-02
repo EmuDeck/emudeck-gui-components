@@ -116,32 +116,34 @@ function Settings({
               ]}
             />
           </li>
-          <li>
-            <SelectorMenu
-              title="CloudSync"
-              css="selector-menu--mini"
-              imgs={[
-                [sync, cloudSyncStatus === false ? 'is-hidden' : ''],
-                [none, cloudSyncStatus === true ? 'is-hidden' : ''],
-              ]}
-              options={[
-                [
-                  () => onClickCloudSync(false),
-                  cloudSyncStatus === false ? 'is-selected' : '',
-                  'Off',
-                  '',
-                  true,
-                ],
-                [
-                  () => onClickCloudSync(true),
-                  cloudSyncStatus === true ? 'is-selected' : '',
-                  'On',
-                  '',
-                  true,
-                ],
-              ]}
-            />
-          </li>
+          {system !== 'darwin' && (
+            <li>
+              <SelectorMenu
+                title="CloudSync"
+                css="selector-menu--mini"
+                imgs={[
+                  [sync, cloudSyncStatus === false ? 'is-hidden' : ''],
+                  [none, cloudSyncStatus === true ? 'is-hidden' : ''],
+                ]}
+                options={[
+                  [
+                    () => onClickCloudSync(false),
+                    cloudSyncStatus === false ? 'is-selected' : '',
+                    'Off',
+                    '',
+                    true,
+                  ],
+                  [
+                    () => onClickCloudSync(true),
+                    cloudSyncStatus === true ? 'is-selected' : '',
+                    'On',
+                    '',
+                    true,
+                  ],
+                ]}
+              />
+            </li>
+          )}
           <li>
             <SelectorMenu
               title="Bezels"
@@ -246,32 +248,34 @@ function Settings({
               ]}
             />
           </li>
-          <li>
-            <SelectorMenu
-              title="GameCube AR"
-              css="selector-menu--mini"
-              imgs={[
-                [ar169gc, ar.dolphin !== 169 ? 'is-hidden' : ''],
-                [ar43gc, ar.dolphin !== 43 ? 'is-hidden' : ''],
-              ]}
-              options={[
-                [
-                  () => onClickGC(169),
-                  ar.dolphin === 169 ? 'is-selected' : '',
-                  '16:9',
-                  '',
-                  true,
-                ],
-                [
-                  () => onClickGC(43),
-                  ar.dolphin === 43 ? 'is-selected' : '',
-                  '4:3',
-                  '',
-                  true,
-                ],
-              ]}
-            />
-          </li>
+          {system !== 'darwin' && (
+            <li>
+              <SelectorMenu
+                title="GameCube AR"
+                css="selector-menu--mini"
+                imgs={[
+                  [ar169gc, ar.dolphin !== 169 ? 'is-hidden' : ''],
+                  [ar43gc, ar.dolphin !== 43 ? 'is-hidden' : ''],
+                ]}
+                options={[
+                  [
+                    () => onClickGC(169),
+                    ar.dolphin === 169 ? 'is-selected' : '',
+                    '16:9',
+                    '',
+                    true,
+                  ],
+                  [
+                    () => onClickGC(43),
+                    ar.dolphin === 43 ? 'is-selected' : '',
+                    '4:3',
+                    '',
+                    true,
+                  ],
+                ]}
+              />
+            </li>
+          )}
           <li>
             <SelectorMenu
               title="LCD Handhelds"
