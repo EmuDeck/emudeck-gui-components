@@ -48,8 +48,16 @@ function Settings({
   showNotification,
 }) {
   const { state } = useContext(GlobalContext);
-  const { ar, bezels, shaders, autosave, system, cloudSyncStatus, gamemode } =
-    state;
+  const {
+    ar,
+    bezels,
+    shaders,
+    autosave,
+    system,
+    cloudSyncStatus,
+    gamemode,
+    branch,
+  } = state;
 
   return (
     <>
@@ -116,7 +124,7 @@ function Settings({
               ]}
             />
           </li>
-          {system !== 'darwin' && (
+          {branch === 'early' && (
             <li>
               <SelectorMenu
                 title="CloudSync"
