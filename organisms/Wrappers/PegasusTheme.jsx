@@ -1,48 +1,48 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
-import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 import Main from 'components/organisms/Main/Main';
+import Card from 'components/molecules/Card/Card';
 
-import { noir1, modern1, rbsimple1 } from 'components/utils/images/images';
-
-function PegasusTheme({ onClick }) {
+function PegasusTheme({ onClick, themes }) {
   const { state } = useContext(GlobalContext);
-  const { theme } = state;
+
+  const { themePegasus } = state;
+
   return (
     <>
-      <p className="lead">Choose your default theme for EmulationStation DE.</p>
+      <p className="lead">
+        We install a curated list of themes for Pegasus, please choose your
+        default theme.
+      </p>
       <Main>
-        <SelectorMenu
-          imgs={[
-            [noir1, theme !== 'EPICNOIR' ? 'is-hidden' : ''],
-            [modern1, theme !== 'MODERN-DE' ? 'is-hidden' : ''],
-            [rbsimple1, theme !== 'RBSIMPLE-DE' ? 'is-hidden' : ''],
-          ]}
-          options={[
-            [
-              () => onClick('EPICNOIR'),
-              theme === 'EPICNOIR' ? 'is-selected' : '',
-              'Epic Noir',
-              '',
-              true,
-            ],
-            [
-              () => onClick('RBSIMPLE-DE'),
-              theme === 'RBSIMPLE-DE' ? 'is-selected' : '',
-              'RB Simple',
-              '',
-              true,
-            ],
-            [
-              () => onClick('MODERN-DE'),
-              theme === 'MODERN-DE' ? 'is-selected' : '',
-              'Modern',
-              '',
-              true,
-            ],
-          ]}
-        />
+        <div className="cards cards--maxi">
+          {themes && (
+            <>
+              {Object.values(themes).map((item) => {
+                const author = item.autor;
+                const { name } = item;
+                const { screenshots } = item;
+
+                // eslint-disable-next-line consistent-return
+
+                return (
+                  <Card
+                    css={name === themePegasus && 'is-selected'}
+                    key={name}
+                    onClick={() => onClick(name)}
+                  >
+                    <img src={screenshots[0]} alt={name} />
+                    <img className="fade" src={screenshots[1]} alt={name} />
+                    <span className="h6">
+                      {name} by {author}
+                    </span>
+                  </Card>
+                );
+              })}
+            </>
+          )}
+        </div>
       </Main>
     </>
   );

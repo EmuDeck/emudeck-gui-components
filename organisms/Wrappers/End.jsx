@@ -25,7 +25,7 @@ import {
   imgvita3k,
   imgsrm,
   imgscummvm,
-  imgesde,
+  imgFrontESDE,
   imgmelonds,
   allyCrate,
   steamInput,
@@ -52,7 +52,6 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
 
     const bashArray = [];
     onlySelectedEmus.forEach((item) => {
-      
       if (item.name === 'EmulationStation-DE') {
         item.name = 'ESDE';
       }
