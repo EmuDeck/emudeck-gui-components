@@ -26,6 +26,11 @@ function FrontendSelector({ onClick, images, lastSelected }) {
                 return;
               }
             }
+            if (system !== 'darwin') {
+              if (item.id === 'pegasus') {
+                return;
+              }
+            }
 
             return (
               <Card

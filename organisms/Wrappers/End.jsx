@@ -26,6 +26,7 @@ import {
   imgsrm,
   imgscummvm,
   imgFrontESDE,
+  imgFrontPegasus,
   imgmelonds,
   allyCrate,
   steamInput,
@@ -313,7 +314,10 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
                     <img src={imgsrm} alt="alt" />
                   </Card>
                   <Card css="is-selected">
-                    <img src={imgesde} alt="alt" />
+                    <img src={imgFrontESDE} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
+                    <img src={imgFrontPegasus} alt="alt" />
                   </Card>
                 </div>
               </div>

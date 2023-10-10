@@ -144,7 +144,6 @@ function Confirmation() {
               )}{' '}
               - Classic 3D Shader
             </li>
-            <li>EmulationStation DE Theme: {theme}</li>
             <li>
               Sega Classic AR: <strong>{ar.sega}</strong>
             </li>

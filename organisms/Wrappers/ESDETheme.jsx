@@ -4,10 +4,10 @@ import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
-function PegasusTheme({ onClick, themes }) {
+function ESDETheme({ onClick, themes }) {
   const { state } = useContext(GlobalContext);
 
-  const { themePegasus } = state;
+  const { themeESDE } = state;
 
   return (
     <>
@@ -19,22 +19,20 @@ function PegasusTheme({ onClick, themes }) {
         <div className="cards cards--maxi">
           {themes && (
             <>
-              {Object.values(themes).map((item) => {
-                const author = item.autor;
-                const { name } = item;
-                const { screenshots } = item;
-                const { url } = item;
-
+              {Object.values(themes.themes).map((item) => {
+                const { name, screenshots, author, url } = item;
+                const systemView = `https://gitlab.com/es-de/themes/themes-list/-/raw/master/${screenshots[0].image}?ref_type=heads`;
+                const gamelistView = `https://gitlab.com/es-de/themes/themes-list/-/raw/master/${screenshots[1].image}?ref_type=heads`;
                 // eslint-disable-next-line consistent-return
 
                 return (
                   <Card
-                    css={url === themePegasus && 'is-selected'}
+                    css={url === themeESDE && 'is-selected'}
                     key={name}
                     onClick={() => onClick(url)}
                   >
-                    <img src={screenshots[0]} alt={name} />
-                    <img className="fade" src={screenshots[1]} alt={name} />
+                    <img src={systemView} alt={name} />
+                    <img className="fade" src={gamelistView} alt={name} />
                     <span className="h6">
                       {name} by {author}
                     </span>
@@ -49,12 +47,12 @@ function PegasusTheme({ onClick, themes }) {
   );
 }
 
-PegasusTheme.propTypes = {
+ESDETheme.propTypes = {
   onClick: PropTypes.func,
 };
 
-PegasusTheme.defaultProps = {
+ESDETheme.defaultProps = {
   onClick: '',
 };
 
-export default PegasusTheme;
+export default ESDETheme;
