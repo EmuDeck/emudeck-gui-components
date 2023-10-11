@@ -48,6 +48,7 @@ function EmuDetail(props) {
     yuzuEAaskToken,
     onClickHotkeys,
     onClickControls,
+    onClickParsers,
   } = props;
   const [stateImg, setStateImg] = useState({
     img: imgdefault,
@@ -328,6 +329,19 @@ function EmuDetail(props) {
                   onClick={() => onClickUninstall(emuData.id, emuData.code)}
                 >
                   Uninstall
+                </BtnSimple>
+              )}
+
+              {emuData.id === 'srm' && (
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  aria="Go Back"
+                  onClick={() => {
+                    onClickParsers();
+                  }}
+                >
+                  Manage Parsers
                 </BtnSimple>
               )}
 
