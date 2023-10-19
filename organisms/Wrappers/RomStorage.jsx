@@ -53,28 +53,13 @@ function RomStorage({
             </Card>
           )}
           {showInternal && (
-            <>
-              <Card
-                css={storage === 'Internal Storage' && 'is-selected'}
-                onClick={() => onClick('Internal Storage')}
-              >
-                <img src={imgInternal} width="100" alt="Background" />
-                <span className="h5">Internal Storage</span>
-              </Card>
-              <Card
-                css={storage === 'Custom' && 'is-selected'}
-                onClick={() => onClick('Custom')}
-              >
-                <img src={imgInternal} width="100" alt="Background" />
-                <span className="h5">
-                  {system === 'win32' && 'Select your drive'}
-                  {system !== 'win32' && 'Custom Directory'}
-                </span>
-                {customPath && storage === 'Custom' && (
-                  <span className="h6">{customPath}</span>
-                )}
-              </Card>
-            </>
+            <Card
+              css={storage === 'Internal Storage' && 'is-selected'}
+              onClick={() => onClick('Internal Storage')}
+            >
+              <img src={imgInternal} width="100" alt="Background" />
+              <span className="h5">Internal Storage</span>
+            </Card>
           )}
           {hddrives &&
             hddrives.map((item) => {
@@ -95,6 +80,19 @@ function RomStorage({
                 );
               }
             })}
+          <Card
+            css={storage === 'Custom' && 'is-selected'}
+            onClick={() => onClick('Custom')}
+          >
+            <img src={imgInternal} width="100" alt="Background" />
+            <span className="h5">
+              {system === 'win32' && 'Custom Drive'}
+              {system !== 'win32' && 'Custom Directory'}
+            </span>
+            {customPath && storage === 'Custom' && (
+              <span className="h6">{customPath}</span>
+            )}
+          </Card>
         </div>
       </Main>
     </>
