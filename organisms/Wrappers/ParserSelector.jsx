@@ -8,43 +8,36 @@ function ParserSelector({ onClick, images }) {
   const { state } = useContext(GlobalContext);
   const { installEmus, system } = state;
   const installEmusArray = Object.values(installEmus);
-
   return (
     <>
       <p className="lead">
-        These are the emulators EmuDeck installs to your system. Selected
-        emulators will be installed and updated to the latest version.
-        De-selected emulators will not be installed or updated.
+        These are the systems you have installed that can be played using
+        RetroArch or a Standalone Emulator.
+        <br /> Please select the parser you want to use to add those games to
+        your Steam Library
       </p>
       <Main>
         <div className="cards cards--mini">
           {installEmusArray.map((item) => {
-            if (item.id === 'srm' || item.id === 'primehacks') {
-              return;
-            }
-            if (item.id === 'ares') {
-              return;
-            }
             if (system === 'win32') {
               if (
-                item.id === 'primehack' ||
                 item.id === 'rmg' ||
-                item.id === 'mame' ||
-                item.id === 'vita3k' ||
                 item.id === 'scummvm' ||
-                item.id === 'xenia' ||
-                item.id === 'ares' ||
-                item.id === 'xemu' ||
                 item.id === 'mgba'
               ) {
                 return;
               }
             }
 
-            if (system === 'darwin') {
-              if (item.id !== 'ra') {
-                return;
-              }
+            if (
+              item.id !== 'ra' &&
+              item.id !== 'ppsspp' &&
+              item.id !== 'mgba' &&
+              item.id !== 'melonds' &&
+              item.id !== 'rmg' &&
+              item.id !== 'scummvm'
+            ) {
+              return;
             }
 
             const img = images[item.id];
