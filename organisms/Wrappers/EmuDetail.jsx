@@ -341,7 +341,7 @@ function EmuDetail(props) {
                     onClickParsers();
                   }}
                 >
-                  Manage Parsers
+                  Standalone Parsers
                 </BtnSimple>
               )}
 
