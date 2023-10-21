@@ -25,7 +25,7 @@ import {
   imgxenia,
   imgmgba,
   imgsrm,
-  imgesde,
+  imgFrontESDE,
   imgrmg,
   imgscummvm,
   imgsupermodelista,
@@ -127,7 +127,7 @@ function EmuDetail(props) {
         setStateImg({ img: imgsrm });
         break;
       case 'esde':
-        setStateImg({ img: imgesde });
+        setStateImg({ img: imgFrontESDE });
         break;
       case 'rmg':
         setStateImg({ img: imgrmg });
@@ -341,7 +341,7 @@ function EmuDetail(props) {
                     onClickParsers();
                   }}
                 >
-                  Manage Parsers
+                  Standalone Parsers
                 </BtnSimple>
               )}
 

@@ -5,7 +5,7 @@ import Card from 'components/molecules/Card/Card';
 import Main from 'components/organisms/Main/Main';
 
 import {
-  imgESDE,
+  imgFrontESDE,
   imgSTEAM,
   imgExternal,
   imgUSBDeck,
@@ -121,7 +121,7 @@ function CopyGames({
               </div>
               <div data-col-sm="6">
                 <span className="h4">Play Using EmulationStation DE</span>
-                <img src={imgESDE} alt="ESDE" />
+                <img src={imgFrontESDE} alt="ESDE" />
                 <p>
                   EmulationStation-DE is recommended if you have a lot of games.
                   <br />

@@ -19,7 +19,9 @@ import imgsrm from 'assets/emulators/srm.png';
 import imgrmg from 'assets/emulators/rmg.png';
 import imgscummvm from 'assets/emulators/scummvm.png';
 import imgsupermodelista from 'assets/emulators/supermodelista.png';
-import imgesde from 'assets/emulators/esde.png';
+import imgFrontESDE from 'assets/frontends/esde.png';
+import imgFrontPegasus from 'assets/frontends/pegasus.png';
+import imgFrontSteam from 'assets/frontends/steam.png';
 import imgmelonds from 'assets/emulators/melonds.png';
 import imgmgba from 'assets/emulators/mgba.png';
 
@@ -68,7 +70,6 @@ import noir1 from 'assets/esdethemes/es-de_epicnoir_01.png';
 import noir2 from 'assets/esdethemes/es-de_epicnoir_02.png';
 import modern1 from 'assets/esdethemes/es-de_modern_01.png';
 import modern2 from 'assets/esdethemes/es-de_modern_02.png';
-import rbsimple1 from 'assets/esdethemes/es-de_rbsimple_01.png';
 import rbsimple2 from 'assets/esdethemes/es-de_rbsimple_02.png';
 import modern from 'assets/ES-DE_01.png';
 import imgYES from 'assets/HomebrewGamesYES.png';
@@ -107,8 +108,9 @@ import imgwindows from 'assets/devices/windows.png';
 import imgmac from 'assets/devices/mac.png';
 import allyCrate from 'assets/allyCrate.png';
 import steamInput from 'assets/steaminput.png';
-
 import imgchimeraOS from 'assets/devices/chimeraOS.png';
+import themesESDEsimple from 'assets/esdethemes/es-de_rbsimple_01.png';
+import themesPegasusGameOS from 'assets/pegasusthemes/gameOS.jpg';
 
 export {
   imgdefault,
@@ -133,7 +135,9 @@ export {
   imgrmg,
   imgscummvm,
   imgsupermodelista,
-  imgesde,
+  imgFrontESDE,
+  imgFrontPegasus,
+  imgFrontSteam,
   imgmelonds,
   iconSuccess,
   iconForbidden,
@@ -180,7 +184,6 @@ export {
   noir2,
   modern1,
   modern2,
-  rbsimple1,
   rbsimple2,
   modern,
   imgYES,
@@ -219,5 +222,7 @@ export {
   imgmac,
   allyCrate,
   steamInput,
-  imgchimeraOS
+  imgchimeraOS,
+  themesESDEsimple,
+  themesPegasusGameOS,
 };
