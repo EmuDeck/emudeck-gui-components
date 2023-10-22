@@ -25,7 +25,7 @@ import {
   imgxenia,
   imgmgba,
   imgsrm,
-  imgesde,
+  imgFrontESDE,
   imgrmg,
   imgscummvm,
   imgsupermodelista,
@@ -48,6 +48,7 @@ function EmuDetail(props) {
     yuzuEAaskToken,
     onClickHotkeys,
     onClickControls,
+    onClickParsers,
   } = props;
   const [stateImg, setStateImg] = useState({
     img: imgdefault,
@@ -126,7 +127,7 @@ function EmuDetail(props) {
         setStateImg({ img: imgsrm });
         break;
       case 'esde':
-        setStateImg({ img: imgesde });
+        setStateImg({ img: imgFrontESDE });
         break;
       case 'rmg':
         setStateImg({ img: imgrmg });
@@ -328,6 +329,19 @@ function EmuDetail(props) {
                   onClick={() => onClickUninstall(emuData.id, emuData.code)}
                 >
                   Uninstall
+                </BtnSimple>
+              )}
+
+              {emuData.id === 'srm' && (
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  aria="Go Back"
+                  onClick={() => {
+                    onClickParsers();
+                  }}
+                >
+                  Standalone Parsers
                 </BtnSimple>
               )}
 
