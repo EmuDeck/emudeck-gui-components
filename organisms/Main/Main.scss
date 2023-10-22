@@ -56,6 +56,7 @@ body {
   height: 100%;
   flex: 1;
   padding: 30px;
+  width: 100%;
 }
 
 main {
@@ -69,6 +70,11 @@ main {
   // @media (min-width: 701px) {
   //   overflow: hidden;
   // }
+}
+
+.main--horizontal-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 @mixin flex-grid-items($cols) {
