@@ -61,6 +61,10 @@ function EmulatorConfiguration({ onClick, images }) {
               return;
             }
 
+            if (item.id === 'pegasus') {
+              return;
+            }
+
             if (item.id === 'srm' && second === false) {
               return;
             }
