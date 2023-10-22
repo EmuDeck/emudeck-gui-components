@@ -8,6 +8,7 @@ import {
   imgSD,
   imgInternal,
   imgExternal,
+  imgNetwork,
 } from 'components/utils/images/images';
 
 function RomStorage({
@@ -22,7 +23,6 @@ function RomStorage({
 }) {
   const { state } = useContext(GlobalContext);
   const { storage, system } = state;
-
   return (
     <>
       <p className="lead">
@@ -71,7 +71,13 @@ function RomStorage({
                     onClick={() => onClick(item.letter)}
                   >
                     <img
-                      src={item.type === 'Internal' ? imgInternal : imgExternal}
+                      src={
+                        item.type === 'Internal'
+                          ? imgInternal
+                          : item.type === 'External'
+                          ? imgExternal
+                          : imgNetwork
+                      }
                       width="100"
                       alt="Background"
                     />
@@ -80,19 +86,21 @@ function RomStorage({
                 );
               }
             })}
-          <Card
-            css={storage === 'Custom' && 'is-selected'}
-            onClick={() => onClick('Custom')}
-          >
-            <img src={imgInternal} width="100" alt="Background" />
-            <span className="h5">
-              {system === 'win32' && 'Custom Drive'}
-              {system !== 'win32' && 'Custom Directory'}
-            </span>
-            {customPath && storage === 'Custom' && (
-              <span className="h6">{customPath}</span>
-            )}
-          </Card>
+          {system !== 'win32' && (
+            <Card
+              css={storage === 'Custom' && 'is-selected'}
+              onClick={() => onClick('Custom')}
+            >
+              <img src={imgInternal} width="100" alt="Background" />
+              <span className="h5">
+                {system === 'win32' && 'Custom Drive'}
+                {system !== 'win32' && 'Custom Directory'}
+              </span>
+              {customPath && storage === 'Custom' && (
+                <span className="h6">{customPath}</span>
+              )}
+            </Card>
+          )}
         </div>
       </Main>
     </>

@@ -93,6 +93,7 @@ import emuDeckyImg from 'assets/emuDecky.png';
 import gyroDsuImg from 'assets/gyroDsu.png';
 import imgSD from 'assets/sdcard.png';
 import imgInternal from 'assets/internal.png';
+import imgNetwork from 'assets/network.png';
 import powerToolsImg from 'assets/powertools.png';
 import raLogo from 'assets/RetroAchievements.png';
 import steamUI from 'assets/steamUI.png';
@@ -206,6 +207,7 @@ export {
   emuDeckyImg,
   gyroDsuImg,
   imgInternal,
+  imgNetwork,
   imgSD,
   powerToolsImg,
   raLogo,

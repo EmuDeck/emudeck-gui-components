@@ -20,10 +20,7 @@ function PegasusTheme({ onClick, themes }) {
           {themes && (
             <>
               {Object.values(themes).map((item) => {
-                const author = item.autor;
-                const { name } = item;
-                const { screenshots } = item;
-                const { url } = item;
+                const { name, screenshots, url, author } = item;
 
                 // eslint-disable-next-line consistent-return
 
@@ -31,7 +28,7 @@ function PegasusTheme({ onClick, themes }) {
                   <Card
                     css={url === themePegasus && 'is-selected'}
                     key={name}
-                    onClick={() => onClick(url)}
+                    onClick={() => onClick([url, name])}
                   >
                     <img src={screenshots[0]} alt={name} />
                     <img className="fade" src={screenshots[1]} alt={name} />

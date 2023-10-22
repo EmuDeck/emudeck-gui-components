@@ -13,7 +13,8 @@ function FrontendSelector({ onClick, images, lastSelected }) {
   return (
     <>
       <p className="lead">
-        Please select the Frontend you want to use to launch your games
+        Please select the Frontends you want to use to launch your games, you
+        can select more than one.
       </p>
       <Main>
         <div className="cards cards--big">
@@ -25,6 +26,8 @@ function FrontendSelector({ onClick, images, lastSelected }) {
               if (item.id === 'esde') {
                 return;
               }
+            } else if (item.id === 'pegasus') {
+              return;
             }
 
             return (
@@ -35,6 +38,7 @@ function FrontendSelector({ onClick, images, lastSelected }) {
               >
                 <img src={img} alt={item.name} />
                 <span className="h6">{item.name}</span>
+                <p>{item.desc}</p>
               </Card>
             );
           })}

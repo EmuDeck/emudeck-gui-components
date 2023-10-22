@@ -121,9 +121,10 @@
     }
   }
   &--maxi {
+    flex-wrap: nowrap;
     .card {
       position: relative;
-      min-width: 48%;
+      min-width: 45%;
       padding: 10px;
     }
   }
