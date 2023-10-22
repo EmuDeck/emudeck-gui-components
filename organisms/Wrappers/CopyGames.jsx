@@ -5,7 +5,7 @@ import Card from 'components/molecules/Card/Card';
 import Main from 'components/organisms/Main/Main';
 
 import {
-  imgFrontESDE,
+  rbsimple2,
   imgSTEAM,
   imgExternal,
   imgUSBDeck,
@@ -20,6 +20,7 @@ function CopyGames({
   storagePathDestination,
   statusCopyGames,
   statusCreateStructure,
+  installFrontends,
 }) {
   return (
     <>
@@ -103,9 +104,21 @@ function CopyGames({
           )}
           {statusCopyGames === true && (
             <>
-              <div data-col-sm="6">
-                <span className="h4">Play Using Steam ROM Manager</span>
-                <img src={imgSTEAM} alt="ESDE" />
+              <div
+                data-col-sm={
+                  installFrontends.esde.status && installFrontends.steam.status
+                    ? '6'
+                    : '12'
+                }
+              >
+                <span className="h4">
+                  Adding{' '}
+                  {installFrontends.steam.status
+                    ? 'your games'
+                    : 'EmulationStation DE'}{' '}
+                  using Steam ROM Manager
+                </span>
+                <img src={imgSTEAM} alt="Steam" />
                 <p>
                   EmuDeck can add your games to Steam as non-Steam game
                   shortcuts.
@@ -119,19 +132,29 @@ function CopyGames({
                   games.
                 </p>
               </div>
-              <div data-col-sm="6">
-                <span className="h4">Play Using EmulationStation DE</span>
-                <img src={imgFrontESDE} alt="ESDE" />
-                <p>
-                  EmulationStation-DE is recommended if you have a lot of games.
-                  <br />
-                  <br />
-                  You will need to use Steam ROM Manager to add EmulationStation
-                  DE to your library. Follow the same steps as instructed
-                  previously, but you will only need to enable the
-                  <strong>EmulationStation DE</strong> parser.
-                </p>
-              </div>
+              {installFrontends.esde.status && (
+                <div
+                  data-col-sm={
+                    installFrontends.esde.status &&
+                    installFrontends.steam.status
+                      ? '6'
+                      : '12'
+                  }
+                >
+                  <span className="h4">Play Using EmulationStation DE</span>
+                  <img src={rbsimple2} alt="ESDE" />
+                  <p>
+                    EmulationStation-DE is recommended if you have a lot of
+                    games.
+                    <br />
+                    <br />
+                    You will need to launch Steam ROM Manager to add
+                    EmulationStation DE to your library even if you won't use it
+                    to launch your games since you need Steam Input to be
+                    enabled.
+                  </p>
+                </div>
+              )}
             </>
           )}
         </div>
@@ -149,6 +172,7 @@ CopyGames.propTypes = {
   storagePathDestination: PropTypes.string,
   statusCopyGames: PropTypes.string,
   statusCreateStructure: PropTypes.bool,
+  installFrontends: PropTypes.any,
 };
 
 CopyGames.defaultProps = {
@@ -160,6 +184,7 @@ CopyGames.defaultProps = {
   storagePathDestination: '',
   statusCopyGames: '',
   statusCreateStructure: '',
+  installFrontends: '',
 };
 
 export default CopyGames;
