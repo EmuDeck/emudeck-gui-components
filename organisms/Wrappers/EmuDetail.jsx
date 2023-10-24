@@ -313,11 +313,11 @@ function EmuDetail(props) {
                 <BtnSimple
                   css="btn-simple--3"
                   type="button"
-                  aria="ReInstall / Update"
+                  aria="ReInstall"
                   disabled={hideInstallButton}
                   onClick={() => onClickReInstall(emuData.id, emuData.code)}
                 >
-                  ReInstall / Update
+                  ReInstall
                 </BtnSimple>
               )}
               {disableInstallButton && (
