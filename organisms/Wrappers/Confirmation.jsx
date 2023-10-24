@@ -78,6 +78,10 @@ function Confirmation() {
                   return;
                 }
               }
+
+              if (item.id === 'pegasus' || item.id === 'ares') {
+                return;
+              }
               // eslint-disable-next-line consistent-return
               return (
                 <li>
