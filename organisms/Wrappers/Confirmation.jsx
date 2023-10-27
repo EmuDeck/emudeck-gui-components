@@ -34,14 +34,8 @@ function Confirmation() {
             {installEmusArray.map((item) => {
               if (system === 'win32') {
                 if (
-                  item.id === 'primehack' ||
                   item.id === 'rmg' ||
-                  item.id === 'mame' ||
-                  item.id === 'vita3k' ||
-                  item.id === 'scummvm' ||
-                  item.id === 'xemu' ||
                   item.id === 'mgba' ||
-                  item.id === 'xenia'
                 ) {
                   return;
                 }

@@ -27,14 +27,8 @@ function EmulatorSelector({ onClick, images }) {
             }
             if (system === 'win32') {
               if (
-                item.id === 'primehack' ||
                 item.id === 'rmg' ||
-                item.id === 'mame' ||
-                item.id === 'vita3k' ||
-                item.id === 'scummvm' ||
-                item.id === 'xenia' ||
                 item.id === 'ares' ||
-                item.id === 'xemu' ||
                 item.id === 'mgba'
               ) {
                 return;
