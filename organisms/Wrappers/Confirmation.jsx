@@ -33,10 +33,7 @@ function Confirmation() {
           <ul>
             {installEmusArray.map((item) => {
               if (system === 'win32') {
-                if (
-                  item.id === 'rmg' ||
-                  item.id === 'mgba' ||
-                ) {
+                if (item.id === 'rmg' || item.id === 'mgba') {
                   return;
                 }
               }
@@ -59,16 +56,7 @@ function Confirmation() {
           <ul>
             {overwriteConfigEmusArray.map((item) => {
               if (system === 'win32') {
-                if (
-                  item.id === 'primehack' ||
-                  item.id === 'rmg' ||
-                  item.id === 'mame' ||
-                  item.id === 'vita3k' ||
-                  item.id === 'scummvm' ||
-                  item.id === 'xemu' ||
-                  item.id === 'mgba' ||
-                  item.id === 'xenia'
-                ) {
+                if (item.id === 'rmg' || item.id === 'mgba') {
                   return;
                 }
               }
