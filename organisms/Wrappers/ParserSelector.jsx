@@ -20,11 +20,7 @@ function ParserSelector({ onClick, images }) {
         <div className="cards cards--mini">
           {installEmusArray.map((item) => {
             if (system === 'win32') {
-              if (
-                item.id === 'rmg' ||
-                item.id === 'scummvm' ||
-                item.id === 'mgba'
-              ) {
+              if (item.id === 'rmg' || item.id === 'ares') {
                 return;
               }
             }
