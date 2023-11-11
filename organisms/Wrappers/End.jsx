@@ -23,6 +23,7 @@ import {
   imgxemu,
   imgmame,
   imgvita3k,
+  imgflycast,
   imgsrm,
   imgscummvm,
   imgFrontESDE,
@@ -255,7 +256,7 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
           <>
             <ProgressBar css="progress--success" value={percentage} max={100} />
             <div className="container--grid">
-              <div data-col-sm="7">
+              <div data-col-sm="12">
                 <span className="h5">
                   EmuDeck would not be possible without all these open-source
                   projects. We want to give them all a big shout out for their
@@ -308,6 +309,9 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
                     <img src={imgvita3k} alt="alt" />
                   </Card>
                   <Card css="is-selected">
+                    <img src={imgflycast} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
                     <img src={imgscummvm} alt="alt" />
                   </Card>
                   <Card css="is-selected">
@@ -321,9 +325,9 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
                   </Card>
                 </div>
               </div>
-              <div data-col-sm="5">
+              {/* <div data-col-sm="5">
                 <Iframe src="https://funhtml5games.com?embed=spaceinvaders" />
-              </div>
+              </div> */}
             </div>
           </>
         )}

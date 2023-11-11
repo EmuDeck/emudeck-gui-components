@@ -22,6 +22,7 @@ import {
   imgxemu,
   imgmame,
   imgvita3k,
+  imgflycast,
   imgxenia,
   imgmgba,
   imgsrm,
@@ -110,6 +111,9 @@ function EmuDetail(props) {
         break;
       case 'vita3k':
         setStateImg({ img: imgvita3k });
+        break;
+      case 'flycast':
+        setStateImg({ img: imgflycast });
         break;
       case 'scummvm':
         setStateImg({ img: imgscummvm });
@@ -383,6 +387,7 @@ function EmuDetail(props) {
               emuData.id !== 'esde' &&
               emuData.id !== 'mame' &&
               emuData.id !== 'vita3k' &&
+              emuData.id !== 'flycast' &&
               emuData.id !== 'scummvm' &&
               emuData.id !== 'xenia' &&
               emuData.id !== 'mgba' &&
@@ -401,6 +406,7 @@ function EmuDetail(props) {
                 emuData.id !== 'esde' &&
                 emuData.id !== 'mame' &&
                 emuData.id !== 'vita3k' &&
+                emuData.id !== 'flycast' &&
                 emuData.id !== 'scummvm' &&
                 emuData.id !== 'xenia' &&
                 emuData.id !== 'mgba' &&
