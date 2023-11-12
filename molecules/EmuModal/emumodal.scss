@@ -1,4 +1,5 @@
 .emumodal {
+  z-index: 99;
   position: fixed;
   top: 0;
   left: 0;
@@ -65,7 +66,7 @@
   }
   &--xs {
     .emumodal__box {
-      width: 40vw;
+      max-width: 40vw;
       max-height: 80vh;
     }
   }
@@ -92,6 +93,34 @@
     .emumodal__footer {
       margin-top: 12px;
       display: none;
+    }
+  }
+  &--loading {
+    backdrop-filter: none;
+    justify-content: flex-end;
+    align-items: flex-end;
+    .emumodal__header {
+      margin-bottom: var(--margin1);
+    }
+    .emumodal__box {
+      margin-right: 12px;
+      margin-bottom: 12px !important;
+      width: 40vw;
+      padding: 12px;
+      .h4 {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+      p {
+        font-size: 1.2rem;
+        margin-bottom: var(--margin1);
+      }
+    }
+    .emumodal__footer {
+      margin-top: 0;
+      .progress {
+        margin-bottom: 0;
+      }
     }
   }
 }
