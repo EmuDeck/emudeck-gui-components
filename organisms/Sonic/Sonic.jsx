@@ -3,6 +3,24 @@ import './sonic.scss';
 function Sonic() {
   return (
     <div className="sonic-container">
+      <p className="copyright">
+        Assets by{' '}
+        <a
+          href="https://codepen.io/acupoftee/pen/mdbqQjB"
+          target="_blank"
+          rel="noreferrer"
+        >
+          hey-nick
+        </a>{' '}
+        &{' '}
+        <a
+          href="https://codepen.io/acupoftee/pen/mdbqQjB"
+          target="_blank"
+          rel="noreferrer"
+        >
+          rpetersen29
+        </a>
+      </p>
       <div className="crt">
         <div className="sonic-wrapper">
           <div className="sonic" />

@@ -11,7 +11,7 @@ function Kamek() {
         target="_blank"
         rel="noreferrer"
       >
-        Animation by acupoftee
+        Original idea by <strong>acupoftee</strong>
       </a>
       <ul className="stars">
         <li> </li>

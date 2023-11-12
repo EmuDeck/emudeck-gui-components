@@ -185,7 +185,7 @@ $kamek-bg-colors: ();
     position: absolute;
     width: 150px;
     height: 300px;
-    top: 32%;
+    bottom: 140px;
     right: 60%;
     border-top-left-radius: $kamek-mountain-border-radius;
     border-top-right-radius: $kamek-mountain-border-radius;
@@ -216,7 +216,7 @@ $kamek-bg-colors: ();
   }
 
   .front-hills {
-    top: 70%;
+    bottom: 0;
     li {
       background-color: $kamek-front-hills;
       box-shadow: inset 5px 10px darken($kamek-front-hills, 10%);
@@ -225,7 +225,7 @@ $kamek-bg-colors: ();
   }
 
   .mid-hills {
-    top: 70%;
+    bottom: 0;
     li {
       background-color: $kamek-mid-hills;
       box-shadow: inset 5px 10px darken($kamek-mid-hills, 10%);
@@ -234,7 +234,7 @@ $kamek-bg-colors: ();
   }
 
   .back-hills {
-    top: 72%;
+    bottom: 0;
     li {
       background-color: $kamek-back-hills;
       box-shadow: inset 5px 10px darken($kamek-back-hills, 10%);
@@ -242,11 +242,34 @@ $kamek-bg-colors: ();
     }
   }
 
+  @keyframes fly {
+    50% {
+      left: 110%;
+      //top: 10%;
+      bottom: 500px;
+    }
+    51% {
+      transform: scaleX(-1) rotate(10deg);
+      //top: 30%;
+      bottom: 340px;
+    }
+    52% {
+      transform: scaleX(1) rotate(10deg);
+    }
+    100% {
+      transform: scaleX(1) rotate(10deg);
+      left: -100%;
+      //top: 10%;
+      bottom: 500px;
+    }
+  }
+
   .kamek {
     animation: fly $kamek-kamek-timing linear infinite;
     position: absolute;
     transform: scaleX(-1) rotate(10deg);
-    top: 30%;
+    //top: 30%;
+    bottom: 340px;
     left: -100%;
     z-index: 2;
   }
@@ -257,7 +280,7 @@ $kamek-bg-colors: ();
     height: 500px;
     width: 100%;
     position: absolute;
-    top: 45%;
+    bottom: 0;
     transform-origin: center;
     z-index: 1;
     // align-items: flex-start;
@@ -301,25 +324,6 @@ $kamek-bg-colors: ();
           }
         }
       }
-    }
-  }
-
-  @keyframes fly {
-    50% {
-      left: 110%;
-      top: 10%;
-    }
-    51% {
-      transform: scaleX(-1) rotate(10deg);
-      top: 30%;
-    }
-    52% {
-      transform: scaleX(1) rotate(10deg);
-    }
-    100% {
-      transform: scaleX(1) rotate(10deg);
-      left: -100%;
-      top: 10%;
     }
   }
 
