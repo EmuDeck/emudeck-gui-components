@@ -34,6 +34,10 @@ function EmuModal({
         modalFooter: modal.footer,
         modalCSS: modal.css,
       });
+    } else if (modal === false) {
+      setStateModal({
+        modalActive: false,
+      });
     }
   }, [modal]);
 

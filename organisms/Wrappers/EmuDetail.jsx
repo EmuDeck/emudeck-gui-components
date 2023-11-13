@@ -375,8 +375,7 @@ function EmuDetail(props) {
                 </BtnSimple>
               )}
             </div>
-            {system !== 'win32' &&
-              emuData.id !== 'ppsspp' &&
+            {emuData.id !== 'ppsspp' &&
               emuData.id !== 'ryujinx' &&
               emuData.id !== 'melonds' &&
               emuData.id !== 'rpcs3' &&
@@ -394,8 +393,7 @@ function EmuDetail(props) {
               emuData.id !== 'ares' &&
               emuData.id !== 'dolphin' && <p className="h5">Controls</p>}
             <div className="emudetail__actions">
-              {system !== 'win32' &&
-                emuData.id !== 'ppsspp' &&
+              {emuData.id !== 'ppsspp' &&
                 emuData.id !== 'ryujinx' &&
                 emuData.id !== 'melonds' &&
                 emuData.id !== 'rpcs3' &&
