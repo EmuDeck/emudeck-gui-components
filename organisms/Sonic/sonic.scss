@@ -381,16 +381,7 @@ $s5: #414041; //grey-5
 $s6: #212021; //grey-6
 $s7: #000000; //black
 $s8: #2ec121; //green
-html,
-body {
-  background: $b;
-  height: 100%;
-  margin: 0;
-}
-body {
-  overflow: hidden;
-  position: relative;
-}
+
 .level-container {
   position: absolute;
   width: 100%;

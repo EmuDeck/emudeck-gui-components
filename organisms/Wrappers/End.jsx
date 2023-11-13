@@ -4,7 +4,8 @@ import { GlobalContext } from 'context/globalContext';
 import Card from 'components/molecules/Card/Card';
 import Header from 'components/organisms/Header/Header';
 import Main from 'components/organisms/Main/Main';
-
+import Sonic from 'components/organisms/Sonic/Sonic';
+import EmuModal from 'components/molecules/EmuModal/EmuModal';
 import { Img, ProgressBar, BtnSimple, Iframe } from 'getbasecore/Atoms';
 import {
   iconSuccess,
@@ -41,9 +42,18 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
 
   const [statePage, setStatePage] = useState({
     emusInstalledStatus: undefined,
+    modal: {
+      active: true,
+      header: <span className="h4">Installing EmuDeck...</span>,
+      body: <p>{message}...</p>,
+      footer: (
+        <ProgressBar css="progress--success" value={percentage} max={100} />
+      ),
+      css: 'emumodal--xs emumodal--loading',
+    },
   });
 
-  const { emusInstalledStatus } = statePage;
+  const { emusInstalledStatus, modal } = statePage;
 
   const checkInstallation = () => {
     const installEmusArray = Object.values(installEmus);
@@ -84,6 +94,15 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
       setStatePage({
         ...statePage,
         emusInstalledStatus: JSON.parse(messageInstallStatus.stdout),
+        modal: {
+          active: false,
+          header: <span className="h4">Installing EmuDeck...</span>,
+          body: <p>{message}...</p>,
+          footer: (
+            <ProgressBar css="progress--success" value={percentage} max={100} />
+          ),
+          css: 'emumodal--xs',
+        },
       });
     });
   };
@@ -97,8 +116,6 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
 
   return (
     <>
-      {disabledNext === true && <p className="lead">{message}...</p>}
-
       <Main>
         {disabledNext === false && (
           <div className="tips">
@@ -254,7 +271,7 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
         <br />
         {disabledNext === true && (
           <>
-            <ProgressBar css="progress--success" value={percentage} max={100} />
+            <Sonic />
             <div className="container--grid">
               <div data-col-sm="12">
                 <span className="h5">
@@ -325,13 +342,11 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
                   </Card>
                 </div>
               </div>
-              {/* <div data-col-sm="5">
-                <Iframe src="https://funhtml5games.com?embed=spaceinvaders" />
-              </div> */}
             </div>
           </>
         )}
       </Main>
+      <EmuModal modal={modal} />
     </>
   );
 }
