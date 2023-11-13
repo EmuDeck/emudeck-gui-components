@@ -26,7 +26,7 @@ function EmuModal({
   };
 
   useEffect(() => {
-    if (modal !== undefined) {
+    if (modal) {
       setStateModal({
         modalActive: modal.active,
         modalHeader: modal.header,
@@ -49,7 +49,7 @@ function EmuModal({
         </div>
         <div className="emumodal__body">{modalBody || modalBodyValue}</div>
         <div className="emumodal__footer">
-          {(!modalFooter || !modalFooterValue) && (
+          {!modalFooter && !modalFooterValue && (
             <BtnSimple
               css="btn-simple--1"
               type="button"
