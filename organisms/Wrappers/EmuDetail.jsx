@@ -362,7 +362,7 @@ function EmuDetail(props) {
                 </BtnSimple>
               )}
 
-              {emuData.id === 'rpcs3' && system !== 'win32' && (
+              {emuData.id === 'rpcs3' && (
                 <BtnSimple
                   css="btn-simple--1"
                   type="button"
@@ -444,7 +444,7 @@ function EmuDetail(props) {
                   Hotkeys - Expert
                 </BtnSimple>
               )}
-              {system !== 'win32' && emuData.id === 'dolphin' && (
+              {emuData.id === 'dolphin' && (
                 <>
                   <BtnSimple
                     css="btn-simple--1"
@@ -515,7 +515,7 @@ function EmuDetail(props) {
                 </>
               )}
 
-              {emuData.id === 'cemu' && system !== 'win32' && (
+              {emuData.id === 'cemu' && (
                 <>
                   <BtnSimple
                     css="btn-simple--1"
