@@ -42,18 +42,9 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
 
   const [statePage, setStatePage] = useState({
     emusInstalledStatus: undefined,
-    modal: {
-      active: true,
-      header: <span className="h4">Installing EmuDeck...</span>,
-      body: <p>{message}...</p>,
-      footer: (
-        <ProgressBar css="progress--success" value={percentage} max={100} />
-      ),
-      css: 'emumodal--xs emumodal--loading',
-    },
   });
 
-  const { emusInstalledStatus, modal } = statePage;
+  const { emusInstalledStatus } = statePage;
 
   const checkInstallation = () => {
     const installEmusArray = Object.values(installEmus);
@@ -94,15 +85,6 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
       setStatePage({
         ...statePage,
         emusInstalledStatus: JSON.parse(messageInstallStatus.stdout),
-        modal: {
-          active: false,
-          header: <span className="h4">Installing EmuDeck...</span>,
-          body: <p>{message}...</p>,
-          footer: (
-            <ProgressBar css="progress--success" value={percentage} max={100} />
-          ),
-          css: 'emumodal--xs',
-        },
       });
     });
   };
@@ -113,6 +95,22 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
       checkInstallation();
     }
   }, [disabledNext]);
+
+  const showLog = () => {
+    if (system === 'win32') {
+      ipcChannel.sendMessage('bash-nolog', [
+        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:USERPROFILE/emudeck/logs/emudeckSetup.log -Tail 100 -Wait }"`,
+      ]);
+    } else if (system === 'darwin') {
+      ipcChannel.sendMessage('bash-nolog', [
+        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/emudeck/logs/emudeckSetup.log"'`,
+      ]);
+    } else {
+      ipcChannel.sendMessage('bash-nolog', [
+        `konsole -e tail -f "$HOME/emudeck/logs/emudeckSetup.log"`,
+      ]);
+    }
+  };
 
   return (
     <>
@@ -346,7 +344,23 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
           </>
         )}
       </Main>
-      <EmuModal modal={modal} />
+      <EmuModal
+        modalActiveValue={disabledNext === true}
+        modalHeaderValue={<span className="h4">Installing EmuDeck...</span>}
+        modalBodyValue={<p>{message}...</p>}
+        modalFooterValue={
+          <BtnSimple
+            css="btn-simple--1"
+            type="button"
+            aria="Go Back"
+            disabled={false}
+            onClick={showLog}
+          >
+            Watch Log
+          </BtnSimple>
+        }
+        modalCSSValue="emumodal--xs emumodal--loading"
+      />
     </>
   );
 }
