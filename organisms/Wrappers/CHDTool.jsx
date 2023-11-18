@@ -48,7 +48,6 @@ function CHDTool({ disabledNext, onClick }) {
             type="button"
             aria="Install CHDTool"
             onClick={() => onClick()}
-            disabled={disabledNext && 'true'}
           >
             Run the Compression Tool
           </BtnSimple>
