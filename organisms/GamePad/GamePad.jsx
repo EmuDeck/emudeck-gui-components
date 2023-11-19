@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function GamePad({ elements, children }) {
-  console.log({ elements });
+  // console.log({ elements });
 
   const [statePage, setStatePage] = useState({
     currentIndex: 0,
@@ -27,7 +27,7 @@ function GamePad({ elements, children }) {
       return;
     }
 
-    console.log({ gamepad });
+    // console.log({ gamepad });
     const xBoxButtonA = gamepad.buttons[0];
     const xBoxButtonB = gamepad.buttons[1];
     const xBoxButtonX = gamepad.buttons[2];
@@ -48,28 +48,25 @@ function GamePad({ elements, children }) {
     const analogRighttHorizontal = gamepad.axes[3];
     if (xBoxButtonA.pressed) {
       console.log('YEEE');
-      clearTimeout(pepe);
     }
 
     if (dpadRIGHT.pressed) {
-      console.log('Yaaa');
-      console.log({ focusableElements });
-      current = current + 1;
+      current += 1;
       const element = focusableElements.item(current);
       element.focus();
     }
     if (dpadLEFT.pressed) {
-      current = current - 1;
+      current -= 1;
       const element = focusableElements.item(current);
       element.focus();
     }
     if (dpadUP.pressed) {
-      current = current - 4;
+      current -= 4;
       const element = focusableElements.item(current);
       element.focus();
     }
     if (dpadDOWN.pressed) {
-      current = current + 4;
+      current += 4;
       const element = focusableElements.item(current);
       element.focus();
     }

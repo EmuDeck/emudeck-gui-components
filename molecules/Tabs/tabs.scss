@@ -1,16 +1,45 @@
 .nav-tabs,
 .tab-content {
-  --nav-tabs-border: 1px solid var(--grey1);
-  --nav-tabs-padding: 24px;
-  --nav-tabs-bg: white;
-  --nav-tabs-color: var(--grey2);
+  --nav-tabs-border: none;
+  --nav-tabs-padding: 14px 24px;
+  --nav-tabs-bg: rgba(255, 255, 255, 0.8);
+  --nav-tabs-color: #444;
   --nav-tabs-bg-hover: transparent;
-  --nav-tabs-color-hover: var(--blue1);
-  --nav-tabs-bg-active: var(--color-bg-secondary);
-  --nav-tabs-color-active: var(--anthracite);
+  --nav-tabs-color-hover: white;
+  --nav-tabs-bg-active: white;
+  --nav-tabs-color-active: #444;
 
   --nav-tabs-content-mb: var(--margin-elements);
-  --nav-tabs-content-padding: 25px 20px;
-  --nav-tabs-content-bg: white;
+  --nav-tabs-content-padding: 25px 0px;
+  --nav-tabs-content-bg: transparent;
   --nav-tabs-content-border: none;
+}
+
+.nav-tabs > ul li {
+  &:first-child button {
+    border-radius: 30em 0 0 30em;
+  }
+  &:last-child button {
+    border-radius: 0 30em 30em 0;
+  }
+
+  & > button[role='tab'] {
+    font-size: 1.8rem;
+    padding-bottom: 16px;
+  }
+  &.is-active {
+    & > button[role='tab'] {
+      font-size: 1.8rem;
+      animation: background 15s infinite;
+      color: #fff;
+    }
+    &:after {
+      display: none;
+    }
+  }
+}
+.tab-content > div {
+  &:focus {
+    animation: none;
+  }
 }

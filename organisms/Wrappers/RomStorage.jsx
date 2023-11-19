@@ -74,6 +74,10 @@ function RomStorage({
                       src={
                         item.type === 'Internal'
                           ? imgInternal
+                          : item.name.includes('card')
+                          ? imgSD
+                          : item.name.includes('Card')
+                          ? imgSD
                           : item.type === 'External'
                           ? imgExternal
                           : imgNetwork

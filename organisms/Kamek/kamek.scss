@@ -1,0 +1,388 @@
+/*
+
+Copyright:
+https://codepen.io/acupoftee/pen/mdbqQjB
+
+*/
+.wrapper.wrapper {
+  position: relative;
+}
+$kamek-container-size: 100%;
+$kamek-night-sky: linear-gradient(to bottom, #360033, #0b8793);
+$kamek-night-sky-fallback: #2a0845;
+
+// mountain vars
+$kamek-mountain-border-radius: 200px;
+$kamek-front-hills: #3b0a30;
+$kamek-mid-hills: #6a3964;
+$kamek-back-hills: #522057;
+$kamek-magic-mountain-color: #311c30;
+
+// Trail vars
+$kamek-steps: 20;
+$kamek-saturation: 80%;
+$kamek-lightness: 60%;
+$kamek-hue-offset: 320;
+$kamek-trail-height: 500px;
+$kamek-trail-width: calc(100% / $kamek-steps);
+$kamek-trail-radius: 23px;
+$kamek-trail-opacity: 0.6;
+
+// animation vars
+$kamek-kamek-timing: 6s;
+$kamek-trail-timing: 6s;
+$kamek-initial-delay: 0.8s;
+$kamek-timing-delay: 0.2s;
+
+$kamek-kamek-timing: 12s;
+$kamek-trail-timing: 12s;
+$kamek-initial-delay: 1.6s;
+$kamek-timing-delay: 0.2s;
+
+// Color lists
+$kamek-hsl-colors: ();
+$kamek-bg-colors: ();
+
+// Returns a random number given a min value
+// and max value
+@function randomNum($kamek-min, $kamek-max) {
+  $kamek-rand: random();
+  @return ($kamek-min + floor($kamek-rand * (($kamek-max - $kamek-min) + 1)));
+}
+
+// Creates mountain ranges
+@mixin createHills(
+  $kamek-numHills,
+  $kamek-minWidth,
+  $kamek-maxWidth,
+  $kamek-minHeight,
+  $kamek-maxHeight
+) {
+  @for $kamek-i from 1 through $kamek-numHills {
+    &:nth-child(#{$kamek-i}) {
+      width: randomNum($kamek-minWidth, $kamek-maxWidth);
+      height: randomNum($kamek-minHeight, $kamek-maxHeight);
+    }
+  }
+}
+// Populate $kamek-hsl-colors with calculated colors
+// These will be used to create the gradients in the second for loop
+@for $kamek-i from 1 through $kamek-steps + 1 {
+  $kamek-color: hsl(
+    360 / $kamek-steps * $kamek-i + $kamek-hue-offset,
+    $kamek-saturation,
+    $kamek-lightness
+  );
+  $kamek-hsl-colors: append($kamek-hsl-colors, $kamek-color);
+}
+
+// Define gradients with the newly created colors from $kamek-hsl-colors
+// Then, populate $kamek-background-colors with these newly created gradients
+@for $kamek-j from 1 through $kamek-steps {
+  $kamek-bg: linear-gradient(
+    to right,
+    nth($kamek-hsl-colors, $kamek-j),
+    nth($kamek-hsl-colors, $kamek-j + 1)
+  );
+  $kamek-bg-colors: append($kamek-bg-colors, $kamek-bg);
+}
+.container-kamek {
+  // Scene vars
+
+  background: $kamek-night-sky-fallback;
+  background: $kamek-night-sky;
+  height: $kamek-container-size;
+  left: 0%;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  width: $kamek-container-size;
+  overflow: hidden;
+  $kamek-white: #fffaf0;
+
+  .copyright {
+    position: absolute;
+    bottom: 16px;
+    z-index: 9;
+    left: 16px;
+  }
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  .stars {
+    width: 100%;
+    height: 100%;
+    li {
+      position: absolute;
+      background-color: rgb(255, 242, 123);
+      border-radius: 100%;
+      @for $kamek-i from 1 through 60 {
+        &:nth-child(#{$kamek-i}) {
+          $kamek-starSize: randomNum(0, 3px);
+          width: $kamek-starSize;
+          height: $kamek-starSize;
+          left: randomNum(0, 100%);
+          top: randomNum(0, 350px);
+        }
+      }
+    }
+  }
+
+  .cloud {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: rgb(79, 111, 160);
+    position: absolute;
+    left: -30%;
+    top: 10%;
+    box-shadow: inset 10px 10px rgb(23, 30, 54);
+    animation: moveCloud 60s 1s infinite;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 55px;
+      height: 55px;
+      left: 30px;
+      border-radius: 100%;
+      top: 20px;
+      background-color: rgb(79, 111, 160);
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      left: -20px;
+      border-radius: 100%;
+      top: 10px;
+      background-color: rgb(79, 111, 160);
+      box-shadow: inset 10px 10px rgb(23, 30, 54);
+    }
+
+    &:nth-child(2) {
+      left: -50%;
+      top: 20%;
+      animation: moveCloud 100s 2s infinite;
+    }
+  }
+
+  .hills {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    li {
+      border-top-left-radius: $kamek-mountain-border-radius;
+      border-top-right-radius: $kamek-mountain-border-radius;
+    }
+  }
+
+  .magic-mountain {
+    position: absolute;
+    width: 150px;
+    height: 300px;
+    bottom: 140px;
+    right: 60%;
+    border-top-left-radius: $kamek-mountain-border-radius;
+    border-top-right-radius: $kamek-mountain-border-radius;
+    background-color: $kamek-magic-mountain-color;
+    box-shadow: inset 10px 10px darken($kamek-magic-mountain-color, 10%);
+
+    .eyes {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+      left: 25%;
+      top: 20%;
+
+      &:before,
+      &:after {
+        content: '';
+        width: 20px;
+        height: 50px;
+        background-color: black;
+        border-radius: 100%;
+        transform: scaleY(0);
+        animation: wakeUp 2s 2s ease-in-out forwards,
+          blink 4s 4s ease-in-out infinite;
+        transition: 0.5s ease;
+      }
+    }
+  }
+
+  .front-hills {
+    bottom: 0;
+    li {
+      background-color: $kamek-front-hills;
+      box-shadow: inset 5px 10px darken($kamek-front-hills, 10%);
+      @include createHills(20, 300px, 500px, 50px, 200px);
+    }
+  }
+
+  .mid-hills {
+    bottom: 0;
+    li {
+      background-color: $kamek-mid-hills;
+      box-shadow: inset 5px 10px darken($kamek-mid-hills, 10%);
+      @include createHills(20, 300px, 2000px, 100px, 310px);
+    }
+  }
+
+  .back-hills {
+    bottom: 0;
+    li {
+      background-color: $kamek-back-hills;
+      box-shadow: inset 5px 10px darken($kamek-back-hills, 10%);
+      @include createHills(10, 300px, 500px, 200px, 330px);
+    }
+  }
+
+  @keyframes fly {
+    50% {
+      left: 110%;
+      //top: 10%;
+      bottom: 500px;
+    }
+    51% {
+      transform: scaleX(-1) rotate(10deg);
+      //top: 30%;
+      bottom: 340px;
+    }
+    52% {
+      transform: scaleX(1) rotate(10deg);
+    }
+    100% {
+      transform: scaleX(1) rotate(10deg);
+      left: -100%;
+      //top: 10%;
+      bottom: 500px;
+    }
+  }
+
+  .kamek {
+    animation: fly $kamek-kamek-timing linear infinite;
+    position: absolute;
+    transform: scaleX(-1) rotate(10deg);
+    //top: 30%;
+    bottom: 340px;
+    left: -100%;
+    z-index: 2;
+  }
+
+  .spell-trail {
+    display: flex;
+    opacity: $kamek-trail-opacity;
+    height: 500px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    transform-origin: center;
+    z-index: 1;
+    // align-items: flex-start;
+    // with help from https://bennettfeely.com/clippy/
+    clip-path: polygon(15%, 100% 0, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+
+    .trail {
+      height: 0;
+      min-height: 0;
+      position: relative;
+      width: $kamek-trail-width;
+      flex: 1;
+
+      $kamek-delay: $kamek-initial-delay;
+      $kamek-percentage: 10%;
+
+      // Creates a new rainbow trail with it's own animation
+      @for $kamek-i from 1 through 20 {
+        &:nth-child(#{$kamek-i}) {
+          animation: createTrail
+            $kamek-trail-timing
+            $kamek-delay
+            ease-in
+            infinite;
+          background-image: nth($kamek-bg-colors, $kamek-i);
+          border-bottom-left-radius: $kamek-trail-radius;
+          border-bottom-right-radius: $kamek-trail-radius;
+          $kamek-delay: $kamek-delay + $kamek-timing-delay;
+
+          // image source: https://codepen.io/simeydotme/pen/PrQKgo
+          .sparkles {
+            background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif');
+            background-position: $kamek-percentage 0;
+            border-bottom-left-radius: $kamek-trail-radius;
+            border-bottom-right-radius: $kamek-trail-radius;
+            height: 100%;
+            mix-blend-mode: color-dodge;
+            width: $kamek-trail-width;
+            $kamek-percentage: $kamek-percentage + 10%;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes createTrail {
+    25% {
+      height: $kamek-trail-height;
+      opacity: 1;
+    }
+    65% {
+      height: $kamek-trail-height;
+      opacity: 0;
+    }
+    100% {
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  @keyframes wakeUp {
+    60% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes blink {
+    0% {
+      transform: scaleY(1);
+    }
+    18% {
+      transform: scaleY(1);
+    }
+    20% {
+      transform: scaleY(0);
+    }
+    25% {
+      transform: scaleY(1);
+    }
+    38% {
+      transform: scaleY(1);
+    }
+    40% {
+      transform: scaleY(0);
+    }
+    45% {
+      transform: scaleY(1);
+    }
+    80% {
+      transform: scaleY(1);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+  @keyframes moveCloud {
+    100% {
+      left: 150%;
+    }
+  }
+}

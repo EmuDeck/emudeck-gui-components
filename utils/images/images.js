@@ -14,6 +14,7 @@ import imgcemu from 'assets/emulators/cemu.png';
 import imgxemu from 'assets/emulators/xemu.png';
 import imgmame from 'assets/emulators/mame.png';
 import imgvita3k from 'assets/emulators/vita3k.png';
+import imgflycast from 'assets/emulators/flycast.png';
 import imgxenia from 'assets/emulators/xenia.png';
 import imgsrm from 'assets/emulators/srm.png';
 import imgrmg from 'assets/emulators/rmg.png';
@@ -46,6 +47,7 @@ import iconJoystick from 'assets/icon/joystick.svg';
 import iconPackage from 'assets/icon/package.svg';
 import iconQuestion from 'assets/icon/question.svg';
 import iconDisk from 'assets/icon/disk.svg';
+import iconScreen from 'assets/icon/screen.svg';
 import ar43 from 'assets/ar43.png';
 import ar32 from 'assets/ar32.png';
 import ar43s from 'assets/ar43snes.png';
@@ -101,6 +103,8 @@ import winDesktop from 'assets/winDesktop.png';
 import imgDeck from 'assets/devices/deck.png';
 import imgWin600 from 'assets/devices/win600.png';
 import imgally from 'assets/devices/ally.png';
+import imgayaneokun from 'assets/devices/ayaneokun.png';
+import imglegiongo from 'assets/devices/legiongo.png';
 import imgaokzoepro from 'assets/devices/aokzoepro.png';
 import imgayaneo2 from 'assets/devices/ayaneo2.png';
 import imgayaneogeek from 'assets/devices/ayaneogeek.png';
@@ -130,10 +134,13 @@ export {
   imgxemu,
   imgmame,
   imgvita3k,
+  imgflycast,
   imgxenia,
   imgmgba,
   imgsrm,
   imgrmg,
+  imgayaneokun,
+  imglegiongo,
   imgscummvm,
   imgsupermodelista,
   imgFrontESDE,
@@ -161,6 +168,7 @@ export {
   iconPackage,
   iconQuestion,
   iconDisk,
+  iconScreen,
   ar43,
   ar32,
   ar43s,

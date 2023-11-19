@@ -4,7 +4,8 @@ import { GlobalContext } from 'context/globalContext';
 import Card from 'components/molecules/Card/Card';
 import Header from 'components/organisms/Header/Header';
 import Main from 'components/organisms/Main/Main';
-
+import Sonic from 'components/organisms/Sonic/Sonic';
+import EmuModal from 'components/molecules/EmuModal/EmuModal';
 import { Img, ProgressBar, BtnSimple, Iframe } from 'getbasecore/Atoms';
 import {
   iconSuccess,
@@ -23,6 +24,7 @@ import {
   imgxemu,
   imgmame,
   imgvita3k,
+  imgflycast,
   imgsrm,
   imgscummvm,
   imgFrontESDE,
@@ -94,10 +96,24 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
     }
   }, [disabledNext]);
 
+  const showLog = () => {
+    if (system === 'win32') {
+      ipcChannel.sendMessage('bash-nolog', [
+        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:USERPROFILE/emudeck/logs/emudeckSetup.log -Tail 100 -Wait }"`,
+      ]);
+    } else if (system === 'darwin') {
+      ipcChannel.sendMessage('bash-nolog', [
+        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/emudeck/logs/emudeckSetup.log"'`,
+      ]);
+    } else {
+      ipcChannel.sendMessage('bash-nolog', [
+        `konsole -e tail -f "$HOME/emudeck/logs/emudeckSetup.log"`,
+      ]);
+    }
+  };
+
   return (
     <>
-      {disabledNext === true && <p className="lead">{message}...</p>}
-
       <Main>
         {disabledNext === false && (
           <div className="tips">
@@ -253,9 +269,9 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
         <br />
         {disabledNext === true && (
           <>
-            <ProgressBar css="progress--success" value={percentage} max={100} />
+            <Sonic />
             <div className="container--grid">
-              <div data-col-sm="7">
+              <div data-col-sm="12">
                 <span className="h5">
                   EmuDeck would not be possible without all these open-source
                   projects. We want to give them all a big shout out for their
@@ -308,6 +324,9 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
                     <img src={imgvita3k} alt="alt" />
                   </Card>
                   <Card css="is-selected">
+                    <img src={imgflycast} alt="alt" />
+                  </Card>
+                  <Card css="is-selected">
                     <img src={imgscummvm} alt="alt" />
                   </Card>
                   <Card css="is-selected">
@@ -321,13 +340,27 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
                   </Card>
                 </div>
               </div>
-              <div data-col-sm="5">
-                <Iframe src="https://funhtml5games.com?embed=spaceinvaders" />
-              </div>
             </div>
           </>
         )}
       </Main>
+      <EmuModal
+        modalActiveValue={disabledNext === true}
+        modalHeaderValue={<span className="h4">Installing EmuDeck...</span>}
+        modalBodyValue={<p>{message}...</p>}
+        modalFooterValue={
+          <BtnSimple
+            css="btn-simple--1"
+            type="button"
+            aria="Go Back"
+            disabled={false}
+            onClick={showLog}
+          >
+            Watch Log
+          </BtnSimple>
+        }
+        modalCSSValue="emumodal--xs emumodal--loading"
+      />
     </>
   );
 }

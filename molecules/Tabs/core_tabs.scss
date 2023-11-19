@@ -1,0 +1,141 @@
+@import "/src/global.scss";
+//
+//
+// Hi there! Remember you are not suposed to be here.
+// All customization must be done in _custom_ files!!
+//
+//
+.nav-tabs {
+  overflow: auto;
+  scroll-behavior: smooth;
+  > ul {
+    display: flex;
+  }
+  > ul li {
+    float: left;
+    margin-bottom: -1px;
+    margin-right: -1px;
+
+    @media (max-width: $screen-xs-max) {
+      margin-right: 0px;
+    }
+
+    > [role="tab"] {
+      text-decoration: none;
+      display: inline-block;
+      margin: 0;
+      font-size: inherit;
+      @media (max-width: $screen-xs-max) {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &.is-active {
+      > [role="tab"] {
+        &:hover {
+        }
+      }
+    }
+  }
+}
+
+.tab-content {
+  > .tab-content__panel {
+    display: none;
+    visibility: hidden;
+  }
+  > .is-active {
+    display: block;
+    visibility: visible;
+  }
+}
+
+.nav-tabs {
+  border-bottom: var(--nav-tabs-border);
+  padding-bottom: 4px;
+  > ul {
+    display: flex;
+    // @media (max-width: $screen-   // ) {
+    //   flex-wrap: wrap;
+    // }
+  }
+  > ul li {
+    margin-bottom: 0;
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+      button {
+        text-align: left;
+        line-height: 1.1;
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      left: 0;
+      bottom: -4px;
+      background: var(--blue1);
+      opacity: 0;
+    }
+    > [role="tab"] {
+      //border: var(--nav-tabs-border);
+      background: var(--nav-tabs-bg);
+      color: var(--nav-tabs-color);
+      padding: var(--nav-tabs-padding);
+      font-size: 2rem;
+      font-weight: 700;
+      padding-bottom: 30px;
+      transition: 0.5s;
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        background: var(--nav-tabs-bg-hover);
+        color: var(--nav-tabs-color-hover);
+        //transform: scale(1.1);
+      }
+    }
+
+    &.is-active {
+      position: relative;
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        left: 0;
+        bottom: -4px;
+        background: var(--blue1);
+        opacity: 1;
+      }
+
+      > [role="tab"] {
+        background: var(--nav-tabs-bg-active);
+        color: var(--nav-tabs-color-active);
+        //transform: scale(2);
+        font-size: 2em;
+        pointer-events: none;
+        &:hover {
+        }
+      }
+    }
+  }
+}
+
+.tab-content {
+  margin-bottom: var(--nav-tabs-content-mb);
+
+  &__panel {
+    padding: var(--nav-tabs-content-padding);
+    background: var(--nav-tabs-content-bg);
+    border: var(--nav-tabs-content-border);
+    border-top: 0;
+  }
+}
+@import "/src/components/molecules/Tabs/tabs.scss";

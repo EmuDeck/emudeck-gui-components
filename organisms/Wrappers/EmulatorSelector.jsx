@@ -26,17 +26,7 @@ function EmulatorSelector({ onClick, images }) {
               return;
             }
             if (system === 'win32') {
-              if (
-                item.id === 'primehack' ||
-                item.id === 'rmg' ||
-                item.id === 'mame' ||
-                item.id === 'vita3k' ||
-                item.id === 'scummvm' ||
-                item.id === 'xenia' ||
-                item.id === 'ares' ||
-                item.id === 'xemu' ||
-                item.id === 'mgba'
-              ) {
+              if (item.id === 'rmg' || item.id === 'ares') {
                 return;
               }
             }

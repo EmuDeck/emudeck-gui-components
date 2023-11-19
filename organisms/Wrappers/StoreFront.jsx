@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import { BtnSimple } from 'getbasecore/Atoms';
+import { Tabs } from 'components/molecules/Tabs/Tabs';
 
 import CardSettings from 'components/molecules/CardSettings/CardSettings';
 import StoreGame from 'components/molecules/StoreGame/StoreGame';
@@ -144,42 +145,94 @@ function StoreFront() {
       pictures: { titlescreens: [undefined], screenshots: [undefined] },
     },
     games: null,
-    featured: [],
+    feeds: null,
+    featured: null,
+    featuredFeeds: null,
+    tabs: [],
   });
-  const { modal, game, installing, games, featured } = statePage;
+  const {
+    modal,
+    game,
+    installing,
+    games,
+    featured,
+    featuredFeeds,
+    feeds,
+    tabs,
+  } = statePage;
 
   const [stateSystem, setStateSystem] = useState({
     system: null,
   });
   const { system } = stateSystem;
+  const [stateFeed, setStateFeed] = useState({
+    systemFeed: null,
+  });
+  const { systemFeed } = stateFeed;
   const ipcChannel = window.electron.ipcRenderer;
+
+  function selectRandomElements(originalJson, count) {
+    console.log({ originalJson });
+    const jsonLength = Math.floor(originalJson.length);
+    const randomNumber = Math.random() * jsonLength;
+    const randomInteger = Math.floor(randomNumber);
+    const originalElements = originalJson[randomInteger].games.slice(); // Clone the original elements
+    const selectedElements = [];
+
+    while (selectedElements.length < count && originalElements.length > 0) {
+      const randomIndex = Math.floor(Math.random() * originalElements.length);
+      const selectedElement = originalElements.splice(randomIndex, 1)[0];
+      selectedElements.push(selectedElement);
+    }
+
+    return selectedElements;
+  }
+
   useEffect(() => {
-    ipcChannel.sendMessage('get-store-featured');
-    ipcChannel.once('get-store-featured', (store) => {
-      // No versioning found, what to do?
-
-      
-
+    // console.log({ games });
+    if (games !== null && featured === null) {
+      console.log({ games });
+      const selectedElements = selectRandomElements(games, 4);
       setStatePage({
         ...statePage,
-        featured: store.featured,
+        featured: selectedElements,
       });
-    });
-  }, []);
+    }
+    // if (feeds !== null && feeds.length >= 2 && featuredFeeds === null) {
+    //   const selectedElements = selectRandomElements(feeds, 4);
+    //   setStatePage({
+    //     ...statePage,
+    //     featuredFeeds: selectedElements,
+    //   });
+    // }
+  }, [statePage]);
 
   useEffect(() => {
     ipcChannel.sendMessage('get-store');
-    ipcChannel.once('get-store', (store) => {
-      // No versioning found, what to do?
-
-      
-
+    ipcChannel.once('get-store', (json) => {
+      let tabsLinks = [];
+      if (feeds !== null && feeds.length >= 1) {
+        tabsLinks = ['HomeBrew Games', 'Your Feeds'];
+      }
       setStatePage({
         ...statePage,
-        games: store.store,
+        games: json.store.data,
+        feeds: json.feeds.data,
+        tabs: tabsLinks,
       });
     });
   }, [featured]);
+
+  // useEffect(() => {
+  //   if (feeds !== null) {
+  //     if (feeds.length >= 2)
+  //       setStatePage({
+  //         ...statePage,
+  //         tabs: ['HomeBrew Games', 'Your Feeds'],
+  //       });
+  //   }
+  // }, [feeds]);
+
   const toggleModal = (item) => {
     if (item) {
       setStatePage({
@@ -204,10 +257,9 @@ function StoreFront() {
       ...statePage,
       installing: title,
     });
-    
+
     ipcChannel.sendMessage('installGame', [game, storagePath, system]);
     ipcChannel.once('installGame', (error, stdout, stderr) => {
-      
       if (stdout.includes('true')) {
         alert('Game Installed.\nGo back to EmulationStation to play it');
       } else {
@@ -227,7 +279,6 @@ function StoreFront() {
     });
     ipcChannel.sendMessage('unInstallGame', [game, storagePath, system]);
     ipcChannel.once('unInstallGame', (error, stdout, stderr) => {
-      
       if (stdout.includes('true')) {
         alert('Game Uninstalled');
       } else {
@@ -246,86 +297,164 @@ function StoreFront() {
       system: showThis,
     });
   };
+  const showFeed = (id) => {
+    const showThis = feeds.filter((item) => item.system === id);
+    setStateFeed({
+      systemFeed: showThis,
+    });
+  };
   let extraCSS;
   // eslint-disable-next-line no-unused-expressions
   system !== null ? (extraCSS = 'is-hidden') : (extraCSS = '');
 
   return (
     <>
-      <Main>
-        <div className={`featured-games-list ${extraCSS}`}>
-          <p className="h4">Featured games</p>
-          <hr />
-          <ul>
-            {featured.map((item) => {
-              return (
-                <StoreGame
-                  disabled={installing === item.title}
-                  key={item.title}
-                  title={item.title}
-                  img={item.pictures.titlescreens[0]}
-                  tags={item.tags}
-                  css="store-game--featured"
-                  onMore={() => toggleModal(item)}
-                  onInstall={() =>
-                    installGame(item.file, item.system, item.title)
-                  }
-                />
-              );
-            })}
-          </ul>
-        </div>
-
-        <div className="container--grid">
-          {games != null &&
-            games.map((item) => {
-              return (
-                <div data-col-md="2">
-                  <CardSettings
-                    disabled={installing === item.title}
-                    key={item.name}
-                    css="is-highlighted"
-                    btnCSS="btn-simple--1"
-                    icon={icon[`icon_${item.system}`]}
-                    iconSize="md"
-                    title={item.name}
-                    onClick={() => showSystem(item.system)}
-                  />
+      {feeds !== null && (
+        <Main>
+          <Tabs
+            ariaLabel="Demo Tabs"
+            tabList={tabs}
+            tabContent={[
+              <>
+                <hr />
+                <div className="featured-games-list">
+                  <span className="h5">Featured HomeBrew games</span>
+                  <ul>
+                    {featured !== null &&
+                      featured.map((item) => {
+                        return (
+                          <StoreGame
+                            disabled={installing === item.title}
+                            key={item.title}
+                            title={item.title}
+                            img={item.pictures.titlescreens[0]}
+                            tags={item.tags}
+                            css="store-game--featured"
+                            onMore={() => toggleModal(item)}
+                            onInstall={() =>
+                              installGame(item.file, item.system, item.title)
+                            }
+                          />
+                        );
+                      })}
+                  </ul>
                 </div>
-              );
-            })}
-        </div>
-
-        <div className="games-details">
-          {system !== null &&
-            system.map((item) => {
-              return (
-                <>
-                  <p className="h4">{item.name}</p>
-                  <hr />
-                  <ul className="games-list">
-                    {item.games.map((item) => {
+                <hr />
+                <div className="container--grid">
+                  {games != null &&
+                    games.map((item) => {
                       return (
-                        <StoreGame
-                          disabled={installing === item.title}
-                          key={item.title}
-                          title={item.title}
-                          img={item.pictures.titlescreens[0]}
-                          system={logo_gb}
-                          onMore={() => toggleModal(item)}
-                          onInstall={() =>
-                            installGame(item.file, item.system, item.title)
-                          }
-                        />
+                        <div data-col-md="2">
+                          <CardSettings
+                            disabled={installing === item.title}
+                            key={item.name}
+                            css="is-highlighted"
+                            btnCSS="btn-simple--1"
+                            icon={icon[`icon_${item.system}`]}
+                            iconSize="md"
+                            title={item.name}
+                            onClick={() => showSystem(item.system)}
+                          />
+                        </div>
                       );
                     })}
-                  </ul>
-                </>
-              );
-            })}
-        </div>
-      </Main>
-
+                </div>
+                <div className="games-details">
+                  {system !== null &&
+                    system.map((item) => {
+                      return (
+                        <>
+                          <hr />
+                          <ul className="games-list">
+                            {item.games.map((item) => {
+                              return (
+                                <StoreGame
+                                  disabled={installing === item.title}
+                                  key={item.title}
+                                  title={item.title}
+                                  img={item.pictures.titlescreens[0]}
+                                  system={logo_gb}
+                                  onMore={() => toggleModal(item)}
+                                  onInstall={() =>
+                                    installGame(
+                                      item.file,
+                                      item.system,
+                                      item.title
+                                    )
+                                  }
+                                />
+                              );
+                            })}
+                          </ul>
+                        </>
+                      );
+                    })}
+                </div>
+              </>,
+              <>
+                {feeds !== null && feeds.length >= 1 && (
+                  <>
+                    <hr />
+                    <div className="container--grid">
+                      {feeds != null &&
+                        feeds.map((item) => {
+                          if (!item.name) {
+                            return;
+                          }
+                          return (
+                            <div data-col-md="2">
+                              <CardSettings
+                                disabled={installing === item.title}
+                                key={item.name}
+                                css="is-highlighted"
+                                btnCSS="btn-simple--1"
+                                icon={icon[`icon_${item.system}`]}
+                                iconSize="md"
+                                title={item.name}
+                                onClick={() => showFeed(item.system)}
+                              />
+                            </div>
+                          );
+                        })}
+                    </div>
+                    <div className="games-details">
+                      {systemFeed !== null &&
+                        systemFeed.map((item) => {
+                          return (
+                            <>
+                              <hr />
+                              <ul className="games-list">
+                                {item.games.map((item) => {
+                                  return (
+                                    <StoreGame
+                                      disabled={installing === item.title}
+                                      key={item.title}
+                                      title={item.title}
+                                      img={item.pictures.titlescreens[0]}
+                                      system={logo_gb}
+                                      onMore={() => toggleModal(item)}
+                                      onInstall={() =>
+                                        installGame(
+                                          item.file,
+                                          item.system,
+                                          item.title
+                                        )
+                                      }
+                                    />
+                                  );
+                                })}
+                              </ul>
+                            </>
+                          );
+                        })}
+                    </div>
+                  </>
+                )}
+              </>,
+            ]}
+          />
+        </Main>
+      )}
       <div className={`game-details ${modal ? 'is-shown' : ''}`}>
         <div className="game-details__box">
           <div className="game-details__head">

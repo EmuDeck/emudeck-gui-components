@@ -32,17 +32,15 @@ function Confirmation() {
           <span className="h5">EmuDeck will install:</span>
           <ul>
             {installEmusArray.map((item) => {
+              if (
+                item.id === 'ares' ||
+                item.id === 'pegasus' ||
+                item.id === 'srm'
+              ) {
+                return;
+              }
               if (system === 'win32') {
-                if (
-                  item.id === 'primehack' ||
-                  item.id === 'rmg' ||
-                  item.id === 'mame' ||
-                  item.id === 'vita3k' ||
-                  item.id === 'scummvm' ||
-                  item.id === 'xemu' ||
-                  item.id === 'mgba' ||
-                  item.id === 'xenia'
-                ) {
+                if (item.id === 'rmg') {
                   return;
                 }
               }
@@ -64,17 +62,11 @@ function Confirmation() {
           <span className="h5">EmuDeck will configure:</span>
           <ul>
             {overwriteConfigEmusArray.map((item) => {
+              if (item.id === 'ares' || item.id === 'pegasus') {
+                return;
+              }
               if (system === 'win32') {
-                if (
-                  item.id === 'primehack' ||
-                  item.id === 'rmg' ||
-                  item.id === 'mame' ||
-                  item.id === 'vita3k' ||
-                  item.id === 'scummvm' ||
-                  item.id === 'xemu' ||
-                  item.id === 'mgba' ||
-                  item.id === 'xenia'
-                ) {
+                if (item.id === 'rmg') {
                   return;
                 }
               }
@@ -160,33 +152,29 @@ function Confirmation() {
             <li>
               Gamecube AR: <strong>{ar.dolphin}</strong>
             </li>
-            {system === 'win32' && (
-              <>
-                <li>
-                  GameCube and Wii Resolution:{' '}
-                  <strong>{resolutions.dolphin}</strong>
-                </li>
-                <li>
-                  PlayStation 1 Resolution:{' '}
-                  <strong>{resolutions.duckstation}</strong>
-                </li>
-                <li>
-                  PlayStation 2 Resolution: <strong>{resolutions.pcsx2}</strong>
-                </li>
-                <li>
-                  PlayStation32 Resolution: <strong>{resolutions.rpcs3}</strong>
-                </li>
-                <li>
-                  Switch Resolution: <strong>{resolutions.yuzu}</strong>
-                </li>
-                <li>
-                  Nintendo DS Resolution: <strong>{resolutions.melonds}</strong>
-                </li>
-                <li>
-                  Nintendo 3DS Resolution: <strong>{resolutions.citra}</strong>
-                </li>
-              </>
-            )}
+            <li>
+              GameCube and Wii Resolution:{' '}
+              <strong>{resolutions.dolphin}</strong>
+            </li>
+            <li>
+              PlayStation 1 Resolution:{' '}
+              <strong>{resolutions.duckstation}</strong>
+            </li>
+            <li>
+              PlayStation 2 Resolution: <strong>{resolutions.pcsx2}</strong>
+            </li>
+            <li>
+              PlayStation32 Resolution: <strong>{resolutions.rpcs3}</strong>
+            </li>
+            <li>
+              Switch Resolution: <strong>{resolutions.yuzu}</strong>
+            </li>
+            <li>
+              Nintendo DS Resolution: <strong>{resolutions.melonds}</strong>
+            </li>
+            <li>
+              Nintendo 3DS Resolution: <strong>{resolutions.citra}</strong>
+            </li>
           </ul>
         </div>
         <div data-col-sm="3">
