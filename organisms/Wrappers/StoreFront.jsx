@@ -460,7 +460,11 @@ function StoreFront() {
           <div className="game-details__head">
             <div className="container--grid">
               <div data-col-sm="6">
-                <span className="h2">{game.title}</span>
+                {game.title && (
+                  <span className="h2">
+                    {game.title.replaceAll('%20', ' ')}
+                  </span>
+                )}
                 <div className="game-details__tags">
                   {game.tags &&
                     game.tags.map((item) => {
