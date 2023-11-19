@@ -5,21 +5,65 @@ import React, {
   useRef,
   useLayoutEffect,
   useContext,
+  useCallback,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function GamePad({ elements, children }) {
+function GamePad({ elements }) {
   // console.log({ elements });
 
   const [statePage, setStatePage] = useState({
     currentIndex: 0,
     vibration: false,
     focusableElements: elements,
+    dom: elements,
   });
+  const { currentIndex, vibration, focusableElements, dom } = statePage;
+  const [stateNavigation, setStateNavigation] = useState({
+    domFocus: undefined,
+  });
+  const { domFocus } = stateNavigation;
 
-  const { currentIndex, vibration, focusableElements } = statePage;
-  let current = 0;
+  // Keys Movement
+  const keyFunction = useCallback(
+    (event) => {
+      if (dom !== undefined) {
+        let newFocus = domFocus || 0; // Inicializa en 0 si es undefined
+
+        switch (event.key) {
+          case 'ArrowRight':
+          case 'ArrowLeft':
+            newFocus += event.key === 'ArrowRight' ? 1 : -1;
+            break;
+          default:
+            break;
+        }
+
+        setStateNavigation({
+          domFocus: Math.max(0, Math.min(newFocus, dom.length - 1)),
+        });
+      }
+    },
+    [domFocus, setStateNavigation, dom]
+  );
+
+  useEffect(() => {
+    if (dom && domFocus) {
+      console.log({ domFocus });
+      dom[domFocus].focus();
+    }
+  }, [domFocus, dom]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', keyFunction, false);
+
+    return () => {
+      document.removeEventListener('keydown', keyFunction, false);
+    };
+  }, [keyFunction]);
+
+  const current = 0;
 
   const updateLoop = () => {
     const gamepad = navigator.getGamepads()[0];
@@ -50,26 +94,19 @@ function GamePad({ elements, children }) {
       console.log('YEEE');
     }
 
-    if (dpadRIGHT.pressed) {
-      current += 1;
-      const element = focusableElements.item(current);
-      element.focus();
+    let newFocus = domFocus || 0; // Inicializa en 0 si es undefined
+
+    switch (true) {
+      case dpadRIGHT.pressed:
+      case dpadLEFT.pressed:
+        newFocus += dpadRIGHT.pressed ? 1 : -1;
+        break;
+      default:
+        break;
     }
-    if (dpadLEFT.pressed) {
-      current -= 1;
-      const element = focusableElements.item(current);
-      element.focus();
-    }
-    if (dpadUP.pressed) {
-      current -= 4;
-      const element = focusableElements.item(current);
-      element.focus();
-    }
-    if (dpadDOWN.pressed) {
-      current += 4;
-      const element = focusableElements.item(current);
-      element.focus();
-    }
+    setStateNavigation({
+      domFocus: Math.max(0, Math.min(newFocus, dom.length - 1)),
+    });
 
     const rAF = window.requestAnimationFrame;
     const loopReload = setTimeout(() => rAF(updateLoop), 100);
@@ -91,6 +128,6 @@ function GamePad({ elements, children }) {
     };
   }, [focusableElements]);
 
-  return <div>{children}</div>;
+  return <div />;
 }
 export default GamePad;
