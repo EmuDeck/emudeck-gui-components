@@ -3,17 +3,16 @@
   text-align: center;
   border-radius: 10px;
   padding: 20px;
-  padding-bottom: 30px;
   margin: 0;
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   background-color: rgba(255, 255, 255, 0.6);
   text-align: left;
   height: 100%;
   transition: 0.8s;
   cursor: pointer;
-  display: block;
   width: 100%;
   &--mini {
     padding: 10px;

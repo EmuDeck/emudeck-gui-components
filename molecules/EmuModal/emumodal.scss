@@ -99,6 +99,7 @@
     backdrop-filter: none;
     justify-content: flex-end;
     align-items: flex-end;
+    pointer-events: none;
     .emumodal__header {
       margin-bottom: var(--margin1);
     }
@@ -107,6 +108,7 @@
       margin-bottom: 12px !important;
       width: 40vw;
       padding: 12px;
+      pointer-events: all;
       .h4 {
         font-size: 1.5rem;
         line-height: 1.5rem;
