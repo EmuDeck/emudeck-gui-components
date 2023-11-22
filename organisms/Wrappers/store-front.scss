@@ -1,5 +1,5 @@
 @import '/src/global.scss';
-.featured-games-list {  
+.featured-games-list {
   transition: 0.5s;
   &.is-hidden {
     overflow: hidden;
@@ -8,15 +8,16 @@
   }
   ul {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     //margin: 0 -12px;
     justify-content: space-between;
     margin-bottom: 32px;
     transition: 0.5s;
 
     .store-game {
-      width: 32%;
+      width: 100%;
       margin-bottom: 2%; /* (100-32*3)/2 */
+      margin: 1%; /* (100-32*3)/2 */
       position: relative;
 
       @media (max-width: $screen-xs-max) {
@@ -48,6 +49,7 @@
 }
 
 .game-details {
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;

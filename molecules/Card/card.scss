@@ -3,17 +3,16 @@
   text-align: center;
   border-radius: 10px;
   padding: 20px;
-  padding-bottom: 30px;
   margin: 0;
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   background-color: rgba(255, 255, 255, 0.6);
   text-align: left;
   height: 100%;
   transition: 0.8s;
   cursor: pointer;
-  display: block;
   width: 100%;
   &--mini {
     padding: 10px;
@@ -77,11 +76,54 @@
       flex-direction: column;
       align-items: center;
     }
+
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    img.fade {
+      border-radius: 10px;
+      position: absolute;
+      width: calc(100% - 20px);
+      top: 10px;
+      left: 10px;
+      opacity: 0;
+    }
+    &.is-selected img.fade {
+      opacity: 1;
+      border-radius: 10px;
+      position: absolute;
+      animation: fade 5s infinite;
+    }
+    &:hover img.fade {
+      animation: fade 5s infinite;
+    }
   }
 
   &--mini {
     .card {
       max-width: 9.4%;
+      padding: 10px;
+    }
+  }
+  &--big {
+    .card {
+      min-width: 31%;
+      padding: 10px;
+    }
+  }
+  &--maxi {
+    flex-wrap: nowrap;
+    .card {
+      position: relative;
+      min-width: 45%;
       padding: 10px;
     }
   }

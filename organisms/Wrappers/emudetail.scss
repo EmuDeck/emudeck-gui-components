@@ -1,0 +1,11 @@
+@import '/src/global.scss';
+.emudetail {
+  &__actions {
+    display: flex;
+    flex-flow: column wrap;
+    .btn-simple {
+      margin-left: 0;
+      margin-bottom: 12px;
+    }
+  }
+}

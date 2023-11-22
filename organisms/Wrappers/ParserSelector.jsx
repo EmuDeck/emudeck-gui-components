@@ -4,37 +4,38 @@ import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
-function EmulatorSelector({ onClick, images }) {
+function ParserSelector({ onClick, images }) {
   const { state } = useContext(GlobalContext);
   const { installEmus, system } = state;
   const installEmusArray = Object.values(installEmus);
-
   return (
     <>
       <p className="lead">
-        These are the emulators EmuDeck installs to your system. Selected
-        emulators will be installed and updated to the latest version.
-        De-selected emulators will not be installed or updated.
+        These are the systems you have installed that can be played using
+        RetroArch or a Standalone Emulator.
+        <br /> Please select the parser you want to use to add those games to
+        your Steam Library
       </p>
       <Main>
         <div className="cards cards--mini">
           {installEmusArray.map((item) => {
-            if (item.id === 'srm' || item.id === 'primehacks') {
-              return;
-            }
-            if (item.id === 'ares') {
-              return;
-            }
             if (system === 'win32') {
               if (item.id === 'rmg' || item.id === 'ares') {
                 return;
               }
             }
 
-            if (system === 'darwin') {
-              if (item.id !== 'ra') {
-                return;
-              }
+            if (
+              item.id !== 'ra' &&
+              item.id !== 'ppsspp' &&
+              item.id !== 'mgba' &&
+              item.id !== 'melonds' &&
+              item.id !== 'rmg' &&
+              item.id !== 'duckstation' &&
+              item.id !== 'scummvm' &&
+              item.id !== 'flycast'
+            ) {
+              return;
             }
 
             const img = images[item.id];
@@ -56,14 +57,14 @@ function EmulatorSelector({ onClick, images }) {
   );
 }
 
-EmulatorSelector.propTypes = {
+ParserSelector.propTypes = {
   onClick: PropTypes.func,
   images: PropTypes.array,
 };
 
-EmulatorSelector.defaultProps = {
+ParserSelector.defaultProps = {
   onClick: '',
   images: '',
 };
 
-export default EmulatorSelector;
+export default ParserSelector;

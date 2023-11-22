@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import { BtnSimple } from 'getbasecore/Atoms';
 import './emumodal.scss';
 
-function EmuModal({ modal }) {
+function EmuModal({
+  modal,
+  modalActiveValue,
+  modalHeaderValue,
+  modalBodyValue,
+  modalFooterValue,
+  modalCSSValue,
+}) {
   const [stateModal, setStateModal] = useState({
     modalActive: undefined,
     modalHeader: undefined,
@@ -19,7 +26,7 @@ function EmuModal({ modal }) {
   };
 
   useEffect(() => {
-    if (modal != undefined) {
+    if (modal) {
       setStateModal({
         modalActive: modal.active,
         modalHeader: modal.header,
@@ -27,16 +34,26 @@ function EmuModal({ modal }) {
         modalFooter: modal.footer,
         modalCSS: modal.css,
       });
+    } else if (modal === false) {
+      setStateModal({
+        modalActive: false,
+      });
     }
   }, [modal]);
 
   return (
-    <div className={`emumodal ${modalCSS} ${modalActive ? 'is-shown' : ''}`}>
+    <div
+      className={`emumodal ${modalCSS || modalCSSValue} ${
+        modalActive || modalActiveValue ? 'is-shown' : ''
+      }`}
+    >
       <div className="emumodal__box">
-        <div className="emumodal__header">{modalHeader}</div>
-        <div className="emumodal__body">{modalBody}</div>
+        <div className="emumodal__header">
+          {modalHeader || modalHeaderValue}
+        </div>
+        <div className="emumodal__body">{modalBody || modalBodyValue}</div>
         <div className="emumodal__footer">
-          {!modalFooter && (
+          {!modalFooter && !modalFooterValue && (
             <BtnSimple
               css="btn-simple--1"
               type="button"
@@ -46,7 +63,7 @@ function EmuModal({ modal }) {
               Close
             </BtnSimple>
           )}
-          {modalFooter}
+          {modalFooter || modalFooterValue}
         </div>
       </div>
     </div>
@@ -74,9 +91,7 @@ EmuModal.defaultProps = {
   children: '',
   footer: '',
   css: '',
-  onClick: () => {
-    console.log('none');
-  },
+  onClick: () => {},
 };
 
 export default EmuModal;
