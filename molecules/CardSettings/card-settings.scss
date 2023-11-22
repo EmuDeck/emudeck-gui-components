@@ -97,6 +97,49 @@
     z-index: 20;
     animation: pulse 2s infinite;
   }
+  &.is-disabled.is-disabled {
+    overflow: hidden;
+    div,
+    p {
+      opacity: 0.2;
+    }
+    pointer-events: none;
+    &:after {
+      display: block;
+      content: 'Coming Soon!';
+      position: absolute;
+      opacity: 1;
+      top: 16px;
+      right: -50px;
+      background: rgb(56, 128, 162);
+      padding: 16px;
+      width: 150px;
+      transform: rotate(45deg);
+      text-align: center;
+    }
+  }
+  &.is-early.is-early {
+    overflow: hidden;
+    div,
+    p {
+      opacity: 0.2;
+    }
+    pointer-events: none;
+    &:after {
+      display: block;
+      color: #444;
+      content: 'Early Access only';
+      position: absolute;
+      opacity: 1;
+      top: 28px;
+      right: -60px;
+      background: rgb(251, 225, 109);
+      padding: 16px 40px;
+      width: 150px;
+      transform: rotate(45deg);
+      text-align: center;
+    }
+  }
   &.is-highlighted.is-highlighted {
     background: #fff;
     * {

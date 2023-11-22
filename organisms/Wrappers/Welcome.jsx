@@ -18,6 +18,18 @@ function Welcome({
   const { state } = useContext(GlobalContext);
   const { mode, second, system, gamemode } = state;
 
+  const setStatus = (status) => {
+    if (!status) {
+      return false;
+    }
+    if (status === 'disabled') {
+      return 'is-disabled';
+    }
+    if (status === 'early') {
+      return 'is-early';
+    }
+    return true;
+  };
   return (
     <>
       {second === false && (
@@ -65,17 +77,24 @@ function Welcome({
             </div>
 
             <hr />
-            <p className="lead">Tools & Stuff:</p>
-
             <div className="container--grid">
               {settingsCards.map((item) => {
                 if (item.status === false) {
                   return;
                 }
+                if (item.status === 'separator') {
+                  return (
+                    <div key={item.title}>
+                      <p className="lead">{item.title}:</p>
+                      <hr />
+                    </div>
+                  );
+                }
 
                 return (
                   <div data-col-sm="3" key={item.title}>
                     <CardSettings
+                      css={setStatus(item.status)}
                       icon={item.icon[0]}
                       iconSize="sm"
                       title={item.title}

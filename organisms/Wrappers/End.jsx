@@ -344,23 +344,25 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
           </>
         )}
       </Main>
-      <EmuModal
-        modalActiveValue={disabledNext === true}
-        modalHeaderValue={<span className="h4">Installing EmuDeck...</span>}
-        modalBodyValue={<p>{message}...</p>}
-        modalFooterValue={
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            aria="Go Back"
-            disabled={false}
-            onClick={showLog}
-          >
-            Watch Log
-          </BtnSimple>
-        }
-        modalCSSValue="emumodal--xs emumodal--loading"
-      />
+      {disabledNext && (
+        <EmuModal
+          modalActiveValue={disabledNext === true}
+          modalHeaderValue={<span className="h4">Installing EmuDeck...</span>}
+          modalBodyValue={<p>{message}...</p>}
+          modalFooterValue={
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Go Back"
+              disabled={false}
+              onClick={showLog}
+            >
+              Open detailed log
+            </BtnSimple>
+          }
+          modalCSSValue="emumodal--xs emumodal--loading"
+        />
+      )}
     </>
   );
 }
