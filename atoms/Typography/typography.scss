@@ -9,7 +9,11 @@ $p-mb: var(--margin3);
 $p-capitular-size: 6rem;
 $lead-font-size: 2.2rem;
 $small-font-size: 1.2rem;
-
+@media (prefers-color-scheme: light) {
+  .darwin {
+    --color-text-1: #444;
+  }
+}
 //
 //
 // Hi there! Remember you are not suposed to be here.
@@ -145,7 +149,7 @@ p {
   font-size: $lead-font-size;
   letter-spacing: 0;
   margin-bottom: var(--margin3);
-  color: #b8bcbf;
+  color: var();
   ul li {
     margin-bottom: 5px;
   }

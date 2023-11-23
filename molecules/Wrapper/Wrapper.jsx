@@ -1,8 +1,16 @@
 import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import { GlobalContext } from 'context/globalContext';
+import Aside from 'components/molecules/Aside/Aside';
 
-function Wrapper({ children }) {
+function Wrapper({ children, data }) {
+  const { state, setState } = useContext(GlobalContext);
+  const { system } = state;
+
   return (
-    <div className="app">
+    <div className={`app ${system}`}>
+      {data && <Aside data={data} />}
+      {!data && <Aside />}
       <div className="wrapper">{children}</div>
     </div>
   );

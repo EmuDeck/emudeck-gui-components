@@ -32,7 +32,7 @@ function RomStorage({
       </p>
       <Main>
         <div className="cards">
-          {showSDCard && (
+          {showSDCard && system !== 'darwin' && (
             <Card
               css={storage === 'SD-Card' && 'is-selected'}
               onClick={() =>
@@ -90,7 +90,7 @@ function RomStorage({
                 );
               }
             })}
-          {system !== 'win32' && (
+          {system !== 'win32' && system !== 'darwin' && (
             <Card
               css={storage === 'Custom' && 'is-selected'}
               onClick={() => onClick('Custom')}
