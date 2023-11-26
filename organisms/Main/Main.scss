@@ -64,6 +64,15 @@ body {
   @media (prefers-color-scheme: light) {
     background: #f1f1f1;
   }
+  &__full {
+    margin: 0 !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    border: 0 !important;
+    .h2 {
+      color: #fff;
+    }
+  }
   .win32 & {
     // @media (prefers-color-scheme: light) {
     background: #fafcfd;
@@ -72,6 +81,7 @@ body {
     margin-top: 50px;
     border-radius: 8px;
     border: 1px solid #dce1e6;
+    height: 96vh;
     // }
   }
 }
@@ -80,6 +90,7 @@ body {
 }
 main {
   flex: 1;
+
   //max-height: 70vh;
   margin-bottom: 20px;
   overflow: auto;
