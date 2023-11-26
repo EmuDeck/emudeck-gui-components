@@ -1,24 +1,490 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
-import { Img } from 'getbasecore/Atoms';
+import { useNavigate } from 'react-router-dom';
 import Sprite from 'components/atoms/Sprite/Sprite';
 import Icon from 'components/atoms/Sprite/Icon';
 import './aside.scss';
+import {
+  iconChecker,
+  iconCloud,
+  iconCompress,
+  iconGear,
+  iconList,
+  iconMigrate,
+  iconPlugin,
+  iconPrize,
+  iconUninstall,
+  iconQuick,
+  iconCustom,
+  iconDoc,
+  iconJoystick,
+  iconPackage,
+  iconDisk,
+  iconHelp,
+  iconScreen,
+} from 'components/utils/images/icons';
 
-function Aside({ active, data, functions, css }) {
-  const { stateAside, setStateAside } = useContext(GlobalContext);
-  const { links, system } = stateAside;
-  useEffect(() => {
-    if (data) {
-      setStateAside({ links: data });
-    }
-  }, []);
+function Aside(css) {
+  const ipcChannel = window.electron.ipcRenderer;
+  const { state, setState } = useContext(GlobalContext);
+  const { statePage, setStatePage } = useState();
+  const { system, systemName, branch } = state;
 
+  const navigate = useNavigate();
   let accentColor = '#666';
+
   if (system === 'darwin') {
     accentColor = '#007aff';
   }
+
+  const openCSM = () => {
+    ipcChannel.sendMessage('bash', [
+      'csm|||bash ~/.config/EmuDeck/backend/functions/cloudServicesManager.sh',
+    ]);
+    ipcChannel.once('csm', (message) => {
+      console.log({ message });
+    });
+  };
+
+  const getLogs = () => {
+    ipcChannel.sendMessage('emudeck', [`zipLogs|||zipLogs`]);
+    ipcChannel.once('zipLogs', (message) => {
+      console.log({ message });
+      let modalData;
+      let { stdout } = message;
+
+      stdout = stdout.replace('\n', '');
+
+      if (stdout.includes('true')) {
+        modalData = {
+          active: true,
+          header: <span className="h4">Success!</span>,
+          body: <p>We've created a Zip file with all your logs</p>,
+          css: 'emumodal--xs',
+        };
+      } else {
+        modalData = {
+          active: true,
+          header: <span className="h4">Error!</span>,
+          body: (
+            <p>
+              There was an issue getting your logs, please collect them manually
+              from the emudeck folder in your user folder.
+            </p>
+          ),
+          css: 'emumodal--xs',
+        };
+      }
+      setStatePage({ ...statePage, modal: modalData });
+    });
+  };
+
+  const openWiki = () => {
+    let url;
+
+    system === 'win32'
+      ? (url = 'https://emudeck.github.io/known-issues/windows/')
+      : (url = 'https://emudeck.github.io/?search=true');
+
+    window.open(url, '_blank');
+  };
+
+  const uninstall = () => {
+    if (system === 'win32') {
+      ipcChannel.sendMessage(
+        'emudeck',
+        'powershell -ExecutionPolicy Bypass -NoProfile -File "$env:APPDATA/EmuDeck/backend/uninstall.ps1"'
+      );
+    } else {
+      ipcChannel.sendMessage(
+        'bash',
+        'bash "~/.config/EmuDeck/backend/uninstall.sh"'
+      );
+    }
+  };
+
+  const openSRM = () => {
+    let modalData = {
+      active: true,
+      header: <span className="h4">Launching Steam Rom Manager</span>,
+      body: (
+        <p>
+          We will close Steam if its running and then Steam Rom Manager will
+          open, this could take a few seconds, please wait.
+        </p>
+      ),
+      footer: <ProgressBar css="progress--success" infinite max="100" />,
+      css: 'emumodal--xs',
+    };
+
+    if (system === 'win32') {
+      setStatePage({ ...statePage, modal: modalData });
+      ipcChannel.sendMessage(
+        'emudeck',
+        'powershell -ExecutionPolicy Bypass -NoProfile -File "$toolsPath/launchers/srm/steamrommanager.ps1"'
+      );
+    } else if (system !== 'darwin') {
+      setStatePage({ ...statePage, modal: modalData });
+      ipcChannel.sendMessage(
+        'emudeck',
+        '"$toolsPath/launchers/srm/steamrommanager.sh"'
+      );
+    } else {
+      modalData = {
+        active: true,
+        header: <span className="h4">Launching Steam Rom Manager</span>,
+        body: (
+          <>
+            <p>
+              We will close Steam if its running and then Steam Rom Manager will
+              open, this could take a few seconds, please wait.
+            </p>
+            <strong>
+              Desktop controls will temporarily revert to touch/trackpad/L2/R2.
+            </strong>
+          </>
+        ),
+        footer: <ProgressBar css="progress--success" infinite max="100" />,
+        css: 'emumodal--sm',
+      };
+      setStatePage({ ...statePage, modal: modalData });
+      ipcChannel.sendMessage(
+        'emudeck',
+        '"$toolsPath/launchers/srm/steamrommanager.sh"'
+      );
+    }
+    const timerId = setTimeout(() => {
+      setStatePage({
+        ...statePage,
+        modal: {
+          active: false,
+        },
+      });
+      clearTimeout(timerId);
+    }, 30000);
+  };
+
+  const selectMode = (value) => {
+    setState({ ...state, mode: value });
+    navigate('/rom-storage');
+  };
+
+  const showLog = () => {
+    if (system === 'win32') {
+      ipcChannel.sendMessage('bash-nolog', [
+        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:USERPROFILE/emudeck/logs/git-pull.log -Tail 100 -Wait }"`,
+      ]);
+    } else if (system === 'darwin') {
+      ipcChannel.sendMessage('bash-nolog', [
+        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/emudeck/logs/git-pull.log"'`,
+      ]);
+    } else {
+      ipcChannel.sendMessage('bash-nolog', [
+        `konsole -e tail -f "$HOME/emudeck/logs/git-pull.log"`,
+      ]);
+    }
+  };
+
+  const functions = {
+    openSRM,
+    openCSM,
+    getLogs,
+    navigate,
+    openWiki,
+    uninstall,
+  };
+
+  const settingsCards = [
+    {
+      icon: [iconGear],
+      iconFlat: 'gear',
+      title: 'Manage Emulators',
+      description: 'Manage and update your Emulators and configurations',
+      button: 'Update',
+      btnCSS: 'btn-simple--1',
+      status: true,
+      function: () => functions.navigate('/emulators'),
+    },
+    {
+      icon: [iconGear],
+      iconFlat: 'gear',
+      title: 'Quick Settings',
+      description:
+        'Customize bezels, shaders, aspect ratio, auto save, and more',
+      button: 'Configure',
+      btnCSS: 'btn-simple--1',
+      status: true,
+      function: () => functions.navigate('/settings'),
+    },
+    {
+      icon: [iconPackage],
+      iconFlat: 'package',
+      title: 'EmuDeck Store',
+      description: 'Download free non-commercial homebrew games',
+      button: 'Get free games',
+      btnCSS: 'btn-simple--1',
+      status: true,
+      function: () => functions.navigate('/store-front'),
+    },
+    {
+      icon: [iconHelp],
+      iconFlat: 'help',
+      title: 'Help',
+      description: 'Having problems running EmuDeck?',
+      button: 'Read the wiki',
+      btnCSS: 'btn-simple--1',
+      status: true,
+      function: () => functions.openWiki(),
+    },
+    {
+      icon: [iconPrize],
+      iconFlat: 'prize',
+      title: 'Early Access',
+      description:
+        'Support EmuDeck on Patreon and get early access to our latest features',
+      button: 'Donate',
+      btnCSS: 'btn-simple--3',
+      status: branch !== 'early',
+      type: 'link',
+      href: 'https://www.patreon.com/bePatron?u=29065992',
+      function: () => {},
+    },
+    {
+      icon: [iconJoystick],
+      iconFlat: 'joystick',
+      title: 'Steam ROM Manager',
+      description: 'Add emulators, tools, or ROMs to your Steam Library',
+      button: 'Launch',
+      btnCSS: 'btn-simple--5',
+      status: true,
+      function: () => functions.openSRM(),
+    },
+    {
+      icon: [iconDisk],
+      iconFlat: 'disk',
+      title: 'USB Transfer Wizard',
+      description: 'Transfer your games using a USB Drive',
+      button: 'Add more games',
+      btnCSS: 'btn-simple--1',
+      status: !!(
+        systemName === 'SteamOS' ||
+        systemName === 'Linux' ||
+        systemName === 'Chimera'
+      ),
+      function: () => functions.navigate('/copy-games'),
+    },
+    {
+      icon: [iconQuick],
+      iconFlat: 'quick',
+      title: 'Quick Reset',
+      description:
+        'Update or reset your installation to the latest EmuDeck version in one easy click',
+      button: 'Reinstall',
+      btnCSS: 'btn-simple--5',
+      status: true,
+      function: () => selectMode('easy'),
+    },
+    {
+      icon: [iconCustom],
+      iconFlat: 'custom',
+      title: 'Custom Reset',
+      description:
+        'Update or reset your installation to the latest EmuDeck version in custom mode',
+      button: 'Reinstall',
+      btnCSS: 'btn-simple--5',
+      status: true,
+      function: () => selectMode('expert'),
+    },
+    {
+      status: 'separator',
+      title: 'Other Settings',
+    },
+    {
+      icon: [iconScreen],
+      iconFlat: 'screen',
+      title: 'Screen Resolution',
+      description: 'Upscale your emulators resolution',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system !== 'darwin',
+      function: () => functions.navigate('/change-resolution'),
+    },
+    {
+      icon: [iconPrize],
+      iconFlat: 'prize',
+      title: 'Retro Achievements',
+      description:
+        'Configure RetroAchievements for Duckstation, PCSX2, and RetroArch',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system !== 'darwin',
+      function: () => functions.navigate('/RA-achievements-config'),
+    },
+
+    {
+      status: 'separator',
+      title: 'EmuDeck Exclusive Tools',
+    },
+
+    {
+      icon: [iconCompress],
+      iconFlat: 'compress',
+      title: 'EmuDeck Compressor',
+      description: 'Compress your ROMs to optimize your storage',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: !(system === 'win32' || system === 'darwin'),
+      function: () => functions.navigate('/chd-tool'),
+    },
+    {
+      icon: [iconChecker],
+      iconFlat: 'checker',
+      title: 'BIOS Checker',
+      description: 'Use the EmuDeck BIOS Checker to validate your BIOS',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: true,
+      function: () => functions.navigate('/check-bios'),
+    },
+
+    {
+      icon: [iconCloud],
+      iconFlat: 'cloud',
+      title: 'Cloud Saves',
+      description: 'Sync or backup your saves and save states to the cloud',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: true,
+      function: () => functions.navigate('/cloud-sync/welcome'),
+    },
+
+    {
+      icon: [iconMigrate],
+      iconFlat: 'migrate',
+      title: 'Migrate Installation',
+      description:
+        'Migrate your EmuDeck installation to your SD Card or vice versa',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status:
+        system === 'win32' || system === 'darwin'
+          ? false
+          : !!(
+              systemName === 'SteamOS' ||
+              systemName === 'Linux' ||
+              systemName === 'Chimera'
+            ),
+      function: () => functions.navigate('/migration'),
+    },
+
+    {
+      icon: [iconPlugin],
+      iconFlat: 'plugin',
+      title: 'EmuDecky',
+      description:
+        'Plugin to easily view emulator hotkeys and configure EmuDeck in Gaming Mode',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system !== 'win32' || system !== 'darwin',
+      function: () => functions.navigate('/decky-controls'),
+    },
+
+    {
+      status: system !== 'win32' ? 'separator' : false,
+      title: 'Third Party tools',
+    },
+
+    {
+      icon: [iconCustom],
+      iconFlat: 'custom',
+      title: 'Online Multiplayer',
+      description: 'Play your emulators over internet with your friends',
+      button: 'Install',
+      btnCSS: 'btn-simple--5',
+      status: false,
+      function: () => functions.navigate('/remote-play-whatever'),
+    },
+    {
+      icon: [iconPlugin],
+      iconFlat: 'plugin',
+      title: 'Gyroscope',
+      description: 'Enable your Steam Deck gyroscope in emulation',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system === 'SteamOS',
+      function: () => functions.navigate('/gyrodsu'),
+    },
+    {
+      icon: [iconPlugin],
+      iconFlat: 'plugin',
+      title: 'Power Tools',
+      description:
+        'A Decky Loader Plugin to manage performance settings in Game Mode',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system === 'SteamOS',
+      function: () => functions.navigate('/power-tools'),
+    },
+    {
+      status: 'separator',
+      title: 'Other stuff',
+    },
+    {
+      icon: [iconPrize],
+      iconFlat: 'prize',
+      title: 'Get Early Access',
+      description:
+        'Support EmuDeck on Patreon and get early access to our latest features',
+      button: 'Donate',
+      btnCSS: 'btn-simple--3',
+      status: !branch.includes('early'),
+      type: 'link',
+      href: 'https://www.patreon.com/bePatron?u=29065992',
+      function: () => {},
+    },
+    {
+      icon: [iconDoc],
+      iconFlat: 'doc',
+      title: 'Get Log files',
+      description: 'Send us your logs if you have issues',
+      button: 'Create Zip',
+      btnCSS: 'btn-simple--5',
+      status: true,
+      function: () => functions.getLogs(),
+    },
+    {
+      icon: [iconList],
+      iconFlat: 'list',
+      title: 'ChangeLog',
+      description: 'Read about the latest changes to EmuDeck',
+      button: 'Read',
+      btnCSS: 'btn-simple--5',
+      status: true,
+      function: () => functions.navigate('/change-log'),
+    },
+
+    {
+      icon: [iconCloud],
+      iconFlat: 'cloud',
+      title: 'Cloud Services',
+      description: 'Manage your cloud services, Xbox Cloud Gaming, and more!',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: !(system === 'win32' || system === 'darwin'),
+      function: () => functions.openCSM(),
+    },
+    {
+      icon: [iconUninstall],
+      iconFlat: 'uninstall',
+      title: 'Uninstall',
+      description: 'Uninstall EmuDeck from your system',
+      button: 'Uninstall',
+      btnCSS: 'btn-simple--3',
+      status: system !== 'darwin',
+      function: () => functions.uninstall(),
+    },
+  ];
 
   return (
     <aside className={`sidebar ${css}`}>
@@ -27,11 +493,11 @@ function Aside({ active, data, functions, css }) {
         <li>
           <small>Featured</small>
         </li>
-        {links &&
-          links.map((item) => {
+        {settingsCards &&
+          settingsCards.map((item) => {
             if (item.status === 'separator') {
               return (
-                <li>
+                <li key={item.title}>
                   <small>{item.title}</small>
                 </li>
               );
@@ -54,24 +520,15 @@ function Aside({ active, data, functions, css }) {
             }
 
             return (
-              <li>
-                <button
-                  key={item.title}
-                  type="button"
-                  onClick={() => item.function()}
-                >
+              <li key={item.title}>
+                <button type="button" onClick={() => item.function()}>
                   <div className="list--icons list--icons--xs">
                     <div className="text">
-                      {system === 'win32' && (
-                        <Img src={item.icon} css="icon icon--xs" alt="OK" />
-                      )}
-                      {system !== 'win32' && (
-                        <Icon
-                          name={item.iconFlat}
-                          stroke={accentColor}
-                          fill="transparent"
-                        />
-                      )}
+                      <Icon
+                        name={item.iconFlat}
+                        stroke={accentColor}
+                        fill="transparent"
+                      />
 
                       {item.title}
                     </div>

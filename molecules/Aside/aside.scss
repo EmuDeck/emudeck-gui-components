@@ -138,11 +138,8 @@
   flex-direction: row;
 }
 
-.darwin .header__accesibility {
-  display: none;
-}
-
-.darwin .btn-simple--1 {
+.darwin .btn-simple--1,
+.win32 .btn-simple--1 {
   border-radius: 5px;
   background: linear-gradient(
       180deg,
@@ -155,7 +152,8 @@
     transform: none;
   }
 }
-.darwin .btn-simple--2 {
+.darwin .btn-simple--2,
+.win32 .btn-simple--2 {
   border-radius: 5px;
   background: var(#0000000d, rgba(0, 0, 0, 0.05));
   animation: none;
@@ -164,7 +162,8 @@
   }
 }
 
-.darwin .btn-simple--3 {
+.darwin .btn-simple--3,
+.win32 .btn-simple--3 {
   border-radius: 5px;
   animation: none;
   &:hover {
