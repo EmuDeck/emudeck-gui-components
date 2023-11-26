@@ -66,11 +66,17 @@ body {
   }
   .win32 & {
     // @media (prefers-color-scheme: light) {
-    background: #f1f1f1;
+    background: #fafcfd;
+    margin: 12px;
+    border-radius: 8px;
+    border: 1px solid #dce1e6;
+    height: 96vh;
     // }
   }
 }
-
+.app {
+  background: #ecf2f8;
+}
 main {
   flex: 1;
   //max-height: 70vh;

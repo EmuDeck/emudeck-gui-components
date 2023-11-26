@@ -21,9 +21,9 @@ function Aside({ active, data, functions, css }) {
   }
 
   return (
-    <aside className={`mac-sidebar ${css}`}>
+    <aside className={`sidebar ${css}`}>
       <Sprite />
-      <ul className="mac-sidebar__elements">
+      <ul className="sidebar__elements">
         <li>
           <small>Featured</small>
         </li>
@@ -62,12 +62,16 @@ function Aside({ active, data, functions, css }) {
                 >
                   <div className="list--icons list--icons--xs">
                     <div className="text">
-                      {/* <Img src={item.icon} css="icon icon--xs" alt="OK" /> */}
-                      <Icon
-                        name={item.iconFlat}
-                        stroke={accentColor}
-                        fill="transparent"
-                      />
+                      {system === 'win32' && (
+                        <Img src={item.icon} css="icon icon--xs" alt="OK" />
+                      )}
+                      {system !== 'win32' && (
+                        <Icon
+                          name={item.iconFlat}
+                          stroke={accentColor}
+                          fill="transparent"
+                        />
+                      )}
 
                       {item.title}
                     </div>

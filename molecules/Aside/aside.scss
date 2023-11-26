@@ -1,10 +1,10 @@
-.mac-sidebar {
+.sidebar {
   -webkit-app-region: no-drag;
   max-width: 1px;
   min-width: 1px;
   transition: 0.5s;
   padding: 16px 3px 16px 18px;
-
+  font-family: sans-serif;
   flex: 0;
   background: #e1dddc;
   border-right: 1px solid #d4cdcc;
@@ -18,6 +18,38 @@
   transition: 0.5s;
   .darwin & {
     padding: 50px 3px 16px 18px;
+  }
+  .win32 & {
+    background: #ecf2f8;
+    border: none;
+    padding: 16px 6px 16px 11px;
+    font-family: sans-serif;
+    flex: 0;
+    display: block;
+    overflow: hidden;
+    min-width: 108px;
+    max-width: 108px;
+    transition: 0.5s;
+    .list--icons--xs {
+      > * {
+        padding-left: 0;
+        display: block;
+      }
+      .text {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+      svg {
+        position: static;
+        display: block;
+        margin-bottom: 0px;
+        width: var(--icon-sm);
+        height: var(--icon-sm);
+        stroke: #999 !important;
+      }
+    }
   }
   @media (prefers-color-scheme: dark) {
     background: #282424;
@@ -34,10 +66,13 @@
           background: rgba(0, 0, 0, 0.15);
         }
       }
+      .win32 & {
+        margin-bottom: 0px;
+      }
     }
     button {
       width: 100%;
-      font-family: SF Pro;
+      font-family: sans-serif, 'SF Pro';
       font-size: 13px;
       font-style: normal;
       font-weight: 500;
@@ -49,9 +84,33 @@
       @media (prefers-color-scheme: dark) {
         color: #fff;
       }
+      .win32 & {
+        font-size: 10px;
+        //padding-bottom: 0;
+        position: relative;
+        &:hover {
+          background: #fff;
+          &:after {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 50%;
+            background: #007aff;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 10px;
+          }
+          svg {
+            stroke: #007aff !important;
+          }
+        }
+      }
     }
     small {
-      font-family: SF Pro;
+      font-family: sans-serif, 'SF Pro';
       font-size: 11px;
       font-style: normal;
       font-weight: 700;
@@ -60,6 +119,12 @@
       margin-bottom: 6px;
       @media (prefers-color-scheme: dark) {
         color: #fff;
+      }
+      .win32 & {
+        display: block;
+        text-align: center;
+        margin-top: 24px;
+        margin-bottom: 0;
       }
     }
     .icon.icon {
