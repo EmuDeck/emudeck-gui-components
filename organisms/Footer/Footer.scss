@@ -1,6 +1,7 @@
 footer.footer {
   display: flex;
   justify-content: flex-end;
+  -webkit-app-region: no-drag;
   .btn-simple {
     margin-bottom: 0;
   }

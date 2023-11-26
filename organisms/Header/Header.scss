@@ -11,10 +11,12 @@
     background: rgb(56, 128, 162);
     padding: 20px;
     padding-bottom: 10px;
-
     width: 150px;
     transform: rotate(45deg);
     text-align: center;
+    .win32 & {
+      top: 40px;
+    }
   }
   &__dev {
     background: rgb(251, 109, 156);

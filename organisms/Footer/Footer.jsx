@@ -59,7 +59,7 @@ function Footer({
           {thirdText}
         </BtnSimple>
       )}
-      {back !== false && (
+      {/* back !== false && (
         <BtnSimple
           css="btn-simple--2"
           type="button"
@@ -70,7 +70,7 @@ function Footer({
           {!backText && 'Go Back'}
           {backText}
         </BtnSimple>
-      )}
+      ) */}
 
       {next && (
         <BtnSimple

@@ -67,10 +67,11 @@ body {
   .win32 & {
     // @media (prefers-color-scheme: light) {
     background: #fafcfd;
-    margin: 12px;
+    margin-left: 12px;
+    margin-right: 0;
+    margin-top: 50px;
     border-radius: 8px;
     border: 1px solid #dce1e6;
-    height: 96vh;
     // }
   }
 }
