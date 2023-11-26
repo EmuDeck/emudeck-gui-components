@@ -8,6 +8,7 @@ function CardSettings({
   btnCSS,
   onClick,
   icon,
+  picture,
   title,
   description,
   button,
@@ -20,20 +21,25 @@ function CardSettings({
   return (
     <button
       type="button"
-      className={`card-setting ${css}`}
+      className={`card-setting ${css} ${
+        picture ? 'card-setting--picture' : ''
+      } `}
       onClick={() => onClick()}
     >
       {notification && <span className="card-setting__notification">!</span>}
-      <ul>
-        <li className={`list--icons list--icons--${iconSize}`}>
-          <div className="text">
-            <Img src={icon} css={`icon icon--${iconSize}`} alt="OK" />
-            {title}
-          </div>
-        </li>
-      </ul>
+      {icon && !picture && (
+        <ul>
+          <li className={`list--icons list--icons--${iconSize}`}>
+            <div className="text">
+              <Img src={icon} css={`icon icon--${iconSize}`} alt="OK" />
+              {title}
+            </div>
+          </li>
+        </ul>
+      )}
+      {picture && <img src={picture} alt="EmuDeck" />}
       {description && <p>{description}</p>}
-      {button && (
+      {button && !picture && (
         <div className="card-setting__buttons">
           <span className="btn-simple btn-simple--1 btn-simple--xs">
             {button}

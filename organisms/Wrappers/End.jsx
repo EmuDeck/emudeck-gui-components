@@ -353,7 +353,7 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              aria="Go Back"
+              aria="Show log"
               disabled={false}
               onClick={showLog}
             >

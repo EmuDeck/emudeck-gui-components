@@ -9,11 +9,6 @@ $p-mb: var(--margin3);
 $p-capitular-size: 6rem;
 $lead-font-size: 2.2rem;
 $small-font-size: 1.2rem;
-@media (prefers-color-scheme: light) {
-  .darwin {
-    --color-text-1: #444;
-  }
-}
 //
 //
 // Hi there! Remember you are not suposed to be here.
@@ -239,8 +234,8 @@ address {
 
 @include generate_titles(
   'h1',
-  6rem,
-  6rem,
+  5rem,
+  5rem,
   -0.05rem,
   'MotivaSans',
   300,
@@ -249,8 +244,8 @@ address {
 );
 @include generate_titles(
   'h2',
-  5rem,
-  5.7rem,
+  4rem,
+  4.7rem,
   -0.05rem,
   'MotivaSans',
   600,
@@ -297,6 +292,18 @@ address {
   var(--color-text-1),
   1.5rem
 );
+
+.darwin .h2 {
+  font-size: 1.6rem;
+  line-height: 1rem;
+  color: #999;
+  font-weight: normal;
+  width: 100%;
+  text-align: center;
+  @media (prefers-color-scheme: light) {
+    color: #444;
+  }
+}
 
 // * + {
 //   .h1,

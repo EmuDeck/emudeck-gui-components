@@ -8,7 +8,7 @@ import {
   iconSuccess,
   iconDanger,
   iconWarning,
-} from 'components/utils/images/images';
+} from 'components/utils/images/icons';
 
 function CheckBios({
   ps1Bios,
@@ -33,7 +33,6 @@ function CheckBios({
   };
 
   const biosCSS = (name) => {
-    
     switch (name) {
       case true:
         return 'alert--success ';

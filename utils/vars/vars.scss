@@ -40,12 +40,24 @@ Margin Scale
   --color-warning: #fb7d0c;
   --color-danger: #eb445a;
   --color-disabled: #afafaf;
-
   --color-text-1: #fff;
   --color-text-2: #444;
   --color-text-3: #b8bcbf;
+  --white: #fff;
 
-  --white: #ffffff;
+  @media (prefers-color-scheme: dark) {
+    --color-text-1: #fff;
+    --color-text-2: #444;
+    --color-text-3: #b8bcbf;
+    --white: #fff;
+  }
+  @media (prefers-color-scheme: light) {
+    --color-text-1: #444;
+    --color-text-2: #f1f1f1;
+    --color-text-3: #222;
+    --white: #444;
+  }
+
   --anthracite: #262626;
   --black: #000000;
   --grey1: #e6e6e6;
@@ -74,6 +86,12 @@ Margin Scale
   --color-bg-6: #0653b6;
   --color-bg-7: #e6e6e6;
   --color-border-1: #e3e3e3;
+
+  @media (prefers-color-scheme: light) {
+    --color-bg-1: #444;
+    --color-bg-2: #666;
+    --color-bg-3: #999;
+  }
 
   --color-placeholder-1: #e3e3e3;
 

@@ -2,20 +2,27 @@ import React, { useEffect, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import { Img } from 'getbasecore/Atoms';
+import Sprite from 'components/atoms/Sprite/Sprite';
+import Icon from 'components/atoms/Sprite/Icon';
 import './aside.scss';
 
-function Aside({ active, data, functions }) {
+function Aside({ active, data, functions, css }) {
   const { stateAside, setStateAside } = useContext(GlobalContext);
-  const { links } = stateAside;
+  const { links, system } = stateAside;
   useEffect(() => {
     if (data) {
       setStateAside({ links: data });
     }
   }, []);
 
-  useEffect(() => {}, []);
+  let accentColor = '#666';
+  if (system === 'darwin') {
+    accentColor = '#007aff';
+  }
+
   return (
-    <aside className="mac-sidebar">
+    <aside className={`mac-sidebar ${css}`}>
+      <Sprite />
       <ul className="mac-sidebar__elements">
         <li>
           <small>Featured</small>
@@ -30,9 +37,21 @@ function Aside({ active, data, functions }) {
               );
             }
 
-            // if (item.status === false) {
-            //   return;
-            // }
+            if (system === 'darwin') {
+              if (item.iconFlat === 'disk') {
+                return;
+              }
+              if (item.iconFlat === 'screen') {
+                return;
+              }
+              if (item.iconFlat === 'prize') {
+                return;
+              }
+            }
+
+            if (item.status === false) {
+              return;
+            }
 
             return (
               <li>
@@ -43,7 +62,13 @@ function Aside({ active, data, functions }) {
                 >
                   <div className="list--icons list--icons--xs">
                     <div className="text">
-                      <Img src={item.icon} css="icon icon--xs" alt="OK" />
+                      {/* <Img src={item.icon} css="icon icon--xs" alt="OK" /> */}
+                      <Icon
+                        name={item.iconFlat}
+                        stroke={accentColor}
+                        fill="transparent"
+                      />
+
                       {item.title}
                     </div>
                   </div>

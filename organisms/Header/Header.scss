@@ -1,7 +1,11 @@
 .header {
   padding-top: 10px;
+  .darwin & {
+    margin-bottom: 24px;
+  }
   &__badge {
     position: fixed;
+    z-index: 2;
     top: -8px;
     right: -58px;
     background: rgb(56, 128, 162);
