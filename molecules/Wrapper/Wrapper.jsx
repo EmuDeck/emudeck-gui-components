@@ -18,9 +18,8 @@ function Wrapper({ children, data, aside, css }) {
   }
 
   return (
-    <div className={`app ${system} `}>
-      {data && <Aside css={showAside ? '' : 'is-hidden'} data={data} />}
-      {!data && <Aside css={showAside ? '' : 'is-hidden'} />}
+    <div className={`app ${system}`}>
+      <Aside css={showAside ? '' : 'is-hidden'} />
       <div className={`wrapper ${css}`}>{children}</div>
     </div>
   );

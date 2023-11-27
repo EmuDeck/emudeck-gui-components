@@ -21,15 +21,6 @@ function FrontendSelector({ onClick, images, lastSelected }) {
           {installFrontendsArray.map((item) => {
             const img = images[item.id];
             // eslint-disable-next-line consistent-return
-
-            if (system === 'darwin') {
-              if (item.id === 'esde') {
-                return;
-              }
-            } else if (item.id === 'pegasus') {
-              return;
-            }
-
             return (
               <Card
                 css={item.status === true && 'is-selected'}

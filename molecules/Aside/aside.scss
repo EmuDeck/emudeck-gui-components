@@ -16,11 +16,21 @@
   min-width: 230px;
   max-width: 230px;
   transition: 0.5s;
+
+  svg {
+    stroke: #666;
+  }
   .darwin & {
     padding: 50px 3px 16px 18px;
+    svg {
+      stroke: #007aff;
+    }
   }
   .win32 & {
     background: #ecf2f8;
+    @media (prefers-color-scheme: dark) {
+      background: #1b1d22;
+    }
     border: none;
     padding: 16px 6px 16px 11px;
     font-family: sans-serif;
@@ -47,7 +57,7 @@
         margin-bottom: 0px;
         width: var(--icon-sm);
         height: var(--icon-sm);
-        stroke: #999 !important;
+        stroke: #999;
       }
     }
   }
@@ -90,6 +100,9 @@
         position: relative;
         &:hover {
           background: #fff;
+          @media (prefers-color-scheme: dark) {
+            background: #666;
+          }
           &:after {
             content: '';
             display: block;
@@ -104,7 +117,7 @@
             border-radius: 10px;
           }
           svg {
-            stroke: #007aff !important;
+            stroke: #fff;
           }
         }
       }

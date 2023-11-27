@@ -94,26 +94,27 @@ import imgchimeraOS from 'assets/devices/chimeraOS.png';
 import themesESDEsimple from 'assets/esdethemes/es-de_rbsimple_01.png';
 import themesPegasusGameOS from 'assets/pegasusthemes/gameOS.jpg';
 
-import xemuBig from 'assets/emulators/grid/xemu.png';
-import cemuBig from 'assets/emulators/grid/cemu.png';
-import citraBig from 'assets/emulators/grid/citra.png';
-import dolphinBig from 'assets/emulators/grid/dolphin.png';
-import duckstationBig from 'assets/emulators/grid/duckstation.png';
-import flycastBig from 'assets/emulators/grid/flycast.png';
-import melondsBig from 'assets/emulators/grid/melonds.png';
-import mgbaBig from 'assets/emulators/grid/mgba.png';
-import pcsx2Big from 'assets/emulators/grid/pcsx2.png';
-import ppssppBig from 'assets/emulators/grid/ppsspp.png';
-import primehackBig from 'assets/emulators/grid/primehack.png';
-import raBig from 'assets/emulators/grid/ra.png';
-import rpcs3Big from 'assets/emulators/grid/rpcs3.png';
-import ryujinxBig from 'assets/emulators/grid/ryujinx.png';
-import scummvmBig from 'assets/emulators/grid/scummvm.png';
-import vita3kBig from 'assets/emulators/grid/vita3k.png';
-import xeniaBig from 'assets/emulators/grid/xenia.png';
-import yuzuBig from 'assets/emulators/grid/yuzu.png';
-import esdeBig from 'assets/emulators/grid/xenia.png';
-import srmBig from 'assets/emulators/grid/yuzu.png';
+import xemuGrid from 'assets/emulators/grid/xemu.png';
+import cemuGrid from 'assets/emulators/grid/cemu.png';
+import citraGrid from 'assets/emulators/grid/citra.png';
+import dolphinGrid from 'assets/emulators/grid/dolphin.png';
+import duckstationGrid from 'assets/emulators/grid/duckstation.png';
+import flycastGrid from 'assets/emulators/grid/flycast.png';
+import melondsGrid from 'assets/emulators/grid/melonds.png';
+import mgbaGrid from 'assets/emulators/grid/mgba.png';
+import pcsx2Grid from 'assets/emulators/grid/pcsx2.png';
+import ppssppGrid from 'assets/emulators/grid/ppsspp.png';
+import primehackGrid from 'assets/emulators/grid/primehack.png';
+import raGrid from 'assets/emulators/grid/ra.png';
+import rpcs3Grid from 'assets/emulators/grid/rpcs3.png';
+import ryujinxGrid from 'assets/emulators/grid/ryujinx.png';
+import scummvmGrid from 'assets/emulators/grid/scummvm.png';
+import vita3kGrid from 'assets/emulators/grid/vita3k.png';
+import xeniaGrid from 'assets/emulators/grid/xenia.png';
+import yuzuGrid from 'assets/emulators/grid/yuzu.png';
+import esdeGrid from 'assets/emulators/grid/esde.png';
+import srmGrid from 'assets/emulators/grid/srm.png';
+import pegasusGrid from 'assets/emulators/grid/pegasus.png';
 
 export {
   imgdefault,
@@ -211,24 +212,25 @@ export {
   imgchimeraOS,
   themesESDEsimple,
   themesPegasusGameOS,
-  xemuBig,
-  cemuBig,
-  citraBig,
-  dolphinBig,
-  duckstationBig,
-  flycastBig,
-  melondsBig,
-  mgbaBig,
-  pcsx2Big,
-  ppssppBig,
-  primehackBig,
-  raBig,
-  rpcs3Big,
-  ryujinxBig,
-  scummvmBig,
-  vita3kBig,
-  xeniaBig,
-  yuzuBig,
-  esdeBig,
-  srmBig,
+  xemuGrid,
+  cemuGrid,
+  citraGrid,
+  dolphinGrid,
+  duckstationGrid,
+  flycastGrid,
+  melondsGrid,
+  mgbaGrid,
+  pcsx2Grid,
+  ppssppGrid,
+  primehackGrid,
+  raGrid,
+  rpcs3Grid,
+  ryujinxGrid,
+  scummvmGrid,
+  vita3kGrid,
+  xeniaGrid,
+  yuzuGrid,
+  esdeGrid,
+  srmGrid,
+  pegasusGrid,
 };

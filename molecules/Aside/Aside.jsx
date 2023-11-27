@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import Sprite from 'components/atoms/Sprite/Sprite';
 import Icon from 'components/atoms/Sprite/Icon';
+import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
+import EmuModal from 'components/molecules/EmuModal/EmuModal';
+
 import './aside.scss';
 import {
   iconChecker,
@@ -25,18 +28,13 @@ import {
   iconScreen,
 } from 'components/utils/images/icons';
 
-function Aside(css) {
+function Aside({ css }) {
   const ipcChannel = window.electron.ipcRenderer;
   const { state, setState } = useContext(GlobalContext);
-  const { statePage, setStatePage } = useState();
+  const [statePage, setStatePage] = useState({ modal: false });
   const { system, systemName, branch } = state;
-
+  const { modal } = statePage;
   const navigate = useNavigate();
-  let accentColor = '#666';
-
-  if (system === 'darwin') {
-    accentColor = '#007aff';
-  }
 
   const openCSM = () => {
     ipcChannel.sendMessage('bash', [
@@ -297,7 +295,7 @@ function Aside(css) {
       function: () => selectMode('expert'),
     },
     {
-      status: 'separator',
+      status: system !== 'darwin' ? 'separator' : false,
       title: 'Other Settings',
     },
     {
@@ -386,12 +384,12 @@ function Aside(css) {
         'Plugin to easily view emulator hotkeys and configure EmuDeck in Gaming Mode',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: system !== 'win32' || system !== 'darwin',
+      status: !(system === 'win32' || system === 'darwin'),
       function: () => functions.navigate('/decky-controls'),
     },
 
     {
-      status: system !== 'win32' ? 'separator' : false,
+      status: system === 'win32' || system === 'darwin' ? false : 'separator',
       title: 'Third Party tools',
     },
 
@@ -485,7 +483,6 @@ function Aside(css) {
       function: () => functions.uninstall(),
     },
   ];
-
   return (
     <aside className={`sidebar ${css}`}>
       <Sprite />
@@ -524,11 +521,7 @@ function Aside(css) {
                 <button type="button" onClick={() => item.function()}>
                   <div className="list--icons list--icons--xs">
                     <div className="text">
-                      <Icon
-                        name={item.iconFlat}
-                        stroke={accentColor}
-                        fill="transparent"
-                      />
+                      <Icon name={item.iconFlat} fill="transparent" />
 
                       {item.title}
                     </div>
@@ -538,6 +531,7 @@ function Aside(css) {
             );
           })}
       </ul>
+      <EmuModal modal={modal} />
     </aside>
   );
 }

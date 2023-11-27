@@ -76,17 +76,26 @@ body {
   .win32 & {
     // @media (prefers-color-scheme: light) {
     background: #fafcfd;
+    @media (prefers-color-scheme: dark) {
+      background: #20232d;
+    }
     margin-left: 12px;
     margin-right: 0;
     margin-top: 50px;
     border-radius: 8px;
     border: 1px solid #dce1e6;
+    @media (prefers-color-scheme: dark) {
+      border: 1px solid #171b25;
+    }
     height: 96vh;
     // }
   }
 }
-.app {
+.app.win32 {
   background: #ecf2f8;
+  @media (prefers-color-scheme: dark) {
+    background: #191e29;
+  }
 }
 main {
   flex: 1;
