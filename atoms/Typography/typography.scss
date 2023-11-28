@@ -293,7 +293,8 @@ address {
   1.5rem
 );
 
-.darwin .h2 {
+.darwin .h2,
+.chimeraos .h2 {
   font-size: 1.6rem;
   line-height: 1rem;
   color: #999;
@@ -303,6 +304,11 @@ address {
   @media (prefers-color-scheme: light) {
     color: #444;
   }
+}
+
+.chimeraos .h2 {
+  color: #fff;
+  font-weight: bold;
 }
 
 // * + {

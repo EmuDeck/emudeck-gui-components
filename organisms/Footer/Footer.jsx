@@ -5,6 +5,7 @@ import { BtnSimple } from 'getbasecore/Atoms';
 import './Footer.scss';
 
 function Footer({
+  css,
   back,
   next,
   third,
@@ -27,7 +28,7 @@ function Footer({
   };
 
   return (
-    <footer className="footer">
+    <footer className={`footer ${css}`}>
       {exit && (
         <BtnSimple
           css="btn-simple--1"

@@ -355,7 +355,7 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
               type="button"
               aria="Show log"
               disabled={false}
-              onClick={showLog}
+              onClick={() => showLog()}
             >
               Open detailed log
             </BtnSimple>

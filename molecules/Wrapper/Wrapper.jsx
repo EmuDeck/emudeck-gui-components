@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import Aside from 'components/molecules/Aside/Aside';
 
-function Wrapper({ children, data, aside, css }) {
+function Wrapper({ children, aside, css }) {
   const { state } = useContext(GlobalContext);
   const { system, second } = state;
   let showAside;
@@ -13,7 +13,7 @@ function Wrapper({ children, data, aside, css }) {
     showAside = true;
   }
 
-  if (second && aside === false) {
+  if (second === false) {
     showAside = false;
   }
 

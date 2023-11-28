@@ -233,20 +233,7 @@ function Aside({ css }) {
       button: 'Read the wiki',
       btnCSS: 'btn-simple--1',
       status: true,
-      function: () => functions.openWiki(),
-    },
-    {
-      icon: [iconPrize],
-      iconFlat: 'prize',
-      title: 'Early Access',
-      description:
-        'Support EmuDeck on Patreon and get early access to our latest features',
-      button: 'Donate',
-      btnCSS: 'btn-simple--3',
-      status: branch !== 'early',
-      type: 'link',
-      href: 'https://www.patreon.com/bePatron?u=29065992',
-      function: () => {},
+      function: () => functions.navigate('/help'),
     },
     {
       icon: [iconJoystick],
@@ -416,12 +403,12 @@ function Aside({ css }) {
     {
       icon: [iconPlugin],
       iconFlat: 'plugin',
-      title: 'Power Tools',
+      title: 'PowerControls',
       description:
         'A Decky Loader Plugin to manage performance settings in Game Mode',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: system === 'SteamOS',
+      status: system === 'chimeraos',
       function: () => functions.navigate('/power-tools'),
     },
     {
@@ -435,11 +422,9 @@ function Aside({ css }) {
       description:
         'Support EmuDeck on Patreon and get early access to our latest features',
       button: 'Donate',
-      btnCSS: 'btn-simple--3',
-      status: !branch.includes('early'),
-      type: 'link',
-      href: 'https://www.patreon.com/bePatron?u=29065992',
-      function: () => {},
+      btnCSS: 'btn-simple--5',
+      status: true,
+      function: () => functions.navigate('/early-access'),
     },
     {
       icon: [iconDoc],
@@ -487,9 +472,8 @@ function Aside({ css }) {
     <aside className={`sidebar ${css}`}>
       <Sprite />
       <ul className="sidebar__elements">
-        <li>
-          <small>Featured</small>
-        </li>
+        <li>{system !== 'win32' && <small>Featured</small>}</li>
+
         {settingsCards &&
           settingsCards.map((item) => {
             if (item.status === 'separator') {
@@ -507,9 +491,6 @@ function Aside({ css }) {
               if (item.iconFlat === 'screen') {
                 return;
               }
-              if (item.iconFlat === 'prize') {
-                return;
-              }
             }
 
             if (item.status === false) {
@@ -521,7 +502,18 @@ function Aside({ css }) {
                 <button type="button" onClick={() => item.function()}>
                   <div className="list--icons list--icons--xs">
                     <div className="text">
-                      <Icon name={item.iconFlat} fill="transparent" />
+                      {system !== 'darwin' &&
+                        system !== 'win32' &&
+                        system !== 'chimeraos' && (
+                          <img
+                            className="icon icon--xs"
+                            src={item.icon}
+                            alt={item.title}
+                          />
+                        )}
+                      {system !== 'SteamOS' && (
+                        <Icon name={item.iconFlat} fill="transparent" />
+                      )}
 
                       {item.title}
                     </div>

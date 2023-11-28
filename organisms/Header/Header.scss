@@ -1,12 +1,14 @@
 .header {
   padding-top: 10px;
-  .darwin & {
+  .darwin &,
+  .chimeraos & {
     margin-bottom: 24px;
   }
+
   &__badge {
-    position: fixed;
+    position: absolute;
     z-index: 2;
-    top: -8px;
+    top: 0px;
     right: -58px;
     background: rgb(56, 128, 162);
     padding: 20px;
@@ -15,7 +17,7 @@
     transform: rotate(45deg);
     text-align: center;
     .win32 & {
-      top: 40px;
+      top: -10px;
     }
   }
   &__dev {

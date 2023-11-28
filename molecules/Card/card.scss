@@ -106,7 +106,6 @@
       animation: fade 5s infinite;
     }
   }
-
   &--mini {
     .card {
       max-width: 9.4%;
@@ -135,5 +134,23 @@
   }
   &--center {
     justify-content: space-between;
+  }
+}
+
+.card--image {
+  padding: 0;
+  padding-bottom: 20px;
+  > span,
+  > p,
+  > ul {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  > button,
+  > a {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
   }
 }

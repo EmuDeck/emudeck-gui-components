@@ -5,6 +5,10 @@ footer.footer {
   .btn-simple {
     margin-bottom: 0;
   }
+  &--alone {
+    padding: 12px;
+    background: #444;
+  }
 }
 
 footer.footer .button + .button {

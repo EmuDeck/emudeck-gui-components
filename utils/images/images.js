@@ -116,6 +116,10 @@ import esdeGrid from 'assets/emulators/grid/esde.png';
 import srmGrid from 'assets/emulators/grid/srm.png';
 import pegasusGrid from 'assets/emulators/grid/pegasus.png';
 
+import mameGrid from 'assets/emulators/grid/mame.png';
+import rmgGrid from 'assets/emulators/grid/rmg.png';
+import supermodelGrid from 'assets/emulators/grid/supermodel.png';
+
 export {
   imgdefault,
   imgra,
@@ -233,4 +237,7 @@ export {
   esdeGrid,
   srmGrid,
   pegasusGrid,
+  mameGrid,
+  rmgGrid,
+  supermodelGrid,
 };
