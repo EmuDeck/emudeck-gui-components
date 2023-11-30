@@ -34,17 +34,11 @@ Wrapper.propTypes = {
     PropTypes.element,
     PropTypes.string,
   ]),
-  data: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array,
-    PropTypes.element,
-    PropTypes.string,
-  ]),
   aside: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.array,
     PropTypes.element,
-    PropTypes.string,
+    PropTypes.any,
   ]),
   css: PropTypes.oneOfType([
     PropTypes.object,

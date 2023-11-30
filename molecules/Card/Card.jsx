@@ -17,16 +17,14 @@ Card.propTypes = {
     PropTypes.element,
     PropTypes.string,
   ]),
-  css: PropTypes.string,
+  css: PropTypes.any,
   onClick: PropTypes.func,
 };
 
 Card.defaultProps = {
   children: '',
   css: '',
-  onClick: () => {
-    
-  },
+  onClick: () => {},
 };
 
 export default Card;

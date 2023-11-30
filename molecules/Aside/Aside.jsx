@@ -171,15 +171,15 @@ function Aside({ css }) {
   const showLog = () => {
     if (system === 'win32') {
       ipcChannel.sendMessage('bash-nolog', [
-        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:USERPROFILE/emudeck/logs/git-pull.log -Tail 100 -Wait }"`,
+        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:USERPROFILE/emudeck/logs/git.log -Tail 100 -Wait }"`,
       ]);
     } else if (system === 'darwin') {
       ipcChannel.sendMessage('bash-nolog', [
-        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/emudeck/logs/git-pull.log"'`,
+        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/emudeck/logs/git.log"'`,
       ]);
     } else {
       ipcChannel.sendMessage('bash-nolog', [
-        `konsole -e tail -f "$HOME/emudeck/logs/git-pull.log"`,
+        `konsole -e tail -f "$HOME/emudeck/logs/git.log"`,
       ]);
     }
   };
@@ -530,7 +530,7 @@ function Aside({ css }) {
 
 Aside.propTypes = {
   active: PropTypes.bool,
-  data: PropTypes.array,
+  data: PropTypes.any,
 };
 
 Aside.defaultProps = {

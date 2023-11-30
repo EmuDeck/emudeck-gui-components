@@ -104,7 +104,7 @@ function Footer({
 
 Footer.propTypes = {
   back: PropTypes.any,
-  next: PropTypes.bool,
+  next: PropTypes.any,
   third: PropTypes.string,
   fourth: PropTypes.string,
   fourthText: PropTypes.string,
