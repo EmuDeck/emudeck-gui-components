@@ -391,7 +391,7 @@ function EmuDetail(props) {
                 </BtnSimple>
               )}
 
-              {emuData.id === 'rpcs3' && (
+              {/* emuData.id === 'rpcs3' && (
                 <BtnSimple
                   css="btn-simple--1"
                   type="button"
@@ -402,7 +402,7 @@ function EmuDetail(props) {
                 >
                   Migrate
                 </BtnSimple>
-              )}
+              ) */}
             </div>
             {emuData.id !== 'ppsspp' &&
               emuData.id !== 'ryujinx' &&
@@ -420,6 +420,7 @@ function EmuDetail(props) {
               emuData.id !== 'xenia' &&
               emuData.id !== 'mgba' &&
               emuData.id !== 'ares' &&
+              emuData.id !== 'pegasus' &&
               emuData.id !== 'dolphin' && <p className="h5">Controls</p>}
             <div className="emudetail__actions">
               {emuData.id !== 'ppsspp' &&
@@ -438,6 +439,7 @@ function EmuDetail(props) {
                 emuData.id !== 'xenia' &&
                 emuData.id !== 'mgba' &&
                 emuData.id !== 'ares' &&
+                emuData.id !== 'pegasus' &&
                 emuData.id !== 'dolphin' && (
                   <>
                     {emuData.id !== 'ra' && (
@@ -604,8 +606,8 @@ EmuDetail.propTypes = {
   onClickInstall: PropTypes.func,
   onClickUninstall: PropTypes.func,
   onClickReInstall: PropTypes.func,
-  emuData: PropTypes.any,
-  installEmus: PropTypes.array,
+  emuData: PropTypes.object,
+  installEmus: PropTypes.string,
   disableResetButton: PropTypes.bool,
   hideInstallButton: PropTypes.bool,
   updateAvailable: PropTypes.bool,
