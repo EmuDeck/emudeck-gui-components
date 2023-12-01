@@ -31,7 +31,7 @@
     background-color: #222216;
     border-bottom: 1px solid #454545;
     border-right: 1px solid #454545;
-    width: 230px;
+    width: 229px;
     height: 50px;
     position: absolute;
     top: 0;
@@ -133,6 +133,13 @@
       border-radius: 6px;
       @media (prefers-color-scheme: dark) {
         color: #fdfdfd;
+      }
+      .SteamOS & {
+        svg {
+          @media (prefers-color-scheme: dark) {
+            stroke: #fff;
+          }
+        }
       }
       .chimeraos & {
         @media (prefers-color-scheme: dark) {

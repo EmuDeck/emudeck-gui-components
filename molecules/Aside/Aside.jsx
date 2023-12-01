@@ -502,7 +502,7 @@ function Aside({ css }) {
                 <button type="button" onClick={() => item.function()}>
                   <div className="list--icons list--icons--xs">
                     <div className="text">
-                      {system !== 'darwin' &&
+                      {/* system !== 'darwin' &&
                         system !== 'win32' &&
                         system !== 'chimeraos' && (
                           <img
@@ -510,11 +510,11 @@ function Aside({ css }) {
                             src={item.icon}
                             alt={item.title}
                           />
-                        )}
-                      {system !== 'SteamOS' && (
+                        ) */}
+                      {/* system !== 'SteamOS' && (
                         <Icon name={item.iconFlat} fill="transparent" />
-                      )}
-
+                      ) */}
+                      <Icon name={item.iconFlat} fill="transparent" />
                       {item.title}
                     </div>
                   </div>

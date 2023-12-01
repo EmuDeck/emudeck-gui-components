@@ -43,6 +43,13 @@
     padding: 0;
     overflow: hidden;
   }
+
+  &.is-nothighlighted {
+    filter: saturate(0.5);
+    &:hover {
+      filter: saturate(1);
+    }
+  }
   .container--grid & {
     width: 100%;
     max-width: 100%;

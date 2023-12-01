@@ -41,6 +41,8 @@ function EmuDetail(props) {
     onClickUninstall,
     onClickReInstall,
     onClickMigrate,
+    onClickCustomParser,
+    onClickOptionalParser,
     emuData,
     installEmus,
     disableResetButton,
@@ -63,7 +65,7 @@ function EmuDetail(props) {
   const { disableInstallButton } = statePage;
 
   const { state } = useContext(GlobalContext);
-  const { system } = state;
+  const { system, mode } = state;
 
   useEffect(() => {
     switch (emuData.id) {
@@ -271,7 +273,7 @@ function EmuDetail(props) {
                 <p className="h5">Special Configuration</p>
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: `${emuData.special_configuration} <br/>You can learn more about this emulator in <strong><a className="link" href="${emuData.wiki}" target="_blank">our Wiki</a></strong>`,
+                    __html: `${emuData.special_configuration}`,
                   }}
                 />
               </>
@@ -335,18 +337,45 @@ function EmuDetail(props) {
                   Uninstall
                 </BtnSimple>
               )}
-
-              {emuData.id === 'srm' && (
-                <BtnSimple
-                  css="btn-simple--1"
-                  type="button"
-                  aria="Go Back"
-                  onClick={() => {
-                    onClickParsers();
-                  }}
-                >
-                  Standalone Parsers
-                </BtnSimple>
+              {emuData.id === 'srm' && mode !== 'expert' && (
+                <p className="" style={{ textAlign: 'center' }}>
+                  See more advanced options available by doing a Custom Reset
+                </p>
+              )}
+              {emuData.id === 'srm' && mode === 'expert' && (
+                <>
+                  <p className="h5">Expert Mode:</p>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Go Back"
+                    onClick={() => {
+                      onClickParsers();
+                    }}
+                  >
+                    Standalone Parsers
+                  </BtnSimple>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Go Back"
+                    onClick={() => {
+                      onClickOptionalParser();
+                    }}
+                  >
+                    Add optional parsers
+                  </BtnSimple>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Go Back"
+                    onClick={() => {
+                      onClickCustomParser();
+                    }}
+                  >
+                    Open custom parsers
+                  </BtnSimple>
+                </>
               )}
 
               {emuData.id === 'yuzu' && (
@@ -466,15 +495,6 @@ function EmuDetail(props) {
                     css="btn-simple--1"
                     type="button"
                     aria="Controls"
-                    onClick={() => onClickHotkeys('gamecube_expert')}
-                  >
-                    Hotkeys GameCube - Expert
-                  </BtnSimple>
-
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Controls"
                     onClick={() => onClickControls('wii_classic')}
                   >
                     Classic Controls Wii
@@ -490,11 +510,39 @@ function EmuDetail(props) {
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
+                    aria="Hotkeys"
+                    onClick={() => onClickControls('wii_nunchuck')}
+                  >
+                    Nunchuck Controls
+                  </BtnSimple>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
                     aria="Controls"
                     onClick={() => onClickControls('wii')}
                   >
                     Hotkeys Wii
                   </BtnSimple>
+                </>
+              )}
+              {emuData.id === 'dolphin' && mode !== 'expert' && (
+                <p className="" style={{ textAlign: 'center' }}>
+                  See more advanced options available by doing a Custom Reset
+                </p>
+              )}
+
+              {emuData.id === 'dolphin' && mode === 'expert' && (
+                <>
+                  <p className="h5">Expert Mode:</p>
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Controls"
+                    onClick={() => onClickHotkeys('gamecube_expert')}
+                  >
+                    Hotkeys GameCube - Expert
+                  </BtnSimple>
+
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
@@ -503,19 +551,15 @@ function EmuDetail(props) {
                   >
                     Hotkeys Wii - Expert
                   </BtnSimple>
-
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Hotkeys"
-                    onClick={() => onClickControls('wii_nunchuck')}
-                  >
-                    Nunchuck Controls Wii
-                  </BtnSimple>
                 </>
               )}
 
-              {emuData.id === 'cemu' && (
+              {emuData.id === 'cemu' && mode !== 'expert' && (
+                <p className="" style={{ textAlign: 'center' }}>
+                  See more advanced options available by doing a Custom Reset
+                </p>
+              )}
+              {emuData.id === 'cemu' && mode === 'expert' && (
                 <>
                   <BtnSimple
                     css="btn-simple--1"
@@ -532,7 +576,7 @@ function EmuDetail(props) {
                       }
                     }}
                   >
-                    Install Cemu AppImage
+                    Install Cemu Native
                   </BtnSimple>
                   <BtnSimple
                     css="btn-simple--1"
@@ -543,7 +587,7 @@ function EmuDetail(props) {
                       onClick('CemuNative', 'CemuNative', 'cemunative');
                     }}
                   >
-                    Reset Cemu AppImage
+                    Reset Cemu Native
                   </BtnSimple>
                 </>
               )}
