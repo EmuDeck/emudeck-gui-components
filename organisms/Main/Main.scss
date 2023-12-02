@@ -26,6 +26,22 @@ body {
   flex: 1;
   -webkit-user-select: none;
   -webkit-app-region: drag;
+  &.SteamOS {
+    &:after {
+      content: '';
+      height: 2px;
+      width: 100vw;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(61, 193, 249, 1) 0%,
+        rgba(43, 97, 246, 1) 100%
+      );
+    }
+  }
 }
 
 .wrapper.wrapper {

@@ -225,16 +225,6 @@ function PatreonLogin({ children }) {
   //
   // Render
   //
-  // GamePad
-  // const domElementsRef = useRef(null);
-  // const domElementsCur = domElementsRef.current;
-  // let domElements;
-  // useEffect(() => {
-  //   if (domElementsCur && dom === undefined) {
-  //     domElements = domElementsCur.querySelectorAll('button');
-  //     setStatePage({ ...statePage, dom: domElements });
-  //   }
-  // }, [statePage]);
   if (accessAllowed) {
     return <div>{children}</div>;
   }
