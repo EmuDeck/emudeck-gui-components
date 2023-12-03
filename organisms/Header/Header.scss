@@ -16,9 +16,9 @@
     width: 150px;
     transform: rotate(45deg);
     text-align: center;
-    .win32 & {
-      top: -10px;
-    }
+    // .win32 & {
+    //   top: -10px;
+    // }
   }
   &__dev {
     background: rgb(251, 109, 156);
