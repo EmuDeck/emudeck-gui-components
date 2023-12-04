@@ -15,7 +15,7 @@ function PegasusTheme({ onClick, themes }) {
         Please select your default theme. You'll be able to install additional
         themes later in Manage Emulators.
       </p>
-      <Main>
+      <Main css="main--horizontal-scroll">
         <div className="cards cards--maxi">
           {themes && (
             <>
@@ -26,7 +26,7 @@ function PegasusTheme({ onClick, themes }) {
 
                 return (
                   <Card
-                    css={url === themePegasus && 'is-selected'}
+                    css={url === themePegasus[0] && 'is-selected'}
                     key={name}
                     onClick={() => onClick([url, name])}
                   >
@@ -48,10 +48,12 @@ function PegasusTheme({ onClick, themes }) {
 
 PegasusTheme.propTypes = {
   onClick: PropTypes.func,
+  themes: PropTypes.object,
 };
 
 PegasusTheme.defaultProps = {
   onClick: '',
+  themes: {},
 };
 
 export default PegasusTheme;

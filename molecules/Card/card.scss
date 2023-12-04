@@ -1,7 +1,7 @@
 .card {
   background: #18181c;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 20px;
   margin: 0;
   margin-bottom: 15px;
@@ -106,7 +106,6 @@
       animation: fade 5s infinite;
     }
   }
-
   &--mini {
     .card {
       max-width: 9.4%;
@@ -135,5 +134,24 @@
   }
   &--center {
     justify-content: space-between;
+  }
+}
+
+.card--image {
+  padding: 0;
+  padding-bottom: 20px;
+  overflow: hidden;
+  > span,
+  > p,
+  > ul {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  > button,
+  > a {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
   }
 }

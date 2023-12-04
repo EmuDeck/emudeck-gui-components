@@ -353,9 +353,9 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              aria="Go Back"
+              aria="Show log"
               disabled={false}
-              onClick={showLog}
+              onClick={() => showLog()}
             >
               Open detailed log
             </BtnSimple>
@@ -369,8 +369,8 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
 
 End.propTypes = {
   message: PropTypes.string,
-  percentage: PropTypes.string,
-  onClickWin32Config: PropTypes.string,
+  percentage: PropTypes.any,
+  onClickWin32Config: PropTypes.any,
   step: PropTypes.string,
   disabledNext: PropTypes.bool,
 };
@@ -378,7 +378,7 @@ End.propTypes = {
 End.defaultProps = {
   message: '',
   percentage: '',
-  onClickWin32Config: '',
+  onClickWin32Config: false,
   step: '',
   disabledNext: true,
 };

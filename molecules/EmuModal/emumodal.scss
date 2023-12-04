@@ -29,6 +29,7 @@
   }
 
   &__box {
+    -webkit-app-region: no-drag;
     margin-bottom: -200vh;
     background: #fff;
     border-radius: 8px;
