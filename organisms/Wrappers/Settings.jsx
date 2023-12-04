@@ -70,7 +70,7 @@ function Settings({
       </p>
       <Main>
         <ul className="list-grid">
-          {system === 'win33' && (
+          {system === 'win32' && (
             <li>
               <SelectorMenu
                 title="Boot Mode"
