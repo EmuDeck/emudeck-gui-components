@@ -6,7 +6,7 @@ import Main from 'components/organisms/Main/Main';
 
 import { Img } from 'getbasecore/Atoms';
 
-import { iconSuccess, iconDanger } from 'components/utils/images/images';
+import { iconSuccess, iconDanger } from 'components/utils/images/icons';
 
 function Confirmation() {
   const { state } = useContext(GlobalContext);

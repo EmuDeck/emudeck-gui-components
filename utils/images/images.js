@@ -25,29 +25,6 @@ import imgFrontPegasus from 'assets/frontends/pegasus.png';
 import imgFrontSteam from 'assets/frontends/steam.png';
 import imgmelonds from 'assets/emulators/melonds.png';
 import imgmgba from 'assets/emulators/mgba.png';
-
-import iconSuccess from 'assets/icon/success.svg';
-import iconForbidden from 'assets/icon/forbidden.svg';
-import iconDanger from 'assets/icon/danger.svg';
-import iconWarning from 'assets/icon/warning.svg';
-import iconCloud from 'assets/icon/cloud.svg';
-import iconCompress from 'assets/icon/compress.svg';
-import iconGear from 'assets/icon/gear.svg';
-import iconList from 'assets/icon/list.svg';
-import iconMigrate from 'assets/icon/migrate.svg';
-import iconPlugin from 'assets/icon/plugin.svg';
-import iconPrize from 'assets/icon/prize.svg';
-import iconUninstall from 'assets/icon/uninstall.svg';
-import iconQuick from 'assets/icon/quick.svg';
-import iconCustom from 'assets/icon/custom.svg';
-import iconDoc from 'assets/icon/doc.svg';
-import iconHelp from 'assets/icon/help.svg';
-import iconBooks from 'assets/icon/books.svg';
-import iconJoystick from 'assets/icon/joystick.svg';
-import iconPackage from 'assets/icon/package.svg';
-import iconQuestion from 'assets/icon/question.svg';
-import iconDisk from 'assets/icon/disk.svg';
-import iconScreen from 'assets/icon/screen.svg';
 import ar43 from 'assets/ar43.png';
 import ar32 from 'assets/ar32.png';
 import ar43s from 'assets/ar43snes.png';
@@ -117,6 +94,32 @@ import imgchimeraOS from 'assets/devices/chimeraOS.png';
 import themesESDEsimple from 'assets/esdethemes/es-de_rbsimple_01.png';
 import themesPegasusGameOS from 'assets/pegasusthemes/gameOS.jpg';
 
+import xemuGrid from 'assets/emulators/grid/xemu.png';
+import cemuGrid from 'assets/emulators/grid/cemu.png';
+import citraGrid from 'assets/emulators/grid/citra.png';
+import dolphinGrid from 'assets/emulators/grid/dolphin.png';
+import duckstationGrid from 'assets/emulators/grid/duckstation.png';
+import flycastGrid from 'assets/emulators/grid/flycast.png';
+import melondsGrid from 'assets/emulators/grid/melonds.png';
+import mgbaGrid from 'assets/emulators/grid/mgba.png';
+import pcsx2Grid from 'assets/emulators/grid/pcsx2.png';
+import ppssppGrid from 'assets/emulators/grid/ppsspp.png';
+import primehackGrid from 'assets/emulators/grid/primehack.png';
+import raGrid from 'assets/emulators/grid/ra.png';
+import rpcs3Grid from 'assets/emulators/grid/rpcs3.png';
+import ryujinxGrid from 'assets/emulators/grid/ryujinx.png';
+import scummvmGrid from 'assets/emulators/grid/scummvm.png';
+import vita3kGrid from 'assets/emulators/grid/vita3k.png';
+import xeniaGrid from 'assets/emulators/grid/xenia.png';
+import yuzuGrid from 'assets/emulators/grid/yuzu.png';
+import esdeGrid from 'assets/emulators/grid/esde.png';
+import srmGrid from 'assets/emulators/grid/srm.png';
+import pegasusGrid from 'assets/emulators/grid/pegasus.png';
+
+import mameGrid from 'assets/emulators/grid/mame.png';
+import rmgGrid from 'assets/emulators/grid/rmg.png';
+import supermodelGrid from 'assets/emulators/grid/supermodel.png';
+
 export {
   imgdefault,
   imgra,
@@ -147,28 +150,6 @@ export {
   imgFrontPegasus,
   imgFrontSteam,
   imgmelonds,
-  iconSuccess,
-  iconForbidden,
-  iconDanger,
-  iconWarning,
-  iconCloud,
-  iconCompress,
-  iconGear,
-  iconList,
-  iconMigrate,
-  iconPlugin,
-  iconPrize,
-  iconUninstall,
-  iconQuick,
-  iconCustom,
-  iconDoc,
-  iconHelp,
-  iconBooks,
-  iconJoystick,
-  iconPackage,
-  iconQuestion,
-  iconDisk,
-  iconScreen,
   ar43,
   ar32,
   ar43s,
@@ -235,4 +216,28 @@ export {
   imgchimeraOS,
   themesESDEsimple,
   themesPegasusGameOS,
+  xemuGrid,
+  cemuGrid,
+  citraGrid,
+  dolphinGrid,
+  duckstationGrid,
+  flycastGrid,
+  melondsGrid,
+  mgbaGrid,
+  pcsx2Grid,
+  ppssppGrid,
+  primehackGrid,
+  raGrid,
+  rpcs3Grid,
+  ryujinxGrid,
+  scummvmGrid,
+  vita3kGrid,
+  xeniaGrid,
+  yuzuGrid,
+  esdeGrid,
+  srmGrid,
+  pegasusGrid,
+  mameGrid,
+  rmgGrid,
+  supermodelGrid,
 };

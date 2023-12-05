@@ -145,3 +145,65 @@
 .btn-group [class*='btn'] {
   border-radius: var(--btn-simple-border-radius);
 }
+
+.darwin .btn-simple--1,
+.win32 .btn-simple--1,
+.SteamOS .btn-simple--1 {
+  border-radius: 5px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.17) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #007aff;
+  animation: none;
+  &:hover {
+    transform: none;
+  }
+}
+
+.SteamOS .btn-simple--1 {
+  opacity: 0.9;
+  background: linear-gradient(
+    90deg,
+    rgba(61, 193, 249, 1) 0%,
+    rgba(43, 97, 246, 1) 100%
+  );
+  &:hover {
+    opacity: 1;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.darwin .btn-simple--2,
+.win32 .btn-simple--2,
+.SteamOS .btn-simple--2 {
+  border-radius: 5px;
+  background: var(#0000000d, rgba(0, 0, 0, 0.05));
+  animation: none;
+  &:hover {
+    transform: none;
+  }
+}
+
+.SteamOS .btn-simple--2 {
+  &:hover {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.darwin .btn-simple--3,
+.win32 .btn-simple--3,
+.SteamOS .btn-simple--3 {
+  border-radius: 5px;
+  animation: none;
+  &:hover {
+    transform: none;
+  }
+}
+
+.SteamOS .btn-simple--3 {
+  &:hover {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  }
+}

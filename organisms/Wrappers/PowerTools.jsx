@@ -23,13 +23,14 @@ function PowerTools({
   return (
     <>
       <p className="lead">
-        Power Tools is a plugin that allows you to tweak your CPU & GPU to for
-        maximum performance on more demanding emulators. Installing Power Tools
-        on this menu will also install Decky Loader, a plugin manager. You can
-        read more about Power Tools,{' '}
+        PowerControls is a plugin that allows you to tweak your CPU & GPU to for
+        maximum performance on more demanding emulators as well as controlling
+        TDP in compatible devices. Installing PowerControls on this menu will
+        also install Decky Loader, a plugin manager. You can read more about
+        Power Tools,{' '}
         <LinkSimple
           css="link-simple--1"
-          href="https://github.com/NGnius/PowerTools"
+          href="https://github.com/mengmeet/PowerControl"
           target="_blank"
         >
           here
@@ -47,7 +48,7 @@ function PowerTools({
         <br />
         <div className="container--grid">
           <div data-col-sm="6">
-            {hasSudo === false && (
+            {hasSudo === false && sudoPass === 'gamer' && (
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
@@ -55,39 +56,37 @@ function PowerTools({
                 onClick={installClick}
                 disabled={disableButton && 'true'}
               >
-                Install PowerTools
+                Install PowerControls
               </BtnSimple>
             )}
-            {hasSudo === true && (
-              <div className="form">
-                <p>
-                  We have detected you already have set a sudo password, type it
-                  below to install Power Tools.
-                </p>
-                <FormInputSimple
-                  label="Sudo Password"
-                  type="password"
-                  name="pass"
-                  id="pass"
-                  onChange={onChange}
-                />
-                {sudoPass !== '' && (
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Install PowerTools"
-                    onClick={installClick}
-                    disabled={disableButton && 'true'}
-                  >
-                    Install PowerTools
-                  </BtnSimple>
+            {hasSudo === true &&
+              sudoPass !==
+                'gamer'(
+                  <div className="form">
+                    <p>
+                      We have detected you already have set a sudo password,
+                      type it below to install Power Tools.
+                    </p>
+                    <FormInputSimple
+                      label="Sudo Password"
+                      type="password"
+                      name="pass"
+                      id="pass"
+                      onChange={onChange}
+                    />
+                    {sudoPass !== '' && (
+                      <BtnSimple
+                        css="btn-simple--1"
+                        type="button"
+                        aria="Install PowerTools"
+                        onClick={installClick}
+                        disabled={disableButton && 'true'}
+                      >
+                        Install PowerControls
+                      </BtnSimple>
+                    )}
+                  </div>
                 )}
-              </div>
-            )}
-          </div>
-          <div data-col-sm="1" />
-          <div data-col-sm="5">
-            <img src={powerToolsImg} alt="RetroAchievements" />
           </div>
         </div>
       </Main>

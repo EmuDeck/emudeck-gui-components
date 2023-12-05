@@ -31,12 +31,10 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 -12px;
-  justify-content: flex-start;
   //margin-bottom: 20px;
   .store-game {
     margin: 0 12px;
-    //flex-basis: 10%;
-    width: 18%;
+    flex: 0 0 22.5%;
     margin-bottom: 2%; /* (100-32*3)/2 */
     position: relative;
     @media (max-width: $screen-sm-max) {

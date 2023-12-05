@@ -1,0 +1,250 @@
+.sidebar {
+  -webkit-app-region: no-drag;
+  max-width: 1px;
+  min-width: 1px;
+  transition: 0.5s;
+  padding: 16px 0px 16px 0px;
+  font-family: sans-serif;
+  flex: 0;
+  background: #e1dddc;
+  border-right: 1px solid #d4cdcc;
+  @media (prefers-color-scheme: dark) {
+    border-right: 1px solid #000;
+  }
+  display: block;
+  overflow: hidden;
+  min-width: 230px;
+  max-width: 230px;
+  transition: 0.5s;
+
+  svg {
+    stroke: #666;
+  }
+
+  .SteamOS & {
+    background-color: #2f3137;
+  }
+  .chimeraos &:after {
+    content: 'Settings';
+    font-family: 'MotivaSans';
+    font-size: 1.6rem;
+    line-height: 5rem;
+    font-weight: bold;
+    color: #fdfdfd;
+    display: block;
+    background-color: #222216;
+    border-bottom: 1px solid #454545;
+    border-right: 1px solid #454545;
+    width: 229px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    vertical-align: middle;
+    text-align: center;
+
+    @media (prefers-color-scheme: light) {
+      background-color: #faf4f1;
+      border-bottom: 1px solid #cacaca;
+    }
+  }
+
+  .darwin &,
+  .chimeraos & {
+    padding-top: 50px;
+    svg {
+      stroke: #007aff;
+    }
+  }
+  .chimeraos & {
+    border-right: 1px solid #454545;
+    svg {
+      stroke: #fdfdfd;
+    }
+  }
+  .win32 & {
+    background: #ecf2f8;
+    @media (prefers-color-scheme: dark) {
+      background: #1b1d22;
+    }
+    border: none;
+    padding: 16px 0px 16px 0px;
+    font-family: sans-serif, 'MotivaSans';
+    flex: 0;
+    display: block;
+    overflow: hidden;
+    min-width: 108px;
+    max-width: 108px;
+    transition: 0.5s;
+    padding-top: 30px;
+    .list--icons--xs {
+      > * {
+        padding-left: 0;
+        display: block;
+      }
+      .text {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+
+      svg {
+        position: static;
+        display: block;
+        margin-bottom: 0px;
+        width: var(--icon-sm);
+        height: var(--icon-sm);
+        stroke: #999;
+      }
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    background: #282424;
+  }
+
+  &__elements {
+    overflow: hidden;
+    overflow-y: auto;
+    height: 100%;
+
+    li {
+      &.active {
+        button {
+          background: rgba(0, 0, 0, 0.15);
+        }
+      }
+      .win32 & {
+        margin-bottom: 8px;
+      }
+      .chimeraos & {
+        margin-bottom: 12px;
+      }
+    }
+    button {
+      width: 100%;
+      font-family: sans-serif, 'SF Pro';
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 16px;
+      color: #444;
+      letter-spacing: -0.005rem;
+      padding: 8px 3px 3px 18px;
+      border-radius: 6px;
+      @media (prefers-color-scheme: dark) {
+        color: #fdfdfd;
+      }
+      .SteamOS & {
+        display: block;
+        padding: 13px 3px 11px 18px;
+        border-radius: 0;
+        &:focus {
+          animation: none;
+        }
+        &:hover {
+          background: #363c46;
+        }
+        svg {
+          @media (prefers-color-scheme: dark) {
+            stroke: #b0b4b7;
+          }
+        }
+      }
+      .chimeraos & {
+        @media (prefers-color-scheme: dark) {
+          color: #fdfdfd;
+        }
+      }
+      .win32 & {
+        font-size: 10px;
+        //padding-bottom: 0;
+        position: relative;
+        padding: 16px 6px 16px 11px;
+        &:hover {
+          background: #fff;
+          @media (prefers-color-scheme: dark) {
+            background: #666;
+          }
+          &:after {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 50%;
+            background: #007aff;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 10px;
+          }
+          svg {
+            @media (prefers-color-scheme: dark) {
+              stroke: #fff;
+            }
+          }
+        }
+      }
+    }
+    small {
+      font-family: sans-serif, 'SF Pro';
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 14px;
+      color: rgba(0, 0, 0, 0.3);
+      margin-bottom: 6px;
+      padding: 0px 3px 0px 18px;
+      @media (prefers-color-scheme: dark) {
+        color: #fff;
+      }
+      .win32 &,
+      .chimeraos & {
+        display: block;
+        text-align: center;
+        margin-bottom: 12px;
+        border-bottom: 1px solid#444;
+        color: transparent;
+        opacity: 0.3;
+      }
+      .chimeraos & {
+        border-bottom: 1px solid#454545;
+        margin-bottom: 12px;
+        height: 1px;
+        opacity: 1;
+      }
+      .SteamOS & {
+        display: block;
+        border-bottom: 1px solid#454545;
+        padding-top: 18px;
+        padding-bottom: 12px;
+        color: #f2f2f2;
+      }
+    }
+    .icon.icon {
+      top: -1px;
+    }
+    .text {
+      .chimeraos & {
+        padding-left: calc(var(--icon-xs) + 14px);
+      }
+      .SteamOS & {
+        padding-left: calc(var(--icon-xs) + 18px);
+        font-family: 'MotivaSans';
+        letter-spacing: 0rem;
+        -webkit-text-stroke-width: 0.05rem;
+        -webkit-text-stroke-color: #b0b4b7;
+        color: #b0b4b7;
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+  }
+}
+
+#root {
+  display: flex;
+  flex-direction: row;
+}

@@ -344,7 +344,7 @@ function StoreFront() {
                   {games != null &&
                     games.map((item) => {
                       return (
-                        <div data-col-md="2">
+                        <div data-col-md="3">
                           <CardSettings
                             disabled={installing === item.title}
                             key={item.name}

@@ -6,7 +6,7 @@ import Card from 'components/molecules/Card/Card';
 
 function EmulatorSelector({ onClick, images }) {
   const { state } = useContext(GlobalContext);
-  const { installEmus, system } = state;
+  const { installEmus, system, branch } = state;
   const installEmusArray = Object.values(installEmus);
 
   return (
@@ -21,6 +21,16 @@ function EmulatorSelector({ onClick, images }) {
           {installEmusArray.map((item) => {
             if (item.id === 'srm' || item.id === 'primehacks') {
               return;
+            }
+
+            if (system === 'win32' && branch === 'beta') {
+              if (
+                item.id === 'mame' ||
+                item.id === 'flycast' ||
+                item.id === 'mgba'
+              ) {
+                return;
+              }
             }
             if (item.id === 'ares') {
               return;

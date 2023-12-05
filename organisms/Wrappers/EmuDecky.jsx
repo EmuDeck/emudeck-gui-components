@@ -30,7 +30,7 @@ function EmuDecky({
         <br />
         <div className="container--grid">
           <div data-col-sm="6">
-            {hasSudo === false && (
+            {hasSudo === false && sudoPass === 'gamer' && (
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
@@ -41,7 +41,8 @@ function EmuDecky({
                 Install EmuDecky
               </BtnSimple>
             )}
-            {hasSudo === true && (
+
+            {hasSudo === true && sudoPass !== 'gamer' && (
               <div className="form">
                 <p>
                   We have detected you have set a sudo password, type it on the
