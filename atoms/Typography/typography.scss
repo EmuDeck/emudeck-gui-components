@@ -101,6 +101,7 @@ body {
   color: $body-text-color;
   letter-spacing: -0.2px;
   line-height: 140%;
+
   @media (max-width: $screen-sm-max) {
     font-size: $body-font-size;
   }

@@ -27,6 +27,7 @@ import {
   imgmgba,
   imgsrm,
   imgFrontESDE,
+  imgFrontPegasus,
   imgrmg,
   imgscummvm,
   imgsupermodelista,
@@ -134,6 +135,9 @@ function EmuDetail(props) {
         break;
       case 'esde':
         setStateImg({ img: imgFrontESDE });
+        break;
+      case 'pegasus':
+        setStateImg({ img: imgFrontPegasus });
         break;
       case 'rmg':
         setStateImg({ img: imgrmg });
