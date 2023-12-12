@@ -25,7 +25,7 @@ function GameMode({ onClick }) {
               () => onClick(true),
               gamemode === true ? 'is-selected' : '',
               'SteamUI',
-              'Mimic the Steam Deck experience by seamlessly booting directly into SteamUI.<br>Access your Desktop by exiting Steam.',
+              'Mimic the Steam Deck experience by booting directly into SteamUI.',
               true,
             ],
             [

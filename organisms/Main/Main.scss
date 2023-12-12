@@ -88,6 +88,9 @@ body {
   font-weight: 200;
   padding-top: 30px;
   color: #f3f3f3;
+  @media (prefers-color-scheme: light) {
+    color: #444 !important;
+  }
   position: relative;
   margin: 0;
   background-color: #222;

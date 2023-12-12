@@ -30,13 +30,6 @@ function CloudSync({ onClick, showNone }) {
               true,
             ],
             [
-              () => onClick('Save'),
-              cloudSyncType === 'Save' ? 'is-selected' : '',
-              'Backup',
-              'Backup to the cloud',
-              system !== 'win32',
-            ],
-            [
               () => onClick('none'),
               cloudSyncType === 'none' ? 'is-selected' : '',
               'None',

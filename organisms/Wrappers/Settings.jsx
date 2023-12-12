@@ -70,34 +70,6 @@ function Settings({
       </p>
       <Main>
         <ul className="list-grid">
-          {system === 'win32' && (
-            <li>
-              <SelectorMenu
-                title="Boot Mode"
-                css="selector-menu--mini"
-                imgs={[
-                  [steamUI, gamemode === false ? 'is-hidden' : ''],
-                  [winDesktop, gamemode === true ? 'is-hidden' : ''],
-                ]}
-                options={[
-                  [
-                    () => onClickBoot(true),
-                    gamemode === true ? 'is-selected' : '',
-                    'SteamUI',
-                    '',
-                    true,
-                  ],
-                  [
-                    () => onClickBoot(false),
-                    gamemode === false ? 'is-selected' : '',
-                    'Desktop',
-                    '',
-                    true,
-                  ],
-                ]}
-              />
-            </li>
-          )}
           <li>
             <SelectorMenu
               title="AutoSave"
