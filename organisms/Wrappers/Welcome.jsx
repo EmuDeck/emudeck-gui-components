@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Alert } from 'getbasecore/Molecules';
 import Card from 'components/molecules/Card/Card';
 import CardSettings from 'components/molecules/CardSettings/CardSettings';
+import { Iframe } from 'getbasecore/Atoms';
 
 function Welcome({ onClick, alert, alertCSS, functions, updates }) {
   const { state } = useContext(GlobalContext);
@@ -27,14 +28,7 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
       {second === false && (
         <p className="lead">Select how you want to set up your device:</p>
       )}
-
-      {updates && (
-        <p className="lead">
-          You have pending updates in Manage Emulators, it's recommended to
-          update so you have the latest version of EmuDeck's configurations and
-          optimizations for your emulators.
-        </p>
-      )}
+      {second === true && <p className="lead">Learn how to use EmuDeck:</p>}
 
       <Main>
         {/*
@@ -70,17 +64,11 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
           </div>
         )}
 
-        {alert && (
-          <>
-            <br />
-            <div className="container--grid">
-              <div data-col-sm="10">
-                <Alert css={alertCSS}>
-                  <div dangerouslySetInnerHTML={{ __html: alert }} />
-                </Alert>
-              </div>
-            </div>
-          </>
+        {second === true && system === 'win32' && (
+          <Iframe src="https://www.youtube-nocookie.com/embed/uLQWOS6KwVM?autoplay=0&modestbranding=1&rel=0&showinfo=0" />
+        )}
+        {second === true && system !== 'win32' && (
+          <Iframe src="https://www.youtube-nocookie.com/embed/rs9jDHIDKkU?autoplay=0&modestbranding=1&rel=0&showinfo=0" />
         )}
       </Main>
     </>
