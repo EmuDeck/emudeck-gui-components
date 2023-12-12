@@ -332,7 +332,26 @@ function Aside({ css }) {
       status: true,
       function: () => functions.navigate('/check-bios'),
     },
-
+    {
+      icon: [iconJoystick],
+      iconFlat: 'joystick',
+      title: 'Boot Mode',
+      description: 'Boot directly on Steam, not Windows',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system === 'win32',
+      function: () => functions.navigate('/game-mode/welcome'),
+    },
+    {
+      icon: [iconScreen],
+      iconFlat: 'screen',
+      title: 'Pegasus Themes',
+      description: 'Pich your Pegasus theme to install',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: true,
+      function: () => functions.navigate('/pegasus-theme-choice'),
+    },
     {
       icon: [iconCloud],
       iconFlat: 'cloud',

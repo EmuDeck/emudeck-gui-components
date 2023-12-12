@@ -30,15 +30,6 @@ function EmulatorConfiguration({ onClick, images }) {
       <Main>
         <div className="cards cards--mini">
           {overwriteConfigEmusArray.map((item) => {
-            if (system === 'win32' && branch === 'beta') {
-              if (
-                item.id === 'mame' ||
-                item.id === 'flycast' ||
-                item.id === 'mgba'
-              ) {
-                return;
-              }
-            }
             if (
               overwriteConfigEmusArray.id === 'srm' ||
               item.id === 'primehacks'
@@ -58,10 +49,6 @@ function EmulatorConfiguration({ onClick, images }) {
             }
 
             if (item.id === 'ares') {
-              return;
-            }
-
-            if (item.id === 'pegasus') {
               return;
             }
 

@@ -72,6 +72,10 @@ function PatreonLogin({ children }) {
     });
   };
 
+  const goToPatreon = () => {
+    navigate('/early-access');
+  };
+
   const patreonSetToken = (data) => {
     let patronTokenValue;
 
@@ -229,76 +233,86 @@ function PatreonLogin({ children }) {
     return <div>{children}</div>;
   }
   return (
-    <div className="app">
-      <div className="wrapper">
-        <Header title="Early Access Token" />
-        <Main>
-          {errorMessage === undefined && (
-            <p className="lead">
-              Please login to patreon in order to access this feature.
-            </p>
-          )}
-          {!!errorMessage && <p className="lead">{errorMessage}</p>}
+    <div>
+      <Header title="Early Access Feature" />
+      <Main>
+        <p className="lead">
+          You need to be a patreon in order to access this feature.
+        </p>
 
-          {!patreonClicked && (
-            <>
-              <BtnSimple
-                css="btn-simple--3"
-                type="link"
-                target="_blank"
-                href="https://token.emudeck.com/"
-                aria="Next"
-                onClick={() => patreonShowInput()}
-              >
-                Login with Patreon
-              </BtnSimple>
-              <BtnSimple
-                css="btn-simple--3"
-                type="link"
-                target="_blank"
-                href="https://patreon.com/"
-                aria="Next"
-              >
-                Change Patreon Account
-              </BtnSimple>
-            </>
-          )}
-          {!patreonClicked && (
+        {!!errorMessage && branch === 'early' && (
+          <p className="lead">{errorMessage}</p>
+        )}
+
+        {!patreonClicked && branch !== 'early' && (
+          <BtnSimple
+            css="btn-simple--3"
+            type="button"
+            target="_blank"
+            aria="Check Early Access features"
+            onClick={() => goToPatreon()}
+          >
+            Check Early Access features
+          </BtnSimple>
+        )}
+        {!patreonClicked && branch === 'early' && (
+          <>
             <BtnSimple
-              css="btn-simple--2"
-              type="button"
+              css="btn-simple--3"
+              type="link"
               target="_blank"
-              aria="Next"
+              href="https://token.emudeck.com/"
+              aria="Login with Patreon"
               onClick={() => patreonShowInput()}
             >
-              Login with Token
+              Login with Patreon
             </BtnSimple>
-          )}
-          {patreonClicked && (
-            <div className="form">
-              <FormInputSimple
-                label="Token"
-                type="token"
-                name="token"
-                id="token"
-                value={patreonToken}
-                onChange={patreonSetToken}
-              />
-              {patreonToken !== null && (
-                <BtnSimple
-                  css="btn-simple--3"
-                  type="button"
-                  aria="Next"
-                  onClick={() => patreonCheckToken()}
-                >
-                  {status === null && 'Check Token'}
-                  {status === 'checking' && 'Checking token...'}
-                </BtnSimple>
-              )}
-            </div>
-          )}
-        </Main>
-      </div>
+            <BtnSimple
+              css="btn-simple--3"
+              type="link"
+              target="_blank"
+              href="https://patreon.com/"
+              aria="Change Patreon Account"
+            >
+              Change Patreon Account
+            </BtnSimple>
+          </>
+        )}
+        {!patreonClicked && branch === 'early' && (
+          <BtnSimple
+            css="btn-simple--2"
+            type="button"
+            target="_blank"
+            aria="Login with Token"
+            onClick={() => patreonShowInput()}
+          >
+            Login with Token
+          </BtnSimple>
+        )}
+        {patreonClicked && (
+          <div className="form">
+            <FormInputSimple
+              label="Token"
+              type="token"
+              name="token"
+              id="token"
+              value={patreonToken}
+              onChange={patreonSetToken}
+            />
+            {patreonToken !== null && (
+              <BtnSimple
+                css="btn-simple--3"
+                type="button"
+                aria="Next"
+                onClick={() => patreonCheckToken()}
+              >
+                {status === null && 'Check Token'}
+                {status === 'checking' && 'Checking token...'}
+              </BtnSimple>
+            )}
+          </div>
+        )}
+      </Main>
     </div>
   );
 }

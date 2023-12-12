@@ -46,3 +46,9 @@
   padding-right: 10px;
   transform: translateX(-5px);
 }
+
+.form {
+  @media (prefers-color-scheme: light) {
+    color: #444;
+  }
+}
