@@ -4,10 +4,20 @@ import Main from 'components/organisms/Main/Main';
 import PropTypes from 'prop-types';
 import { Alert } from 'getbasecore/Molecules';
 import Card from 'components/molecules/Card/Card';
-import CardSettings from 'components/molecules/CardSettings/CardSettings';
+import Banner from 'components/molecules/Banner/Banner';
 import { Iframe } from 'getbasecore/Atoms';
+import { useNavigate, Link } from 'react-router-dom';
+import StoreGame from 'components/molecules/StoreGame/StoreGame';
 
-function Welcome({ onClick, alert, alertCSS, functions, updates }) {
+const welcomeItems = require('data/welcome.json');
+
+function Welcome({
+  onClick,
+  alert,
+  alertCSS,
+  functions,
+  updates,
+}) {
   const { state } = useContext(GlobalContext);
   const { mode, second, system, gamemode } = state;
 
@@ -23,12 +33,12 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
     }
     return true;
   };
+
   return (
     <>
       {second === false && (
         <p className="lead">Select how you want to set up your device:</p>
       )}
-      {second === true && <p className="lead">Learn how to use EmuDeck:</p>}
 
       <Main>
         {/*
@@ -68,7 +78,80 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
           <Iframe src="https://www.youtube-nocookie.com/embed/uLQWOS6KwVM?autoplay=0&modestbranding=1&rel=0&showinfo=0" />
         )}
         {second === true && system !== 'win32' && (
-          <Iframe src="https://www.youtube-nocookie.com/embed/rs9jDHIDKkU?autoplay=0&modestbranding=1&rel=0&showinfo=0" />
+          <>
+            <div className="container--grid">
+              {welcomeItems.map((item) => {
+                if (item.type === 'text') {
+                  return (
+                    <Link to={`/${item.href}`} key={item.title}>
+                      <Banner css="banner--text" key={item.title}>
+                        <div style={{ background: item.bg, color: item.color }}>
+                          <span className="h3" style={{ color: item.color }}>
+                            {item.title}
+                          </span>
+                          <p style={{ color: item.color }}>
+                            {item.description}
+                          </p>
+                          {item.img && (
+                            <img
+                              src={item.img}
+                              alt={item.title}
+                              style={{
+                                left: item.imgL,
+                                top: item.imgT,
+                                right: item.imgR,
+                                bottom: item.imgB,
+                              }}
+                            />
+                          )}
+                        </div>
+                      </Banner>
+                    </Link>
+                  );
+                }
+                if (item.type === 'banner') {
+                  return (
+                    <Link
+                      to={`/${item.href}`}
+                      key={item.title}
+                      data-col-sm={item.col}
+                    >
+                      <Banner key={item.title}>
+                        <div style={{ background: item.bg, color: item.color }}>
+                          <span
+                            className="h4"
+                            style={{
+                              color: item.color,
+                              left: item.titleL,
+                              top: item.titleT,
+                              right: item.titleR,
+                              bottom: item.titleB,
+                              width: item.titleW,
+                              textAlign: item.align,
+                            }}
+                          >
+                            {item.title}
+                          </span>
+                          {item.img && (
+                            <img
+                              src={item.img}
+                              alt={item.title}
+                              style={{
+                                left: item.imgL,
+                                top: item.imgT,
+                                right: item.imgR,
+                                bottom: item.imgB,
+                              }}
+                            />
+                          )}
+                        </div>
+                      </Banner>
+                    </Link>
+                  );
+                }
+              })}
+            </div>
+          </>
         )}
       </Main>
     </>

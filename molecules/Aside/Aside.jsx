@@ -197,16 +197,6 @@ function Aside({ css }) {
     {
       icon: [iconGear],
       iconFlat: 'gear',
-      title: 'Manage Emulators',
-      description: 'Manage and update your Emulators and configurations',
-      button: 'Update',
-      btnCSS: 'btn-simple--1',
-      status: true,
-      function: () => functions.navigate('/emulators'),
-    },
-    {
-      icon: [iconGear],
-      iconFlat: 'gear',
       title: 'Quick Settings',
       description:
         'Customize bezels, shaders, aspect ratio, auto save, and more',
@@ -214,6 +204,16 @@ function Aside({ css }) {
       btnCSS: 'btn-simple--1',
       status: true,
       function: () => functions.navigate('/settings'),
+    },
+    {
+      icon: [iconGear],
+      iconFlat: 'gear',
+      title: 'Manage Emulators',
+      description: 'Manage and update your Emulators and configurations',
+      button: 'Update',
+      btnCSS: 'btn-simple--1',
+      status: true,
+      function: () => functions.navigate('/emulators'),
     },
     {
       icon: [iconPackage],
@@ -224,16 +224,6 @@ function Aside({ css }) {
       btnCSS: 'btn-simple--1',
       status: true,
       function: () => functions.navigate('/store-front'),
-    },
-    {
-      icon: [iconHelp],
-      iconFlat: 'help',
-      title: 'Help',
-      description: 'Having problems running EmuDeck?',
-      button: 'Read the wiki',
-      btnCSS: 'btn-simple--1',
-      status: true,
-      function: () => functions.navigate('/help'),
     },
     {
       icon: [iconJoystick],
