@@ -237,7 +237,8 @@ function PatreonLogin({ children }) {
       <Header title="Early Access Feature" />
       <Main>
         <p className="lead">
-          You need to be a patreon in order to access this feature.
+          You need to log into patreon in order to access this feature while
+          it's being tested on our Early Access branch.
         </p>
 
         {!!errorMessage && branch === 'early' && (
