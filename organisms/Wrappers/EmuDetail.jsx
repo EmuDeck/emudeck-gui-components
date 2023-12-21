@@ -359,7 +359,7 @@ function EmuDetail(props) {
                   >
                     Standalone Parsers
                   </BtnSimple>
-                  <BtnSimple
+                  {/* <BtnSimple
                     css="btn-simple--1"
                     type="button"
                     aria="Go Back"
@@ -378,7 +378,7 @@ function EmuDetail(props) {
                     }}
                   >
                     Open custom parsers
-                  </BtnSimple>
+                  </BtnSimple> */}
                 </>
               )}
 
