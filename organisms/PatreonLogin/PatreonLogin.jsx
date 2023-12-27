@@ -256,7 +256,7 @@ function PatreonLogin({ children }) {
             Check Early Access features
           </BtnSimple>
         )}
-        {!patreonClicked && branch === 'early' && (
+        {!patreonClicked && (branch === 'early' || branch === 'dev') && (
           <>
             <BtnSimple
               css="btn-simple--3"
@@ -279,7 +279,7 @@ function PatreonLogin({ children }) {
             </BtnSimple>
           </>
         )}
-        {!patreonClicked && branch === 'early' && (
+        {!patreonClicked && (branch === 'early' || branch === 'dev') && (
           <BtnSimple
             css="btn-simple--2"
             type="button"
