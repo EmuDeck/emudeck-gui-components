@@ -142,9 +142,9 @@
     margin-top: 10px;
   }
 }
-.btn-group [class*='btn'] {
-  border-radius: var(--btn-simple-border-radius);
-}
+// .btn-group [class*='btn'] {
+//   border-radius: var(--btn-simple-border-radius);
+// }
 
 .darwin .btn-simple--1,
 .win32 .btn-simple--1,
