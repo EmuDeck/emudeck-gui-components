@@ -97,7 +97,7 @@ function Aside({ css }) {
     } else {
       ipcChannel.sendMessage(
         'bash',
-        'bash "~/.config/EmuDeck/backend/uninstall.sh"'
+        'bash ~/.config/EmuDeck/backend/uninstall.sh'
       );
     }
   };
