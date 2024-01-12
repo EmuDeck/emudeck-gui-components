@@ -152,6 +152,15 @@ function Aside({ css }) {
         '"$toolsPath/launchers/srm/steamrommanager.sh"'
       );
     }
+
+    let timer;
+
+    if (system === 'win32') {
+      timer = 30000;
+    } else {
+      timer = 10;
+    }
+
     const timerId = setTimeout(() => {
       setStatePage({
         ...statePage,
@@ -160,7 +169,7 @@ function Aside({ css }) {
         },
       });
       clearTimeout(timerId);
-    }, 30000);
+    }, timer);
   };
 
   const selectMode = (value) => {
