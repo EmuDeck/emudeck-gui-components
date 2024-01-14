@@ -22,6 +22,7 @@ function CloudSyncConfig({
   onClick,
   onClickInstall,
   onClickUninstall,
+  onClickCheckHealth,
   disableButton,
   showLoginButton,
 }) {
@@ -113,17 +114,30 @@ function CloudSyncConfig({
           )}
 
         {showLoginButton === false && (
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            aria="Uninstall SaveSync"
-            onClick={() => onClickUninstall()}
-            disabled={disableButton}
-          >
-            {disableButton && 'Please wait...'}
+          <>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Uninstall SaveSync"
+              onClick={() => onClickUninstall()}
+              disabled={disableButton}
+            >
+              {disableButton && 'Please wait...'}
 
-            {disableButton || 'Uninstall'}
-          </BtnSimple>
+              {disableButton || 'Uninstall'}
+            </BtnSimple>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Test CloudSync Health"
+              onClick={() => onClickCheckHealth()}
+              disabled={disableButton}
+            >
+              {disableButton && 'Please wait...'}
+
+              {disableButton || 'Test CloudSync Health'}
+            </BtnSimple>
+          </>
         )}
       </Main>
     </>
