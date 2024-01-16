@@ -279,7 +279,7 @@ function PatreonLogin({ children }) {
             </BtnSimple>
           </>
         )}
-        {!patreonClicked && (branch === 'early' || branch === 'dev') && (
+        {!patreonClicked && branch === 'dev' && (
           <BtnSimple
             css="btn-simple--2"
             type="button"
