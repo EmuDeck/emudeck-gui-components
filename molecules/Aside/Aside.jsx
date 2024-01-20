@@ -32,7 +32,7 @@ function Aside({ css }) {
   const ipcChannel = window.electron.ipcRenderer;
   const { state, setState } = useContext(GlobalContext);
   const [statePage, setStatePage] = useState({ modal: false });
-  const { system, systemName, branch } = state;
+  const { system, systemName, mode } = state;
   const { modal } = statePage;
   const navigate = useNavigate();
 
@@ -344,11 +344,11 @@ function Aside({ css }) {
     {
       icon: [iconScreen],
       iconFlat: 'screen',
-      title: 'Pegasus Themes',
-      description: 'Pich your Pegasus theme to install',
+      title: 'Pegasus Theme',
+      description: 'Pich your Pegasus theme',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: true,
+      status: !(mode === 'easy'),
       function: () => functions.navigate('/pegasus-theme-choice'),
     },
     {
@@ -389,7 +389,7 @@ function Aside({ css }) {
         'Plugin to easily view emulator hotkeys and configure EmuDeck in Gaming Mode',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: !(system === 'win32' || system === 'darwin'),
+      status: !(system === 'win32' || system === 'darwin' || mode === 'easy'),
       function: () => functions.navigate('/decky-controls'),
     },
 
