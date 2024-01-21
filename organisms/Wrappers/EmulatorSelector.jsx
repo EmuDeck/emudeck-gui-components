@@ -32,7 +32,7 @@ function EmulatorSelector({ onClick, images }) {
                 return;
               }
             }
-            if (item.id === 'ares') {
+            if (item.id === 'ares' && system === 'win32') {
               return;
             }
             if (system === 'win32') {
