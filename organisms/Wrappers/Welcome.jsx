@@ -48,7 +48,7 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
                 <span className="h3">{second === false && 'Easy Mode'}</span>
                 <p>
                   {second === false &&
-                    'This mode automatically installs and configures your device with our recommended settings so you can start playing right away.'}
+                    'This mode automatically installs and configures your device with our recommended settings so you can start playing right away. Recommended if you are new to emulation'}
                 </p>
               </Card>
             </div>
@@ -61,7 +61,7 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
                 <span className="h3">{second === false && 'Custom Mode'}</span>
                 <p>
                   {second === false &&
-                    'This mode allows you to customize how EmuDeck installs to your system. Configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, EmulationStation-DE themes, and Cloud Saves.'}
+                    'This mode allows you to customize how EmuDeck installs to your system. Configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, Frontends, etc. Recommended for advanced users.'}
                 </p>
               </Card>
             </div>
