@@ -60,7 +60,7 @@ function CopyGames({
                       aria="Start CopyGames"
                       onClick={() => onClickStart()}
                     >
-                      Create EmuDeck folders on USB Drive
+                      Start transfer
                     </BtnSimple>
                   )}
                 {statusCopyGames === null &&
