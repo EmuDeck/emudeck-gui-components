@@ -48,7 +48,7 @@ function EmulatorConfiguration({ onClick, images }) {
               }
             }
 
-            if (item.id === 'ares' && system === 'win32') {
+            if (item.id === 'ares') {
               return;
             }
 
