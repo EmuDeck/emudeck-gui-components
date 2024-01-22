@@ -247,7 +247,7 @@ function Aside({ css }) {
     {
       icon: [iconDisk],
       iconFlat: 'disk',
-      title: 'USB Transfer Wizard',
+      title: 'Import Games & BIOS',
       description: 'Transfer your games using a USB Drive',
       button: 'Add more games',
       btnCSS: 'btn-simple--1',

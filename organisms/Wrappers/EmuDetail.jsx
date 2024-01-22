@@ -566,36 +566,17 @@ function EmuDetail(props) {
                 </p>
               )}
               {emuData.id === 'cemu' && mode === 'expert' && (
-                <>
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Install Cemu AppImage"
-                    disabled={hideInstallButton}
-                    onClick={() => {
-                      if (
-                        window.confirm(
-                          'This action will install Cemu AppImage alongside your current Cemu'
-                        ) === true
-                      ) {
-                        onClickInstall('cemunative', 'CemuNative');
-                      }
-                    }}
-                  >
-                    Install Cemu Native
-                  </BtnSimple>
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Reset Cemu AppImage Configuration"
-                    disabled={disableResetButton}
-                    onClick={() => {
-                      onClick('CemuNative', 'CemuNative', 'cemunative');
-                    }}
-                  >
-                    Reset Cemu Native
-                  </BtnSimple>
-                </>
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  aria="Reset old Cemu Proton Configuration"
+                  disabled={disableResetButton}
+                  onClick={() => {
+                    onClick('CemuProton', 'CemuProton', 'cemuproton');
+                  }}
+                >
+                  Reset Cemu Proton
+                </BtnSimple>
               )}
             </div>
           </div>
