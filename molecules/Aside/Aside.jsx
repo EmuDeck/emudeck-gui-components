@@ -210,8 +210,8 @@ function Aside({ css }) {
       description: 'Setup your Android device with EmuDeck',
       button: 'Configure',
       btnCSS: 'btn-simple--1',
-      status: false,
-      function: () => functions.navigate('/settings'),
+      status: true,
+      function: () => functions.navigate('/android-rom-storage'),
     },
 
     {
