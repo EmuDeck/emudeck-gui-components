@@ -206,6 +206,17 @@ function Aside({ css }) {
     {
       icon: [iconGear],
       iconFlat: 'gear',
+      title: 'Android',
+      description: 'Setup your Android device with EmuDeck',
+      button: 'Configure',
+      btnCSS: 'btn-simple--1',
+      status: false,
+      function: () => functions.navigate('/settings'),
+    },
+
+    {
+      icon: [iconGear],
+      iconFlat: 'gear',
       title: 'Quick Settings',
       description:
         'Customize bezels, shaders, aspect ratio, auto save, and more',
@@ -251,11 +262,7 @@ function Aside({ css }) {
       description: 'Transfer your games using a USB Drive',
       button: 'Add more games',
       btnCSS: 'btn-simple--1',
-      status: !!(
-        systemName === 'SteamOS' ||
-        systemName === 'Linux' ||
-        systemName === 'Chimera'
-      ),
+      status: true,
       function: () => functions.navigate('/copy-games'),
     },
     {

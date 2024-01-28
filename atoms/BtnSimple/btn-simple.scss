@@ -97,7 +97,7 @@
 
 .btn-simple {
   font-weight: normal;
-
+  -webkit-app-region: no-drag;
   &--1 {
     animation: background 15s infinite;
   }
