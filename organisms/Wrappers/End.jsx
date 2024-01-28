@@ -32,11 +32,10 @@ import {
   imgmelonds,
   allyCrate,
   steamInput,
-  onClickWin32Config,
 } from 'components/utils/images/images';
 
 const ipcChannel = window.electron.ipcRenderer;
-function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
+function End({ message, percentage, step, disabledNext }) {
   const { state } = useContext(GlobalContext);
   const { installEmus, system, device } = state;
 
@@ -222,7 +221,6 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
 End.propTypes = {
   message: PropTypes.string,
   percentage: PropTypes.any,
-  onClickWin32Config: PropTypes.any,
   step: PropTypes.string,
   disabledNext: PropTypes.bool,
 };
@@ -230,7 +228,6 @@ End.propTypes = {
 End.defaultProps = {
   message: '',
   percentage: '',
-  onClickWin32Config: false,
   step: '',
   disabledNext: true,
 };
