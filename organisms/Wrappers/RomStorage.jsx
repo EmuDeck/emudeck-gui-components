@@ -21,9 +21,10 @@ function RomStorage({
   showInternal,
   showCustom,
   hddrives,
+  storage,
 }) {
   const { state } = useContext(GlobalContext);
-  const { storage, system } = state;
+  const { system } = state;
   return (
     <Main>
       <div className="cards">
