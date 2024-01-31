@@ -30,7 +30,8 @@ import {
   imgFrontPegasus,
   imgrmg,
   imgscummvm,
-  imgsupermodelista,
+  imgsupermodel,
+  imgmodel2,
   imgmelonds,
 } from 'components/utils/images/images';
 
@@ -121,8 +122,8 @@ function EmuDetail(props) {
       case 'scummvm':
         setStateImg({ img: imgscummvm });
         break;
-      case 'supermodelista':
-        setStateImg({ img: imgsupermodelista });
+      case 'supermodel':
+        setStateImg({ img: imgsupermodel });
         break;
       case 'xenia':
         setStateImg({ img: imgxenia });
@@ -144,6 +145,12 @@ function EmuDetail(props) {
         break;
       case 'ares':
         setStateImg({ img: imgares });
+        break;
+      case 'supermodel':
+        setStateImg({ img: imgsupermodel });
+        break;
+      case 'model2':
+        setStateImg({ img: imgmodel2 });
         break;
       default:
         setStateImg({ img: imgdefault });
@@ -408,56 +415,29 @@ function EmuDetail(props) {
                 </BtnSimple>
               ) */}
             </div>
-            {emuData.id !== 'ppsspp' &&
-              emuData.id !== 'ryujinx' &&
-              emuData.id !== 'melonds' &&
-              emuData.id !== 'rpcs3' &&
-              emuData.id !== 'xemu' &&
-              emuData.id !== 'cemu' &&
-              emuData.id !== 'srm' &&
-              emuData.id !== 'rmg' &&
-              emuData.id !== 'esde' &&
-              emuData.id !== 'mame' &&
-              emuData.id !== 'vita3k' &&
-              emuData.id !== 'flycast' &&
-              emuData.id !== 'scummvm' &&
-              emuData.id !== 'xenia' &&
-              emuData.id !== 'mgba' &&
-              emuData.id !== 'ares' &&
-              emuData.id !== 'pegasus' &&
-              emuData.id !== 'dolphin' && <p className="h5">Controls</p>}
+
             <div className="emudetail__actions">
-              {emuData.id !== 'ppsspp' &&
-                emuData.id !== 'ryujinx' &&
-                emuData.id !== 'melonds' &&
-                emuData.id !== 'rpcs3' &&
-                emuData.id !== 'xemu' &&
-                emuData.id !== 'cemu' &&
-                emuData.id !== 'srm' &&
-                emuData.id !== 'rmg' &&
-                emuData.id !== 'esde' &&
-                emuData.id !== 'mame' &&
-                emuData.id !== 'vita3k' &&
-                emuData.id !== 'flycast' &&
-                emuData.id !== 'scummvm' &&
-                emuData.id !== 'xenia' &&
-                emuData.id !== 'mgba' &&
-                emuData.id !== 'ares' &&
-                emuData.id !== 'pegasus' &&
-                emuData.id !== 'dolphin' && (
-                  <>
-                    {emuData.id !== 'ra' && (
-                      <BtnSimple
-                        css="btn-simple--1"
-                        type="button"
-                        aria="Controls"
-                        onClick={() =>
-                          onClickControls(emuData.id, emuData.code)
-                        }
-                      >
-                        Controls
-                      </BtnSimple>
-                    )}
+              {(emuData.id === 'primehack' ||
+                emuData.id === 'pcsx2' ||
+                emuData.id === 'yuzu' ||
+                emuData.id === 'cemu' ||
+                emuData.id === 'dolphin' ||
+                emuData.id === 'ra') && (
+                <>
+                  {emuData.id === 'ra' || emuData.id === 'dolphin' || (
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Controls"
+                      onClick={() => onClickControls(emuData.id, emuData.code)}
+                    >
+                      Controls
+                    </BtnSimple>
+                  )}
+
+                  {(emuData.id === 'ra' ||
+                    emuData.id === 'primehack' ||
+                    emuData.id === 'pcsx2') && (
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
@@ -466,8 +446,9 @@ function EmuDetail(props) {
                     >
                       Hotkeys
                     </BtnSimple>
-                  </>
-                )}
+                  )}
+                </>
+              )}
 
               {emuData.id === 'pcsx2' && (
                 <BtnSimple
