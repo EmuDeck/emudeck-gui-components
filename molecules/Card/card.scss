@@ -56,13 +56,14 @@
 }
 
 .cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: stretch;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(20%, 0fr));
+  grid-auto-flow: row;
   .card {
-    max-width: 20%;
+    // max-width: 20%;
     height: auto;
-    margin-right: 20px;
+    margin: 0px;
     text-align: center;
     padding: 20px;
     display: flex;
@@ -108,18 +109,22 @@
     }
   }
   &--mini {
+    grid-template-columns: repeat(auto-fill, minmax(10%, 0fr));
     .card {
-      max-width: 9.4%;
+      // max-width: 9.4%;
       padding: 10px;
     }
   }
   &--big {
+    display: flex;
+    flex-wrap: nowrap;
     .card {
       min-width: 31%;
       padding: 10px;
     }
   }
   &--maxi {
+    display: flex;
     flex-wrap: nowrap;
     .card {
       position: relative;
