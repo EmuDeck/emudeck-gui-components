@@ -39,6 +39,12 @@ function EmulatorSelector({ onClick, images }) {
               if (item.id === 'rmg' || item.id === 'ares') {
                 return;
               }
+              if (item.id === 'model2') {
+                return;
+              }
+              if (item.id === 'supermodel') {
+                return;
+              }
             }
 
             if (system === 'darwin') {
