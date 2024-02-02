@@ -26,6 +26,7 @@ import {
   iconDisk,
   iconHelp,
   iconScreen,
+  iconAndroid,
 } from 'components/utils/images/icons';
 
 function Aside({ css }) {
@@ -204,8 +205,8 @@ function Aside({ css }) {
 
   const settingsCards = [
     {
-      icon: [iconGear],
-      iconFlat: 'gear',
+      icon: [iconAndroid],
+      iconFlat: 'android',
       title: 'Android',
       description: 'Setup your Android device with EmuDeck',
       button: 'Configure',
@@ -227,7 +228,7 @@ function Aside({ css }) {
     },
     {
       icon: [iconGear],
-      iconFlat: 'gear',
+      iconFlat: 'books',
       title: 'Manage Emulators',
       description: 'Manage and update your Emulators and configurations',
       button: 'Update',
