@@ -211,7 +211,7 @@ function Aside({ css }) {
       description: 'Setup your Android device with EmuDeck',
       button: 'Configure',
       btnCSS: 'btn-simple--1',
-      status: true,
+      status: system === 'win32',
       function: () => functions.navigate('/android-rom-storage'),
     },
 
