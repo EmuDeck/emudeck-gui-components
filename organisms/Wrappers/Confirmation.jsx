@@ -43,6 +43,12 @@ function Confirmation() {
                 if (item.id === 'rmg') {
                   return;
                 }
+                if (item.id === 'model2') {
+                  return;
+                }
+                if (item.id === 'supermodel') {
+                  return;
+                }
               }
               // eslint-disable-next-line consistent-return
               return (
@@ -67,6 +73,12 @@ function Confirmation() {
               }
               if (system === 'win32') {
                 if (item.id === 'rmg') {
+                  return;
+                }
+                if (item.id === 'model2') {
+                  return;
+                }
+                if (item.id === 'supermodel') {
                   return;
                 }
               }
