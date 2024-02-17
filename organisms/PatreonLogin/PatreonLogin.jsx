@@ -256,40 +256,7 @@ function PatreonLogin({ children }) {
             Check Early Access features
           </BtnSimple>
         )}
-        {!patreonClicked && (branch === 'early' || branch === 'dev') && (
-          <>
-            <BtnSimple
-              css="btn-simple--3"
-              type="link"
-              target="_blank"
-              href="https://token.emudeck.com/"
-              aria="Login with Patreon"
-              onClick={() => patreonShowInput()}
-            >
-              Login with Patreon
-            </BtnSimple>
-            <BtnSimple
-              css="btn-simple--3"
-              type="link"
-              target="_blank"
-              href="https://patreon.com/"
-              aria="Change Patreon Account"
-            >
-              Change Patreon Account
-            </BtnSimple>
-          </>
-        )}
-        {!patreonClicked && branch === 'dev' && (
-          <BtnSimple
-            css="btn-simple--2"
-            type="button"
-            target="_blank"
-            aria="Login with Token"
-            onClick={() => patreonShowInput()}
-          >
-            Login with Token
-          </BtnSimple>
-        )}
+
         {patreonClicked && (
           <div className="form">
             <FormInputSimple

@@ -39,7 +39,7 @@ function CopyGamesAuto({
             <>
               <div data-col-sm="6">
                 <span className="h4">Select your USB Drive</span>
-                <div className="cards cards--half">
+                <div className="cards">
                   <Card
                     css={storageUSB === 'Custom' && 'is-selected'}
                     onClick={() => onClick('Custom')}

@@ -60,6 +60,13 @@
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(20%, 0fr));
   grid-auto-flow: row;
+  margin-bottom: 24px;
+  &--one {
+    display: block;
+    > .card {
+      width: 200px;
+    }
+  }
   .card {
     // max-width: 20%;
     height: auto;
@@ -110,6 +117,7 @@
   }
   &--mini {
     grid-template-columns: repeat(auto-fill, minmax(10%, 0fr));
+    margin-bottom: 24px;
     .card {
       // max-width: 9.4%;
       padding: 10px;
