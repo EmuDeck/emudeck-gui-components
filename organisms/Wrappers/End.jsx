@@ -7,32 +7,7 @@ import Main from 'components/organisms/Main/Main';
 import Sonic from 'components/organisms/Sonic/Sonic';
 import EmuModal from 'components/molecules/EmuModal/EmuModal';
 import { Img, ProgressBar, BtnSimple, Iframe } from 'getbasecore/Atoms';
-import {
-  iconSuccess,
-  iconDanger,
-  imgra,
-  imgdolphin,
-  imgprimehack,
-  imgppsspp,
-  imgduckstation,
-  imgcitra,
-  imgpcsx2,
-  imgrpcs3,
-  imgyuzu,
-  imgryujinx,
-  imgcemu,
-  imgxemu,
-  imgmame,
-  imgvita3k,
-  imgflycast,
-  imgsrm,
-  imgscummvm,
-  imgFrontESDE,
-  imgFrontPegasus,
-  imgmelonds,
-  allyCrate,
-  steamInput,
-} from 'components/utils/images/images';
+import { iconSuccess, iconDanger } from 'components/utils/images/icons';
 
 const ipcChannel = window.electron.ipcRenderer;
 function End({ message, percentage, step, disabledNext }) {
@@ -119,15 +94,18 @@ function End({ message, percentage, step, disabledNext }) {
             {system !== 'win32' && (
               <Card css="is-selected">
                 <div className="container--grid">
-                  <span data-col-sm="12" className="h2">
+                  <span
+                    data-col-sm="12"
+                    className="h2"
+                    style={{ color: '#444' }}
+                  >
                     Post Installation Status
                   </span>
                   <p className="lead">
                     Please check that all your emulators has been installed. If
                     an emulator or tool failed to install, run a{' '}
-                    <strong>Custom Reset</strong>
-                    or install the emulator on the{' '}
-                    <strong>Manage Emulators</strong> page.
+                    <strong>Custom Reset</strong> or install the emulator using
+                    the <strong>Manage Emulators</strong> page.
                   </p>
                   {emusInstalledStatus !== undefined &&
                     Object.values(emusInstalledStatus.Emulators).map((item) => {
