@@ -33,7 +33,7 @@ function Aside({ css }) {
   const ipcChannel = window.electron.ipcRenderer;
   const { state, setState } = useContext(GlobalContext);
   const [statePage, setStatePage] = useState({ modal: false });
-  const { system, systemName, mode } = state;
+  const { system, systemName, mode, branch } = state;
   const { modal } = statePage;
   const navigate = useNavigate();
 
@@ -211,7 +211,7 @@ function Aside({ css }) {
       description: 'Setup your Android device with EmuDeck',
       button: 'Configure',
       btnCSS: 'btn-simple--1',
-      status: system === 'win32',
+      status: system === 'win32' && (branch === 'early' || branch === 'dev'),
       function: () => functions.navigate('/android-rom-storage'),
     },
 
