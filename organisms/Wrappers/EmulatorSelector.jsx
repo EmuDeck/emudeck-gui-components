@@ -23,15 +23,6 @@ function EmulatorSelector({ onClick, images }) {
               return;
             }
 
-            if (system === 'win32' && branch === 'beta') {
-              if (
-                item.id === 'mame' ||
-                item.id === 'flycast' ||
-                item.id === 'mgba'
-              ) {
-                return;
-              }
-            }
             if (item.id === 'ares') {
               return;
             }
@@ -43,6 +34,9 @@ function EmulatorSelector({ onClick, images }) {
                 return;
               }
               if (item.id === 'supermodel') {
+                return;
+              }
+              if (item.id === 'bigpemu') {
                 return;
               }
             }

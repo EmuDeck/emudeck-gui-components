@@ -32,6 +32,7 @@ import {
   imgscummvm,
   imgsupermodel,
   imgmodel2,
+  imgbigpemu,
   imgmelonds,
 } from 'components/utils/images/images';
 
@@ -146,11 +147,11 @@ function EmuDetail(props) {
       case 'ares':
         setStateImg({ img: imgares });
         break;
-      case 'supermodel':
-        setStateImg({ img: imgsupermodel });
-        break;
       case 'model2':
         setStateImg({ img: imgmodel2 });
+        break;
+      case 'bigpemu':
+        setStateImg({ img: imgbigpemu });
         break;
       default:
         setStateImg({ img: imgdefault });

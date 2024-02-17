@@ -21,6 +21,7 @@ import imgrmg from 'assets/emulators/rmg.png';
 import imgscummvm from 'assets/emulators/scummvm.png';
 import imgsupermodel from 'assets/emulators/supermodel.png';
 import imgmodel2 from 'assets/emulators/model2.png';
+import imgbigpemu from 'assets/emulators/bigpemu.png';
 import imgFrontESDE from 'assets/frontends/esde.png';
 import imgFrontPegasus from 'assets/frontends/pegasus.png';
 import imgFrontSteam from 'assets/frontends/steam.png';
@@ -121,6 +122,7 @@ import mameGrid from 'assets/emulators/grid/mame.png';
 import rmgGrid from 'assets/emulators/grid/rmg.png';
 import supermodelGrid from 'assets/emulators/grid/supermodel.png';
 import model2Grid from 'assets/emulators/grid/model2.jpg';
+import bigpemuGrid from 'assets/emulators/grid/bigpemu.png';
 
 export {
   imgdefault,
@@ -149,6 +151,7 @@ export {
   imgscummvm,
   imgsupermodel,
   imgmodel2,
+  imgbigpemu,
   imgFrontESDE,
   imgFrontPegasus,
   imgFrontSteam,
@@ -244,4 +247,5 @@ export {
   rmgGrid,
   supermodelGrid,
   model2Grid,
+  bigpemuGrid,
 };

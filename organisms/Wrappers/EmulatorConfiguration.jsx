@@ -38,7 +38,13 @@ function EmulatorConfiguration({ onClick, images }) {
             }
 
             if (system === 'win32') {
-              if (item.id === 'rmg' || item.id === 'ares') {
+              if (
+                item.id === 'rmg' ||
+                item.id === 'ares' ||
+                item.id === 'bigpemu' ||
+                item.id === 'model2' ||
+                item.id === 'supermodel'
+              ) {
                 return;
               }
             }
