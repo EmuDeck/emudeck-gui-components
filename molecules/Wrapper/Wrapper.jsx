@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import Aside from 'components/molecules/Aside/Aside';
+import { useNavigate } from 'react-router-dom';
 
 function Wrapper({ children, aside, css }) {
   const { state } = useContext(GlobalContext);
@@ -16,6 +17,16 @@ function Wrapper({ children, aside, css }) {
   if (second === false) {
     showAside = false;
   }
+  const navigate = useNavigate();
+  useEffect(() => {
+    const showChangelog = localStorage.getItem('show_changelog');
+    console.log({ showChangelog });
+    if (showChangelog === 'true') {
+      // alert('yeah');
+      navigate('/change-log');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={`app ${system}`}>
