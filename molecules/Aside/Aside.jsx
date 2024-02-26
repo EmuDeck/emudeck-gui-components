@@ -212,7 +212,7 @@ function Aside({ css }) {
       button: 'Configure',
       btnCSS: 'btn-simple--1',
       status: system === 'win32' && (branch === 'early' || branch === 'dev'),
-      function: () => functions.navigate('/android-rom-storage'),
+      function: () => functions.navigate('/android-welcome'),
     },
 
     {
