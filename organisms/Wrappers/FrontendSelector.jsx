@@ -13,8 +13,8 @@ function FrontendSelector({ onClick, images, lastSelected }) {
   return (
     <>
       <p className="lead">
-        Please select the Frontends you want to use to launch your games, you
-        can select more than one.
+        Select which frontends you would like to use to launch your games. You 
+        may select more than one.
       </p>
       <Main>
         <div className="cards cards--big">

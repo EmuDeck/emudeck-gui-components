@@ -144,11 +144,11 @@ function CheckBios({
                 <li>
                   Tip 5: For systems not listed here, check the{' '}
                   <a
-                    href="https://github.com/dragoonDorise/EmuDeck/wiki/Cheat-Sheet"
+                    href="https://emudeck.github.io/cheat-sheet/"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    EmuDeck Wiki Cheat Sheet.
+                    Cheat Sheet on the EmuDeck Wiki.
                   </a>{' '}
                 </li>
                 <li>

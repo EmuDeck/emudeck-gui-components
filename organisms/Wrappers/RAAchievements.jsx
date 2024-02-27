@@ -75,7 +75,7 @@ function RAAchievements({ onChange, onToggle }) {
   useEffect(() => {
     if (achievements.token !== '') {
       ipcChannel.sendMessage('emudeck', [
-        `setAchievementToken|||RetroArch_retroAchievementsSetLogin;DuckStation_retroAchievementsSetLogin;PCSX2QT_retroAchievementsSetLogin; echo "true"`,
+        `setAchievementToken|||RetroArch_retroAchievementsSetLogin;DuckStation_retroAchievementsSetLogin;PCSX2QT_retroAchievementsSetLogin;PPSSPP_retroAchievementsSetLogin; echo "true"`,
       ]);
       ipcChannel.once('setAchievementToken', (message) => {
         let modalData;
@@ -95,8 +95,8 @@ function RAAchievements({ onChange, onToggle }) {
             header: <span className="h4">Success!</span>,
             body: (
               <p>
-                You are now succesfully logged to RetroAchievments for the
-                following emulators: RetroArch, DuckStation and PCSX2
+                You are now succesfully connected to RetroAchievments for the
+                following emulators: DuckStation, PCSX2, PPSSPP, and RetroArch
               </p>
             ),
             css: 'emumodal--xs',
@@ -107,7 +107,7 @@ function RAAchievements({ onChange, onToggle }) {
             header: <span className="h4">Error!</span>,
             body: (
               <p>
-                The user & password are correct but we couldn't set the
+                The user & password are correct but EmuDeck could not set the
                 configuration.
               </p>
             ),
@@ -125,7 +125,7 @@ function RAAchievements({ onChange, onToggle }) {
         RetroAchievements.org is a community led effort to collaborate and
         create custom-made achievements in emulated classic games. Enter your
         account information to set up RetroAchievements for Duckstation, PCSX2,
-        and RetroArch.
+        PPSSPP, and RetroArch.
       </p>
       <Main>
         <br />
@@ -184,7 +184,7 @@ function RAAchievements({ onChange, onToggle }) {
                 <>
                   <p>
                     <span className="h4">
-                      You are successfully logged to RetroAchivements!
+                      You are successfully connected to RetroAchivements!
                     </span>
                     <BtnSimple
                       css="btn-simple--1"
