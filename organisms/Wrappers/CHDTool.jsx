@@ -31,14 +31,20 @@ function CHDTool({ disabledNext, onClick }) {
         </p>
 
         <p>
+          <strong>CSO format</strong>
+          <br />
+          Used to compress PlayStation Portable ROMs. When compressing PlayStation Portable ROMs, you will be prompted to select if you would like to compress your ROMs to CSO or CHD.
+        </p>
+
+        <p>
           <strong>CHD format</strong>
           <br />
-          Used to compress CD-I, Dreamcast, PPSSPP PSX, PS2, Sega/MegaCD, 3DO, Saturn,
+          Used to compress CD-i, Dreamcast, PPS, PSX, PS2, Sega/MegaCD, 3DO, Saturn,
           TurboGraphix/PCEngineCD, PC-FX, Amiga CD32, NeoGeoCD games.
         </p>
 
         <p>
-          <strong>RVZ format:</strong>
+          <strong>RVZ format</strong>
           <br />
           Used to compress GameCube and Wii games.
         </p>
