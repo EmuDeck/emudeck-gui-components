@@ -12,8 +12,8 @@ function PegasusTheme({ onClick, themes }) {
   return (
     <>
       <p className="lead">
-        Please select your default theme. You'll be able to install additional
-        themes later in Manage Emulators.
+        Select your default theme. You will be able to install additional
+        themes on the Manage Emulators page.
       </p>
       <Main css="main--horizontal-scroll">
         <div className="cards cards--maxi">
