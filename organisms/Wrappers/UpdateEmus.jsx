@@ -32,7 +32,7 @@ function UpdateEmus({ onClickFlatpak, onClickAppImage, disabledNext }) {
           onClick={() => onClickAppImage()}
           disabled={disabledNext && 'true'}
         >
-          Update AppImages and Binaries
+          Update AppImages, Binaries, and Windows Executables
         </BtnSimple>
       </Main>
     </>

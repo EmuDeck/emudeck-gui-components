@@ -83,11 +83,11 @@ function RAAchievements({ onChange, onToggle }) {
         if (message.stdout.includes('true')) {
           if (achievements.hardcore) {
             ipcChannel.sendMessage('emudeck', [
-              `setHardcore|||RetroArch_retroAchievementsHardCoreOn`,
+              `setHardcore|||RetroArch_retroAchievementsHardCoreOn;DuckStation_retroAchievementsHardCoreOn;PCSX2QT_retroAchievementsHardCoreOn;PPSSPP_retroAchievementsHardCoreOn; echo "true"`,
             ]);
           } else {
             ipcChannel.sendMessage('emudeck', [
-              `setHardcore|||RetroArch_retroAchievementsHardCoreOff`,
+              `setHardcore|||RetroArch_retroAchievementsHardCoreOff;DuckStation_retroAchievementsHardCoreOff;PCSX2QT_retroAchievementsHardCoreOff;PPSSPP_retroAchievementsHardCoreOff; echo "false"`,
             ]);
           }
           modalData = {
