@@ -299,7 +299,9 @@ function EmuDetail(props) {
             )}
           </div>
           <div data-col-sm="3">
-            <p className="h5">Actions</p>
+            {emuData.id !== 'yuzu' && emuData.id !== 'citra' && (
+              <p className="h5">Actions</p>
+            )}
             <div className="emudetail__actions">
               {disableInstallButton && (
                 <BtnSimple
@@ -316,39 +318,45 @@ function EmuDetail(props) {
                 </BtnSimple>
               )}
 
-              {!disableInstallButton && (
-                <BtnSimple
-                  css="btn-simple--3"
-                  type="button"
-                  aria="Install"
-                  disabled={disableInstallButton}
-                  onClick={() => onClickInstall(emuData.id, emuData.code)}
-                >
-                  Install
-                </BtnSimple>
-              )}
-              {disableInstallButton && emuData.id !== 'yuzu' && (
-                <BtnSimple
-                  css="btn-simple--3"
-                  type="button"
-                  aria="ReInstall / Update"
-                  disabled={hideInstallButton}
-                  onClick={() => onClickReInstall(emuData.id, emuData.code)}
-                >
-                  ReInstall / Update
-                </BtnSimple>
-              )}
-              {disableInstallButton && emuData.id !== 'yuzu' && (
-                <BtnSimple
-                  css="btn-simple--3"
-                  type="button"
-                  aria="Uninstall"
-                  disabled={false}
-                  onClick={() => onClickUninstall(emuData.id, emuData.code)}
-                >
-                  Uninstall
-                </BtnSimple>
-              )}
+              {!disableInstallButton &&
+                emuData.id !== 'yuzu' &&
+                emuData.id !== 'citra' && (
+                  <BtnSimple
+                    css="btn-simple--3"
+                    type="button"
+                    aria="Install"
+                    disabled={disableInstallButton}
+                    onClick={() => onClickInstall(emuData.id, emuData.code)}
+                  >
+                    Install
+                  </BtnSimple>
+                )}
+              {disableInstallButton &&
+                emuData.id !== 'yuzu' &&
+                emuData.id !== 'citra' && (
+                  <BtnSimple
+                    css="btn-simple--3"
+                    type="button"
+                    aria="ReInstall / Update"
+                    disabled={hideInstallButton}
+                    onClick={() => onClickReInstall(emuData.id, emuData.code)}
+                  >
+                    ReInstall / Update
+                  </BtnSimple>
+                )}
+              {disableInstallButton &&
+                emuData.id !== 'yuzu' &&
+                emuData.id !== 'citra' && (
+                  <BtnSimple
+                    css="btn-simple--3"
+                    type="button"
+                    aria="Uninstall"
+                    disabled={false}
+                    onClick={() => onClickUninstall(emuData.id, emuData.code)}
+                  >
+                    Uninstall
+                  </BtnSimple>
+                )}
               {emuData.id === 'srm' && mode !== 'expert' && (
                 <p className="" style={{ textAlign: 'center' }}>
                   See more advanced options available by doing a Custom Reset
