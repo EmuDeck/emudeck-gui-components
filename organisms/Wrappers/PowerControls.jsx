@@ -2,12 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 
-import Notification from 'components/molecules/Notification/Notification';
 import { BtnSimple, FormInputSimple, LinkSimple } from 'getbasecore/Atoms';
 
-import { powerToolsImg } from 'components/utils/images/images';
-
-function PowerTools({
+function PowerControls({
   onChange,
   onChangeSetPass,
   onChangeCheckPass,
@@ -52,7 +49,7 @@ function PowerTools({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Install PowerTools"
+                aria="Install PowerControls"
                 onClick={installClick}
                 disabled={disableButton && 'true'}
               >
@@ -76,7 +73,7 @@ function PowerTools({
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
-                    aria="Install PowerTools"
+                    aria="Install PowerControls"
                     onClick={installClick}
                     disabled={disableButton && 'true'}
                   >
@@ -92,7 +89,7 @@ function PowerTools({
   );
 }
 
-PowerTools.propTypes = {
+PowerControls.propTypes = {
   onClick: PropTypes.func,
   onChange: PropTypes.func,
   onChangeSetPass: PropTypes.func,
@@ -106,7 +103,7 @@ PowerTools.propTypes = {
   disableButton: PropTypes.bool,
 };
 
-PowerTools.defaultProps = {
+PowerControls.defaultProps = {
   onClick: '',
   onChange: '',
   onChangeSetPass: '',
@@ -120,4 +117,4 @@ PowerTools.defaultProps = {
   disableButton: '',
 };
 
-export default PowerTools;
+export default PowerControls;

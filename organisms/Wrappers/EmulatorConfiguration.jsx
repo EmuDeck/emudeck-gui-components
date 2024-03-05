@@ -64,6 +64,10 @@ function EmulatorConfiguration({ onClick, images }) {
               return;
             }
 
+            if (item.id === 'yuzu' || item.id === 'citra') {
+              return;
+            }
+
             if (item.id === 'srm' && second === false) {
               return;
             }

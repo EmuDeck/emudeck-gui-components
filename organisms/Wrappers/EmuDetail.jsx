@@ -327,7 +327,7 @@ function EmuDetail(props) {
                   Install
                 </BtnSimple>
               )}
-              {disableInstallButton && (
+              {disableInstallButton && emuData.id !== 'yuzu' && (
                 <BtnSimple
                   css="btn-simple--3"
                   type="button"
@@ -338,7 +338,7 @@ function EmuDetail(props) {
                   ReInstall / Update
                 </BtnSimple>
               )}
-              {disableInstallButton && (
+              {disableInstallButton && emuData.id !== 'yuzu' && (
                 <BtnSimple
                   css="btn-simple--3"
                   type="button"
@@ -354,7 +354,7 @@ function EmuDetail(props) {
                   See more advanced options available by doing a Custom Reset
                 </p>
               )}
-              {emuData.id === 'srm' && mode === 'expert' && (
+              {emuData.id === 'srm' && (
                 <>
                   <p className="h5">Expert Mode:</p>
                   <BtnSimple
@@ -389,32 +389,6 @@ function EmuDetail(props) {
                   </BtnSimple> */}
                 </>
               )}
-
-              {emuData.id === 'yuzu' && (
-                <BtnSimple
-                  css="btn-simple--1"
-                  type="button"
-                  aria="Go Back"
-                  onClick={() => {
-                    yuzuEAaskToken();
-                  }}
-                >
-                  Setup Early Access
-                </BtnSimple>
-              )}
-
-              {/* emuData.id === 'rpcs3' && (
-                <BtnSimple
-                  css="btn-simple--1"
-                  type="button"
-                  aria="Go Back"
-                  onClick={() => {
-                    onClickMigrate('RPCS3');
-                  }}
-                >
-                  Migrate
-                </BtnSimple>
-              ) */}
             </div>
 
             <div className="emudetail__actions">
