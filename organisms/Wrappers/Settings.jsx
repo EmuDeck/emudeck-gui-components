@@ -30,6 +30,8 @@ import {
   sync,
   steamUI,
   winDesktop,
+  abxy,
+  bayx,
 } from 'components/utils/images/images';
 
 function Settings({
@@ -46,6 +48,7 @@ function Settings({
   onClickCloudSync,
   notificationText,
   showNotification,
+  onClickControllerLayoutSet,
 }) {
   const { state } = useContext(GlobalContext);
   const {
@@ -57,6 +60,7 @@ function Settings({
     cloudSyncStatus,
     gamemode,
     branch,
+    controllerLayout,
   } = state;
 
   return (
@@ -90,6 +94,32 @@ function Settings({
                   () => onClickAutoSave(true),
                   autosave === true ? 'is-selected' : '',
                   'On',
+                  '',
+                  true,
+                ],
+              ]}
+            />
+          </li>
+          <li>
+            <SelectorMenu
+              title="Controller Layout"
+              css="selector-menu--mini"
+              imgs={[
+                [abxy, controllerLayout === 'baxy' ? 'is-hidden' : ''],
+                [bayx, controllerLayout === 'abxy' ? 'is-hidden' : ''],
+              ]}
+              options={[
+                [
+                  () => onClickControllerLayoutSet('abxy'),
+                  controllerLayout === 'abxy' ? 'is-selected' : '',
+                  'A= A',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickControllerLayoutSet('baxy'),
+                  controllerLayout === 'baxy' ? 'is-selected' : '',
+                  'A= B',
                   '',
                   true,
                 ],
@@ -351,6 +381,7 @@ Settings.propTypes = {
   onClickCRT3D: PropTypes.func,
   onClickLCD: PropTypes.func,
   onClickAutoSave: PropTypes.func,
+  onClickControllerLayoutSet: PropTypes.func,
   onClickBoot: PropTypes.func,
   onClickCloudSync: PropTypes.func,
   notificationText: PropTypes.string,
@@ -368,6 +399,7 @@ Settings.defaultProps = {
   onClickLCD: '',
   onClickBoot: '',
   onClickAutoSave: '',
+  onClickControllerLayoutSet: '',
   onClickHomeBrew: '',
   onClickCloudSync: '',
   notificationText: '',
