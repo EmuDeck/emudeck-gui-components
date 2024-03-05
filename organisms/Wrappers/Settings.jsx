@@ -110,16 +110,16 @@ function Settings({
               ]}
               options={[
                 [
-                  () => onClickControllerLayoutSet('abxy'),
-                  controllerLayout === 'abxy' ? 'is-selected' : '',
-                  'A= A',
+                  () => onClickControllerLayoutSet('baxy'),
+                  controllerLayout === 'baxy' ? 'is-selected' : '',
+                  'A= B',
                   '',
                   true,
                 ],
                 [
-                  () => onClickControllerLayoutSet('baxy'),
-                  controllerLayout === 'baxy' ? 'is-selected' : '',
-                  'A= B',
+                  () => onClickControllerLayoutSet('abxy'),
+                  controllerLayout === 'abxy' ? 'is-selected' : '',
+                  'A= A',
                   '',
                   true,
                 ],

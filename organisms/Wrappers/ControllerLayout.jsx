@@ -26,16 +26,16 @@ function ControllerLayoutPage({ onClick }) {
           ]}
           options={[
             [
-              () => onClick('abxy'),
-              controllerLayout === 'abxy' ? 'is-selected' : '',
-              'Controller layout',
+              () => onClick('baxy'),
+              controllerLayout === 'baxy' ? 'is-selected' : '',
+              'Position Match',
               '',
               true,
             ],
             [
-              () => onClick('baxy'),
-              controllerLayout === 'baxy' ? 'is-selected' : '',
-              'Position Match',
+              () => onClick('abxy'),
+              controllerLayout === 'abxy' ? 'is-selected' : '',
+              'Controller layout',
               '',
               true,
             ],
