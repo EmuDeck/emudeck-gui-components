@@ -184,7 +184,7 @@ function RAAchievements({ onChange, onToggle }) {
                 <>
                   <p>
                     <span className="h4">
-                      You are successfully connected to RetroAchivements!
+                      You are successfully connected to RetroAchievements!
                     </span>
                     <BtnSimple
                       css="btn-simple--1"

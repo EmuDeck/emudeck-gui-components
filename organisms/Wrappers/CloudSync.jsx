@@ -13,7 +13,7 @@ function CloudSync({ onClick, showNone }) {
   const { cloudSyncType, system } = state;
   return (
     <>
-      <p className="lead">Select the type of Cloud saves you want.</p>
+      <p className="lead">Select your preferred type of cloud saving.</p>
       <Main>
         <SelectorMenu
           imgs={[

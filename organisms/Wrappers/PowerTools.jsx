@@ -62,7 +62,7 @@ function PowerTools({
             {hasSudo === true && sudoPass !== 'gamer' && (
               <div className="form">
                 <p>
-                  We have detected you already have set a sudo password, type it
+                  EmuDeck has detected you already have set a sudo password, type it
                   below to install Power Tools.
                 </p>
                 <FormInputSimple

@@ -26,7 +26,7 @@ function CHDTool({ disabledNext, onClick }) {
         <p>
           Important: CHD made from CUE / BIN will NOT work for Dreamcast. GDI is
           required. if you have both CUE and GDI for your Dreamcast games,
-          remove any left over cue files after parsing, or Steam ROM Manager
+          remove any left over CUE files after parsing, or Steam ROM Manager
           will detect non-existent games.
         </p>
 
@@ -39,7 +39,7 @@ function CHDTool({ disabledNext, onClick }) {
         <p>
           <strong>CHD format</strong>
           <br />
-          Used to compress CD-i, Dreamcast, PPS, PSX, PS2, Sega/MegaCD, 3DO, Saturn,
+          Used to compress CD-i, Dreamcast, PSP, PSX, PS2, Sega/MegaCD, 3DO, Saturn,
           TurboGraphix/PCEngineCD, PC-FX, Amiga CD32, NeoGeoCD games.
         </p>
 
