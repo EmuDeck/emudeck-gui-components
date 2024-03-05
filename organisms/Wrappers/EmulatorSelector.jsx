@@ -47,6 +47,10 @@ function EmulatorSelector({ onClick, images }) {
               }
             }
 
+            if (item.id === 'yuzu' || item.id === 'citra') {
+              return;
+            }
+
             const img = images[item.id];
             // eslint-disable-next-line consistent-return
             return (

@@ -356,7 +356,7 @@ function Aside({ css }) {
       description: 'Pich your Pegasus theme',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: !(mode === 'easy'),
+      status: state.installFrontends.pegasus.status,
       function: () => functions.navigate('/pegasus-theme-choice'),
     },
     {
@@ -397,7 +397,7 @@ function Aside({ css }) {
         'Plugin to easily view emulator hotkeys and configure EmuDeck in Gaming Mode',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: !(system === 'win32' || system === 'darwin' || mode === 'easy'),
+      status: !(system === 'win32' || system === 'darwin'),
       function: () => functions.navigate('/decky-controls'),
     },
 
@@ -429,13 +429,24 @@ function Aside({ css }) {
     {
       icon: [iconPlugin],
       iconFlat: 'plugin',
+      title: 'PowerTools',
+      description:
+        'A Decky Loader Plugin to manage performance settings in Game Mode',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system === 'SteamOS',
+      function: () => functions.navigate('/power-tools'),
+    },
+    {
+      icon: [iconPlugin],
+      iconFlat: 'plugin',
       title: 'PowerControls',
       description:
         'A Decky Loader Plugin to manage performance settings in Game Mode',
       button: 'More info',
       btnCSS: 'btn-simple--5',
       status: system === 'chimeraos',
-      function: () => functions.navigate('/power-tools'),
+      function: () => functions.navigate('/power-controls'),
     },
     {
       status: 'separator',
