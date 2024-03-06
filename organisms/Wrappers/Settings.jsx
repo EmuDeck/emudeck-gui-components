@@ -113,14 +113,14 @@ function Settings({
                   [
                     () => onClickControllerLayoutSet('baxy'),
                     controllerLayout === 'baxy' ? 'is-selected' : '',
-                    'A= B',
+                    'Position Match',
                     '',
                     true,
                   ],
                   [
                     () => onClickControllerLayoutSet('abxy'),
                     controllerLayout === 'abxy' ? 'is-selected' : '',
-                    'A= A',
+                    'Controller Layout Match',
                     '',
                     true,
                   ],

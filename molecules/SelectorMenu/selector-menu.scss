@@ -80,9 +80,12 @@
   // justify-content: space-between;
   flex-direction: row;
   height: 90%;
-  li {
+  > li {
     flex-basis: 45%;
     margin-bottom: 50px;
+    li {
+      margin-bottom: 8px;
+    }
   }
 }
 
@@ -107,14 +110,16 @@
     > p {
       margin-bottom: 12px;
       padding-bottom: 2px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      border-bottom: 1px solid #444;
       font-weight: bold;
+      line-height: 16px;
     }
     ul {
       display: flex;
-      li {
-        margin-right: 10px;
-      }
+      flex-direction: column;
+      // li {
+      //   margin-right: 10px;
+      // }
     }
   }
   .card {

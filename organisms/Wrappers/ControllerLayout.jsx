@@ -35,12 +35,12 @@ function ControllerLayoutPage({ onClick }) {
             [
               () => onClick('abxy'),
               controllerLayout === 'abxy' ? 'is-selected' : '',
-              'Controller layout',
+              'Controller Layout Match',
               '',
               true,
             ],
           ]}
-          details={['Nintendo Gamecube', 'Nintendo WiiU', 'Nintendo Switch']}
+          details={['Nintendo Systems']}
         />
       </Main>
     </>
