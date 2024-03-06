@@ -100,32 +100,34 @@ function Settings({
               ]}
             />
           </li>
-          <li>
-            <SelectorMenu
-              title="Controller Layout"
-              css="selector-menu--mini"
-              imgs={[
-                [abxy, controllerLayout === 'baxy' ? 'is-hidden' : ''],
-                [bayx, controllerLayout === 'abxy' ? 'is-hidden' : ''],
-              ]}
-              options={[
-                [
-                  () => onClickControllerLayoutSet('baxy'),
-                  controllerLayout === 'baxy' ? 'is-selected' : '',
-                  'A= B',
-                  '',
-                  true,
-                ],
-                [
-                  () => onClickControllerLayoutSet('abxy'),
-                  controllerLayout === 'abxy' ? 'is-selected' : '',
-                  'A= A',
-                  '',
-                  true,
-                ],
-              ]}
-            />
-          </li>
+          {system !== 'win32' && (
+            <li>
+              <SelectorMenu
+                title="Controller Layout"
+                css="selector-menu--mini"
+                imgs={[
+                  [abxy, controllerLayout === 'baxy' ? 'is-hidden' : ''],
+                  [bayx, controllerLayout === 'abxy' ? 'is-hidden' : ''],
+                ]}
+                options={[
+                  [
+                    () => onClickControllerLayoutSet('baxy'),
+                    controllerLayout === 'baxy' ? 'is-selected' : '',
+                    'A= B',
+                    '',
+                    true,
+                  ],
+                  [
+                    () => onClickControllerLayoutSet('abxy'),
+                    controllerLayout === 'abxy' ? 'is-selected' : '',
+                    'A= A',
+                    '',
+                    true,
+                  ],
+                ]}
+              />
+            </li>
+          )}
           {(branch === 'early' || branch === 'dev') && (
             <li>
               <SelectorMenu
