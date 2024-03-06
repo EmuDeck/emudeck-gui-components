@@ -23,12 +23,6 @@ function CHDTool({ disabledNext, onClick }) {
           The tool will compress your ROMs and convert to CHD,
           RVZ, Trimmed 3DS, XISO, and 7Zip formats.
         </p>
-        <p>
-          Important: CHD made from CUE / BIN will NOT work for Dreamcast. GDI is
-          required. if you have both CUE and GDI for your Dreamcast games,
-          remove any left over CUE files after parsing, or Steam ROM Manager
-          will detect non-existent games.
-        </p>
 
         <p>
           <strong>CSO format</strong>
