@@ -9,6 +9,7 @@ import imgcitra from 'assets/emulators/citra.png';
 import imgpcsx2 from 'assets/emulators/pcsx2.png';
 import imgrpcs3 from 'assets/emulators/rpcs3.png';
 import imgyuzu from 'assets/emulators/yuzu.png';
+import imgsuyu from 'assets/emulators/suyu.png';
 import imgryujinx from 'assets/emulators/ryujinx.png';
 import imgcemu from 'assets/emulators/cemu.png';
 import imgxemu from 'assets/emulators/xemu.png';
@@ -114,6 +115,7 @@ import scummvmGrid from 'assets/emulators/grid/scummvm.png';
 import vita3kGrid from 'assets/emulators/grid/vita3k.png';
 import xeniaGrid from 'assets/emulators/grid/xenia.png';
 import yuzuGrid from 'assets/emulators/grid/yuzu.png';
+import suyuGrid from 'assets/emulators/grid/suyu.jpg';
 import esdeGrid from 'assets/emulators/grid/esde.png';
 import srmGrid from 'assets/emulators/grid/srm.png';
 import pegasusGrid from 'assets/emulators/grid/pegasus.png';
@@ -138,6 +140,7 @@ export {
   imgpcsx2,
   imgrpcs3,
   imgyuzu,
+  imgsuyu,
   imgryujinx,
   imgcemu,
   imgxemu,
@@ -242,6 +245,7 @@ export {
   vita3kGrid,
   xeniaGrid,
   yuzuGrid,
+  suyuGrid,
   esdeGrid,
   srmGrid,
   pegasusGrid,

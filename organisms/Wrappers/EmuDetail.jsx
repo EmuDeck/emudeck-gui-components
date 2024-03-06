@@ -17,6 +17,7 @@ import {
   imgpcsx2,
   imgrpcs3,
   imgyuzu,
+  imgsuyu,
   imgryujinx,
   imgcemu,
   imgxemu,
@@ -101,6 +102,9 @@ function EmuDetail(props) {
         break;
       case 'yuzu':
         setStateImg({ img: imgyuzu });
+        break;
+      case 'suyu':
+        setStateImg({ img: imgsuyu });
         break;
       case 'ryujinx':
         setStateImg({ img: imgryujinx });
