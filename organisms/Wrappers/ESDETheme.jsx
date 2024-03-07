@@ -11,10 +11,7 @@ function ESDETheme({ onClick, themes }) {
 
   return (
     <>
-      <p className="lead">
-        Select your default theme. You will be able to install additional
-        themes on the Manage Emulators page.
-      </p>
+      <p className="lead">Select your default theme.</p>
       <Main css="main--horizontal-scroll">
         <div className="cards cards--maxi">
           {themes && (
