@@ -361,14 +361,8 @@ function EmuDetail(props) {
                     Uninstall
                   </BtnSimple>
                 )}
-              {emuData.id === 'srm' && mode !== 'expert' && (
-                <p className="" style={{ textAlign: 'center' }}>
-                  See more advanced options available by doing a Custom Reset
-                </p>
-              )}
               {emuData.id === 'srm' && (
                 <>
-                  <p className="h5">Expert Mode:</p>
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
@@ -499,15 +493,9 @@ function EmuDetail(props) {
                   </BtnSimple>
                 </>
               )}
-              {emuData.id === 'dolphin' && mode !== 'expert' && (
-                <p className="" style={{ textAlign: 'center' }}>
-                  See more advanced options available by doing a Custom Reset
-                </p>
-              )}
 
-              {emuData.id === 'dolphin' && mode === 'expert' && (
+              {emuData.id === 'dolphin' && (
                 <>
-                  <p className="h5">Expert Mode:</p>
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
@@ -528,12 +516,7 @@ function EmuDetail(props) {
                 </>
               )}
 
-              {emuData.id === 'cemu' && mode !== 'expert' && (
-                <p className="" style={{ textAlign: 'center' }}>
-                  See more advanced options available by doing a Custom Reset
-                </p>
-              )}
-              {emuData.id === 'cemu' && mode === 'expert' && (
+              {emuData.id === 'cemu' && (
                 <BtnSimple
                   css="btn-simple--1"
                   type="button"
