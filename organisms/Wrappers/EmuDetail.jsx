@@ -307,6 +307,17 @@ function EmuDetail(props) {
               <p className="h5">Actions</p>
             )}
             <div className="emudetail__actions">
+              {(!disableInstallButton && emuData.id === 'yuzu') ||
+                (emuData.id === 'citra' && (
+                  <BtnSimple
+                    css="btn-simple--3"
+                    type="button"
+                    aria="Update or reset configuration"
+                  >
+                    Emulator not found
+                  </BtnSimple>
+                ))}
+
               {disableInstallButton && (
                 <BtnSimple
                   css={updateAvailable ? 'btn-simple--6' : 'btn-simple--1'}
