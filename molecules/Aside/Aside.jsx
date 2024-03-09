@@ -560,6 +560,7 @@ function Aside({ css }) {
             );
           })}
       </ul>
+      {/* <div className="sidebar__announcements"></div> */}
       <EmuModal modal={modal} />
     </aside>
   );
