@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
@@ -31,10 +31,10 @@ import {
 
 function Aside({ css }) {
   const ipcChannel = window.electron.ipcRenderer;
-  const { state, setState } = useContext(GlobalContext);
-  const [statePage, setStatePage] = useState({ modal: false });
+  const { state, setState, stateCurrentConfigs } = useContext(GlobalContext);
+  const [statePage, setStatePage] = useState({ modal: false, updates: false });
   const { system, systemName, mode, branch } = state;
-  const { modal } = statePage;
+  const { modal, updates } = statePage;
   const navigate = useNavigate();
 
   const openCSM = () => {
@@ -193,6 +193,34 @@ function Aside({ css }) {
       ]);
     }
   };
+  useEffect(() => {
+    ipcChannel.sendMessage('check-versions');
+    ipcChannel.once('check-versions', (repoVersions) => {
+      // Thanks chatGPT lol
+      const obj1 = repoVersions;
+      const obj2 = stateCurrentConfigs;
+
+      const differences = {};
+
+      for (const key in obj1) {
+        if (JSON.stringify(obj1[key]) !== JSON.stringify(obj2[key])) {
+          differences[key] = obj1[key];
+        }
+      }
+
+      if (Object.keys(differences).length > 0) {
+        setStatePage({
+          ...statePage,
+          updates: true,
+        });
+      } else {
+        setStatePage({
+          ...statePage,
+          updates: false,
+        });
+      }
+    });
+  }, []);
 
   const functions = {
     openSRM,
@@ -234,6 +262,7 @@ function Aside({ css }) {
       button: 'Update',
       btnCSS: 'btn-simple--1',
       status: true,
+      updates,
       function: () => functions.navigate('/emulators'),
     },
     {
@@ -553,6 +582,7 @@ function Aside({ css }) {
                       ) */}
                       <Icon name={item.iconFlat} fill="transparent" />
                       {item.title}
+                      {item.updates && <span className="sidebar__alert" />}
                     </div>
                   </div>
                 </button>

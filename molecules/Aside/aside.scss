@@ -110,6 +110,7 @@
     overflow-y: auto;
 
     li {
+      position: relative;
       &.active {
         button {
           background: rgba(0, 0, 0, 0.15);
@@ -242,7 +243,15 @@
       }
     }
   }
-
+  &__alert {
+    background: var(--color-warning);
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    display: inline-block;
+    margin-left: 8px;
+    animation: pulse 2s infinite;
+  }
   &__announcements {
     background: linear-gradient(
       90deg,
