@@ -129,13 +129,15 @@ function CloudSyncConfig({
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              aria="Test CloudSync Health"
+              aria="Test Cloud Health"
               onClick={() => onClickCheckHealth()}
               disabled={disableButton}
             >
               {disableButton && 'Please wait...'}
 
-              {disableButton || 'Test CloudSync Health'}
+              {disableButton || cloudSyncType === 'Sync'
+                ? 'Test Cloud Sync Health'
+                : 'Test Cloud Backup Health'}
             </BtnSimple>
           </>
         )}

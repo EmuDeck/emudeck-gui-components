@@ -26,15 +26,15 @@ function CloudSync({ onClick, showNone }) {
               () => onClick('Sync'),
               cloudSyncType === 'Sync' ? 'is-selected' : '',
               'Sync',
-              'Sync between EmuDeck installations',
+              'Sync between EmuDeck installations - <strong> Patrons only</strong>',
               true,
             ],
             [
-              () => onClick('none'),
-              cloudSyncType === 'none' ? 'is-selected' : '',
-              'None',
-              '',
-              !!showNone,
+              () => onClick('Save'),
+              cloudSyncType === 'Save' ? 'is-selected' : '',
+              'Backup',
+              'Backup your games to the cloud',
+              true,
             ],
           ]}
           details={['All']}
