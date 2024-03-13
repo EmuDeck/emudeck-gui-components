@@ -10,7 +10,7 @@ import { none, backup, sync } from 'components/utils/images/images';
 
 function CloudSync({ onClick, showNone }) {
   const { state } = useContext(GlobalContext);
-  const { cloudSyncType, system } = state;
+  const { cloudSyncType, system, branch } = state;
   return (
     <>
       <p className="lead">Select your preferred type of cloud saving.</p>
@@ -34,7 +34,7 @@ function CloudSync({ onClick, showNone }) {
               cloudSyncType === 'Save' ? 'is-selected' : '',
               'Backup',
               'Backup your games to the cloud',
-              true,
+              branch !== 'early',
             ],
           ]}
           details={['All']}
