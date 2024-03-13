@@ -11,9 +11,6 @@
   @media (prefers-color-scheme: dark) {
     border-right: 1px solid #000;
   }
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
   min-width: 230px;
   max-width: 230px;
   transition: 0.5s;
@@ -108,7 +105,7 @@
   &__elements {
     overflow: hidden;
     overflow-y: auto;
-
+    height: 100%;
     li {
       position: relative;
       &.active {
@@ -251,6 +248,11 @@
     display: inline-block;
     margin-left: 8px;
     animation: pulse 2s infinite;
+    .win32 & {
+      margin-left: 0;
+      position: absolute;
+      right: 30px;
+    }
   }
   &__announcements {
     background: linear-gradient(
