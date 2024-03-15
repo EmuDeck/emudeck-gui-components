@@ -125,6 +125,7 @@ import rmgGrid from 'assets/emulators/grid/rmg.png';
 import supermodelGrid from 'assets/emulators/grid/supermodel.png';
 import model2Grid from 'assets/emulators/grid/model2.jpg';
 import bigpemuGrid from 'assets/emulators/grid/bigpemu.png';
+import aresGrid from 'assets/emulators/grid/ares.png';
 import bayx from 'assets/bayx.jpg';
 import abxy from 'assets/abxy.jpg';
 
@@ -254,6 +255,7 @@ export {
   supermodelGrid,
   model2Grid,
   bigpemuGrid,
+  aresGrid,
   bayx,
   abxy,
 };
