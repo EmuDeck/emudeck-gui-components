@@ -19,23 +19,24 @@ function EmulatorSelector({ onClick, images }) {
       <Main>
         <div className="cards cards--mini">
           {installEmusArray.map((item) => {
-            if (
-              item.id === 'srm' ||
-              item.id === 'primehacks' ||
-              item.id === 'yuzu' ||
-              item.id === 'citra'
-            ) {
+            if (item.id === 'srm' || item.id === 'primehacks') {
               return;
             }
 
+            if (item.id === 'ares') {
+              return;
+            }
             if (system === 'win32') {
-              if (
-                item.id === 'rmg' ||
-                item.id === 'ares' ||
-                item.id === 'bigpemu' ||
-                item.id === 'model2' ||
-                item.id === 'supermodel'
-              ) {
+              if (item.id === 'rmg' || item.id === 'ares') {
+                return;
+              }
+              if (item.id === 'model2') {
+                return;
+              }
+              if (item.id === 'supermodel') {
+                return;
+              }
+              if (item.id === 'bigpemu') {
                 return;
               }
             }
@@ -44,6 +45,10 @@ function EmulatorSelector({ onClick, images }) {
               if (item.id !== 'ra') {
                 return;
               }
+            }
+
+            if (item.id === 'yuzu' || item.id === 'citra') {
+              return;
             }
 
             const img = images[item.id];

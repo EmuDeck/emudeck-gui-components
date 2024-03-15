@@ -33,8 +33,7 @@ function ParserSelector({ onClick, images }) {
               item.id !== 'rmg' &&
               item.id !== 'duckstation' &&
               item.id !== 'scummvm' &&
-              item.id !== 'flycast' &&
-              item.id !== 'ares'
+              item.id !== 'flycast'
             ) {
               return;
             }

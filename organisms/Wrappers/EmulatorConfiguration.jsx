@@ -32,9 +32,7 @@ function EmulatorConfiguration({ onClick, images }) {
           {overwriteConfigEmusArray.map((item) => {
             if (
               overwriteConfigEmusArray.id === 'srm' ||
-              item.id === 'primehacks' ||
-              item.id === 'yuzu' ||
-              item.id === 'citra'
+              item.id === 'primehacks'
             ) {
               return;
             }
@@ -54,6 +52,20 @@ function EmulatorConfiguration({ onClick, images }) {
               if (item.id !== 'ra') {
                 return;
               }
+              if (item.id === 'model2') {
+                return;
+              }
+              if (item.id === 'supermodel') {
+                return;
+              }
+            }
+
+            if (item.id === 'ares') {
+              return;
+            }
+
+            if (item.id === 'yuzu' || item.id === 'citra') {
+              return;
             }
 
             if (item.id === 'srm' && second === false) {
