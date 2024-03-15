@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 //
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
 import Wrapper from 'components/molecules/Wrapper/Wrapper';
-import GamePad from 'components/organisms/GamePad/GamePad';
+
 import Main from 'components/organisms/Main/Main';
 import Header from 'components/organisms/Header/Header';
 
@@ -237,7 +237,8 @@ function PatreonLogin({ children }) {
       <Header title="Early Access Feature" />
       <Main>
         <p className="lead">
-          You need to be a patreon in order to access this feature.
+          You need to log into patreon in order to access this feature while
+          it's being tested on our Early Access branch.
         </p>
 
         {!!errorMessage && branch === 'early' && (
@@ -255,40 +256,7 @@ function PatreonLogin({ children }) {
             Check Early Access features
           </BtnSimple>
         )}
-        {!patreonClicked && branch === 'early' && (
-          <>
-            <BtnSimple
-              css="btn-simple--3"
-              type="link"
-              target="_blank"
-              href="https://token.emudeck.com/"
-              aria="Login with Patreon"
-              onClick={() => patreonShowInput()}
-            >
-              Login with Patreon
-            </BtnSimple>
-            <BtnSimple
-              css="btn-simple--3"
-              type="link"
-              target="_blank"
-              href="https://patreon.com/"
-              aria="Change Patreon Account"
-            >
-              Change Patreon Account
-            </BtnSimple>
-          </>
-        )}
-        {!patreonClicked && branch === 'early' && (
-          <BtnSimple
-            css="btn-simple--2"
-            type="button"
-            target="_blank"
-            aria="Login with Token"
-            onClick={() => patreonShowInput()}
-          >
-            Login with Token
-          </BtnSimple>
-        )}
+
         {patreonClicked && (
           <div className="form">
             <FormInputSimple

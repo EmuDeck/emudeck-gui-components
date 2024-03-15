@@ -7,36 +7,10 @@ import Main from 'components/organisms/Main/Main';
 import Sonic from 'components/organisms/Sonic/Sonic';
 import EmuModal from 'components/molecules/EmuModal/EmuModal';
 import { Img, ProgressBar, BtnSimple, Iframe } from 'getbasecore/Atoms';
-import {
-  iconSuccess,
-  iconDanger,
-  imgra,
-  imgdolphin,
-  imgprimehack,
-  imgppsspp,
-  imgduckstation,
-  imgcitra,
-  imgpcsx2,
-  imgrpcs3,
-  imgyuzu,
-  imgryujinx,
-  imgcemu,
-  imgxemu,
-  imgmame,
-  imgvita3k,
-  imgflycast,
-  imgsrm,
-  imgscummvm,
-  imgFrontESDE,
-  imgFrontPegasus,
-  imgmelonds,
-  allyCrate,
-  steamInput,
-  onClickWin32Config,
-} from 'components/utils/images/images';
+import { iconSuccess, iconDanger } from 'components/utils/images/icons';
 
 const ipcChannel = window.electron.ipcRenderer;
-function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
+function End({ message, percentage, step, disabledNext }) {
   const { state } = useContext(GlobalContext);
   const { installEmus, system, device } = state;
 
@@ -120,15 +94,18 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
             {system !== 'win32' && (
               <Card css="is-selected">
                 <div className="container--grid">
-                  <span data-col-sm="12" className="h2">
+                  <span
+                    data-col-sm="12"
+                    className="h2"
+                    style={{ color: '#444' }}
+                  >
                     Post Installation Status
                   </span>
                   <p className="lead">
                     Please check that all your emulators has been installed. If
                     an emulator or tool failed to install, run a{' '}
-                    <strong>Custom Reset</strong>
-                    or install the emulator on the{' '}
-                    <strong>Manage Emulators</strong> page.
+                    <strong>Custom Reset</strong> or install the emulator using
+                    the <strong>Manage Emulators</strong> page.
                   </p>
                   {emusInstalledStatus !== undefined &&
                     Object.values(emusInstalledStatus.Emulators).map((item) => {
@@ -194,82 +171,7 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
           </div>
         )}
         <br />
-        {disabledNext === true && (
-          <>
-            <Sonic />
-            <div className="container--grid">
-              <div data-col-sm="12">
-                <span className="h5">
-                  EmuDeck would not be possible without all these open-source
-                  projects. We want to give them all a big shout out for their
-                  hard work!
-                </span>
-                <div className="cards cards--mini cards--center">
-                  <Card css="is-selected">
-                    <img src={imgra} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgdolphin} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgprimehack} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgppsspp} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgduckstation} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgmelonds} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgcitra} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgpcsx2} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgrpcs3} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgyuzu} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgryujinx} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgcemu} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgxemu} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgmame} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgvita3k} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgflycast} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgscummvm} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgsrm} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgFrontESDE} alt="alt" />
-                  </Card>
-                  <Card css="is-selected">
-                    <img src={imgFrontPegasus} alt="alt" />
-                  </Card>
-                </div>
-              </div>
-            </div>
-          </>
-        )}
+        {disabledNext === true && <Sonic />}
       </Main>
       {disabledNext && (
         <EmuModal
@@ -297,7 +199,6 @@ function End({ message, percentage, onClickWin32Config, step, disabledNext }) {
 End.propTypes = {
   message: PropTypes.string,
   percentage: PropTypes.any,
-  onClickWin32Config: PropTypes.any,
   step: PropTypes.string,
   disabledNext: PropTypes.bool,
 };
@@ -305,7 +206,6 @@ End.propTypes = {
 End.defaultProps = {
   message: '',
   percentage: '',
-  onClickWin32Config: false,
   step: '',
   disabledNext: true,
 };

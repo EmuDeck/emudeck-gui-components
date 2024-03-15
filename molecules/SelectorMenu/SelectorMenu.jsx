@@ -24,7 +24,7 @@ function SelectorMenu({ css, imgs, options, details, title }) {
               const title = item[2];
               const desc = item[3];
               const enabled = item[4];
-              
+
               return (
                 <li className={enabled ? '' : 'is-hidden'}>
                   <Card onClick={() => func()} css={cssOption}>

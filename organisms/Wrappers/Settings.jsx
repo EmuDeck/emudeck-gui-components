@@ -30,6 +30,8 @@ import {
   sync,
   steamUI,
   winDesktop,
+  abxy,
+  bayx,
 } from 'components/utils/images/images';
 
 function Settings({
@@ -46,6 +48,7 @@ function Settings({
   onClickCloudSync,
   notificationText,
   showNotification,
+  onClickControllerLayoutSet,
 }) {
   const { state } = useContext(GlobalContext);
   const {
@@ -57,6 +60,7 @@ function Settings({
     cloudSyncStatus,
     gamemode,
     branch,
+    controllerLayout,
   } = state;
 
   return (
@@ -96,7 +100,35 @@ function Settings({
               ]}
             />
           </li>
-          {branch.includes('early') && (
+          {system !== 'win32' && (
+            <li>
+              <SelectorMenu
+                title="Controller Layout"
+                css="selector-menu--mini"
+                imgs={[
+                  [abxy, controllerLayout === 'baxy' ? 'is-hidden' : ''],
+                  [bayx, controllerLayout === 'abxy' ? 'is-hidden' : ''],
+                ]}
+                options={[
+                  [
+                    () => onClickControllerLayoutSet('baxy'),
+                    controllerLayout === 'baxy' ? 'is-selected' : '',
+                    'Position Match',
+                    '',
+                    true,
+                  ],
+                  [
+                    () => onClickControllerLayoutSet('abxy'),
+                    controllerLayout === 'abxy' ? 'is-selected' : '',
+                    'Controller Layout Match',
+                    '',
+                    true,
+                  ],
+                ]}
+              />
+            </li>
+          )}
+          {(branch === 'early' || branch === 'dev') && (
             <li>
               <SelectorMenu
                 title="CloudSync"
@@ -351,6 +383,7 @@ Settings.propTypes = {
   onClickCRT3D: PropTypes.func,
   onClickLCD: PropTypes.func,
   onClickAutoSave: PropTypes.func,
+  onClickControllerLayoutSet: PropTypes.func,
   onClickBoot: PropTypes.func,
   onClickCloudSync: PropTypes.func,
   notificationText: PropTypes.string,
@@ -368,6 +401,7 @@ Settings.defaultProps = {
   onClickLCD: '',
   onClickBoot: '',
   onClickAutoSave: '',
+  onClickControllerLayoutSet: '',
   onClickHomeBrew: '',
   onClickCloudSync: '',
   notificationText: '',

@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
 import PropTypes from 'prop-types';
 import { Alert } from 'getbasecore/Molecules';
 import Card from 'components/molecules/Card/Card';
-import CardSettings from 'components/molecules/CardSettings/CardSettings';
+import Banner from 'components/molecules/Banner/Banner';
 import { Iframe } from 'getbasecore/Atoms';
+import { useNavigate, Link } from 'react-router-dom';
+import StoreGame from 'components/molecules/StoreGame/StoreGame';
+
+const welcomeItems = require('data/welcome.json');
 
 function Welcome({ onClick, alert, alertCSS, functions, updates }) {
   const { state } = useContext(GlobalContext);
@@ -23,12 +27,12 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
     }
     return true;
   };
+
   return (
     <>
       {second === false && (
         <p className="lead">Select how you want to set up your device:</p>
       )}
-      {second === true && <p className="lead">Learn how to use EmuDeck:</p>}
 
       <Main>
         {/*
@@ -44,7 +48,7 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
                 <span className="h3">{second === false && 'Easy Mode'}</span>
                 <p>
                   {second === false &&
-                    'This mode automatically installs and configures your device with our recommended settings so you can start playing right away.'}
+                    'This mode automatically installs and configures your device with our recommended settings so you can start playing right away. Recommended if you are new to emulation.'}
                 </p>
               </Card>
             </div>
@@ -57,18 +61,11 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
                 <span className="h3">{second === false && 'Custom Mode'}</span>
                 <p>
                   {second === false &&
-                    'This mode allows you to customize how EmuDeck installs to your system. Configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, EmulationStation-DE themes, and Cloud Saves.'}
+                    'This mode allows you to customize your EmuDeck install. Configure Aspect Ratios, Bezels, Filters, RetroAchievements, Emulators, Frontends, and more. Recommended for advanced users.'}
                 </p>
               </Card>
             </div>
           </div>
-        )}
-
-        {second === true && system === 'win32' && (
-          <Iframe src="https://www.youtube-nocookie.com/embed/uLQWOS6KwVM?autoplay=0&modestbranding=1&rel=0&showinfo=0" />
-        )}
-        {second === true && system !== 'win32' && (
-          <Iframe src="https://www.youtube-nocookie.com/embed/rs9jDHIDKkU?autoplay=0&modestbranding=1&rel=0&showinfo=0" />
         )}
       </Main>
     </>

@@ -37,6 +37,7 @@
     position: absolute;
     left: 10px;
     bottom: 0px;
+    -webkit-app-region: no-drag;
   }
   &__flag {
     width: 28px;
@@ -46,5 +47,10 @@
   .h2 {
     z-index: 10;
     position: relative;
+    img {
+      height: 40px;
+      width: auto;
+      max-width: auto;
+    }
   }
 }

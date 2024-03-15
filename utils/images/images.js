@@ -9,6 +9,7 @@ import imgcitra from 'assets/emulators/citra.png';
 import imgpcsx2 from 'assets/emulators/pcsx2.png';
 import imgrpcs3 from 'assets/emulators/rpcs3.png';
 import imgyuzu from 'assets/emulators/yuzu.png';
+import imgsuyu from 'assets/emulators/suyu.png';
 import imgryujinx from 'assets/emulators/ryujinx.png';
 import imgcemu from 'assets/emulators/cemu.png';
 import imgxemu from 'assets/emulators/xemu.png';
@@ -19,7 +20,9 @@ import imgxenia from 'assets/emulators/xenia.png';
 import imgsrm from 'assets/emulators/srm.png';
 import imgrmg from 'assets/emulators/rmg.png';
 import imgscummvm from 'assets/emulators/scummvm.png';
-import imgsupermodelista from 'assets/emulators/supermodelista.png';
+import imgsupermodel from 'assets/emulators/supermodel.png';
+import imgmodel2 from 'assets/emulators/model2.png';
+import imgbigpemu from 'assets/emulators/bigpemu.png';
 import imgFrontESDE from 'assets/frontends/esde.png';
 import imgFrontPegasus from 'assets/frontends/pegasus.png';
 import imgFrontSteam from 'assets/frontends/steam.png';
@@ -112,6 +115,7 @@ import scummvmGrid from 'assets/emulators/grid/scummvm.png';
 import vita3kGrid from 'assets/emulators/grid/vita3k.png';
 import xeniaGrid from 'assets/emulators/grid/xenia.png';
 import yuzuGrid from 'assets/emulators/grid/yuzu.png';
+import suyuGrid from 'assets/emulators/grid/suyu.jpg';
 import esdeGrid from 'assets/emulators/grid/esde.png';
 import srmGrid from 'assets/emulators/grid/srm.png';
 import pegasusGrid from 'assets/emulators/grid/pegasus.png';
@@ -119,6 +123,11 @@ import pegasusGrid from 'assets/emulators/grid/pegasus.png';
 import mameGrid from 'assets/emulators/grid/mame.png';
 import rmgGrid from 'assets/emulators/grid/rmg.png';
 import supermodelGrid from 'assets/emulators/grid/supermodel.png';
+import model2Grid from 'assets/emulators/grid/model2.jpg';
+import bigpemuGrid from 'assets/emulators/grid/bigpemu.png';
+import aresGrid from 'assets/emulators/grid/ares.png';
+import bayx from 'assets/bayx.jpg';
+import abxy from 'assets/abxy.jpg';
 
 export {
   imgdefault,
@@ -132,6 +141,7 @@ export {
   imgpcsx2,
   imgrpcs3,
   imgyuzu,
+  imgsuyu,
   imgryujinx,
   imgcemu,
   imgxemu,
@@ -145,7 +155,9 @@ export {
   imgayaneokun,
   imglegiongo,
   imgscummvm,
-  imgsupermodelista,
+  imgsupermodel,
+  imgmodel2,
+  imgbigpemu,
   imgFrontESDE,
   imgFrontPegasus,
   imgFrontSteam,
@@ -234,10 +246,16 @@ export {
   vita3kGrid,
   xeniaGrid,
   yuzuGrid,
+  suyuGrid,
   esdeGrid,
   srmGrid,
   pegasusGrid,
   mameGrid,
   rmgGrid,
   supermodelGrid,
+  model2Grid,
+  bigpemuGrid,
+  aresGrid,
+  bayx,
+  abxy,
 };

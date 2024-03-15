@@ -24,13 +24,16 @@ import cemuHotkeys from 'assets/hotkeys/wiiu-hotkeys.jpg';
 import yuzuControls from 'assets/hotkeys/yuzu-controls.jpg';
 import yuzuHotkeysExpert from 'assets/hotkeys/yuzu-hotkeys-alt.jpg';
 import yuzuHotkeys from 'assets/hotkeys/yuzu-hotkeys.jpg';
+import basicHotkeys from 'assets/hotkeys/basic-hotkeys.png';
+import basicHotkeysWin from 'assets/hotkeys/basic-hotkeys-win.png';
 
 export {
   citraControls,
   citraHotkeys,
   duckstationControls,
   duckstationHotkeys,
-  duckstationHotkeys,
+  basicHotkeys,
+  basicHotkeysWin,
   gamecubeControls,
   gamecubeHotkeysExpert,
   gamecubeHotkeys,

@@ -97,7 +97,7 @@
 
 .btn-simple {
   font-weight: normal;
-
+  -webkit-app-region: no-drag;
   &--1 {
     animation: background 15s infinite;
   }
@@ -142,9 +142,9 @@
     margin-top: 10px;
   }
 }
-.btn-group [class*='btn'] {
-  border-radius: var(--btn-simple-border-radius);
-}
+// .btn-group [class*='btn'] {
+//   border-radius: var(--btn-simple-border-radius);
+// }
 
 .darwin .btn-simple--1,
 .win32 .btn-simple--1,
@@ -178,7 +178,6 @@
 .darwin .btn-simple--2,
 .win32 .btn-simple--2,
 .SteamOS .btn-simple--2 {
-  border-radius: 5px;
   background: var(#0000000d, rgba(0, 0, 0, 0.05));
   animation: none;
   &:hover {
@@ -192,14 +191,18 @@
   }
 }
 
-.darwin .btn-simple--3,
-.win32 .btn-simple--3,
-.SteamOS .btn-simple--3 {
+.darwin [class*='btn'],
+.win32 [class*='btn'] {
   border-radius: 5px;
   animation: none;
   &:hover {
     transform: none;
   }
+}
+
+.SteamOS [class*='btn'],
+.chimeraos [class*='btn'] {
+  border-radius: var(--btn-simple-border-radius);
 }
 
 .SteamOS .btn-simple--3 {

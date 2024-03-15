@@ -11,7 +11,7 @@ import {
   imgUSBDeck,
 } from 'components/utils/images/images';
 
-function CopyGames({
+function CopyGamesAuto({
   onClick,
   onClickStart,
   onClickCopyGames,
@@ -39,7 +39,7 @@ function CopyGames({
             <>
               <div data-col-sm="6">
                 <span className="h4">Select your USB Drive</span>
-                <div className="cards cards--half">
+                <div className="cards">
                   <Card
                     css={storageUSB === 'Custom' && 'is-selected'}
                     onClick={() => onClick('Custom')}
@@ -60,7 +60,7 @@ function CopyGames({
                       aria="Start CopyGames"
                       onClick={() => onClickStart()}
                     >
-                      Create EmuDeck folders on USB Drive
+                      Start transfer
                     </BtnSimple>
                   )}
                 {statusCopyGames === null &&
@@ -102,68 +102,13 @@ function CopyGames({
               </div>
             </>
           )}
-          {statusCopyGames === true && (
-            <>
-              <div
-                data-col-sm={
-                  installFrontends.esde.status && installFrontends.steam.status
-                    ? '6'
-                    : '12'
-                }
-              >
-                <span className="h4">
-                  Adding{' '}
-                  {installFrontends.steam.status
-                    ? 'your games'
-                    : 'EmulationStation DE'}{' '}
-                  using Steam ROM Manager
-                </span>
-                <img src={imgSTEAM} alt="Steam" />
-                <p>
-                  EmuDeck can add your games to Steam as non-Steam game
-                  shortcuts.
-                  <br />
-                  <br />
-                  When you open Steam ROM Manager, enable your desired parsers,
-                  click on <strong>Preview, Parse</strong>
-                  and wait until it finishes, then{' '}
-                  <strong>Save apps to Steam</strong>. When it finishes, you can
-                  switch back to Game Mode and play your newly transferred
-                  games.
-                </p>
-              </div>
-              {installFrontends.esde.status && (
-                <div
-                  data-col-sm={
-                    installFrontends.esde.status &&
-                    installFrontends.steam.status
-                      ? '6'
-                      : '12'
-                  }
-                >
-                  <span className="h4">Play Using EmulationStation DE</span>
-                  <img src={rbsimple2} alt="ESDE" />
-                  <p>
-                    EmulationStation-DE is recommended if you have a lot of
-                    games.
-                    <br />
-                    <br />
-                    You will need to launch Steam ROM Manager to add
-                    EmulationStation DE to your library even if you won't use it
-                    to launch your games since you need Steam Input to be
-                    enabled.
-                  </p>
-                </div>
-              )}
-            </>
-          )}
         </div>
       </Main>
     </>
   );
 }
 
-CopyGames.propTypes = {
+CopyGamesAuto.propTypes = {
   onClick: PropTypes.func,
   onClickStart: PropTypes.func,
   onClickCopyGames: PropTypes.func,
@@ -175,7 +120,7 @@ CopyGames.propTypes = {
   installFrontends: PropTypes.any,
 };
 
-CopyGames.defaultProps = {
+CopyGamesAuto.defaultProps = {
   onClick: '',
   onClickStart: '',
   onClickCopyGames: '',
@@ -187,4 +132,4 @@ CopyGames.defaultProps = {
   installFrontends: '',
 };
 
-export default CopyGames;
+export default CopyGamesAuto;

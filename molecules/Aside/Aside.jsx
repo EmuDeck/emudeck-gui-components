@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
@@ -26,14 +26,15 @@ import {
   iconDisk,
   iconHelp,
   iconScreen,
+  iconAndroid,
 } from 'components/utils/images/icons';
 
 function Aside({ css }) {
   const ipcChannel = window.electron.ipcRenderer;
-  const { state, setState } = useContext(GlobalContext);
-  const [statePage, setStatePage] = useState({ modal: false });
-  const { system, systemName, branch } = state;
-  const { modal } = statePage;
+  const { state, setState, stateCurrentConfigs } = useContext(GlobalContext);
+  const [statePage, setStatePage] = useState({ modal: false, updates: false });
+  const { system, systemName, mode, branch } = state;
+  const { modal, updates } = statePage;
   const navigate = useNavigate();
 
   const openCSM = () => {
@@ -97,7 +98,7 @@ function Aside({ css }) {
     } else {
       ipcChannel.sendMessage(
         'bash',
-        'bash "~/.config/EmuDeck/backend/uninstall.sh"'
+        'bash ~/.config/EmuDeck/backend/uninstall.sh'
       );
     }
   };
@@ -152,6 +153,15 @@ function Aside({ css }) {
         '"$toolsPath/launchers/srm/steamrommanager.sh"'
       );
     }
+
+    let timer;
+
+    if (system === 'win32') {
+      timer = 30000;
+    } else {
+      timer = 10;
+    }
+
     const timerId = setTimeout(() => {
       setStatePage({
         ...statePage,
@@ -160,7 +170,7 @@ function Aside({ css }) {
         },
       });
       clearTimeout(timerId);
-    }, 30000);
+    }, timer);
   };
 
   const selectMode = (value) => {
@@ -183,6 +193,34 @@ function Aside({ css }) {
       ]);
     }
   };
+  useEffect(() => {
+    ipcChannel.sendMessage('check-versions');
+    ipcChannel.once('check-versions', (repoVersions) => {
+      // Thanks chatGPT lol
+      const obj1 = repoVersions;
+      const obj2 = stateCurrentConfigs;
+
+      const differences = {};
+
+      for (const key in obj1) {
+        if (JSON.stringify(obj1[key]) !== JSON.stringify(obj2[key])) {
+          differences[key] = obj1[key];
+        }
+      }
+
+      if (Object.keys(differences).length > 0) {
+        setStatePage({
+          ...statePage,
+          updates: true,
+        });
+      } else {
+        setStatePage({
+          ...statePage,
+          updates: false,
+        });
+      }
+    });
+  }, []);
 
   const functions = {
     openSRM,
@@ -195,15 +233,16 @@ function Aside({ css }) {
 
   const settingsCards = [
     {
-      icon: [iconGear],
-      iconFlat: 'gear',
-      title: 'Manage Emulators',
-      description: 'Manage and update your Emulators and configurations',
-      button: 'Update',
+      icon: [iconAndroid],
+      iconFlat: 'android',
+      title: 'Android',
+      description: 'Setup your Android device with EmuDeck',
+      button: 'Configure',
       btnCSS: 'btn-simple--1',
-      status: true,
-      function: () => functions.navigate('/emulators'),
+      status: system === 'win32' && (branch === 'early' || branch === 'dev'),
+      function: () => functions.navigate('/android-welcome'),
     },
+
     {
       icon: [iconGear],
       iconFlat: 'gear',
@@ -216,6 +255,17 @@ function Aside({ css }) {
       function: () => functions.navigate('/settings'),
     },
     {
+      icon: [iconGear],
+      iconFlat: 'books',
+      title: 'Manage Emulators',
+      description: 'Manage and update your Emulators and configurations',
+      button: 'Update',
+      btnCSS: 'btn-simple--1',
+      status: true,
+      updates,
+      function: () => functions.navigate('/emulators'),
+    },
+    {
       icon: [iconPackage],
       iconFlat: 'package',
       title: 'EmuDeck Store',
@@ -224,16 +274,6 @@ function Aside({ css }) {
       btnCSS: 'btn-simple--1',
       status: true,
       function: () => functions.navigate('/store-front'),
-    },
-    {
-      icon: [iconHelp],
-      iconFlat: 'help',
-      title: 'Help',
-      description: 'Having problems running EmuDeck?',
-      button: 'Read the wiki',
-      btnCSS: 'btn-simple--1',
-      status: true,
-      function: () => functions.navigate('/help'),
     },
     {
       icon: [iconJoystick],
@@ -248,15 +288,11 @@ function Aside({ css }) {
     {
       icon: [iconDisk],
       iconFlat: 'disk',
-      title: 'USB Transfer Wizard',
+      title: 'Import Games & BIOS',
       description: 'Transfer your games using a USB Drive',
       button: 'Add more games',
       btnCSS: 'btn-simple--1',
-      status: !!(
-        systemName === 'SteamOS' ||
-        systemName === 'Linux' ||
-        systemName === 'Chimera'
-      ),
+      status: true,
       function: () => functions.navigate('/copy-games'),
     },
     {
@@ -345,11 +381,11 @@ function Aside({ css }) {
     {
       icon: [iconScreen],
       iconFlat: 'screen',
-      title: 'Pegasus Themes',
-      description: 'Pich your Pegasus theme to install',
+      title: 'Pegasus Theme',
+      description: 'Pich your Pegasus theme',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: true,
+      status: state.installFrontends.pegasus.status,
       function: () => functions.navigate('/pegasus-theme-choice'),
     },
     {
@@ -422,13 +458,24 @@ function Aside({ css }) {
     {
       icon: [iconPlugin],
       iconFlat: 'plugin',
+      title: 'PowerTools',
+      description:
+        'A Decky Loader Plugin to manage performance settings in Game Mode',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system === 'SteamOS',
+      function: () => functions.navigate('/power-tools'),
+    },
+    {
+      icon: [iconPlugin],
+      iconFlat: 'plugin',
       title: 'PowerControls',
       description:
         'A Decky Loader Plugin to manage performance settings in Game Mode',
       button: 'More info',
       btnCSS: 'btn-simple--5',
       status: system === 'chimeraos',
-      function: () => functions.navigate('/power-tools'),
+      function: () => functions.navigate('/power-controls'),
     },
     {
       status: 'separator',
@@ -535,6 +582,7 @@ function Aside({ css }) {
                       ) */}
                       <Icon name={item.iconFlat} fill="transparent" />
                       {item.title}
+                      {item.updates && <span className="sidebar__alert" />}
                     </div>
                   </div>
                 </button>
@@ -542,6 +590,7 @@ function Aside({ css }) {
             );
           })}
       </ul>
+      {/* <div className="sidebar__announcements"></div> */}
       <EmuModal modal={modal} />
     </aside>
   );

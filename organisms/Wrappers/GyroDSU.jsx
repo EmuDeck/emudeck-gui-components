@@ -7,16 +7,9 @@ import Main from 'components/organisms/Main/Main';
 import { gyroDsuImg } from 'components/utils/images/images';
 
 function GyroDSU({
-  onChange,
-  onChangeSetPass,
-  onChangeCheckPass,
-  onClick,
   installClick,
-  hasSudo,
-  sudoPass,
   showNotification,
   textNotification,
-  passValidates,
   disableButton,
 }) {
   return (
@@ -38,43 +31,15 @@ function GyroDSU({
         <br />
         <div className="container--grid">
           <div data-col-sm="6">
-            {hasSudo === false && (
-              <BtnSimple
-                css="btn-simple--1"
-                type="button"
-                aria="Install GyroDSU"
-                onClick={installClick}
-                disabled={disableButton && 'true'}
-              >
-                Install SteamDeckGyroDSU
-              </BtnSimple>
-            )}
-            {hasSudo === true && (
-              <div className="form">
-                <p>
-                  We have detected you already have set a sudo password, type it
-                  below to install SteamDeckGyroDSU.
-                </p>
-                <FormInputSimple
-                  label="Sudo Password"
-                  type="password"
-                  name="pass"
-                  id="pass"
-                  onChange={onChange}
-                />
-                {sudoPass !== '' && (
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Install GyroDSU"
-                    onClick={installClick}
-                    disabled={disableButton && 'true'}
-                  >
-                    Install SteamDeckGyroDSU
-                  </BtnSimple>
-                )}
-              </div>
-            )}
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Install GyroDSU"
+              onClick={installClick}
+              disabled={disableButton && 'true'}
+            >
+              Install SteamDeckGyroDSU
+            </BtnSimple>
           </div>
           <div data-col-sm="1" />
           <div data-col-sm="5">
@@ -87,30 +52,16 @@ function GyroDSU({
 }
 
 GyroDSU.propTypes = {
-  onChange: PropTypes.func,
-  onChangeSetPass: PropTypes.func,
-  onChangeCheckPass: PropTypes.func,
-  onClick: PropTypes.func,
   installClick: PropTypes.func,
-  hasSudo: PropTypes.bool,
-  sudoPass: PropTypes.string,
   showNotification: PropTypes.bool,
   textNotification: PropTypes.string,
-  passValidates: PropTypes.bool,
   disableButton: PropTypes.bool,
 };
 
 GyroDSU.defaultProps = {
-  onChange: '',
-  onChangeSetPass: '',
-  onChangeCheckPass: '',
-  onClick: '',
   installClick: '',
-  hasSudo: '',
-  sudoPass: 'Decky!',
   showNotification: '',
   textNotification: '',
-  passValidates: '',
   disableButton: '',
 };
 

@@ -10,10 +10,10 @@ import { none, backup, sync } from 'components/utils/images/images';
 
 function CloudSync({ onClick, showNone }) {
   const { state } = useContext(GlobalContext);
-  const { cloudSyncType, system } = state;
+  const { cloudSyncType, system, branch } = state;
   return (
     <>
-      <p className="lead">Select the type of Cloud saves you want.</p>
+      <p className="lead">Select your preferred type of cloud saving.</p>
       <Main>
         <SelectorMenu
           imgs={[
@@ -26,15 +26,15 @@ function CloudSync({ onClick, showNone }) {
               () => onClick('Sync'),
               cloudSyncType === 'Sync' ? 'is-selected' : '',
               'Sync',
-              'Sync between EmuDeck installations',
+              'Sync between EmuDeck installations - <strong> Patrons only</strong>',
               true,
             ],
             [
-              () => onClick('none'),
-              cloudSyncType === 'none' ? 'is-selected' : '',
-              'None',
-              '',
-              !!showNone,
+              () => onClick('Save'),
+              cloudSyncType === 'Save' ? 'is-selected' : '',
+              'Backup',
+              'Backup your games to the cloud',
+              branch !== 'early',
             ],
           ]}
           details={['All']}

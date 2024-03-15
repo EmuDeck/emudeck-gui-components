@@ -21,6 +21,7 @@ import iconPackage from 'assets/icon/package.svg';
 import iconQuestion from 'assets/icon/question.svg';
 import iconDisk from 'assets/icon/disk.svg';
 import iconScreen from 'assets/icon/screen.svg';
+import iconAndroid from 'assets/icon/android.svg';
 
 export {
   iconChecker,
@@ -46,4 +47,5 @@ export {
   iconQuestion,
   iconDisk,
   iconScreen,
+  iconAndroid,
 };

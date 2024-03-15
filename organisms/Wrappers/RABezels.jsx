@@ -14,7 +14,7 @@ function RABezels({ onClick }) {
   return (
     <>
       <p className="lead">
-        Use our pre-configured bezels to hide the vertical black bars on 8 bit
+        Use EmuDeck's pre-configured bezels to hide the vertical black bars on 8 bit
         and 16 bit games.
       </p>
 

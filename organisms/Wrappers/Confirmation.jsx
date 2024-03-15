@@ -32,15 +32,17 @@ function Confirmation() {
           <span className="h5">EmuDeck will install:</span>
           <ul>
             {installEmusArray.map((item) => {
-              if (
-                item.id === 'ares' ||
-                item.id === 'pegasus' ||
-                item.id === 'srm'
-              ) {
+              if (item.id === 'pegasus' || item.id === 'srm') {
                 return;
               }
               if (system === 'win32') {
                 if (item.id === 'rmg') {
+                  return;
+                }
+                if (item.id === 'model2') {
+                  return;
+                }
+                if (item.id === 'supermodel') {
                   return;
                 }
               }
@@ -67,6 +69,12 @@ function Confirmation() {
               }
               if (system === 'win32') {
                 if (item.id === 'rmg') {
+                  return;
+                }
+                if (item.id === 'model2') {
+                  return;
+                }
+                if (item.id === 'supermodel') {
                   return;
                 }
               }

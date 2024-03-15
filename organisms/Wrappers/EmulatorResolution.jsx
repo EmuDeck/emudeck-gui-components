@@ -10,8 +10,8 @@ function EmulatorResolution({ onClick }) {
   return (
     <>
       <p className="lead">
-        Choose the resolution you would like to use for your emulators. Keep in
-        mind the higher the resolution, the beefier computer you will need.
+        Select the resolution you would like to use for your emulators. 
+        Keep in mind that a higher resolution will require a stronger computer.
       </p>
       <Main>
         <div className="container--grid">

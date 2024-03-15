@@ -52,9 +52,7 @@ function HeaderElectron({ title, bold }) {
   const runCommand = () => {
     const idMessage = Math.random();
     ipcChannel.sendMessage('emudeck', [`${idMessage}|||${command}`]);
-    ipcChannel.once(idMessage, (message) => {
-      
-    });
+    ipcChannel.once(idMessage, (message) => {});
   };
   const saveCommand = (e) => {
     setState({ ...state, command: e.target.value });
@@ -121,9 +119,7 @@ function HeaderElectron({ title, bold }) {
       )}
 
       {!debug && (
-        <h1 className="h2">
-          {title} <span>{bold}</span>
-        </h1>
+        <h1 className="h2" dangerouslySetInnerHTML={{ __html: title }} />
       )}
       {debug && (
         <div className="form">
