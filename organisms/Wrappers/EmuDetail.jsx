@@ -308,7 +308,7 @@ function EmuDetail(props) {
             )}
             <div className="emudetail__actions">
               {(!disableInstallButton && emuData.id === 'yuzu') ||
-                (emuData.id === 'citra' && (
+                (!disableInstallButton && emuData.id === 'citra' && (
                   <BtnSimple
                     css="btn-simple--3"
                     type="button"
