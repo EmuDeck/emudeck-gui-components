@@ -220,7 +220,7 @@ function Aside({ css }) {
         });
       }
     });
-  }, []);
+  }, [stateCurrentConfigs, '']);
 
   const functions = {
     openSRM,
