@@ -582,7 +582,7 @@ function Aside({ css }) {
                       ) */}
                       <Icon name={item.iconFlat} fill="transparent" />
                       {item.title}
-                      {/*item.updates && <span className="sidebar__alert" />*/}
+                      {item.updates && <span className="sidebar__alert" />}
                     </div>
                   </div>
                 </button>
