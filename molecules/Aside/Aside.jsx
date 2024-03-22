@@ -33,7 +33,7 @@ function Aside({ css }) {
   const ipcChannel = window.electron.ipcRenderer;
   const { state, setState, stateCurrentConfigs } = useContext(GlobalContext);
   const [statePage, setStatePage] = useState({ modal: false, updates: false });
-  const { system, systemName, mode, branch } = state;
+  const { system, systemName, mode, branch, installEmus } = state;
   const { modal, updates } = statePage;
   const navigate = useNavigate();
 
@@ -203,8 +203,13 @@ function Aside({ css }) {
       const differences = {};
 
       for (const key in obj1) {
-        if (JSON.stringify(obj1[key]) !== JSON.stringify(obj2[key])) {
-          differences[key] = obj1[key];
+        if (installEmus[obj1[key].id]) {
+          if (
+            JSON.stringify(obj1[key]) !== JSON.stringify(obj2[key]) &&
+            installEmus[obj1[key].id].status
+          ) {
+            differences[key] = obj1[key];
+          }
         }
       }
 
