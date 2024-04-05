@@ -56,6 +56,7 @@ function EmuDetail(props) {
     onClickHotkeys,
     onClickControls,
     onClickParsers,
+    onClickRemoveParsers,
   } = props;
   const [stateImg, setStateImg] = useState({
     img: imgdefault,
@@ -307,16 +308,24 @@ function EmuDetail(props) {
               <p className="h5">Actions</p>
             )}
             <div className="emudetail__actions">
-              {(!disableInstallButton && emuData.id === 'yuzu') ||
-                (!disableInstallButton && emuData.id === 'citra' && (
-                  <BtnSimple
-                    css="btn-simple--3"
-                    type="button"
-                    aria="Update or reset configuration"
-                  >
-                    Emulator not found
-                  </BtnSimple>
-                ))}
+              {!disableInstallButton && emuData.id === 'yuzu' && (
+                <BtnSimple
+                  css="btn-simple--3"
+                  type="button"
+                  aria="Update or reset configuration"
+                >
+                  Emulator not found
+                </BtnSimple>
+              )}
+              {!disableInstallButton && emuData.id === 'citra' && (
+                <BtnSimple
+                  css="btn-simple--3"
+                  type="button"
+                  aria="Update or reset configuration"
+                >
+                  Emulator not found
+                </BtnSimple>
+              )}
 
               {disableInstallButton && (
                 <BtnSimple
@@ -374,6 +383,16 @@ function EmuDetail(props) {
                 )}
               {emuData.id === 'srm' && (
                 <>
+                  <BtnSimple
+                    css="btn-simple--3"
+                    type="button"
+                    aria="Go Back"
+                    onClick={() => {
+                      onClickRemoveParsers();
+                    }}
+                  >
+                    Remove Cache
+                  </BtnSimple>
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
