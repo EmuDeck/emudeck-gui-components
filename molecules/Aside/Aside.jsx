@@ -245,7 +245,8 @@ function Aside({ css }) {
       description: 'Setup your Android device with EmuDeck',
       button: 'Configure',
       btnCSS: 'btn-simple--1',
-      status: system === 'win32' && (branch === 'early' || branch === 'dev'),
+      status:
+        system === 'win32' && (branch.includes('early') || branch === 'dev'),
       function: () => functions.navigate('/android-welcome'),
     },
 

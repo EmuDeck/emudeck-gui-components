@@ -22,7 +22,7 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
     if (status === 'disabled') {
       return 'is-disabled';
     }
-    if (status === 'early') {
+    if (status.includes('early')) {
       return 'is-early';
     }
     return true;

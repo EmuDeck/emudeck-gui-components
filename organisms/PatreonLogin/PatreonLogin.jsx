@@ -241,21 +241,23 @@ function PatreonLogin({ children }) {
           it's being tested on our Early Access branch.
         </p>
 
-        {!!errorMessage && branch === 'early' && (
+        {!!errorMessage && branch.includes('early') && (
           <p className="lead">{errorMessage}</p>
         )}
 
-        {!patreonClicked && branch !== 'early' && (
-          <BtnSimple
-            css="btn-simple--3"
-            type="button"
-            target="_blank"
-            aria="Check Early Access features"
-            onClick={() => goToPatreon()}
-          >
-            Check Early Access features
-          </BtnSimple>
-        )}
+        {!patreonClicked &&
+          branch !== 'early' &&
+          branch !== 'early-unstabled' && (
+            <BtnSimple
+              css="btn-simple--3"
+              type="button"
+              target="_blank"
+              aria="Check Early Access features"
+              onClick={() => goToPatreon()}
+            >
+              Check Early Access features
+            </BtnSimple>
+          )}
 
         {patreonClicked && (
           <div className="form">

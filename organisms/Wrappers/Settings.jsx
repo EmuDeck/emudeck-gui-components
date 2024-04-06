@@ -128,7 +128,7 @@ function Settings({
               />
             </li>
           )}
-          {(branch === 'early' || branch === 'dev') && (
+          {(branch.includes('early') || branch === 'dev') && (
             <li>
               <SelectorMenu
                 title="CloudSync"
