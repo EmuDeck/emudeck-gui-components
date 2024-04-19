@@ -36,7 +36,7 @@ function PatreonLogin({ children }) {
     patreonClicked: false,
     status: null,
     accessAllowed: false,
-    patreonToken: null,
+    patreonTokenTemp: null,
     errorMessage: undefined,
     dom: undefined,
   });
@@ -44,14 +44,20 @@ function PatreonLogin({ children }) {
     patreonClicked,
     status,
     accessAllowed,
-    patreonToken,
+    patreonTokenTemp,
     errorMessage,
     dom,
   } = statePage;
 
   const { state, setState, setStateCurrentConfigs } = useContext(GlobalContext);
 
-  const { installEmus, overwriteConfigEmus, achievements, shaders } = state;
+  const {
+    installEmus,
+    overwriteConfigEmus,
+    achievements,
+    shaders,
+    patreonToken,
+  } = state;
 
   //
   // Web services
@@ -85,7 +91,7 @@ function PatreonLogin({ children }) {
 
     setStatePage({
       ...statePage,
-      patreonToken: patronTokenValue,
+      patreonTokenTemp: patronTokenValue,
     });
   };
 
@@ -106,7 +112,7 @@ function PatreonLogin({ children }) {
     }
 
     if (!tokenArg) {
-      token = patreonToken;
+      token = patreonTokenTemp;
     } else {
       token = tokenArg;
     }
@@ -138,7 +144,7 @@ function PatreonLogin({ children }) {
         if (patreonJson.status === true) {
           setStatePage({
             ...statePage,
-            patreonToken: patreonJson.new_token,
+            patreonTokenTemp: patreonJson.new_token,
             accessAllowed: true,
           });
         }
@@ -156,13 +162,25 @@ function PatreonLogin({ children }) {
   // UseEffects
   //
   useEffect(() => {
-    const patreonTokenLS = localStorage.getItem('patreon_token');
-    patreonCheckToken(patreonTokenLS);
+    const patreonTokenTempLS = localStorage.getItem('patreon_token');
+    patreonCheckToken(patreonTokenTempLS);
   }, []);
 
   useEffect(() => {
     if (accessAllowed === true) {
-      localStorage.setItem('patreon_token', patreonToken);
+      localStorage.setItem('patreon_token', patreonTokenTemp);
+      const partial = patreonTokenTemp.split('|||');
+      const splitToken = partial[1];
+
+      ipcChannel.sendMessage('emudeck', [
+        `storePatreonToken|||storePatreonToken ${splitToken}`,
+      ]);
+      ipcChannel.once('storePatreonToken', (message) => {
+        setState({
+          ...state,
+          patreonToken: splitToken,
+        });
+      });
     } else if (accessAllowed === 'cancel') {
       const updateOrLogin = confirm(
         'Please log back in to Patreon to keep EmuDeck updated. Press OK to log in again or Cancel to continue with no updates'
@@ -217,8 +235,13 @@ function PatreonLogin({ children }) {
   }, [accessAllowed]);
 
   useEffect(() => {
-    window.reload;
+    if (patreonToken !== null) {
+      navigate('/check-updates');
+    }
   }, [patreonToken]);
+  useEffect(() => {
+    window.reload;
+  }, [patreonTokenTemp]);
 
   // useEffect(() => {
   //   if (state.version != '') {
@@ -266,10 +289,10 @@ function PatreonLogin({ children }) {
               type="token"
               name="token"
               id="token"
-              value={patreonToken}
+              value={patreonTokenTemp}
               onChange={patreonSetToken}
             />
-            {patreonToken !== null && (
+            {patreonTokenTemp !== null && (
               <BtnSimple
                 css="btn-simple--3"
                 type="button"
