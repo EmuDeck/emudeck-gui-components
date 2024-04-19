@@ -225,6 +225,7 @@
       top: -1px;
     }
     .text {
+      text-align: left;
       .chimeraos & {
         padding-left: calc(var(--icon-xs) + 14px);
       }

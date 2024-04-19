@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { PropTypes } from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
@@ -8,26 +8,25 @@ import Toasty from 'components/atoms/Toasty/Toasty';
 import './Header.scss';
 import flagEN from 'assets/flags/en.svg';
 import flagES from 'assets/flags/es.svg';
+import flagFR from 'assets/flags/fr.svg';
 
 function HeaderElectron({ title, bold }) {
-  // const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
   const { debug, version, branch, command } = state;
   const ipcChannel = window.electron.ipcRenderer;
 
   let lngs = {
     en: {
-      nativeName: (
-        <img className="header__flag" width="12" src={flagEN} alt="English" />
-      ),
+      nativeName: <img src={flagEN} alt="English" />,
     },
     es: {
-      nativeName: (
-        <img className="header__flag" width="12" src={flagES} alt="Spanish" />
-      ),
+      nativeName: <img src={flagES} alt="Spanish" />,
+    },
+    fr: {
+      nativeName: <img src={flagFR} alt="French" />,
     },
   };
-  lngs = '';
 
   const toggleDebug = (e) => {
     switch (e.detail) {
@@ -100,7 +99,7 @@ function HeaderElectron({ title, bold }) {
         >
           A-
         </BtnSimple>
-        {/* {Object.keys(lngs).map((lng) => (
+        {Object.keys(lngs).map((lng) => (
           <button
             key={lng}
             style={{
@@ -108,10 +107,11 @@ function HeaderElectron({ title, bold }) {
             }}
             type="submit"
             onClick={() => i18n.changeLanguage(lng)}
+            className="header__flag"
           >
             {lngs[lng].nativeName}
           </button>
-        ))} */}
+        ))}
       </div>
 
       {branch !== 'main' && (
