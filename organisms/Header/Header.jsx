@@ -105,7 +105,7 @@ function HeaderElectron({ title, bold }) {
             style={{
               fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal',
             }}
-            type="submit"
+            type="button"
             onClick={() => i18n.changeLanguage(lng)}
             className="header__flag"
           >

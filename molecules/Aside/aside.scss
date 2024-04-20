@@ -225,11 +225,12 @@
       top: -1px;
     }
     .text {
-      text-align: left;
       .chimeraos & {
         padding-left: calc(var(--icon-xs) + 14px);
+        text-align: left;
       }
       .SteamOS & {
+        text-align: left;
         padding-left: calc(var(--icon-xs) + 18px);
         font-family: 'MotivaSans';
         letter-spacing: 0rem;
