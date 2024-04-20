@@ -34,7 +34,7 @@ function CloudSync({ onClick, showNone }) {
               cloudSyncType === 'Save' ? 'is-selected' : '',
               'Backup',
               'Backup your games to the cloud',
-              branch !== 'early',
+              !branch.includes('early'),
             ],
           ]}
           details={['All']}
