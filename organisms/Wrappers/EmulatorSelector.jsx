@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
-function EmulatorSelector({ onClick, images }) {
+function EmulatorSelector({ onClick, images, installEmus }) {
   const { state } = useContext(GlobalContext);
-  const { installEmus, system, branch } = state;
+  const { system, branch } = state;
   const installEmusArray = Object.values(installEmus);
 
   return (

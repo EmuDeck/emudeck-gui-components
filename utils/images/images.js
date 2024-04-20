@@ -127,6 +127,7 @@ import model2Grid from 'assets/emulators/grid/model2.jpg';
 import bigpemuGrid from 'assets/emulators/grid/bigpemu.png';
 import bayx from 'assets/bayx.jpg';
 import abxy from 'assets/abxy.jpg';
+import imgnethersx2 from 'assets/emulators/nethersx2.png';
 
 export {
   imgdefault,
@@ -256,4 +257,5 @@ export {
   bigpemuGrid,
   bayx,
   abxy,
+  imgnethersx2,
 };
