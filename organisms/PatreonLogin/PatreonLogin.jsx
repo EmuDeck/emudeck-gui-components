@@ -234,11 +234,11 @@ function PatreonLogin({ children }) {
     }
   }, [accessAllowed]);
 
-  useEffect(() => {
-    if (patreonToken !== null) {
-      navigate('/check-updates');
-    }
-  }, [patreonToken]);
+  // useEffect(() => {
+  //   if (patreonToken !== null) {
+  //     navigate('/check-updates');
+  //   }
+  // }, [patreonToken]);
 
   // useEffect(() => {
   //   if (state.version != '') {
