@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
@@ -33,6 +34,7 @@ import {
 } from 'components/utils/images/icons';
 
 function Welcome({ onClick, alert, alertCSS, functions, updates }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { mode, second, system, gamemode } = state;
 
@@ -51,10 +53,6 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
 
   return (
     <>
-      {second === false && (
-        <p className="lead">Select how you want to set up your device:</p>
-      )}
-
       <Main>
         {/*
               First install screen

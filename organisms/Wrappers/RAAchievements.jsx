@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
@@ -13,6 +14,7 @@ import EmuModal from 'components/molecules/EmuModal/EmuModal';
 import { raLogo } from 'components/utils/images/images';
 
 function RAAchievements({ onChange, onToggle }) {
+  const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
   const { achievements, second } = state;
 

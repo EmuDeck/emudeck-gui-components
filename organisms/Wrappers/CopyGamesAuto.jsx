@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BtnSimple } from 'getbasecore/Atoms';
@@ -22,6 +23,7 @@ function CopyGamesAuto({
   statusCreateStructure,
   installFrontends,
 }) {
+  const { t, i18n } = useTranslation();
   return (
     <>
       {statusCopyGames !== true && (

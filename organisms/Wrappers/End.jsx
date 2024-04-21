@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -11,6 +12,7 @@ import { iconSuccess, iconDanger } from 'components/utils/images/icons';
 
 const ipcChannel = window.electron.ipcRenderer;
 function End({ message, percentage, step, disabledNext }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { installEmus, system, device } = state;
 

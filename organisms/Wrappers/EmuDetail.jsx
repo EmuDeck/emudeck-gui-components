@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -39,6 +40,7 @@ import {
 
 const ipcChannel = window.electron.ipcRenderer;
 function EmuDetail(props) {
+  const { t, i18n } = useTranslation();
   const {
     onClick,
     onClickInstall,

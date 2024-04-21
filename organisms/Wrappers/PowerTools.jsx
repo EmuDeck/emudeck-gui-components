@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
@@ -20,6 +21,7 @@ function PowerTools({
   passValidates,
   disableButton,
 }) {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <p className="lead">
@@ -62,8 +64,8 @@ function PowerTools({
             {hasSudo === true && sudoPass !== 'gamer' && (
               <div className="form">
                 <p>
-                  EmuDeck has detected you already have set a sudo password, type it
-                  below to install Power Tools.
+                  EmuDeck has detected you already have set a sudo password,
+                  type it below to install Power Tools.
                 </p>
                 <FormInputSimple
                   label="Sudo Password"

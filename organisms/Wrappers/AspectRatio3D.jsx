@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -7,6 +8,7 @@ import Main from 'components/organisms/Main/Main';
 import { ar433d, ar1693d } from 'components/utils/images/images';
 
 function AspectRatio3D({ onClick }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { ar } = state;
 

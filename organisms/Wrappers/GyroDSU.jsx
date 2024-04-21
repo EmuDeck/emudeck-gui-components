@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BtnSimple, FormInputSimple, LinkSimple } from 'getbasecore/Atoms';
@@ -12,6 +13,7 @@ function GyroDSU({
   textNotification,
   disableButton,
 }) {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <p className="lead">

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -5,6 +6,7 @@ import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
 function PegasusTheme({ onClick, themes }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
 
   const { themePegasus } = state;

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -5,13 +6,14 @@ import Card from 'components/molecules/Card/Card';
 import Main from 'components/organisms/Main/Main';
 
 function EmulatorResolution({ onClick }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { resolutions, overwriteConfigEmus } = state;
   return (
     <>
       <p className="lead">
-        Select the resolution you would like to use for your emulators. 
-        Keep in mind that a higher resolution will require a stronger computer.
+        Select the resolution you would like to use for your emulators. Keep in
+        mind that a higher resolution will require a stronger computer.
       </p>
       <Main>
         <div className="container--grid">

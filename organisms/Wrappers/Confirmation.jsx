@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -9,6 +10,7 @@ import { Img } from 'getbasecore/Atoms';
 import { iconSuccess, iconDanger } from 'components/utils/images/icons';
 
 function Confirmation() {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const {
     storagePath,

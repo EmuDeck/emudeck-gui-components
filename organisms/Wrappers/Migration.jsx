@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BtnSimple } from 'getbasecore/Atoms';
@@ -18,6 +19,7 @@ function Migration({
   storagePathDestination,
   statusMigration,
 }) {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <p className="lead">

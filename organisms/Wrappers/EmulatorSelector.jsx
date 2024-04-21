@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
@@ -5,6 +6,7 @@ import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
 function EmulatorSelector({ onClick, images, installEmus }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { system, branch } = state;
   const installEmusArray = Object.values(installEmus);

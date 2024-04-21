@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
@@ -23,6 +24,7 @@ function RomStorage({
   hddrives,
   storage,
 }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { system } = state;
   return (

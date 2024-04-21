@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
@@ -17,6 +18,7 @@ function PowerControls({
   passValidates,
   disableButton,
 }) {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <p className="lead">

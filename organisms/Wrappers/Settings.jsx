@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -50,6 +51,7 @@ function Settings({
   showNotification,
   onClickControllerLayoutSet,
 }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const {
     ar,

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,6 +7,7 @@ import Main from 'components/organisms/Main/Main';
 import { BtnSimple } from 'getbasecore/Atoms';
 
 function CHDTool({ disabledNext, onClick }) {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <p className="lead">
@@ -20,21 +22,23 @@ function CHDTool({ disabledNext, onClick }) {
           compressing your ROMs to update Steam with your new files.
         </p>
         <p>
-          The tool will compress your ROMs and convert to CHD,
-          RVZ, Trimmed 3DS, XISO, and 7Zip formats.
+          The tool will compress your ROMs and convert to CHD, RVZ, Trimmed 3DS,
+          XISO, and 7Zip formats.
         </p>
 
         <p>
           <strong>CSO format</strong>
           <br />
-          Used to compress PlayStation Portable ROMs. When compressing PlayStation Portable ROMs, you will be prompted to select if you would like to compress your ROMs to CSO or CHD.
+          Used to compress PlayStation Portable ROMs. When compressing
+          PlayStation Portable ROMs, you will be prompted to select if you would
+          like to compress your ROMs to CSO or CHD.
         </p>
 
         <p>
           <strong>CHD format</strong>
           <br />
-          Used to compress CD-i, Dreamcast, PSP, PSX, PS2, Sega/MegaCD, 3DO, Saturn,
-          TurboGraphix/PCEngineCD, PC-FX, Amiga CD32, NeoGeoCD games.
+          Used to compress CD-i, Dreamcast, PSP, PSX, PS2, Sega/MegaCD, 3DO,
+          Saturn, TurboGraphix/PCEngineCD, PC-FX, Amiga CD32, NeoGeoCD games.
         </p>
 
         <p>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Img } from 'getbasecore/Atoms';
@@ -19,6 +20,7 @@ function CheckBios({
   dreamcastBios,
   DSBios,
 }) {
+  const { t, i18n } = useTranslation();
   const biosText = (name) => {
     switch (name) {
       case true:
