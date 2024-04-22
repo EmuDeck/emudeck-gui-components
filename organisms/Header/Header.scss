@@ -42,6 +42,9 @@
   &__flag {
     width: 20px;
     margin-left: 10px;
+    .win32 & {
+      display: none;
+    }
   }
   //Titles in front of animations
   .h2 {
