@@ -70,10 +70,6 @@ function Settings({
       <Notification css={showNotification ? 'is-animated' : 'nope'}>
         {notificationText}
       </Notification>
-      <p className="lead">
-        Select an option to automatically apply it to your system. You do not
-        need to do an EmuDeck Custom Update to apply these settings.
-      </p>
       <Main>
         <ul className="list-grid">
           <li>

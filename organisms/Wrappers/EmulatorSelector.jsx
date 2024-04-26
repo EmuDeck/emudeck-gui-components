@@ -13,11 +13,6 @@ function EmulatorSelector({ onClick, images, installEmus }) {
 
   return (
     <>
-      <p className="lead">
-        These are the emulators EmuDeck installs to your system. Selected
-        emulators will be installed and updated to the latest version.
-        De-selected emulators will not be installed or updated.
-      </p>
       <Main>
         <div className="cards cards--mini">
           {installEmusArray.map((item) => {
