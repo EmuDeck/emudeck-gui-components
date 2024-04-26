@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -22,9 +23,11 @@ function CloudSyncConfig({
   onClick,
   onClickInstall,
   onClickUninstall,
+  onClickCheckHealth,
   disableButton,
   showLoginButton,
 }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { cloudSync, cloudSyncType } = state;
 
@@ -113,17 +116,32 @@ function CloudSyncConfig({
           )}
 
         {showLoginButton === false && (
-          <BtnSimple
-            css="btn-simple--1"
-            type="button"
-            aria="Uninstall SaveSync"
-            onClick={() => onClickUninstall()}
-            disabled={disableButton}
-          >
-            {disableButton && 'Please wait...'}
+          <>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Uninstall SaveSync"
+              onClick={() => onClickUninstall()}
+              disabled={disableButton}
+            >
+              {disableButton && 'Please wait...'}
 
-            {disableButton || 'Uninstall'}
-          </BtnSimple>
+              {disableButton || 'Uninstall'}
+            </BtnSimple>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Test Cloud Health"
+              onClick={() => onClickCheckHealth()}
+              disabled={disableButton}
+            >
+              {disableButton && 'Please wait...'}
+
+              {disableButton || cloudSyncType === 'Sync'
+                ? 'Test Cloud Sync Health'
+                : 'Test Cloud Backup Health'}
+            </BtnSimple>
+          </>
         )}
       </Main>
     </>

@@ -1,0 +1,66 @@
+.banner {
+  background: #18181c;
+  text-align: center;
+  border: 6px solid transparent;
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: transparent;
+  text-align: left;
+  height: 100%;
+  transition: 0.8s;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+  > div {
+    min-height: 250px;
+  }
+  &--text {
+    > div {
+      padding: 60px;
+    }
+    margin-top: 0;
+    text-align: center;
+    img {
+      position: absolute;
+    }
+  }
+
+  p {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+  }
+  img {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .h4 {
+    position: absolute;
+    z-index: 2;
+    text-shadow: #000 2px 2px 0px;
+  }
+
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
+  span,
+  ol,
+  li,
+  p {
+    color: #444;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+  img {
+    margin-bottom: 10px;
+  }
+}

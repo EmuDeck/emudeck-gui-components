@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -8,6 +9,7 @@ import Main from 'components/organisms/Main/Main';
 import { lcd3don, lcd3doff } from 'components/utils/images/images';
 
 function Shaders3D({ onClick }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { shaders } = state;
 

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -9,6 +10,7 @@ import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 import { steamUI, winDesktop } from 'components/utils/images/images';
 
 function GameMode({ onClick }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { gamemode } = state;
   return (

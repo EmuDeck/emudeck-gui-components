@@ -1,13 +1,40 @@
-import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
 import PropTypes from 'prop-types';
 import { Alert } from 'getbasecore/Molecules';
 import Card from 'components/molecules/Card/Card';
 import CardSettings from 'components/molecules/CardSettings/CardSettings';
+import Banner from 'components/molecules/Banner/Banner';
 import { Iframe } from 'getbasecore/Atoms';
+import { useNavigate, Link } from 'react-router-dom';
+import StoreGame from 'components/molecules/StoreGame/StoreGame';
+
+const welcomeItems = require('data/welcome.json');
+import {
+  iconChecker,
+  iconCloud,
+  iconCompress,
+  iconGear,
+  iconList,
+  iconMigrate,
+  iconPlugin,
+  iconPrize,
+  iconUninstall,
+  iconQuick,
+  iconCustom,
+  iconDoc,
+  iconJoystick,
+  iconPackage,
+  iconDisk,
+  iconHelp,
+  iconScreen,
+  iconAndroid,
+} from 'components/utils/images/icons';
 
 function Welcome({ onClick, alert, alertCSS, functions, updates }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { mode, second, system, gamemode } = state;
 
@@ -18,18 +45,14 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
     if (status === 'disabled') {
       return 'is-disabled';
     }
-    if (status === 'early') {
+    if (status.includes('early')) {
       return 'is-early';
     }
     return true;
   };
+
   return (
     <>
-      {second === false && (
-        <p className="lead">Select how you want to set up your device:</p>
-      )}
-      {second === true && <p className="lead">Learn how to use EmuDeck:</p>}
-
       <Main>
         {/*
               First install screen
@@ -37,38 +60,46 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
         {second === false && (
           <div className="container--grid">
             <div data-col-sm="5">
-              <Card
-                css={mode === 'easy' && 'is-selected'}
+              <CardSettings
+                css={mode === 'easy' && 'is-highlighted'}
+                btnCSS="btn-simple--1"
+                icon={iconQuick}
+                iconSize="md"
+                title="Easy Mode"
+                button="Select"
                 onClick={() => onClick('easy')}
-              >
-                <span className="h3">{second === false && 'Easy Mode'}</span>
-                <p>
-                  {second === false &&
-                    'This mode automatically installs and configures your device with our recommended settings so you can start playing right away.'}
-                </p>
-              </Card>
+                description=" This mode automatically installs and configures your device
+					with our recommended settings so you can start playing right
+					away. Recommended if you are new to emulation."
+              />
             </div>
 
             <div data-col-sm="5">
-              <Card
-                css={mode === 'expert' && 'is-selected'}
+              <CardSettings
+                css={mode === 'expert' && 'is-highlighted'}
+                btnCSS="btn-simple--1"
+                icon={iconCustom}
+                iconSize="md"
+                title="Custom Mode"
+                button="Select"
                 onClick={() => onClick('expert')}
-              >
-                <span className="h3">{second === false && 'Custom Mode'}</span>
-                <p>
-                  {second === false &&
-                    'This mode allows you to customize how EmuDeck installs to your system. Configure Aspect Ratios, Bezels, Filters, RetroAchievments, Emulators, EmulationStation-DE themes, and Cloud Saves.'}
-                </p>
-              </Card>
+                description="This mode allows you to customize your EmuDeck install. Configure Aspect Ratios, Bezels, Filters, RetroAchievements,Emulators, Frontends, and more. Recommended for advanced users."
+              />
             </div>
+            {system === 'win32' && (
+              <div data-col-sm="5">
+                <CardSettings
+                  btnCSS="btn-simple--1"
+                  icon={iconPackage}
+                  iconSize="md"
+                  title="Android"
+                  button="Install"
+                  onClick={() => onClick('android')}
+                  description=" Install EmuDeck ( beta ) on your Android device."
+                />
+              </div>
+            )}
           </div>
-        )}
-
-        {second === true && system === 'win32' && (
-          <Iframe src="https://www.youtube-nocookie.com/embed/uLQWOS6KwVM?autoplay=0&modestbranding=1&rel=0&showinfo=0" />
-        )}
-        {second === true && system !== 'win32' && (
-          <Iframe src="https://www.youtube-nocookie.com/embed/rs9jDHIDKkU?autoplay=0&modestbranding=1&rel=0&showinfo=0" />
         )}
       </Main>
     </>

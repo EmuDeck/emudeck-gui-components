@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -17,6 +18,7 @@ import {
   imgpcsx2,
   imgrpcs3,
   imgyuzu,
+  imgsuyu,
   imgryujinx,
   imgcemu,
   imgxemu,
@@ -30,12 +32,15 @@ import {
   imgFrontPegasus,
   imgrmg,
   imgscummvm,
-  imgsupermodelista,
+  imgsupermodel,
+  imgmodel2,
+  imgbigpemu,
   imgmelonds,
 } from 'components/utils/images/images';
 
 const ipcChannel = window.electron.ipcRenderer;
 function EmuDetail(props) {
+  const { t, i18n } = useTranslation();
   const {
     onClick,
     onClickInstall,
@@ -53,6 +58,7 @@ function EmuDetail(props) {
     onClickHotkeys,
     onClickControls,
     onClickParsers,
+    onClickRemoveParsers,
   } = props;
   const [stateImg, setStateImg] = useState({
     img: imgdefault,
@@ -100,6 +106,9 @@ function EmuDetail(props) {
       case 'yuzu':
         setStateImg({ img: imgyuzu });
         break;
+      case 'suyu':
+        setStateImg({ img: imgsuyu });
+        break;
       case 'ryujinx':
         setStateImg({ img: imgryujinx });
         break;
@@ -121,8 +130,8 @@ function EmuDetail(props) {
       case 'scummvm':
         setStateImg({ img: imgscummvm });
         break;
-      case 'supermodelista':
-        setStateImg({ img: imgsupermodelista });
+      case 'supermodel':
+        setStateImg({ img: imgsupermodel });
         break;
       case 'xenia':
         setStateImg({ img: imgxenia });
@@ -144,6 +153,12 @@ function EmuDetail(props) {
         break;
       case 'ares':
         setStateImg({ img: imgares });
+        break;
+      case 'model2':
+        setStateImg({ img: imgmodel2 });
+        break;
+      case 'bigpemu':
+        setStateImg({ img: imgbigpemu });
         break;
       default:
         setStateImg({ img: imgdefault });
@@ -291,8 +306,29 @@ function EmuDetail(props) {
             )}
           </div>
           <div data-col-sm="3">
-            <p className="h5">Actions</p>
+            {emuData.id !== 'yuzu' && emuData.id !== 'citra' && (
+              <p className="h5">Actions</p>
+            )}
             <div className="emudetail__actions">
+              {!disableInstallButton && emuData.id === 'yuzu' && (
+                <BtnSimple
+                  css="btn-simple--3"
+                  type="button"
+                  aria="Update or reset configuration"
+                >
+                  Emulator not found
+                </BtnSimple>
+              )}
+              {!disableInstallButton && emuData.id === 'citra' && (
+                <BtnSimple
+                  css="btn-simple--3"
+                  type="button"
+                  aria="Update or reset configuration"
+                >
+                  Emulator not found
+                </BtnSimple>
+              )}
+
               {disableInstallButton && (
                 <BtnSimple
                   css={updateAvailable ? 'btn-simple--6' : 'btn-simple--1'}
@@ -308,47 +344,57 @@ function EmuDetail(props) {
                 </BtnSimple>
               )}
 
-              {!disableInstallButton && (
-                <BtnSimple
-                  css="btn-simple--3"
-                  type="button"
-                  aria="Install"
-                  disabled={disableInstallButton}
-                  onClick={() => onClickInstall(emuData.id, emuData.code)}
-                >
-                  Install
-                </BtnSimple>
-              )}
-              {disableInstallButton && (
-                <BtnSimple
-                  css="btn-simple--3"
-                  type="button"
-                  aria="ReInstall / Update"
-                  disabled={hideInstallButton}
-                  onClick={() => onClickReInstall(emuData.id, emuData.code)}
-                >
-                  ReInstall / Update
-                </BtnSimple>
-              )}
-              {disableInstallButton && (
-                <BtnSimple
-                  css="btn-simple--3"
-                  type="button"
-                  aria="Uninstall"
-                  disabled={false}
-                  onClick={() => onClickUninstall(emuData.id, emuData.code)}
-                >
-                  Uninstall
-                </BtnSimple>
-              )}
-              {emuData.id === 'srm' && mode !== 'expert' && (
-                <p className="" style={{ textAlign: 'center' }}>
-                  See more advanced options available by doing a Custom Reset
-                </p>
-              )}
-              {emuData.id === 'srm' && mode === 'expert' && (
+              {!disableInstallButton &&
+                emuData.id !== 'yuzu' &&
+                emuData.id !== 'citra' && (
+                  <BtnSimple
+                    css="btn-simple--3"
+                    type="button"
+                    aria="Install"
+                    disabled={disableInstallButton}
+                    onClick={() => onClickInstall(emuData.id, emuData.code)}
+                  >
+                    Install
+                  </BtnSimple>
+                )}
+              {disableInstallButton &&
+                emuData.id !== 'yuzu' &&
+                emuData.id !== 'citra' && (
+                  <BtnSimple
+                    css="btn-simple--3"
+                    type="button"
+                    aria="ReInstall / Update"
+                    disabled={hideInstallButton}
+                    onClick={() => onClickReInstall(emuData.id, emuData.code)}
+                  >
+                    ReInstall / Update
+                  </BtnSimple>
+                )}
+              {disableInstallButton &&
+                emuData.id !== 'yuzu' &&
+                emuData.id !== 'citra' && (
+                  <BtnSimple
+                    css="btn-simple--3"
+                    type="button"
+                    aria="Uninstall"
+                    disabled={false}
+                    onClick={() => onClickUninstall(emuData.id, emuData.code)}
+                  >
+                    Uninstall
+                  </BtnSimple>
+                )}
+              {emuData.id === 'srm' && (
                 <>
-                  <p className="h5">Expert Mode:</p>
+                  <BtnSimple
+                    css="btn-simple--3"
+                    type="button"
+                    aria="Go Back"
+                    onClick={() => {
+                      onClickRemoveParsers();
+                    }}
+                  >
+                    Remove Cache
+                  </BtnSimple>
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
@@ -359,7 +405,7 @@ function EmuDetail(props) {
                   >
                     Standalone Parsers
                   </BtnSimple>
-                  <BtnSimple
+                  {/* <BtnSimple
                     css="btn-simple--1"
                     type="button"
                     aria="Go Back"
@@ -378,86 +424,33 @@ function EmuDetail(props) {
                     }}
                   >
                     Open custom parsers
-                  </BtnSimple>
+                  </BtnSimple> */}
                 </>
               )}
-
-              {emuData.id === 'yuzu' && (
-                <BtnSimple
-                  css="btn-simple--1"
-                  type="button"
-                  aria="Go Back"
-                  onClick={() => {
-                    yuzuEAaskToken();
-                  }}
-                >
-                  Setup Early Access
-                </BtnSimple>
-              )}
-
-              {/* emuData.id === 'rpcs3' && (
-                <BtnSimple
-                  css="btn-simple--1"
-                  type="button"
-                  aria="Go Back"
-                  onClick={() => {
-                    onClickMigrate('RPCS3');
-                  }}
-                >
-                  Migrate
-                </BtnSimple>
-              ) */}
             </div>
-            {emuData.id !== 'ppsspp' &&
-              emuData.id !== 'ryujinx' &&
-              emuData.id !== 'melonds' &&
-              emuData.id !== 'rpcs3' &&
-              emuData.id !== 'xemu' &&
-              emuData.id !== 'cemu' &&
-              emuData.id !== 'srm' &&
-              emuData.id !== 'rmg' &&
-              emuData.id !== 'esde' &&
-              emuData.id !== 'mame' &&
-              emuData.id !== 'vita3k' &&
-              emuData.id !== 'flycast' &&
-              emuData.id !== 'scummvm' &&
-              emuData.id !== 'xenia' &&
-              emuData.id !== 'mgba' &&
-              emuData.id !== 'ares' &&
-              emuData.id !== 'pegasus' &&
-              emuData.id !== 'dolphin' && <p className="h5">Controls</p>}
+
             <div className="emudetail__actions">
-              {emuData.id !== 'ppsspp' &&
-                emuData.id !== 'ryujinx' &&
-                emuData.id !== 'melonds' &&
-                emuData.id !== 'rpcs3' &&
-                emuData.id !== 'xemu' &&
-                emuData.id !== 'cemu' &&
-                emuData.id !== 'srm' &&
-                emuData.id !== 'rmg' &&
-                emuData.id !== 'esde' &&
-                emuData.id !== 'mame' &&
-                emuData.id !== 'vita3k' &&
-                emuData.id !== 'flycast' &&
-                emuData.id !== 'scummvm' &&
-                emuData.id !== 'xenia' &&
-                emuData.id !== 'mgba' &&
-                emuData.id !== 'ares' &&
-                emuData.id !== 'pegasus' &&
-                emuData.id !== 'dolphin' && (
-                  <>
-                    {emuData.id !== 'ra' && (
-                      <BtnSimple
-                        css="btn-simple--1"
-                        type="button"
-                        aria="Controls"
-                        onClick={() =>
-                          onClickControls(emuData.id, emuData.code)
-                        }
-                      >
-                        Controls
-                      </BtnSimple>
-                    )}
+              {(emuData.id === 'primehack' ||
+                emuData.id === 'pcsx2' ||
+                emuData.id === 'yuzu' ||
+                emuData.id === 'cemu' ||
+                emuData.id === 'dolphin' ||
+                emuData.id === 'ra') && (
+                <>
+                  {emuData.id === 'ra' || emuData.id === 'dolphin' || (
+                    <BtnSimple
+                      css="btn-simple--1"
+                      type="button"
+                      aria="Controls"
+                      onClick={() => onClickControls(emuData.id, emuData.code)}
+                    >
+                      Controls
+                    </BtnSimple>
+                  )}
+
+                  {(emuData.id === 'ra' ||
+                    emuData.id === 'primehack' ||
+                    emuData.id === 'pcsx2') && (
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
@@ -466,8 +459,9 @@ function EmuDetail(props) {
                     >
                       Hotkeys
                     </BtnSimple>
-                  </>
-                )}
+                  )}
+                </>
+              )}
 
               {emuData.id === 'pcsx2' && (
                 <BtnSimple
@@ -531,15 +525,9 @@ function EmuDetail(props) {
                   </BtnSimple>
                 </>
               )}
-              {emuData.id === 'dolphin' && mode !== 'expert' && (
-                <p className="" style={{ textAlign: 'center' }}>
-                  See more advanced options available by doing a Custom Reset
-                </p>
-              )}
 
-              {emuData.id === 'dolphin' && mode === 'expert' && (
+              {emuData.id === 'dolphin' && (
                 <>
-                  <p className="h5">Expert Mode:</p>
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
@@ -560,42 +548,18 @@ function EmuDetail(props) {
                 </>
               )}
 
-              {emuData.id === 'cemu' && mode !== 'expert' && (
-                <p className="" style={{ textAlign: 'center' }}>
-                  See more advanced options available by doing a Custom Reset
-                </p>
-              )}
-              {emuData.id === 'cemu' && mode === 'expert' && (
-                <>
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Install Cemu AppImage"
-                    disabled={hideInstallButton}
-                    onClick={() => {
-                      if (
-                        window.confirm(
-                          'This action will install Cemu AppImage alongside your current Cemu'
-                        ) === true
-                      ) {
-                        onClickInstall('cemunative', 'CemuNative');
-                      }
-                    }}
-                  >
-                    Install Cemu Native
-                  </BtnSimple>
-                  <BtnSimple
-                    css="btn-simple--1"
-                    type="button"
-                    aria="Reset Cemu AppImage Configuration"
-                    disabled={disableResetButton}
-                    onClick={() => {
-                      onClick('CemuNative', 'CemuNative', 'cemunative');
-                    }}
-                  >
-                    Reset Cemu Native
-                  </BtnSimple>
-                </>
+              {emuData.id === 'cemu' && (
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  aria="Reset old Cemu Proton Configuration"
+                  disabled={disableResetButton}
+                  onClick={() => {
+                    onClick('CemuProton', 'CemuProton', 'cemuproton');
+                  }}
+                >
+                  Reset Cemu Proton
+                </BtnSimple>
               )}
             </div>
           </div>

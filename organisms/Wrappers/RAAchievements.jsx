@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import React, { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import {
@@ -13,6 +14,7 @@ import EmuModal from 'components/molecules/EmuModal/EmuModal';
 import { raLogo } from 'components/utils/images/images';
 
 function RAAchievements({ onChange, onToggle }) {
+  const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
   const { achievements, second } = state;
 
@@ -30,7 +32,7 @@ function RAAchievements({ onChange, onToggle }) {
 
     ipcChannel.once('getToken', (error, stdout) => {
       const messageJson = JSON.parse(stdout);
-      
+
       if (messageJson.Success) {
         // Second time? We can set everything from here - Used in the settings page
         if (second) {
@@ -40,9 +42,7 @@ function RAAchievements({ onChange, onToggle }) {
           ]);
           ipcChannel.once(
             'setToken',
-            (errorToken, stdoutToken, stderrToken) => {
-              
-            }
+            (errorToken, stdoutToken, stderrToken) => {}
           );
         }
 
@@ -74,13 +74,60 @@ function RAAchievements({ onChange, onToggle }) {
     });
   };
 
+  useEffect(() => {
+    if (achievements.token !== '') {
+      ipcChannel.sendMessage('emudeck', [
+        `setAchievementToken|||RetroArch_retroAchievementsSetLogin;DuckStation_retroAchievementsSetLogin;PCSX2QT_retroAchievementsSetLogin;PPSSPP_retroAchievementsSetLogin; echo "true"`,
+      ]);
+      ipcChannel.once('setAchievementToken', (message) => {
+        let modalData;
+        console.log(message.stdout.includes('true'));
+        if (message.stdout.includes('true')) {
+          if (achievements.hardcore) {
+            ipcChannel.sendMessage('emudeck', [
+              `setHardcore|||RetroArch_retroAchievementsHardCoreOn;DuckStation_retroAchievementsHardCoreOn;PCSX2QT_retroAchievementsHardCoreOn;PPSSPP_retroAchievementsHardCoreOn; echo "true"`,
+            ]);
+          } else {
+            ipcChannel.sendMessage('emudeck', [
+              `setHardcore|||RetroArch_retroAchievementsHardCoreOff;DuckStation_retroAchievementsHardCoreOff;PCSX2QT_retroAchievementsHardCoreOff;PPSSPP_retroAchievementsHardCoreOff; echo "false"`,
+            ]);
+          }
+          modalData = {
+            active: true,
+            header: <span className="h4">Success!</span>,
+            body: (
+              <p>
+                You are now succesfully connected to RetroAchievments for the
+                following emulators: DuckStation, PCSX2, PPSSPP, and RetroArch
+              </p>
+            ),
+            css: 'emumodal--xs',
+          };
+        } else {
+          modalData = {
+            active: true,
+            header: <span className="h4">Error!</span>,
+            body: (
+              <p>
+                The user & password are correct but EmuDeck could not set the
+                configuration.
+              </p>
+            ),
+            css: 'emumodal--xs',
+          };
+        }
+        setStatePage({ ...statePage, modal: modalData });
+      });
+    }
+  }, [achievements]);
+
   return (
     <>
       <p className="lead">
         RetroAchievements.org is a community led effort to collaborate and
         create custom-made achievements in emulated classic games. Enter your
         account information to set up RetroAchievements for Duckstation, PCSX2,
-        and RetroArch.
+        PPSSPP, and RetroArch.
       </p>
       <Main>
         <br />
@@ -139,7 +186,7 @@ function RAAchievements({ onChange, onToggle }) {
                 <>
                   <p>
                     <span className="h4">
-                      You are successfully logged to RetroAchivements!
+                      You are successfully connected to RetroAchievements!
                     </span>
                     <BtnSimple
                       css="btn-simple--1"

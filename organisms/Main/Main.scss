@@ -51,10 +51,11 @@ body {
   flex: 1;
   padding: 30px;
   width: 100%;
-  background-size: cover;
-  background-image: url(assets/bg-dark.png);
+
+  background-image: url(assets/pattern-dark.png);
+  background-repeat: repeat;
   @media (prefers-color-scheme: light) {
-    background-image: url(assets/bg.png);
+    background-image: url(assets/pattern.png);
   }
   .darwin &,
   .chimeraos & {
@@ -74,10 +75,10 @@ body {
       top: 0;
       left: 0;
       z-index: 1;
-      background-size: cover;
-      background-image: url(assets/bg-dark.png);
+      background-repeat: repeat;
+      background-image: url(assets/pattern-dark.png);
       @media (prefers-color-scheme: light) {
-        background-image: url(assets/bg.png);
+        background-image: url(assets/pattern.png);
       }
       @media (prefers-color-scheme: light) {
         background-color: #faf4f1;

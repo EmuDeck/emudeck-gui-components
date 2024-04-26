@@ -1,20 +1,22 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
-function FrontendSelector({ onClick, images, lastSelected }) {
+function FrontendSelector({ onClick, images, lastSelected, installFrontends }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
-  const { installFrontends, system } = state;
+  const { system } = state;
   const installFrontendsArray = Object.values(installFrontends);
 
   const { esdePreview, pegasusPreview, steamPreview } = images;
   return (
     <>
       <p className="lead">
-        Please select the Frontends you want to use to launch your games, you
-        can select more than one.
+        Select which frontends you would like to use to launch your games. You
+        may select more than one.
       </p>
       <Main>
         <div className="cards cards--big">

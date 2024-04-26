@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -7,15 +8,15 @@ import Main from 'components/organisms/Main/Main';
 
 import { imgBezels, imgNoBezels } from 'components/utils/images/images';
 
-function RABezels({ onClick }) {
+function RABezels({ onClick, bezels }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
-  const { bezels } = state;
 
   return (
     <>
       <p className="lead">
-        Use our pre-configured bezels to hide the vertical black bars on 8 bit
-        and 16 bit games.
+        Use EmuDeck's pre-configured bezels to hide the vertical black bars on 8
+        bit and 16 bit games.
       </p>
 
       <Main>

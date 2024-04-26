@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BtnSimple } from 'getbasecore/Atoms';
@@ -18,6 +19,7 @@ function Migration({
   storagePathDestination,
   statusMigration,
 }) {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <p className="lead">
@@ -26,9 +28,9 @@ function Migration({
       </p>
       <Main>
         <div className="container--grid">
-          <div data-col-sm="6">
+          <div data-col-sm="12">
             <span className="h4">Current Installation:</span>
-            <div className="cards cards--half">
+            <div className="cards">
               {storage === 'SD-Card' && (
                 <Card css={storage === 'SD-Card' && 'is-selected'}>
                   <img src={imgSD} width="100" alt="Background" />
@@ -60,9 +62,9 @@ function Migration({
               )}
             </div>
           </div>
-          <div data-col-sm="6">
+          <div data-col-sm="12">
             <span className="h4">Pick your Destination:</span>
-            <div className="cards cards--half">
+            <div className="cards">
               <Card
                 css={storageDestination === 'SD-Card' && 'is-selected'}
                 onClick={() =>

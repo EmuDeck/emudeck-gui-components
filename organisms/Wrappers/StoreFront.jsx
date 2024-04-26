@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import { BtnSimple } from 'getbasecore/Atoms';
@@ -133,6 +134,7 @@ const icon = {
 /* eslint-enable */
 
 function StoreFront() {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
 
   const { storagePath } = state;

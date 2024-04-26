@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
@@ -19,16 +20,18 @@ function RomStorage({
   customPath,
   showSDCard,
   showInternal,
+  showCustom,
   hddrives,
+  storage,
 }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
-  const { storage, system } = state;
+  const { system } = state;
   return (
     <>
       <p className="lead">
         Your ROM directory will be squared away within an Emulation folder in
-        your selected directory. If you do not see your SD Card, format it first
-        in Game Mode.
+        your selected directory.
       </p>
       <Main>
         <div className="cards">
@@ -90,7 +93,7 @@ function RomStorage({
                 );
               }
             })}
-          {system !== 'win32' && system !== 'darwin' && (
+          {showCustom && (
             <Card
               css={storage === 'Custom' && 'is-selected'}
               onClick={() => onClick('Custom')}

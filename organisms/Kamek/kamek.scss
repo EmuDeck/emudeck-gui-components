@@ -246,12 +246,12 @@ $kamek-bg-colors: ();
     50% {
       left: 110%;
       //top: 10%;
-      bottom: 500px;
+      bottom: 480px;
     }
     51% {
       transform: scaleX(-1) rotate(10deg);
       //top: 30%;
-      bottom: 340px;
+      bottom: 320px;
     }
     52% {
       transform: scaleX(1) rotate(10deg);
@@ -260,7 +260,7 @@ $kamek-bg-colors: ();
       transform: scaleX(1) rotate(10deg);
       left: -100%;
       //top: 10%;
-      bottom: 500px;
+      bottom: 480px;
     }
   }
 
@@ -269,7 +269,7 @@ $kamek-bg-colors: ();
     position: absolute;
     transform: scaleX(-1) rotate(10deg);
     //top: 30%;
-    bottom: 340px;
+    bottom: 320px;
     left: -100%;
     z-index: 2;
   }
@@ -280,7 +280,7 @@ $kamek-bg-colors: ();
     height: 500px;
     width: 100%;
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
     transform-origin: center;
     z-index: 1;
     // align-items: flex-start;

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Img } from 'getbasecore/Atoms';
@@ -19,6 +20,7 @@ function CheckBios({
   dreamcastBios,
   DSBios,
 }) {
+  const { t, i18n } = useTranslation();
   const biosText = (name) => {
     switch (name) {
       case true:
@@ -144,11 +146,11 @@ function CheckBios({
                 <li>
                   Tip 5: For systems not listed here, check the{' '}
                   <a
-                    href="https://github.com/dragoonDorise/EmuDeck/wiki/Cheat-Sheet"
+                    href="https://emudeck.github.io/cheat-sheet/"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    EmuDeck Wiki Cheat Sheet.
+                    Cheat Sheet on the EmuDeck Wiki.
                   </a>{' '}
                 </li>
                 <li>

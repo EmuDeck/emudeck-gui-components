@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -5,16 +6,14 @@ import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
 function ESDETheme({ onClick, themes }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
 
   const { themeESDE } = state;
 
   return (
     <>
-      <p className="lead">
-        Please select your default theme. You'll be able to install additional
-        themes later in Manage Emulators.
-      </p>
+      <p className="lead">Select your default theme.</p>
       <Main css="main--horizontal-scroll">
         <div className="cards cards--maxi">
           {themes && (

@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import React, { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
@@ -26,14 +27,16 @@ import {
   iconDisk,
   iconHelp,
   iconScreen,
+  iconAndroid,
 } from 'components/utils/images/icons';
 
 function Aside({ css }) {
+  const { t, i18n } = useTranslation();
   const ipcChannel = window.electron.ipcRenderer;
-  const { state, setState } = useContext(GlobalContext);
-  const [statePage, setStatePage] = useState({ modal: false });
-  const { system, systemName, branch } = state;
-  const { modal } = statePage;
+  const { state, setState, stateCurrentConfigs } = useContext(GlobalContext);
+  const [statePage, setStatePage] = useState({ modal: false, updates: false });
+  const { system, systemName, mode, branch, installEmus } = state;
+  const { modal, updates } = statePage;
   const navigate = useNavigate();
 
   const openCSM = () => {
@@ -57,20 +60,15 @@ function Aside({ css }) {
       if (stdout.includes('true')) {
         modalData = {
           active: true,
-          header: <span className="h4">Success!</span>,
-          body: <p>We've created a Zip file with all your logs</p>,
+          header: <span className="h4">{t('general.success')}!</span>,
+          body: <p>{t('aside.logsSuccess')}</p>,
           css: 'emumodal--xs',
         };
       } else {
         modalData = {
           active: true,
-          header: <span className="h4">Error!</span>,
-          body: (
-            <p>
-              There was an issue getting your logs, please collect them manually
-              from the emudeck folder in your user folder.
-            </p>
-          ),
+          header: <span className="h4">{t('general.error')}!</span>,
+          body: <p>{t('aside.logsError')}</p>,
           css: 'emumodal--xs',
         };
       }
@@ -97,7 +95,7 @@ function Aside({ css }) {
     } else {
       ipcChannel.sendMessage(
         'bash',
-        'bash "~/.config/EmuDeck/backend/uninstall.sh"'
+        'bash ~/.config/EmuDeck/backend/uninstall.sh'
       );
     }
   };
@@ -105,7 +103,7 @@ function Aside({ css }) {
   const openSRM = () => {
     let modalData = {
       active: true,
-      header: <span className="h4">Launching Steam Rom Manager</span>,
+      header: <span className="h4">{t('launching')} Steam Rom Manager</span>,
       body: (
         <p>
           We will close Steam if its running and then Steam Rom Manager will
@@ -131,7 +129,7 @@ function Aside({ css }) {
     } else {
       modalData = {
         active: true,
-        header: <span className="h4">Launching Steam Rom Manager</span>,
+        header: <span className="h4">{t('launching')} Steam Rom Manager</span>,
         body: (
           <>
             <p>
@@ -152,6 +150,15 @@ function Aside({ css }) {
         '"$toolsPath/launchers/srm/steamrommanager.sh"'
       );
     }
+
+    let timer;
+
+    if (system === 'win32') {
+      timer = 30000;
+    } else {
+      timer = 10;
+    }
+
     const timerId = setTimeout(() => {
       setStatePage({
         ...statePage,
@@ -160,7 +167,7 @@ function Aside({ css }) {
         },
       });
       clearTimeout(timerId);
-    }, 30000);
+    }, timer);
   };
 
   const selectMode = (value) => {
@@ -183,6 +190,40 @@ function Aside({ css }) {
       ]);
     }
   };
+  useEffect(() => {
+    ipcChannel.sendMessage('check-versions');
+    ipcChannel.once('check-versions', (repoVersions) => {
+      // Thanks chatGPT lol
+      const obj1 = repoVersions;
+      const obj2 = stateCurrentConfigs;
+
+      const differences = {};
+
+      for (const key in obj1) {
+        if (installEmus[obj1[key].id]) {
+          if (
+            JSON.stringify(obj1[key]) !== JSON.stringify(obj2[key]) &&
+            installEmus[obj1[key].id].status &&
+            installEmus[obj1[key].code] !== 'BigPemu'
+          ) {
+            differences[key] = obj1[key];
+          }
+        }
+      }
+
+      if (Object.keys(differences).length > 0) {
+        setStatePage({
+          ...statePage,
+          updates: true,
+        });
+      } else {
+        setStatePage({
+          ...statePage,
+          updates: false,
+        });
+      }
+    });
+  }, [stateCurrentConfigs, '']);
 
   const functions = {
     openSRM,
@@ -195,25 +236,38 @@ function Aside({ css }) {
 
   const settingsCards = [
     {
-      icon: [iconGear],
-      iconFlat: 'gear',
-      title: 'Manage Emulators',
-      description: 'Manage and update your Emulators and configurations',
-      button: 'Update',
+      icon: [iconAndroid],
+      iconFlat: 'android',
+      title: 'Android',
+      description: t('manageEmulators.title'),
+      button: 'Configure',
       btnCSS: 'btn-simple--1',
-      status: true,
-      function: () => functions.navigate('/emulators'),
+      status:
+        system === 'win32' && (branch.includes('early') || branch === 'dev'),
+      function: () => functions.navigate('/android-welcome'),
     },
+
     {
       icon: [iconGear],
       iconFlat: 'gear',
-      title: 'Quick Settings',
+      title: t('aside.quickSettings'),
       description:
         'Customize bezels, shaders, aspect ratio, auto save, and more',
       button: 'Configure',
       btnCSS: 'btn-simple--1',
       status: true,
       function: () => functions.navigate('/settings'),
+    },
+    {
+      icon: [iconGear],
+      iconFlat: 'books',
+      title: t('aside.manageEmulators'),
+      description: 'Manage and update your Emulators and configurations',
+      button: 'Update',
+      btnCSS: 'btn-simple--1',
+      status: true,
+      updates,
+      function: () => functions.navigate('/emulators'),
     },
     {
       icon: [iconPackage],
@@ -224,16 +278,6 @@ function Aside({ css }) {
       btnCSS: 'btn-simple--1',
       status: true,
       function: () => functions.navigate('/store-front'),
-    },
-    {
-      icon: [iconHelp],
-      iconFlat: 'help',
-      title: 'Help',
-      description: 'Having problems running EmuDeck?',
-      button: 'Read the wiki',
-      btnCSS: 'btn-simple--1',
-      status: true,
-      function: () => functions.navigate('/help'),
     },
     {
       icon: [iconJoystick],
@@ -248,21 +292,17 @@ function Aside({ css }) {
     {
       icon: [iconDisk],
       iconFlat: 'disk',
-      title: 'USB Transfer Wizard',
+      title: t('aside.importGames'),
       description: 'Transfer your games using a USB Drive',
       button: 'Add more games',
       btnCSS: 'btn-simple--1',
-      status: !!(
-        systemName === 'SteamOS' ||
-        systemName === 'Linux' ||
-        systemName === 'Chimera'
-      ),
+      status: true,
       function: () => functions.navigate('/copy-games'),
     },
     {
       icon: [iconQuick],
       iconFlat: 'quick',
-      title: 'Quick Reset',
+      title: t('aside.quickReset'),
       description:
         'Update or reset your installation to the latest EmuDeck version in one easy click',
       button: 'Reinstall',
@@ -273,7 +313,7 @@ function Aside({ css }) {
     {
       icon: [iconCustom],
       iconFlat: 'custom',
-      title: 'Custom Reset',
+      title: t('aside.customReset'),
       description:
         'Update or reset your installation to the latest EmuDeck version in custom mode',
       button: 'Reinstall',
@@ -283,12 +323,12 @@ function Aside({ css }) {
     },
     {
       status: system !== 'darwin' ? 'separator' : false,
-      title: 'Other Settings',
+      title: t('aside.otherSettings'),
     },
     {
       icon: [iconScreen],
       iconFlat: 'screen',
-      title: 'Screen Resolution',
+      title: t('aside.screenResolution'),
       description: 'Upscale your emulators resolution',
       button: 'More info',
       btnCSS: 'btn-simple--5',
@@ -298,7 +338,7 @@ function Aside({ css }) {
     {
       icon: [iconPrize],
       iconFlat: 'prize',
-      title: 'Retro Achievements',
+      title: t('aside.retroAchievements'),
       description:
         'Configure RetroAchievements for Duckstation, PCSX2, and RetroArch',
       button: 'More info',
@@ -309,7 +349,7 @@ function Aside({ css }) {
 
     {
       status: 'separator',
-      title: 'EmuDeck Exclusive Tools',
+      title: t('aside.exclusiveTools'),
     },
 
     {
@@ -325,7 +365,7 @@ function Aside({ css }) {
     {
       icon: [iconChecker],
       iconFlat: 'checker',
-      title: 'BIOS Checker',
+      title: t('aside.biosChecker'),
       description: 'Use the EmuDeck BIOS Checker to validate your BIOS',
       button: 'More info',
       btnCSS: 'btn-simple--5',
@@ -335,7 +375,7 @@ function Aside({ css }) {
     {
       icon: [iconJoystick],
       iconFlat: 'joystick',
-      title: 'Boot Mode',
+      title: t('aside.bootMode'),
       description: 'Boot directly on Steam, not Windows',
       button: 'More info',
       btnCSS: 'btn-simple--5',
@@ -345,17 +385,17 @@ function Aside({ css }) {
     {
       icon: [iconScreen],
       iconFlat: 'screen',
-      title: 'Pegasus Themes',
-      description: 'Pich your Pegasus theme to install',
+      title: t('aside.pegasusTheme'),
+      description: 'Pich your Pegasus theme',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: true,
+      status: state.installFrontends.pegasus.status,
       function: () => functions.navigate('/pegasus-theme-choice'),
     },
     {
       icon: [iconCloud],
       iconFlat: 'cloud',
-      title: 'Cloud Saves',
+      title: t('aside.cloudSaves'),
       description: 'Sync or backup your saves and save states to the cloud',
       button: 'More info',
       btnCSS: 'btn-simple--5',
@@ -366,7 +406,7 @@ function Aside({ css }) {
     {
       icon: [iconMigrate],
       iconFlat: 'migrate',
-      title: 'Migrate Installation',
+      title: t('aside.migrateInstalation'),
       description:
         'Migrate your EmuDeck installation to your SD Card or vice versa',
       button: 'More info',
@@ -396,7 +436,7 @@ function Aside({ css }) {
 
     {
       status: system === 'win32' || system === 'darwin' ? false : 'separator',
-      title: 'Third Party tools',
+      title: t('aside.thirdParty'),
     },
 
     {
@@ -412,12 +452,23 @@ function Aside({ css }) {
     {
       icon: [iconPlugin],
       iconFlat: 'plugin',
-      title: 'Gyroscope',
+      title: t('aside.gyro'),
       description: 'Enable your Steam Deck gyroscope in emulation',
       button: 'More info',
       btnCSS: 'btn-simple--5',
       status: system === 'SteamOS',
       function: () => functions.navigate('/gyrodsu'),
+    },
+    {
+      icon: [iconPlugin],
+      iconFlat: 'plugin',
+      title: 'PowerTools',
+      description:
+        'A Decky Loader Plugin to manage performance settings in Game Mode',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system === 'SteamOS',
+      function: () => functions.navigate('/power-tools'),
     },
     {
       icon: [iconPlugin],
@@ -428,16 +479,16 @@ function Aside({ css }) {
       button: 'More info',
       btnCSS: 'btn-simple--5',
       status: system === 'chimeraos',
-      function: () => functions.navigate('/power-tools'),
+      function: () => functions.navigate('/power-controls'),
     },
     {
       status: 'separator',
-      title: 'Other stuff',
+      title: t('aside.other'),
     },
     {
       icon: [iconPrize],
       iconFlat: 'prize',
-      title: 'Get Early Access',
+      title: t('aside.earlyAccess'),
       description:
         'Support EmuDeck on Patreon and get early access to our latest features',
       button: 'Donate',
@@ -448,7 +499,7 @@ function Aside({ css }) {
     {
       icon: [iconDoc],
       iconFlat: 'doc',
-      title: 'Get Log files',
+      title: t('aside.logFiles'),
       description: 'Send us your logs if you have issues',
       button: 'Create Zip',
       btnCSS: 'btn-simple--5',
@@ -458,7 +509,7 @@ function Aside({ css }) {
     {
       icon: [iconList],
       iconFlat: 'list',
-      title: 'ChangeLog',
+      title: t('aside.changelog'),
       description: 'Read about the latest changes to EmuDeck',
       button: 'Read',
       btnCSS: 'btn-simple--5',
@@ -469,7 +520,7 @@ function Aside({ css }) {
     {
       icon: [iconCloud],
       iconFlat: 'cloud',
-      title: 'Cloud Services',
+      title: t('aside.cloudServices'),
       description: 'Manage your cloud services, Xbox Cloud Gaming, and more!',
       button: 'More info',
       btnCSS: 'btn-simple--5',
@@ -479,7 +530,7 @@ function Aside({ css }) {
     {
       icon: [iconUninstall],
       iconFlat: 'uninstall',
-      title: 'Uninstall',
+      title: t('aside.uninstall'),
       description: 'Uninstall EmuDeck from your system',
       button: 'Uninstall',
       btnCSS: 'btn-simple--3',
@@ -535,6 +586,7 @@ function Aside({ css }) {
                       ) */}
                       <Icon name={item.iconFlat} fill="transparent" />
                       {item.title}
+                      {item.updates && <span className="sidebar__alert" />}
                     </div>
                   </div>
                 </button>
@@ -542,6 +594,7 @@ function Aside({ css }) {
             );
           })}
       </ul>
+      {/* <div className="sidebar__announcements"></div> */}
       <EmuModal modal={modal} />
     </aside>
   );

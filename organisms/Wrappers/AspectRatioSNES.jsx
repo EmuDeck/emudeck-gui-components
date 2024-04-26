@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -10,6 +11,7 @@ import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 import { ar87s, ar43s } from 'components/utils/images/images';
 
 function AspectRatioSNES({ onClick }) {
+  const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
   const { ar } = state;
 

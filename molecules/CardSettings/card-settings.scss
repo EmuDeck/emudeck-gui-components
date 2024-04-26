@@ -103,9 +103,9 @@
     vertical-align: middle;
     line-height: 26px;
     position: absolute;
-    border-radius: 0 8px 0 4px;
-    top: 0px;
-    right: 0px;
+    border-radius: 0 4px 0 4px;
+    top: -1px;
+    right: -1px;
     z-index: 20;
     animation: pulse 2s infinite;
   }

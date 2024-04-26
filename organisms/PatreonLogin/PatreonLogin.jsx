@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 //
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
 import Wrapper from 'components/molecules/Wrapper/Wrapper';
-import GamePad from 'components/organisms/GamePad/GamePad';
+
 import Main from 'components/organisms/Main/Main';
 import Header from 'components/organisms/Header/Header';
 
@@ -36,7 +36,7 @@ function PatreonLogin({ children }) {
     patreonClicked: false,
     status: null,
     accessAllowed: false,
-    patreonToken: null,
+    patreonTokenTemp: null,
     errorMessage: undefined,
     dom: undefined,
   });
@@ -44,14 +44,20 @@ function PatreonLogin({ children }) {
     patreonClicked,
     status,
     accessAllowed,
-    patreonToken,
+    patreonTokenTemp,
     errorMessage,
     dom,
   } = statePage;
 
   const { state, setState, setStateCurrentConfigs } = useContext(GlobalContext);
 
-  const { installEmus, overwriteConfigEmus, achievements, shaders } = state;
+  const {
+    installEmus,
+    overwriteConfigEmus,
+    achievements,
+    shaders,
+    patreonToken,
+  } = state;
 
   //
   // Web services
@@ -85,7 +91,7 @@ function PatreonLogin({ children }) {
 
     setStatePage({
       ...statePage,
-      patreonToken: patronTokenValue,
+      patreonTokenTemp: patronTokenValue,
     });
   };
 
@@ -106,7 +112,7 @@ function PatreonLogin({ children }) {
     }
 
     if (!tokenArg) {
-      token = patreonToken;
+      token = patreonTokenTemp;
     } else {
       token = tokenArg;
     }
@@ -138,7 +144,7 @@ function PatreonLogin({ children }) {
         if (patreonJson.status === true) {
           setStatePage({
             ...statePage,
-            patreonToken: patreonJson.new_token,
+            patreonTokenTemp: patreonJson.new_token,
             accessAllowed: true,
           });
         }
@@ -156,13 +162,25 @@ function PatreonLogin({ children }) {
   // UseEffects
   //
   useEffect(() => {
-    const patreonTokenLS = localStorage.getItem('patreon_token');
-    patreonCheckToken(patreonTokenLS);
+    const patreonTokenTempLS = localStorage.getItem('patreon_token');
+    patreonCheckToken(patreonTokenTempLS);
   }, []);
 
   useEffect(() => {
     if (accessAllowed === true) {
-      localStorage.setItem('patreon_token', patreonToken);
+      localStorage.setItem('patreon_token', patreonTokenTemp);
+      const partial = patreonTokenTemp.split('|||');
+      const splitToken = partial[1];
+
+      ipcChannel.sendMessage('emudeck', [
+        `storePatreonToken|||storePatreonToken ${splitToken}`,
+      ]);
+      ipcChannel.once('storePatreonToken', (message) => {
+        setState({
+          ...state,
+          patreonToken: splitToken,
+        });
+      });
     } else if (accessAllowed === 'cancel') {
       const updateOrLogin = confirm(
         'Please log back in to Patreon to keep EmuDeck updated. Press OK to log in again or Cancel to continue with no updates'
@@ -216,9 +234,11 @@ function PatreonLogin({ children }) {
     }
   }, [accessAllowed]);
 
-  useEffect(() => {
-    window.reload;
-  }, [patreonToken]);
+  // useEffect(() => {
+  //   if (patreonToken !== null) {
+  //     navigate('/check-updates');
+  //   }
+  // }, [patreonToken]);
 
   // useEffect(() => {
   //   if (state.version != '') {
@@ -237,58 +257,28 @@ function PatreonLogin({ children }) {
       <Header title="Early Access Feature" />
       <Main>
         <p className="lead">
-          You need to be a patreon in order to access this feature.
+          You need to log into patreon in order to access this feature while
+          it's being tested on our Early Access branch.
         </p>
 
-        {!!errorMessage && branch === 'early' && (
+        {!!errorMessage && branch.includes('early') && (
           <p className="lead">{errorMessage}</p>
         )}
 
-        {!patreonClicked && branch !== 'early' && (
-          <BtnSimple
-            css="btn-simple--3"
-            type="button"
-            target="_blank"
-            aria="Check Early Access features"
-            onClick={() => goToPatreon()}
-          >
-            Check Early Access features
-          </BtnSimple>
-        )}
-        {!patreonClicked && branch === 'early' && (
-          <>
+        {!patreonClicked &&
+          branch !== 'early' &&
+          branch !== 'early-unstabled' && (
             <BtnSimple
               css="btn-simple--3"
-              type="link"
+              type="button"
               target="_blank"
-              href="https://token.emudeck.com/"
-              aria="Login with Patreon"
-              onClick={() => patreonShowInput()}
+              aria="Check Early Access features"
+              onClick={() => goToPatreon()}
             >
-              Login with Patreon
+              Check Early Access features
             </BtnSimple>
-            <BtnSimple
-              css="btn-simple--3"
-              type="link"
-              target="_blank"
-              href="https://patreon.com/"
-              aria="Change Patreon Account"
-            >
-              Change Patreon Account
-            </BtnSimple>
-          </>
-        )}
-        {!patreonClicked && branch === 'early' && (
-          <BtnSimple
-            css="btn-simple--2"
-            type="button"
-            target="_blank"
-            aria="Login with Token"
-            onClick={() => patreonShowInput()}
-          >
-            Login with Token
-          </BtnSimple>
-        )}
+          )}
+
         {patreonClicked && (
           <div className="form">
             <FormInputSimple
@@ -296,10 +286,10 @@ function PatreonLogin({ children }) {
               type="token"
               name="token"
               id="token"
-              value={patreonToken}
+              value={patreonTokenTemp}
               onChange={patreonSetToken}
             />
-            {patreonToken !== null && (
+            {patreonTokenTemp !== null && (
               <BtnSimple
                 css="btn-simple--3"
                 type="button"
