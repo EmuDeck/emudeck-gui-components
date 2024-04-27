@@ -11,17 +11,13 @@ function EmulatorResolution({ onClick }) {
   const { resolutions, overwriteConfigEmus } = state;
   return (
     <>
-      <p className="lead">
-        Select the resolution you would like to use for your emulators. Keep in
-        mind that a higher resolution will require a stronger computer.
-      </p>
       <Main>
         <div className="container--grid">
           <div data-col-sm="6">
             {overwriteConfigEmus.duckstation.status && (
               <>
                 <div className="duckstation">
-                  <span className="h5">PlayStation 1 Games</span>
+                  <span className="h5">PlayStation 1</span>
                   <div className="cards">
                     <Card
                       css={
@@ -63,7 +59,7 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.pcsx2.status && (
               <>
                 <div className="pcsx2">
-                  <span className="h5">PlayStation 2 Games</span>
+                  <span className="h5">PlayStation 2</span>
                   <div className="cards">
                     <Card
                       css={resolutions.pcsx2 === '720P' ? 'is-selected' : ''}
@@ -97,7 +93,7 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.rpcs3.status && (
               <>
                 <div className="rpcs3">
-                  <span className="h5">PlayStation 3 Games</span>
+                  <span className="h5">PlayStation 3</span>
                   <div className="cards">
                     <Card
                       css={resolutions.rpcs3 === '720P' ? 'is-selected' : ''}
@@ -130,7 +126,7 @@ function EmulatorResolution({ onClick }) {
             )}
             {overwriteConfigEmus.yuzu.status && (
               <div className="yuzu">
-                <span className="h5">Switch Games</span>
+                <span className="h5">Switch</span>
                 <div className="cards">
                   <Card
                     css={resolutions.yuzu === '720P' ? 'is-selected' : ''}
@@ -164,7 +160,7 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.duckstation.status && (
               <>
                 <div className="dolphin">
-                  <span className="h5">GameCube and Wii Games</span>
+                  <span className="h5">GameCube & Wii</span>
                   <div className="cards">
                     <Card
                       css={resolutions.dolphin === '720P' ? 'is-selected' : ''}
@@ -199,7 +195,7 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.duckstation.status && (
               <>
                 <div className="cemu">
-                  <span className="h5">Wii U Games</span>
+                  <span className="h5">Wii U</span>
                   <div className="cards">
                     <Card
                       css={resolutions.cemu === '720P' ? 'is-selected' : ''}
@@ -233,7 +229,7 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.duckstation.status && (
               <>
                 <div className="melonds">
-                  <span className="h5">Nintendo DS Games</span>
+                  <span className="h5">Nintendo DS</span>
                   <div className="cards">
                     <Card
                       css={resolutions.melonds === '720P' ? 'is-selected' : ''}
@@ -266,7 +262,7 @@ function EmulatorResolution({ onClick }) {
             )}
             {overwriteConfigEmus.duckstation.status && (
               <div className="citra">
-                <span className="h5">Nintendo 3DS Games</span>
+                <span className="h5">Nintendo 3DS</span>
                 <div className="cards">
                   <Card
                     css={resolutions.citra === '720P' ? 'is-selected' : ''}

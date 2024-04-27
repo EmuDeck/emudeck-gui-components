@@ -13,22 +13,6 @@ function EmulatorConfiguration({ onClick, images }) {
 
   return (
     <>
-      {second && (
-        <p className="lead">
-          EmuDeck will optimize and configure emulators during this install.
-          Selected emulators will have their configurations reset and updated to
-          EmuDeck defaults. De-selected emulators will not be touched and
-          EmuDeck will respect your configurations (Not Recommended).
-        </p>
-      )}
-      {!second && (
-        <p className="lead">
-          EmuDeck will optimize and configure emulators during this install.
-          Selected emulators will have their configurations reset and updated to
-          EmuDeck defaults. De-selected emulators will not be touched and
-          EmuDeck will respect your configurations (Not Recommended).
-        </p>
-      )}
       <Main>
         <div className="cards cards--mini">
           {overwriteConfigEmusArray.map((item) => {
