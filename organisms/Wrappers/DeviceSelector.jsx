@@ -11,13 +11,6 @@ function DeviceSelector({ children }) {
 
   return (
     <>
-      <p className="lead">
-        {system === 'win32' &&
-          'EmuDeck tailors the install for different hardware. Please select your controller.'}
-
-        {system !== 'win32' &&
-          'EmuDeck tailors the install for different hardware. Each device will have its own configuration, emulators and pre-configured bezels.'}
-      </p>
       <Main>
         <div className="cards">{children}</div>
       </Main>

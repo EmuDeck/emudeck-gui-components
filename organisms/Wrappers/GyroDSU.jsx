@@ -16,19 +16,6 @@ function GyroDSU({
   const { t, i18n } = useTranslation();
   return (
     <>
-      <p className="lead">
-        SteamDeckGyroDSU is a plugin that allows you to use your Steam Deck
-        Gyroscope in Cemu (Wii U), Citra (3DS), Dolphin (Gamecube and Wii),
-        Ryujinx (Nintendo Switch), and Yuzu (Nintendo Switch) games. Learn more
-        about SteamDeckGyroDSU{' '}
-        <LinkSimple
-          css="link-simple--1"
-          href="https://github.com/kmicki/SteamDeckGyroDSU"
-          target="_blank"
-        >
-          here
-        </LinkSimple>
-      </p>
       <Main>
         <br />
         <div className="container--grid">
@@ -36,16 +23,16 @@ function GyroDSU({
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              aria="Install GyroDSU"
+              aria={t('general.install')}
               onClick={installClick}
               disabled={disableButton && 'true'}
             >
-              Install SteamDeckGyroDSU
+              {t('general.install')}
             </BtnSimple>
           </div>
           <div data-col-sm="1" />
           <div data-col-sm="5">
-            <img src={gyroDsuImg} alt="RetroAchievements" />
+            <img src={gyroDsuImg} alt="gyroDSU" />
           </div>
         </div>
       </Main>

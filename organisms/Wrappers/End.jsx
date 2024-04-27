@@ -105,7 +105,7 @@ function End({ message, percentage, step, disabledNext }) {
                   </span>
                   <p className="lead">
                     Please check that all your emulators has been installed. If
-                    an emulator or tool failed to install, run a{' '}
+                    an emulator or tool failed to install, run a
                     <strong>Custom Reset</strong> or install the emulator using
                     the <strong>Manage Emulators</strong> page.
                   </p>
@@ -140,22 +140,19 @@ function End({ message, percentage, step, disabledNext }) {
                   <div data-col-sm="7">
                     <span className="h3">⚠️ Read before continuing ⚠️</span>
                     <p className="lead">
-                      EmuDeck is designed to work using{' '}
+                      EmuDeck is designed to work using
                       <strong>Steam input</strong>, you need to launch the games
                       using Steam after adding them with Steam Rom Manager, same
                       thing with the Emulators, EmulationStation or Pegasus,
-                      otherwise the{' '}
+                      otherwise the
                       <strong>controls and hotkeys won't work</strong>.
-                    </p>
-                    <p className="lead">
+                      <br />
                       Apps like DeckTools or Handheld Companion might break
                       controls too in some cases.
-                    </p>
-                    <p className="lead">
+                      <br />
                       Make sure your handheld is on GamePad mode at all times,
                       not on Desktop or Auto.
-                    </p>
-                    <p className="lead">
+                      <br />
                       <strong>
                         If you want to use other Frontends like Playnite you
                         will need to activate Steam Input on the Desktop as

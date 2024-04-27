@@ -15,10 +15,6 @@ function AspectRatioDolphin({ onClick }) {
 
   return (
     <>
-      <p className="lead">
-        Select the aspect ratio for Gamecube games. You can change this setting
-        in game anytime by pressing Start + DPad Right.
-      </p>
       <Main>
         <SelectorMenu
           imgs={[

@@ -16,9 +16,6 @@ function AspectRatioSega({ onClick }) {
 
   return (
     <>
-      <p className="lead">
-        Select the aspect ratio for the Classic Sega Systems.
-      </p>
       <Main>
         <SelectorMenu
           imgs={[

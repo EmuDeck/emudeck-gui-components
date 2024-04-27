@@ -13,7 +13,6 @@ function ESDETheme({ onClick, themes }) {
 
   return (
     <>
-      <p className="lead">Select your default theme.</p>
       <Main css="main--horizontal-scroll">
         <div className="cards cards--maxi">
           {themes && (
@@ -33,7 +32,7 @@ function ESDETheme({ onClick, themes }) {
                     <img src={systemView} alt={name} />
                     <img className="fade" src={gamelistView} alt={name} />
                     <span className="h6">
-                      {name} by {author}
+                      {name} - {author}
                     </span>
                   </Card>
                 );

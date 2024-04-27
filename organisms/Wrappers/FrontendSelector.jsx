@@ -14,10 +14,6 @@ function FrontendSelector({ onClick, images, lastSelected, installFrontends }) {
   const { esdePreview, pegasusPreview, steamPreview } = images;
   return (
     <>
-      <p className="lead">
-        Select which frontends you would like to use to launch your games. You
-        may select more than one.
-      </p>
       <Main>
         <div className="cards cards--big">
           {installFrontendsArray.map((item) => {

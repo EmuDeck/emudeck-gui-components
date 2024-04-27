@@ -15,10 +15,6 @@ function AutoSave({ onClick }) {
 
   return (
     <>
-      <p className="lead">
-        If enabled, your game state will be saved on exit and automatically
-        loaded when opened again when using RetroArch.
-      </p>
       <Main>
         <SelectorMenu
           imgs={[
