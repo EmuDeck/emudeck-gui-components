@@ -9,6 +9,7 @@ import './Header.scss';
 import flagEN from 'assets/flags/en.svg';
 import flagES from 'assets/flags/es.svg';
 import flagFR from 'assets/flags/fr.svg';
+import flagIT from 'assets/flags/it.svg';
 
 function HeaderElectron({ title, bold }) {
   const { t, i18n } = useTranslation();
@@ -25,6 +26,9 @@ function HeaderElectron({ title, bold }) {
     },
     fr: {
       nativeName: <img src={flagFR} alt="French" />,
+    },
+    it: {
+      nativeName: <img src={flagIT} alt="Italian" />,
     },
   };
 
@@ -99,7 +103,7 @@ function HeaderElectron({ title, bold }) {
         >
           A-
         </BtnSimple>
-        {/* {Object.keys(lngs).map((lng) => (
+        {Object.keys(lngs).map((lng) => (
           <button
             key={lng}
             style={{
@@ -111,7 +115,7 @@ function HeaderElectron({ title, bold }) {
           >
             {lngs[lng].nativeName}
           </button>
-        ))} */}
+        ))}
       </div>
 
       {branch !== 'main' && (
