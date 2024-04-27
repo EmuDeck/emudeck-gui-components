@@ -99,7 +99,7 @@ function HeaderElectron({ title, bold }) {
         >
           A-
         </BtnSimple>
-        {Object.keys(lngs).map((lng) => (
+        {/* {Object.keys(lngs).map((lng) => (
           <button
             key={lng}
             style={{
@@ -111,7 +111,7 @@ function HeaderElectron({ title, bold }) {
           >
             {lngs[lng].nativeName}
           </button>
-        ))}
+        ))} */}
       </div>
 
       {branch !== 'main' && (
