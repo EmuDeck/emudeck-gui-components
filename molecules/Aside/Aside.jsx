@@ -239,7 +239,7 @@ function Aside({ css }) {
       icon: [iconAndroid],
       iconFlat: 'android',
       title: 'Android',
-      description: t('manageEmulators.title'),
+      description: t('aside.android'),
       button: 'Configure',
       btnCSS: 'btn-simple--1',
       status:
