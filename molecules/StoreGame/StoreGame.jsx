@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BtnSimple } from 'getbasecore/Atoms';
@@ -5,6 +6,7 @@ import { BtnSimple } from 'getbasecore/Atoms';
 import './store-game.scss';
 
 function StoreGame({ css, img, title, tags, onMore, onInstall, disabled }) {
+  const { t, i18n } = useTranslation();
   return (
     <li className={`store-game ${css}`}>
       <div className="store-game__img">
@@ -39,7 +41,7 @@ function StoreGame({ css, img, title, tags, onMore, onInstall, disabled }) {
           onClick={() => onInstall()}
           disabled={disabled}
         >
-          Install
+          {t('general.install')}
         </BtnSimple>
 
         <BtnSimple
@@ -48,7 +50,7 @@ function StoreGame({ css, img, title, tags, onMore, onInstall, disabled }) {
           aria="Next"
           onClick={() => onMore()}
         >
-          More info
+          {t('general.moreInfo')}
         </BtnSimple>
       </div>
     </li>

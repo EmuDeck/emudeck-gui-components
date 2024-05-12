@@ -10,11 +10,6 @@ function CHDTool({ disabledNext, onClick }) {
   const { t, i18n } = useTranslation();
   return (
     <>
-      <p className="lead">
-        The Compression Tool is a script that looks through certain ROM folders
-        and compresses games by up to 70% of their original file size using CHD,
-        RVZ, Trimmed 3DS, XISO, and 7Zip formats.
-      </p>
       <Main>
         <p>
           Once a ROM is successfully converted, the original file will be

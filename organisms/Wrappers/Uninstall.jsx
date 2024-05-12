@@ -9,12 +9,6 @@ function Uninstall({ onClick }) {
   const { t, i18n } = useTranslation();
   return (
     <>
-      <p className="lead">
-        The EmuDeck Uninstallation utility should only be used if you are
-        intending on removing EmuDeck from your system. If you are having
-        issues, run a Custom Reset, troubleshoot the specific tool or emulator,
-        or visit EmuDeck Discord or Reddit for additional support.
-      </p>
       <Main>
         <br />
         <div>

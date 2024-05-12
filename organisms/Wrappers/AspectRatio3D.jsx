@@ -14,9 +14,6 @@ function AspectRatio3D({ onClick }) {
 
   return (
     <>
-      <p className="lead">
-        Select the aspect ratio for the Dreamcast and Nintendo 64 Systems.
-      </p>
       <Main>
         <SelectorMenu
           imgs={[

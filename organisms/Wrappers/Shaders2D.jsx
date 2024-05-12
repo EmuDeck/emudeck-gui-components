@@ -16,9 +16,6 @@ function Shaders2D({ onClick }) {
 
   return (
     <>
-      <p className="lead">
-        The CRT Shader gives your classic systems a faux retro CRT vibe.
-      </p>
       <Main>
         <SelectorMenu
           imgs={[

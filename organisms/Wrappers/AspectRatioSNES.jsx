@@ -17,9 +17,6 @@ function AspectRatioSNES({ onClick }) {
 
   return (
     <>
-      <p className="lead">
-        Select the aspect ratio for the Super Nintendo Entertainment System.
-      </p>
       <Main>
         <SelectorMenu
           imgs={[

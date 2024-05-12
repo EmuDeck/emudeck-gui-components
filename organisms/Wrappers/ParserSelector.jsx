@@ -12,12 +12,6 @@ function ParserSelector({ onClick, images }) {
   const installEmusArray = Object.values(installEmus);
   return (
     <>
-      <p className="lead">
-        These are the systems you have installed that can be played using
-        RetroArch or a Standalone Emulator.
-        <br /> Please select the parser you want to use to add those games to
-        your Steam Library
-      </p>
       <Main>
         <div className="cards cards--mini">
           {installEmusArray.map((item) => {

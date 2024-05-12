@@ -15,7 +15,6 @@ function CloudSync({ onClick, showNone }) {
   const { cloudSyncType, system, branch } = state;
   return (
     <>
-      <p className="lead">Select your preferred type of cloud saving.</p>
       <Main>
         <SelectorMenu
           imgs={[
@@ -27,15 +26,15 @@ function CloudSync({ onClick, showNone }) {
             [
               () => onClick('Sync'),
               cloudSyncType === 'Sync' ? 'is-selected' : '',
-              'Sync',
-              'Sync between EmuDeck installations - <strong> Patrons only</strong>',
+              t('CloudSync.sync'),
+              t('CloudSync.syncDesc'),
               true,
             ],
             [
               () => onClick('Save'),
               cloudSyncType === 'Save' ? 'is-selected' : '',
-              'Backup',
-              'Backup your games to the cloud',
+              t('CloudSync.backup'),
+              t('CloudSync.backupDesc'),
               !branch.includes('early'),
             ],
           ]}

@@ -13,7 +13,6 @@ function PegasusThemeChoice({ onClick, themes }) {
 
   return (
     <>
-      <p className="lead">Select your default theme.</p>
       <Main css="main--horizontal-scroll">
         <div className="cards cards--maxi">
           {themes && (
@@ -32,7 +31,7 @@ function PegasusThemeChoice({ onClick, themes }) {
                     <img src={screenshots[0]} alt={name} />
                     <img className="fade" src={screenshots[1]} alt={name} />
                     <span className="h6">
-                      {name} by {author}
+                      {name} - {author}
                     </span>
                   </Card>
                 );

@@ -15,9 +15,6 @@ function ShadersHandhelds({ onClick }) {
 
   return (
     <>
-      <p className="lead">
-        The LCD Shader simulates the old LCD Matrix screens of handheld systems.
-      </p>
       <Main>
         <SelectorMenu
           imgs={[

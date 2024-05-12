@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { PropTypes } from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { BtnSimple } from 'getbasecore/Atoms';
@@ -18,6 +19,7 @@ function Footer({
   thirdText,
   exit,
 }) {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const goTo = (href) => {
     navigate(`/${href}`);
@@ -33,11 +35,11 @@ function Footer({
         <BtnSimple
           css="btn-simple--1"
           type="button"
-          aria="Go Back"
+          aria={t('footer.exit')}
           disabled={disabledNext && true}
           onClick={() => CloseApp()}
         >
-          Exit To Gaming Mode
+          {t('footer.exit')}e
         </BtnSimple>
       )}
       {!!fourth && (
@@ -45,7 +47,7 @@ function Footer({
           css="btn-simple--2"
           type="button"
           onClick={() => CloseApp()}
-          aria="Go Back"
+          aria={fourthText}
         >
           {fourthText}
         </BtnSimple>
@@ -55,7 +57,7 @@ function Footer({
           css="btn-simple--2"
           type="button"
           onClick={() => goTo(third)}
-          aria="Go Back"
+          aria={thirdText}
         >
           {thirdText}
         </BtnSimple>
@@ -65,10 +67,10 @@ function Footer({
           css="btn-simple--2"
           type="button"
           onClick={back ? () => goTo(back) : () => navigate(-1)}
-          aria="Go Back"
+          aria={t('general.back')}
           disabled={disabledBack && true}
         >
-          {!backText && 'Go Back'}
+          {!backText && t('general.back')}
           {backText}
         </BtnSimple>
       )}
@@ -81,7 +83,7 @@ function Footer({
           aria="Go Next"
           disabled={disabledNext && true}
         >
-          {!nextText && 'Continue '}
+          {!nextText && t('general.next')}
           {nextText}
           <svg
             className="rightarrow"

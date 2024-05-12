@@ -22,25 +22,21 @@ function Migration({
   const { t, i18n } = useTranslation();
   return (
     <>
-      <p className="lead">
-        This utility will move your EmuDeck installation, with your ROMs intact,
-        to the selected destination as well as update your Steam Library paths.
-      </p>
       <Main>
         <div className="container--grid">
           <div data-col-sm="12">
-            <span className="h4">Current Installation:</span>
+            <span className="h4">{t('Migration.current')}</span>
             <div className="cards">
               {storage === 'SD-Card' && (
                 <Card css={storage === 'SD-Card' && 'is-selected'}>
                   <img src={imgSD} width="100" alt="Background" />
-                  <span className="h5">SD Card</span>
+                  <span className="h5">{t('Migration.sdCard')}</span>
                   {sdCardName != null && (
                     <span className="h6">{sdCardName}</span>
                   )}
                   {sdCardName === null ||
                     (sdCardValid === false && (
-                      <span className="h6">Not detected</span>
+                      <span className="h6">{t('Migration.errorDetected')}</span>
                     ))}
                 </Card>
               )}
@@ -48,13 +44,13 @@ function Migration({
               {storage === 'Internal Storage' && (
                 <Card css={storage === 'Internal Storage' && 'is-selected'}>
                   <img src={imgInternal} width="100" alt="Background" />
-                  <span className="h6">Internal Storage</span>
+                  <span className="h6">{t('Migration.internalStorage')}</span>
                 </Card>
               )}
               {storage === 'Custom' && (
                 <Card css={storage === 'Custom' && 'is-selected'}>
                   <img src={imgInternal} width="100" alt="Background" />
-                  <span className="h6">Custom Directory</span>
+                  <span className="h6">{t('Migration.custom')}</span>
                   {storagePath && storage === 'Custom' && (
                     <span className="h6">{storagePath}</span>
                   )}
@@ -63,7 +59,7 @@ function Migration({
             </div>
           </div>
           <div data-col-sm="12">
-            <span className="h4">Pick your Destination:</span>
+            <span className="h4">{t('Migration.destination')}</span>
             <div className="cards">
               <Card
                 css={storageDestination === 'SD-Card' && 'is-selected'}
@@ -72,11 +68,11 @@ function Migration({
                 }
               >
                 <img src={imgSD} width="100" alt="Background" />
-                <span className="h5">SD Card</span>
+                <span className="h5">{t('Migration.sdCard')}</span>
                 {sdCardName != null && <span className="h6">{sdCardName}</span>}
                 {sdCardName === null ||
                   (sdCardValid === false && (
-                    <span className="h6">Not detected</span>
+                    <span className="h6">{t('Migration.errorDetected')}</span>
                   ))}
               </Card>
 
@@ -85,7 +81,7 @@ function Migration({
                 onClick={() => onClick('Internal Storage')}
               >
                 <img src={imgInternal} width="100" alt="Background" />
-                <span className="h6">Internal Storage</span>
+                <span className="h6">{t('Migration.internalStorage')}</span>
               </Card>
 
               <Card
@@ -93,7 +89,7 @@ function Migration({
                 onClick={() => onClick('Custom')}
               >
                 <img src={imgInternal} width="100" alt="Background" />
-                <span className="h6">Custom Directory</span>
+                <span className="h6">{t('Migration.custom')}</span>
                 {storagePathDestination && storageDestination === 'Custom' && (
                   <span className="h6">{storagePathDestination}</span>
                 )}
@@ -103,10 +99,10 @@ function Migration({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Start Migration"
+                aria={t('Migration.start')}
                 onClick={() => onClickStart()}
               >
-                Start Migration
+                {t('Migration.start')}
               </BtnSimple>
             )}
 
@@ -114,10 +110,10 @@ function Migration({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Waiting Migration"
+                aria={t('Migration.migrating')}
                 disabled
               >
-                Migrating...
+                {t('Migration.migrating')}
               </BtnSimple>
             )}
           </div>

@@ -15,7 +15,6 @@ function GameMode({ onClick }) {
   const { gamemode } = state;
   return (
     <>
-      <p className="lead">Select how you want to boot your device.</p>
       <Main>
         <SelectorMenu
           imgs={[
@@ -26,15 +25,15 @@ function GameMode({ onClick }) {
             [
               () => onClick(true),
               gamemode === true ? 'is-selected' : '',
-              'SteamUI',
-              'Mimic the Steam Deck experience by booting directly into SteamUI.',
+              t('GameMode.steam.title'),
+              t('GameMode.steam.description'),
               true,
             ],
             [
               () => onClick(false),
               gamemode === false ? 'is-selected' : '',
-              'Windows Desktop',
-              'Boot to the Windows Desktop like any Windows PC',
+              t('GameMode.windows.title'),
+              t('GameMode.windows.description'),
               true,
             ],
           ]}

@@ -15,11 +15,6 @@ function ControllerLayoutPage({ onClick }) {
 
   return (
     <>
-      <p className="lead">
-        Do you want your controller set so the buttons match the position of the
-        original controllers ( A is mapped to B ) or do you want to use your
-        controller's layout ( A is mapped to A )
-      </p>
       <Main>
         <SelectorMenu
           imgs={[
@@ -30,19 +25,19 @@ function ControllerLayoutPage({ onClick }) {
             [
               () => onClick('baxy'),
               controllerLayout === 'baxy' ? 'is-selected' : '',
-              'Position Match',
+              t('ControllerLayout.option1'),
               '',
               true,
             ],
             [
               () => onClick('abxy'),
               controllerLayout === 'abxy' ? 'is-selected' : '',
-              'Controller Layout Match',
+              t('ControllerLayout.option2'),
               '',
               true,
             ],
           ]}
-          details={['Nintendo Systems']}
+          details={['Nintendo']}
         />
       </Main>
     </>

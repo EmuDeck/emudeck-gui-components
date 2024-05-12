@@ -53,13 +53,10 @@ function RAAchievements({ onChange, onToggle }) {
       } else {
         const modalData = {
           active: true,
-          header: <span className="h4">Wrong username or password</span>,
-          body: (
-            <p>
-              If your password contains special characters like _ or ' you need
-              to change it on retroachievements.org
-            </p>
+          header: (
+            <span className="h4">t('RAAchievements.modalWrongPassTitle')</span>
           ),
+          body: <p>t('RAAchievements.modalWrongPassDesc')</p>,
           css: 'emumodal--xs',
         };
         setStatePage({ ...statePage, modal: modalData });
@@ -94,25 +91,19 @@ function RAAchievements({ onChange, onToggle }) {
           }
           modalData = {
             active: true,
-            header: <span className="h4">Success!</span>,
-            body: (
-              <p>
-                You are now succesfully connected to RetroAchievments for the
-                following emulators: DuckStation, PCSX2, PPSSPP, and RetroArch
-              </p>
+            header: (
+              <span className="h4">t('RAAchievements.modalSuccessTitle')</span>
             ),
+            body: <p>t('RAAchievements.modalSuccessDesc')</p>,
             css: 'emumodal--xs',
           };
         } else {
           modalData = {
             active: true,
-            header: <span className="h4">Error!</span>,
-            body: (
-              <p>
-                The user & password are correct but EmuDeck could not set the
-                configuration.
-              </p>
+            header: (
+              <span className="h4">t('RAAchievements.modalErrorTitle')</span>
             ),
+            body: <p>t('RAAchievements.modalErrorDesc')</p>,
             css: 'emumodal--xs',
           };
         }
@@ -123,12 +114,6 @@ function RAAchievements({ onChange, onToggle }) {
 
   return (
     <>
-      <p className="lead">
-        RetroAchievements.org is a community led effort to collaborate and
-        create custom-made achievements in emulated classic games. Enter your
-        account information to set up RetroAchievements for Duckstation, PCSX2,
-        PPSSPP, and RetroArch.
-      </p>
       <Main>
         <br />
         <div className="container--grid">
@@ -137,14 +122,13 @@ function RAAchievements({ onChange, onToggle }) {
               {achievements.token === '' && (
                 <>
                   <p>
-                    If you do not have an account, register now on
-                    RetroAchievements.org by clicking{' '}
+                    {t('RAAchievements.register')}
                     <LinkSimple
                       css="link-simple--1"
                       target="_blank"
                       href="https://www.retroAchievements.org"
                     >
-                      here
+                      RetroAchievements.org
                     </LinkSimple>
                   </p>
                   <div
@@ -178,22 +162,20 @@ function RAAchievements({ onChange, onToggle }) {
                     type="button"
                     onClick={fetchToken}
                   >
-                    Login
+                    {t('general.login')}
                   </BtnSimple>
                 </>
               )}
               {achievements.token !== '' && (
                 <>
                   <p>
-                    <span className="h4">
-                      You are successfully connected to RetroAchievements!
-                    </span>
+                    <span className="h4">{t('RAAchievements.success')}</span>
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
                       onClick={resetToken}
                     >
-                      Reset Login
+                      {t('RAAchievements.reset')}
                     </BtnSimple>
                   </p>
 

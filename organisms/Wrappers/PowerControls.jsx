@@ -21,49 +21,24 @@ function PowerControls({
   const { t, i18n } = useTranslation();
   return (
     <>
-      <p className="lead">
-        PowerControls is a plugin that allows you to tweak your CPU & GPU to for
-        maximum performance on more demanding emulators as well as controlling
-        TDP in compatible devices. Installing PowerControls on this menu will
-        also install Decky Loader, a plugin manager. You can read more about
-        Power Tools,{' '}
-        <LinkSimple
-          css="link-simple--1"
-          href="https://github.com/mengmeet/PowerControl"
-          target="_blank"
-        >
-          here
-        </LinkSimple>{' '}
-        and Decky Loader,{' '}
-        <LinkSimple
-          css="link-simple--1"
-          href="https://github.com/SteamDeckHomebrew/decky-loader"
-          target="_blank"
-        >
-          here.
-        </LinkSimple>
-      </p>
       <Main>
         <br />
         <div className="container--grid">
           <div data-col-sm="6">
-            {hasSudo === false && sudoPass === 'gamer' && (
+            {hasSudo === false && (
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Install PowerControls"
+                aria={t('general.install')}
                 onClick={installClick}
                 disabled={disableButton && 'true'}
               >
-                Install PowerControls
+                {t('general.install')}
               </BtnSimple>
             )}
-            {hasSudo === true && sudoPass !== 'gamer' && (
+            {hasSudo === true && (
               <div className="form">
-                <p>
-                  We have detected you already have set a sudo password, type it
-                  below to install Power Tools.
-                </p>
+                <p>{t('general.sudo')}</p>
                 <FormInputSimple
                   label="Sudo Password"
                   type="password"
@@ -75,11 +50,11 @@ function PowerControls({
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
-                    aria="Install PowerControls"
+                    aria={t('general.install')}
                     onClick={installClick}
                     disabled={disableButton && 'true'}
                   >
-                    Install PowerControls
+                    {t('general.install')}
                   </BtnSimple>
                 )}
               </div>

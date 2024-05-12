@@ -9,15 +9,8 @@ function UpdateEmus({ onClickFlatpak, onClickAppImage, disabledNext }) {
   const { t, i18n } = useTranslation();
   return (
     <>
-      <p className="lead">
-        Emulators and tools can be installed a multitude of ways. EmuDeck
-        installs some emulators and tools as Flatpaks from the Discover Store.
-        Others are downloaded for you directly from the developer's website as
-        AppImages or Binaries. A few are Windows Executables, downloaded and run
-        through Proton.
-      </p>
       <Main>
-        <p>Select which batch you want to update:</p>
+        <p>{t('UpdateEmus.title')}</p>
         <BtnSimple
           css="btn-simple--1"
           type="button"
@@ -25,7 +18,7 @@ function UpdateEmus({ onClickFlatpak, onClickAppImage, disabledNext }) {
           onClick={() => onClickFlatpak()}
           disabled={disabledNext && 'true'}
         >
-          Update Flatpaks
+          {t('UpdateEmus.btn1')}
         </BtnSimple>
         <BtnSimple
           css="btn-simple--1"
@@ -34,7 +27,7 @@ function UpdateEmus({ onClickFlatpak, onClickAppImage, disabledNext }) {
           onClick={() => onClickAppImage()}
           disabled={disabledNext && 'true'}
         >
-          Update AppImages, Binaries, and Windows Executables
+          {t('UpdateEmus.btn2')}
         </BtnSimple>
       </Main>
     </>

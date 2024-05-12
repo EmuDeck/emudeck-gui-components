@@ -29,10 +29,6 @@ function RomStorage({
   const { system } = state;
   return (
     <>
-      <p className="lead">
-        Your ROM directory will be squared away within an Emulation folder in
-        your selected directory.
-      </p>
       <Main>
         <div className="cards">
           {showSDCard && system !== 'darwin' && (
