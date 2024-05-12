@@ -26,21 +26,20 @@ body {
   flex: 1;
   -webkit-user-select: none;
   -webkit-app-region: drag;
-  &.SteamOS {
-    &:after {
-      content: '';
-      height: 2px;
-      width: 100vw;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(61, 193, 249, 1) 0%,
-        rgba(43, 97, 246, 1) 100%
-      );
-    }
+
+  &:after {
+    content: '';
+    height: 2px;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(61, 193, 249, 1) 0%,
+      rgba(43, 97, 246, 1) 100%
+    );
   }
 }
 
@@ -57,35 +56,35 @@ body {
   @media (prefers-color-scheme: light) {
     background-image: url(assets/pattern.png);
   }
-  .darwin &,
-  .chimeraos & {
-    padding-top: 10px;
-    background: #222;
-    @media (prefers-color-scheme: light) {
-      background: #faf4f1;
-    }
-    &:after {
-      content: '';
-      display: block;
-      background-color: #222216;
-      border-bottom: 1px solid #000;
-      width: 100%;
-      height: 50px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      background-repeat: repeat;
-      background-image: url(assets/pattern-dark.png);
-      @media (prefers-color-scheme: light) {
-        background-image: url(assets/pattern.png);
-      }
-      @media (prefers-color-scheme: light) {
-        background-color: #faf4f1;
-        border-bottom: 1px solid #cacaca;
-      }
-    }
-  }
+  // .darwin &,
+  // .chimeraos & {
+  //   padding-top: 10px;
+  //   background: #222;
+  //   @media (prefers-color-scheme: light) {
+  //     background: #faf4f1;
+  //   }
+  //   &:after {
+  //     content: '';
+  //     display: block;
+  //     background-color: #222216;
+  //     border-bottom: 1px solid #000;
+  //     width: 100%;
+  //     height: 50px;
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     z-index: 1;
+  //     background-repeat: repeat;
+  //     background-image: url(assets/pattern-dark.png);
+  //     @media (prefers-color-scheme: light) {
+  //       background-image: url(assets/pattern.png);
+  //     }
+  //     @media (prefers-color-scheme: light) {
+  //       background-color: #faf4f1;
+  //       border-bottom: 1px solid #cacaca;
+  //     }
+  //   }
+  // }
   font-weight: 200;
   padding-top: 30px;
   color: #f3f3f3;
@@ -107,31 +106,31 @@ body {
       color: #fff;
     }
   }
-  .win32 & {
-    // @media (prefers-color-scheme: light) {
-    background-color: #fafcfd;
-    @media (prefers-color-scheme: dark) {
-      background-color: #20232d;
-    }
-    overflow: hidden;
-    margin-left: 12px;
-    margin-right: 0;
-    margin-top: 30px;
-    border-radius: 8px;
-    border: 1px solid #dce1e6;
-    @media (prefers-color-scheme: dark) {
-      border: 1px solid #171b25;
-    }
-    height: 96vh;
-    // }
-  }
+  // .win32 & {
+  //   // @media (prefers-color-scheme: light) {
+  //   background-color: #fafcfd;
+  //   @media (prefers-color-scheme: dark) {
+  //     background-color: #20232d;
+  //   }
+  //   overflow: hidden;
+  //   margin-left: 12px;
+  //   margin-right: 0;
+  //   margin-top: 30px;
+  //   border-radius: 8px;
+  //   border: 1px solid #dce1e6;
+  //   @media (prefers-color-scheme: dark) {
+  //     border: 1px solid #171b25;
+  //   }
+  //   height: 96vh;
+  //   // }
+  // }
 }
-.app.win32 {
-  background: #ecf2f8;
-  @media (prefers-color-scheme: dark) {
-    background: #191e29;
-  }
-}
+// .app.win32 {
+//   background: #ecf2f8;
+//   @media (prefers-color-scheme: dark) {
+//     background: #191e29;
+//   }
+// }
 main {
   flex: 1;
 
@@ -2938,20 +2937,20 @@ picture.icon--md {
   display: none;
 }
 
-.chimeraos .wrapper.wrapper {
-  background-size: cover;
-  background-image: url(assets/bg-dark.png);
-  @media (prefers-color-scheme: light) {
-    background-image: url(assets/bg.png);
-  }
-
-  &:after {
-    border-bottom: 1px solid #454545;
-    background: none;
-    background-color: #222216;
-    background-size: cover;
-    @media (prefers-color-scheme: light) {
-      background-color: #faf4f1;
-    }
-  }
-}
+// .chimeraos .wrapper.wrapper {
+//   background-size: cover;
+//   background-image: url(assets/bg-dark.png);
+//   @media (prefers-color-scheme: light) {
+//     background-image: url(assets/bg.png);
+//   }
+//
+//   &:after {
+//     border-bottom: 1px solid #454545;
+//     background: none;
+//     background-color: #222216;
+//     background-size: cover;
+//     @media (prefers-color-scheme: light) {
+//       background-color: #faf4f1;
+//     }
+//   }
+// }

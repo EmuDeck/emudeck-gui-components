@@ -1,9 +1,9 @@
 .header {
   padding-top: 10px;
-  .darwin &,
-  .chimeraos & {
-    margin-bottom: 24px;
-  }
+  // .darwin &,
+  // .chimeraos & {
+  //   margin-bottom: 24px;
+  // }
 
   &__badge {
     position: absolute;
@@ -16,9 +16,9 @@
     width: 150px;
     transform: rotate(45deg);
     text-align: center;
-    .win32 & {
-      top: -10px;
-    }
+    // .win32 & {
+    //   top: -10px;
+    // }
   }
   &__dev {
     background: rgb(251, 109, 156);
@@ -42,9 +42,9 @@
   &__flag {
     width: 20px;
     margin-left: 10px;
-    .win32 & {
-      display: none;
-    }
+    // .win32 & {
+    //   display: none;
+    // }
   }
   //Titles in front of animations
   .h2 {
