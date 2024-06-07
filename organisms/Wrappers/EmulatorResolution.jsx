@@ -157,7 +157,7 @@ function EmulatorResolution({ onClick }) {
             )}
           </div>
           <div data-col-sm="6">
-            {overwriteConfigEmus.duckstation.status && (
+            {overwriteConfigEmus.dolphin.status && (
               <>
                 <div className="dolphin">
                   <span className="h5">GameCube & Wii</span>
@@ -192,7 +192,7 @@ function EmulatorResolution({ onClick }) {
                 <hr />
               </>
             )}
-            {overwriteConfigEmus.duckstation.status && (
+            {overwriteConfigEmus.cemu.status && (
               <>
                 <div className="cemu">
                   <span className="h5">Wii U</span>
@@ -226,7 +226,7 @@ function EmulatorResolution({ onClick }) {
                 <hr />
               </>
             )}
-            {overwriteConfigEmus.duckstation.status && (
+            {overwriteConfigEmus.melonds.status && (
               <>
                 <div className="melonds">
                   <span className="h5">Nintendo DS</span>
@@ -260,31 +260,31 @@ function EmulatorResolution({ onClick }) {
                 <hr />
               </>
             )}
-            {overwriteConfigEmus.duckstation.status && (
+            {overwriteConfigEmus.lime3ds.status && (
               <div className="citra">
                 <span className="h5">Nintendo 3DS</span>
                 <div className="cards">
                   <Card
-                    css={resolutions.citra === '720P' ? 'is-selected' : ''}
-                    onClick={() => onClick('citra', '720P')}
+                    css={resolutions.lime3ds === '720P' ? 'is-selected' : ''}
+                    onClick={() => onClick('lime3ds', '720P')}
                   >
                     <span className="h6">720P</span>
                   </Card>
                   <Card
-                    css={resolutions.citra === '1080P' ? 'is-selected' : ''}
-                    onClick={() => onClick('citra', '1080P')}
+                    css={resolutions.lime3ds === '1080P' ? 'is-selected' : ''}
+                    onClick={() => onClick('lime3ds', '1080P')}
                   >
                     <span className="h6">1080P</span>
                   </Card>
                   <Card
-                    css={resolutions.citra === '1440P' ? 'is-selected' : ''}
-                    onClick={() => onClick('citra', '1440P')}
+                    css={resolutions.lime3ds === '1440P' ? 'is-selected' : ''}
+                    onClick={() => onClick('lime3ds', '1440P')}
                   >
                     <span className="h6">1440P</span>
                   </Card>
                   <Card
-                    css={resolutions.citra === '4K' ? 'is-selected' : ''}
-                    onClick={() => onClick('citra', '4K')}
+                    css={resolutions.lime3ds === '4K' ? 'is-selected' : ''}
+                    onClick={() => onClick('lime3ds', '4K')}
                   >
                     <span className="h6">4K</span>
                   </Card>

@@ -187,7 +187,7 @@ function Confirmation() {
               Nintendo DS Resolution: <strong>{resolutions.melonds}</strong>
             </li>
             <li>
-              Nintendo 3DS Resolution: <strong>{resolutions.citra}</strong>
+              Nintendo 3DS Resolution: <strong>{resolutions.lime3ds}</strong>
             </li>
           </ul>
         </div>

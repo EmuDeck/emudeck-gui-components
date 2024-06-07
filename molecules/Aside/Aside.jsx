@@ -242,8 +242,7 @@ function Aside({ css }) {
       description: t('aside.android'),
       button: 'Configure',
       btnCSS: 'btn-simple--1',
-      status:
-        system === 'win32' && (branch.includes('early') || branch === 'dev'),
+      status: branch.includes('early') || branch === 'dev',
       function: () => functions.navigate('/android-welcome'),
     },
 

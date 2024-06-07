@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
-
 import Notification from 'components/molecules/Notification/Notification';
 import { BtnSimple, FormInputSimple, LinkSimple } from 'getbasecore/Atoms';
 
@@ -27,20 +26,21 @@ function PowerTools({
       <Main>
         <div className="container--grid">
           <div data-col-sm="6">
-            {hasSudo === false && (
-              <BtnSimple
-                css="btn-simple--1"
-                type="button"
-                aria={t(general.install)}
-                onClick={installClick}
-                disabled={disableButton && 'true'}
-              >
-                {t(general.install)}
-              </BtnSimple>
-            )}
+            {hasSudo === false ||
+              (sudoPass === 'gamer' && (
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  aria={t('general.install')}
+                  onClick={installClick}
+                  disabled={disableButton && 'true'}
+                >
+                  {t(general.install)}
+                </BtnSimple>
+              ))}
             {hasSudo === true && sudoPass !== 'gamer' && (
               <div className="form">
-                <p>{t(general.sudo)}</p>
+                <p>{t('general.sudo')}</p>
                 <FormInputSimple
                   label="Sudo Password"
                   type="password"
@@ -52,11 +52,11 @@ function PowerTools({
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
-                    aria={t(general.install)}
+                    aria={t('general.install')}
                     onClick={installClick}
                     disabled={disableButton && 'true'}
                   >
-                    {t(general.install)}
+                    {t('general.install')}
                   </BtnSimple>
                 )}
               </div>

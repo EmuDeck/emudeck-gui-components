@@ -32,17 +32,18 @@ function EmuDecky({
         <br />
         <div className="container--grid">
           <div data-col-sm="6">
-            {hasSudo === false && sudoPass === 'gamer' && (
-              <BtnSimple
-                css="btn-simple--1"
-                type="button"
-                aria="Install EmuDecky"
-                onClick={installClick}
-                disabled={disableButton && 'true'}
-              >
-                Install EmuDecky
-              </BtnSimple>
-            )}
+            {hasSudo === false ||
+              (sudoPass === 'gamer' && (
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  aria="Install EmuDecky"
+                  onClick={installClick}
+                  disabled={disableButton && 'true'}
+                >
+                  Install EmuDecky
+                </BtnSimple>
+              ))}
 
             {hasSudo === true && sudoPass !== 'gamer' && (
               <div className="form">
@@ -56,6 +57,7 @@ function EmuDecky({
                   name="pass"
                   id="pass"
                   onChange={onChange}
+                  value={sudoPass}
                 />
                 {sudoPass !== '' && (
                   <BtnSimple
