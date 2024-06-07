@@ -86,19 +86,17 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
                 description="This mode allows you to customize your EmuDeck install. Configure Aspect Ratios, Bezels, Filters, RetroAchievements,Emulators, Frontends, and more. Recommended for advanced users."
               />
             </div>
-            {system === 'win32' && (
-              <div data-col-sm="5">
-                <CardSettings
-                  btnCSS="btn-simple--1"
-                  icon={iconPackage}
-                  iconSize="md"
-                  title="Android"
-                  button="Install"
-                  onClick={() => onClick('android')}
-                  description=" Install EmuDeck ( beta ) on your Android device."
-                />
-              </div>
-            )}
+            <div data-col-sm="5">
+              <CardSettings
+                btnCSS="btn-simple--1"
+                icon={iconPackage}
+                iconSize="md"
+                title="Android"
+                button="Install"
+                onClick={() => onClick('android')}
+                description=" Install EmuDeck ( beta ) on your Android device."
+              />
+            </div>
           </div>
         )}
       </Main>
