@@ -25,18 +25,19 @@ function PowerControls({
         <br />
         <div className="container--grid">
           <div data-col-sm="6">
-            {hasSudo === false && (
-              <BtnSimple
-                css="btn-simple--1"
-                type="button"
-                aria={t('general.install')}
-                onClick={installClick}
-                disabled={disableButton && 'true'}
-              >
-                {t('general.install')}
-              </BtnSimple>
-            )}
-            {hasSudo === true && (
+            {hasSudo === false ||
+              (sudoPass === 'gamer' && (
+                <BtnSimple
+                  css="btn-simple--1"
+                  type="button"
+                  aria={t('general.install')}
+                  onClick={installClick}
+                  disabled={disableButton && 'true'}
+                >
+                  {t('general.install')}
+                </BtnSimple>
+              ))}
+            {hasSudo === true && sudoPass !== 'gamer' && (
               <div className="form">
                 <p>{t('general.sudo')}</p>
                 <FormInputSimple
