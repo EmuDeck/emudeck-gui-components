@@ -15,6 +15,7 @@ import {
   imgppsspp,
   imgduckstation,
   imgcitra,
+  imglime3ds,
   imgpcsx2,
   imgrpcs3,
   imgyuzu,
@@ -96,6 +97,9 @@ function EmuDetail(props) {
         break;
       case 'citra':
         setStateImg({ img: imgcitra });
+        break;
+      case 'lime3ds':
+        setStateImg({ img: imglime3ds });
         break;
       case 'pcsx2':
         setStateImg({ img: imgpcsx2 });

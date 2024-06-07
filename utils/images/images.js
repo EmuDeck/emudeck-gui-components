@@ -6,6 +6,7 @@ import imgprimehack from 'assets/emulators/primehack.png';
 import imgppsspp from 'assets/emulators/ppsspp.png';
 import imgduckstation from 'assets/emulators/duckstation.png';
 import imgcitra from 'assets/emulators/citra.png';
+import imglime3ds from 'assets/emulators/lime3ds.png';
 import imgpcsx2 from 'assets/emulators/pcsx2.png';
 import imgrpcs3 from 'assets/emulators/rpcs3.png';
 import imgyuzu from 'assets/emulators/yuzu.png';
@@ -100,6 +101,7 @@ import themesPegasusGameOS from 'assets/pegasusthemes/gameOS.jpg';
 import xemuGrid from 'assets/emulators/grid/xemu.png';
 import cemuGrid from 'assets/emulators/grid/cemu.png';
 import citraGrid from 'assets/emulators/grid/citra.png';
+import lime3dsGrid from 'assets/emulators/grid/lime3ds.jpg';
 import dolphinGrid from 'assets/emulators/grid/dolphin.png';
 import duckstationGrid from 'assets/emulators/grid/duckstation.png';
 import flycastGrid from 'assets/emulators/grid/flycast.png';
@@ -138,6 +140,7 @@ export {
   imgppsspp,
   imgduckstation,
   imgcitra,
+  imglime3ds,
   imgpcsx2,
   imgrpcs3,
   imgyuzu,
@@ -231,6 +234,7 @@ export {
   xemuGrid,
   cemuGrid,
   citraGrid,
+  lime3dsGrid,
   dolphinGrid,
   duckstationGrid,
   flycastGrid,
