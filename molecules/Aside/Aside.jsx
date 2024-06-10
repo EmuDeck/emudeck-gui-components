@@ -373,7 +373,7 @@ function Aside({ css }) {
     },
     {
       icon: [iconJoystick],
-      iconFlat: 'joystick',
+      iconFlat: 'boot',
       title: t('aside.bootMode'),
       description: 'Boot directly on Steam, not Windows',
       button: 'More info',
@@ -383,7 +383,7 @@ function Aside({ css }) {
     },
     {
       icon: [iconScreen],
-      iconFlat: 'screen',
+      iconFlat: 'theme',
       title: t('aside.pegasusTheme'),
       description: 'Pich your Pegasus theme',
       button: 'More info',
