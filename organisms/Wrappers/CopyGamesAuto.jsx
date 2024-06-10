@@ -39,11 +39,14 @@ function CopyGamesAuto({
         <div className="container--grid">
           {statusCopyGames !== true && (
             <>
-              <div data-col-sm="6">
+              <div data-col-sm="4">
                 <span className="h4">Select your USB Drive</span>
                 <div className="cards">
                   <Card
-                    css={storageUSB === 'Custom' && 'is-selected'}
+                    css={
+                      storageUSB === 'Custom card--horizontal' &&
+                      'is-selected card--horizontal'
+                    }
                     onClick={() => onClick('Custom')}
                   >
                     <img src={imgExternal} width="100" alt="Background" />
@@ -99,6 +102,7 @@ function CopyGamesAuto({
                   </BtnSimple>
                 )}
               </div>
+              <div data-col-sm="2" />
               <div data-col-sm="6">
                 <img src={imgUSBDeck} alt="Insert USB" />
               </div>
