@@ -47,6 +47,11 @@
 }
 
 .game-details {
+  --action: rgba(255, 255, 255, 0.1);
+  --platform: rgba(255, 255, 255, 0.1);
+  --puzzle: rgba(255, 255, 255, 0.1);
+  --rpg: rgba(255, 255, 255, 0.1);
+
   z-index: 10;
   position: fixed;
   top: 0;
@@ -68,17 +73,17 @@
     width: 90vw;
     height: 90vh;
     margin: auto;
-    background: #fff;
+    background-color: var(--color-bg-1);
     border-radius: 8px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     .h2 {
-      color: #444;
+      color: #fff;
       margin-bottom: 0;
     }
     p {
-      color: #444;
+      color: #fff;
     }
   }
   &__thumbnails {
@@ -93,6 +98,9 @@
   }
   &__tags {
     margin-bottom: 24px;
+    .tag {
+      color: #fff;
+    }
   }
   &__head {
     flex: 1;
