@@ -16,6 +16,8 @@ function RABezels({ onClick, bezels }) {
     <>
       <Main>
         <SelectorMenu
+          toggle
+          title="Bezels"
           imgs={[
             [imgBezels, bezels === false ? 'is-hidden' : ''],
             [imgNoBezels, bezels === true ? 'is-hidden' : ''],

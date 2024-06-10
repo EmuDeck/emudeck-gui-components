@@ -258,7 +258,7 @@ function EmuDetail(props) {
     return (
       <li key={item}>
         <Alert css={`alert--mini ${biosCSS(item)}`}>
-          {biosName} Bios {item} {biosText(item)}
+          {biosName} Bios {biosText(item)}
         </Alert>
       </li>
     );
@@ -275,7 +275,7 @@ function EmuDetail(props) {
       {emuData.id && (
         <div className="container--grid">
           <div data-col-sm="2">
-            <img src={img} alt="logo" />
+            <img style={{ borderRadius: '100%' }} src={img} alt="logo" />
           </div>
 
           <div data-col-sm="7">
@@ -316,7 +316,7 @@ function EmuDetail(props) {
             <div className="emudetail__actions">
               {!disableInstallButton && emuData.id === 'yuzu' && (
                 <BtnSimple
-                  css="btn-simple--3"
+                  css="btn-simple--2"
                   type="button"
                   aria="Update or reset configuration"
                 >
@@ -325,7 +325,7 @@ function EmuDetail(props) {
               )}
               {!disableInstallButton && emuData.id === 'citra' && (
                 <BtnSimple
-                  css="btn-simple--3"
+                  css="btn-simple--2"
                   type="button"
                   aria="Update or reset configuration"
                 >
@@ -335,7 +335,7 @@ function EmuDetail(props) {
 
               {disableInstallButton && (
                 <BtnSimple
-                  css={updateAvailable ? 'btn-simple--6' : 'btn-simple--1'}
+                  css={updateAvailable ? 'btn-simple--1' : 'btn-simple--2'}
                   type="button"
                   aria="Update or reset configuration"
                   onClick={() =>
@@ -352,7 +352,7 @@ function EmuDetail(props) {
                 emuData.id !== 'yuzu' &&
                 emuData.id !== 'citra' && (
                   <BtnSimple
-                    css="btn-simple--3"
+                    css="btn-simple--2"
                     type="button"
                     aria="Install"
                     disabled={disableInstallButton}
@@ -365,7 +365,7 @@ function EmuDetail(props) {
                 emuData.id !== 'yuzu' &&
                 emuData.id !== 'citra' && (
                   <BtnSimple
-                    css="btn-simple--3"
+                    css="btn-simple--2"
                     type="button"
                     aria="ReInstall / Update"
                     disabled={hideInstallButton}
@@ -390,7 +390,7 @@ function EmuDetail(props) {
               {emuData.id === 'srm' && (
                 <>
                   <BtnSimple
-                    css="btn-simple--3"
+                    css="btn-simple--2"
                     type="button"
                     aria="Go Back"
                     onClick={() => {
@@ -400,7 +400,7 @@ function EmuDetail(props) {
                     Remove Cache
                   </BtnSimple>
                   <BtnSimple
-                    css="btn-simple--1"
+                    css="btn-simple--2"
                     type="button"
                     aria="Go Back"
                     onClick={() => {
@@ -410,7 +410,7 @@ function EmuDetail(props) {
                     Standalone Parsers
                   </BtnSimple>
                   {/* <BtnSimple
-                    css="btn-simple--1"
+                    css="btn-simple--2"
                     type="button"
                     aria="Go Back"
                     onClick={() => {
@@ -420,7 +420,7 @@ function EmuDetail(props) {
                     Add optional parsers
                   </BtnSimple>
                   <BtnSimple
-                    css="btn-simple--1"
+                    css="btn-simple--2"
                     type="button"
                     aria="Go Back"
                     onClick={() => {
@@ -443,7 +443,7 @@ function EmuDetail(props) {
                 <>
                   {emuData.id === 'ra' || emuData.id === 'dolphin' || (
                     <BtnSimple
-                      css="btn-simple--1"
+                      css="btn-simple--2"
                       type="button"
                       aria="Controls"
                       onClick={() => onClickControls(emuData.id, emuData.code)}
@@ -456,7 +456,7 @@ function EmuDetail(props) {
                     emuData.id === 'primehack' ||
                     emuData.id === 'pcsx2') && (
                     <BtnSimple
-                      css="btn-simple--1"
+                      css="btn-simple--2"
                       type="button"
                       aria="Hotkeys"
                       onClick={() => onClickHotkeys(emuData.id, emuData.code)}
@@ -469,7 +469,7 @@ function EmuDetail(props) {
 
               {emuData.id === 'pcsx2' && (
                 <BtnSimple
-                  css="btn-simple--1"
+                  css="btn-simple--2"
                   type="button"
                   aria="Hotkeys"
                   onClick={() => onClickHotkeys('pcsx2_expert')}
@@ -480,7 +480,7 @@ function EmuDetail(props) {
               {emuData.id === 'dolphin' && (
                 <>
                   <BtnSimple
-                    css="btn-simple--1"
+                    css="btn-simple--2"
                     type="button"
                     aria="Controls"
                     onClick={() => onClickControls('gamecube')}
@@ -488,7 +488,7 @@ function EmuDetail(props) {
                     Controls GameCube
                   </BtnSimple>
                   <BtnSimple
-                    css="btn-simple--1"
+                    css="btn-simple--2"
                     type="button"
                     aria="Hotkeys"
                     onClick={() => onClickHotkeys('gamecube')}
@@ -496,7 +496,7 @@ function EmuDetail(props) {
                     Hotkeys GameCube
                   </BtnSimple>
                   <BtnSimple
-                    css="btn-simple--1"
+                    css="btn-simple--2"
                     type="button"
                     aria="Controls"
                     onClick={() => onClickControls('wii_classic')}
@@ -504,7 +504,7 @@ function EmuDetail(props) {
                     Classic Controls Wii
                   </BtnSimple>
                   <BtnSimple
-                    css="btn-simple--1"
+                    css="btn-simple--2"
                     type="button"
                     aria="Hotkeys"
                     onClick={() => onClickControls('wii')}
@@ -512,7 +512,7 @@ function EmuDetail(props) {
                     Controls Wii
                   </BtnSimple>
                   <BtnSimple
-                    css="btn-simple--1"
+                    css="btn-simple--2"
                     type="button"
                     aria="Hotkeys"
                     onClick={() => onClickControls('wii_nunchuck')}
@@ -520,7 +520,7 @@ function EmuDetail(props) {
                     Nunchuck Controls
                   </BtnSimple>
                   <BtnSimple
-                    css="btn-simple--1"
+                    css="btn-simple--2"
                     type="button"
                     aria="Controls"
                     onClick={() => onClickControls('wii')}
@@ -533,7 +533,7 @@ function EmuDetail(props) {
               {emuData.id === 'dolphin' && (
                 <>
                   <BtnSimple
-                    css="btn-simple--1"
+                    css="btn-simple--2"
                     type="button"
                     aria="Controls"
                     onClick={() => onClickHotkeys('gamecube_expert')}
@@ -542,7 +542,7 @@ function EmuDetail(props) {
                   </BtnSimple>
 
                   <BtnSimple
-                    css="btn-simple--1"
+                    css="btn-simple--2"
                     type="button"
                     aria="Hotkeys"
                     onClick={() => onClickHotkeys('wii_expert')}
@@ -554,7 +554,7 @@ function EmuDetail(props) {
 
               {emuData.id === 'cemu' && (
                 <BtnSimple
-                  css="btn-simple--1"
+                  css="btn-simple--2"
                   type="button"
                   aria="Reset old Cemu Proton Configuration"
                   disabled={disableResetButton}

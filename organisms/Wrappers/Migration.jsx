@@ -28,7 +28,13 @@ function Migration({
             <span className="h4">{t('Migration.current')}</span>
             <div className="cards">
               {storage === 'SD-Card' && (
-                <Card css={storage === 'SD-Card' && 'is-selected'}>
+                <Card
+                  css={
+                    storage === 'SD-Card'
+                      ? 'is-selected card--horizontal'
+                      : ' card--horizontal'
+                  }
+                >
                   <img src={imgSD} width="100" alt="Background" />
                   <span className="h5">{t('Migration.sdCard')}</span>
                   {sdCardName != null && (
@@ -42,13 +48,25 @@ function Migration({
               )}
 
               {storage === 'Internal Storage' && (
-                <Card css={storage === 'Internal Storage' && 'is-selected'}>
+                <Card
+                  css={
+                    storage === 'Internal Storage'
+                      ? 'is-selected card--horizontal'
+                      : ' card--horizontal'
+                  }
+                >
                   <img src={imgInternal} width="100" alt="Background" />
                   <span className="h6">{t('Migration.internalStorage')}</span>
                 </Card>
               )}
               {storage === 'Custom' && (
-                <Card css={storage === 'Custom' && 'is-selected'}>
+                <Card
+                  css={
+                    storage === 'Custom card--horizontal'
+                      ? 'is-selected card--horizontal'
+                      : ' card--horizontal'
+                  }
+                >
                   <img src={imgInternal} width="100" alt="Background" />
                   <span className="h6">{t('Migration.custom')}</span>
                   {storagePath && storage === 'Custom' && (
@@ -62,22 +80,29 @@ function Migration({
             <span className="h4">{t('Migration.destination')}</span>
             <div className="cards">
               <Card
-                css={storageDestination === 'SD-Card' && 'is-selected'}
+                css={
+                  storageDestination === 'SD-Card'
+                    ? 'is-selected card--horizontal'
+                    : 'card--horizontal'
+                }
                 onClick={() =>
                   sdCardValid === true ? onClick('SD-Card') : reloadSDcard()
                 }
               >
                 <img src={imgSD} width="100" alt="Background" />
-                <span className="h5">{t('Migration.sdCard')}</span>
-                {sdCardName != null && <span className="h6">{sdCardName}</span>}
+                {sdCardValid && <span className="h6">SD Card</span>}
                 {sdCardName === null ||
                   (sdCardValid === false && (
-                    <span className="h6">{t('Migration.errorDetected')}</span>
+                    <span className="h6">Error detecting SD Card</span>
                   ))}
               </Card>
 
               <Card
-                css={storageDestination === 'Internal Storage' && 'is-selected'}
+                css={
+                  storageDestination === 'Internal Storage'
+                    ? 'is-selected card--horizontal'
+                    : 'card--horizontal'
+                }
                 onClick={() => onClick('Internal Storage')}
               >
                 <img src={imgInternal} width="100" alt="Background" />
@@ -85,7 +110,11 @@ function Migration({
               </Card>
 
               <Card
-                css={storageDestination === 'Custom' && 'is-selected'}
+                css={
+                  storageDestination === 'Custom'
+                    ? 'is-selected card--horizontal'
+                    : 'card--horizontal'
+                }
                 onClick={() => onClick('Custom')}
               >
                 <img src={imgInternal} width="100" alt="Background" />

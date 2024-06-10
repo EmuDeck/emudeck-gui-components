@@ -54,9 +54,11 @@ function RAAchievements({ onChange, onToggle }) {
         const modalData = {
           active: true,
           header: (
-            <span className="h4">t('RAAchievements.modalWrongPassTitle')</span>
+            <span className="h4">
+              {t('RAAchievements.modalWrongPassTitle')}
+            </span>
           ),
-          body: <p>t('RAAchievements.modalWrongPassDesc')</p>,
+          body: <p>{t('RAAchievements.modalWrongPassDesc')}</p>,
           css: 'emumodal--xs',
         };
         setStatePage({ ...statePage, modal: modalData });
@@ -92,18 +94,20 @@ function RAAchievements({ onChange, onToggle }) {
           modalData = {
             active: true,
             header: (
-              <span className="h4">t('RAAchievements.modalSuccessTitle')</span>
+              <span className="h4">
+                {t('RAAchievements.modalSuccessTitle')}
+              </span>
             ),
-            body: <p>t('RAAchievements.modalSuccessDesc')</p>,
+            body: <p>{t('RAAchievements.modalSuccessDesc')}</p>,
             css: 'emumodal--xs',
           };
         } else {
           modalData = {
             active: true,
             header: (
-              <span className="h4">t('RAAchievements.modalErrorTitle')</span>
+              <span className="h4">{t('RAAchievements.modalErrorTitle')}</span>
             ),
-            body: <p>t('RAAchievements.modalErrorDesc')</p>,
+            body: <p>{t('RAAchievements.modalErrorDesc')}</p>,
             css: 'emumodal--xs',
           };
         }
@@ -122,7 +126,7 @@ function RAAchievements({ onChange, onToggle }) {
               {achievements.token === '' && (
                 <>
                   <p>
-                    {t('RAAchievements.register')}
+                    {t('RAAchievements.register')}{' '}
                     <LinkSimple
                       css="link-simple--1"
                       target="_blank"
@@ -194,10 +198,10 @@ function RAAchievements({ onChange, onToggle }) {
               )}
             </Form>
           </div>
-          <div data-col-sm="1" />
           <div data-col-sm="5">
             <img src={raLogo} alt="RetroAchievements" />
           </div>
+          <div data-col-sm="1" />
         </div>
         <EmuModal modal={modal} />
       </Main>

@@ -1,4 +1,5 @@
 @import '~getbasecore/src/utils/vars/core_vars.scss';
+
 :root {
   /*
 Margin Scale
@@ -10,17 +11,17 @@ Margin Scale
   --margin5: 4rem;
   --margin6: 4.8rem;
 
-  --margin-elements: 30px;
+  --margin-elements: 3.2rem;
   --margin-components: 18rem;
 
   // --------------------------------------------------
   //  Icons sizes
   // --------------------------------------------------
-  --icon-xl: 128px;
-  --icon-lg: 56px;
-  --icon-md: 48px;
-  --icon-sm: 32px;
-  --icon-xs: 20px;
+  --icon-xl: 56px;
+  --icon-lg: 48px;
+  --icon-md: 32px;
+  --icon-sm: 24px;
+  --icon-xs: 16px;
 
   // --------------------------------------------------
   //  Inputs & Buttons fixed height inside forms
@@ -38,63 +39,37 @@ Margin Scale
   --color-success: #99cc33;
   --color-info: #6ea0c6;
   --color-warning: #fb7d0c;
-  --color-danger: #eb445a;
+  --color-danger: rgba(255, 54, 54, 0.32);
   --color-disabled: #afafaf;
+
+  // @media (prefers-color-scheme: dark) {
   --color-text-1: #fff;
-  --color-text-2: #444;
-  --color-text-3: #b8bcbf;
+  --color-text-2: rgba(255, 255, 255, 0.8);
+  --color-text-3: rgba(0, 0, 0, 0.8);
   --white: #fff;
+  // }
+  // @media (prefers-color-scheme: light) {
+  //   --color-text-1: #444;
+  //   --color-text-2: #444;
+  //   --color-text-3: #222;
+  //   --white: #444;
+  // }
 
-  @media (prefers-color-scheme: dark) {
-    --color-text-1: #fff;
-    --color-text-2: #444;
-    --color-text-3: #b8bcbf;
-    --white: #fff;
-  }
-  @media (prefers-color-scheme: light) {
-    --color-text-1: #444;
-    --color-text-2: #f1f1f1;
-    --color-text-3: #222;
-    --white: #444;
-  }
-
-  --anthracite: #262626;
-  --black: #000000;
-  --grey1: #e6e6e6;
-  --grey2: #666666;
-  --grey3: #bbbbbb;
-  --blue1: #1c69d4;
-  --blue2: #0653b6;
-  --brown-grey: #979797;
-
-  --deck-1: #f99;
-  --deck-2: #5bf;
-  --deck-3: #99f;
-  --deck-4: #f99;
-
-  --action: #7ef;
-  --platform: #6f5;
-  --puzzle: #fe9;
-  --rpg: #e9f;
-
-  //  BG colors
-  --color-bg-1: #fff;
-  --color-bg-2: #bfbfbf;
-  --color-bg-3: #7f7f7f;
-  --color-bg-4: #0076d9;
-  --color-bg-5: #1c69d4;
-  --color-bg-6: #0653b6;
-  --color-bg-7: #e6e6e6;
+  //BG Colors
   --color-border-1: #e3e3e3;
 
   @media (prefers-color-scheme: light) {
-    --color-bg-1: #444;
-    --color-bg-2: #666;
+    --color-bg-1: rgba(34, 29, 45, 0.2);
+    --color-bg-2: rgba(34, 29, 45, 0.08);
     --color-bg-3: #999;
   }
 
-  --color-placeholder-1: #e3e3e3;
+  @media (prefers-color-scheme: dark) {
+    --color-bg-1: #221d2d;
+    --color-bg-2: rgba(34, 29, 45, 0.88);
+    --color-bg-3: rgba(34, 29, 45, 0.64);
+  }
 
+  --color-placeholder-1: #e3e3e3;
   --color-accordion--hover: #f5f5f5;
-  --color-brand: rgb(0, 118, 217);
 }

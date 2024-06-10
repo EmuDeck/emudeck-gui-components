@@ -1,13 +1,13 @@
 //@import "~getbasecore/src/components/atoms/Typography/core_typography.scss";
-$body-font-size: 1.5rem;
-$body-font-family: 'MotivaSans';
+$body-font-size: 1.6rem;
+$body-font-family: 'Avenir';
 $body-text-color: var(--color-text-1);
 $body-selection-bg-color: #0653b6;
 $body-selection-color: white;
 $xs-adjustment: 20%; // 62.5 to match Desktop Size
 $p-mb: var(--margin3);
 $p-capitular-size: 6rem;
-$lead-font-size: 2.2rem;
+$lead-font-size: 1.6rem;
 $small-font-size: 1.2rem;
 //
 //
@@ -141,11 +141,13 @@ p {
 }
 
 .lead {
-  font-family: 'MotivaSans';
+  font-family: 'Avenir';
   font-size: $lead-font-size;
+  line-height: 2.4rem;
   letter-spacing: 0;
   margin-bottom: var(--margin3);
-  color: var();
+  color: var(--color-text-2);
+
   ul li {
     margin-bottom: 5px;
   }
@@ -238,27 +240,27 @@ address {
   5rem,
   5rem,
   -0.05rem,
-  'MotivaSans',
+  'Avenir',
   300,
   var(--color-text-1),
   6rem
 );
 @include generate_titles(
   'h2',
-  4rem,
-  4.7rem,
-  -0.05rem,
-  'MotivaSans',
+  3.2rem,
+  3.2rem,
+  -0.1rem,
+  'Avenir',
   600,
   var(--color-text-1),
-  2.8rem
+  1.6rem
 );
 @include generate_titles(
   'h3',
   3.5rem,
   4.2rem,
   -0.05rem,
-  'MotivaSans',
+  'Avenir',
   600,
   var(--color-text-1),
   1.5rem
@@ -268,7 +270,7 @@ address {
   3rem,
   3.2rem,
   -0.05rem,
-  'MotivaSans',
+  'Avenir',
   600,
   var(--color-text-1),
   1rem
@@ -278,7 +280,7 @@ address {
   2rem,
   2rem,
   -0.05rem,
-  'MotivaSans',
+  'Avenir',
   600,
   var(--color-text-1),
   2rem
@@ -288,186 +290,8 @@ address {
   1.5rem,
   1.5rem,
   -0.05rem,
-  'MotivaSans',
+  'Avenir',
   600,
   var(--color-text-1),
   1.5rem
 );
-
-// .darwin .h2,
-// .chimeraos .h2 {
-//   font-size: 1.6rem;
-//   line-height: 1rem;
-//   color: #999;
-//   font-weight: normal;
-//   width: 100%;
-//   text-align: center;
-//   @media (prefers-color-scheme: light) {
-//     color: #444;
-//   }
-// }
-//
-// .chimeraos .h2 {
-//   color: #fff;
-//   font-weight: bold;
-// }
-
-// * + {
-//   .h1,
-//   .h2,
-//   .h3,
-//   .h4,
-//   .h5,
-//   .h6 {
-//     margin-top: var(--margin2);
-//   }
-// }
-//
-// .h--border {
-//   border-bottom: 1px solid currentcolor;
-// }
-//
-// .h--highlight {
-//   &:before {
-//     content: "";
-//     display: block;
-//     height: 8px;
-//     width: 40px;
-//     background: #000;
-//     margin-bottom: 20px;
-//   }
-// }
-//
-// //  --------------------------------------------------
-// //  Ajuste de fuentes en responsive
-// //  --------------------------------------------------
-// html {
-//   @media (max-width: var(--screen-xs-max)) {
-//     font-size: $xs-adjustment !important;
-//   }
-//   @media (max-width: var(--screen-sm-max)) {
-//     font-size: 52% !important;
-//   }
-// }
-//
-// //  --------------------------------------------------
-// //  Global font attributes
-// //  --------------------------------------------------
-//
-// html > body {
-//   margin: 0;
-//   font-size: $body-font-size;
-//   font-family: $body-font-family;
-//   font-weight: 400;
-//   color: $body-text-color;
-//   letter-spacing: -0.2px;
-//   line-height: 140%;
-//   @media (max-width: var(--screen-sm-max)) {
-//     font-size: $body-font-size;
-//   }
-// }
-//
-// //  --------------------------------------------------
-// //  Text selection
-// //  --------------------------------------------------
-// ::selection {
-//   color: $body-selection-color;
-//   background: $body-selection-bg-color;
-// }
-//
-// //  --------------------------------------------------
-// //  Text Tags
-// //  --------------------------------------------------
-//
-// hr {
-//   margin: var(--margin3) 0;
-// }
-//
-// p {
-//   margin-bottom: $p-mb;
-//   line-height: 140%;
-//   color: $body-text-color;
-//   &.capitular {
-//     &::first-letter {
-//       float: left;
-//       font-size: $p-capitular-size;
-//       margin: 0 $body-font-size 1rem 0;
-//       vertical-align: bottom;
-//       margin-top: 10px;
-//     }
-//   }
-// }
-//
-// .lead {
-//   font-family: "Neuton";
-//   font-size: $lead-font-size;
-//   letter-spacing: 0;
-//   margin-bottom: var(--margin3);
-// }
-//
-// small {
-//   font-size: $small-font-size;
-//   display: inline-block;
-//   margin-bottom: var(--margin3);
-//   line-height: $small-font-size * 1.5;
-//   color: var(--grey2);
-// }
-//
-// strong,
-// b {
-//   font-weight: bold;
-// }
-//
-// abbr {
-//   border-bottom: 1px dotted;
-// }
-//
-// em,
-// i {
-//   font-style: italic;
-// }
-//
-// sub,
-// sup {
-//   font-size: 75%;
-//   line-height: 0;
-//   position: relative;
-//   top: -0.5em;
-// }
-//
-// sub {
-//   top: auto;
-//   bottom: -0.5em;
-// }
-//
-// cite {
-//   font-style: italic;
-//   &:after,
-//   &:before {
-//     content: '"';
-//   }
-// }
-//
-// code {
-//   background: #000;
-//   color: white;
-//   padding: 10px;
-//   font-family: "Monaco";
-//   display: block;
-//   margin-bottom: var(--margin1);
-// }
-//
-// mark {
-// }
-//
-// del {
-// }
-//
-// ins {
-// }
-//
-// blockquote {
-// }
-//
-// address {
-// }

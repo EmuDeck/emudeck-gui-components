@@ -17,6 +17,8 @@ function AutoSave({ onClick }) {
     <>
       <Main>
         <SelectorMenu
+          toggle
+          title="AutoSave"
           imgs={[
             [saveoff, autosave === true ? 'is-hidden' : ''],
             [saveon, autosave === false ? 'is-hidden' : ''],

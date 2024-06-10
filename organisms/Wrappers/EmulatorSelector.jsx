@@ -58,6 +58,7 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               >
                 <img src={img} alt={item.name} />
                 <span className="h6">{item.name}</span>
+                <small className="small">{item.platforms}</small>
               </Card>
             );
           })}

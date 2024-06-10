@@ -17,6 +17,8 @@ function Shaders3D({ onClick }) {
     <>
       <Main>
         <SelectorMenu
+          toggle
+          title="shaders3D"
           imgs={[
             [lcd3don, shaders.classic3d !== true ? 'is-hidden' : ''],
             [lcd3doff, shaders.classic3d !== false ? 'is-hidden' : ''],

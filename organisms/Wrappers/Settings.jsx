@@ -74,6 +74,7 @@ function Settings({
         <ul className="list-grid">
           <li>
             <SelectorMenu
+              toggle
               title="AutoSave"
               css="selector-menu--mini"
               imgs={[
@@ -101,6 +102,7 @@ function Settings({
           {system !== 'win32' && (
             <li>
               <SelectorMenu
+                toggle
                 title="Controller Layout"
                 css="selector-menu--mini"
                 imgs={[
@@ -111,14 +113,14 @@ function Settings({
                   [
                     () => onClickControllerLayoutSet('baxy'),
                     controllerLayout === 'baxy' ? 'is-selected' : '',
-                    'Position Match',
+                    'Off',
                     '',
                     true,
                   ],
                   [
                     () => onClickControllerLayoutSet('abxy'),
                     controllerLayout === 'abxy' ? 'is-selected' : '',
-                    'Controller Layout Match',
+                    'On',
                     '',
                     true,
                   ],
@@ -129,6 +131,7 @@ function Settings({
           {(branch.includes('early') || branch === 'dev') && (
             <li>
               <SelectorMenu
+                toggle
                 title="CloudSync"
                 css="selector-menu--mini"
                 imgs={[
@@ -156,6 +159,7 @@ function Settings({
           )}
           <li>
             <SelectorMenu
+              toggle
               title="Bezels"
               css="selector-menu--mini"
               imgs={[
@@ -182,6 +186,7 @@ function Settings({
           </li>
           <li>
             <SelectorMenu
+              toggle
               title="Sega Classic AR"
               css="selector-menu--mini"
               imgs={[
@@ -208,6 +213,7 @@ function Settings({
           </li>
           <li>
             <SelectorMenu
+              toggle
               title="Nintendo Classic AR"
               css="selector-menu--mini"
               imgs={[
@@ -234,6 +240,7 @@ function Settings({
           </li>
           <li>
             <SelectorMenu
+              toggle
               title="3D Classics AR"
               css="selector-menu--mini"
               imgs={[
@@ -261,6 +268,7 @@ function Settings({
           {system !== 'darwin' && (
             <li>
               <SelectorMenu
+                toggle
                 title="GameCube AR"
                 css="selector-menu--mini"
                 imgs={[
@@ -288,6 +296,7 @@ function Settings({
           )}
           <li>
             <SelectorMenu
+              toggle
               title="LCD Handhelds"
               css="selector-menu--mini"
               imgs={[
@@ -314,6 +323,7 @@ function Settings({
           </li>
           <li>
             <SelectorMenu
+              toggle
               title="CRT 2D"
               css="selector-menu--mini"
               imgs={[
@@ -340,6 +350,7 @@ function Settings({
           </li>
           <li>
             <SelectorMenu
+              toggle
               title="CRT 3D"
               css="selector-menu--mini"
               imgs={[

@@ -1,4 +1,4 @@
-footer.footer {
+.footer {
   display: flex;
   justify-content: flex-end;
   -webkit-app-region: no-drag;
@@ -8,6 +8,10 @@ footer.footer {
   &--alone {
     padding: 12px;
     background: #444;
+  }
+  &__comments {
+    flex: 1;
+    padding-top: 8px;
   }
 }
 

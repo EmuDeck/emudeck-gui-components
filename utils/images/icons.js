@@ -6,6 +6,7 @@ import iconWarning from 'assets/icon/warning.svg';
 import iconCloud from 'assets/icon/cloud.svg';
 import iconCompress from 'assets/icon/compress.svg';
 import iconGear from 'assets/icon/gear.svg';
+import iconUpdate from 'assets/icon/update.svg';
 import iconList from 'assets/icon/list.svg';
 import iconMigrate from 'assets/icon/migrate.svg';
 import iconPlugin from 'assets/icon/plugin.svg';
@@ -48,4 +49,5 @@ export {
   iconDisk,
   iconScreen,
   iconAndroid,
+  iconUpdate,
 };

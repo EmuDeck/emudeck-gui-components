@@ -59,44 +59,40 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
             */}
         {second === false && (
           <div className="container--grid">
-            <div data-col-sm="5">
+            <div data-col-sm="6">
               <CardSettings
                 css={mode === 'easy' && 'is-highlighted'}
                 btnCSS="btn-simple--1"
                 icon={iconQuick}
                 iconSize="md"
                 title="Easy Mode"
-                button="Select"
                 onClick={() => onClick('easy')}
-                description=" This mode automatically installs and configures your device
-					with our recommended settings so you can start playing right
-					away. Recommended if you are new to emulation."
+                description={t('WelcomePage.easy')}
               />
             </div>
 
-            <div data-col-sm="5">
+            <div data-col-sm="6">
               <CardSettings
                 css={mode === 'expert' && 'is-highlighted'}
                 btnCSS="btn-simple--1"
                 icon={iconCustom}
                 iconSize="md"
                 title="Custom Mode"
-                button="Select"
                 onClick={() => onClick('expert')}
-                description="This mode allows you to customize your EmuDeck install. Configure Aspect Ratios, Bezels, Filters, RetroAchievements,Emulators, Frontends, and more. Recommended for advanced users."
+                description={t('WelcomePage.custom')}
               />
             </div>
             {branch.includes('early') ||
               (branch === 'dev' && (
-                <div data-col-sm="5">
+                <div data-col-sm="4">
                   <CardSettings
                     btnCSS="btn-simple--1"
                     icon={iconPackage}
                     iconSize="md"
                     title="Android"
-                    button="Install"
+                    button={t('general.install')}
                     onClick={() => onClick('android')}
-                    description=" Install EmuDeck ( beta ) on your Android device."
+                    description={t('WelcomePage.android')}
                   />
                 </div>
               ))}

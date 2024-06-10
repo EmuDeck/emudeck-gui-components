@@ -13,7 +13,7 @@ function PegasusThemeChoice({ onClick, themes }) {
 
   return (
     <>
-      <Main css="main--horizontal-scroll">
+      <Main>
         <div className="cards cards--maxi">
           {themes && (
             <>

@@ -17,6 +17,8 @@ function ShadersHandhelds({ onClick }) {
     <>
       <Main>
         <SelectorMenu
+          toggle
+          title="ShadersHandhelds"
           imgs={[
             [lcdoffH, shaders.handhelds === true ? 'is-hidden' : ''],
             [lcdonH, shaders.handhelds === false ? 'is-hidden' : ''],
