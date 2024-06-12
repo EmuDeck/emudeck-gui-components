@@ -272,7 +272,9 @@ function HeaderElectron({ title, bold }) {
         <Toasty />
         {month === 11 && snowFlakes && snowFlakes}
         <button type="button" onClick={toggleDebug} className="header__version">
-          <small>{version}</small>
+          <small>
+            {version} - {branch.toUpperCase()}
+          </small>
         </button>
         <div className="header__accesibility">
           {Object.keys(lngs).map((lng) => (
@@ -305,14 +307,9 @@ function HeaderElectron({ title, bold }) {
             A-
           </BtnSimple>
         </div>
-
-        {branch !== 'main' && (
-          <div className={`header__badge header__${branch}`}> {branch}</div>
-        )}
       </header>
-      {!debug && (
-        <h1 className="h2" dangerouslySetInnerHTML={{ __html: title }} />
-      )}
+
+      <h1 className="h2" dangerouslySetInnerHTML={{ __html: title }} />
     </>
   );
 }
