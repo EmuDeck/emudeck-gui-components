@@ -194,10 +194,9 @@
     }
   }
   &--big {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
     .card {
-      min-width: 31%;
       padding: 10px;
       img {
         max-width: 100%;

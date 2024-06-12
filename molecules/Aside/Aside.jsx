@@ -434,6 +434,17 @@ function Aside({ css }) {
     },
 
     {
+      icon: [iconPlugin],
+      iconFlat: 'plugin',
+      title: 'Rom Library',
+      description: 'Plugin to easily add a Rom Library',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: !(system === 'win32' || system === 'darwin'),
+      function: () => functions.navigate('/decky-rom-launcher'),
+    },
+
+    {
       status: system === 'win32' || system === 'darwin' ? false : 'separator',
       title: t('aside.thirdParty'),
     },
