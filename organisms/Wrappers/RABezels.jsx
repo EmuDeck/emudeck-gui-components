@@ -22,6 +22,7 @@ function RABezels({ onClick, bezels }) {
             [imgBezels, bezels === false ? 'is-hidden' : ''],
             [imgNoBezels, bezels === true ? 'is-hidden' : ''],
           ]}
+          enabled={bezels === false ? false : true}
           options={[
             [
               () => onClick(false),

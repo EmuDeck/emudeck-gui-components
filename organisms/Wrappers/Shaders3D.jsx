@@ -23,6 +23,7 @@ function Shaders3D({ onClick }) {
             [lcd3don, shaders.classic3d !== true ? 'is-hidden' : ''],
             [lcd3doff, shaders.classic3d !== false ? 'is-hidden' : ''],
           ]}
+          enabled={shaders.classic3d === false ? false : true}
           options={[
             [
               () => onClick(false),

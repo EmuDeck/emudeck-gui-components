@@ -21,6 +21,7 @@ function GameMode({ onClick }) {
             [steamUI, gamemode === false ? 'is-hidden' : ''],
             [winDesktop, gamemode === true ? 'is-hidden' : ''],
           ]}
+          enabled={gamemode === false ? false : true}
           options={[
             [
               () => onClick(true),

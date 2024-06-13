@@ -23,19 +23,20 @@ function AspectRatioSNES({ onClick }) {
             [ar87s, ar.snes !== 87 ? 'is-hidden' : ''],
             [ar43s, ar.snes !== 43 ? 'is-hidden' : ''],
           ]}
+          enabled={ar.snes === 43 ? false : true}
           options={[
-            [
-              () => onClick(87),
-              ar.snes === 87 ? 'is-selected' : '',
-              '8:7',
-              'The real SNES Resolution',
-              true,
-            ],
             [
               () => onClick(43),
               ar.snes === 43 ? 'is-selected' : '',
               '4:3',
               ' Default Original',
+              true,
+            ],
+            [
+              () => onClick(87),
+              ar.snes === 87 ? 'is-selected' : '',
+              '8:7',
+              'The real SNES Resolution',
               true,
             ],
           ]}

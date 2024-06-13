@@ -81,6 +81,7 @@ function Settings({
                 [saveoff, autosave === true ? 'is-hidden' : ''],
                 [saveon, autosave === false ? 'is-hidden' : ''],
               ]}
+              enabled={autosave === false ? false : true}
               options={[
                 [
                   () => onClickAutoSave(false),
@@ -109,6 +110,7 @@ function Settings({
                   [abxy, controllerLayout === 'baxy' ? 'is-hidden' : ''],
                   [bayx, controllerLayout === 'abxy' ? 'is-hidden' : ''],
                 ]}
+                enabled={controllerLayout === 'baxy' ? false : true}
                 options={[
                   [
                     () => onClickControllerLayoutSet('baxy'),
@@ -138,6 +140,7 @@ function Settings({
                   [sync, cloudSyncStatus === false ? 'is-hidden' : ''],
                   [none, cloudSyncStatus === true ? 'is-hidden' : ''],
                 ]}
+                enabled={cloudSyncStatus === false ? false : true}
                 options={[
                   [
                     () => onClickCloudSync(false),
@@ -166,6 +169,7 @@ function Settings({
                 [imgBezels, bezels === false ? 'is-hidden' : ''],
                 [imgNoBezels, bezels === true ? 'is-hidden' : ''],
               ]}
+              enabled={bezels === false ? false : true}
               options={[
                 [
                   () => onClickBezel(false),
@@ -193,6 +197,7 @@ function Settings({
                 [ar43, ar.sega !== 43 ? 'is-hidden' : ''],
                 [ar32, ar.sega !== 32 ? 'is-hidden' : ''],
               ]}
+              enabled={ar.sega === 43 ? false : true}
               options={[
                 [
                   () => onClickSega(43),
@@ -220,18 +225,19 @@ function Settings({
                 [ar87s, ar.snes !== 87 ? 'is-hidden' : ''],
                 [ar43s, ar.snes !== 43 ? 'is-hidden' : ''],
               ]}
+              enabled={ar.snes === 43 ? false : true}
               options={[
-                [
-                  () => onClickSNES(87),
-                  ar.snes === 87 ? 'is-selected' : '',
-                  '8:7',
-                  '',
-                  true,
-                ],
                 [
                   () => onClickSNES(43),
                   ar.snes === 43 ? 'is-selected' : '',
                   '4:3',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickSNES(87),
+                  ar.snes === 87 ? 'is-selected' : '',
+                  '8:7',
                   '',
                   true,
                 ],
@@ -247,14 +253,8 @@ function Settings({
                 [ar1693d, ar.classic3d !== 169 ? 'is-hidden' : ''],
                 [ar433d, ar.classic3d !== 43 ? 'is-hidden' : ''],
               ]}
+              enabled={ar.classic3d === 43 ? false : true}
               options={[
-                [
-                  () => onClick3D(169),
-                  ar.classic3d === 169 ? 'is-selected' : '',
-                  '16:9',
-                  '',
-                  true,
-                ],
                 [
                   () => onClick3D(43),
                   ar.classic3d === 43 ? 'is-selected' : '',
@@ -262,6 +262,14 @@ function Settings({
                   '',
                   true,
                 ],
+                [
+                  () => onClick3D(169),
+                  ar.classic3d === 169 ? 'is-selected' : '',
+                  '16:9',
+                  '',
+                  true,
+                ],
+                ,
               ]}
             />
           </li>
@@ -275,18 +283,19 @@ function Settings({
                   [ar169gc, ar.dolphin !== 169 ? 'is-hidden' : ''],
                   [ar43gc, ar.dolphin !== 43 ? 'is-hidden' : ''],
                 ]}
+                enabled={ar.dolphin === 43 ? false : true}
                 options={[
-                  [
-                    () => onClickGC(169),
-                    ar.dolphin === 169 ? 'is-selected' : '',
-                    '16:9',
-                    '',
-                    true,
-                  ],
                   [
                     () => onClickGC(43),
                     ar.dolphin === 43 ? 'is-selected' : '',
                     '4:3',
+                    '',
+                    true,
+                  ],
+                  [
+                    () => onClickGC(169),
+                    ar.dolphin === 169 ? 'is-selected' : '',
+                    '16:9',
                     '',
                     true,
                   ],
@@ -303,6 +312,7 @@ function Settings({
                 [lcdonH, shaders.handhelds !== true ? 'is-hidden' : ''],
                 [lcdoffH, shaders.handhelds !== false ? 'is-hidden' : ''],
               ]}
+              enabled={shaders.handhelds === false ? false : true}
               options={[
                 [
                   () => onClickLCD(false),
@@ -330,6 +340,7 @@ function Settings({
                 [lcdon, shaders.classic !== true ? 'is-hidden' : ''],
                 [lcdoff, shaders.classic !== false ? 'is-hidden' : ''],
               ]}
+              enabled={shaders.classic === false ? false : true}
               options={[
                 [
                   () => onClickCRT(false),
@@ -357,6 +368,7 @@ function Settings({
                 [lcd3don, shaders.classic3d !== true ? 'is-hidden' : ''],
                 [lcd3doff, shaders.classic3d !== false ? 'is-hidden' : ''],
               ]}
+              enabled={shaders.classic3d === false ? false : true}
               options={[
                 [
                   () => onClickCRT3D(false),

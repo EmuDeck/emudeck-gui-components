@@ -186,7 +186,7 @@
   background: linear-gradient(180deg, #f2ebff 24.09%, #e5d6ff 100%);
   transition: all 0.3s;
 }
-.toggleCheckbox:checked + .toggleContainer::before {
+.is-selected.toggleContainer::before {
   left: 50%;
 }
 .toggleContainer div {
@@ -197,19 +197,27 @@
 .toggleCheckbox {
   display: none;
 }
-.toggleCheckbox:checked + .toggleContainer div:first-child {
+.is-selected.toggleContainer div:first-child {
   color: white;
   transition: color 0.3s;
 }
-.toggleCheckbox:checked + .toggleContainer div:last-child {
+.is-selected.toggleContainer div:last-child {
   color: #343434;
   transition: color 0.3s;
 }
-.toggleCheckbox + .toggleContainer div:first-child {
+.toggleContainer div:first-child {
   color: #343434;
   transition: color 0.3s;
 }
-.toggleCheckbox + .toggleContainer div:last-child {
+.toggleContainer div:last-child {
   color: white;
   transition: color 0.3s;
+}
+
+.toggleCheckbox {
+  display: block;
+  border: 1px solid red;
+  height: 20px;
+  width: 20px;
+  -webkit-appearance: auto;
 }

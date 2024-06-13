@@ -23,6 +23,7 @@ function AutoSave({ onClick }) {
             [saveoff, autosave === true ? 'is-hidden' : ''],
             [saveon, autosave === false ? 'is-hidden' : ''],
           ]}
+          enabled={autosave === false ? false : true}
           options={[
             [
               () => onClick(false),

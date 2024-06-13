@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'components/molecules/Card/Card';
 import './selector-menu.scss';
-
-function SelectorMenu({ css, imgs, options, details, title, toggle }) {
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+function SelectorMenu({ css, imgs, options, details, title, toggle, enabled }) {
+  const id = getRandomInt(30000);
   return (
     <div className={`selector-menu ${css}`}>
       <div className="selector-menu__text">
@@ -34,13 +37,11 @@ function SelectorMenu({ css, imgs, options, details, title, toggle }) {
           )}
           {toggle && (
             <>
-              <input
-                type="checkbox"
-                value="1"
-                id={title}
-                class="toggleCheckbox"
-              />
-              <label for={title} class="toggleContainer">
+              <div
+                className={
+                  enabled ? 'toggleContainer is-selected' : 'toggleContainer'
+                }
+              >
                 {options &&
                   options.map((item) => {
                     const func = item[0];
@@ -55,7 +56,7 @@ function SelectorMenu({ css, imgs, options, details, title, toggle }) {
                       </div>
                     );
                   })}
-              </label>
+              </div>
             </>
           )}
         </div>

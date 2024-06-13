@@ -22,6 +22,7 @@ function AspectRatio3D({ onClick }) {
             [ar1693d, ar.classic3d !== 169 ? 'is-hidden' : ''],
             [ar433d, ar.classic3d !== 43 ? 'is-hidden' : ''],
           ]}
+          enabled={ar.classic3d === 43 ? false : true}
           options={[
             [
               () => onClick(43),
