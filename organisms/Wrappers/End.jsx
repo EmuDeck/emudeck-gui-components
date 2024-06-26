@@ -96,11 +96,7 @@ function End({ message, percentage, step, disabledNext }) {
             {system !== 'win32' && (
               <Card css="is-selected">
                 <div className="container--grid">
-                  <span
-                    data-col-sm="12"
-                    className="h2"
-                    style={{ color: '#444' }}
-                  >
+                  <span data-col-sm="12" className="h2">
                     Post Installation Status
                   </span>
                   <p className="lead">

@@ -44,7 +44,7 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               }
             }
 
-            if (item.id === 'yuzu' || item.id === 'citra') {
+            if (item.id === 'yuzu') {
               return;
             }
 

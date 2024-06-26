@@ -50,7 +50,7 @@ function EmulatorConfiguration({ onClick, images }) {
               return;
             }
 
-            if (item.id === 'yuzu' || item.id === 'citra') {
+            if (item.id === 'yuzu') {
               return;
             }
 
