@@ -32,20 +32,19 @@ function EmuDecky({
         <br />
         <div className="container--grid">
           <div data-col-sm="6">
-            {hasSudo === false ||
-              (sudoPass === 'gamer' && (
-                <BtnSimple
-                  css="btn-simple--1"
-                  type="button"
-                  aria="Install EmuDecky"
-                  onClick={installClick}
-                  disabled={disableButton && 'true'}
-                >
-                  Install EmuDecky
-                </BtnSimple>
-              ))}
+            {hasSudo === false && (
+              <BtnSimple
+                css="btn-simple--1"
+                type="button"
+                aria="Install EmuDecky"
+                onClick={installClick}
+                disabled={disableButton && 'true'}
+              >
+                Install EmuDecky
+              </BtnSimple>
+            )}
 
-            {hasSudo === true && sudoPass !== 'gamer' && (
+            {hasSudo === true && (
               <div className="form">
                 <p>
                   We have detected you have set a sudo password, type it on the
@@ -104,7 +103,7 @@ EmuDecky.defaultProps = {
   onClick: '',
   installClick: '',
   hasSudo: '',
-  sudoPass: 'Decky!',
+  sudoPass: 'EmuDecky!',
   showNotification: '',
   textNotification: '',
   passValidates: '',
