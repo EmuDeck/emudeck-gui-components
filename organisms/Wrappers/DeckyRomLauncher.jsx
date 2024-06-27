@@ -103,7 +103,7 @@ DeckyRomLauncher.defaultProps = {
   onClick: '',
   installClick: '',
   hasSudo: '',
-  sudoPass: 'EmuDecky!',
+  sudoPass: 'Decky!',
   showNotification: '',
   textNotification: '',
   passValidates: '',
