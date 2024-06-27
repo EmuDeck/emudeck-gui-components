@@ -263,6 +263,7 @@
 
 .cards--log {
   margin-bottom: 0;
+  grid-template-columns: 1fr;
   .card__selected {
     display: none;
   }
