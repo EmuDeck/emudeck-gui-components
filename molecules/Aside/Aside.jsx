@@ -440,7 +440,10 @@ function Aside({ css }) {
       description: 'Plugin to easily add a Rom Library',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: !(system === 'win32' || system === 'darwin'),
+      status:
+        ((branch.includes('early') || branch === 'dev') &&
+          system !== 'win32') ||
+        system !== 'darwin',
       function: () => functions.navigate('/decky-rom-launcher'),
     },
 
