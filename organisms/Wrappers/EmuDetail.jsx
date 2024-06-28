@@ -321,15 +321,6 @@ function EmuDetail(props) {
                   Emulator not found
                 </BtnSimple>
               )}
-              {!disableInstallButton && (
-                <BtnSimple
-                  css="btn-simple--2"
-                  type="button"
-                  aria="Update or reset configuration"
-                >
-                  Emulator not found
-                </BtnSimple>
-              )}
 
               {disableInstallButton && (
                 <BtnSimple
