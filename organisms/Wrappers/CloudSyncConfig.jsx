@@ -55,13 +55,6 @@ function CloudSyncConfig({
             <span className="h6">DropBox</span>
           </Card>
           <Card
-            css={cloudSync === 'Emudeck-GDrive' && 'is-selected'}
-            onClick={() => onClick('Emudeck-GDrive')}
-          >
-            <img src={gdrive} alt="gdrive" />
-            <span className="h6">Google Drive</span>
-          </Card>
-          <Card
             css={cloudSync === 'Emudeck-NextCloud' && 'is-selected'}
             onClick={() => onClick('Emudeck-NextCloud')}
           >
