@@ -436,8 +436,8 @@ function Aside({ css }) {
     {
       icon: [iconPlugin],
       iconFlat: 'plugin',
-      title: 'Rom Library' + branch,
-      description: 'Plugin to easily add a Rom Library',
+      title: 'Retro Library',
+      description: 'Plugin to easily add a Retro Library',
       button: 'More info',
       btnCSS: 'btn-simple--5',
       status: branch.includes('early') || branch.includes('dev'),

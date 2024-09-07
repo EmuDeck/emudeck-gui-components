@@ -23,7 +23,7 @@ function DeckyRomLauncher({
   return (
     <>
       <p className="lead">
-        Rom Library is a plugin that allows you to have a second Steam Library
+        Retro Library is a plugin that allows you to have a second Steam Library
         with only your roms so they are not mixed up with your Steam games.
         <br />
         All games and artwork are detected automatically.
@@ -36,11 +36,11 @@ function DeckyRomLauncher({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Install Rom Library"
+                aria="Install Retro Library"
                 onClick={installClick}
                 disabled={disableButton && 'true'}
               >
-                Install Rom Library
+                Install Retro Library
               </BtnSimple>
             )}
 
@@ -62,11 +62,11 @@ function DeckyRomLauncher({
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
-                    aria="Install Rom Library"
+                    aria="Install Retro Library"
                     onClick={installClick}
                     disabled={disableButton && 'true'}
                   >
-                    Install Rom Library
+                    Install Retro Library
                   </BtnSimple>
                 )}
               </div>
