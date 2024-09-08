@@ -221,3 +221,23 @@
   width: 20px;
   -webkit-appearance: auto;
 }
+
+.list--customization {
+  flex: 0 1 50%;
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-right: 30px;
+  }
+  &__pill {
+    display: inline-block;
+    font-size: 1.6rem;
+    margin-bottom: 0px;
+
+    @include surface-d;
+    padding: 6px;
+    border-radius: 12px;
+  }
+}
