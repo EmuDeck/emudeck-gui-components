@@ -388,7 +388,7 @@ function Aside({ css }) {
       description: 'Pich your Pegasus theme',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: state.installFrontends.pegasus.status,
+      status: state.installFrontends.pegasus.status && system !== 'darwin',
       function: () => functions.navigate('/pegasus-theme-choice'),
     },
     {
@@ -398,7 +398,7 @@ function Aside({ css }) {
       description: 'Sync or backup your saves and save states to the cloud',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: true,
+      status: system !== 'darwin',
       function: () => functions.navigate('/cloud-sync/welcome'),
     },
 
