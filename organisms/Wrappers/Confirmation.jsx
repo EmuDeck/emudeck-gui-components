@@ -109,25 +109,25 @@ function Confirmation() {
                 <li>
                   Sega Classic{' '}
                   <strong className="list--customization__pill">
-                    {ar.sega}
+                    {ar.sega == '43' ? '4:3' : '3:2'}
                   </strong>
                 </li>
                 <li>
                   Nintendo Classic{' '}
                   <strong className="list--customization__pill">
-                    {ar.snes}
+                    {ar.snes == '43' ? '4:3' : '8:7'}
                   </strong>
                 </li>
                 <li>
                   Classic 3D Games{' '}
                   <strong className="list--customization__pill">
-                    {ar.classic3d}
+                    {ar.classic3d == '43' ? '4:3' : '16:9'}
                   </strong>
                 </li>
                 <li>
                   Gamecube{' '}
                   <strong className="list--customization__pill">
-                    {ar.dolphin}
+                    {ar.dolphin == '43' ? '4:3' : '16:9'}
                   </strong>
                 </li>
               </ul>
