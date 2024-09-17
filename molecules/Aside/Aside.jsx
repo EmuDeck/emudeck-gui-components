@@ -106,7 +106,7 @@ function Aside({ css }) {
       header: <span className="h4">{t('launching')} Steam Rom Manager</span>,
       body: (
         <p>
-          We will close Steam if it's running, and then Steam Rom Manager will
+          We will close Steam if it's running and then Steam Rom Manager will
           open. This could take a few seconds, please wait.
         </p>
       ),
@@ -133,7 +133,7 @@ function Aside({ css }) {
         body: (
           <>
             <p>
-              We will close Steam if it's running, and then Steam Rom Manager will
+              We will close Steam if it's running and then Steam Rom Manager will
               open. This could take a few seconds, please wait.
             </p>
             <strong>
