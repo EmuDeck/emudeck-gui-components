@@ -56,16 +56,20 @@ function CopyGamesAuto({
                     )}
                   </Card>
                 </div>
+
                 {statusCopyGames === null &&
                   storageUSBPath !== undefined &&
-                  statusCreateStructure === null && (
+                  statusCreateStructure === null &&
+                  storageUSBPath !== '' && (
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
                       aria="Start CopyGames"
                       onClick={() => onClickStart()}
                     >
-                      Start transfer
+                      Step 1: Prepare USB drive
+                      <br />
+                      <em>(we won't delete anything)</em>
                     </BtnSimple>
                   )}
                 {statusCopyGames === null &&
@@ -87,7 +91,9 @@ function CopyGamesAuto({
                     aria="Waiting CopyGames"
                     onClick={() => onClickCopyGames()}
                   >
-                    Copy your ROMs & BIOS to your Steam Deck
+                    Step 2: Transfer your ROMs & BIOS from the USB
+                    <br />
+                    <em>(Make sure you already copied them in the USB)</em>
                   </BtnSimple>
                 )}
 

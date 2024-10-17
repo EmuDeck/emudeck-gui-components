@@ -440,7 +440,9 @@ function Aside({ css }) {
       description: 'Plugin to easily add a Retro Library',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: branch.includes('early') || branch.includes('dev'),
+      status:
+        (!(system === 'win32') && branch.includes('early')) ||
+        branch.includes('dev'),
       function: () => functions.navigate('/decky-rom-launcher'),
     },
 
