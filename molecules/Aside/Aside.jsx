@@ -358,7 +358,7 @@ function Aside({ css }) {
       description: 'Compress your ROMs to optimize your storage',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: !(system === 'win32' || system === 'darwin'),
+      status: system !== 'darwin',
       function: () => functions.navigate('/chd-tool'),
     },
     {
