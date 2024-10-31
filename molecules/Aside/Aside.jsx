@@ -410,14 +410,7 @@ function Aside({ css }) {
         'Migrate your EmuDeck installation to your SD Card or vice versa',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status:
-        system === 'win32' || system === 'darwin'
-          ? false
-          : !!(
-              systemName === 'SteamOS' ||
-              systemName === 'Linux' ||
-              systemName === 'Chimera'
-            ),
+      status: true,
       function: () => functions.navigate('/migration'),
     },
 
@@ -429,7 +422,7 @@ function Aside({ css }) {
         'Plugin to easily view emulator hotkeys and configure EmuDeck in Gaming Mode',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: !(system === 'win32' || system === 'darwin'),
+      status: !(system === 'darwin'),
       function: () => functions.navigate('/decky-controls'),
     },
 
@@ -440,9 +433,7 @@ function Aside({ css }) {
       description: 'Plugin to easily add a Retro Library',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status:
-        (!(system === 'win32') && branch.includes('early')) ||
-        branch.includes('dev'),
+      status: !(system === 'darwin'),
       function: () => functions.navigate('/decky-rom-launcher'),
     },
 

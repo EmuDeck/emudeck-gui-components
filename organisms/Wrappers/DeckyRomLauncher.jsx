@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
@@ -20,6 +21,9 @@ function DeckyRomLauncher({
   disableButton,
 }) {
   const { t, i18n } = useTranslation();
+  const { state, setState } = useContext(GlobalContext);
+  const { system } = state;
+
   return (
     <>
       <p className="lead">
@@ -32,7 +36,7 @@ function DeckyRomLauncher({
         <br />
         <div className="container--grid">
           <div data-col-sm="6">
-            {hasSudo === false && (
+            {hasSudo === false && system !== 'win32' && (
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
@@ -44,7 +48,19 @@ function DeckyRomLauncher({
               </BtnSimple>
             )}
 
-            {hasSudo === true && (
+            {system === 'win32' && (
+              <BtnSimple
+                css="btn-simple--1"
+                type="button"
+                aria="Install EmuDecky"
+                onClick={installClick}
+                disabled={disableButton && 'true'}
+              >
+                Install Retro Library
+              </BtnSimple>
+            )}
+
+            {hasSudo === true && system !== 'win32' && (
               <div className="form">
                 <p>
                   We have detected you have set a sudo password, type it on the

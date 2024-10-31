@@ -5,7 +5,12 @@ import { BtnSimple } from 'getbasecore/Atoms';
 import Card from 'components/molecules/Card/Card';
 import Main from 'components/organisms/Main/Main';
 
-import { imgInternal, imgSD } from 'components/utils/images/images';
+import {
+  imgSD,
+  imgInternal,
+  imgExternal,
+  imgNetwork,
+} from 'components/utils/images/images';
 
 function Migration({
   onClick,
@@ -18,6 +23,9 @@ function Migration({
   storagePath,
   storagePathDestination,
   statusMigration,
+  hddrives,
+  showSDCard,
+  showInternal,
 }) {
   const { t, i18n } = useTranslation();
   return (
@@ -79,36 +87,71 @@ function Migration({
           <div data-col-sm="12">
             <span className="h4">{t('Migration.destination')}</span>
             <div className="cards">
-              <Card
-                css={
-                  storageDestination === 'SD-Card'
-                    ? 'is-selected card--horizontal'
-                    : 'card--horizontal'
-                }
-                onClick={() =>
-                  sdCardValid === true ? onClick('SD-Card') : reloadSDcard()
-                }
-              >
-                <img src={imgSD} width="100" alt="Background" />
-                {sdCardValid && <span className="h6">SD Card</span>}
-                {sdCardName === null ||
-                  (sdCardValid === false && (
-                    <span className="h6">Error detecting SD Card</span>
-                  ))}
-              </Card>
-
-              <Card
-                css={
-                  storageDestination === 'Internal Storage'
-                    ? 'is-selected card--horizontal'
-                    : 'card--horizontal'
-                }
-                onClick={() => onClick('Internal Storage')}
-              >
-                <img src={imgInternal} width="100" alt="Background" />
-                <span className="h6">{t('Migration.internalStorage')}</span>
-              </Card>
-
+              {showSDCard && (
+                <Card
+                  css={
+                    storageDestination === 'SD-Card'
+                      ? 'is-selected card--horizontal'
+                      : 'card--horizontal'
+                  }
+                  onClick={() =>
+                    sdCardValid === true ? onClick('SD-Card') : reloadSDcard()
+                  }
+                >
+                  <img src={imgSD} width="100" alt="Background" />
+                  {sdCardValid && <span className="h6">SD Card</span>}
+                  {sdCardName === null ||
+                    (sdCardValid === false && (
+                      <span className="h6">Error detecting SD Card</span>
+                    ))}
+                </Card>
+              )}
+              {showInternal && (
+                <Card
+                  css={
+                    storageDestination === 'Internal Storage'
+                      ? 'is-selected card--horizontal'
+                      : 'card--horizontal'
+                  }
+                  onClick={() => onClick('Internal Storage')}
+                >
+                  <img src={imgInternal} width="100" alt="Background" />
+                  <span className="h6">{t('Migration.internalStorage')}</span>
+                </Card>
+              )}
+              {hddrives &&
+                hddrives.map((item) => {
+                  if (item.letter === null) {
+                  } else {
+                    return (
+                      <Card
+                        css={
+                          storage === `${item.letter}\\`
+                            ? 'is-selected card--horizontal'
+                            : 'card--horizontal'
+                        }
+                        onClick={() => onClick(item.letter)}
+                      >
+                        <img
+                          src={
+                            item.type === 'Internal'
+                              ? imgInternal
+                              : item.name.includes('card')
+                              ? imgSD
+                              : item.name.includes('Card')
+                              ? imgSD
+                              : item.type === 'External'
+                              ? imgExternal
+                              : imgNetwork
+                          }
+                          width="100"
+                          alt="Background"
+                        />
+                        <span className="h6">{`${item.letter}\\`}</span>
+                      </Card>
+                    );
+                  }
+                })}
               <Card
                 css={
                   storageDestination === 'Custom'
