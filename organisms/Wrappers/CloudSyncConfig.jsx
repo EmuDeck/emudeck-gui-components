@@ -34,7 +34,7 @@ function CloudSyncConfig({
   return (
     <Main>
       <p>
-        <strong>Recommended provider</strong>
+        <strong>Recommended providers</strong>
       </p>
       <div className="cards cards--mini">
         <Card
@@ -232,48 +232,12 @@ function CloudSyncConfig({
               </clipPath>
             </defs>
           </svg>
-          <span className="h6">EmuDeck Cloud</span>
+          <div className="h6">
+            <p>EmuDeck Cloud</p>
+            (7 days backup)
+          </div>
         </Card>
-      </div>
 
-      <p>Legacy Providers</p>
-
-      <div className="cards cards--mini">
-        <Card
-          css={cloudSync === 'Emudeck-Box' && 'is-selected'}
-          onClick={() => onClick('Emudeck-Box')}
-        >
-          <img src={box} alt="Box" />
-          <span className="h6">Box</span>
-        </Card>
-        <Card
-          css={cloudSync === 'Emudeck-DropBox' && 'is-selected'}
-          onClick={() => onClick('Emudeck-DropBox')}
-        >
-          <img src={dropbox} alt="dropbox" />
-          <span className="h6">DropBox</span>
-        </Card>
-        <Card
-          css={cloudSync === 'Emudeck-GDrive' && 'is-selected'}
-          onClick={() => onClick('Emudeck-GDrive')}
-        >
-          <img src={gdrive} alt="gdrive" />
-          <span className="h6">Google Drive</span>
-        </Card>
-        <Card
-          css={cloudSync === 'Emudeck-NextCloud' && 'is-selected'}
-          onClick={() => onClick('Emudeck-NextCloud')}
-        >
-          <img src={nextcloud} alt="nextcloud" />
-          <span className="h6">Nextcloud</span>
-        </Card>
-        <Card
-          css={cloudSync === 'Emudeck-OneDrive' && 'is-selected'}
-          onClick={() => onClick('Emudeck-OneDrive')}
-        >
-          <img src={onedrive} alt="onedrive" />
-          <span className="h6">OneDrive</span>
-        </Card>
         <Card
           css={cloudSync === 'Emudeck-pCloud' && 'is-selected'}
           onClick={() => onClick('Emudeck-pCloud')}
@@ -295,7 +259,47 @@ function CloudSyncConfig({
           <img src={smb} alt="Emudeck-SMB" />
           <span className="h6">SMB</span>
         </Card>
+        <Card
+          css={cloudSync === 'Emudeck-NextCloud' && 'is-selected'}
+          onClick={() => onClick('Emudeck-NextCloud')}
+        >
+          <img src={nextcloud} alt="nextcloud" />
+          <span className="h6">Nextcloud</span>
+        </Card>
+        <Card
+          css={cloudSync === 'Emudeck-DropBox' && 'is-selected'}
+          onClick={() => onClick('Emudeck-DropBox')}
+        >
+          <img src={dropbox} alt="dropbox" />
+          <span className="h6">DropBox</span>
+        </Card>
       </div>
+
+      <p>Legacy providers</p>
+      <div className="cards cards--mini">
+        <Card
+          css={cloudSync === 'Emudeck-Box' && 'is-selected'}
+          onClick={() => onClick('Emudeck-Box')}
+        >
+          <img src={box} alt="Box" />
+          <span className="h6">Box</span>
+        </Card>
+        <Card
+          css={cloudSync === 'Emudeck-GDrive' && 'is-selected'}
+          onClick={() => onClick('Emudeck-GDrive')}
+        >
+          <img src={gdrive} alt="gdrive" />
+          <span className="h6">Google Drive</span>
+        </Card>
+        <Card
+          css={cloudSync === 'Emudeck-OneDrive' && 'is-selected'}
+          onClick={() => onClick('Emudeck-OneDrive')}
+        >
+          <img src={onedrive} alt="onedrive" />
+          <span className="h6">OneDrive</span>
+        </Card>
+      </div>
+
       {cloudSync !== '' && cloudSync !== false && showLoginButton === false && (
         <BtnSimple
           css="btn-simple--1"
