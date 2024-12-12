@@ -59,35 +59,33 @@ function EmuDecky({
               </BtnSimple>
             )}
 
-            {hasSudo === true &&
-              system !==
-                'win32'(
-                  <div className="form">
-                    <p>
-                      We have detected you have set a sudo password, type it on
-                      the next input to install this tool.
-                    </p>
-                    <FormInputSimple
-                      label="Sudo Password"
-                      type="password"
-                      name="pass"
-                      id="pass"
-                      onChange={onChange}
-                      value={sudoPass}
-                    />
-                    {sudoPass !== '' && (
-                      <BtnSimple
-                        css="btn-simple--1"
-                        type="button"
-                        aria="Install EmuDecky"
-                        onClick={installClick}
-                        disabled={disableButton && 'true'}
-                      >
-                        Install EmuDecky
-                      </BtnSimple>
-                    )}
-                  </div>
+            {hasSudo === true && system !== 'win32' && (
+              <div className="form">
+                <p>
+                  We have detected you have set a sudo password, type it on the
+                  next input to install this tool.
+                </p>
+                <FormInputSimple
+                  label="Sudo Password"
+                  type="password"
+                  name="pass"
+                  id="pass"
+                  onChange={onChange}
+                  value={sudoPass}
+                />
+                {sudoPass !== '' && (
+                  <BtnSimple
+                    css="btn-simple--1"
+                    type="button"
+                    aria="Install EmuDecky"
+                    onClick={installClick}
+                    disabled={disableButton && 'true'}
+                  >
+                    Install EmuDecky
+                  </BtnSimple>
                 )}
+              </div>
+            )}
           </div>
           <div data-col-sm="1" />
           <div data-col-sm="5">
