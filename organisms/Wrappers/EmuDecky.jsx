@@ -118,7 +118,7 @@ EmuDecky.defaultProps = {
   onClick: '',
   installClick: '',
   hasSudo: '',
-  sudoPass: 'Decky!',
+  sudoPass: 'EmuDecky!',
   showNotification: '',
   textNotification: '',
   passValidates: '',
