@@ -21,6 +21,8 @@ function FrontendSelector({ onClick, images, lastSelected, installFrontends }) {
               !branch.includes('dev') &&
               item.id === 'deckyromlauncher' &&
               !branch.includes('early') &&
+              item.id === 'deckyromlauncher' &&
+              system.includes('win32') &&
               item.id === 'deckyromlauncher'
             ) {
               return;
