@@ -37,6 +37,7 @@ import {
   imgmodel2,
   imgbigpemu,
   imgmelonds,
+  imgshadps4,
 } from 'components/utils/images/images';
 
 const ipcChannel = window.electron.ipcRenderer;
@@ -164,6 +165,10 @@ function EmuDetail(props) {
       case 'bigpemu':
         setStateImg({ img: imgbigpemu });
         break;
+      case 'shadps4':
+        setStateImg({ img: imgshadps4 });
+        break;
+
       default:
         setStateImg({ img: imgdefault });
         break;

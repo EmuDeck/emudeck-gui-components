@@ -44,6 +44,9 @@ function EmulatorConfiguration({ onClick, images }) {
               if (item.id === 'supermodel') {
                 return;
               }
+              if (item.id === 'shadps4') {
+                return;
+              }
             }
 
             if (item.id === 'ares') {
