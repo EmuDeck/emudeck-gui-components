@@ -436,7 +436,7 @@ function Aside({ css }) {
       status:
         system === 'win32'
           ? false
-          : branch === 'dev' || branch === 'early'
+          : branch === 'dev' || branch.includes('early')
           ? true
           : false,
       function: () => functions.navigate('/decky-rom-launcher'),
