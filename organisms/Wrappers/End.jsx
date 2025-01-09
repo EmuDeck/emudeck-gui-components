@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -11,6 +12,7 @@ import { iconSuccess, iconDanger } from 'components/utils/images/icons';
 
 const ipcChannel = window.electron.ipcRenderer;
 function End({ message, percentage, step, disabledNext }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { installEmus, system, device } = state;
 
@@ -94,16 +96,12 @@ function End({ message, percentage, step, disabledNext }) {
             {system !== 'win32' && (
               <Card css="is-selected">
                 <div className="container--grid">
-                  <span
-                    data-col-sm="12"
-                    className="h2"
-                    style={{ color: '#444' }}
-                  >
+                  <span data-col-sm="12" className="h2">
                     Post Installation Status
                   </span>
                   <p className="lead">
                     Please check that all your emulators has been installed. If
-                    an emulator or tool failed to install, run a{' '}
+                    an emulator or tool failed to install, run a
                     <strong>Custom Reset</strong> or install the emulator using
                     the <strong>Manage Emulators</strong> page.
                   </p>
@@ -138,22 +136,19 @@ function End({ message, percentage, step, disabledNext }) {
                   <div data-col-sm="7">
                     <span className="h3">⚠️ Read before continuing ⚠️</span>
                     <p className="lead">
-                      EmuDeck is designed to work using{' '}
+                      EmuDeck is designed to work using
                       <strong>Steam input</strong>, you need to launch the games
                       using Steam after adding them with Steam Rom Manager, same
                       thing with the Emulators, EmulationStation or Pegasus,
-                      otherwise the{' '}
+                      otherwise the
                       <strong>controls and hotkeys won't work</strong>.
-                    </p>
-                    <p className="lead">
+                      <br />
                       Apps like DeckTools or Handheld Companion might break
                       controls too in some cases.
-                    </p>
-                    <p className="lead">
+                      <br />
                       Make sure your handheld is on GamePad mode at all times,
                       not on Desktop or Auto.
-                    </p>
-                    <p className="lead">
+                      <br />
                       <strong>
                         If you want to use other Frontends like Playnite you
                         will need to activate Steam Input on the Desktop as

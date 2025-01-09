@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -9,11 +10,11 @@ import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 import { none, backup, sync } from 'components/utils/images/images';
 
 function CloudSync({ onClick, showNone }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { cloudSyncType, system, branch } = state;
   return (
     <>
-      <p className="lead">Select your preferred type of cloud saving.</p>
       <Main>
         <SelectorMenu
           imgs={[
@@ -25,16 +26,16 @@ function CloudSync({ onClick, showNone }) {
             [
               () => onClick('Sync'),
               cloudSyncType === 'Sync' ? 'is-selected' : '',
-              'Sync',
-              'Sync between EmuDeck installations - <strong> Patrons only</strong>',
+              t('CloudSync.sync'),
+              t('CloudSync.syncDesc'),
               true,
             ],
             [
               () => onClick('Save'),
               cloudSyncType === 'Save' ? 'is-selected' : '',
-              'Backup',
-              'Backup your games to the cloud',
-              branch !== 'early',
+              t('CloudSync.backup'),
+              t('CloudSync.backupDesc'),
+              !branch.includes('early'),
             ],
           ]}
           details={['All']}

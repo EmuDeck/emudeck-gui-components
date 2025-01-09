@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
 
-import { emuDeckyImg } from 'components/utils/images/images';
+import { imgDeckyRomLauncher } from 'components/utils/images/images';
 
-function EmuDecky({
+function DeckyRomLauncher({
   onChange,
   onChangeSetPass,
   onChangeCheckPass,
@@ -23,13 +23,14 @@ function EmuDecky({
   const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
   const { system } = state;
+
   return (
     <>
       <p className="lead">
-        EmuDecky is a plugin that allows you to see all of EmuDeck controls and
-        hotkeys while you are gaming and event configure EmuDeck!. To use
-        EmuDecky: In Game Mode, press the ... button, press the socket icon, and
-        select EmuDecky.
+        Retro Library is a plugin that allows you to have a second Steam Library
+        with only your roms so they are not mixed up with your Steam games.
+        <br />
+        All games and artwork are detected automatically.
       </p>
       <Main>
         <br />
@@ -39,11 +40,11 @@ function EmuDecky({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Install EmuDecky"
+                aria="Install Retro Library"
                 onClick={installClick}
                 disabled={disableButton && 'true'}
               >
-                Install EmuDecky
+                Install Retro Library
               </BtnSimple>
             )}
 
@@ -55,7 +56,7 @@ function EmuDecky({
                 onClick={installClick}
                 disabled={disableButton && 'true'}
               >
-                Install EmuDecky
+                Install Retro Library
               </BtnSimple>
             )}
 
@@ -77,11 +78,11 @@ function EmuDecky({
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
-                    aria="Install EmuDecky"
+                    aria="Install Retro Library"
                     onClick={installClick}
                     disabled={disableButton && 'true'}
                   >
-                    Install EmuDecky
+                    Install Retro Library
                   </BtnSimple>
                 )}
               </div>
@@ -89,7 +90,7 @@ function EmuDecky({
           </div>
           <div data-col-sm="1" />
           <div data-col-sm="5">
-            <img src={emuDeckyImg} alt="EmuDecky" />
+            <img src={imgDeckyRomLauncher} alt="DeckyRomLauncher" />
           </div>
         </div>
       </Main>
@@ -97,7 +98,7 @@ function EmuDecky({
   );
 }
 
-EmuDecky.propTypes = {
+DeckyRomLauncher.propTypes = {
   onChange: PropTypes.func,
   onChangeSetPass: PropTypes.func,
   onChangeCheckPass: PropTypes.func,
@@ -111,7 +112,7 @@ EmuDecky.propTypes = {
   disableButton: PropTypes.bool,
 };
 
-EmuDecky.defaultProps = {
+DeckyRomLauncher.defaultProps = {
   onChange: '',
   onChangeSetPass: '',
   onChangeCheckPass: '',
@@ -125,4 +126,4 @@ EmuDecky.defaultProps = {
   disableButton: '',
 };
 
-export default EmuDecky;
+export default DeckyRomLauncher;

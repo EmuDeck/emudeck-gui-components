@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
@@ -13,8 +14,10 @@ import EmuModal from 'components/molecules/EmuModal/EmuModal';
 import { raLogo } from 'components/utils/images/images';
 
 function RAAchievements({ onChange, onToggle }) {
+  const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
   const { achievements, second } = state;
+  const { token } = achievements;
 
   const [statePage, setStatePage] = useState({
     modal: undefined,
@@ -40,7 +43,9 @@ function RAAchievements({ onChange, onToggle }) {
           ]);
           ipcChannel.once(
             'setToken',
-            (errorToken, stdoutToken, stderrToken) => {}
+            (errorToken, stdoutToken, stderrToken) => {
+              console.log({ errorToken, stdoutToken, stderrToken });
+            }
           );
         }
 
@@ -51,13 +56,12 @@ function RAAchievements({ onChange, onToggle }) {
       } else {
         const modalData = {
           active: true,
-          header: <span className="h4">Wrong username or password</span>,
-          body: (
-            <p>
-              If your password contains special characters like _ or ' you need
-              to change it on retroachievements.org
-            </p>
+          header: (
+            <span className="h4">
+              {t('RAAchievements.modalWrongPassTitle')}
+            </span>
           ),
+          body: <p>{t('RAAchievements.modalWrongPassDesc')}</p>,
           css: 'emumodal--xs',
         };
         setStatePage({ ...statePage, modal: modalData });
@@ -90,27 +94,13 @@ function RAAchievements({ onChange, onToggle }) {
               `setHardcore|||RetroArch_retroAchievementsHardCoreOff;DuckStation_retroAchievementsHardCoreOff;PCSX2QT_retroAchievementsHardCoreOff;PPSSPP_retroAchievementsHardCoreOff; echo "false"`,
             ]);
           }
-          modalData = {
-            active: true,
-            header: <span className="h4">Success!</span>,
-            body: (
-              <p>
-                You are now succesfully connected to RetroAchievments for the
-                following emulators: DuckStation, PCSX2, PPSSPP, and RetroArch
-              </p>
-            ),
-            css: 'emumodal--xs',
-          };
         } else {
           modalData = {
             active: true,
-            header: <span className="h4">Error!</span>,
-            body: (
-              <p>
-                The user & password are correct but EmuDeck could not set the
-                configuration.
-              </p>
+            header: (
+              <span className="h4">{t('RAAchievements.modalErrorTitle')}</span>
             ),
+            body: <p>{t('RAAchievements.modalErrorDesc')}</p>,
             css: 'emumodal--xs',
           };
         }
@@ -119,14 +109,12 @@ function RAAchievements({ onChange, onToggle }) {
     }
   }, [achievements]);
 
+  useEffect(() => {
+    ipcChannel.sendMessage('saveSettings', [JSON.stringify(state)]);
+  }, [token]);
+
   return (
     <>
-      <p className="lead">
-        RetroAchievements.org is a community led effort to collaborate and
-        create custom-made achievements in emulated classic games. Enter your
-        account information to set up RetroAchievements for Duckstation, PCSX2,
-        PPSSPP, and RetroArch.
-      </p>
       <Main>
         <br />
         <div className="container--grid">
@@ -135,14 +123,13 @@ function RAAchievements({ onChange, onToggle }) {
               {achievements.token === '' && (
                 <>
                   <p>
-                    If you do not have an account, register now on
-                    RetroAchievements.org by clicking{' '}
+                    {t('RAAchievements.register')}{' '}
                     <LinkSimple
                       css="link-simple--1"
                       target="_blank"
                       href="https://www.retroAchievements.org"
                     >
-                      here
+                      RetroAchievements.org
                     </LinkSimple>
                   </p>
                   <div
@@ -176,22 +163,20 @@ function RAAchievements({ onChange, onToggle }) {
                     type="button"
                     onClick={fetchToken}
                   >
-                    Login
+                    {t('general.login')}
                   </BtnSimple>
                 </>
               )}
               {achievements.token !== '' && (
                 <>
                   <p>
-                    <span className="h4">
-                      You are successfully connected to RetroAchievements!
-                    </span>
+                    <span className="h4">{t('RAAchievements.success')}</span>
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
                       onClick={resetToken}
                     >
-                      Reset Login
+                      {t('RAAchievements.reset')}
                     </BtnSimple>
                   </p>
 
@@ -210,10 +195,10 @@ function RAAchievements({ onChange, onToggle }) {
               )}
             </Form>
           </div>
-          <div data-col-sm="1" />
           <div data-col-sm="5">
             <img src={raLogo} alt="RetroAchievements" />
           </div>
+          <div data-col-sm="1" />
         </div>
         <EmuModal modal={modal} />
       </Main>

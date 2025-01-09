@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Img } from 'getbasecore/Atoms';
@@ -19,16 +20,17 @@ function CheckBios({
   dreamcastBios,
   DSBios,
 }) {
+  const { t, i18n } = useTranslation();
   const biosText = (name) => {
     switch (name) {
       case true:
-        return 'detected!';
+        return t('CheckBios.detected');
       case false:
-        return 'missing!';
+        return t('CheckBios.missing');
       case null:
-        return '...searching...';
+        return t('CheckBios.sarching');
       default:
-        return '...searching...';
+        return t('CheckBios.sarching');
     }
   };
 
@@ -47,11 +49,6 @@ function CheckBios({
 
   return (
     <>
-      <p className="lead">
-        Some games will not load properly without BIOS files in place. Place
-        your BIOS in Emulation/bios and use this BIOS Checker to ensure that you
-        have the correct BIOS for your system.
-      </p>
       <Main>
         <div className="container--grid">
           <div data-col-sm="6">
@@ -114,56 +111,37 @@ function CheckBios({
                 <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
               )}{' '}
               Dreamcast BIOS{' '}
-              {dreamcastBios
-                ? 'detected!'
-                : ' missing! It is not mandatory, but recommended'}
+              {dreamcastBios ? t('CheckBios.detected') : t('CheckBios.missing')}
             </Alert>
           </div>
 
           <div data-col-sm="6">
-            <Alert css="alert--info">
-              <ul className="list">
-                <li>
-                  Tip 1: Not all systems require additional BIOS files. Listed
-                  here are the more common systems.
-                </li>
-                <li>
-                  Tip 2: Make sure you have the correct BIOS for your ROM
-                  region. Your ROMs may come from the United States, Japan,
-                  Europe, etc.
-                </li>
-                <li>
-                  Tip 3: Casing matters. Even if your BIOS are detected, your
-                  BIOS must be lowercase for Playstation 1 and Playstation 2.
-                </li>
-                <li>
-                  Tip 4: Your BIOS files must be placed in Emulation/bios. Do
-                  not make sub-folders for BIOS files. For the Nintendo Switch,
-                  use our pre-created folders.
-                </li>
-                <li>
-                  Tip 5: For systems not listed here, check the{' '}
-                  <a
-                    href="https://emudeck.github.io/cheat-sheet/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Cheat Sheet on the EmuDeck Wiki.
-                  </a>{' '}
-                </li>
-                <li>
-                  You can use this link{' '}
-                  <a
-                    href="https://emulation.gametechwiki.com/index.php/File_hashes"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    here
-                  </a>{' '}
-                  as a handy guide for how your BIOS should be named.
-                </li>
-              </ul>
-            </Alert>
+            <ul className="list">
+              <li>{t('CheckBios.tip1')}</li>
+              <li>{t('CheckBios.tip2')}</li>
+              <li>{t('CheckBios.tip3')}</li>
+              <li>{t('CheckBios.tip4')}</li>
+              <li>
+                {t('CheckBios.tip5')}
+                <a
+                  href="https://emudeck.github.io/cheat-sheet/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t('CheckBios.cheat')}
+                </a>
+              </li>
+              <li>
+                {t('CheckBios.tip6')}
+                <a
+                  href="https://emulation.gametechwiki.com/index.php/File_hashes"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  BIOS
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </Main>

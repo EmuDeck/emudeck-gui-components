@@ -1,41 +1,42 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
-function EmulatorSelector({ onClick, images }) {
+function EmulatorSelector({ onClick, images, installEmus }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
-  const { installEmus, system, branch } = state;
+  const { system, branch } = state;
   const installEmusArray = Object.values(installEmus);
 
   return (
     <>
-      <p className="lead">
-        These are the emulators EmuDeck installs to your system. Selected
-        emulators will be installed and updated to the latest version.
-        De-selected emulators will not be installed or updated.
-      </p>
       <Main>
         <div className="cards cards--mini">
           {installEmusArray.map((item) => {
-            if (
-              item.id === 'srm' ||
-              item.id === 'primehacks' ||
-              item.id === 'yuzu' ||
-              item.id === 'citra'
-            ) {
+            if (item.id === 'srm' || item.id === 'primehacks') {
               return;
             }
 
+            if (item.id === 'ares') {
+              return;
+            }
             if (system === 'win32') {
-              if (
-                item.id === 'rmg' ||
-                item.id === 'ares' ||
-                item.id === 'bigpemu' ||
-                item.id === 'model2' ||
-                item.id === 'supermodel'
-              ) {
+              if (item.id === 'rmg' || item.id === 'ares') {
+                return;
+              }
+              if (item.id === 'model2') {
+                return;
+              }
+              if (item.id === 'supermodel') {
+                return;
+              }
+              if (item.id === 'bigpemu') {
+                return;
+              }
+              if (item.id === 'shadps4') {
                 return;
               }
             }
@@ -44,6 +45,10 @@ function EmulatorSelector({ onClick, images }) {
               if (item.id !== 'ra') {
                 return;
               }
+            }
+
+            if (item.id === 'yuzu') {
+              return;
             }
 
             const img = images[item.id];
@@ -56,6 +61,7 @@ function EmulatorSelector({ onClick, images }) {
               >
                 <img src={img} alt={item.name} />
                 <span className="h6">{item.name}</span>
+                <small className="small">{item.platforms}</small>
               </Card>
             );
           })}

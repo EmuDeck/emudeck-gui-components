@@ -1,24 +1,33 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
-function FrontendSelector({ onClick, images, lastSelected }) {
+function FrontendSelector({ onClick, images, lastSelected, installFrontends }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
-  const { installFrontends, system } = state;
+  const { system, branch } = state;
   const installFrontendsArray = Object.values(installFrontends);
 
   const { esdePreview, pegasusPreview, steamPreview } = images;
   return (
     <>
-      <p className="lead">
-        Select which frontends you would like to use to launch your games. You 
-        may select more than one.
-      </p>
       <Main>
         <div className="cards cards--big">
           {installFrontendsArray.map((item) => {
+            if (
+              !branch.includes('dev') &&
+              item.id === 'deckyromlauncher' &&
+              !branch.includes('early') &&
+              item.id === 'deckyromlauncher' &&
+              system.includes('win32') &&
+              item.id === 'deckyromlauncher'
+            ) {
+              return;
+            }
+
             const img = images[item.id];
             // eslint-disable-next-line consistent-return
             return (

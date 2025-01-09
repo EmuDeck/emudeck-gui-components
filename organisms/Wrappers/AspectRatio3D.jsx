@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -7,20 +8,21 @@ import Main from 'components/organisms/Main/Main';
 import { ar433d, ar1693d } from 'components/utils/images/images';
 
 function AspectRatio3D({ onClick }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { ar } = state;
 
   return (
     <>
-      <p className="lead">
-        Select the aspect ratio for the Dreamcast and Nintendo 64 Systems.
-      </p>
       <Main>
         <SelectorMenu
+          toggle
+          title="ratio3d"
           imgs={[
             [ar1693d, ar.classic3d !== 169 ? 'is-hidden' : ''],
             [ar433d, ar.classic3d !== 43 ? 'is-hidden' : ''],
           ]}
+          enabled={ar.classic3d === 43 ? false : true}
           options={[
             [
               () => onClick(43),
@@ -33,7 +35,7 @@ function AspectRatio3D({ onClick }) {
               () => onClick(169),
               ar.classic3d === 169 ? 'is-selected' : '',
               '16:9',
-              ' Widescreen using Widescreen hacks <br /> (Expect some graphical glitches.)',
+              ' Widescreen <br /> (Expect some graphical glitches.)',
               true,
             ],
           ]}

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BtnSimple } from 'getbasecore/Atoms';
@@ -22,6 +23,7 @@ function CopyGamesAuto({
   statusCreateStructure,
   installFrontends,
 }) {
+  const { t, i18n } = useTranslation();
   return (
     <>
       {statusCopyGames !== true && (
@@ -37,11 +39,14 @@ function CopyGamesAuto({
         <div className="container--grid">
           {statusCopyGames !== true && (
             <>
-              <div data-col-sm="6">
+              <div data-col-sm="4">
                 <span className="h4">Select your USB Drive</span>
                 <div className="cards">
                   <Card
-                    css={storageUSB === 'Custom' && 'is-selected'}
+                    css={
+                      storageUSB === 'Custom card--horizontal' &&
+                      'is-selected card--horizontal'
+                    }
                     onClick={() => onClick('Custom')}
                   >
                     <img src={imgExternal} width="100" alt="Background" />
@@ -51,16 +56,20 @@ function CopyGamesAuto({
                     )}
                   </Card>
                 </div>
+
                 {statusCopyGames === null &&
                   storageUSBPath !== undefined &&
-                  statusCreateStructure === null && (
+                  statusCreateStructure === null &&
+                  storageUSBPath !== '' && (
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
                       aria="Start CopyGames"
                       onClick={() => onClickStart()}
                     >
-                      Start transfer
+                      Step 1: Prepare USB drive
+                      <br />
+                      <em>(we won't delete anything)</em>
                     </BtnSimple>
                   )}
                 {statusCopyGames === null &&
@@ -82,7 +91,9 @@ function CopyGamesAuto({
                     aria="Waiting CopyGames"
                     onClick={() => onClickCopyGames()}
                   >
-                    Copy your ROMs & BIOS to your Steam Deck
+                    Step 2: Transfer your ROMs & BIOS from the USB
+                    <br />
+                    <em>(Make sure you already copied them in the USB)</em>
                   </BtnSimple>
                 )}
 
@@ -97,6 +108,7 @@ function CopyGamesAuto({
                   </BtnSimple>
                 )}
               </div>
+              <div data-col-sm="2" />
               <div data-col-sm="6">
                 <img src={imgUSBDeck} alt="Insert USB" />
               </div>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -9,20 +10,21 @@ import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 import { lcdon, lcdoff } from 'components/utils/images/images';
 
 function Shaders2D({ onClick }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { shaders } = state;
 
   return (
     <>
-      <p className="lead">
-        The CRT Shader gives your classic systems a faux retro CRT vibe.
-      </p>
       <Main>
         <SelectorMenu
+          toggle
+          title="Shaders2D"
           imgs={[
             [lcdon, shaders.classic !== true ? 'is-hidden' : ''],
             [lcdoff, shaders.classic !== false ? 'is-hidden' : ''],
           ]}
+          enabled={shaders.classic === false ? false : true}
           options={[
             [
               () => onClick(false),

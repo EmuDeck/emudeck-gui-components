@@ -1,21 +1,16 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 
 function DeviceSelector({ children }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { system } = state;
 
   return (
     <>
-      <p className="lead">
-        {system === 'win32' &&
-          'EmuDeck tailors the install for different hardware. Please select your controller.'}
-
-        {system !== 'win32' &&
-          'EmuDeck tailors the install for different hardware. Each device will have its own configuration, emulators and pre-configured bezels.'}
-      </p>
       <Main>
         <div className="cards">{children}</div>
       </Main>

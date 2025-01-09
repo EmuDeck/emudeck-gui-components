@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -8,15 +9,12 @@ import Main from 'components/organisms/Main/Main';
 import { ar43gc, ar169gc } from 'components/utils/images/images';
 
 function AspectRatioDolphin({ onClick }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { ar } = state;
 
   return (
     <>
-      <p className="lead">
-        Select the aspect ratio for Gamecube games. You can change this setting
-        in game anytime by pressing Start + DPad Right.
-      </p>
       <Main>
         <SelectorMenu
           imgs={[
@@ -35,7 +33,7 @@ function AspectRatioDolphin({ onClick }) {
               () => onClick(169),
               ar.dolphin === 169 ? 'is-selected' : '',
               '16:9',
-              ' Widescreen using Widescreen hacks <br /> (Expect some graphical glitches.)',
+              ' Widescreen <br /> (Expect some graphical glitches.)',
               true,
             ],
           ]}

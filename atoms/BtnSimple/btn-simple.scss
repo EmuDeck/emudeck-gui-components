@@ -1,5 +1,5 @@
 .btn-simple {
-  --btn-simple-padding: 0.8em 1.4em 0.82em 1.4em;
+  --btn-simple-padding: 10px 20px 10px 16px;
   --btn-simple-text-size: 1.7rem;
   --btn-simple-mt: 10px;
   --btn-simple-border-radius: 30em;
@@ -14,27 +14,6 @@
   --btn-group-separation: 0px;
 }
 //@include generate-btn-simple(var(--name, $color, $bg, $color-hover, $bg-hover, $bg-active, $color-disabled, $bg-disabled));
-
-@include generate-btn-simple(
-  1,
-  white,
-  var(--white),
-  white,
-  var(--blue2),
-  var(--blue2),
-  white,
-  var(--color-disabled)
-);
-@include generate-btn-simple(
-  2,
-  white,
-  var(--grey2),
-  white,
-  var(--grey3),
-  var(--grey3),
-  white,
-  var(--color-disabled)
-);
 
 @include generate-btn-simple(
   3,
@@ -96,8 +75,9 @@
 }
 
 .btn-simple {
-  font-weight: normal;
+  font-weight: 600;
   -webkit-app-region: no-drag;
+  letter-spacing: -0.05em;
   &--1 {
     animation: background 15s infinite;
   }
@@ -110,19 +90,20 @@
     margin-left: 20px;
   }
   svg {
-    width: 22px;
-    height: 22px;
-    vertical-align: text-top;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    vertical-align: top;
   }
   &:hover {
     transform: scale(1.05);
   }
   &--4 {
-    padding: 2px 4px;
+    padding: 2px 8px;
     border-radius: 6px;
     font-size: 10px;
     + .btn-simple {
-      margin-left: 6px;
+      margin-left: 0px;
     }
   }
 }
@@ -146,67 +127,40 @@
 //   border-radius: var(--btn-simple-border-radius);
 // }
 
-.darwin .btn-simple--1,
-.win32 .btn-simple--1,
-.SteamOS .btn-simple--1 {
-  border-radius: 5px;
-  background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.17) 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    #007aff;
-  animation: none;
+.btn-simple--1 {
+  background: linear-gradient(180deg, #f2ebff 24.09%, #e5d6ff 100%);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.4);
+  color: var(--color-text-3);
+  font-size: 1.6rem;
+}
+
+.btn-simple--2 {
+  @include surface-g;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   &:hover {
     transform: none;
   }
 }
 
-.SteamOS .btn-simple--1 {
-  opacity: 0.9;
-  background: linear-gradient(
-    90deg,
-    rgba(61, 193, 249, 1) 0%,
-    rgba(43, 97, 246, 1) 100%
-  );
-  &:hover {
-    opacity: 1;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
-  }
-}
-
-.darwin .btn-simple--2,
-.win32 .btn-simple--2,
-.SteamOS .btn-simple--2 {
-  background: var(#0000000d, rgba(0, 0, 0, 0.05));
-  animation: none;
-  &:hover {
-    transform: none;
-  }
-}
-
-.SteamOS .btn-simple--2 {
+.btn-simple--2 {
   &:hover {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
   }
 }
 
-.darwin [class*='btn'],
-.win32 [class*='btn'] {
-  border-radius: 5px;
-  animation: none;
-  &:hover {
-    transform: none;
-  }
-}
+// .darwin [class*='btn'],
+// .win32 [class*='btn'] {
+//   border-radius: 5px;
+//   animation: none;
+//   &:hover {
+//     transform: none;
+//   }
+// }
 
-.SteamOS [class*='btn'],
-.chimeraos [class*='btn'] {
+[class*='btn'] {
   border-radius: var(--btn-simple-border-radius);
 }
 
-.SteamOS .btn-simple--3 {
-  &:hover {
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
-  }
+.btn-simple--3 {
+  border: 1px solid rgba(255, 255, 255, 0.16);
 }

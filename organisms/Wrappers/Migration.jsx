@@ -1,10 +1,16 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BtnSimple } from 'getbasecore/Atoms';
 import Card from 'components/molecules/Card/Card';
 import Main from 'components/organisms/Main/Main';
 
-import { imgInternal, imgSD } from 'components/utils/images/images';
+import {
+  imgSD,
+  imgInternal,
+  imgExternal,
+  imgNetwork,
+} from 'components/utils/images/images';
 
 function Migration({
   onClick,
@@ -17,42 +23,60 @@ function Migration({
   storagePath,
   storagePathDestination,
   statusMigration,
+  hddrives,
+  showSDCard,
+  showInternal,
 }) {
+  const { t, i18n } = useTranslation();
   return (
     <>
-      <p className="lead">
-        This utility will move your EmuDeck installation, with your ROMs intact,
-        to the selected destination as well as update your Steam Library paths.
-      </p>
       <Main>
         <div className="container--grid">
           <div data-col-sm="12">
-            <span className="h4">Current Installation:</span>
+            <span className="h4">{t('Migration.current')}</span>
             <div className="cards">
               {storage === 'SD-Card' && (
-                <Card css={storage === 'SD-Card' && 'is-selected'}>
+                <Card
+                  css={
+                    storage === 'SD-Card'
+                      ? 'is-selected card--horizontal'
+                      : ' card--horizontal'
+                  }
+                >
                   <img src={imgSD} width="100" alt="Background" />
-                  <span className="h5">SD Card</span>
+                  <span className="h5">{t('Migration.sdCard')}</span>
                   {sdCardName != null && (
                     <span className="h6">{sdCardName}</span>
                   )}
                   {sdCardName === null ||
                     (sdCardValid === false && (
-                      <span className="h6">Not detected</span>
+                      <span className="h6">{t('Migration.errorDetected')}</span>
                     ))}
                 </Card>
               )}
 
               {storage === 'Internal Storage' && (
-                <Card css={storage === 'Internal Storage' && 'is-selected'}>
+                <Card
+                  css={
+                    storage === 'Internal Storage'
+                      ? 'is-selected card--horizontal'
+                      : ' card--horizontal'
+                  }
+                >
                   <img src={imgInternal} width="100" alt="Background" />
-                  <span className="h6">Internal Storage</span>
+                  <span className="h6">{t('Migration.internalStorage')}</span>
                 </Card>
               )}
               {storage === 'Custom' && (
-                <Card css={storage === 'Custom' && 'is-selected'}>
+                <Card
+                  css={
+                    storage === 'Custom card--horizontal'
+                      ? 'is-selected card--horizontal'
+                      : ' card--horizontal'
+                  }
+                >
                   <img src={imgInternal} width="100" alt="Background" />
-                  <span className="h6">Custom Directory</span>
+                  <span className="h6">{t('Migration.custom')}</span>
                   {storagePath && storage === 'Custom' && (
                     <span className="h6">{storagePath}</span>
                   )}
@@ -61,37 +85,83 @@ function Migration({
             </div>
           </div>
           <div data-col-sm="12">
-            <span className="h4">Pick your Destination:</span>
+            <span className="h4">{t('Migration.destination')}</span>
             <div className="cards">
+              {showSDCard && (
+                <Card
+                  css={
+                    storageDestination === 'SD-Card'
+                      ? 'is-selected card--horizontal'
+                      : 'card--horizontal'
+                  }
+                  onClick={() =>
+                    sdCardValid === true ? onClick('SD-Card') : reloadSDcard()
+                  }
+                >
+                  <img src={imgSD} width="100" alt="Background" />
+                  {sdCardValid && <span className="h6">SD Card</span>}
+                  {sdCardName === null ||
+                    (sdCardValid === false && (
+                      <span className="h6">Error detecting SD Card</span>
+                    ))}
+                </Card>
+              )}
+              {showInternal && (
+                <Card
+                  css={
+                    storageDestination === 'Internal Storage'
+                      ? 'is-selected card--horizontal'
+                      : 'card--horizontal'
+                  }
+                  onClick={() => onClick('Internal Storage')}
+                >
+                  <img src={imgInternal} width="100" alt="Background" />
+                  <span className="h6">{t('Migration.internalStorage')}</span>
+                </Card>
+              )}
+              {hddrives &&
+                hddrives.map((item) => {
+                  if (item.letter === null) {
+                  } else {
+                    return (
+                      <Card
+                        css={
+                          storage === `${item.letter}\\`
+                            ? 'is-selected card--horizontal'
+                            : 'card--horizontal'
+                        }
+                        onClick={() => onClick(item.letter)}
+                      >
+                        <img
+                          src={
+                            item.type === 'Internal'
+                              ? imgInternal
+                              : item.name.includes('card')
+                              ? imgSD
+                              : item.name.includes('Card')
+                              ? imgSD
+                              : item.type === 'External'
+                              ? imgExternal
+                              : imgNetwork
+                          }
+                          width="100"
+                          alt="Background"
+                        />
+                        <span className="h6">{`${item.letter}\\`}</span>
+                      </Card>
+                    );
+                  }
+                })}
               <Card
-                css={storageDestination === 'SD-Card' && 'is-selected'}
-                onClick={() =>
-                  sdCardValid === true ? onClick('SD-Card') : reloadSDcard()
+                css={
+                  storageDestination === 'Custom'
+                    ? 'is-selected card--horizontal'
+                    : 'card--horizontal'
                 }
-              >
-                <img src={imgSD} width="100" alt="Background" />
-                <span className="h5">SD Card</span>
-                {sdCardName != null && <span className="h6">{sdCardName}</span>}
-                {sdCardName === null ||
-                  (sdCardValid === false && (
-                    <span className="h6">Not detected</span>
-                  ))}
-              </Card>
-
-              <Card
-                css={storageDestination === 'Internal Storage' && 'is-selected'}
-                onClick={() => onClick('Internal Storage')}
-              >
-                <img src={imgInternal} width="100" alt="Background" />
-                <span className="h6">Internal Storage</span>
-              </Card>
-
-              <Card
-                css={storageDestination === 'Custom' && 'is-selected'}
                 onClick={() => onClick('Custom')}
               >
                 <img src={imgInternal} width="100" alt="Background" />
-                <span className="h6">Custom Directory</span>
+                <span className="h6">{t('Migration.custom')}</span>
                 {storagePathDestination && storageDestination === 'Custom' && (
                   <span className="h6">{storagePathDestination}</span>
                 )}
@@ -101,10 +171,10 @@ function Migration({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Start Migration"
+                aria={t('Migration.start')}
                 onClick={() => onClickStart()}
               >
-                Start Migration
+                {t('Migration.start')}
               </BtnSimple>
             )}
 
@@ -112,10 +182,10 @@ function Migration({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Waiting Migration"
+                aria={t('Migration.migrating')}
                 disabled
               >
-                Migrating...
+                {t('Migration.migrating')}
               </BtnSimple>
             )}
           </div>

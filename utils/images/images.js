@@ -6,6 +6,7 @@ import imgprimehack from 'assets/emulators/primehack.png';
 import imgppsspp from 'assets/emulators/ppsspp.png';
 import imgduckstation from 'assets/emulators/duckstation.png';
 import imgcitra from 'assets/emulators/citra.png';
+import imglime3ds from 'assets/emulators/lime3ds.png';
 import imgpcsx2 from 'assets/emulators/pcsx2.png';
 import imgrpcs3 from 'assets/emulators/rpcs3.png';
 import imgyuzu from 'assets/emulators/yuzu.png';
@@ -23,6 +24,7 @@ import imgscummvm from 'assets/emulators/scummvm.png';
 import imgsupermodel from 'assets/emulators/supermodel.png';
 import imgmodel2 from 'assets/emulators/model2.png';
 import imgbigpemu from 'assets/emulators/bigpemu.png';
+import imgshadps4 from 'assets/emulators/shadps4.png';
 import imgFrontESDE from 'assets/frontends/esde.png';
 import imgFrontPegasus from 'assets/frontends/pegasus.png';
 import imgFrontSteam from 'assets/frontends/steam.png';
@@ -69,6 +71,7 @@ import sftp from 'assets/cloud/sftp.png';
 import smb from 'assets/cloud/smb.png';
 import imgESDE from 'assets/ESDE.jpg';
 import imgSTEAM from 'assets/STEAMGAMES.png';
+import imgDeckyRomLauncher from 'assets/deckyromlauncher.jpg';
 import imgExternal from 'assets/external.png';
 import imgUSBDeck from 'assets/usb-in-deck.png';
 import emuDeckyImg from 'assets/emuDecky.png';
@@ -100,6 +103,7 @@ import themesPegasusGameOS from 'assets/pegasusthemes/gameOS.jpg';
 import xemuGrid from 'assets/emulators/grid/xemu.png';
 import cemuGrid from 'assets/emulators/grid/cemu.png';
 import citraGrid from 'assets/emulators/grid/citra.png';
+import lime3dsGrid from 'assets/emulators/grid/lime3ds.jpg';
 import dolphinGrid from 'assets/emulators/grid/dolphin.png';
 import duckstationGrid from 'assets/emulators/grid/duckstation.png';
 import flycastGrid from 'assets/emulators/grid/flycast.png';
@@ -125,9 +129,9 @@ import rmgGrid from 'assets/emulators/grid/rmg.png';
 import supermodelGrid from 'assets/emulators/grid/supermodel.png';
 import model2Grid from 'assets/emulators/grid/model2.jpg';
 import bigpemuGrid from 'assets/emulators/grid/bigpemu.png';
-import aresGrid from 'assets/emulators/grid/ares.png';
 import bayx from 'assets/bayx.jpg';
 import abxy from 'assets/abxy.jpg';
+import imgnethersx2 from 'assets/emulators/nethersx2.png';
 
 export {
   imgdefault,
@@ -138,6 +142,7 @@ export {
   imgppsspp,
   imgduckstation,
   imgcitra,
+  imglime3ds,
   imgpcsx2,
   imgrpcs3,
   imgyuzu,
@@ -158,6 +163,7 @@ export {
   imgsupermodel,
   imgmodel2,
   imgbigpemu,
+  imgshadps4,
   imgFrontESDE,
   imgFrontPegasus,
   imgFrontSteam,
@@ -203,6 +209,7 @@ export {
   smb,
   imgESDE,
   imgSTEAM,
+  imgDeckyRomLauncher,
   imgExternal,
   imgUSBDeck,
   emuDeckyImg,
@@ -231,6 +238,7 @@ export {
   xemuGrid,
   cemuGrid,
   citraGrid,
+  lime3dsGrid,
   dolphinGrid,
   duckstationGrid,
   flycastGrid,
@@ -255,7 +263,7 @@ export {
   supermodelGrid,
   model2Grid,
   bigpemuGrid,
-  aresGrid,
   bayx,
   abxy,
+  imgnethersx2,
 };

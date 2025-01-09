@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -8,20 +9,21 @@ import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 import { lcdonH, lcdoffH } from 'components/utils/images/images';
 
 function ShadersHandhelds({ onClick }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { shaders } = state;
 
   return (
     <>
-      <p className="lead">
-        The LCD Shader simulates the old LCD Matrix screens of handheld systems.
-      </p>
       <Main>
         <SelectorMenu
+          toggle
+          title="ShadersHandhelds"
           imgs={[
             [lcdoffH, shaders.handhelds === true ? 'is-hidden' : ''],
             [lcdonH, shaders.handhelds === false ? 'is-hidden' : ''],
           ]}
+          enabled={shaders.handhelds === false ? false : true}
           options={[
             [
               () => onClick(false),

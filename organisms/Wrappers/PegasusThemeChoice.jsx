@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -5,14 +6,14 @@ import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
 function PegasusThemeChoice({ onClick, themes }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
 
   const { themePegasus } = state;
 
   return (
     <>
-      <p className="lead">Select your default theme.</p>
-      <Main css="main--horizontal-scroll">
+      <Main>
         <div className="cards cards--maxi">
           {themes && (
             <>
@@ -30,7 +31,7 @@ function PegasusThemeChoice({ onClick, themes }) {
                     <img src={screenshots[0]} alt={name} />
                     <img className="fade" src={screenshots[1]} alt={name} />
                     <span className="h6">
-                      {name} by {author}
+                      {name} - {author}
                     </span>
                   </Card>
                 );

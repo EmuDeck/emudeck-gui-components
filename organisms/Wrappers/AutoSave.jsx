@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -8,21 +9,21 @@ import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 import { saveon, saveoff } from 'components/utils/images/images';
 
 function AutoSave({ onClick }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { autosave } = state;
 
   return (
     <>
-      <p className="lead">
-        If enabled, your game state will be saved on exit and automatically
-        loaded when opened again when using RetroArch.
-      </p>
       <Main>
         <SelectorMenu
+          toggle
+          title="AutoSave"
           imgs={[
             [saveoff, autosave === true ? 'is-hidden' : ''],
             [saveon, autosave === false ? 'is-hidden' : ''],
           ]}
+          enabled={autosave === false ? false : true}
           options={[
             [
               () => onClick(false),

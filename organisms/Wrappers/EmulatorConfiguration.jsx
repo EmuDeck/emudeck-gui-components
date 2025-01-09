@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
@@ -5,36 +6,19 @@ import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
 function EmulatorConfiguration({ onClick, images }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { overwriteConfigEmus, second, system, branch } = state;
   const overwriteConfigEmusArray = Object.values(overwriteConfigEmus);
 
   return (
     <>
-      {second && (
-        <p className="lead">
-          EmuDeck will optimize and configure emulators during this install.
-          Selected emulators will have their configurations reset and updated to
-          EmuDeck defaults. De-selected emulators will not be touched and
-          EmuDeck will respect your configurations (Not Recommended).
-        </p>
-      )}
-      {!second && (
-        <p className="lead">
-          EmuDeck will optimize and configure emulators during this install.
-          Selected emulators will have their configurations reset and updated to
-          EmuDeck defaults. De-selected emulators will not be touched and
-          EmuDeck will respect your configurations (Not Recommended).
-        </p>
-      )}
       <Main>
         <div className="cards cards--mini">
           {overwriteConfigEmusArray.map((item) => {
             if (
               overwriteConfigEmusArray.id === 'srm' ||
-              item.id === 'primehacks' ||
-              item.id === 'yuzu' ||
-              item.id === 'citra'
+              item.id === 'primehacks'
             ) {
               return;
             }
@@ -54,6 +38,23 @@ function EmulatorConfiguration({ onClick, images }) {
               if (item.id !== 'ra') {
                 return;
               }
+              if (item.id === 'model2') {
+                return;
+              }
+              if (item.id === 'supermodel') {
+                return;
+              }
+              if (item.id === 'shadps4') {
+                return;
+              }
+            }
+
+            if (item.id === 'ares') {
+              return;
+            }
+
+            if (item.id === 'yuzu') {
+              return;
             }
 
             if (item.id === 'srm' && second === false) {

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -5,14 +6,14 @@ import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
 
 function ESDETheme({ onClick, themes }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
 
   const { themeESDE } = state;
 
   return (
     <>
-      <p className="lead">Select your default theme.</p>
-      <Main css="main--horizontal-scroll">
+      <Main>
         <div className="cards cards--maxi">
           {themes && (
             <>
@@ -31,7 +32,7 @@ function ESDETheme({ onClick, themes }) {
                     <img src={systemView} alt={name} />
                     <img className="fade" src={gamelistView} alt={name} />
                     <span className="h6">
-                      {name} by {author}
+                      {name} - {author}
                     </span>
                   </Card>
                 );

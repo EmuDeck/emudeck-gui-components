@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -9,20 +10,19 @@ import SelectorMenu from 'components/molecules/SelectorMenu/SelectorMenu';
 import { ar43, ar32 } from 'components/utils/images/images';
 
 function AspectRatioSega({ onClick }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { ar } = state;
 
   return (
     <>
-      <p className="lead">
-        Select the aspect ratio for the Classic Sega Systems.
-      </p>
       <Main>
         <SelectorMenu
           imgs={[
             [ar43, ar.sega !== 43 ? 'is-hidden' : ''],
             [ar32, ar.sega !== 32 ? 'is-hidden' : ''],
           ]}
+          enabled={ar.sega === 43 ? false : true}
           options={[
             [
               () => onClick(43),

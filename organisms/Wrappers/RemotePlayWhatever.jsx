@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import Main from 'components/organisms/Main/Main';
@@ -30,6 +31,7 @@ const RemotePlayWhatever = ({
   notificationText,
   showNotification,
 }) => {
+  const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
   const { sudoPass, RemotePlayWhatever } = state;
 

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import { BtnSimple } from 'getbasecore/Atoms';
@@ -133,6 +134,7 @@ const icon = {
 /* eslint-enable */
 
 function StoreFront() {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
 
   const { storagePath } = state;
@@ -212,7 +214,7 @@ function StoreFront() {
     ipcChannel.once('get-store', (json) => {
       let tabsLinks = [];
       if (feeds !== null && feeds.length >= 1) {
-        tabsLinks = ['HomeBrew Games', 'Your Feeds'];
+        tabsLinks = ['HomeBrew Games', 'Feeds'];
       }
       setStatePage({
         ...statePage,
@@ -222,16 +224,6 @@ function StoreFront() {
       });
     });
   }, [featured]);
-
-  // useEffect(() => {
-  //   if (feeds !== null) {
-  //     if (feeds.length >= 2)
-  //       setStatePage({
-  //         ...statePage,
-  //         tabs: ['HomeBrew Games', 'Your Feeds'],
-  //       });
-  //   }
-  // }, [feeds]);
 
   const toggleModal = (item) => {
     if (item) {
@@ -261,10 +253,11 @@ function StoreFront() {
     ipcChannel.sendMessage('installGame', [game, storagePath, system]);
     ipcChannel.once('installGame', (error, stdout, stderr) => {
       if (stdout.includes('true')) {
-        alert('Game Installed.\nGo back to EmulationStation to play it');
+        alert(t('StoreFront.alertInstalled'));
       } else {
-        alert('There was an error installing the game');
+        alert(t('StoreFront.alertError'));
       }
+
       setStatePage({
         ...statePage,
         installing: false,
@@ -280,9 +273,9 @@ function StoreFront() {
     ipcChannel.sendMessage('unInstallGame', [game, storagePath, system]);
     ipcChannel.once('unInstallGame', (error, stdout, stderr) => {
       if (stdout.includes('true')) {
-        alert('Game Uninstalled');
+        alert(t('StoreFront.alertUninstall'));
       } else {
-        alert('There was an error installing the game');
+        alert(t('StoreFront.alertError'));
       }
       setStatePage({
         ...statePage,
@@ -318,7 +311,7 @@ function StoreFront() {
               <>
                 <hr />
                 <div className="featured-games-list">
-                  <span className="h5">Featured HomeBrew games</span>
+                  <span className="h5">{t('StoreFront.featured')}</span>
                   <ul>
                     {featured !== null &&
                       featured.map((item) => {
@@ -329,8 +322,7 @@ function StoreFront() {
                             title={item.title}
                             img={item.pictures.titlescreens[0]}
                             tags={item.tags}
-                            css="store-game--featured"
-                            onMore={() => toggleModal(item)}
+                            onClick={() => toggleModal(item)}
                             onInstall={() =>
                               installGame(item.file, item.system, item.title)
                             }
@@ -374,14 +366,7 @@ function StoreFront() {
                                   title={item.title}
                                   img={item.pictures.titlescreens[0]}
                                   system={logo_gb}
-                                  onMore={() => toggleModal(item)}
-                                  onInstall={() =>
-                                    installGame(
-                                      item.file,
-                                      item.system,
-                                      item.title
-                                    )
-                                  }
+                                  onClick={() => toggleModal(item)}
                                 />
                               );
                             })}
@@ -432,14 +417,7 @@ function StoreFront() {
                                       title={item.title}
                                       img={item.pictures.titlescreens[0]}
                                       system={logo_gb}
-                                      onMore={() => toggleModal(item)}
-                                      onInstall={() =>
-                                        installGame(
-                                          item.file,
-                                          item.system,
-                                          item.title
-                                        )
-                                      }
+                                      onClick={() => toggleModal(item)}
                                     />
                                   );
                                 })}
@@ -483,24 +461,24 @@ function StoreFront() {
                 <BtnSimple
                   css="btn-simple--1"
                   type="button"
-                  aria="Next"
+                  aria={t('general.install')}
                   onClick={() =>
                     installGame(game.file, game.system, game.title)
                   }
                   disabled={installing === game.title}
                 >
-                  Install
+                  {t('general.install')}
                 </BtnSimple>
                 <BtnSimple
                   css="btn-simple--3"
                   type="button"
-                  aria="Next"
+                  aria={t('general.uninstall')}
                   onClick={() =>
                     unInstallGame(game.file, game.system, game.title)
                   }
                   disabled={installing === game.title}
                 >
-                  Uninstall
+                  {t('general.uninstall')}
                 </BtnSimple>
               </div>
               <div data-col-sm="6">
@@ -517,10 +495,10 @@ function StoreFront() {
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              aria="Next"
+              aria={t('general.close')}
               onClick={() => toggleModal()}
             >
-              Close
+              {t('general.close')}
             </BtnSimple>
           </div>
         </div>

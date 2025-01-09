@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -50,6 +51,7 @@ function Settings({
   showNotification,
   onClickControllerLayoutSet,
 }) {
+  const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const {
     ar,
@@ -68,20 +70,18 @@ function Settings({
       <Notification css={showNotification ? 'is-animated' : 'nope'}>
         {notificationText}
       </Notification>
-      <p className="lead">
-        Select an option to automatically apply it to your system. You do not
-        need to do an EmuDeck Custom Update to apply these settings.
-      </p>
       <Main>
         <ul className="list-grid">
           <li>
             <SelectorMenu
+              toggle
               title="AutoSave"
               css="selector-menu--mini"
               imgs={[
                 [saveoff, autosave === true ? 'is-hidden' : ''],
                 [saveon, autosave === false ? 'is-hidden' : ''],
               ]}
+              enabled={autosave === false ? false : true}
               options={[
                 [
                   () => onClickAutoSave(false),
@@ -103,24 +103,26 @@ function Settings({
           {system !== 'win32' && (
             <li>
               <SelectorMenu
+                toggle
                 title="Controller Layout"
                 css="selector-menu--mini"
                 imgs={[
                   [abxy, controllerLayout === 'baxy' ? 'is-hidden' : ''],
                   [bayx, controllerLayout === 'abxy' ? 'is-hidden' : ''],
                 ]}
+                enabled={controllerLayout === 'baxy' ? false : true}
                 options={[
                   [
                     () => onClickControllerLayoutSet('baxy'),
                     controllerLayout === 'baxy' ? 'is-selected' : '',
-                    'Position Match',
+                    'Off',
                     '',
                     true,
                   ],
                   [
                     () => onClickControllerLayoutSet('abxy'),
                     controllerLayout === 'abxy' ? 'is-selected' : '',
-                    'Controller Layout Match',
+                    'On',
                     '',
                     true,
                   ],
@@ -128,15 +130,17 @@ function Settings({
               />
             </li>
           )}
-          {(branch === 'early' || branch === 'dev') && (
+          {(branch.includes('early') || branch === 'dev') && (
             <li>
               <SelectorMenu
+                toggle
                 title="CloudSync"
                 css="selector-menu--mini"
                 imgs={[
                   [sync, cloudSyncStatus === false ? 'is-hidden' : ''],
                   [none, cloudSyncStatus === true ? 'is-hidden' : ''],
                 ]}
+                enabled={cloudSyncStatus === false ? false : true}
                 options={[
                   [
                     () => onClickCloudSync(false),
@@ -158,12 +162,14 @@ function Settings({
           )}
           <li>
             <SelectorMenu
+              toggle
               title="Bezels"
               css="selector-menu--mini"
               imgs={[
                 [imgBezels, bezels === false ? 'is-hidden' : ''],
                 [imgNoBezels, bezels === true ? 'is-hidden' : ''],
               ]}
+              enabled={bezels === false ? false : true}
               options={[
                 [
                   () => onClickBezel(false),
@@ -184,12 +190,14 @@ function Settings({
           </li>
           <li>
             <SelectorMenu
+              toggle
               title="Sega Classic AR"
               css="selector-menu--mini"
               imgs={[
                 [ar43, ar.sega !== 43 ? 'is-hidden' : ''],
                 [ar32, ar.sega !== 32 ? 'is-hidden' : ''],
               ]}
+              enabled={ar.sega === 43 ? false : true}
               options={[
                 [
                   () => onClickSega(43),
@@ -210,24 +218,26 @@ function Settings({
           </li>
           <li>
             <SelectorMenu
+              toggle
               title="Nintendo Classic AR"
               css="selector-menu--mini"
               imgs={[
                 [ar87s, ar.snes !== 87 ? 'is-hidden' : ''],
                 [ar43s, ar.snes !== 43 ? 'is-hidden' : ''],
               ]}
+              enabled={ar.snes === 43 ? false : true}
               options={[
-                [
-                  () => onClickSNES(87),
-                  ar.snes === 87 ? 'is-selected' : '',
-                  '8:7',
-                  '',
-                  true,
-                ],
                 [
                   () => onClickSNES(43),
                   ar.snes === 43 ? 'is-selected' : '',
                   '4:3',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickSNES(87),
+                  ar.snes === 87 ? 'is-selected' : '',
+                  '8:7',
                   '',
                   true,
                 ],
@@ -236,20 +246,15 @@ function Settings({
           </li>
           <li>
             <SelectorMenu
+              toggle
               title="3D Classics AR"
               css="selector-menu--mini"
               imgs={[
                 [ar1693d, ar.classic3d !== 169 ? 'is-hidden' : ''],
                 [ar433d, ar.classic3d !== 43 ? 'is-hidden' : ''],
               ]}
+              enabled={ar.classic3d === 43 ? false : true}
               options={[
-                [
-                  () => onClick3D(169),
-                  ar.classic3d === 169 ? 'is-selected' : '',
-                  '16:9',
-                  '',
-                  true,
-                ],
                 [
                   () => onClick3D(43),
                   ar.classic3d === 43 ? 'is-selected' : '',
@@ -257,30 +262,40 @@ function Settings({
                   '',
                   true,
                 ],
+                [
+                  () => onClick3D(169),
+                  ar.classic3d === 169 ? 'is-selected' : '',
+                  '16:9',
+                  '',
+                  true,
+                ],
+                ,
               ]}
             />
           </li>
           {system !== 'darwin' && (
             <li>
               <SelectorMenu
+                toggle
                 title="GameCube AR"
                 css="selector-menu--mini"
                 imgs={[
                   [ar169gc, ar.dolphin !== 169 ? 'is-hidden' : ''],
                   [ar43gc, ar.dolphin !== 43 ? 'is-hidden' : ''],
                 ]}
+                enabled={ar.dolphin === 43 ? false : true}
                 options={[
-                  [
-                    () => onClickGC(169),
-                    ar.dolphin === 169 ? 'is-selected' : '',
-                    '16:9',
-                    '',
-                    true,
-                  ],
                   [
                     () => onClickGC(43),
                     ar.dolphin === 43 ? 'is-selected' : '',
                     '4:3',
+                    '',
+                    true,
+                  ],
+                  [
+                    () => onClickGC(169),
+                    ar.dolphin === 169 ? 'is-selected' : '',
+                    '16:9',
                     '',
                     true,
                   ],
@@ -290,12 +305,14 @@ function Settings({
           )}
           <li>
             <SelectorMenu
+              toggle
               title="LCD Handhelds"
               css="selector-menu--mini"
               imgs={[
                 [lcdonH, shaders.handhelds !== true ? 'is-hidden' : ''],
                 [lcdoffH, shaders.handhelds !== false ? 'is-hidden' : ''],
               ]}
+              enabled={shaders.handhelds === false ? false : true}
               options={[
                 [
                   () => onClickLCD(false),
@@ -316,12 +333,14 @@ function Settings({
           </li>
           <li>
             <SelectorMenu
+              toggle
               title="CRT 2D"
               css="selector-menu--mini"
               imgs={[
                 [lcdon, shaders.classic !== true ? 'is-hidden' : ''],
                 [lcdoff, shaders.classic !== false ? 'is-hidden' : ''],
               ]}
+              enabled={shaders.classic === false ? false : true}
               options={[
                 [
                   () => onClickCRT(false),
@@ -342,12 +361,14 @@ function Settings({
           </li>
           <li>
             <SelectorMenu
+              toggle
               title="CRT 3D"
               css="selector-menu--mini"
               imgs={[
                 [lcd3don, shaders.classic3d !== true ? 'is-hidden' : ''],
                 [lcd3doff, shaders.classic3d !== false ? 'is-hidden' : ''],
               ]}
+              enabled={shaders.classic3d === false ? false : true}
               options={[
                 [
                   () => onClickCRT3D(false),
