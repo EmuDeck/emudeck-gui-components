@@ -22,6 +22,7 @@ function AspectRatioSega({ onClick }) {
             [ar43, ar.sega !== 43 ? 'is-hidden' : ''],
             [ar32, ar.sega !== 32 ? 'is-hidden' : ''],
           ]}
+          enabled={ar.sega === 43 ? false : true}
           options={[
             [
               () => onClick(43),

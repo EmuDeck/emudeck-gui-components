@@ -33,7 +33,7 @@ function AspectRatioDolphin({ onClick }) {
               () => onClick(169),
               ar.dolphin === 169 ? 'is-selected' : '',
               '16:9',
-              ' Widescreen using Widescreen hacks <br /> (Expect some graphical glitches.)',
+              ' Widescreen <br /> (Expect some graphical glitches.)',
               true,
             ],
           ]}

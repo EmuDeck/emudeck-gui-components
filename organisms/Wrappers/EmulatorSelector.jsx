@@ -36,6 +36,9 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               if (item.id === 'bigpemu') {
                 return;
               }
+              if (item.id === 'shadps4') {
+                return;
+              }
             }
 
             if (system === 'darwin') {
@@ -44,7 +47,7 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               }
             }
 
-            if (item.id === 'yuzu' || item.id === 'citra') {
+            if (item.id === 'yuzu') {
               return;
             }
 
@@ -58,6 +61,7 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               >
                 <img src={img} alt={item.name} />
                 <span className="h6">{item.name}</span>
+                <small className="small">{item.platforms}</small>
               </Card>
             );
           })}

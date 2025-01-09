@@ -44,13 +44,16 @@ function EmulatorConfiguration({ onClick, images }) {
               if (item.id === 'supermodel') {
                 return;
               }
+              if (item.id === 'shadps4') {
+                return;
+              }
             }
 
             if (item.id === 'ares') {
               return;
             }
 
-            if (item.id === 'yuzu' || item.id === 'citra') {
+            if (item.id === 'yuzu') {
               return;
             }
 

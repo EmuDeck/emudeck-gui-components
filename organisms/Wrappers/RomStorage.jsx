@@ -33,31 +33,34 @@ function RomStorage({
         <div className="cards">
           {showSDCard && system !== 'darwin' && (
             <Card
-              css={storage === 'SD-Card' && 'is-selected'}
+              css={
+                storage === 'SD-Card'
+                  ? 'is-selected card--horizontal'
+                  : 'card--horizontal'
+              }
               onClick={() =>
                 sdCardValid === true ? onClick('SD-Card') : reloadSDcard()
               }
             >
               <img src={imgSD} width="100" alt="Background" />
-              <span className="h5">SD Card</span>
-              {sdCardName != null && <span className="h6">{sdCardName}</span>}
+              {sdCardValid && <span className="h6">SD Card</span>}
               {sdCardName === null ||
                 (sdCardValid === false && (
-                  <span className="h6">
-                    Not detected
-                    <br />
-                    Click here to try again
-                  </span>
+                  <span className="h6">Error detecting SD Card</span>
                 ))}
             </Card>
           )}
           {showInternal && (
             <Card
-              css={storage === 'Internal Storage' && 'is-selected'}
+              css={
+                storage === 'Internal Storage'
+                  ? 'is-selected card--horizontal'
+                  : 'card--horizontal'
+              }
               onClick={() => onClick('Internal Storage')}
             >
               <img src={imgInternal} width="100" alt="Background" />
-              <span className="h5">Internal Storage</span>
+              <span className="h6">Internal Storage</span>
             </Card>
           )}
           {hddrives &&
@@ -66,7 +69,11 @@ function RomStorage({
               } else {
                 return (
                   <Card
-                    css={storage === `${item.letter}\\` && 'is-selected'}
+                    css={
+                      storage === `${item.letter}\\`
+                        ? 'is-selected card--horizontal'
+                        : 'card--horizontal'
+                    }
                     onClick={() => onClick(item.letter)}
                   >
                     <img
@@ -84,24 +91,25 @@ function RomStorage({
                       width="100"
                       alt="Background"
                     />
-                    <span className="h5">{`${item.letter}\\`}</span>
+                    <span className="h6">{`${item.letter}\\`}</span>
                   </Card>
                 );
               }
             })}
           {showCustom && (
             <Card
-              css={storage === 'Custom' && 'is-selected'}
+              css={
+                storage === 'Custom'
+                  ? 'is-selected card--horizontal'
+                  : 'card--horizontal'
+              }
               onClick={() => onClick('Custom')}
             >
               <img src={imgInternal} width="100" alt="Background" />
-              <span className="h5">
+              <span className="h6">
                 {system === 'win32' && 'Custom Drive'}
                 {system !== 'win32' && 'Custom Directory'}
               </span>
-              {customPath && storage === 'Custom' && (
-                <span className="h6">{customPath}</span>
-              )}
             </Card>
           )}
         </div>

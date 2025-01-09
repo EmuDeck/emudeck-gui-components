@@ -250,10 +250,10 @@ function PatreonLogin({ children }) {
   // Render
   //
   if (accessAllowed) {
-    return <div>{children}</div>;
+    return <>{children}</>;
   }
   return (
-    <div>
+    <>
       <Header title="Early Access Feature" />
       <Main>
         <p className="lead">
@@ -303,7 +303,7 @@ function PatreonLogin({ children }) {
           </div>
         )}
       </Main>
-    </div>
+    </>
   );
 }
 

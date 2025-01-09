@@ -32,7 +32,6 @@
     padding: 12px 12px;
     justify-content: space-between;
     align-items: center;
-    display: none;
   }
   &__logo {
     width: 80px;
@@ -84,9 +83,9 @@
     .store-game__img {
       order: 1;
       overflow: hidden;
-      position: relative;      
+      position: relative;
       padding-bottom: 75%;
-      img{
+      img {
         position: absolute;
       }
     }

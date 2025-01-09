@@ -116,34 +116,32 @@ function CheckBios({
           </div>
 
           <div data-col-sm="6">
-            <Alert css="alert--info">
-              <ul className="list">
-                <li>{t('CheckBios.tip1')}</li>
-                <li>{t('CheckBios.tip2')}</li>
-                <li>{t('CheckBios.tip3')}</li>
-                <li>{t('CheckBios.tip4')}</li>
-                <li>
-                  {t('CheckBios.tip5')}
-                  <a
-                    href="https://emudeck.github.io/cheat-sheet/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {t('CheckBios.cheat')}
-                  </a>
-                </li>
-                <li>
-                  {t('CheckBios.tip6')}
-                  <a
-                    href="https://emulation.gametechwiki.com/index.php/File_hashes"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    BIOS
-                  </a>
-                </li>
-              </ul>
-            </Alert>
+            <ul className="list">
+              <li>{t('CheckBios.tip1')}</li>
+              <li>{t('CheckBios.tip2')}</li>
+              <li>{t('CheckBios.tip3')}</li>
+              <li>{t('CheckBios.tip4')}</li>
+              <li>
+                {t('CheckBios.tip5')}
+                <a
+                  href="https://emudeck.github.io/cheat-sheet/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t('CheckBios.cheat')}
+                </a>
+              </li>
+              <li>
+                {t('CheckBios.tip6')}
+                <a
+                  href="https://emulation.gametechwiki.com/index.php/File_hashes"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  BIOS
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </Main>

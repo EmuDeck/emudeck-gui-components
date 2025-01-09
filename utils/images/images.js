@@ -24,6 +24,7 @@ import imgscummvm from 'assets/emulators/scummvm.png';
 import imgsupermodel from 'assets/emulators/supermodel.png';
 import imgmodel2 from 'assets/emulators/model2.png';
 import imgbigpemu from 'assets/emulators/bigpemu.png';
+import imgshadps4 from 'assets/emulators/shadps4.png';
 import imgFrontESDE from 'assets/frontends/esde.png';
 import imgFrontPegasus from 'assets/frontends/pegasus.png';
 import imgFrontSteam from 'assets/frontends/steam.png';
@@ -70,6 +71,7 @@ import sftp from 'assets/cloud/sftp.png';
 import smb from 'assets/cloud/smb.png';
 import imgESDE from 'assets/ESDE.jpg';
 import imgSTEAM from 'assets/STEAMGAMES.png';
+import imgDeckyRomLauncher from 'assets/deckyromlauncher.jpg';
 import imgExternal from 'assets/external.png';
 import imgUSBDeck from 'assets/usb-in-deck.png';
 import emuDeckyImg from 'assets/emuDecky.png';
@@ -161,6 +163,7 @@ export {
   imgsupermodel,
   imgmodel2,
   imgbigpemu,
+  imgshadps4,
   imgFrontESDE,
   imgFrontPegasus,
   imgFrontSteam,
@@ -206,6 +209,7 @@ export {
   smb,
   imgESDE,
   imgSTEAM,
+  imgDeckyRomLauncher,
   imgExternal,
   imgUSBDeck,
   emuDeckyImg,

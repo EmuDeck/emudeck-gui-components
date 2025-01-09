@@ -18,10 +18,13 @@ function Shaders2D({ onClick }) {
     <>
       <Main>
         <SelectorMenu
+          toggle
+          title="Shaders2D"
           imgs={[
             [lcdon, shaders.classic !== true ? 'is-hidden' : ''],
             [lcdoff, shaders.classic !== false ? 'is-hidden' : ''],
           ]}
+          enabled={shaders.classic === false ? false : true}
           options={[
             [
               () => onClick(false),

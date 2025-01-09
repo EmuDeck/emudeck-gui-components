@@ -322,8 +322,7 @@ function StoreFront() {
                             title={item.title}
                             img={item.pictures.titlescreens[0]}
                             tags={item.tags}
-                            css="store-game--featured"
-                            onMore={() => toggleModal(item)}
+                            onClick={() => toggleModal(item)}
                             onInstall={() =>
                               installGame(item.file, item.system, item.title)
                             }
@@ -367,14 +366,7 @@ function StoreFront() {
                                   title={item.title}
                                   img={item.pictures.titlescreens[0]}
                                   system={logo_gb}
-                                  onMore={() => toggleModal(item)}
-                                  onInstall={() =>
-                                    installGame(
-                                      item.file,
-                                      item.system,
-                                      item.title
-                                    )
-                                  }
+                                  onClick={() => toggleModal(item)}
                                 />
                               );
                             })}
@@ -425,14 +417,7 @@ function StoreFront() {
                                       title={item.title}
                                       img={item.pictures.titlescreens[0]}
                                       system={logo_gb}
-                                      onMore={() => toggleModal(item)}
-                                      onInstall={() =>
-                                        installGame(
-                                          item.file,
-                                          item.system,
-                                          item.title
-                                        )
-                                      }
+                                      onClick={() => toggleModal(item)}
                                     />
                                   );
                                 })}

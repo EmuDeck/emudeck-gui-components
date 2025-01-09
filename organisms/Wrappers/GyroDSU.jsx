@@ -17,7 +17,6 @@ function GyroDSU({
   return (
     <>
       <Main>
-        <br />
         <div className="container--grid">
           <div data-col-sm="6">
             <BtnSimple
@@ -29,10 +28,6 @@ function GyroDSU({
             >
               {t('general.install')}
             </BtnSimple>
-          </div>
-          <div data-col-sm="1" />
-          <div data-col-sm="5">
-            <img src={gyroDsuImg} alt="gyroDSU" />
           </div>
         </div>
       </Main>

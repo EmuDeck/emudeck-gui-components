@@ -11,7 +11,7 @@
   transition: 0.5s;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  color: #444;
+  color: #fff;
   opacity: 0;
   pointer-events: none;
   display: flex;
@@ -31,12 +31,12 @@
   &__box {
     -webkit-app-region: no-drag;
     margin-bottom: -200vh;
-    background: #fff;
+    background: var(--color-bg-1);
     border-radius: 8px;
     padding: 20px;
     // display: flex;
     // flex-direction: column;
-    border: 1px solid #cbcbcb;
+    border: 1px solid rgba(255, 255, 255, 0.104);
     .h1,
     .h2,
     .h3,
@@ -45,8 +45,9 @@
     .h6,
     .lead,
     p,
-    small {
-      color: #444 !important;
+    small,
+    li {
+      color: #fff !important;
     }
   }
 

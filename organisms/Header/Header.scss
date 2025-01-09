@@ -1,24 +1,30 @@
 .header {
   padding-top: 10px;
-  // .darwin &,
-  // .chimeraos & {
-  //   margin-bottom: 24px;
-  // }
+  display: flex;
+  margin-bottom: var(--margin3);
+
+  &__logo {
+    &:after {
+      content: '';
+      display: inline-block;
+      height: 26px;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      margin-left: 8px;
+    }
+    margin-right: 6px;
+  }
 
   &__badge {
     position: absolute;
     z-index: 2;
     top: 0px;
-    right: -58px;
+    left: 0;
     background: rgb(56, 128, 162);
-    padding: 20px;
-    padding-bottom: 10px;
-    width: 150px;
-    transform: rotate(45deg);
+    width: 100%;
     text-align: center;
-    // .win32 & {
-    //   top: -10px;
-    // }
+    font-weight: 600;
+    display: none;
   }
   &__dev {
     background: rgb(251, 109, 156);
@@ -29,14 +35,15 @@
     color: #000;
   }
   &__accesibility {
-    position: absolute;
-    top: 9px;
-    left: 10px;
+    margin-top: 4px;
+    button {
+      margin-bottom: 0;
+    }
   }
   &__version {
     position: absolute;
-    left: 10px;
-    bottom: 0px;
+    top: 8px;
+    right: 8px;
     -webkit-app-region: no-drag;
   }
   &__flag {

@@ -18,6 +18,7 @@ function Footer({
   backText,
   thirdText,
   exit,
+  comments,
 }) {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -31,6 +32,12 @@ function Footer({
 
   return (
     <footer className={`footer ${css}`}>
+      {comments && (
+        <span
+          className="footer__comments"
+          dangerouslySetInnerHTML={{ __html: comments }}
+        />
+      )}
       {exit && (
         <BtnSimple
           css="btn-simple--1"

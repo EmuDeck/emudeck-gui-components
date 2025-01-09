@@ -8,7 +8,7 @@ import Card from 'components/molecules/Card/Card';
 function FrontendSelector({ onClick, images, lastSelected, installFrontends }) {
   const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
-  const { system } = state;
+  const { system, branch } = state;
   const installFrontendsArray = Object.values(installFrontends);
 
   const { esdePreview, pegasusPreview, steamPreview } = images;
@@ -17,6 +17,17 @@ function FrontendSelector({ onClick, images, lastSelected, installFrontends }) {
       <Main>
         <div className="cards cards--big">
           {installFrontendsArray.map((item) => {
+            if (
+              !branch.includes('dev') &&
+              item.id === 'deckyromlauncher' &&
+              !branch.includes('early') &&
+              item.id === 'deckyromlauncher' &&
+              system.includes('win32') &&
+              item.id === 'deckyromlauncher'
+            ) {
+              return;
+            }
+
             const img = images[item.id];
             // eslint-disable-next-line consistent-return
             return (

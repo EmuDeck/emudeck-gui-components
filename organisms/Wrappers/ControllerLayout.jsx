@@ -25,15 +25,15 @@ function ControllerLayoutPage({ onClick }) {
             [
               () => onClick('baxy'),
               controllerLayout === 'baxy' ? 'is-selected' : '',
+              'A=B',
               t('ControllerLayout.option1'),
-              '',
               true,
             ],
             [
               () => onClick('abxy'),
               controllerLayout === 'abxy' ? 'is-selected' : '',
+              'A=A',
               t('ControllerLayout.option2'),
-              '',
               true,
             ],
           ]}

@@ -52,3 +52,12 @@
     color: #444;
   }
 }
+
+.form [class*='form__c'],
+.form select,
+.form textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  border-radius: 12px;
+}
