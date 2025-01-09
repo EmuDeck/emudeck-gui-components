@@ -87,7 +87,7 @@ PowerControls.defaultProps = {
   onChangeCheckPass: '',
   installClick: '',
   hasSudo: '',
-  sudoPass: 'Decky!',
+  sudoPass: 'EmuDecky!',
   showNotification: '',
   textNotification: '',
   passValidates: '',

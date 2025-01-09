@@ -11,11 +11,6 @@ function CHDTool({ disabledNext, onClick }) {
   return (
     <>
       <Main>
-        <p>
-          Once a ROM is successfully converted, the original file will be
-          deleted from your system. Run Steam ROM Manager again after
-          compressing your ROMs to update Steam with your new files.
-        </p>
         <div className="container--grid">
           <div data-col-sm="6">
             <strong>CSO format</strong>

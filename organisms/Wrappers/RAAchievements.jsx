@@ -17,6 +17,7 @@ function RAAchievements({ onChange, onToggle }) {
   const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
   const { achievements, second } = state;
+  const { token } = achievements;
 
   const [statePage, setStatePage] = useState({
     modal: undefined,
@@ -42,7 +43,9 @@ function RAAchievements({ onChange, onToggle }) {
           ]);
           ipcChannel.once(
             'setToken',
-            (errorToken, stdoutToken, stderrToken) => {}
+            (errorToken, stdoutToken, stderrToken) => {
+              console.log({ errorToken, stdoutToken, stderrToken });
+            }
           );
         }
 
@@ -91,16 +94,6 @@ function RAAchievements({ onChange, onToggle }) {
               `setHardcore|||RetroArch_retroAchievementsHardCoreOff;DuckStation_retroAchievementsHardCoreOff;PCSX2QT_retroAchievementsHardCoreOff;PPSSPP_retroAchievementsHardCoreOff; echo "false"`,
             ]);
           }
-          modalData = {
-            active: true,
-            header: (
-              <span className="h4">
-                {t('RAAchievements.modalSuccessTitle')}
-              </span>
-            ),
-            body: <p>{t('RAAchievements.modalSuccessDesc')}</p>,
-            css: 'emumodal--xs',
-          };
         } else {
           modalData = {
             active: true,
@@ -115,6 +108,10 @@ function RAAchievements({ onChange, onToggle }) {
       });
     }
   }, [achievements]);
+
+  useEffect(() => {
+    ipcChannel.sendMessage('saveSettings', [JSON.stringify(state)]);
+  }, [token]);
 
   return (
     <>

@@ -285,7 +285,7 @@ function Aside({ css }) {
       description: 'Add emulators, tools, or ROMs to your Steam Library',
       button: 'Launch',
       btnCSS: 'btn-simple--5',
-      status: true,
+      status: state.installFrontends.steam.status,
       function: () => functions.openSRM(),
     },
     {
@@ -358,7 +358,7 @@ function Aside({ css }) {
       description: 'Compress your ROMs to optimize your storage',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: !(system === 'win32' || system === 'darwin'),
+      status: system !== 'darwin',
       function: () => functions.navigate('/chd-tool'),
     },
     {
@@ -388,7 +388,7 @@ function Aside({ css }) {
       description: 'Pich your Pegasus theme',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: state.installFrontends.pegasus.status,
+      status: state.installFrontends.pegasus.status && system !== 'darwin',
       function: () => functions.navigate('/pegasus-theme-choice'),
     },
     {
@@ -398,7 +398,7 @@ function Aside({ css }) {
       description: 'Sync or backup your saves and save states to the cloud',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: true,
+      status: system !== 'darwin',
       function: () => functions.navigate('/cloud-sync/welcome'),
     },
 
@@ -410,14 +410,7 @@ function Aside({ css }) {
         'Migrate your EmuDeck installation to your SD Card or vice versa',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status:
-        system === 'win32' || system === 'darwin'
-          ? false
-          : !!(
-              systemName === 'SteamOS' ||
-              systemName === 'Linux' ||
-              systemName === 'Chimera'
-            ),
+      status: true,
       function: () => functions.navigate('/migration'),
     },
 
@@ -429,18 +422,23 @@ function Aside({ css }) {
         'Plugin to easily view emulator hotkeys and configure EmuDeck in Gaming Mode',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: !(system === 'win32' || system === 'darwin'),
+      status: !(system === 'darwin'),
       function: () => functions.navigate('/decky-controls'),
     },
 
     {
       icon: [iconPlugin],
       iconFlat: 'plugin',
-      title: 'Rom Library',
-      description: 'Plugin to easily add a Rom Library',
+      title: 'Retro Library',
+      description: 'Plugin to easily add a Retro Library',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: !(system === 'win32' || system === 'darwin'),
+      status:
+        system === 'win32'
+          ? false
+          : branch === 'dev' || branch.includes('early')
+          ? true
+          : false,
       function: () => functions.navigate('/decky-rom-launcher'),
     },
 

@@ -24,6 +24,7 @@ import imgscummvm from 'assets/emulators/scummvm.png';
 import imgsupermodel from 'assets/emulators/supermodel.png';
 import imgmodel2 from 'assets/emulators/model2.png';
 import imgbigpemu from 'assets/emulators/bigpemu.png';
+import imgshadps4 from 'assets/emulators/shadps4.png';
 import imgFrontESDE from 'assets/frontends/esde.png';
 import imgFrontPegasus from 'assets/frontends/pegasus.png';
 import imgFrontSteam from 'assets/frontends/steam.png';
@@ -162,6 +163,7 @@ export {
   imgsupermodel,
   imgmodel2,
   imgbigpemu,
+  imgshadps4,
   imgFrontESDE,
   imgFrontPegasus,
   imgFrontSteam,
