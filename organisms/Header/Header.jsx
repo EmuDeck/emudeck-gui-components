@@ -14,8 +14,24 @@ import flagIT from 'assets/flags/it.svg';
 function HeaderElectron({ title, bold }) {
   const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
-  const { debug, version, branch, command } = state;
+  const { debug, version, branch, command, second } = state;
   const ipcChannel = window.electron.ipcRenderer;
+
+  //Prevent users closing the app before finishing the installation
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      const confirmationMessage = 'Finish the installation please';
+      event.returnValue = confirmationMessage; // Esto funciona en navegadores y Electron.
+      return confirmationMessage; // Mostrará la alerta de confirmación.
+    };
+
+    if (!second) {
+      window.addEventListener('beforeunload', handleBeforeUnload);
+    }
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [second]);
 
   let lngs = {
     en: {
