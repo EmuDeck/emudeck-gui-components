@@ -27,6 +27,8 @@ function HeaderElectron({ title, bold }) {
 
     if (!second) {
       window.addEventListener('beforeunload', handleBeforeUnload);
+    } else {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
     }
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
