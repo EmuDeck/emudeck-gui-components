@@ -285,7 +285,7 @@ function Aside({ css }) {
       description: 'Add emulators, tools, or ROMs to your Steam Library',
       button: 'Launch',
       btnCSS: 'btn-simple--5',
-      status: true,
+      status: state.installFrontends.steam.status,
       function: () => functions.openSRM(),
     },
     {
