@@ -172,6 +172,21 @@ function Aside({ css }) {
 
   const selectMode = (value) => {
     setState({ ...state, mode: value });
+
+    modalData = {
+      active: true,
+      header: <span className="h4">Warning</span>,
+      body: (
+        <p>
+          Doing a Quick Reset will overwrite any customization you could have
+          made and restore our EmuDeck defaults
+        </p>
+      ),
+      css: 'emumodal--xs',
+    };
+
+    setStatePage({ ...statePage, modal: modalData });
+
     navigate('/rom-storage');
   };
 
