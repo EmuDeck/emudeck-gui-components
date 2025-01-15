@@ -75,7 +75,7 @@ function End({ message, percentage, step, disabledNext }) {
   const showLog = () => {
     if (system === 'win32') {
       ipcChannel.sendMessage('bash-nolog', [
-        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:USERPROFILE/emudeck/logs/emudeckSetup.log -Tail 100 -Wait }"`,
+        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:APPDATA/emudeck/logs/emudeckSetup.log -Tail 100 -Wait }"`,
       ]);
     } else if (system === 'darwin') {
       ipcChannel.sendMessage('bash-nolog', [

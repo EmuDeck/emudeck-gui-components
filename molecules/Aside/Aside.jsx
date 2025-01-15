@@ -178,8 +178,8 @@ function Aside({ css }) {
       header: <span className="h4">Warning</span>,
       body: (
         <p>
-          Doing a Quick Reset will overwrite any customization you could have
-          made and restore our EmuDeck defaults
+          Doing a reset will overwrite any customization you could have made and
+          restore our EmuDeck defaults
         </p>
       ),
       css: 'emumodal--xs',
@@ -193,7 +193,7 @@ function Aside({ css }) {
   const showLog = () => {
     if (system === 'win32') {
       ipcChannel.sendMessage('bash-nolog', [
-        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:USERPROFILE/emudeck/logs/git.log -Tail 100 -Wait }"`,
+        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:APPDATA/emudeck/logs/git.log -Tail 100 -Wait }"`,
       ]);
     } else if (system === 'darwin') {
       ipcChannel.sendMessage('bash-nolog', [
@@ -300,7 +300,9 @@ function Aside({ css }) {
       description: 'Add emulators, tools, or ROMs to your Steam Library',
       button: 'Launch',
       btnCSS: 'btn-simple--5',
-      status: state.installFrontends.steam.status,
+      status:
+        state.installFrontends.steam.status ||
+        (mode == 'easy' && system == 'win32'), //Forced on win32 - easy
       function: () => functions.openSRM(),
     },
     {
