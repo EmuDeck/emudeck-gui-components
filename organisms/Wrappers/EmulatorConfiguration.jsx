@@ -57,7 +57,7 @@ function EmulatorConfiguration({ onClick, images }) {
               return;
             }
 
-            if (item.id === 'srm' && second === false) {
+            if (item.id === 'srm') {
               return;
             }
 
