@@ -18,22 +18,22 @@ function HeaderElectron({ title, bold }) {
   const ipcChannel = window.electron.ipcRenderer;
 
   //Prevent users closing the app before finishing the installation
-  useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      const confirmationMessage = 'Finish the installation please';
-      event.returnValue = confirmationMessage; // Esto funciona en navegadores y Electron.
-      return confirmationMessage; // Mostrará la alerta de confirmación.
-    };
-
-    if (!second) {
-      window.addEventListener('beforeunload', handleBeforeUnload);
-    } else {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    }
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, [second]);
+  //   useEffect(() => {
+  //     const handleBeforeUnload = (event) => {
+  //       const confirmationMessage = 'Finish the installation please';
+  //       event.returnValue = confirmationMessage; // Esto funciona en navegadores y Electron.
+  //       return confirmationMessage; // Mostrará la alerta de confirmación.
+  //     };
+  //
+  //     if (!second) {
+  //       window.addEventListener('beforeunload', handleBeforeUnload);
+  //     } else {
+  //       window.removeEventListener('beforeunload', handleBeforeUnload);
+  //     }
+  //     return () => {
+  //       window.removeEventListener('beforeunload', handleBeforeUnload);
+  //     };
+  //   }, [second]);
 
   let lngs = {
     en: {
