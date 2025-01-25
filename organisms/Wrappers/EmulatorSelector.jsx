@@ -30,15 +30,6 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               if (item.id === 'model2') {
                 return;
               }
-              if (item.id === 'supermodel') {
-                return;
-              }
-              if (item.id === 'bigpemu') {
-                return;
-              }
-              if (item.id === 'shadps4') {
-                return;
-              }
             }
 
             if (system === 'darwin') {

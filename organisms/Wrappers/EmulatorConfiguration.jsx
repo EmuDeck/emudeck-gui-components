@@ -27,9 +27,7 @@ function EmulatorConfiguration({ onClick, images }) {
               if (
                 item.id === 'rmg' ||
                 item.id === 'ares' ||
-                item.id === 'bigpemu' ||
-                item.id === 'model2' ||
-                item.id === 'supermodel'
+                item.id === 'model2'
               ) {
                 return;
               }
