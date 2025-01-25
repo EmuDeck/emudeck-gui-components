@@ -172,7 +172,16 @@ function End({ message, percentage, step, disabledNext }) {
         <EmuModal
           modalActiveValue={disabledNext === true}
           modalHeaderValue={<span className="h4">Installing EmuDeck...</span>}
-          modalBodyValue={<p>{message}...</p>}
+          modalBodyValue={
+            <>
+              <p>{message}...</p>
+              <ProgressBar
+                css="progress--success"
+                value={percentage}
+                max="100"
+              />
+            </>
+          }
           modalFooterValue={
             <BtnSimple
               css="btn-simple--1"
