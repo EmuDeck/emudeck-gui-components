@@ -42,6 +42,10 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               return;
             }
 
+            if (item.id === 'citron') {
+              return;
+            }
+
             const img = images[item.id];
             // eslint-disable-next-line consistent-return
             return (

@@ -19,6 +19,7 @@ import {
   imgpcsx2,
   imgrpcs3,
   imgyuzu,
+  imgcitron,
   imgsuyu,
   imgryujinx,
   imgcemu,
@@ -110,6 +111,9 @@ function EmuDetail(props) {
         break;
       case 'yuzu':
         setStateImg({ img: imgyuzu });
+        break;
+      case 'citron':
+        setStateImg({ img: imgcitron });
         break;
       case 'suyu':
         setStateImg({ img: imgsuyu });
@@ -315,17 +319,21 @@ function EmuDetail(props) {
             )}
           </div>
           <div data-col-sm="3">
-            {emuData.id !== 'yuzu' && <p className="h5">Actions</p>}
+            {emuData.id !== 'yuzu' && emuData.id !== 'citron' && (
+              <p className="h5">Actions</p>
+            )}
             <div className="emudetail__actions">
-              {!disableInstallButton && emuData.id === 'yuzu' && (
-                <BtnSimple
-                  css="btn-simple--2"
-                  type="button"
-                  aria="Update or reset configuration"
-                >
-                  Emulator not found
-                </BtnSimple>
-              )}
+              {!disableInstallButton &&
+                emuData.id === 'yuzu' &&
+                emuData.id === 'citron' && (
+                  <BtnSimple
+                    css="btn-simple--2"
+                    type="button"
+                    aria="Update or reset configuration"
+                  >
+                    Emulator not found
+                  </BtnSimple>
+                )}
 
               {disableInstallButton && (
                 <BtnSimple
@@ -342,39 +350,45 @@ function EmuDetail(props) {
                 </BtnSimple>
               )}
 
-              {!disableInstallButton && emuData.id !== 'yuzu' && (
-                <BtnSimple
-                  css="btn-simple--2"
-                  type="button"
-                  aria="Install"
-                  disabled={disableInstallButton}
-                  onClick={() => onClickInstall(emuData.id, emuData.code)}
-                >
-                  Install
-                </BtnSimple>
-              )}
-              {disableInstallButton && emuData.id !== 'yuzu' && (
-                <BtnSimple
-                  css="btn-simple--2"
-                  type="button"
-                  aria="ReInstall / Update"
-                  disabled={hideInstallButton}
-                  onClick={() => onClickReInstall(emuData.id, emuData.code)}
-                >
-                  ReInstall / Update
-                </BtnSimple>
-              )}
-              {disableInstallButton && emuData.id !== 'yuzu' && (
-                <BtnSimple
-                  css="btn-simple--3"
-                  type="button"
-                  aria="Uninstall"
-                  disabled={false}
-                  onClick={() => onClickUninstall(emuData.id, emuData.code)}
-                >
-                  Uninstall
-                </BtnSimple>
-              )}
+              {!disableInstallButton &&
+                emuData.id !== 'yuzu' &&
+                emuData.id !== 'citron' && (
+                  <BtnSimple
+                    css="btn-simple--2"
+                    type="button"
+                    aria="Install"
+                    disabled={disableInstallButton}
+                    onClick={() => onClickInstall(emuData.id, emuData.code)}
+                  >
+                    Install
+                  </BtnSimple>
+                )}
+              {disableInstallButton &&
+                emuData.id !== 'yuzu' &&
+                emuData.id !== 'citron' && (
+                  <BtnSimple
+                    css="btn-simple--2"
+                    type="button"
+                    aria="ReInstall / Update"
+                    disabled={hideInstallButton}
+                    onClick={() => onClickReInstall(emuData.id, emuData.code)}
+                  >
+                    ReInstall / Update
+                  </BtnSimple>
+                )}
+              {disableInstallButton &&
+                emuData.id !== 'yuzu' &&
+                emuData.id !== 'citron' && (
+                  <BtnSimple
+                    css="btn-simple--3"
+                    type="button"
+                    aria="Uninstall"
+                    disabled={false}
+                    onClick={() => onClickUninstall(emuData.id, emuData.code)}
+                  >
+                    Uninstall
+                  </BtnSimple>
+                )}
               {emuData.id === 'srm' && (
                 <>
                   <BtnSimple
@@ -425,6 +439,7 @@ function EmuDetail(props) {
               {(emuData.id === 'primehack' ||
                 emuData.id === 'pcsx2' ||
                 emuData.id === 'yuzu' ||
+                emuData.id === 'citron' ||
                 emuData.id === 'cemu' ||
                 emuData.id === 'dolphin' ||
                 emuData.id === 'ra') && (
