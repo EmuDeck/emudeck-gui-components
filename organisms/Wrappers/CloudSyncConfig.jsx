@@ -234,7 +234,6 @@ function CloudSyncConfig({
           </svg>
           <div className="h6">
             <p>EmuDeck Cloud</p>
-            (7 days backup)
           </div>
         </Card>
 
