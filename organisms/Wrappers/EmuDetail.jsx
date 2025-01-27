@@ -257,7 +257,13 @@ function EmuDetail(props) {
         biosName = 'Nintendo DS';
         break;
       case 'nswitch':
-        biosName = 'Nintendo Switch';
+        biosName = 'Nintendo Switch - Yuzu';
+        break;
+      case 'rswitch':
+        biosName = 'Nintendo Switch - Ryujinx';
+        break;
+      case 'cswitch':
+        biosName = 'Nintendo Switch - Citron';
         break;
       default:
         biosName = 'System';
