@@ -78,13 +78,7 @@ function Aside({ css }) {
   };
 
   const openWiki = () => {
-    let url;
-
-    system === 'win32'
-      ? (url = 'https://emudeck.github.io/known-issues/windows/')
-      : (url = 'https://emudeck.github.io/?search=true');
-
-    window.open(url, '_blank');
+    window.open('https://manual.emudeck.com', '_blank');
   };
 
   const uninstall = () => {
@@ -251,6 +245,16 @@ function Aside({ css }) {
   };
 
   const settingsCards = [
+    {
+      icon: [iconHelp],
+      iconFlat: 'list',
+      title: 'Manual',
+      description: t('aside.android'),
+      button: 'Configure',
+      btnCSS: 'btn-simple--1',
+      status: true,
+      function: () => openWiki(),
+    },
     {
       icon: [iconAndroid],
       iconFlat: 'android',
