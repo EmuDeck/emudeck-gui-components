@@ -27,9 +27,6 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               if (item.id === 'rmg' || item.id === 'ares') {
                 return;
               }
-              if (item.id === 'model2') {
-                return;
-              }
             }
 
             if (system === 'darwin') {
