@@ -35,7 +35,8 @@ function Aside({ css }) {
   const ipcChannel = window.electron.ipcRenderer;
   const { state, setState, stateCurrentConfigs } = useContext(GlobalContext);
   const [statePage, setStatePage] = useState({ modal: false, updates: false });
-  const { system, systemName, mode, branch, installEmus } = state;
+  const { system, systemName, mode, branch, installEmus, installFrontends } =
+    state;
   const { modal, updates } = statePage;
   const navigate = useNavigate();
 
@@ -300,9 +301,7 @@ function Aside({ css }) {
       description: 'Add emulators, tools, or ROMs to your Steam Library',
       button: 'Launch',
       btnCSS: 'btn-simple--5',
-      status:
-        state.installFrontends.steam.status ||
-        (mode == 'easy' && system == 'win32'), //Forced on win32 - easy
+      status: true,
       function: () => functions.openSRM(),
     },
     {
