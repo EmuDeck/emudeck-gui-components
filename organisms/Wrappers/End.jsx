@@ -79,7 +79,7 @@ function End({ message, percentage, step, disabledNext }) {
       ]);
     } else if (system === 'darwin') {
       ipcChannel.sendMessage('bash-nolog', [
-        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/emudeck/logs/emudeckSetup.log"'`,
+        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/.config/EmuDeck/logs/emudeckSetup.log"'`,
       ]);
     } else {
       ipcChannel.sendMessage('bash-nolog', [
@@ -175,11 +175,6 @@ function End({ message, percentage, step, disabledNext }) {
           modalBodyValue={
             <>
               <p>{message}...</p>
-              <ProgressBar
-                css="progress--success"
-                value={percentage}
-                max="100"
-              />
             </>
           }
           modalFooterValue={
