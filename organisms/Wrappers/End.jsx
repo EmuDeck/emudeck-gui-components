@@ -83,7 +83,7 @@ function End({ message, percentage, step, disabledNext }) {
       ]);
     } else {
       ipcChannel.sendMessage('bash-nolog', [
-        `konsole -e tail -f "$HOME/emudeck/logs/emudeckSetup.log"`,
+        `konsole -e tail -f "$HOME/.config/EmuDeck/logs/emudeckSetup.log"`,
       ]);
     }
   };
