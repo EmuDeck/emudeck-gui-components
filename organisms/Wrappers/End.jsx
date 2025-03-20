@@ -75,15 +75,15 @@ function End({ message, percentage, step, disabledNext }) {
   const showLog = () => {
     if (system === 'win32') {
       ipcChannel.sendMessage('bash-nolog', [
-        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:USERPROFILE/emudeck/logs/emudeckSetup.log -Tail 100 -Wait }"`,
+        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:APPDATA/emudeck/logs/emudeckSetup.log -Tail 100 -Wait }"`,
       ]);
     } else if (system === 'darwin') {
       ipcChannel.sendMessage('bash-nolog', [
-        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/emudeck/logs/emudeckSetup.log"'`,
+        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/.config/EmuDeck/logs/emudeckSetup.log"'`,
       ]);
     } else {
       ipcChannel.sendMessage('bash-nolog', [
-        `konsole -e tail -f "$HOME/emudeck/logs/emudeckSetup.log"`,
+        `konsole -e tail -f "$HOME/.config/EmuDeck/logs/emudeckSetup.log"`,
       ]);
     }
   };
@@ -172,7 +172,11 @@ function End({ message, percentage, step, disabledNext }) {
         <EmuModal
           modalActiveValue={disabledNext === true}
           modalHeaderValue={<span className="h4">Installing EmuDeck...</span>}
-          modalBodyValue={<p>{message}...</p>}
+          modalBodyValue={
+            <>
+              <p>{message}...</p>
+            </>
+          }
           modalFooterValue={
             <BtnSimple
               css="btn-simple--1"

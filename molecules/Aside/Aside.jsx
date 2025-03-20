@@ -35,7 +35,8 @@ function Aside({ css }) {
   const ipcChannel = window.electron.ipcRenderer;
   const { state, setState, stateCurrentConfigs } = useContext(GlobalContext);
   const [statePage, setStatePage] = useState({ modal: false, updates: false });
-  const { system, systemName, mode, branch, installEmus } = state;
+  const { system, systemName, mode, branch, installEmus, installFrontends } =
+    state;
   const { modal, updates } = statePage;
   const navigate = useNavigate();
 
@@ -77,13 +78,7 @@ function Aside({ css }) {
   };
 
   const openWiki = () => {
-    let url;
-
-    system === 'win32'
-      ? (url = 'https://emudeck.github.io/known-issues/windows/')
-      : (url = 'https://emudeck.github.io/?search=true');
-
-    window.open(url, '_blank');
+    window.open('https://manual.emudeck.com', '_blank');
   };
 
   const uninstall = () => {
@@ -172,21 +167,36 @@ function Aside({ css }) {
 
   const selectMode = (value) => {
     setState({ ...state, mode: value });
+
+    const modalData = {
+      active: true,
+      header: <span className="h4">Warning</span>,
+      body: (
+        <p>
+          Doing a reset will overwrite any customization you could have made and
+          restore our EmuDeck defaults
+        </p>
+      ),
+      css: 'emumodal--xs',
+    };
+
+    setStatePage({ ...statePage, modal: modalData });
+
     navigate('/rom-storage');
   };
 
   const showLog = () => {
     if (system === 'win32') {
       ipcChannel.sendMessage('bash-nolog', [
-        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:USERPROFILE/emudeck/logs/git.log -Tail 100 -Wait }"`,
+        `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:APPDATA/emudeck/logs/git.log -Tail 100 -Wait }"`,
       ]);
     } else if (system === 'darwin') {
       ipcChannel.sendMessage('bash-nolog', [
-        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/emudeck/logs/git.log"'`,
+        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/.config/EmuDeck/logs/git.log"'`,
       ]);
     } else {
       ipcChannel.sendMessage('bash-nolog', [
-        `konsole -e tail -f "$HOME/emudeck/logs/git.log"`,
+        `konsole -e tail -f "$HOME/.config/EmuDeck/logs/git.log"`,
       ]);
     }
   };
@@ -235,6 +245,16 @@ function Aside({ css }) {
   };
 
   const settingsCards = [
+    {
+      icon: [iconHelp],
+      iconFlat: 'list',
+      title: 'Manual',
+      description: t('aside.android'),
+      button: 'Configure',
+      btnCSS: 'btn-simple--1',
+      status: true,
+      function: () => openWiki(),
+    },
     {
       icon: [iconAndroid],
       iconFlat: 'android',
@@ -285,7 +305,7 @@ function Aside({ css }) {
       description: 'Add emulators, tools, or ROMs to your Steam Library',
       button: 'Launch',
       btnCSS: 'btn-simple--5',
-      status: state.installFrontends.steam.status,
+      status: true,
       function: () => functions.openSRM(),
     },
     {
@@ -410,7 +430,7 @@ function Aside({ css }) {
         'Migrate your EmuDeck installation to your SD Card or vice versa',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: true,
+      status: !(system === 'win32'),
       function: () => functions.navigate('/migration'),
     },
 
