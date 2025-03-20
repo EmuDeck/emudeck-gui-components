@@ -430,7 +430,7 @@ function Aside({ css }) {
         'Migrate your EmuDeck installation to your SD Card or vice versa',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: true,
+      status: !(system === 'win32'),
       function: () => functions.navigate('/migration'),
     },
 
