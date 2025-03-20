@@ -14,8 +14,7 @@ import {
   imgprimehack,
   imgppsspp,
   imgduckstation,
-  imgcitra,
-  imglime3ds,
+  imgazahar,
   imgpcsx2,
   imgrpcs3,
   imgyuzu,
@@ -97,11 +96,8 @@ function EmuDetail(props) {
       case 'melonds':
         setStateImg({ img: imgmelonds });
         break;
-      case 'citra':
-        setStateImg({ img: imgcitra });
-        break;
-      case 'lime3ds':
-        setStateImg({ img: imglime3ds });
+      case 'azahar':
+        setStateImg({ img: imgazahar });
         break;
       case 'pcsx2':
         setStateImg({ img: imgpcsx2 });

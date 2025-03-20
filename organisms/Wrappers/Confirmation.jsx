@@ -251,7 +251,7 @@ function Confirmation() {
                 <li>
                   Nintendo 3DS:{' '}
                   <strong className="list--customization__pill">
-                    {resolutions.lime3ds}
+                    {resolutions.azahar}
                   </strong>
                 </li>
               </ul>
