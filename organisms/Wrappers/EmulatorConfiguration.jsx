@@ -24,13 +24,7 @@ function EmulatorConfiguration({ onClick, images }) {
             }
 
             if (system === 'win32') {
-              if (
-                item.id === 'rmg' ||
-                item.id === 'ares' ||
-                item.id === 'bigpemu' ||
-                item.id === 'model2' ||
-                item.id === 'supermodel'
-              ) {
+              if (item.id === 'rmg' || item.id === 'ares') {
                 return;
               }
             }
@@ -57,7 +51,11 @@ function EmulatorConfiguration({ onClick, images }) {
               return;
             }
 
-            if (item.id === 'srm' && second === false) {
+            if (item.id === 'citron') {
+              return;
+            }
+
+            if (item.id === 'srm') {
               return;
             }
 

@@ -136,7 +136,7 @@ function EmulatorResolution({ onClick }) {
                 <div className="yuzu" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
                     Switch
-                    <br /> <small>Ryujinx</small>
+                    <br /> <small>Ryujinx / Citron / Yuzu</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
                     <Card
