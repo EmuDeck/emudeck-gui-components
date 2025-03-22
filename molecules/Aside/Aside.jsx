@@ -442,7 +442,7 @@ function Aside({ css }) {
         'Plugin to easily view emulator hotkeys and configure EmuDeck in Gaming Mode',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: !(system === 'darwin'),
+      status: !(system === 'win32'),
       function: () => functions.navigate('/decky-controls'),
     },
 
