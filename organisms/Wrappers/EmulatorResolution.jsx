@@ -136,7 +136,7 @@ function EmulatorResolution({ onClick }) {
                 <div className="yuzu" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
                     Switch
-                    <br /> <small>Ryujinx / Citron / Yuzu</small>
+                    <br /> <small>Ryujinx / Citron / Yuzu / Eden</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
                     <Card
@@ -281,34 +281,34 @@ function EmulatorResolution({ onClick }) {
                 <hr />
               </>
             )}
-            {overwriteConfigEmus.lime3ds.status && (
+            {overwriteConfigEmus.azahar.status && (
               <div className="citra" style={{ display: 'flex' }}>
                 <span className="h5" style={{ flexBasis: '40%' }}>
                   Nintendo 3DS
-                  <br /> <small>Lime</small>
+                  <br /> <small>Azahar</small>
                 </span>
                 <div className="cards cards--mini" style={{ flex: 1 }}>
                   <Card
-                    css={resolutions.lime3ds === '720P' ? 'is-selected' : ''}
-                    onClick={() => onClick('lime3ds', '720P')}
+                    css={resolutions.azahar === '720P' ? 'is-selected' : ''}
+                    onClick={() => onClick('azahar', '720P')}
                   >
                     <strong>720P</strong>
                   </Card>
                   <Card
-                    css={resolutions.lime3ds === '1080P' ? 'is-selected' : ''}
-                    onClick={() => onClick('lime3ds', '1080P')}
+                    css={resolutions.azahar === '1080P' ? 'is-selected' : ''}
+                    onClick={() => onClick('azahar', '1080P')}
                   >
                     <strong>1080P</strong>
                   </Card>
                   <Card
-                    css={resolutions.lime3ds === '1440P' ? 'is-selected' : ''}
-                    onClick={() => onClick('lime3ds', '1440P')}
+                    css={resolutions.azahar === '1440P' ? 'is-selected' : ''}
+                    onClick={() => onClick('azahar', '1440P')}
                   >
                     <strong>1440P</strong>
                   </Card>
                   <Card
-                    css={resolutions.lime3ds === '4K' ? 'is-selected' : ''}
-                    onClick={() => onClick('lime3ds', '4K')}
+                    css={resolutions.azahar === '4K' ? 'is-selected' : ''}
+                    onClick={() => onClick('azahar', '4K')}
                   >
                     <strong>4K</strong>
                   </Card>

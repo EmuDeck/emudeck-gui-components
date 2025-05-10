@@ -39,6 +39,10 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               return;
             }
 
+            if (item.id === 'eden') {
+              return;
+            }
+
             if (item.id === 'citron') {
               return;
             }

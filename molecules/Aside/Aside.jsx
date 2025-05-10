@@ -442,7 +442,7 @@ function Aside({ css }) {
         'Plugin to easily view emulator hotkeys and configure EmuDeck in Gaming Mode',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: !(system === 'darwin'),
+      status: !(system === 'win32'),
       function: () => functions.navigate('/decky-controls'),
     },
 
@@ -456,7 +456,7 @@ function Aside({ css }) {
       status:
         system === 'win32'
           ? false
-          : branch === 'dev' || branch.includes('early')
+          : branch === 'dev' || branch.includes('early') || branch.includes('beta')
           ? true
           : false,
       function: () => functions.navigate('/decky-rom-launcher'),

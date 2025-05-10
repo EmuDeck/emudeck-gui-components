@@ -51,6 +51,10 @@ function EmulatorConfiguration({ onClick, images }) {
               return;
             }
 
+            if (item.id === 'eden') {
+              return;
+            }
+
             if (item.id === 'citron') {
               return;
             }
