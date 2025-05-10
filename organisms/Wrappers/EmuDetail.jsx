@@ -14,11 +14,11 @@ import {
   imgprimehack,
   imgppsspp,
   imgduckstation,
-  imgcitra,
-  imglime3ds,
+  imgazahar,
   imgpcsx2,
   imgrpcs3,
   imgyuzu,
+  imgeden,
   imgcitron,
   imgsuyu,
   imgryujinx,
@@ -97,11 +97,8 @@ function EmuDetail(props) {
       case 'melonds':
         setStateImg({ img: imgmelonds });
         break;
-      case 'citra':
-        setStateImg({ img: imgcitra });
-        break;
-      case 'lime3ds':
-        setStateImg({ img: imglime3ds });
+      case 'azahar':
+        setStateImg({ img: imgazahar });
         break;
       case 'pcsx2':
         setStateImg({ img: imgpcsx2 });
@@ -111,6 +108,9 @@ function EmuDetail(props) {
         break;
       case 'yuzu':
         setStateImg({ img: imgyuzu });
+        break;
+      case 'eden':
+        setStateImg({ img: imgeden });
         break;
       case 'citron':
         setStateImg({ img: imgcitron });
@@ -259,6 +259,9 @@ function EmuDetail(props) {
       case 'nswitch':
         biosName = 'Nintendo Switch - Yuzu';
         break;
+      case 'eswitch':
+        biosName = 'Nintendo Switch - Eden';
+        break;
       case 'rswitch':
         biosName = 'Nintendo Switch - Ryujinx';
         break;
@@ -325,13 +328,14 @@ function EmuDetail(props) {
             )}
           </div>
           <div data-col-sm="3">
-            {emuData.id !== 'yuzu' && emuData.id !== 'citron' && (
-              <p className="h5">Actions</p>
-            )}
+            {emuData.id !== 'yuzu' &&
+              emuData.id !== 'citron' &&
+              emuData.id !== 'eden' && <p className="h5">Actions</p>}
             <div className="emudetail__actions">
               {!disableInstallButton &&
                 emuData.id === 'yuzu' &&
-                emuData.id === 'citron' && (
+                emuData.id === 'citron' &&
+                emuData.id === 'eden' && (
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
@@ -358,7 +362,8 @@ function EmuDetail(props) {
 
               {!disableInstallButton &&
                 emuData.id !== 'yuzu' &&
-                emuData.id !== 'citron' && (
+                emuData.id !== 'citron' &&
+                emuData.id !== 'eden' && (
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
@@ -371,7 +376,8 @@ function EmuDetail(props) {
                 )}
               {disableInstallButton &&
                 emuData.id !== 'yuzu' &&
-                emuData.id !== 'citron' && (
+                emuData.id !== 'citron' &&
+                emuData.id !== 'eden' && (
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
@@ -384,7 +390,8 @@ function EmuDetail(props) {
                 )}
               {disableInstallButton &&
                 emuData.id !== 'yuzu' &&
-                emuData.id !== 'citron' && (
+                emuData.id !== 'citron' &&
+                emuData.id !== 'eden' && (
                   <BtnSimple
                     css="btn-simple--3"
                     type="button"
@@ -445,6 +452,7 @@ function EmuDetail(props) {
               {(emuData.id === 'primehack' ||
                 emuData.id === 'pcsx2' ||
                 emuData.id === 'yuzu' ||
+                emuData.id === 'eden' ||
                 emuData.id === 'citron' ||
                 emuData.id === 'cemu' ||
                 emuData.id === 'dolphin' ||

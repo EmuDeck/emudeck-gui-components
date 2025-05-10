@@ -16,6 +16,7 @@ function CheckBios({
   ps1Bios,
   ps2Bios,
   switchBios,
+  edenBios,
   citronBios,
   ryujinxBios,
   segaCDBios,
@@ -89,6 +90,16 @@ function CheckBios({
                     <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                   )}{' '}
                   Yuzu Firmware {biosText(switchBios)}
+                </Alert>
+              </div>
+              <div>
+                <Alert css={`alert--mini ${biosCSS(switchBios)}`}>
+                  {biosText(switchBios).includes('missing') ? (
+                    <Img src={iconDanger} css="icon icon--xs" alt="OK" />
+                  ) : (
+                    <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
+                  )}{' '}
+                  Eden Firmware {biosText(switchBios)}
                 </Alert>
               </div>
               {installEmus.ryujinx.status && (

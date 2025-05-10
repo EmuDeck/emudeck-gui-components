@@ -231,7 +231,7 @@ function Confirmation() {
                   </strong>
                 </li>
                 <li>
-                  PlayStation32:{' '}
+                  PlayStation3:{' '}
                   <strong className="list--customization__pill">
                     {resolutions.rpcs3}
                   </strong>
@@ -251,7 +251,7 @@ function Confirmation() {
                 <li>
                   Nintendo 3DS:{' '}
                   <strong className="list--customization__pill">
-                    {resolutions.lime3ds}
+                    {resolutions.azahar}
                   </strong>
                 </li>
               </ul>
