@@ -268,3 +268,7 @@
     display: none;
   }
 }
+
+.news svg.card__selected {
+  opacity: 0 !important;
+}

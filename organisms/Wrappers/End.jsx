@@ -54,10 +54,10 @@ function End({ message, percentage, step, disabledNext }) {
 
     emuList = emuList.replace(/(\r\n|\n|\r)/gm, '');
 
-    ipcChannel.sendMessage('emudeck-legacy', [
-      `getEmuInstallStatus|||getEmuInstallStatus "${emuList}"`,
+    ipcChannel.sendMessage('emudeck', [
+      `get_emu_install_status|||get_emu_install_status "${emuList}"`,
     ]);
-    ipcChannel.once('getEmuInstallStatus', (messageInstallStatus) => {
+    ipcChannel.once('get_emu_install_status', (messageInstallStatus) => {
       setStatePage({
         ...statePage,
         emusInstalledStatus: JSON.parse(messageInstallStatus.stdout),

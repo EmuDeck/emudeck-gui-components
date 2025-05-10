@@ -182,15 +182,15 @@ function EmuDetail(props) {
   const checkInstallation = (emulator) => {
     const name = emuData.code;
 
-    ipcChannel.sendMessage('emudeck-legacy', [
-      `${name}_IsInstalled|||${name}_IsInstalled`,
+    ipcChannel.sendMessage('emudeck', [
+      `${name.toLowerCase()}_is_installed|||${name.toLowerCase()}_is_installed`,
     ]);
-    ipcChannel.once(`${name}_IsInstalled`, (status) => {
+    ipcChannel.once(`${name.toLowerCase()}_is_installed`, (status) => {
       let { stdout } = status;
 
       stdout = stdout.replace('\n', '');
 
-      if (stdout.includes('true')) {
+      if (/true|OK/.test(stdout)) {
         setStatePage({
           ...statePage,
           disableInstallButton: true,

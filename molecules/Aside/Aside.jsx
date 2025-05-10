@@ -50,15 +50,15 @@ function Aside({ css }) {
   };
 
   const getLogs = () => {
-    ipcChannel.sendMessage('emudeck-legacy', [`zipLogs|||zipLogs`]);
-    ipcChannel.once('zipLogs', (message) => {
+    ipcChannel.sendMessage('emudeck', [`zip_logs|||zip_logs`]);
+    ipcChannel.once('zip_logs', (message) => {
       console.log({ message });
       let modalData;
       let { stdout } = message;
 
       stdout = stdout.replace('\n', '');
 
-      if (stdout.includes('true')) {
+      if (/true|OK/.test(stdout)) {
         modalData = {
           active: true,
           header: <span className="h4">{t('general.success')}!</span>,

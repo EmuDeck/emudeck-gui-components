@@ -76,6 +76,16 @@ function HeaderElectron({ title, bold }) {
     }
   }, [debug, ipcChannel]);
 
+  useEffect(() => {
+    if (state.storagePath != null) {
+      ipcChannel.invoke('save-state', state).then((response) => {
+        if (!response.ok) {
+          console.error('No se pudo guardar el estado:', response.error);
+        }
+      });
+    }
+  }, [state]);
+
   // Xmas
   const d = new Date();
   const month = d.getMonth();

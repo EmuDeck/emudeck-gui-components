@@ -78,20 +78,20 @@ function RAAchievements({ onChange, onToggle }) {
 
   useEffect(() => {
     if (achievements.token !== '') {
-      ipcChannel.sendMessage('emudeck-legacy', [
-        `setAchievementToken|||RetroArch_retroAchievementsSetLogin;DuckStation_retroAchievementsSetLogin;PCSX2QT_retroAchievementsSetLogin;PPSSPP_retroAchievementsSetLogin; echo "true"`,
+      ipcChannel.sendMessage('emudeck', [
+        `retro_achievements_set_login|||retro_achievements_set_login`,
       ]);
-      ipcChannel.once('setAchievementToken', (message) => {
+      ipcChannel.once('retro_achievements_set_login', (message) => {
         let modalData;
         console.log(message.stdout.includes('true'));
         if (message.stdout.includes('true')) {
           if (achievements.hardcore) {
-            ipcChannel.sendMessage('emudeck-legacy', [
-              `setHardcore|||RetroArch_retroAchievementsHardCoreOn;DuckStation_retroAchievementsHardCoreOn;PCSX2QT_retroAchievementsHardCoreOn;PPSSPP_retroAchievementsHardCoreOn; echo "true"`,
+            ipcChannel.sendMessage('emudeck', [
+              `setHardcore|||retro_achievements_set_hardcore_on`,
             ]);
           } else {
-            ipcChannel.sendMessage('emudeck-legacy', [
-              `setHardcore|||RetroArch_retroAchievementsHardCoreOff;DuckStation_retroAchievementsHardCoreOff;PCSX2QT_retroAchievementsHardCoreOff;PPSSPP_retroAchievementsHardCoreOff; echo "false"`,
+            ipcChannel.sendMessage('emudeck', [
+              `setHardcore|||retro_achievements_set_hardcore_off`,
             ]);
           }
         } else {
