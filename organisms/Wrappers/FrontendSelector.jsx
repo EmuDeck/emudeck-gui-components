@@ -17,10 +17,6 @@ function FrontendSelector({ onClick, images, lastSelected, installFrontends }) {
       <Main>
         <div className="cards cards--big">
           {installFrontendsArray.map((item) => {
-            if (item.id === 'deckyromlauncher') {
-              return;
-            }
-
             const img = images[item.id];
             // eslint-disable-next-line consistent-return
             return (

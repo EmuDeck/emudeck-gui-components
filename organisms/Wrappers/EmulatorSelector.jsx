@@ -27,18 +27,6 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               if (item.id === 'rmg' || item.id === 'ares') {
                 return;
               }
-              if (item.id === 'model2') {
-                return;
-              }
-              if (item.id === 'supermodel') {
-                return;
-              }
-              if (item.id === 'bigpemu') {
-                return;
-              }
-              if (item.id === 'shadps4') {
-                return;
-              }
             }
 
             if (system === 'darwin') {
@@ -48,6 +36,14 @@ function EmulatorSelector({ onClick, images, installEmus }) {
             }
 
             if (item.id === 'yuzu') {
+              return;
+            }
+
+            if (item.id === 'eden') {
+              return;
+            }
+
+            if (item.id === 'citron') {
               return;
             }
 

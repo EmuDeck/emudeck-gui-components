@@ -23,11 +23,20 @@ const ProgressBar = ({ css, value, max, infinite }) => {
 
   const percentage = (value * 100) / max;
   return (
-    <progress className={`progress ${css}`} value={valueFinal} max={max}>
-      <div className="progress">
-        <span style={{ width: percentage + '%' }}>{value}%</span>
-      </div>
-    </progress>
+    <>
+      {infinite && (
+        <div class="progress-bar">
+          <div class="progress-bar-value"></div>
+        </div>
+      )}
+      {!infinite && (
+        <progress className={`progress ${css}`} value={valueFinal} max={max}>
+          <div className="progress">
+            <span style={{ width: percentage + '%' }}>{value}%</span>
+          </div>
+        </progress>
+      )}
+    </>
   );
 };
 

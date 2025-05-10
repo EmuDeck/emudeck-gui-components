@@ -37,7 +37,7 @@ function CloudSyncConfig({
         <strong>Recommended providers</strong>
       </p>
       <div className="cards cards--mini">
-        {branch.includes('early') && (
+        {branch != 'main' && (
           <Card
             css={cloudSync === 'Emudeck-cloud' && 'is-selected'}
             onClick={() => onClick('Emudeck-cloud')}
@@ -235,7 +235,6 @@ function CloudSyncConfig({
             </svg>
             <div className="h6">
               <p>EmuDeck Cloud</p>
-              (7 days backup)
             </div>
           </Card>
         )}

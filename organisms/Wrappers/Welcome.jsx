@@ -82,20 +82,19 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
                 description={t('WelcomePage.custom')}
               />
             </div>
-            {branch.includes('early') ||
-              (branch === 'dev' && (
-                <div data-col-sm="4">
-                  <CardSettings
-                    btnCSS="btn-simple--1"
-                    icon={iconPackage}
-                    iconSize="md"
-                    title="Android"
-                    button={t('general.install')}
-                    onClick={() => onClick('android')}
-                    description={t('WelcomePage.android')}
-                  />
-                </div>
-              ))}
+            {(branch.includes('early') || branch === 'dev') && (
+              <div data-col-sm="4">
+                <CardSettings
+                  btnCSS="btn-simple--1"
+                  icon={iconPackage}
+                  iconSize="md"
+                  title="Android"
+                  button={t('general.install')}
+                  onClick={() => onClick('android')}
+                  description={t('WelcomePage.android')}
+                />
+              </div>
+            )}
           </div>
         )}
       </Main>
