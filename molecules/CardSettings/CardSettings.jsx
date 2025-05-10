@@ -84,17 +84,4 @@ CardSettings.propTypes = {
   disabled: PropTypes.bool,
 };
 
-CardSettings.defaultProps = {
-  btnCSS: '',
-  onClick: '',
-  icon: '',
-  title: '',
-  description: '',
-  button: '',
-  iconSize: '',
-  type: 'button',
-  href: '',
-  notification: false,
-  disabled: false,
-};
 export default CardSettings;

@@ -214,15 +214,4 @@ CheckBios.propTypes = {
   checkBiosAgain: PropTypes.func,
 };
 
-CheckBios.defaultProps = {
-  ps1Bios: '',
-  ps2Bios: '',
-  switchBios: '',
-  segaCDBios: '',
-  saturnBios: '',
-  dreamcastBios: '',
-  DSBios: '',
-  checkBiosAgain: '',
-};
-
 export default CheckBios;

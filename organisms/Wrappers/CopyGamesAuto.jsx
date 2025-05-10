@@ -132,16 +132,4 @@ CopyGamesAuto.propTypes = {
   installFrontends: PropTypes.any,
 };
 
-CopyGamesAuto.defaultProps = {
-  onClick: '',
-  onClickStart: '',
-  onClickCopyGames: '',
-  storageUSB: '',
-  storageUSBPath: '',
-  storagePathDestination: '',
-  statusCopyGames: '',
-  statusCreateStructure: '',
-  installFrontends: '',
-};
-
 export default CopyGamesAuto;

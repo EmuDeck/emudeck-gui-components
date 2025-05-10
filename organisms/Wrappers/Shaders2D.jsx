@@ -60,8 +60,4 @@ Shaders2D.propTypes = {
   onClick: PropTypes.func,
 };
 
-Shaders2D.defaultProps = {
-  onClick: '',
-};
-
 export default Shaders2D;

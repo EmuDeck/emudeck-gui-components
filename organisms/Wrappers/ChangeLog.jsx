@@ -17,8 +17,4 @@ ChangeLog.propTypes = {
   ]),
 };
 
-ChangeLog.defaultProps = {
-  children: '',
-};
-
 export default ChangeLog;

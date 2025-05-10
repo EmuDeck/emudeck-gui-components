@@ -87,11 +87,4 @@ EmuModal.propTypes = {
   onClick: PropTypes.func,
 };
 
-EmuModal.defaultProps = {
-  children: '',
-  footer: '',
-  css: '',
-  onClick: () => {},
-};
-
 export default EmuModal;

@@ -28,9 +28,4 @@ SimpleCarousel.propTypes = {
   css: PropTypes.string,
 };
 
-SimpleCarousel.defaultProps = {
-  img: '',
-  css: PropTypes.string,
-};
-
 export default SimpleCarousel;

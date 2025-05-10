@@ -4,7 +4,7 @@ name: rubberBand
 category: Animations
 ---
 ```example.html
-<svg class="icon animated rubberBand infinite" role="presentation">
+<svg className="icon animated rubberBand infinite" role="presentation">
   <use xlink:href="../svg/sprite.svg#twitter"></use>
 </svg>
 ```

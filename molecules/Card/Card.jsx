@@ -34,10 +34,4 @@ Card.propTypes = {
   onClick: PropTypes.func,
 };
 
-Card.defaultProps = {
-  children: '',
-  css: '',
-  onClick: () => {},
-};
-
 export default Card;

@@ -47,6 +47,3 @@ HeaderIonic.propTypes = {
   title: PropTypes.string.isRequired,
   bold: PropTypes.string,
 };
-HeaderIonic.defaultProps = {
-  bold: '',
-};

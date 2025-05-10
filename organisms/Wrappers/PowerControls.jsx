@@ -80,18 +80,4 @@ PowerControls.propTypes = {
   disableButton: PropTypes.bool,
 };
 
-PowerControls.defaultProps = {
-  onClick: '',
-  onChange: '',
-  onChangeSetPass: '',
-  onChangeCheckPass: '',
-  installClick: '',
-  hasSudo: '',
-  sudoPass: 'EmuDecky!',
-  showNotification: '',
-  textNotification: '',
-  passValidates: '',
-  disableButton: '',
-};
-
 export default PowerControls;

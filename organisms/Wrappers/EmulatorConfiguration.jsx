@@ -87,9 +87,4 @@ EmulatorConfiguration.propTypes = {
   images: PropTypes.array,
 };
 
-EmulatorConfiguration.defaultProps = {
-  onClick: '',
-  images: '',
-};
-
 export default EmulatorConfiguration;

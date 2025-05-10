@@ -100,7 +100,7 @@ function Confirmation() {
         </div>
         <div data-col-sm="6">
           <Card>
-            <span class="h5">Your customizations</span>
+            <span className="h5">Your customizations</span>
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
               <ul className="list list--customization aspect-ratio">
                 <li>

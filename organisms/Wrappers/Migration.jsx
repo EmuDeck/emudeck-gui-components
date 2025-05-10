@@ -208,16 +208,4 @@ Migration.propTypes = {
   statusMigration: PropTypes.string,
 };
 
-Migration.defaultProps = {
-  onClick: '',
-  onClickStart: '',
-  sdCardValid: '',
-  sdCardName: '',
-  reloadSDcard: '',
-  storage: '',
-  storageDestination: '',
-  storagePath: '',
-  storagePathDestination: '',
-  statusMigration: '',
-};
 export default Migration;

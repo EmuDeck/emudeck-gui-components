@@ -202,11 +202,4 @@ End.propTypes = {
   disabledNext: PropTypes.bool,
 };
 
-End.defaultProps = {
-  message: '',
-  percentage: '',
-  step: '',
-  disabledNext: true,
-};
-
 export default End;

@@ -99,12 +99,4 @@ SelectorMenu.propTypes = {
   title: PropTypes.string,
 };
 
-SelectorMenu.defaultProps = {
-  css: '',
-  imgs: '',
-  options: '',
-  details: '',
-  title: '',
-};
-
 export default SelectorMenu;

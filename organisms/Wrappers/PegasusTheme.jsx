@@ -49,9 +49,4 @@ PegasusTheme.propTypes = {
   themes: PropTypes.object,
 };
 
-PegasusTheme.defaultProps = {
-  onClick: '',
-  themes: {},
-};
-
 export default PegasusTheme;

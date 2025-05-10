@@ -62,8 +62,4 @@ RABezels.propTypes = {
   onClick: PropTypes.func,
 };
 
-RABezels.defaultProps = {
-  onClick: '',
-};
-
 export default RABezels;

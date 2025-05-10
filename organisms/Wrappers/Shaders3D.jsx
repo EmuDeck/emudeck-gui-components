@@ -51,8 +51,4 @@ Shaders3D.propTypes = {
   onClick: PropTypes.func,
 };
 
-Shaders3D.defaultProps = {
-  onClick: '',
-};
-
 export default Shaders3D;

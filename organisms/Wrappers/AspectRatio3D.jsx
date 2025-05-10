@@ -49,9 +49,4 @@ function AspectRatio3D({ onClick }) {
 AspectRatio3D.propTypes = {
   onClick: PropTypes.func,
 };
-
-AspectRatio3D.defaultProps = {
-  onClick: '',
-};
-
 export default AspectRatio3D;

@@ -111,18 +111,4 @@ EmuDecky.propTypes = {
   disableButton: PropTypes.bool,
 };
 
-EmuDecky.defaultProps = {
-  onChange: '',
-  onChangeSetPass: '',
-  onChangeCheckPass: '',
-  onClick: '',
-  installClick: '',
-  hasSudo: '',
-  sudoPass: 'EmuDecky!',
-  showNotification: '',
-  textNotification: '',
-  passValidates: '',
-  disableButton: '',
-};
-
 export default EmuDecky;

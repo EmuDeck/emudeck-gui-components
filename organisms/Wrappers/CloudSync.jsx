@@ -50,9 +50,4 @@ CloudSync.propTypes = {
   onClick: PropTypes.func,
 };
 
-CloudSync.defaultProps = {
-  showNone: false,
-  onClick: '',
-};
-
 export default CloudSync;

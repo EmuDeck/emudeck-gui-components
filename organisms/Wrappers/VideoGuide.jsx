@@ -74,9 +74,4 @@ VideoGuide.propTypes = {
   onClick: PropTypes.func,
 };
 
-VideoGuide.defaultProps = {
-  minute: '',
-  onClick: '',
-};
-
 export default VideoGuide;

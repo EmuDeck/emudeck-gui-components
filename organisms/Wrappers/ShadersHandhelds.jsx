@@ -51,8 +51,4 @@ ShadersHandhelds.propTypes = {
   onClick: PropTypes.func,
 };
 
-ShadersHandhelds.defaultProps = {
-  onClick: '',
-};
-
 export default ShadersHandhelds;

@@ -47,14 +47,4 @@ StoreGame.propTypes = {
   disabled: PropTypes.string,
 };
 
-StoreGame.defaultProps = {
-  css: '',
-  img: '',
-  title: '',
-  tags: '',
-  onMore: () => {},
-  onInstall: () => {},
-  disabled: '',
-};
-
 export default StoreGame;

@@ -129,15 +129,4 @@ RomStorage.propTypes = {
   showInternal: PropTypes.bool,
 };
 
-RomStorage.defaultProps = {
-  onClick: '',
-  sdCardValid: '',
-  sdCardName: '',
-  reloadSDcard: '',
-  customPath: '',
-  hddrives: '',
-  showSDCard: '',
-  showInternal: '',
-};
-
 export default RomStorage;

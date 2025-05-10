@@ -411,22 +411,4 @@ Settings.propTypes = {
   showNotification: PropTypes.bool,
 };
 
-Settings.defaultProps = {
-  onClickBezel: '',
-  onClickSega: '',
-  onClickSNES: '',
-  onClick3D: '',
-  onClickGC: '',
-  onClickCRT: '',
-  onClickCRT3D: '',
-  onClickLCD: '',
-  onClickBoot: '',
-  onClickAutoSave: '',
-  onClickControllerLayoutSet: '',
-  onClickHomeBrew: '',
-  onClickCloudSync: '',
-  notificationText: '',
-  showNotification: '',
-};
-
 export default Settings;

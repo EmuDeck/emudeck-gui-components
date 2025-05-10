@@ -124,18 +124,4 @@ Footer.propTypes = {
   thirdText: PropTypes.string,
   exit: PropTypes.string,
 };
-Footer.defaultProps = {
-  back: '',
-  next: false,
-  third: '',
-  fourth: '',
-  fourthText: '',
-  disabledNext: false,
-  disabledBack: false,
-  nextText: '',
-  backText: '',
-  thirdText: '',
-  exit: '',
-};
-
 export default Footer;

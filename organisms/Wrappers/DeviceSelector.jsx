@@ -27,8 +27,4 @@ DeviceSelector.propTypes = {
   ]),
 };
 
-DeviceSelector.defaultProps = {
-  children: '',
-};
-
 export default DeviceSelector;

@@ -211,9 +211,4 @@ RAAchievements.propTypes = {
   onToggle: PropTypes.func,
 };
 
-RAAchievements.defaultProps = {
-  onChange: '',
-  onToggle: '',
-};
-
 export default RAAchievements;

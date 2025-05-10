@@ -42,11 +42,4 @@ GyroDSU.propTypes = {
   disableButton: PropTypes.bool,
 };
 
-GyroDSU.defaultProps = {
-  installClick: '',
-  showNotification: '',
-  textNotification: '',
-  disableButton: '',
-};
-
 export default GyroDSU;

@@ -112,18 +112,4 @@ DeckyRomLauncher.propTypes = {
   disableButton: PropTypes.bool,
 };
 
-DeckyRomLauncher.defaultProps = {
-  onChange: '',
-  onChangeSetPass: '',
-  onChangeCheckPass: '',
-  onClick: '',
-  installClick: '',
-  hasSudo: '',
-  sudoPass: 'EmuDecky!',
-  showNotification: '',
-  textNotification: '',
-  passValidates: '',
-  disableButton: '',
-};
-
 export default DeckyRomLauncher;

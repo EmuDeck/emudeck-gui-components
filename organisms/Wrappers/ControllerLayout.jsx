@@ -48,8 +48,4 @@ ControllerLayoutPage.propTypes = {
   onClick: PropTypes.func,
 };
 
-ControllerLayoutPage.defaultProps = {
-  onClick: '',
-};
-
 export default ControllerLayoutPage;

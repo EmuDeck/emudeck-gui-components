@@ -48,8 +48,4 @@ GameMode.propTypes = {
   onClick: PropTypes.func,
 };
 
-GameMode.defaultProps = {
-  onClick: '',
-};
-
 export default GameMode;

@@ -49,8 +49,4 @@ ESDETheme.propTypes = {
   onClick: PropTypes.func,
 };
 
-ESDETheme.defaultProps = {
-  onClick: '',
-};
-
 export default ESDETheme;

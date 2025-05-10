@@ -86,9 +86,4 @@ CHDTool.propTypes = {
   onClick: PropTypes.func,
 };
 
-CHDTool.defaultProps = {
-  disabledNext: true,
-  onClick: '',
-};
-
 export default CHDTool;

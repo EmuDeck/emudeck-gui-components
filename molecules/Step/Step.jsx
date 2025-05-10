@@ -14,8 +14,4 @@ Step.propTypes = {
   ]),
 };
 
-Step.defaultProps = {
-  children: '',
-};
-
 export default Step;

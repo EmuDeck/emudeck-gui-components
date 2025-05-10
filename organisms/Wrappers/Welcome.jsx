@@ -113,10 +113,4 @@ Welcome.propTypes = {
   onClick: PropTypes.func,
 };
 
-Welcome.defaultProps = {
-  children: '',
-  css: '',
-  onClick: '',
-};
-
 export default Welcome;

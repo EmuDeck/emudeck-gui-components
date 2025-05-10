@@ -58,9 +58,4 @@ ParserSelector.propTypes = {
   images: PropTypes.array,
 };
 
-ParserSelector.defaultProps = {
-  onClick: '',
-  images: '',
-};
-
 export default ParserSelector;

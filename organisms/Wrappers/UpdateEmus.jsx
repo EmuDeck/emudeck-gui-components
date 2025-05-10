@@ -40,10 +40,4 @@ UpdateEmus.propTypes = {
   disabledNext: PropTypes.bool,
 };
 
-UpdateEmus.defaultProps = {
-  onClickFlatpak: '',
-  onClickAppImage: '',
-  disabledNext: false,
-};
-
 export default UpdateEmus;

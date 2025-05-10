@@ -4,7 +4,7 @@ name: bounceOut
 category: Animations
 ---
 ```example.html
-<svg class="icon animated bounceOut infinite" role="presentation">
+<svg className="icon animated bounceOut infinite" role="presentation">
   <use xlink:href="../svg/sprite.svg#twitter"></use>
 </svg>
 ```

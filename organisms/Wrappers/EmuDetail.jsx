@@ -603,17 +603,4 @@ EmuDetail.propTypes = {
   yuzuEAaskToken: PropTypes.func,
 };
 
-EmuDetail.defaultProps = {
-  onClick: '',
-  onClickInstall: '',
-  onClickUninstall: '',
-  onClickReInstall: '',
-  emuData: '',
-  installEmus: '',
-  disableResetButton: '',
-  hideInstallButton: '',
-  updateAvailable: '',
-  yuzuEAaskToken: () => {},
-};
-
 export default EmuDetail;

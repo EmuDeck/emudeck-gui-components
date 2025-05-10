@@ -326,8 +326,4 @@ EmulatorResolution.propTypes = {
   onClick: PropTypes.func,
 };
 
-EmulatorResolution.defaultProps = {
-  onClick: '',
-};
-
 export default EmulatorResolution;

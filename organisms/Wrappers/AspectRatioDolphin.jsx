@@ -48,8 +48,4 @@ AspectRatioDolphin.propTypes = {
   onClick: PropTypes.func,
 };
 
-AspectRatioDolphin.defaultProps = {
-  onClick: '',
-};
-
 export default AspectRatioDolphin;

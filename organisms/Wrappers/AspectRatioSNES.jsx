@@ -51,8 +51,4 @@ AspectRatioSNES.propTypes = {
   onClick: PropTypes.func,
 };
 
-AspectRatioSNES.defaultProps = {
-  onClick: '',
-};
-
 export default AspectRatioSNES;

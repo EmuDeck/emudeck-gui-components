@@ -58,9 +58,3 @@ Wrapper.propTypes = {
     PropTypes.string,
   ]),
 };
-
-Wrapper.defaultProps = {
-  children: '',
-  aside: true,
-  css: '',
-};

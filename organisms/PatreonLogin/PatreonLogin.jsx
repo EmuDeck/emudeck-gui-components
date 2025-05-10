@@ -173,9 +173,10 @@ function PatreonLogin({ children }) {
       const splitToken = partial[1];
 
       ipcChannel.sendMessage('emudeck-legacy', [
-        `storePatreonToken|||storePatreonToken ${splitToken}`,
+        `store_patreon_token|||store_patreon_token ${splitToken}`,
       ]);
-      ipcChannel.once('storePatreonToken', (message) => {
+      ipcChannel.once('store_patreon_token', (message) => {
+        console.log({ message });
         setState({
           ...state,
           patreonToken: splitToken,

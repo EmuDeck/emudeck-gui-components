@@ -21,10 +21,4 @@ Banner.propTypes = {
   onClick: PropTypes.func,
 };
 
-Banner.defaultProps = {
-  children: '',
-  css: '',
-  onClick: () => {},
-};
-
 export default Banner;

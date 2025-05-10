@@ -16,9 +16,4 @@ Notification.propTypes = {
   css: PropTypes.string,
 };
 
-Notification.defaultProps = {
-  children: '',
-  css: '',
-};
-
 export default Notification;

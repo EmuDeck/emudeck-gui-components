@@ -4,7 +4,7 @@ name: zoomOut
 category: Animations
 ---
 ```example.html
-<svg class="icon animated zoomOut infinite" role="presentation">
+<svg className="icon animated zoomOut infinite" role="presentation">
   <use xlink:href="../svg/sprite.svg#twitter"></use>
 </svg>
 ```

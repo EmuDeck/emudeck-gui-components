@@ -42,9 +42,4 @@ FrontendSelector.propTypes = {
   images: PropTypes.array,
 };
 
-FrontendSelector.defaultProps = {
-  onClick: '',
-  images: '',
-};
-
 export default FrontendSelector;

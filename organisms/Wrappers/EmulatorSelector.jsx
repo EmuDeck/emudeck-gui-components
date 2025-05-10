@@ -72,9 +72,4 @@ EmulatorSelector.propTypes = {
   images: PropTypes.array,
 };
 
-EmulatorSelector.defaultProps = {
-  onClick: '',
-  images: '',
-};
-
 export default EmulatorSelector;

@@ -296,7 +296,7 @@ function Aside({ css }) {
       button: 'Get free games',
       btnCSS: 'btn-simple--1',
       status: true,
-      function: () => functions.navigate('/store-front'),
+      function: () => functions.navigate('/decky-rom-launcher'),
     },
     {
       icon: [iconJoystick],
@@ -456,7 +456,9 @@ function Aside({ css }) {
       status:
         system === 'win32'
           ? false
-          : branch === 'dev' || branch.includes('early') || branch.includes('beta')
+          : branch === 'dev' ||
+            branch.includes('early') ||
+            branch.includes('beta')
           ? true
           : false,
       function: () => functions.navigate('/decky-rom-launcher'),
@@ -631,11 +633,6 @@ function Aside({ css }) {
 Aside.propTypes = {
   active: PropTypes.bool,
   data: PropTypes.any,
-};
-
-Aside.defaultProps = {
-  active: false,
-  data: false,
 };
 
 export default Aside;

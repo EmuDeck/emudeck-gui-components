@@ -4,7 +4,7 @@ name: fadeInUp
 category: Animations
 ---
 ```example.html
-<svg class="icon animated fadeInUp infinite" role="presentation">
+<svg className="icon animated fadeInUp infinite" role="presentation">
   <use xlink:href="../svg/sprite.svg#twitter"></use>
 </svg>
 ```

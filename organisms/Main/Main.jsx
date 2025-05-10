@@ -15,9 +15,4 @@ Main.propTypes = {
   css: PropTypes.oneOfType([PropTypes.string]),
 };
 
-Main.defaultProps = {
-  children: '',
-  css: '',
-};
-
 export default Main;

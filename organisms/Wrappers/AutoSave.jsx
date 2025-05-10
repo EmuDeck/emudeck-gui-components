@@ -63,8 +63,4 @@ AutoSave.propTypes = {
   onClick: PropTypes.func,
 };
 
-AutoSave.defaultProps = {
-  onClick: '',
-};
-
 export default AutoSave;

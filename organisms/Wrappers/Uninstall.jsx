@@ -51,8 +51,4 @@ Uninstall.propTypes = {
   onClick: PropTypes.func,
 };
 
-Uninstall.defaultProps = {
-  onClick: '',
-};
-
 export default Uninstall;

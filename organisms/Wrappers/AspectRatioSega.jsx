@@ -50,8 +50,4 @@ AspectRatioSega.propTypes = {
   onClick: PropTypes.func,
 };
 
-AspectRatioSega.defaultProps = {
-  onClick: '',
-};
-
 export default AspectRatioSega;
