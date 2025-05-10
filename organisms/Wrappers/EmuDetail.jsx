@@ -182,7 +182,7 @@ function EmuDetail(props) {
   const checkInstallation = (emulator) => {
     const name = emuData.code;
 
-    ipcChannel.sendMessage('emudeck', [
+    ipcChannel.sendMessage('emudeck-legacy', [
       `${name}_IsInstalled|||${name}_IsInstalled`,
     ]);
     ipcChannel.once(`${name}_IsInstalled`, (status) => {

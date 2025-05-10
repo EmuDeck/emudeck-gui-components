@@ -37,7 +37,7 @@ const RemotePlayWhatever = ({
 
   const readMSG = (command) => {
     const idMessage = Math.random();
-    ipcChannel.sendMessage('emudeck', [`${idMessage}|||${command}`]);
+    ipcChannel.sendMessage('emudeck-legacy', [`${idMessage}|||${command}`]);
     ipcChannel.once(idMessage, (message) => {
       let messageText = message.stdout;
 

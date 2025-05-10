@@ -54,7 +54,7 @@ function End({ message, percentage, step, disabledNext }) {
 
     emuList = emuList.replace(/(\r\n|\n|\r)/gm, '');
 
-    ipcChannel.sendMessage('emudeck', [
+    ipcChannel.sendMessage('emudeck-legacy', [
       `getEmuInstallStatus|||getEmuInstallStatus "${emuList}"`,
     ]);
     ipcChannel.once('getEmuInstallStatus', (messageInstallStatus) => {
@@ -74,15 +74,15 @@ function End({ message, percentage, step, disabledNext }) {
 
   const showLog = () => {
     if (system === 'win32') {
-      ipcChannel.sendMessage('bash-nolog', [
+      ipcChannel.sendMessage('bash-nolog-legacy', [
         `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:APPDATA/emudeck/logs/emudeckSetup.log -Tail 100 -Wait }"`,
       ]);
     } else if (system === 'darwin') {
-      ipcChannel.sendMessage('bash-nolog', [
+      ipcChannel.sendMessage('bash-nolog-legacy', [
         `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/.config/EmuDeck/logs/emudeckSetup.log"'`,
       ]);
     } else {
-      ipcChannel.sendMessage('bash-nolog', [
+      ipcChannel.sendMessage('bash-nolog-legacy', [
         `konsole -e tail -f "$HOME/.config/EmuDeck/logs/emudeckSetup.log"`,
       ]);
     }
