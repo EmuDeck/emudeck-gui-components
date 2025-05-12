@@ -101,8 +101,8 @@ function Aside({ css }) {
       header: <span className="h4">{t('launching')} Steam Rom Manager</span>,
       body: (
         <p>
-          We will close Steam if its running and then Steam Rom Manager will
-          open, this could take a few seconds, please wait.
+          We will close Steam if it's running and then Steam Rom Manager will
+          open. This could take a few seconds, please wait.
         </p>
       ),
       footer: <ProgressBar css="progress--success" infinite max="100" />,
@@ -128,8 +128,8 @@ function Aside({ css }) {
         body: (
           <>
             <p>
-              We will close Steam if its running and then Steam Rom Manager will
-              open, this could take a few seconds, please wait.
+              We will close Steam if it's running and then Steam Rom Manager will
+              open. This could take a few seconds, please wait.
             </p>
             <strong>
               Desktop controls will temporarily revert to touch/trackpad/L2/R2.
