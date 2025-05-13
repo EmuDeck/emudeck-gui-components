@@ -20,7 +20,6 @@ function Wrapper({ children, aside, css }) {
   const navigate = useNavigate();
   useEffect(() => {
     const showChangelog = localStorage.getItem('show_changelog');
-    console.log({ showChangelog });
     if (showChangelog === 'true') {
       // alert('yeah');
       navigate('/change-log');
