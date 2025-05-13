@@ -23,6 +23,7 @@ function End({ message, percentage, step, disabledNext }) {
   const { emusInstalledStatus } = statePage;
 
   const checkInstallation = () => {
+    return;
     const installEmusArray = Object.values(installEmus);
 
     const onlySelectedEmus = installEmusArray.filter(
@@ -166,7 +167,7 @@ function End({ message, percentage, step, disabledNext }) {
           </div>
         )}
         <br />
-        {disabledNext === true && <Sonic />}
+        {/*disabledNext === true && <Sonic />*/}
       </Main>
       {disabledNext && (
         <EmuModal
