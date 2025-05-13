@@ -5,8 +5,6 @@ import { GlobalContext } from 'context/globalContext';
 import Card from 'components/molecules/Card/Card';
 import Header from 'components/organisms/Header/Header';
 import Main from 'components/organisms/Main/Main';
-import Sonic from 'components/organisms/Sonic/Sonic';
-import EmuModal from 'components/molecules/EmuModal/EmuModal';
 import { Img, ProgressBar, BtnSimple, Iframe } from 'getbasecore/Atoms';
 import { iconSuccess, iconDanger } from 'components/utils/images/icons';
 
@@ -166,32 +164,7 @@ function End({ message, percentage, step, disabledNext }) {
             )}
           </div>
         )}
-        <br />
-        {/*disabledNext === true && <Sonic />*/}
       </Main>
-      {disabledNext && (
-        <EmuModal
-          modalActiveValue={disabledNext === true}
-          modalHeaderValue={<span className="h4">Installing EmuDeck...</span>}
-          modalBodyValue={
-            <>
-              <p>{message}...</p>
-            </>
-          }
-          modalFooterValue={
-            <BtnSimple
-              css="btn-simple--1"
-              type="button"
-              aria="Show log"
-              disabled={false}
-              onClick={() => showLog()}
-            >
-              Open detailed log
-            </BtnSimple>
-          }
-          modalCSSValue="emumodal--xs emumodal--loading"
-        />
-      )}
     </>
   );
 }
