@@ -50,17 +50,6 @@ function Confirmation() {
                   ) {
                     return;
                   }
-                  if (system === 'win32') {
-                    if (item.id === 'rmg') {
-                      return;
-                    }
-                    if (item.id === 'model2') {
-                      return;
-                    }
-                    if (item.id === 'supermodel') {
-                      return;
-                    }
-                  }
                   // eslint-disable-next-line consistent-return
                   return <li>{item.name}</li>;
                 })}
@@ -79,17 +68,6 @@ function Confirmation() {
                     item.id === 'srm'
                   ) {
                     return;
-                  }
-                  if (system === 'win32') {
-                    if (item.id === 'rmg') {
-                      return;
-                    }
-                    if (item.id === 'model2') {
-                      return;
-                    }
-                    if (item.id === 'supermodel') {
-                      return;
-                    }
                   }
                   // eslint-disable-next-line consistent-return
                   return <li>{item.name}</li>;

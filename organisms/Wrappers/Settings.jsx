@@ -273,36 +273,34 @@ function Settings({
               ]}
             />
           </li>
-          {system !== 'darwin' && (
-            <li>
-              <SelectorMenu
-                toggle
-                title="GameCube AR"
-                css="selector-menu--mini"
-                imgs={[
-                  [ar169gc, ar.dolphin !== 169 ? 'is-hidden' : ''],
-                  [ar43gc, ar.dolphin !== 43 ? 'is-hidden' : ''],
-                ]}
-                enabled={ar.dolphin === 43 ? false : true}
-                options={[
-                  [
-                    () => onClickGC(43),
-                    ar.dolphin === 43 ? 'is-selected' : '',
-                    '4:3',
-                    '',
-                    true,
-                  ],
-                  [
-                    () => onClickGC(169),
-                    ar.dolphin === 169 ? 'is-selected' : '',
-                    '16:9',
-                    '',
-                    true,
-                  ],
-                ]}
-              />
-            </li>
-          )}
+          <li>
+            <SelectorMenu
+              toggle
+              title="GameCube AR"
+              css="selector-menu--mini"
+              imgs={[
+                [ar169gc, ar.dolphin !== 169 ? 'is-hidden' : ''],
+                [ar43gc, ar.dolphin !== 43 ? 'is-hidden' : ''],
+              ]}
+              enabled={ar.dolphin === 43 ? false : true}
+              options={[
+                [
+                  () => onClickGC(43),
+                  ar.dolphin === 43 ? 'is-selected' : '',
+                  '4:3',
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickGC(169),
+                  ar.dolphin === 169 ? 'is-selected' : '',
+                  '16:9',
+                  '',
+                  true,
+                ],
+              ]}
+            />
+          </li>
           <li>
             <SelectorMenu
               toggle

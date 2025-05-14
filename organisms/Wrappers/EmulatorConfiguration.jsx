@@ -23,30 +23,6 @@ function EmulatorConfiguration({ onClick, images }) {
               return;
             }
 
-            if (system === 'win32') {
-              if (item.id === 'rmg' || item.id === 'ares') {
-                return;
-              }
-            }
-            if (system === 'darwin') {
-              if (item.id !== 'ra') {
-                return;
-              }
-              if (item.id === 'model2') {
-                return;
-              }
-              if (item.id === 'supermodel') {
-                return;
-              }
-              if (item.id === 'shadps4') {
-                return;
-              }
-            }
-
-            if (item.id === 'ares') {
-              return;
-            }
-
             if (item.id === 'yuzu') {
               return;
             }

@@ -20,21 +20,6 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               return;
             }
 
-            if (item.id === 'ares') {
-              return;
-            }
-            if (system === 'win32') {
-              if (item.id === 'rmg' || item.id === 'ares') {
-                return;
-              }
-            }
-
-            if (system === 'darwin') {
-              if (item.id !== 'ra') {
-                return;
-              }
-            }
-
             if (item.id === 'yuzu') {
               return;
             }
