@@ -23,6 +23,10 @@ function EmulatorConfiguration({ onClick, images }) {
               return;
             }
 
+            if (item.id === 'ares') {
+              return;
+            }
+
             if (item.id === 'yuzu') {
               return;
             }

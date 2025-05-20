@@ -20,6 +20,10 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               return;
             }
 
+            if (item.id === 'ares') {
+              return;
+            }
+
             if (item.id === 'yuzu') {
               return;
             }

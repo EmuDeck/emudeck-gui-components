@@ -414,6 +414,7 @@ function EmuDetail(props) {
                   >
                     Remove Cache
                   </BtnSimple>
+                  {/*
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
@@ -424,7 +425,7 @@ function EmuDetail(props) {
                   >
                     Standalone Parsers
                   </BtnSimple>
-                  {/* <BtnSimple
+                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
                     aria="Go Back"
