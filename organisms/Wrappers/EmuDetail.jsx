@@ -369,7 +369,9 @@ function EmuDetail(props) {
                     type="button"
                     aria="Install"
                     disabled={disableInstallButton}
-                    onClick={() => onClickInstall(emuData.id, emuData.code)}
+                    onClick={() =>
+                      onClickInstall(emuData.id, emuData.code, emuData.name)
+                    }
                   >
                     Install
                   </BtnSimple>
@@ -383,7 +385,9 @@ function EmuDetail(props) {
                     type="button"
                     aria="ReInstall / Update"
                     disabled={hideInstallButton}
-                    onClick={() => onClickReInstall(emuData.id, emuData.code)}
+                    onClick={() =>
+                      onClickReInstall(emuData.id, emuData.code, emuData.name)
+                    }
                   >
                     ReInstall / Update
                   </BtnSimple>
