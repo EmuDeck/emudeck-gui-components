@@ -256,16 +256,6 @@ function Aside({ css }) {
       function: () => functions.navigate("/emulators"),
     },
     {
-      icon: [iconPackage],
-      iconFlat: "package",
-      title: "EmuDeck Store",
-      description: "Download free non-commercial homebrew games",
-      button: "Get free games",
-      btnCSS: "btn-simple--1",
-      status: true,
-      function: () => functions.navigate("/decky-rom-launcher"),
-    },
-    {
       icon: [iconJoystick],
       iconFlat: "joystick",
       title: "Steam ROM Manager",
