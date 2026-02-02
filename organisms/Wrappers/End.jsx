@@ -1,12 +1,12 @@
-import { useTranslation } from 'react-i18next';
-import React, { useEffect, useState, useContext } from 'react';
-import PropTypes from 'prop-types';
-import { GlobalContext } from 'context/globalContext';
-import Card from 'components/molecules/Card/Card';
-import Header from 'components/organisms/Header/Header';
-import Main from 'components/organisms/Main/Main';
-import { Img, ProgressBar, BtnSimple, Iframe } from 'getbasecore/Atoms';
-import { iconSuccess, iconDanger } from 'components/utils/images/icons';
+import { useTranslation } from "react-i18next";
+import React, { useEffect, useState, useContext } from "react";
+import PropTypes from "prop-types";
+import { GlobalContext } from "context/globalContext";
+import Card from "components/molecules/Card/Card";
+import Header from "components/organisms/Header/Header";
+import Main from "components/organisms/Main/Main";
+import { Img, ProgressBar, BtnSimple, Iframe } from "getbasecore/Atoms";
+import { iconSuccess, iconDanger } from "components/utils/images/icons";
 
 const ipcChannel = window.electron.ipcRenderer;
 function End({ message, percentage, step, disabledNext }) {
@@ -24,25 +24,23 @@ function End({ message, percentage, step, disabledNext }) {
     return;
     const installEmusArray = Object.values(installEmus);
 
-    const onlySelectedEmus = installEmusArray.filter(
-      (item) => item.status === true
-    );
+    const onlySelectedEmus = installEmusArray.filter((item) => item.status === true);
 
     const bashArray = [];
     onlySelectedEmus.forEach((item) => {
-      if (item.name === 'EmulationStation-DE') {
-        item.name = 'ESDE';
+      if (item.name === "EmulationStation-DE") {
+        item.name = "ESDE";
       }
 
-      if (item.name === 'PCSX2') {
-        item.name = 'PCSX2QT';
+      if (item.name === "PCSX2") {
+        item.name = "PCSX2QT";
       }
 
       if (item.name === "Rosalie's Mupen Gui") {
-        item.name = 'RMG';
+        item.name = "RMG";
       }
 
-      if (item.name === 'Steam Rom Manager') {
+      if (item.name === "Steam Rom Manager") {
         return;
       }
 
@@ -51,12 +49,10 @@ function End({ message, percentage, step, disabledNext }) {
 
     let emuList = bashArray.join('" "');
 
-    emuList = emuList.replace(/(\r\n|\n|\r)/gm, '');
+    emuList = emuList.replace(/(\r\n|\n|\r)/gm, "");
 
-    ipcChannel.sendMessage('emudeck', [
-      `get_emu_install_status|||get_emu_install_status "${emuList}"`,
-    ]);
-    ipcChannel.once('get_emu_install_status', (messageInstallStatus) => {
+    ipcChannel.sendMessage("emudeck", [`get_emu_install_status|||get_emu_install_status "${emuList}"`]);
+    ipcChannel.once("get_emu_install_status", (messageInstallStatus) => {
       setStatePage({
         ...statePage,
         emusInstalledStatus: JSON.parse(messageInstallStatus.stdout),
@@ -66,105 +62,82 @@ function End({ message, percentage, step, disabledNext }) {
 
   // We check if everything installed
   useEffect(() => {
-    if (system !== 'win32') {
+    if (system !== "win32") {
       checkInstallation();
     }
   }, [disabledNext]);
 
   const showLog = () => {
-    if (system === 'win32') {
-      ipcChannel.sendMessage('bash-nolog-legacy', [
+    if (system === "win32") {
+      ipcChannel.sendMessage("bash-nolog-legacy", [
         `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:APPDATA/emudeck/logs/emudeckSetup.log -Tail 100 -Wait }"`,
       ]);
-    } else if (system === 'darwin') {
-      ipcChannel.sendMessage('bash-nolog-legacy', [
+    } else if (system === "darwin") {
+      ipcChannel.sendMessage("bash-nolog-legacy", [
         `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/.config/EmuDeck/logs/emudeckSetup.log"'`,
       ]);
     } else {
-      ipcChannel.sendMessage('bash-nolog-legacy', [
-        `konsole -e tail -f "$HOME/.config/EmuDeck/logs/emudeckSetup.log"`,
-      ]);
+      ipcChannel.sendMessage("bash-nolog-legacy", [`konsole -e tail -f "$HOME/.config/EmuDeck/logs/emudeckSetup.log"`]);
     }
   };
 
   return (
     <>
-      <Main>
-        {disabledNext === false && (
-          <div className="tips">
-            {system !== 'win32' && (
-              <Card css="is-selected">
-                <div className="container--grid">
-                  <span data-col-sm="12" className="h2">
-                    Post Installation Status
-                  </span>
+      {disabledNext === false && (
+        <div className="tips">
+          {system !== "win32" && (
+            <Card css="is-selected">
+              <div className="container--grid">
+                <span data-col-sm="12" className="h2">
+                  Post Installation Status
+                </span>
+                <p className="lead">
+                  Please check that all your emulators has been installed. If an emulator or tool failed to install, run
+                  a<strong>Custom Reset</strong> or install the emulator using the <strong>Manage Emulators</strong>{" "}
+                  page.
+                </p>
+                {emusInstalledStatus !== undefined &&
+                  Object.values(emusInstalledStatus.Emulators).map((item) => {
+                    return (
+                      <div data-col-sm="4" className="h5">
+                        {item.Name} -
+                        {item.Installed === "true" && <Img src={iconSuccess} css="icon icon--xs" alt="OK" />}
+                        {item.Installed === "false" && <Img src={iconDanger} css="icon icon--xs" alt="OK" />}
+                      </div>
+                    );
+                  })}
+              </div>
+            </Card>
+          )}
+          {system === "win32" && (
+            <Card css="is-selected">
+              <div className="container--grid">
+                <div data-col-sm="7">
+                  <span className="h3">⚠️ Read before continuing ⚠️</span>
                   <p className="lead">
-                    Please check that all your emulators has been installed. If
-                    an emulator or tool failed to install, run a
-                    <strong>Custom Reset</strong> or install the emulator using
-                    the <strong>Manage Emulators</strong> page.
+                    EmuDeck is designed to work using
+                    <strong>Steam input</strong>, you need to launch the games using Steam after adding them with Steam
+                    Rom Manager, same thing with the Emulators, EmulationStation or Pegasus, otherwise the
+                    <strong>controls and hotkeys won't work</strong>.
+                    <br />
+                    Apps like DeckTools or Handheld Companion might break controls too in some cases.
+                    <br />
+                    Make sure your handheld is on GamePad mode at all times, not on Desktop or Auto.
+                    <br />
+                    <strong>
+                      If you want to use other Frontends like Playnite you will need to activate Steam Input on the
+                      Desktop as shown on the video and keep Steam open in the background at all times.
+                    </strong>
                   </p>
-                  {emusInstalledStatus !== undefined &&
-                    Object.values(emusInstalledStatus.Emulators).map((item) => {
-                      return (
-                        <div data-col-sm="4" className="h5">
-                          {item.Name} -
-                          {item.Installed === 'true' && (
-                            <Img
-                              src={iconSuccess}
-                              css="icon icon--xs"
-                              alt="OK"
-                            />
-                          )}
-                          {item.Installed === 'false' && (
-                            <Img
-                              src={iconDanger}
-                              css="icon icon--xs"
-                              alt="OK"
-                            />
-                          )}
-                        </div>
-                      );
-                    })}
                 </div>
-              </Card>
-            )}
-            {system === 'win32' && (
-              <Card css="is-selected">
-                <div className="container--grid">
-                  <div data-col-sm="7">
-                    <span className="h3">⚠️ Read before continuing ⚠️</span>
-                    <p className="lead">
-                      EmuDeck is designed to work using
-                      <strong>Steam input</strong>, you need to launch the games
-                      using Steam after adding them with Steam Rom Manager, same
-                      thing with the Emulators, EmulationStation or Pegasus,
-                      otherwise the
-                      <strong>controls and hotkeys won't work</strong>.
-                      <br />
-                      Apps like DeckTools or Handheld Companion might break
-                      controls too in some cases.
-                      <br />
-                      Make sure your handheld is on GamePad mode at all times,
-                      not on Desktop or Auto.
-                      <br />
-                      <strong>
-                        If you want to use other Frontends like Playnite you
-                        will need to activate Steam Input on the Desktop as
-                        shown on the video and keep Steam open in the background
-                        at all times.
-                      </strong>
-                    </p>
-                  </div>
-                  <div data-col-sm="5">
-                    <Iframe src="https://www.youtube-nocookie.com/embed/ra_B1axeFqU?autoplay=1&playlist=ra_B1axeFqU&loop=1&controls=0&mute=1&rel=0&modestbranding=1" />
-                  </div>
+                <div data-col-sm="5">
+                  <Iframe src="https://www.youtube-nocookie.com/embed/ra_B1axeFqU?autoplay=1&playlist=ra_B1axeFqU&loop=1&controls=0&mute=1&rel=0&modestbranding=1" />
                 </div>
-              </Card>
-            )}
-          </div>
-        )}
-      </Main>
+              </div>
+            </Card>
+          )}
+        </div>
+      )}
     </>
   );
 }
