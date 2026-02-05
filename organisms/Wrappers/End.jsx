@@ -49,7 +49,7 @@ function End({ message, percentage, step, disabledNext }) {
 
     let emuList = bashArray.join('" "');
 
-    emuList = emuList.replace(/(\r\n|\n|\r)/gm, "");
+    emuList = emuList.replace(/(\r\n|\n|\r)/gm, "").toLowerCase();
 
     ipcChannel.sendMessage("emudeck", [`get_emu_install_status|||get_emu_install_status "${emuList}"`]);
     ipcChannel.once("get_emu_install_status", (messageInstallStatus) => {
