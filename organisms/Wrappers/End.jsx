@@ -20,8 +20,7 @@ function End({ message, percentage, step, disabledNext }) {
 
   const { emusInstalledStatus } = statePage;
 
-  const checkInstallation = () => {
-    return;
+  const checkInstallationStatus = () => {
     const installEmusArray = Object.values(installEmus);
 
     const onlySelectedEmus = installEmusArray.filter((item) => item.status === true);
@@ -51,21 +50,31 @@ function End({ message, percentage, step, disabledNext }) {
 
     emuList = emuList.replace(/(\r\n|\n|\r)/gm, "").toLowerCase();
 
+    console.log(`get_emu_install_status "${emuList}"`);
+
     ipcChannel.sendMessage("emudeck", [`get_emu_install_status|||get_emu_install_status "${emuList}"`]);
     ipcChannel.once("get_emu_install_status", (messageInstallStatus) => {
+      console.log({ messageInstallStatus });
+      const response = JSON.parse(messageInstallStatus.stdout);
+      const emulators = JSON.parse(response.result);
       setStatePage({
         ...statePage,
-        emusInstalledStatus: JSON.parse(messageInstallStatus.stdout),
+        emusInstalledStatus: emulators,
       });
     });
   };
 
   // We check if everything installed
   useEffect(() => {
-    if (system !== "win32") {
-      checkInstallation();
+    console.log({ disabledNext });
+    if (disabledNext === false) {
+      checkInstallationStatus();
     }
   }, [disabledNext]);
+
+  useEffect(() => {
+    console.log({ emusInstalledStatus });
+  }, [emusInstalledStatus]);
 
   const showLog = () => {
     if (system === "win32") {
@@ -101,8 +110,8 @@ function End({ message, percentage, step, disabledNext }) {
                     return (
                       <div data-col-sm="4" className="h5">
                         {item.Name} -
-                        {item.Installed === "true" && <Img src={iconSuccess} css="icon icon--xs" alt="OK" />}
-                        {item.Installed === "false" && <Img src={iconDanger} css="icon icon--xs" alt="OK" />}
+                        {item.Installed == "true" && <Img src={iconSuccess} css="icon icon--xs" alt="OK" />}
+                        {item.Installed == "false" && <Img src={iconDanger} css="icon icon--xs" alt="OK" />}
                       </div>
                     );
                   })}
