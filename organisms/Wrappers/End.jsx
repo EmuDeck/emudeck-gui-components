@@ -109,9 +109,8 @@ function End({ message, percentage, step, disabledNext }) {
                   Object.values(emusInstalledStatus.Emulators).map((item) => {
                     return (
                       <div data-col-sm="4" className="h5">
-                        {item.Name} -
-                        {item.Installed == "true" && <Img src={iconSuccess} css="icon icon--xs" alt="OK" />}
-                        {item.Installed == "false" && <Img src={iconDanger} css="icon icon--xs" alt="OK" />}
+                        {item.Name} {item.Installed == true && <Img src={iconSuccess} css="icon icon--xs" alt="OK" />}
+                        {item.Installed == false && <Img src={iconDanger} css="icon icon--xs" alt="OK" />}
                       </div>
                     );
                   })}
