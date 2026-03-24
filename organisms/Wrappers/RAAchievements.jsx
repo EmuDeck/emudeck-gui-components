@@ -79,21 +79,29 @@ function RAAchievements({ onChange, onToggle }) {
   useEffect(() => {
     if (achievements.token !== '') {
       ipcChannel.sendMessage('emudeck', [
-        `retro_achievements_set_login|||retro_achievements_set_login`,
+        `retro_achievements|||retro_achievements`,
       ]);
-      ipcChannel.once('retro_achievements_set_login', (message) => {
+      ipcChannel.once('retro_achievements', (message) => {
         let modalData;
         console.log(message.stdout.includes('true'));
         if (message.stdout.includes('true')) {
-          if (achievements.hardcore) {
-            ipcChannel.sendMessage('emudeck', [
-              `setHardcore|||retro_achievements_set_hardcore_on`,
-            ]);
-          } else {
-            ipcChannel.sendMessage('emudeck', [
-              `setHardcore|||retro_achievements_set_hardcore_off`,
-            ]);
-          }
+          // if (achievements.hardcore) {
+          //   ipcChannel.sendMessage('emudeck', [
+          //     `setHardcore|||retro_achievements_set_hardcore_on`,
+          //   ]);
+          // } else {
+          //   ipcChannel.sendMessage('emudeck', [
+          //     `setHardcore|||retro_achievements_set_hardcore_off`,
+          //   ]);
+          // }
+          modalData = {
+            active: true,
+            header: (
+              <span className="h4">{t('RAAchievements.modalErrorTitle')}</span>
+            ),
+            body: <p>{t('RAAchievements.modalErrorDesc')}</p>,
+            css: 'emumodal--xs',
+          };
         } else {
           modalData = {
             active: true,
