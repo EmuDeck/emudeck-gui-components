@@ -97,9 +97,11 @@ function RAAchievements({ onChange, onToggle }) {
           modalData = {
             active: true,
             header: (
-              <span className="h4">{t('RAAchievements.modalErrorTitle')}</span>
+              <span className="h4">
+                {t('RAAchievements.modalSuccessTitle')}
+              </span>
             ),
-            body: <p>{t('RAAchievements.modalErrorDesc')}</p>,
+            body: <p>{t('RAAchievements.modalSuccessDesc')}</p>,
             css: 'emumodal--xs',
           };
         } else {
