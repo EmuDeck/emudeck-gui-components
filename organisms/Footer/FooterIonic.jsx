@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { BtnSimple } from 'getbasecore/Atoms';
 
@@ -17,9 +17,9 @@ const FooterIonic = ({
   thirdText,
   exit,
 }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const goTo = (href) => {
-    history.push(`/${href}`);
+    navigate(`/${href}`);
   };
 
   const CloseApp = () => {
@@ -63,7 +63,7 @@ const FooterIonic = ({
         <BtnSimple
           css="btn-simple--2"
           type="button"
-          onClick={back ? () => goTo(back) : () => history.goBack()}
+          onClick={back ? () => goTo(back) : () => navigate(-1)}
           aria="Go Back"
           disabled={disabledBack && true}
         >
