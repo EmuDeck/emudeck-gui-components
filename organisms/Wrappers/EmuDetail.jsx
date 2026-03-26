@@ -49,19 +49,13 @@ function EmuDetail(props) {
     onClickInstall,
     onClickUninstall,
     onClickReInstall,
-    onClickMigrate,
-    onClickCustomParser,
-    onClickOptionalParser,
     emuData,
     installEmus,
     disableResetButton,
     hideInstallButton,
     updateAvailable,
-    yuzuEAaskToken,
     onClickHotkeys,
     onClickControls,
-    onClickParsers,
-    onClickRemoveParsers,
   } = props;
   const [stateImg, setStateImg] = useState({
     img: imgdefault,
@@ -406,51 +400,6 @@ function EmuDetail(props) {
                     Uninstall
                   </BtnSimple>
                 )}
-              {emuData.id === 'srm' && (
-                <>
-                  <BtnSimple
-                    css="btn-simple--2"
-                    type="button"
-                    aria="Go Back"
-                    onClick={() => {
-                      onClickRemoveParsers();
-                    }}
-                  >
-                    Remove Cache
-                  </BtnSimple>
-                  {/*
-                  <BtnSimple
-                    css="btn-simple--2"
-                    type="button"
-                    aria="Go Back"
-                    onClick={() => {
-                      onClickParsers();
-                    }}
-                  >
-                    Standalone Parsers
-                  </BtnSimple>
-                   <BtnSimple
-                    css="btn-simple--2"
-                    type="button"
-                    aria="Go Back"
-                    onClick={() => {
-                      onClickOptionalParser();
-                    }}
-                  >
-                    Add optional parsers
-                  </BtnSimple>
-                  <BtnSimple
-                    css="btn-simple--2"
-                    type="button"
-                    aria="Go Back"
-                    onClick={() => {
-                      onClickCustomParser();
-                    }}
-                  >
-                    Open custom parsers
-                  </BtnSimple> */}
-                </>
-              )}
             </div>
 
             <div className="emudetail__actions">
@@ -605,7 +554,6 @@ EmuDetail.propTypes = {
   disableResetButton: PropTypes.bool,
   hideInstallButton: PropTypes.bool,
   updateAvailable: PropTypes.bool,
-  yuzuEAaskToken: PropTypes.func,
 };
 
 export default EmuDetail;
