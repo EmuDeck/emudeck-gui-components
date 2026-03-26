@@ -85,6 +85,8 @@ import raLogo from 'assets/RetroAchievements.png';
 import steamUI from 'assets/steamUI.png';
 import winDesktop from 'assets/winDesktop.png';
 import imgDeck from 'assets/devices/deck.png';
+import imgSteamMachine from 'assets/devices/steamMachine.png';
+import imgPlaynixConsole from 'assets/devices/playnixConsole.png';
 import imgWin600 from 'assets/devices/win600.png';
 import imgally from 'assets/devices/ally.png';
 import imgayaneokun from 'assets/devices/ayaneokun.png';
@@ -224,6 +226,8 @@ export {
   steamUI,
   winDesktop,
   imgDeck,
+  imgSteamMachine,
+  imgPlaynixConsole,
   imgWin600,
   imgally,
   imgaokzoepro,
