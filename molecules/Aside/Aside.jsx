@@ -409,8 +409,8 @@ function Aside({ css }) {
         system === "win32"
           ? false
           : branch === "dev" || branch.includes("early") || branch.includes("beta")
-          ? true
-          : false,
+            ? false
+            : false,
       function: () => functions.navigate("/decky-rom-launcher"),
     },
 
