@@ -17,6 +17,14 @@ function HeaderElectron({ title, bold }) {
   const { debug, version, branch, command, second } = state;
   const ipcChannel = window.electron.ipcRenderer;
 
+  window.addEventListener('error', (e) => {
+    alert(`Error: ${e.message}\n\n${e.error?.stack ?? ''}`);
+  });
+
+  window.addEventListener('unhandledrejection', (e) => {
+    alert(`Unhandled rejection: ${e.reason?.message ?? e.reason}`);
+  });
+
   //Prevent users closing the app before finishing the installation
   //   useEffect(() => {
   //     const handleBeforeUnload = (event) => {
