@@ -119,9 +119,6 @@ function RAAchievements({ onChange, onToggle }) {
     }
   }, [achievements]);
 
-  useEffect(() => {
-    ipcChannel.sendMessage('saveSettings', [JSON.stringify(state)]);
-  }, [token]);
 
   return (
     <>
