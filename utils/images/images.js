@@ -72,7 +72,6 @@ import sftp from 'assets/cloud/sftp.png';
 import smb from 'assets/cloud/smb.png';
 import imgESDE from 'assets/ESDE.jpg';
 import imgSTEAM from 'assets/STEAMGAMES.png';
-import imgDeckyRomLauncher from 'assets/deckyromlauncher.jpg';
 import imgExternal from 'assets/external.png';
 import imgUSBDeck from 'assets/usb-in-deck.png';
 import emuDeckyImg from 'assets/emuDecky.png';
@@ -213,7 +212,6 @@ export {
   smb,
   imgESDE,
   imgSTEAM,
-  imgDeckyRomLauncher,
   imgExternal,
   imgUSBDeck,
   emuDeckyImg,
