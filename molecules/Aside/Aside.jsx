@@ -434,25 +434,6 @@ function Aside({ css }) {
       status: !(system === 'win32'),
       function: () => functions.navigate('/decky-controls'),
     },
-
-    {
-      icon: [iconPlugin],
-      iconFlat: 'plugin',
-      title: 'Retro Library',
-      description: 'Plugin to easily add a Retro Library',
-      button: 'More info',
-      btnCSS: 'btn-simple--5',
-      status:
-        system === 'win32'
-          ? false
-          : branch === 'dev' ||
-            branch.includes('early') ||
-            branch.includes('beta')
-          ? true
-          : false,
-      function: () => functions.navigate('/decky-rom-launcher'),
-    },
-
     {
       status: system === 'win32' || system === 'darwin' ? false : 'separator',
       title: t('aside.thirdParty'),
