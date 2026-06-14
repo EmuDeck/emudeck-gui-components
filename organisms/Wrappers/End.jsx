@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
+import Video from 'components/atoms/Video/Video';
 import Card from 'components/molecules/Card/Card';
 import Header from 'components/organisms/Header/Header';
 import Main from 'components/organisms/Main/Main';
@@ -158,7 +159,7 @@ function End({ message, percentage, step, disabledNext }) {
                     </p>
                   </div>
                   <div data-col-sm="5">
-                    <Iframe src="https://www.youtube-nocookie.com/embed/ra_B1axeFqU?autoplay=1&playlist=ra_B1axeFqU&loop=1&controls=0&mute=1&rel=0&modestbranding=1" />
+                    <Video src="https://f005.backblazeb2.com/file/emudeck-assets/videos/ra_B1axeFqU-SteamControllerConfig.mp4" />
                   </div>
                 </div>
               </Card>

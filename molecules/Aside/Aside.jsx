@@ -256,17 +256,6 @@ function Aside({ css }) {
       function: () => openWiki(),
     },
     {
-      icon: [iconAndroid],
-      iconFlat: 'android',
-      title: 'Android',
-      description: t('aside.android'),
-      button: 'Configure',
-      btnCSS: 'btn-simple--1',
-      status: branch.includes('early') || branch === 'dev',
-      function: () => functions.navigate('/android-welcome'),
-    },
-
-    {
       icon: [iconGear],
       iconFlat: 'gear',
       title: t('aside.quickSettings'),
@@ -456,7 +445,9 @@ function Aside({ css }) {
       status:
         system === 'win32'
           ? false
-          : branch === 'dev' || branch.includes('early') || branch.includes('beta')
+          : branch === 'dev' ||
+            branch.includes('early') ||
+            branch.includes('beta')
           ? true
           : false,
       function: () => functions.navigate('/decky-rom-launcher'),
