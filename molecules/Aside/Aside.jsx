@@ -507,7 +507,7 @@ function Aside({ css }) {
     {
       icon: [iconPrize],
       iconFlat: 'prize',
-      title: 'Token',
+      title: 'Reset Token',
       description: 'Switch token',
       button: 'Change Token',
       btnCSS: 'btn-simple--5',
