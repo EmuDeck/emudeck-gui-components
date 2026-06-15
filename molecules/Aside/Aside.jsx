@@ -200,6 +200,13 @@ function Aside({ css }) {
       ]);
     }
   };
+
+  const resetToken = () => {
+    setState({ ...state, patreonToken: undefined });
+    localStorage.setItem('patreon_token', undefined);
+    window.location.reload();
+  };
+
   useEffect(() => {
     ipcChannel.sendMessage('check-versions');
     ipcChannel.once('check-versions', (repoVersions) => {
@@ -242,6 +249,7 @@ function Aside({ css }) {
     navigate,
     openWiki,
     uninstall,
+    resetToken,
   };
 
   const settingsCards = [
@@ -493,8 +501,18 @@ function Aside({ css }) {
         'Support EmuDeck on Patreon and get early access to our latest features',
       button: 'Donate',
       btnCSS: 'btn-simple--5',
-      status: true,
+      status: branch.includes('main') ? true : false,
       function: () => functions.navigate('/early-access'),
+    },
+    {
+      icon: [iconPrize],
+      iconFlat: 'prize',
+      title: 'Token',
+      description: 'Switch token',
+      button: 'Change Token',
+      btnCSS: 'btn-simple--5',
+      status: branch.includes('early') || branch.includes('dev') ? true : false,
+      function: () => functions.resetToken(),
     },
     {
       icon: [iconDoc],
