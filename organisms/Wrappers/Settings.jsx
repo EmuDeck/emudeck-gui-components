@@ -27,6 +27,8 @@ import {
   lcdoffH,
   saveon,
   saveoff,
+  mapon,
+  mapoff,
   none,
   sync,
   steamUI,
@@ -45,6 +47,7 @@ function Settings({
   onClickCRT3D,
   onClickLCD,
   onClickAutoSave,
+  onClickAutoMap,
   onClickBoot,
   onClickCloudSync,
   notificationText,
@@ -58,6 +61,7 @@ function Settings({
     bezels,
     shaders,
     autosave,
+    automap,
     system,
     cloudSyncStatus,
     gamemode,
@@ -72,6 +76,37 @@ function Settings({
       </Notification>
       <Main>
         <ul className="list-grid">
+          {system !== 'win32' && (
+            <li>
+              <SelectorMenu
+                toggle
+                title="AutoMap Controllers"
+                css="selector-menu--mini"
+                imgs={[
+                  [mapoff, automap === true ? 'is-hidden' : ''],
+                  [mapon, automap === false ? 'is-hidden' : ''],
+                ]}
+                enabled={automap === false ? false : true}
+                options={[
+                  [
+                    () => onClickAutoMap(false),
+                    automap === false ? 'is-selected' : '',
+                    'Off',
+                    '',
+                    true,
+                  ],
+                  [
+                    () => onClickAutoMap(true),
+                    automap === true ? 'is-selected' : '',
+                    'On',
+                    '',
+                    true,
+                  ],
+                ]}
+              />
+            </li>
+          )}
+
           <li>
             <SelectorMenu
               toggle

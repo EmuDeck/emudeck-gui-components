@@ -51,6 +51,8 @@ import lcdonH from 'assets/lcdon.png';
 import lcdoffH from 'assets/lcdoff.png';
 import saveon from 'assets/saveon.png';
 import saveoff from 'assets/saveoff.png';
+import mapon from 'assets/mapon.png';
+import mapoff from 'assets/mapoff.png';
 import noir1 from 'assets/esdethemes/es-de_epicnoir_01.png';
 import noir2 from 'assets/esdethemes/es-de_epicnoir_02.png';
 import modern1 from 'assets/esdethemes/es-de_modern_01.png';
@@ -191,6 +193,8 @@ export {
   lcdoffH,
   saveon,
   saveoff,
+  mapon,
+  mapoff,
   noir1,
   noir2,
   modern1,
