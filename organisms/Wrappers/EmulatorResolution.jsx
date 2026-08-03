@@ -131,6 +131,121 @@ function EmulatorResolution({ onClick }) {
                 <hr />
               </>
             )}
+            {overwriteConfigEmus.ppsspp.status && (
+              <>
+                <div className="duckstation" style={{ display: 'flex' }}>
+                  <span className="h5" style={{ flexBasis: '40%' }}>
+                    PSP
+                    <br /> <small>PPSSPP</small>
+                  </span>
+
+                  <div className="cards cards--mini" style={{ flex: 1 }}>
+                    <Card
+                      css={resolutions.ppsspp === '720P' ? 'is-selected' : ''}
+                      onClick={() => onClick('ppsspp', '720P')}
+                    >
+                      <strong>720P</strong>
+                    </Card>
+                    <Card
+                      css={resolutions.ppsspp === '1080P' ? 'is-selected' : ''}
+                      onClick={() => onClick('ppsspp', '1080P')}
+                    >
+                      <strong>1080P</strong>
+                    </Card>
+                    <Card
+                      css={resolutions.ppsspp === '1440P' ? 'is-selected' : ''}
+                      onClick={() => onClick('ppsspp', '1440P')}
+                    >
+                      <strong>1440P</strong>
+                    </Card>
+                    <Card
+                      css={resolutions.ppsspp === '4K' ? 'is-selected' : ''}
+                      onClick={() => onClick('ppsspp', '4K')}
+                    >
+                      <strong>4K</strong>
+                    </Card>
+                  </div>
+                </div>
+                <hr />
+              </>
+            )}
+            {overwriteConfigEmus.vita3k.status && (
+              <>
+                <div className="vita3k" style={{ display: 'flex' }}>
+                  <span className="h5" style={{ flexBasis: '40%' }}>
+                    PS Vita
+                    <br /> <small>Vita3k</small>
+                  </span>
+
+                  <div className="cards cards--mini" style={{ flex: 1 }}>
+                    <Card
+                      css={resolutions.vita3k === '720P' ? 'is-selected' : ''}
+                      onClick={() => onClick('vita3k', '720P')}
+                    >
+                      <strong>720P</strong>
+                    </Card>
+                    <Card
+                      css={resolutions.vita3k === '1080P' ? 'is-selected' : ''}
+                      onClick={() => onClick('vita3k', '1080P')}
+                    >
+                      <strong>1080P</strong>
+                    </Card>
+                    <Card
+                      css={resolutions.vita3k === '1440P' ? 'is-selected' : ''}
+                      onClick={() => onClick('vita3k', '1440P')}
+                    >
+                      <strong>1440P</strong>
+                    </Card>
+                    <Card
+                      css={resolutions.vita3k === '4K' ? 'is-selected' : ''}
+                      onClick={() => onClick('vita3k', '4K')}
+                    >
+                      <strong>4K</strong>
+                    </Card>
+                  </div>
+                </div>
+                <hr />
+              </>
+            )}
+            {overwriteConfigEmus.xemu.status && (
+              <>
+                <div className="xemu" style={{ display: 'flex' }}>
+                  <span className="h5" style={{ flexBasis: '40%' }}>
+                    Xbox
+                    <br /> <small>Xemu</small>
+                  </span>
+
+                  <div className="cards cards--mini" style={{ flex: 1 }}>
+                    <Card
+                      css={resolutions.xemu === '720P' ? 'is-selected' : ''}
+                      onClick={() => onClick('xemu', '720P')}
+                    >
+                      <strong>720P</strong>
+                    </Card>
+                    <Card
+                      css={resolutions.xemu === '1080P' ? 'is-selected' : ''}
+                      onClick={() => onClick('xemu', '1080P')}
+                    >
+                      <strong>1080P</strong>
+                    </Card>
+                    <Card
+                      css={resolutions.xemu === '1440P' ? 'is-selected' : ''}
+                      onClick={() => onClick('xemu', '1440P')}
+                    >
+                      <strong>1440P</strong>
+                    </Card>
+                    <Card
+                      css={resolutions.xemu === '4K' ? 'is-selected' : ''}
+                      onClick={() => onClick('xemu', '4K')}
+                    >
+                      <strong>4K</strong>
+                    </Card>
+                  </div>
+                </div>
+                <hr />
+              </>
+            )}
+
             {overwriteConfigEmus.ryujinx.status && (
               <>
                 <div className="yuzu" style={{ display: 'flex' }}>
@@ -175,7 +290,7 @@ function EmulatorResolution({ onClick }) {
                 <div className="dolphin" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
                     GameCube & Wii
-                    <br /> <small>Dolphin</small>
+                    <br /> <small>Dolphin / PrimeHack</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
                     <Card
@@ -208,34 +323,35 @@ function EmulatorResolution({ onClick }) {
                 <hr />
               </>
             )}
-            {overwriteConfigEmus.cemu.status && (
+            {overwriteConfigEmus.flycast.status && (
               <>
-                <div className="cemu" style={{ display: 'flex' }}>
+                <div className="flycast" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    Wii U<br /> <small>Cemu</small>
+                    Dreamcast
+                    <br /> <small>Flycast</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
                     <Card
-                      css={resolutions.cemu === '720P' ? 'is-selected' : ''}
-                      onClick={() => onClick('cemu', '720P')}
+                      css={resolutions.flycast === '720P' ? 'is-selected' : ''}
+                      onClick={() => onClick('flycast', '720P')}
                     >
                       <strong>720P</strong>
                     </Card>
                     <Card
-                      css={resolutions.cemu === '1080P' ? 'is-selected' : ''}
-                      onClick={() => onClick('cemu', '1080P')}
+                      css={resolutions.flycast === '1080P' ? 'is-selected' : ''}
+                      onClick={() => onClick('flycast', '1080P')}
                     >
                       <strong>1080P</strong>
                     </Card>
                     <Card
-                      css={resolutions.cemu === '1440P' ? 'is-selected' : ''}
-                      onClick={() => onClick('cemu', '1440P')}
+                      css={resolutions.flycast === '1440P' ? 'is-selected' : ''}
+                      onClick={() => onClick('flycast', '1440P')}
                     >
                       <strong>1440P</strong>
                     </Card>
                     <Card
-                      css={resolutions.cemu === '4K' ? 'is-selected' : ''}
-                      onClick={() => onClick('cemu', '4K')}
+                      css={resolutions.flycast === '4K' ? 'is-selected' : ''}
+                      onClick={() => onClick('flycast', '4K')}
                     >
                       <strong>4K</strong>
                     </Card>
@@ -324,6 +440,10 @@ function EmulatorResolution({ onClick }) {
 
 EmulatorResolution.propTypes = {
   onClick: PropTypes.func,
+};
+
+EmulatorResolution.defaultProps = {
+  onClick: '',
 };
 
 export default EmulatorResolution;
