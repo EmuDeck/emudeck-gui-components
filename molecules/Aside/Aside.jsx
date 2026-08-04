@@ -501,7 +501,7 @@ function Aside({ css }) {
         'Support EmuDeck on Patreon and get early access to our latest features',
       button: 'Donate',
       btnCSS: 'btn-simple--5',
-      status: branch.includes('main') ? true : false,
+      status: branch.includes('early') ? false : true,
       function: () => functions.navigate('/early-access'),
     },
     {
