@@ -363,7 +363,16 @@ function Aside({ css }) {
       status: 'separator',
       title: t('aside.exclusiveTools'),
     },
-
+    {
+      icon: [iconScreen],
+      iconFlat: 'gamepad',
+      title: t('aside.autoMap'),
+      description: 'Map ypur controllers',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system !== 'darwin',
+      function: () => functions.navigate('/automap-configuration'),
+    },
     {
       icon: [iconCompress],
       iconFlat: 'compress',
