@@ -137,6 +137,7 @@ import bigpemuGrid from 'assets/emulators/grid/bigpemu.png';
 import bayx from 'assets/bayx.jpg';
 import abxy from 'assets/abxy.jpg';
 import imgnethersx2 from 'assets/emulators/nethersx2.png';
+import automapon from 'assets/automap.png';
 
 export {
   imgdefault,
@@ -275,4 +276,5 @@ export {
   bayx,
   abxy,
   imgnethersx2,
+  automapon,
 };

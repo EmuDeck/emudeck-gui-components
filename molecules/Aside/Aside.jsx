@@ -94,6 +94,108 @@ function Aside({ css }) {
       );
     }
   };
+  const makePortable = () => {
+    ipcChannel.sendMessage('emudeck', [`makePortable|||makePortable`]);
+    ipcChannel.once('makePortable', (message) => {
+      console.log({ message });
+      let modalData;
+      if (message.error) {
+        modalData = {
+          active: true,
+          header: <span className="h4">Error</span>,
+          body: (
+            <>
+              <p>Conversion failed, please try again.</p>
+              <p>{message.error.message}</p>
+            </>
+          ),
+          css: 'emumodal--sm',
+        };
+      } else {
+        modalData = {
+          active: true,
+          header: <span className="h4">Success</span>,
+          body: (
+            <>
+              <p>Now your SD card is portable!</p>
+              <p>
+                In order to use your EmuDeck installation in different devices
+                you now need to put your current SD Card in the new device and
+                reinstall EmuDeck on it.
+              </p>
+              <p>
+                <strong>
+                  Don't worry, this won't delete anything on the SD Card
+                </strong>
+              </p>
+              <p>
+                Keep in mind that Steam Rom Manager entries doesn't transfer
+                over, you need to add them manually on the new device.
+              </p>
+            </>
+          ),
+          css: 'emumodal--sm',
+        };
+      }
+
+      setStatePage({ ...statePage, modal: modalData });
+    });
+  };
+  const closeModal = () => {
+    setStatePage({
+      ...statePage,
+      modal: {
+        active: false,
+      },
+    });
+  };
+  const showPortableModal = () => {
+    let modalData = {
+      active: true,
+      header: <span className="h4">Portable SD Card</span>,
+      body: (
+        <>
+          <p>
+            This feature will make your SD Card portable in case you installed
+            EmuDeck before version 2.7, meaning that you'll be able to use the
+            same SD card among several EmuDeck installations on different Linux
+            / SteamOS devices ( not compatible with Windows devices ).
+          </p>
+          <p>
+            Press the Start button to start the process, this will move all your
+            saved games to your SD Card and configure your emulators with the
+            new paths.
+          </p>
+          <p>
+            If you are using Syncthing you'll need to manually update your
+            paths.
+          </p>
+          <button
+            type="button"
+            aria-label="Next"
+            class="btn-simple btn-simple--1"
+            onClick={makePortable}
+            style={{ marginBottom: 0 }}
+          >
+            Start
+          </button>
+          <button
+            type="button"
+            aria-label="Next"
+            class="btn-simple btn-simple--2"
+            style="margin-bottom:0"
+            onClick={closeModal}
+            style={{ marginBottom: 0 }}
+          >
+            Cancel
+          </button>
+        </>
+      ),
+      footer: <></>,
+      css: 'emumodal--sm',
+    };
+    setStatePage({ ...statePage, modal: modalData });
+  };
 
   const openSRM = () => {
     let modalData = {
@@ -250,6 +352,7 @@ function Aside({ css }) {
     openWiki,
     uninstall,
     resetToken,
+    showPortableModal,
   };
 
   const settingsCards = [
@@ -343,6 +446,16 @@ function Aside({ css }) {
     },
     {
       icon: [iconScreen],
+      iconFlat: 'migrate',
+      title: t('aside.portable'),
+      description: 'Make your SD installation portable',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: state.storage === 'SD-Cardd',
+      function: () => functions.showPortableModal(),
+    },
+    {
+      icon: [iconScreen],
       iconFlat: 'screen',
       title: t('aside.screenResolution'),
       description: 'Upscale your emulators resolution',
@@ -367,7 +480,16 @@ function Aside({ css }) {
       status: 'separator',
       title: t('aside.exclusiveTools'),
     },
-
+    {
+      icon: [iconScreen],
+      iconFlat: 'gamepad',
+      title: t('aside.autoMap'),
+      description: 'Map ypur controllers',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system !== 'darwin',
+      function: () => functions.navigate('/automap-configuration'),
+    },
     {
       icon: [iconCompress],
       iconFlat: 'compress',
