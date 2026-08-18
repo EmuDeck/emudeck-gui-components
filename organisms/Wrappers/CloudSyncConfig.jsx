@@ -30,7 +30,10 @@ function CloudSyncConfig({
   const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { cloudSync, cloudSyncType, branch } = state;
-
+  const patreonToken = localStorage.getItem('patreon_token');
+  const openCloud = () => {
+    window.open(`https://cloud.emudeck.com?token=${patreonToken}`, '_blank');
+  };
   return (
     <Main>
       <p>
@@ -40,8 +43,7 @@ function CloudSyncConfig({
         {(branch.includes('early') || branch.includes('dev')) && (
           <Card
             css={
-              (cloudSync === 'Emudeck-cloud' && 'is-selected') ||
-              (cloudSync === 'Emudeck-cloud2' && 'is-selected')
+              cloudSync && cloudSync.includes('Emudeck-cloud') && 'is-selected'
             }
             onClick={() => onClick('Emudeck-cloud-selector')}
           >
@@ -348,6 +350,24 @@ function CloudSyncConfig({
           </BtnSimple>
         </>
       )}
+      {showLoginButton === false &&
+        cloudSyncType === 'Sync' &&
+        cloudSync &&
+        cloudSync.includes('Emudeck-cloud') && (
+          <>
+            <BtnSimple
+              css="btn-simple--1"
+              type="button"
+              aria="Manage Files"
+              onClick={() => openCloud()}
+              disabled={disableButton}
+            >
+              {disableButton && 'Please wait...'}
+
+              {disableButton || `Manage Files`}
+            </BtnSimple>
+          </>
+        )}
     </Main>
   );
 }
