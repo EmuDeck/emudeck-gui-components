@@ -93,13 +93,13 @@ function CheckBios({
                 </Alert>
               </div>
               <div>
-                <Alert css={`alert--mini ${biosCSS(switchBios)}`}>
-                  {biosText(switchBios).includes('missing') ? (
+                <Alert css={`alert--mini ${biosCSS(edenBios)}`}>
+                  {biosText(edenBios).includes('missing') ? (
                     <Img src={iconDanger} css="icon icon--xs" alt="OK" />
                   ) : (
                     <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                  )}{' '}
-                  Eden Firmware {biosText(switchBios)}
+                  )}
+                  {ryujinxBios} Eden Firmware {biosText(edenBios)}
                 </Alert>
               </div>
               {installEmus.ryujinx.status && (
@@ -212,6 +212,17 @@ CheckBios.propTypes = {
   dreamcastBios: PropTypes.string,
   DSBios: PropTypes.string,
   checkBiosAgain: PropTypes.func,
+};
+
+CheckBios.defaultProps = {
+  ps1Bios: '',
+  ps2Bios: '',
+  switchBios: '',
+  segaCDBios: '',
+  saturnBios: '',
+  dreamcastBios: '',
+  DSBios: '',
+  checkBiosAgain: '',
 };
 
 export default CheckBios;
