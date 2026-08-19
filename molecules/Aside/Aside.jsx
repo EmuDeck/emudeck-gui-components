@@ -487,7 +487,7 @@ function Aside({ css }) {
       description: 'Import / Export your installation',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: system !== 'win32',
+      status: true,
       function: () => functions.navigate('/import-export'),
     },
     {
