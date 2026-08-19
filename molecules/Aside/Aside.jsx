@@ -173,7 +173,7 @@ function Aside({ css }) {
           <button
             type="button"
             aria-label="Next"
-            class="btn-simple btn-simple--1"
+            className="btn-simple btn-simple--1"
             onClick={makePortable}
             style={{ marginBottom: 0 }}
           >
@@ -182,7 +182,7 @@ function Aside({ css }) {
           <button
             type="button"
             aria-label="Next"
-            class="btn-simple btn-simple--2"
+            className="btn-simple btn-simple--2"
             style="margin-bottom:0"
             onClick={closeModal}
             style={{ marginBottom: 0 }}
@@ -482,12 +482,22 @@ function Aside({ css }) {
     },
     {
       icon: [iconScreen],
+      iconFlat: 'disk',
+      title: t('aside.importExport'),
+      description: 'Import / Export your installation',
+      button: 'More info',
+      btnCSS: 'btn-simple--5',
+      status: system !== 'win32',
+      function: () => functions.navigate('/import-export'),
+    },
+    {
+      icon: [iconScreen],
       iconFlat: 'gamepad',
       title: t('aside.autoMap'),
       description: 'Map ypur controllers',
       button: 'More info',
       btnCSS: 'btn-simple--5',
-      status: system !== 'darwin',
+      status: system !== 'win32',
       function: () => functions.navigate('/automap-configuration'),
     },
     {

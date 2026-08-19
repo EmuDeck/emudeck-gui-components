@@ -25,8 +25,8 @@ const ProgressBar = ({ css, value, max, infinite }) => {
   return (
     <>
       {infinite && (
-        <div class="progress-bar">
-          <div class="progress-bar-value"></div>
+        <div className="progress-bar">
+          <div className="progress-bar-value"></div>
         </div>
       )}
       {!infinite && (
