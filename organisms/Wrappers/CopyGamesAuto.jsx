@@ -27,20 +27,14 @@ function CopyGamesAuto({
   return (
     <>
       {statusCopyGames !== true && (
-        <p className="lead">
-          Plug a USB Drive into the Steam Deck USB C port, using a hub or
-          adapter. EmuDeck will create a ROMs and BIOS folder, allowing you to
-          copy your ROMs and BIOS to your USB Drive on another device. When you
-          are ready, return to this page, and EmuDeck will transfer your newly
-          copied files to your Steam Deck.
-        </p>
+        <p className="lead">{t('CopyGamesPage.usb.intro')}</p>
       )}
       <Main>
         <div className="container--grid">
           {statusCopyGames !== true && (
             <>
               <div data-col-sm="4">
-                <span className="h4">Select your USB Drive</span>
+                <span className="h4">{t('CopyGamesPage.usb.select')}</span>
                 <div className="cards">
                   <Card
                     css={
@@ -50,7 +44,7 @@ function CopyGamesAuto({
                     onClick={() => onClick('Custom')}
                   >
                     <img src={imgExternal} width="100" alt="Background" />
-                    <span className="h6">USB Drive</span>
+                    <span className="h6">{t('CopyGamesPage.usb.drive')}</span>
                     {storageUSBPath && storageUSB === 'Custom' && (
                       <span className="h6">{storagePathDestination}</span>
                     )}
@@ -64,12 +58,12 @@ function CopyGamesAuto({
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
-                      aria="Start CopyGames"
+                      aria={t('aria.startCopyGames')}
                       onClick={() => onClickStart()}
                     >
-                      Step 1: Prepare USB drive
+                      {t('CopyGamesPage.usb.step1')}
                       <br />
-                      <em>(we won't delete anything)</em>
+                      <em>{t('CopyGamesPage.usb.step1Note')}</em>
                     </BtnSimple>
                   )}
                 {statusCopyGames === null &&
@@ -78,9 +72,9 @@ function CopyGamesAuto({
                     <BtnSimple
                       css="btn-simple--1"
                       type="button"
-                      aria="Waiting CopyGames"
+                      aria={t('aria.waitingCopyGames')}
                     >
-                      Creating EmuDeck folders...
+                      {t('CopyGamesPage.usb.creatingFolders')}
                     </BtnSimple>
                   )}
 
@@ -88,12 +82,12 @@ function CopyGamesAuto({
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
-                    aria="Waiting CopyGames"
+                    aria={t('aria.waitingCopyGames')}
                     onClick={() => onClickCopyGames()}
                   >
-                    Step 2: Transfer your ROMs & BIOS from the USB
+                    {t('CopyGamesPage.usb.step2')}
                     <br />
-                    <em>(Make sure you already copied them in the USB)</em>
+                    <em>{t('CopyGamesPage.usb.step2Note')}</em>
                   </BtnSimple>
                 )}
 
@@ -101,16 +95,16 @@ function CopyGamesAuto({
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
-                    aria="Waiting CopyGames"
+                    aria={t('aria.waitingCopyGames')}
                     disabled
                   >
-                    Copying games...
+                    {t('CopyGamesPage.usb.copying')}
                   </BtnSimple>
                 )}
               </div>
               <div data-col-sm="2" />
               <div data-col-sm="6">
-                <img src={imgUSBDeck} alt="Insert USB" />
+                <img src={imgUSBDeck} alt={t('CopyGamesPage.usb.insertUsb')} />
               </div>
             </>
           )}

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { BtnSimple } from 'getbasecore/Atoms';
@@ -11,6 +12,7 @@ function EmuModal({
   modalFooterValue,
   modalCSSValue,
 }) {
+  const { t } = useTranslation();
   const [stateModal, setStateModal] = useState({
     modalActive: undefined,
     modalHeader: undefined,
@@ -57,10 +59,10 @@ function EmuModal({
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              aria="Next"
+              aria={t('general.next')}
               onClick={() => closeModal()}
             >
-              Close
+              {t('general.close')}
             </BtnSimple>
           )}
           {modalFooter || modalFooterValue}

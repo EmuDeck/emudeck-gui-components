@@ -29,14 +29,14 @@ function AspectRatioSNES({ onClick }) {
               () => onClick(43),
               ar.snes === 43 ? 'is-selected' : '',
               '4:3',
-              ' Default Original',
+              t('aspectRatio.defaultOriginal'),
               true,
             ],
             [
               () => onClick(87),
               ar.snes === 87 ? 'is-selected' : '',
               '8:7',
-              'The real SNES Resolution',
+              t('aspectRatio.snesReal'),
               true,
             ],
           ]}

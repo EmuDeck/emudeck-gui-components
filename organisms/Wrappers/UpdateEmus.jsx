@@ -14,7 +14,7 @@ function UpdateEmus({ onClickFlatpak, onClickAppImage, disabledNext }) {
         <BtnSimple
           css="btn-simple--1"
           type="button"
-          aria="Update Emulators from the Discover Store"
+          aria={t('aria.updateFromDiscover')}
           onClick={() => onClickFlatpak()}
           disabled={disabledNext && 'true'}
         >
@@ -23,7 +23,7 @@ function UpdateEmus({ onClickFlatpak, onClickAppImage, disabledNext }) {
         <BtnSimple
           css="btn-simple--1"
           type="button"
-          aria="Update AppImages, Binaries, and Windows Executables"
+          aria={t('aria.updateAppImages')}
           onClick={() => onClickAppImage()}
           disabled={disabledNext && 'true'}
         >

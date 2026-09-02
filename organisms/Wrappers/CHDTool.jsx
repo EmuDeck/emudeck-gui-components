@@ -13,55 +13,51 @@ function CHDTool({ disabledNext, onClick }) {
       <Main>
         <div className="container--grid">
           <div data-col-sm="6">
-            <strong>CSO format</strong>
+            <strong>{t('CHDToolPage.cso.title')}</strong>
             <br />
-            Used to compress PlayStation Portable ROMs. When compressing
-            PlayStation Portable ROMs, you will be prompted to select if you
-            would like to compress your ROMs to CSO or CHD. <br />
+            {t('CHDToolPage.cso.description')} <br />
             <br />
             <hr />
           </div>
 
           <div data-col-sm="6">
-            <strong>CHD format</strong>
+            <strong>{t('CHDToolPage.chd.title')}</strong>
             <br />
-            Used to compress CD-i, Dreamcast, PSP, PSX, PS2, Sega/MegaCD, 3DO,
-            Saturn, TurboGraphix/PCEngineCD, PC-FX, Amiga CD32, NeoGeoCD games.
-            <br />
-            <br />
-            <hr />
-          </div>
-
-          <div data-col-sm="6">
-            <strong>RVZ format</strong>
-            <br />
-            Used to compress GameCube and Wii games.
+            {t('CHDToolPage.chd.description')}
             <br />
             <br />
             <hr />
           </div>
 
           <div data-col-sm="6">
-            <strong>Trimmed 3DS format</strong>
+            <strong>{t('CHDToolPage.rvz.title')}</strong>
             <br />
-            Used to compress 3DS games. <br />
+            {t('CHDToolPage.rvz.description')}
             <br />
-            <hr />
-          </div>
-
-          <div data-col-sm="6">
-            <strong>XISO format</strong>
-            <br />
-            Used to compress Xbox games. <br />
             <br />
             <hr />
           </div>
 
           <div data-col-sm="6">
-            <strong>7Zip format</strong>
+            <strong>{t('CHDToolPage.trimmed3ds.title')}</strong>
             <br />
-            Used to primarily compress a wide variety of RetroArch systems.{' '}
+            {t('CHDToolPage.trimmed3ds.description')} <br />
             <br />
+            <hr />
+          </div>
+
+          <div data-col-sm="6">
+            <strong>{t('CHDToolPage.xiso.title')}</strong>
+            <br />
+            {t('CHDToolPage.xiso.description')} <br />
+            <br />
+            <hr />
+          </div>
+
+          <div data-col-sm="6">
+            <strong>{t('CHDToolPage.sevenzip.title')}</strong>
+            <br />
+            {t('CHDToolPage.sevenzip.description')} <br />
             <br />
             <hr />
           </div>
@@ -70,10 +66,10 @@ function CHDTool({ disabledNext, onClick }) {
           <BtnSimple
             css="btn-simple--1"
             type="button"
-            aria="Install CHDTool"
+            aria={t('aria.installCHDTool')}
             onClick={() => onClick()}
           >
-            Run the Compression Tool
+            {t('CHDToolPage.run')}
           </BtnSimple>
         </div>
       </Main>

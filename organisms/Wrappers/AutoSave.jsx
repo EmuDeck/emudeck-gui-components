@@ -18,7 +18,7 @@ function AutoSave({ onClick }) {
       <Main>
         <SelectorMenu
           toggle
-          title="AutoSave"
+          title={t('QuickSettingsPage.autoSave')}
           imgs={[
             [saveoff, autosave === true ? 'is-hidden' : ''],
             [saveon, autosave === false ? 'is-hidden' : ''],

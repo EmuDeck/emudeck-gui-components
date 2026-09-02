@@ -32,12 +32,14 @@ function Confirmation() {
       <div className="container--grid">
         <div data-col-sm="6">
           <p>
-            Your installation path:{' '}
-            {storagePath === '$HOME' ? 'User Home Folder' : storagePath}
+            {t('ConfirmationPage.installationPath')}{' '}
+            {storagePath === '$HOME'
+              ? t('ConfirmationPage.userHomeFolder')
+              : storagePath}
           </p>
           <div style={{ display: 'flex' }}>
             <div style={{ flex: 1 }}>
-              <span className="h5">EmuDeck will install:</span>
+              <span className="h5">{t('ConfirmationPage.willInstall')}</span>
               <ul>
                 {installEmusArray.map((item) => {
                   if (!item.status) {
@@ -67,7 +69,7 @@ function Confirmation() {
               </ul>
             </div>
             <div style={{ flex: 1 }}>
-              <span className="h5">EmuDeck will configure:</span>
+              <span className="h5">{t('ConfirmationPage.willConfigure')}</span>
               <ul>
                 {installEmusArray.map((item) => {
                   if (!item.status) {
@@ -100,32 +102,32 @@ function Confirmation() {
         </div>
         <div data-col-sm="6">
           <Card>
-            <span className="h5">Your customizations</span>
+            <span className="h5">{t('ConfirmationPage.customizations')}</span>
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
               <ul className="list list--customization aspect-ratio">
                 <li>
-                  <strong>Aspect Ratio</strong>
+                  <strong>{t('ConfirmationPage.aspectRatio')}</strong>
                 </li>
                 <li>
-                  Sega Classic{' '}
+                  {t('ConfirmationPage.segaClassic')}{' '}
                   <strong className="list--customization__pill">
                     {ar.sega == '43' ? '4:3' : '3:2'}
                   </strong>
                 </li>
                 <li>
-                  Nintendo Classic{' '}
+                  {t('ConfirmationPage.nintendoClassic')}{' '}
                   <strong className="list--customization__pill">
                     {ar.snes == '43' ? '4:3' : '8:7'}
                   </strong>
                 </li>
                 <li>
-                  Classic 3D Games{' '}
+                  {t('ConfirmationPage.classic3dGames')}{' '}
                   <strong className="list--customization__pill">
                     {ar.classic3d == '43' ? '4:3' : '16:9'}
                   </strong>
                 </li>
                 <li>
-                  Gamecube{' '}
+                  {t('ConfirmationPage.gamecube')}{' '}
                   <strong className="list--customization__pill">
                     {ar.dolphin == '43' ? '4:3' : '16:9'}
                   </strong>
@@ -133,10 +135,10 @@ function Confirmation() {
               </ul>
               <ul className="list list--customization other">
                 <li>
-                  <strong>Other</strong>
+                  <strong>{t('ConfirmationPage.other')}</strong>
                 </li>
                 <li>
-                  AutoSave
+                  {t('ConfirmationPage.autoSave')}
                   {autosave ? (
                     <div className="list--customization__pill">
                       <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
@@ -148,7 +150,7 @@ function Confirmation() {
                   )}{' '}
                 </li>
                 <li>
-                  RetroAchievements
+                  {t('ConfirmationPage.retroAchievements')}
                   {achievements.token ? (
                     <div className="list--customization__pill">
                       <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
@@ -160,7 +162,7 @@ function Confirmation() {
                   )}{' '}
                 </li>
                 <li>
-                  Bezels
+                  {t('ConfirmationPage.bezels')}
                   {bezels ? (
                     <div className="list--customization__pill">
                       <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
@@ -172,7 +174,7 @@ function Confirmation() {
                   )}{' '}
                 </li>
                 <li>
-                  Handhelds Shader
+                  {t('ConfirmationPage.handheldsShader')}
                   {shaders.handhelds ? (
                     <div className="list--customization__pill">
                       <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
@@ -184,7 +186,7 @@ function Confirmation() {
                   )}{' '}
                 </li>
                 <li>
-                  Classic 2D Shader
+                  {t('ConfirmationPage.classic2dShader')}
                   {shaders.classic ? (
                     <div className="list--customization__pill">
                       <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
@@ -196,7 +198,7 @@ function Confirmation() {
                   )}{' '}
                 </li>
                 <li>
-                  Classic 3D Shader
+                  {t('ConfirmationPage.classic3dShader')}
                   {shaders.classic3d ? (
                     <div className="list--customization__pill">
                       <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
@@ -210,46 +212,46 @@ function Confirmation() {
               </ul>
               <ul className="list list--customization resolutions">
                 <li>
-                  <strong>Resolutions</strong>
+                  <strong>{t('ConfirmationPage.resolutions')}</strong>
                 </li>
                 <li>
-                  GameCube + Wii:{' '}
+                  {t('ConfirmationPage.resGamecubeWii')}{' '}
                   <strong className="list--customization__pill">
                     {resolutions.dolphin}
                   </strong>
                 </li>
                 <li>
-                  PlayStation 1:{' '}
+                  {t('ConfirmationPage.resPs1')}{' '}
                   <strong className="list--customization__pill">
                     {resolutions.duckstation}
                   </strong>
                 </li>
                 <li>
-                  PlayStation 2:{' '}
+                  {t('ConfirmationPage.resPs2')}{' '}
                   <strong className="list--customization__pill">
                     {resolutions.pcsx2}
                   </strong>
                 </li>
                 <li>
-                  PlayStation3:{' '}
+                  {t('ConfirmationPage.resPs3')}{' '}
                   <strong className="list--customization__pill">
                     {resolutions.rpcs3}
                   </strong>
                 </li>
                 <li>
-                  Switch:{' '}
+                  {t('ConfirmationPage.resSwitch')}{' '}
                   <strong className="list--customization__pill">
                     {resolutions.yuzu}
                   </strong>
                 </li>
                 <li>
-                  Nintendo DS:{' '}
+                  {t('ConfirmationPage.resNds')}{' '}
                   <strong className="list--customization__pill">
                     {resolutions.melonds}
                   </strong>
                 </li>
                 <li>
-                  Nintendo 3DS:{' '}
+                  {t('ConfirmationPage.resN3ds')}{' '}
                   <strong className="list--customization__pill">
                     {resolutions.azahar}
                   </strong>

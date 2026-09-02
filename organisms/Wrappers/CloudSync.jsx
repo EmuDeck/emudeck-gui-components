@@ -38,7 +38,7 @@ function CloudSync({ onClick, showNone }) {
               !branch.includes('early'),
             ],
           ]}
-          details={['All']}
+          details={[t('general.all')]}
         />
       </Main>
     </>

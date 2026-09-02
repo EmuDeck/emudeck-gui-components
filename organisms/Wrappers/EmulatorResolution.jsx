@@ -18,7 +18,8 @@ function EmulatorResolution({ onClick }) {
               <>
                 <div className="duckstation" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    PlayStation 1<br /> <small>DuckStation</small>
+                    {t('systems.ps1')}
+                    <br /> <small>DuckStation</small>
                   </span>
 
                   <div className="cards cards--mini" style={{ flex: 1 }}>
@@ -63,7 +64,8 @@ function EmulatorResolution({ onClick }) {
               <>
                 <div className="pcsx2" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    PlayStation 2<br /> <small>PCSX2</small>
+                    {t('systems.ps2')}
+                    <br /> <small>PCSX2</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
                     <Card
@@ -99,7 +101,8 @@ function EmulatorResolution({ onClick }) {
               <>
                 <div className="rpcs3" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    PlayStation 3<br /> <small>RPCS3</small>
+                    {t('systems.ps3')}
+                    <br /> <small>RPCS3</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
                     <Card
@@ -135,7 +138,7 @@ function EmulatorResolution({ onClick }) {
               <>
                 <div className="duckstation" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    PSP
+                    {t('systems.psp')}
                     <br /> <small>PPSSPP</small>
                   </span>
 
@@ -173,7 +176,7 @@ function EmulatorResolution({ onClick }) {
               <>
                 <div className="vita3k" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    PS Vita
+                    {t('systems.psvita')}
                     <br /> <small>Vita3k</small>
                   </span>
 
@@ -211,7 +214,7 @@ function EmulatorResolution({ onClick }) {
               <>
                 <div className="xemu" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    Xbox
+                    {t('systems.xbox')}
                     <br /> <small>Xemu</small>
                   </span>
 
@@ -250,7 +253,7 @@ function EmulatorResolution({ onClick }) {
               <>
                 <div className="yuzu" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    Switch
+                    {t('systems.switch')}
                     <br /> <small>Ryujinx / Citron / Yuzu / Eden</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
@@ -289,7 +292,7 @@ function EmulatorResolution({ onClick }) {
               <>
                 <div className="dolphin" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    GameCube & Wii
+                    {t('systems.gamecubeWii')}
                     <br /> <small>Dolphin / PrimeHack</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
@@ -327,7 +330,7 @@ function EmulatorResolution({ onClick }) {
               <>
                 <div className="flycast" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    Dreamcast
+                    {t('systems.dreamcast')}
                     <br /> <small>Flycast</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
@@ -364,7 +367,7 @@ function EmulatorResolution({ onClick }) {
               <>
                 <div className="melonds" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    Nintendo DS
+                    {t('systems.nds')}
                     <br /> <small>melonDS</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
@@ -400,7 +403,7 @@ function EmulatorResolution({ onClick }) {
             {overwriteConfigEmus.azahar.status && (
               <div className="citra" style={{ display: 'flex' }}>
                 <span className="h5" style={{ flexBasis: '40%' }}>
-                  Nintendo 3DS
+                  {t('systems.n3ds')}
                   <br /> <small>Azahar</small>
                 </span>
                 <div className="cards cards--mini" style={{ flex: 1 }}>

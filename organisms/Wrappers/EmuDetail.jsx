@@ -276,7 +276,7 @@ function EmuDetail(props) {
     return (
       <li key={item}>
         <Alert css={`alert--mini ${biosCSS(item)}`}>
-          {biosName} Bios {biosText(item)}
+          {biosName} {t('EmulatorsDetailPage.bios')} {biosText(item)}
         </Alert>
       </li>
     );
@@ -299,19 +299,21 @@ function EmuDetail(props) {
           <div data-col-sm="7">
             {emuData.description && (
               <>
-                <p className="h5">Description</p>
+                <p className="h5">{t('general.description')}</p>
                 <p>{emuData.description}</p>
               </>
             )}
             {emuData.systems && (
               <>
-                <p className="h5">Emulated Systems</p>
+                <p className="h5">{t('EmulatorsDetailPage.emulatedSystems')}</p>
                 <p>{emuData.systems}</p>
               </>
             )}
             {emuData.special_configuration && (
               <>
-                <p className="h5">Special Configuration</p>
+                <p className="h5">
+                  {t('EmulatorsDetailPage.specialConfiguration')}
+                </p>
                 <p
                   dangerouslySetInnerHTML={{
                     __html: `${emuData.special_configuration}`,
@@ -322,7 +324,7 @@ function EmuDetail(props) {
 
             {emuData.bios.length > 0 && (
               <>
-                <p className="h5">Bios needed</p>
+                <p className="h5">{t('EmulatorsDetailPage.biosNeeded')}</p>
                 <p>{biosHTML}</p>
               </>
             )}
@@ -330,7 +332,9 @@ function EmuDetail(props) {
           <div data-col-sm="3">
             {emuData.id !== 'yuzu' &&
               emuData.id !== 'citron' &&
-              emuData.id !== 'eden' && <p className="h5">Actions</p>}
+              emuData.id !== 'eden' && (
+                <p className="h5">{t('EmulatorsDetailPage.actions')}</p>
+              )}
             <div className="emudetail__actions">
               {!disableInstallButton &&
                 emuData.id === 'yuzu' &&
@@ -339,9 +343,9 @@ function EmuDetail(props) {
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Update or reset configuration"
+                    aria={t('aria.updateOrReset')}
                   >
-                    Emulator not found
+                    {t('EmulatorsDetailPage.emulatorNotFound')}
                   </BtnSimple>
                 )}
 
@@ -349,14 +353,16 @@ function EmuDetail(props) {
                 <BtnSimple
                   css={updateAvailable ? 'btn-simple--1' : 'btn-simple--2'}
                   type="button"
-                  aria="Update or reset configuration"
+                  aria={t('aria.updateOrReset')}
                   onClick={() =>
                     onClick(emuData.code, emuData.name, emuData.id)
                   }
                   disabled={disableResetButton}
                 >
-                  {updateAvailable && 'Update configuration'}
-                  {updateAvailable || 'Reset configuration'}
+                  {updateAvailable &&
+                    t('EmulatorsDetailPage.updateConfiguration')}
+                  {updateAvailable ||
+                    t('EmulatorsDetailPage.resetConfiguration')}
                 </BtnSimple>
               )}
 
@@ -367,11 +373,11 @@ function EmuDetail(props) {
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Install"
+                    aria={t('general.install')}
                     disabled={disableInstallButton}
                     onClick={() => onClickInstall(emuData.id, emuData.code)}
                   >
-                    Install
+                    {t('general.install')}
                   </BtnSimple>
                 )}
               {disableInstallButton &&
@@ -381,11 +387,11 @@ function EmuDetail(props) {
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="ReInstall / Update"
+                    aria={t('EmulatorsDetailPage.reinstallUpdate')}
                     disabled={hideInstallButton}
                     onClick={() => onClickReInstall(emuData.id, emuData.code)}
                   >
-                    ReInstall / Update
+                    {t('EmulatorsDetailPage.reinstallUpdate')}
                   </BtnSimple>
                 )}
               {disableInstallButton &&
@@ -395,11 +401,11 @@ function EmuDetail(props) {
                   <BtnSimple
                     css="btn-simple--3"
                     type="button"
-                    aria="Uninstall"
+                    aria={t('general.uninstall')}
                     disabled={false}
                     onClick={() => onClickUninstall(emuData.id, emuData.code)}
                   >
-                    Uninstall
+                    {t('general.uninstall')}
                   </BtnSimple>
                 )}
               {emuData.id === 'srm' && (
@@ -407,27 +413,27 @@ function EmuDetail(props) {
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Go Back"
+                    aria={t('aria.goBack')}
                     onClick={() => {
                       onClickRemoveParsers();
                     }}
                   >
-                    Remove Cache
+                    {t('EmulatorsDetailPage.removeCache')}
                   </BtnSimple>
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Go Back"
+                    aria={t('aria.goBack')}
                     onClick={() => {
                       onClickParsers();
                     }}
                   >
-                    Standalone Parsers
+                    {t('EmulatorsDetailPage.standaloneParsers')}
                   </BtnSimple>
                   {/* <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Go Back"
+                    aria={t('aria.goBack')}
                     onClick={() => {
                       onClickOptionalParser();
                     }}
@@ -437,7 +443,7 @@ function EmuDetail(props) {
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Go Back"
+                    aria={t('aria.goBack')}
                     onClick={() => {
                       onClickCustomParser();
                     }}
@@ -462,10 +468,10 @@ function EmuDetail(props) {
                     <BtnSimple
                       css="btn-simple--2"
                       type="button"
-                      aria="Controls"
+                      aria={t('EmulatorsDetailPage.controls')}
                       onClick={() => onClickControls(emuData.id, emuData.code)}
                     >
-                      Controls
+                      {t('EmulatorsDetailPage.controls')}
                     </BtnSimple>
                   )}
 
@@ -475,10 +481,10 @@ function EmuDetail(props) {
                     <BtnSimple
                       css="btn-simple--2"
                       type="button"
-                      aria="Hotkeys"
+                      aria={t('EmulatorsDetailPage.hotkeys')}
                       onClick={() => onClickHotkeys(emuData.id, emuData.code)}
                     >
-                      Hotkeys
+                      {t('EmulatorsDetailPage.hotkeys')}
                     </BtnSimple>
                   )}
                 </>
@@ -488,10 +494,10 @@ function EmuDetail(props) {
                 <BtnSimple
                   css="btn-simple--2"
                   type="button"
-                  aria="Hotkeys"
+                  aria={t('EmulatorsDetailPage.hotkeys')}
                   onClick={() => onClickHotkeys('pcsx2_expert')}
                 >
-                  Hotkeys - Expert
+                  {t('EmulatorsDetailPage.hotkeysExpert')}
                 </BtnSimple>
               )}
               {emuData.id === 'dolphin' && (
@@ -499,50 +505,50 @@ function EmuDetail(props) {
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Controls"
+                    aria={t('EmulatorsDetailPage.controls')}
                     onClick={() => onClickControls('gamecube')}
                   >
-                    Controls GameCube
+                    {t('EmulatorsDetailPage.controlsGamecube')}
                   </BtnSimple>
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Hotkeys"
+                    aria={t('EmulatorsDetailPage.hotkeys')}
                     onClick={() => onClickHotkeys('gamecube')}
                   >
-                    Hotkeys GameCube
+                    {t('EmulatorsDetailPage.hotkeysGamecube')}
                   </BtnSimple>
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Controls"
+                    aria={t('EmulatorsDetailPage.controls')}
                     onClick={() => onClickControls('wii_classic')}
                   >
-                    Classic Controls Wii
+                    {t('EmulatorsDetailPage.classicControlsWii')}
                   </BtnSimple>
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Hotkeys"
+                    aria={t('EmulatorsDetailPage.hotkeys')}
                     onClick={() => onClickControls('wii')}
                   >
-                    Controls Wii
+                    {t('EmulatorsDetailPage.controlsWii')}
                   </BtnSimple>
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Hotkeys"
+                    aria={t('EmulatorsDetailPage.hotkeys')}
                     onClick={() => onClickControls('wii_nunchuck')}
                   >
-                    Nunchuck Controls
+                    {t('EmulatorsDetailPage.nunchuckControls')}
                   </BtnSimple>
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Controls"
+                    aria={t('EmulatorsDetailPage.controls')}
                     onClick={() => onClickControls('wii')}
                   >
-                    Hotkeys Wii
+                    {t('EmulatorsDetailPage.hotkeysWii')}
                   </BtnSimple>
                 </>
               )}
@@ -552,19 +558,19 @@ function EmuDetail(props) {
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Controls"
+                    aria={t('EmulatorsDetailPage.controls')}
                     onClick={() => onClickHotkeys('gamecube_expert')}
                   >
-                    Hotkeys GameCube - Expert
+                    {t('EmulatorsDetailPage.hotkeysGamecubeExpert')}
                   </BtnSimple>
 
                   <BtnSimple
                     css="btn-simple--2"
                     type="button"
-                    aria="Hotkeys"
+                    aria={t('EmulatorsDetailPage.hotkeys')}
                     onClick={() => onClickHotkeys('wii_expert')}
                   >
-                    Hotkeys Wii - Expert
+                    {t('EmulatorsDetailPage.hotkeysWiiExpert')}
                   </BtnSimple>
                 </>
               )}
@@ -573,13 +579,13 @@ function EmuDetail(props) {
                 <BtnSimple
                   css="btn-simple--2"
                   type="button"
-                  aria="Reset old Cemu Proton Configuration"
+                  aria={t('aria.resetCemuProton')}
                   disabled={disableResetButton}
                   onClick={() => {
                     onClick('CemuProton', 'CemuProton', 'cemuproton');
                   }}
                 >
-                  Reset Cemu Proton
+                  {t('EmulatorsDetailPage.resetCemuProton')}
                 </BtnSimple>
               )}
             </div>

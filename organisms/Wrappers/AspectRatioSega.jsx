@@ -28,14 +28,14 @@ function AspectRatioSega({ onClick }) {
               () => onClick(43),
               ar.sega === 43 ? 'is-selected' : '',
               '4:3',
-              'Original Aspect Ratio',
+              t('aspectRatio.original'),
               true,
             ],
             [
               () => onClick(32),
               ar.sega === 32 ? 'is-selected' : '',
               '3:2',
-              ' Smaller black bars, slight horizontal distortion',
+              t('aspectRatio.smallerBars'),
               true,
             ],
           ]}

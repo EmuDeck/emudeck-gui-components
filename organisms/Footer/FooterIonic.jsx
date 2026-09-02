@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { BtnSimple } from "getbasecore/Atoms";
@@ -17,6 +18,7 @@ const FooterIonic = ({
   thirdText,
   exit,
 }) => {
+  const { t } = useTranslation();
   const history = useHistory();
   const goTo = (href) => {
     history.push(`/${href}`);
@@ -32,19 +34,19 @@ const FooterIonic = ({
         <BtnSimple
           css="btn-simple--1"
           type="button"
-          aria="Go Back"
+          aria={t('aria.goBack')}
           disabled={disabledNext && true}
           onClick={() => CloseApp()}>
-          Exit To Gaming Mode
+          {t('footer.exit')}
         </BtnSimple>
       )}
       {!!fourth && (
-        <BtnSimple css="btn-simple--2" type="button" onClick={() => CloseApp()} aria="Go Back">
+        <BtnSimple css="btn-simple--2" type="button" onClick={() => CloseApp()} aria={t('aria.goBack')}>
           {fourthText}
         </BtnSimple>
       )}
       {!!third && (
-        <BtnSimple css="btn-simple--2" type="button" onClick={() => goTo(third)} aria="Go Back">
+        <BtnSimple css="btn-simple--2" type="button" onClick={() => goTo(third)} aria={t('aria.goBack')}>
           {thirdText}
         </BtnSimple>
       )}
@@ -53,7 +55,7 @@ const FooterIonic = ({
           css="btn-simple--2"
           type="button"
           onClick={back ? () => goTo(back) : () => history.goBack()}
-          aria="Go Back"
+          aria={t('aria.goBack')}
           disabled={disabledBack && true}>
           {!backText && "Go Back"}
           {backText}
@@ -65,7 +67,7 @@ const FooterIonic = ({
           css="btn-simple--1"
           type="button"
           onClick={() => goTo(next)}
-          aria="Go Next"
+          aria={t('aria.goNext')}
           disabled={disabledNext && true}>
           {!nextText && "Continue "}
           {nextText}

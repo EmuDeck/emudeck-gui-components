@@ -43,10 +43,12 @@ function RomStorage({
               }
             >
               <img src={imgSD} width="100" alt="Background" />
-              {sdCardValid && <span className="h6">SD Card</span>}
+              {sdCardValid && (
+                <span className="h6">{t('Migration.sdCard')}</span>
+              )}
               {sdCardName === null ||
                 (sdCardValid === false && (
-                  <span className="h6">Error detecting SD Card</span>
+                  <span className="h6">{t('Migration.errorDetectingSD')}</span>
                 ))}
             </Card>
           )}
@@ -60,7 +62,7 @@ function RomStorage({
               onClick={() => onClick('Internal Storage')}
             >
               <img src={imgInternal} width="100" alt="Background" />
-              <span className="h6">Internal Storage</span>
+              <span className="h6">{t('Migration.internalStorage')}</span>
             </Card>
           )}
           {hddrives &&
@@ -107,8 +109,8 @@ function RomStorage({
             >
               <img src={imgInternal} width="100" alt="Background" />
               <span className="h6">
-                {system === 'win32' && 'Custom Drive'}
-                {system !== 'win32' && 'Custom Directory'}
+                {system === 'win32' && t('RomStoragePage.customDrive')}
+                {system !== 'win32' && t('RomStoragePage.customDirectory')}
               </span>
             </Card>
           )}

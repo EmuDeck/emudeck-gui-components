@@ -102,10 +102,10 @@ function Aside({ css }) {
       if (message.error) {
         modalData = {
           active: true,
-          header: <span className="h4">Error</span>,
+          header: <span className="h4">{t('general.error')}</span>,
           body: (
             <>
-              <p>Conversion failed, please try again.</p>
+              <p>{t('aside.portableSD.errorBody')}</p>
               <p>{message.error.message}</p>
             </>
           ),
@@ -114,24 +114,15 @@ function Aside({ css }) {
       } else {
         modalData = {
           active: true,
-          header: <span className="h4">Success</span>,
+          header: <span className="h4">{t('general.success')}</span>,
           body: (
             <>
-              <p>Now your SD card is portable!</p>
+              <p>{t('aside.portableSD.successP1')}</p>
+              <p>{t('aside.portableSD.successP2')}</p>
               <p>
-                In order to use your EmuDeck installation in different devices
-                you now need to put your current SD Card in the new device and
-                reinstall EmuDeck on it.
+                <strong>{t('aside.portableSD.successP3')}</strong>
               </p>
-              <p>
-                <strong>
-                  Don't worry, this won't delete anything on the SD Card
-                </strong>
-              </p>
-              <p>
-                Keep in mind that Steam Rom Manager entries doesn't transfer
-                over, you need to add them manually on the new device.
-              </p>
+              <p>{t('aside.portableSD.successP4')}</p>
             </>
           ),
           css: 'emumodal--sm',
@@ -152,42 +143,30 @@ function Aside({ css }) {
   const showPortableModal = () => {
     let modalData = {
       active: true,
-      header: <span className="h4">Portable SD Card</span>,
+      header: <span className="h4">{t('aside.portableSD.modalTitle')}</span>,
       body: (
         <>
-          <p>
-            This feature will make your SD Card portable in case you installed
-            EmuDeck before version 2.7, meaning that you'll be able to use the
-            same SD card among several EmuDeck installations on different Linux
-            / SteamOS devices ( not compatible with Windows devices ).
-          </p>
-          <p>
-            Press the Start button to start the process, this will move all your
-            saved games to your SD Card and configure your emulators with the
-            new paths.
-          </p>
-          <p>
-            If you are using Syncthing you'll need to manually update your
-            paths.
-          </p>
+          <p>{t('aside.portableSD.modalP1')}</p>
+          <p>{t('aside.portableSD.modalP2')}</p>
+          <p>{t('aside.portableSD.modalP3')}</p>
           <button
             type="button"
-            aria-label="Next"
+            aria-label={t('general.next')}
             className="btn-simple btn-simple--1"
             onClick={makePortable}
             style={{ marginBottom: 0 }}
           >
-            Start
+            {t('general.start')}
           </button>
           <button
             type="button"
-            aria-label="Next"
+            aria-label={t('general.next')}
             className="btn-simple btn-simple--2"
             style="margin-bottom:0"
             onClick={closeModal}
             style={{ marginBottom: 0 }}
           >
-            Cancel
+            {t('general.cancel')}
           </button>
         </>
       ),
@@ -200,13 +179,10 @@ function Aside({ css }) {
   const openSRM = () => {
     let modalData = {
       active: true,
-      header: <span className="h4">{t('launching')} Steam Rom Manager</span>,
-      body: (
-        <p>
-          We will close Steam if its running and then Steam Rom Manager will
-          open, this could take a few seconds, please wait.
-        </p>
+      header: (
+        <span className="h4">{t('general.launching')} Steam Rom Manager</span>
       ),
+      body: <p>{t('aside.srm.body')}</p>,
       footer: <ProgressBar css="progress--success" infinite max="100" />,
       css: 'emumodal--xs',
     };
@@ -226,16 +202,13 @@ function Aside({ css }) {
     } else {
       modalData = {
         active: true,
-        header: <span className="h4">{t('launching')} Steam Rom Manager</span>,
+        header: (
+          <span className="h4">{t('general.launching')} Steam Rom Manager</span>
+        ),
         body: (
           <>
-            <p>
-              We will close Steam if its running and then Steam Rom Manager will
-              open, this could take a few seconds, please wait.
-            </p>
-            <strong>
-              Desktop controls will temporarily revert to touch/trackpad/L2/R2.
-            </strong>
+            <p>{t('aside.srm.body')}</p>
+            <strong>{t('aside.srm.desktopControls')}</strong>
           </>
         ),
         footer: <ProgressBar css="progress--success" infinite max="100" />,
@@ -272,13 +245,8 @@ function Aside({ css }) {
 
     const modalData = {
       active: true,
-      header: <span className="h4">Warning</span>,
-      body: (
-        <p>
-          Doing a reset will overwrite any customization you could have made and
-          restore our EmuDeck defaults
-        </p>
-      ),
+      header: <span className="h4">{t('general.warning')}</span>,
+      body: <p>{t('aside.reset.warningBody')}</p>,
       css: 'emumodal--xs',
     };
 
@@ -359,9 +327,9 @@ function Aside({ css }) {
     {
       icon: [iconHelp],
       iconFlat: 'list',
-      title: 'Manual',
+      title: t('aside.cards.manual.title'),
       description: t('aside.android'),
-      button: 'Configure',
+      button: t('aside.buttons.configure'),
       btnCSS: 'btn-simple--1',
       status: true,
       function: () => openWiki(),
@@ -370,9 +338,8 @@ function Aside({ css }) {
       icon: [iconGear],
       iconFlat: 'gear',
       title: t('aside.quickSettings'),
-      description:
-        'Customize bezels, shaders, aspect ratio, auto save, and more',
-      button: 'Configure',
+      description: t('aside.cards.quickSettings.description'),
+      button: t('aside.buttons.configure'),
       btnCSS: 'btn-simple--1',
       status: true,
       function: () => functions.navigate('/settings'),
@@ -381,8 +348,8 @@ function Aside({ css }) {
       icon: [iconGear],
       iconFlat: 'books',
       title: t('aside.manageEmulators'),
-      description: 'Manage and update your Emulators and configurations',
-      button: 'Update',
+      description: t('aside.cards.manageEmulators.description'),
+      button: t('aside.buttons.update'),
       btnCSS: 'btn-simple--1',
       status: true,
       updates,
@@ -391,9 +358,9 @@ function Aside({ css }) {
     {
       icon: [iconPackage],
       iconFlat: 'package',
-      title: 'EmuDeck Store',
-      description: 'Download free non-commercial homebrew games',
-      button: 'Get free games',
+      title: t('StoreFrontPage.title'),
+      description: t('aside.cards.store.description'),
+      button: t('aside.buttons.getFreeGames'),
       btnCSS: 'btn-simple--1',
       status: true,
       function: () => functions.navigate('/store-front'),
@@ -402,8 +369,8 @@ function Aside({ css }) {
       icon: [iconJoystick],
       iconFlat: 'joystick',
       title: 'Steam ROM Manager',
-      description: 'Add emulators, tools, or ROMs to your Steam Library',
-      button: 'Launch',
+      description: t('aside.cards.srm.description'),
+      button: t('aside.buttons.launch'),
       btnCSS: 'btn-simple--5',
       status: true,
       function: () => functions.openSRM(),
@@ -412,8 +379,8 @@ function Aside({ css }) {
       icon: [iconDisk],
       iconFlat: 'disk',
       title: t('aside.importGames'),
-      description: 'Transfer your games using a USB Drive',
-      button: 'Add more games',
+      description: t('aside.cards.importGames.description'),
+      button: t('aside.buttons.addMoreGames'),
       btnCSS: 'btn-simple--1',
       status: true,
       function: () => functions.navigate('/copy-games'),
@@ -422,9 +389,8 @@ function Aside({ css }) {
       icon: [iconQuick],
       iconFlat: 'quick',
       title: t('aside.quickReset'),
-      description:
-        'Update or reset your installation to the latest EmuDeck version in one easy click',
-      button: 'Reinstall',
+      description: t('aside.cards.quickReset.description'),
+      button: t('aside.buttons.reinstall'),
       btnCSS: 'btn-simple--5',
       status: true,
       function: () => selectMode('easy'),
@@ -433,9 +399,8 @@ function Aside({ css }) {
       icon: [iconCustom],
       iconFlat: 'custom',
       title: t('aside.customReset'),
-      description:
-        'Update or reset your installation to the latest EmuDeck version in custom mode',
-      button: 'Reinstall',
+      description: t('aside.cards.customReset.description'),
+      button: t('aside.buttons.reinstall'),
       btnCSS: 'btn-simple--5',
       status: true,
       function: () => selectMode('expert'),
@@ -448,8 +413,8 @@ function Aside({ css }) {
       icon: [iconScreen],
       iconFlat: 'migrate',
       title: t('aside.portable'),
-      description: 'Make your SD installation portable',
-      button: 'More info',
+      description: t('aside.cards.portable.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: state.storage === 'SD-Cardd',
       function: () => functions.showPortableModal(),
@@ -458,8 +423,8 @@ function Aside({ css }) {
       icon: [iconScreen],
       iconFlat: 'screen',
       title: t('aside.screenResolution'),
-      description: 'Upscale your emulators resolution',
-      button: 'More info',
+      description: t('aside.cards.screenResolution.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: system !== 'darwin',
       function: () => functions.navigate('/change-resolution'),
@@ -468,9 +433,8 @@ function Aside({ css }) {
       icon: [iconPrize],
       iconFlat: 'prize',
       title: t('aside.retroAchievements'),
-      description:
-        'Configure RetroAchievements for Duckstation, PCSX2, and RetroArch',
-      button: 'More info',
+      description: t('aside.cards.retroAchievements.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: system !== 'darwin',
       function: () => functions.navigate('/RA-achievements-config'),
@@ -484,8 +448,8 @@ function Aside({ css }) {
       icon: [iconScreen],
       iconFlat: 'disk',
       title: t('aside.importExport'),
-      description: 'Import / Export your installation',
-      button: 'More info',
+      description: t('aside.cards.importExport.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: true,
       function: () => functions.navigate('/import-export'),
@@ -494,8 +458,8 @@ function Aside({ css }) {
       icon: [iconScreen],
       iconFlat: 'gamepad',
       title: t('aside.autoMap'),
-      description: 'Map ypur controllers',
-      button: 'More info',
+      description: t('aside.cards.autoMap.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: system !== 'win32',
       function: () => functions.navigate('/automap-configuration'),
@@ -503,9 +467,9 @@ function Aside({ css }) {
     {
       icon: [iconCompress],
       iconFlat: 'compress',
-      title: 'EmuDeck Compressor',
-      description: 'Compress your ROMs to optimize your storage',
-      button: 'More info',
+      title: t('aside.cards.compressor.title'),
+      description: t('aside.cards.compressor.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: system !== 'darwin',
       function: () => functions.navigate('/chd-tool'),
@@ -514,8 +478,8 @@ function Aside({ css }) {
       icon: [iconChecker],
       iconFlat: 'checker',
       title: t('aside.biosChecker'),
-      description: 'Use the EmuDeck BIOS Checker to validate your BIOS',
-      button: 'More info',
+      description: t('aside.cards.biosChecker.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: true,
       function: () => functions.navigate('/check-bios'),
@@ -524,8 +488,8 @@ function Aside({ css }) {
       icon: [iconJoystick],
       iconFlat: 'boot',
       title: t('aside.bootMode'),
-      description: 'Boot directly on Steam, not Windows',
-      button: 'More info',
+      description: t('aside.cards.bootMode.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: system === 'win32',
       function: () => functions.navigate('/game-mode/welcome'),
@@ -534,8 +498,8 @@ function Aside({ css }) {
       icon: [iconScreen],
       iconFlat: 'theme',
       title: t('aside.pegasusTheme'),
-      description: 'Pich your Pegasus theme',
-      button: 'More info',
+      description: t('aside.cards.pegasusTheme.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: state.installFrontends.pegasus.status && system !== 'darwin',
       function: () => functions.navigate('/pegasus-theme-choice'),
@@ -544,8 +508,8 @@ function Aside({ css }) {
       icon: [iconCloud],
       iconFlat: 'cloud',
       title: t('aside.cloudSaves'),
-      description: 'Sync or backup your saves and save states to the cloud',
-      button: 'More info',
+      description: t('aside.cards.cloudSaves.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: system !== 'darwin',
       function: () => functions.navigate('/cloud-sync/welcome'),
@@ -555,9 +519,8 @@ function Aside({ css }) {
       icon: [iconMigrate],
       iconFlat: 'migrate',
       title: t('aside.migrateInstalation'),
-      description:
-        'Migrate your EmuDeck installation to your SD Card or vice versa',
-      button: 'More info',
+      description: t('aside.cards.migration.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: !(system === 'win32'),
       function: () => functions.navigate('/migration'),
@@ -567,9 +530,8 @@ function Aside({ css }) {
       icon: [iconPlugin],
       iconFlat: 'plugin',
       title: 'EmuDecky',
-      description:
-        'Plugin to easily view emulator hotkeys and configure EmuDeck in Gaming Mode',
-      button: 'More info',
+      description: t('aside.cards.emuDecky.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: !(system === 'win32'),
       function: () => functions.navigate('/decky-controls'),
@@ -582,9 +544,9 @@ function Aside({ css }) {
     {
       icon: [iconCustom],
       iconFlat: 'custom',
-      title: 'Online Multiplayer',
-      description: 'Play your emulators over internet with your friends',
-      button: 'Install',
+      title: t('aside.cards.onlineMultiplayer.title'),
+      description: t('aside.cards.onlineMultiplayer.description'),
+      button: t('general.install'),
       btnCSS: 'btn-simple--5',
       status: false,
       function: () => functions.navigate('/remote-play-whatever'),
@@ -593,8 +555,8 @@ function Aside({ css }) {
       icon: [iconPlugin],
       iconFlat: 'plugin',
       title: t('aside.gyro'),
-      description: 'Enable your Steam Deck gyroscope in emulation',
-      button: 'More info',
+      description: t('aside.cards.gyro.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: system === 'SteamOS',
       function: () => functions.navigate('/gyrodsu'),
@@ -603,9 +565,8 @@ function Aside({ css }) {
       icon: [iconPlugin],
       iconFlat: 'plugin',
       title: 'PowerTools',
-      description:
-        'A Decky Loader Plugin to manage performance settings in Game Mode',
-      button: 'More info',
+      description: t('aside.cards.deckyPerformance.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: system === 'SteamOS',
       function: () => functions.navigate('/power-tools'),
@@ -614,9 +575,8 @@ function Aside({ css }) {
       icon: [iconPlugin],
       iconFlat: 'plugin',
       title: 'PowerControls',
-      description:
-        'A Decky Loader Plugin to manage performance settings in Game Mode',
-      button: 'More info',
+      description: t('aside.cards.deckyPerformance.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: system === 'chimeraos',
       function: () => functions.navigate('/power-controls'),
@@ -629,9 +589,8 @@ function Aside({ css }) {
       icon: [iconPrize],
       iconFlat: 'prize',
       title: t('aside.earlyAccess'),
-      description:
-        'Support EmuDeck on Patreon and get early access to our latest features',
-      button: 'Donate',
+      description: t('aside.cards.earlyAccess.description'),
+      button: t('aside.buttons.donate'),
       btnCSS: 'btn-simple--5',
       status: branch.includes('early') ? false : true,
       function: () => functions.navigate('/early-access'),
@@ -639,9 +598,9 @@ function Aside({ css }) {
     {
       icon: [iconPrize],
       iconFlat: 'prize',
-      title: 'Reset Token',
-      description: 'Switch token',
-      button: 'Change Token',
+      title: t('aside.cards.resetToken.title'),
+      description: t('aside.cards.resetToken.description'),
+      button: t('aside.buttons.changeToken'),
       btnCSS: 'btn-simple--5',
       status: branch.includes('early') || branch.includes('dev') ? true : false,
       function: () => functions.resetToken(),
@@ -650,8 +609,8 @@ function Aside({ css }) {
       icon: [iconDoc],
       iconFlat: 'doc',
       title: t('aside.logFiles'),
-      description: 'Send us your logs if you have issues',
-      button: 'Create Zip',
+      description: t('aside.cards.logFiles.description'),
+      button: t('aside.buttons.createZip'),
       btnCSS: 'btn-simple--5',
       status: true,
       function: () => functions.getLogs(),
@@ -660,8 +619,8 @@ function Aside({ css }) {
       icon: [iconList],
       iconFlat: 'list',
       title: t('aside.changelog'),
-      description: 'Read about the latest changes to EmuDeck',
-      button: 'Read',
+      description: t('aside.cards.changelog.description'),
+      button: t('aside.buttons.read'),
       btnCSS: 'btn-simple--5',
       status: true,
       function: () => functions.navigate('/change-log'),
@@ -671,8 +630,8 @@ function Aside({ css }) {
       icon: [iconCloud],
       iconFlat: 'cloud',
       title: t('aside.cloudServices'),
-      description: 'Manage your cloud services, Xbox Cloud Gaming, and more!',
-      button: 'More info',
+      description: t('aside.cards.cloudServices.description'),
+      button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
       status: !(system === 'win32' || system === 'darwin'),
       function: () => functions.openCSM(),
@@ -681,8 +640,8 @@ function Aside({ css }) {
       icon: [iconUninstall],
       iconFlat: 'uninstall',
       title: t('aside.uninstall'),
-      description: 'Uninstall EmuDeck from your system',
-      button: 'Uninstall',
+      description: t('aside.cards.uninstall.description'),
+      button: t('general.uninstall'),
       btnCSS: 'btn-simple--3',
       status: system !== 'darwin',
       function: () => functions.uninstall(),
@@ -692,7 +651,7 @@ function Aside({ css }) {
     <aside className={`sidebar ${css}`}>
       <Sprite />
       <ul className="sidebar__elements">
-        <li>{system !== 'win32' && <small>Featured</small>}</li>
+        <li>{system !== 'win32' && <small>{t('aside.featured')}</small>}</li>
 
         {settingsCards &&
           settingsCards.map((item) => {

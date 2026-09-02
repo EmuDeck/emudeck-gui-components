@@ -65,7 +65,7 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
                 btnCSS="btn-simple--1"
                 icon={iconQuick}
                 iconSize="md"
-                title="Easy Mode"
+                title={t('WelcomePage.easyTitle')}
                 onClick={() => onClick('easy')}
                 description={t('WelcomePage.easy')}
               />
@@ -77,7 +77,7 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
                 btnCSS="btn-simple--1"
                 icon={iconCustom}
                 iconSize="md"
-                title="Custom Mode"
+                title={t('WelcomePage.customTitle')}
                 onClick={() => onClick('expert')}
                 description={t('WelcomePage.custom')}
               />

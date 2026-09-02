@@ -27,10 +27,9 @@ function DeckyRomLauncher({
   return (
     <>
       <p className="lead">
-        Retro Library is a plugin that allows you to have a second Steam Library
-        with only your roms so they are not mixed up with your Steam games.
+        {t('DeckyRomLauncherPage.intro')}
         <br />
-        All games and artwork are detected automatically.
+        {t('DeckyRomLauncherPage.autoDetect')}
       </p>
       <Main>
         <br />
@@ -40,11 +39,11 @@ function DeckyRomLauncher({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Install Retro Library"
+                aria={t('DeckyRomLauncherPage.install')}
                 onClick={installClick}
                 disabled={disableButton && 'true'}
               >
-                Install Retro Library
+                {t('DeckyRomLauncherPage.install')}
               </BtnSimple>
             )}
 
@@ -52,22 +51,19 @@ function DeckyRomLauncher({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Install EmuDecky"
+                aria={t('EmuDeckyPage.install')}
                 onClick={installClick}
                 disabled={disableButton && 'true'}
               >
-                Install Retro Library
+                {t('DeckyRomLauncherPage.install')}
               </BtnSimple>
             )}
 
             {hasSudo === true && system !== 'win32' && (
               <div className="form">
-                <p>
-                  We have detected you have set a sudo password, type it on the
-                  next input to install this tool.
-                </p>
+                <p>{t('general.sudoDetected')}</p>
                 <FormInputSimple
-                  label="Sudo Password"
+                  label={t('general.sudoPassword')}
                   type="password"
                   name="pass"
                   id="pass"
@@ -78,11 +74,11 @@ function DeckyRomLauncher({
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
-                    aria="Install Retro Library"
+                    aria={t('DeckyRomLauncherPage.install')}
                     onClick={installClick}
                     disabled={disableButton && 'true'}
                   >
-                    Install Retro Library
+                    {t('DeckyRomLauncherPage.install')}
                   </BtnSimple>
                 )}
               </div>

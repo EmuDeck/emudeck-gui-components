@@ -1,10 +1,12 @@
+import { useTranslation } from 'react-i18next';
 import './sonic.scss';
 
 function Sonic() {
+  const { t } = useTranslation();
   return (
     <div className="sonic-container">
       <p className="copyright">
-        Assets by{' '}
+        {t('credits.assetsBy')}{' '}
         <a
           href="https://codepen.io/acupoftee/pen/mdbqQjB"
           target="_blank"

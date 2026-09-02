@@ -77,7 +77,7 @@ function Settings({
           <li>
             <SelectorMenu
               toggle
-              title="AutoSave"
+              title={t('QuickSettingsPage.autoSave')}
               css="selector-menu--mini"
               imgs={[
                 [saveoff, autosave === true ? 'is-hidden' : ''],
@@ -88,14 +88,14 @@ function Settings({
                 [
                   () => onClickAutoSave(false),
                   autosave === false ? 'is-selected' : '',
-                  'Off',
+                  t('general.off'),
                   '',
                   true,
                 ],
                 [
                   () => onClickAutoSave(true),
                   autosave === true ? 'is-selected' : '',
-                  'On',
+                  t('general.on'),
                   '',
                   true,
                 ],
@@ -106,7 +106,7 @@ function Settings({
             <li>
               <SelectorMenu
                 toggle
-                title="Controller Layout"
+                title={t('QuickSettingsPage.controllerLayout')}
                 css="selector-menu--mini"
                 imgs={[
                   [abxy, controllerLayout === 'baxy' ? 'is-hidden' : ''],
@@ -117,14 +117,14 @@ function Settings({
                   [
                     () => onClickControllerLayoutSet('baxy'),
                     controllerLayout === 'baxy' ? 'is-selected' : '',
-                    'Off',
+                    t('general.off'),
                     '',
                     true,
                   ],
                   [
                     () => onClickControllerLayoutSet('abxy'),
                     controllerLayout === 'abxy' ? 'is-selected' : '',
-                    'On',
+                    t('general.on'),
                     '',
                     true,
                   ],
@@ -136,7 +136,7 @@ function Settings({
             <li>
               <SelectorMenu
                 toggle
-                title="CloudSync"
+                title={t('QuickSettingsPage.cloudSync')}
                 css="selector-menu--mini"
                 imgs={[
                   [sync, cloudSyncStatus === false ? 'is-hidden' : ''],
@@ -147,14 +147,14 @@ function Settings({
                   [
                     () => onClickCloudSync(false),
                     cloudSyncStatus === false ? 'is-selected' : '',
-                    'Off',
+                    t('general.off'),
                     '',
                     true,
                   ],
                   [
                     () => onClickCloudSync(true),
                     cloudSyncStatus === true ? 'is-selected' : '',
-                    'On',
+                    t('general.on'),
                     '',
                     true,
                   ],
@@ -165,7 +165,7 @@ function Settings({
           <li>
             <SelectorMenu
               toggle
-              title="Bezels"
+              title={t('QuickSettingsPage.bezels')}
               css="selector-menu--mini"
               imgs={[
                 [imgBezels, bezels === false ? 'is-hidden' : ''],
@@ -176,14 +176,14 @@ function Settings({
                 [
                   () => onClickBezel(false),
                   bezels === false ? 'is-selected' : '',
-                  'Off',
+                  t('general.off'),
                   '',
                   true,
                 ],
                 [
                   () => onClickBezel(true),
                   bezels === true ? 'is-selected' : '',
-                  'On',
+                  t('general.on'),
                   '',
                   true,
                 ],
@@ -193,7 +193,7 @@ function Settings({
           <li>
             <SelectorMenu
               toggle
-              title="Sega Classic AR"
+              title={t('QuickSettingsPage.segaClassicAR')}
               css="selector-menu--mini"
               imgs={[
                 [ar43, ar.sega !== 43 ? 'is-hidden' : ''],
@@ -221,7 +221,7 @@ function Settings({
           <li>
             <SelectorMenu
               toggle
-              title="Nintendo Classic AR"
+              title={t('QuickSettingsPage.nintendoClassicAR')}
               css="selector-menu--mini"
               imgs={[
                 [ar87s, ar.snes !== 87 ? 'is-hidden' : ''],
@@ -249,7 +249,7 @@ function Settings({
           <li>
             <SelectorMenu
               toggle
-              title="3D Classics AR"
+              title={t('QuickSettingsPage.classics3dAR')}
               css="selector-menu--mini"
               imgs={[
                 [ar1693d, ar.classic3d !== 169 ? 'is-hidden' : ''],
@@ -279,7 +279,7 @@ function Settings({
             <li>
               <SelectorMenu
                 toggle
-                title="GameCube AR"
+                title={t('QuickSettingsPage.gamecubeAR')}
                 css="selector-menu--mini"
                 imgs={[
                   [ar169gc, ar.dolphin !== 169 ? 'is-hidden' : ''],
@@ -308,7 +308,7 @@ function Settings({
           <li>
             <SelectorMenu
               toggle
-              title="LCD Handhelds"
+              title={t('QuickSettingsPage.lcdHandhelds')}
               css="selector-menu--mini"
               imgs={[
                 [lcdonH, shaders.handhelds !== true ? 'is-hidden' : ''],
@@ -319,14 +319,14 @@ function Settings({
                 [
                   () => onClickLCD(false),
                   shaders.handhelds === false ? 'is-selected' : '',
-                  'Off',
+                  t('general.off'),
                   '',
                   true,
                 ],
                 [
                   () => onClickLCD(true),
                   shaders.handhelds === true ? 'is-selected' : '',
-                  'On',
+                  t('general.on'),
                   '',
                   true,
                 ],
@@ -336,7 +336,7 @@ function Settings({
           <li>
             <SelectorMenu
               toggle
-              title="CRT 2D"
+              title={t('QuickSettingsPage.crt2d')}
               css="selector-menu--mini"
               imgs={[
                 [lcdon, shaders.classic !== true ? 'is-hidden' : ''],
@@ -347,14 +347,14 @@ function Settings({
                 [
                   () => onClickCRT(false),
                   shaders.classic === false ? 'is-selected' : '',
-                  'Off',
+                  t('general.off'),
                   '',
                   true,
                 ],
                 [
                   () => onClickCRT(true),
                   shaders.classic === true ? 'is-selected' : '',
-                  'On',
+                  t('general.on'),
                   '',
                   true,
                 ],
@@ -364,7 +364,7 @@ function Settings({
           <li>
             <SelectorMenu
               toggle
-              title="CRT 3D"
+              title={t('QuickSettingsPage.crt3d')}
               css="selector-menu--mini"
               imgs={[
                 [lcd3don, shaders.classic3d !== true ? 'is-hidden' : ''],
@@ -375,14 +375,14 @@ function Settings({
                 [
                   () => onClickCRT3D(false),
                   shaders.classic3d === false ? 'is-selected' : '',
-                  'Off',
+                  t('general.off'),
                   '',
                   true,
                 ],
                 [
                   () => onClickCRT3D(true),
                   shaders.classic3d === true ? 'is-selected' : '',
-                  'On',
+                  t('general.on'),
                   '',
                   true,
                 ],

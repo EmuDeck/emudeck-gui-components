@@ -69,44 +69,31 @@ const RemotePlayWhatever = ({
     <>
       <Main>
         <p className="lead">
-          Play with your friends both locally and over the internet. More info
-          on this tool{' '}
+          {t('RemotePlayWhateverPage.intro')}{' '}
           <LinkSimple
             css="link-simple--1"
             href="https://github.com/m4dEngi/RemotePlayWhatever"
             target="_blank"
           >
-            here
+            {t('RemotePlayWhateverPage.here')}
           </LinkSimple>
         </p>
         <div className="container--grid">
           <div data-col-sm="6">
+            <p>{t('RemotePlayWhateverPage.step1')}</p>
+            <p>{t('RemotePlayWhateverPage.step2')}</p>
             <p>
-              First click on install RemotePlayWhatever, this will install it
-              and open Steam Rom Manager to add its shorcut to Steam
-            </p>
-            <p>
-              When you are in gaming mode go to the Emulator collection and
-              launch RemotePlayWhatever, invite your Steam Friend, go back to
-              your library using the STEAM button, open your game from
-              EmulationStation and start playing!
-            </p>
-            <p>
-              <strong>
-                This app is on beta, so sometimes it does not work 100% fine,
-                expect some crashes and issues with the sound. At the moment
-                launching games outside EmulationStation is not supported.
-              </strong>
+              <strong>{t('RemotePlayWhateverPage.beta')}</strong>
             </p>
 
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              aria="Install RemotePlayWhatever"
+              aria={t('RemotePlayWhateverPage.install')}
               onClick={() => onClick()}
               disabled={disabledNext && 'true'}
             >
-              Install RemotePlayWhatever
+              {t('RemotePlayWhateverPage.install')}
             </BtnSimple>
           </div>
           <div data-col-sm="6">

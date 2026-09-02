@@ -9,10 +9,7 @@ function VideoGuide({ onClick, minute }) {
   const { t, i18n } = useTranslation();
   return (
     <>
-      <p className="lead">
-        Learn how to set up EmuDeck with this wonderful guide from Russ at
-        RetroGameCorps.
-      </p>
+      <p className="lead">{t('VideoGuidePage.intro')}</p>
       <Main>
         <div className="container--grid">
           <div data-col-sm="7">
@@ -23,41 +20,41 @@ function VideoGuide({ onClick, minute }) {
             />
           </div>
           <div data-col-sm="5">
-            <span className="h4">Sections</span>
+            <span className="h4">{t('VideoGuidePage.sections')}</span>
             <ol className="list">
               <li className="h6">
                 <button type="button" onClick={() => onClick(76)}>
-                  Introduction
+                  {t('VideoGuidePage.introduction')}
                 </button>
               </li>
               <li className="h6">
                 <button type="button" onClick={() => onClick(159)}>
-                  Written Guide and Recommended Tools
+                  {t('VideoGuidePage.writtenGuide')}
                 </button>
               </li>
               <li className="h6">
                 <button type="button" onClick={() => onClick(229)}>
-                  Installing EmuDeck
+                  {t('VideoGuidePage.installing')}
                 </button>{' '}
               </li>
               <li className="h6">
                 <button type="button" onClick={() => onClick(402)}>
-                  Configuring Games and BIOS Files
+                  {t('VideoGuidePage.configuringGames')}
                 </button>{' '}
               </li>
               <li className="h6">
                 <button type="button" onClick={() => onClick(553)}>
-                  Configuring Steam ROM Manager
+                  {t('VideoGuidePage.configuringSRM')}
                 </button>{' '}
               </li>
               <li className="h6">
                 <button type="button" onClick={() => onClick(657)}>
-                  EmuDeck Tools and New Features
+                  {t('VideoGuidePage.tools')}
                 </button>
               </li>
               <li className="h6">
                 <button type="button" onClick={() => onClick(810)}>
-                  Quick Tips and Tricks
+                  {t('VideoGuidePage.tips')}
                 </button>
               </li>
             </ol>

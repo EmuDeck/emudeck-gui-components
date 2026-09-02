@@ -87,7 +87,7 @@ function Footer({
           css="btn-simple--1"
           type="button"
           onClick={() => goTo(next)}
-          aria="Go Next"
+          aria={t('aria.goNext')}
           disabled={disabledNext && true}
         >
           {!nextText && t('general.next')}

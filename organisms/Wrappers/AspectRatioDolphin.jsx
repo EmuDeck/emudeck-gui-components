@@ -26,14 +26,14 @@ function AspectRatioDolphin({ onClick }) {
               () => onClick(43),
               ar.dolphin === 43 ? 'is-selected' : '',
               '4:3',
-              'Original Aspect Ratio',
+              t('aspectRatio.original'),
               true,
             ],
             [
               () => onClick(169),
               ar.dolphin === 169 ? 'is-selected' : '',
               '16:9',
-              ' Widescreen <br /> (Expect some graphical glitches.)',
+              t('aspectRatio.widescreen'),
               true,
             ],
           ]}

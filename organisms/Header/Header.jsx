@@ -37,16 +37,16 @@ function HeaderElectron({ title, bold }) {
 
   let lngs = {
     en: {
-      nativeName: <img src={flagEN} alt="English" />,
+      nativeName: <img src={flagEN} alt={t('languages.en')} />,
     },
     es: {
-      nativeName: <img src={flagES} alt="Spanish" />,
+      nativeName: <img src={flagES} alt={t('languages.es')} />,
     },
     fr: {
-      nativeName: <img src={flagFR} alt="French" />,
+      nativeName: <img src={flagFR} alt={t('languages.fr')} />,
     },
     it: {
-      nativeName: <img src={flagIT} alt="Italian" />,
+      nativeName: <img src={flagIT} alt={t('languages.it')} />,
     },
   };
 
@@ -311,7 +311,7 @@ function HeaderElectron({ title, bold }) {
           <BtnSimple
             css="btn-simple--4"
             type="button"
-            aria="Zoom In"
+            aria={t('aria.zoomIn')}
             onClick={moreZoom}
           >
             A+
@@ -319,7 +319,7 @@ function HeaderElectron({ title, bold }) {
           <BtnSimple
             css="btn-simple--4"
             type="button"
-            aria="Zoom Out"
+            aria={t('aria.zoomOut')}
             onClick={lessZoom}
           >
             A-

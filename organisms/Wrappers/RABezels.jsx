@@ -17,7 +17,7 @@ function RABezels({ onClick, bezels }) {
       <Main>
         <SelectorMenu
           toggle
-          title="Bezels"
+          title={t('QuickSettingsPage.bezels')}
           imgs={[
             [imgBezels, bezels === false ? 'is-hidden' : ''],
             [imgNoBezels, bezels === true ? 'is-hidden' : ''],

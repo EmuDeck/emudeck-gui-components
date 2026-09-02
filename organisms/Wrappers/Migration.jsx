@@ -99,10 +99,14 @@ function Migration({
                   }
                 >
                   <img src={imgSD} width="100" alt="Background" />
-                  {sdCardValid && <span className="h6">SD Card</span>}
+                  {sdCardValid && (
+                    <span className="h6">{t('Migration.sdCard')}</span>
+                  )}
                   {sdCardName === null ||
                     (sdCardValid === false && (
-                      <span className="h6">Error detecting SD Card</span>
+                      <span className="h6">
+                        {t('Migration.errorDetectingSD')}
+                      </span>
                     ))}
                 </Card>
               )}

@@ -140,7 +140,7 @@ function RAAchievements({ onChange, onToggle }) {
                     }}
                   >
                     <FormInputSimple
-                      label="Username"
+                      label={t('RAAchievements.username')}
                       type="text"
                       name="user"
                       id="user"
@@ -150,7 +150,7 @@ function RAAchievements({ onChange, onToggle }) {
                   </div>
                   <div style={{ width: '50%', display: 'inline-block' }}>
                     <FormInputSimple
-                      label="Password"
+                      label={t('RAAchievements.password')}
                       type="password"
                       name="pass"
                       id="pass"
@@ -181,7 +181,7 @@ function RAAchievements({ onChange, onToggle }) {
                   </p>
 
                   <div>
-                    HardCore mode
+                    {t('RAAchievements.hardcoreMode')}
                     <BtnSwitch
                       label="hardcore"
                       name="hardcore"

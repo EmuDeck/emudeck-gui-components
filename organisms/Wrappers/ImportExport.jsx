@@ -3,11 +3,15 @@ import React, { useContext, useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
-import { BtnSimple, FormInputSimple, LinkSimple } from 'getbasecore/Atoms';
+import {
+  BtnSimple,
+  FormCheckboxSimple,
+  FormInputSimple,
+  LinkSimple,
+} from 'getbasecore/Atoms';
 import Notification from 'components/molecules/Notification/Notification';
 import Main from 'components/organisms/Main/Main';
 import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
-import { FormCheckboxSimple, BtnSimple } from 'getbasecore/Atoms';
 import Footer from 'components/organisms/Footer/Footer';
 import EmuModal from 'components/molecules/EmuModal/EmuModal';
 import AutoMap from 'components/organisms/Wrappers/AutoMap';
@@ -484,7 +488,7 @@ function ImportExport({ exportEnable = true }) {
             <p>{t('ImportExportPage.exportDescription')}</p>
             <button
               type="button"
-              aria-label="Next"
+              aria-label={t('general.next')}
               className="btn-simple btn-simple--1"
               style={{ marginBottom: 0 }}
               onClick={() => pickDrive('export')}
@@ -499,7 +503,7 @@ function ImportExport({ exportEnable = true }) {
           <p>{t('ImportExportPage.importDescription')}</p>
           <button
             type="button"
-            aria-label="Next"
+            aria-label={t('general.next')}
             className="btn-simple btn-simple--1"
             style={{ marginBottom: 0 }}
             onClick={() => pickDrive('import')}

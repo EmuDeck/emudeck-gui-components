@@ -16,7 +16,7 @@ function AutoMap({ onClick }) {
           <div className="selector-menu__text">
             <div className="yuzu" style={{ display: 'flex' }}>
               <span className="h5" style={{ flexBasis: '40%' }}>
-                Switch
+                {t('systems.switch')}
                 <br /> <small>Ryujinx / Citron / Yuzu / Eden</small>
               </span>
               <div className="cards cards--mini" style={{ flex: 1 }}>
@@ -24,13 +24,13 @@ function AutoMap({ onClick }) {
                   css={automap.yuzu === true ? 'is-selected' : ''}
                   onClick={() => onClick('yuzu', true)}
                 >
-                  <strong>On</strong>
+                  <strong>{t('general.on')}</strong>
                 </Card>
                 <Card
                   css={automap.yuzu === false ? 'is-selected' : ''}
                   onClick={() => onClick('yuzu', false)}
                 >
-                  <strong>Off</strong>
+                  <strong>{t('general.off')}</strong>
                 </Card>
               </div>
             </div>
@@ -39,7 +39,7 @@ function AutoMap({ onClick }) {
               <>
                 <div className="dolphin" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    GameCube & Wii
+                    {t('systems.gamecubeWii')}
                     <br /> <small>Dolphin / PrimeHack</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
@@ -47,13 +47,13 @@ function AutoMap({ onClick }) {
                       css={automap.dolphin === true ? 'is-selected' : ''}
                       onClick={() => onClick('dolphin', true)}
                     >
-                      <strong>On</strong>
+                      <strong>{t('general.on')}</strong>
                     </Card>
                     <Card
                       css={automap.dolphin === false ? 'is-selected' : ''}
                       onClick={() => onClick('dolphin', false)}
                     >
-                      <strong>Off</strong>
+                      <strong>{t('general.off')}</strong>
                     </Card>
                   </div>
                 </div>
@@ -65,7 +65,7 @@ function AutoMap({ onClick }) {
               <>
                 <div className="cemu" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
-                    Nintendo Wii U
+                    {t('systems.wiiu')}
                     <br /> <small>Cemu</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
@@ -73,13 +73,13 @@ function AutoMap({ onClick }) {
                       css={automap.cemu === true ? 'is-selected' : ''}
                       onClick={() => onClick('cemu', true)}
                     >
-                      <strong>On</strong>
+                      <strong>{t('general.on')}</strong>
                     </Card>
                     <Card
                       css={automap.cemu === false ? 'is-selected' : ''}
                       onClick={() => onClick('cemu', false)}
                     >
-                      <strong>Off</strong>
+                      <strong>{t('general.off')}</strong>
                     </Card>
                   </div>
                 </div>

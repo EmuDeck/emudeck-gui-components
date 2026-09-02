@@ -115,7 +115,7 @@ import logo_sega32x from 'assets/systems/sega32x.svg';
 import logo_sega32xjp from 'assets/systems/sega32xjp.svg';
 import logo_sega32xna from 'assets/systems/sega32xna.svg';
 import logo_segacd from 'assets/systems/segacd.svg';
-import logo_snes from 'assets/systems/sfc.svg';
+import logo_sfc from 'assets/systems/sfc.svg';
 import logo_sgb from 'assets/systems/sgb.svg';
 import logo_snes from 'assets/systems/snes.svg';
 import logo_snesna from 'assets/systems/snesna.svg';
@@ -238,7 +238,6 @@ export {
   logo_channelf,
   logo_coco,
   logo_colecovision,
-  logo_core,
   logo_cps,
   logo_customcollec,
   logo_daphne,
@@ -328,7 +327,7 @@ export {
   logo_sega32xjp,
   logo_sega32xna,
   logo_segacd,
-  logo_snes,
+  logo_sfc,
   logo_sg1000,
   logo_sgb,
   logo_snes,

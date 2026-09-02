@@ -38,7 +38,7 @@ function CloudSyncConfig({
   return (
     <Main>
       <p>
-        <strong>Recommended providers</strong>
+        <strong>{t('CloudSyncConfigPage.recommendedProviders')}</strong>
       </p>
       <div className="cards cards--mini">
         {(branch.includes('early') || branch.includes('dev')) && (
@@ -282,7 +282,7 @@ function CloudSyncConfig({
         </Card>
       </div>
 
-      <p>Legacy providers</p>
+      <p>{t('CloudSyncConfigPage.legacyProviders')}</p>
       <div className="cards cards--mini">
         <Card
           css={cloudSync === 'Emudeck-Box' && 'is-selected'}
@@ -311,15 +311,15 @@ function CloudSyncConfig({
         <BtnSimple
           css="btn-simple--1"
           type="button"
-          aria="Install SaveSync"
+          aria={t('aria.installSaveSync')}
           onClick={() => onClickInstall()}
           disabled={disableButton}
         >
-          {disableButton && 'Please wait...'}
+          {disableButton && t('general.pleaseWait')}
 
           {disableButton || cloudSyncType === 'Sync'
-            ? 'Setup Cloud Sync'
-            : 'Setup Save Backup'}
+            ? t('CloudSyncConfigPage.setupSync')
+            : t('CloudSyncConfigPage.setupBackup')}
         </BtnSimple>
       )}
 
@@ -328,26 +328,26 @@ function CloudSyncConfig({
           <BtnSimple
             css="btn-simple--1"
             type="button"
-            aria="Uninstall SaveSync"
+            aria={t('aria.uninstallSaveSync')}
             onClick={() => onClickUninstall()}
             disabled={disableButton}
           >
-            {disableButton && 'Please wait...'}
+            {disableButton && t('general.pleaseWait')}
 
-            {disableButton || 'Uninstall'}
+            {disableButton || t('general.uninstall')}
           </BtnSimple>
           <BtnSimple
             css="btn-simple--1"
             type="button"
-            aria="Test Cloud Health"
+            aria={t('aria.testCloudHealth')}
             onClick={() => onClickCheckHealth()}
             disabled={disableButton}
           >
-            {disableButton && 'Please wait...'}
+            {disableButton && t('general.pleaseWait')}
 
             {disableButton || cloudSyncType === 'Sync'
-              ? 'Test Cloud Sync Health'
-              : 'Test Cloud Backup Health'}
+              ? t('CloudSyncConfigPage.testSyncHealth')
+              : t('CloudSyncConfigPage.testBackupHealth')}
           </BtnSimple>
         </>
       )}
@@ -359,13 +359,13 @@ function CloudSyncConfig({
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              aria="Manage Files"
+              aria={t('CloudSyncConfigPage.manageFiles')}
               onClick={() => openCloud()}
               disabled={disableButton}
             >
-              {disableButton && 'Please wait...'}
+              {disableButton && t('general.pleaseWait')}
 
-              {disableButton || `Manage Files`}
+              {disableButton || t('CloudSyncConfigPage.manageFiles')}
             </BtnSimple>
           </>
         )}

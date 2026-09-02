@@ -17,7 +17,7 @@ function AspectRatio3D({ onClick }) {
       <Main>
         <SelectorMenu
           toggle
-          title="ratio3d"
+          title={t('QuickSettingsPage.classics3dAR')}
           imgs={[
             [ar1693d, ar.classic3d !== 169 ? 'is-hidden' : ''],
             [ar433d, ar.classic3d !== 43 ? 'is-hidden' : ''],
@@ -28,14 +28,14 @@ function AspectRatio3D({ onClick }) {
               () => onClick(43),
               ar.classic3d === 43 ? 'is-selected' : '',
               '4:3',
-              'Original Aspect Ratio',
+              t('aspectRatio.original'),
               true,
             ],
             [
               () => onClick(169),
               ar.classic3d === 169 ? 'is-selected' : '',
               '16:9',
-              ' Widescreen <br /> (Expect some graphical glitches.)',
+              t('aspectRatio.widescreen'),
               true,
             ],
           ]}

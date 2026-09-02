@@ -305,7 +305,7 @@ function StoreFront() {
       {feeds !== null && (
         <Main>
           <Tabs
-            ariaLabel="Demo Tabs"
+            ariaLabel={t('StoreFrontPage.tabsAria')}
             tabList={tabs}
             tabContent={[
               <>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'components/molecules/Card/Card';
@@ -6,6 +7,7 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 function SelectorMenu({ css, imgs, options, details, title, toggle, enabled }) {
+  const { t } = useTranslation();
   const id = getRandomInt(30000);
   return (
     <div className={`selector-menu ${css}`}>
@@ -63,7 +65,7 @@ function SelectorMenu({ css, imgs, options, details, title, toggle, enabled }) {
         <div className="selector-menu__details">
           {details && (
             <>
-              <p className="lead">Settings will be applied to</p>
+              <p className="lead">{t('SelectorMenu.appliedTo')}</p>
               <ul>
                 {details.map((item) => {
                   return <li>{item}</li>;

@@ -98,14 +98,14 @@ function End({ message, percentage, step, disabledNext }) {
               <Card css="is-selected">
                 <div className="container--grid">
                   <span data-col-sm="12" className="h2">
-                    Post Installation Status
+                    {t('EndPage.postInstallStatus')}
                   </span>
-                  <p className="lead">
-                    Please check that all your emulators has been installed. If
-                    an emulator or tool failed to install, run a
-                    <strong>Custom Reset</strong> or install the emulator using
-                    the <strong>Manage Emulators</strong> page.
-                  </p>
+                  <p
+                    className="lead"
+                    dangerouslySetInnerHTML={{
+                      __html: t('EndPage.postInstallDescription'),
+                    }}
+                  />
                   {emusInstalledStatus !== undefined &&
                     Object.values(emusInstalledStatus.Emulators).map((item) => {
                       return (
@@ -135,28 +135,13 @@ function End({ message, percentage, step, disabledNext }) {
               <Card css="is-selected">
                 <div className="container--grid">
                   <div data-col-sm="7">
-                    <span className="h3">⚠️ Read before continuing ⚠️</span>
-                    <p className="lead">
-                      EmuDeck is designed to work using
-                      <strong>Steam input</strong>, you need to launch the games
-                      using Steam after adding them with Steam Rom Manager, same
-                      thing with the Emulators, EmulationStation or Pegasus,
-                      otherwise the
-                      <strong>controls and hotkeys won't work</strong>.
-                      <br />
-                      Apps like DeckTools or Handheld Companion might break
-                      controls too in some cases.
-                      <br />
-                      Make sure your handheld is on GamePad mode at all times,
-                      not on Desktop or Auto.
-                      <br />
-                      <strong>
-                        If you want to use other Frontends like Playnite you
-                        will need to activate Steam Input on the Desktop as
-                        shown on the video and keep Steam open in the background
-                        at all times.
-                      </strong>
-                    </p>
+                    <span className="h3">{t('EndPage.readBefore')}</span>
+                    <p
+                      className="lead"
+                      dangerouslySetInnerHTML={{
+                        __html: t('EndPage.readBeforeDescription'),
+                      }}
+                    />
                   </div>
                   <div data-col-sm="5">
                     <Video src="https://f005.backblazeb2.com/file/emudeck-assets/videos/ra_B1axeFqU-SteamControllerConfig.mp4" />
@@ -172,7 +157,9 @@ function End({ message, percentage, step, disabledNext }) {
       {disabledNext && (
         <EmuModal
           modalActiveValue={disabledNext === true}
-          modalHeaderValue={<span className="h4">Installing EmuDeck...</span>}
+          modalHeaderValue={
+            <span className="h4">{t('EndPage.installing')}</span>
+          }
           modalBodyValue={
             <>
               <p>{message}...</p>
@@ -182,11 +169,11 @@ function End({ message, percentage, step, disabledNext }) {
             <BtnSimple
               css="btn-simple--1"
               type="button"
-              aria="Show log"
+              aria={t('aria.showLog')}
               disabled={false}
               onClick={() => showLog()}
             >
-              Open detailed log
+              {t('EndPage.openLog')}
             </BtnSimple>
           }
           modalCSSValue="emumodal--xs emumodal--loading"

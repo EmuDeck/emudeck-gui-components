@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useContext, useRef } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import { useNavigate } from 'react-router-dom';
@@ -24,6 +25,7 @@ const branchFile = require('data/branch.json');
 const { branch } = branchFile;
 
 function PatreonLogin({ children }) {
+  const { t } = useTranslation();
   //
   // i18
   //
@@ -254,12 +256,9 @@ function PatreonLogin({ children }) {
   }
   return (
     <>
-      <Header title="Early Access Feature" />
+      <Header title={t('PatroenLoginPage.featureTitle')} />
       <Main>
-        <p className="lead">
-          You need to log into patreon in order to access this feature while
-          it's being tested on our Early Access branch.
-        </p>
+        <p className="lead">{t('PatroenLoginPage.featureDescription')}</p>
 
         {!!errorMessage && branch.includes('early') && (
           <p className="lead">{errorMessage}</p>
@@ -272,17 +271,17 @@ function PatreonLogin({ children }) {
               css="btn-simple--3"
               type="button"
               target="_blank"
-              aria="Check Early Access features"
+              aria={t('PatroenLoginPage.checkFeatures')}
               onClick={() => goToPatreon()}
             >
-              Check Early Access features
+              {t('PatroenLoginPage.checkFeatures')}
             </BtnSimple>
           )}
 
         {patreonClicked && (
           <div className="form">
             <FormInputSimple
-              label="Token"
+              label={t('PatroenLoginPage.token')}
               type="token"
               name="token"
               id="token"
@@ -293,7 +292,7 @@ function PatreonLogin({ children }) {
               <BtnSimple
                 css="btn-simple--3"
                 type="button"
-                aria="Next"
+                aria={t('general.next')}
                 onClick={() => patreonCheckToken()}
               >
                 {status === null && 'Check Token'}

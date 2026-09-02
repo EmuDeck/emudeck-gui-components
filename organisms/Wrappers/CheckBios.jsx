@@ -69,7 +69,7 @@ function CheckBios({
                   ) : (
                     <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                   )}{' '}
-                  Playstation 1 BIOS {biosText(ps1Bios)}
+                  {t('CheckBios.ps1')} {biosText(ps1Bios)}
                 </Alert>
                 <Alert css={`alert--mini ${biosCSS(ps2Bios)}`}>
                   {biosText(ps2Bios).includes('missing') ? (
@@ -77,7 +77,7 @@ function CheckBios({
                   ) : (
                     <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                   )}{' '}
-                  Playstation 2 BIOS {biosText(ps2Bios)}
+                  {t('CheckBios.ps2')} {biosText(ps2Bios)}
                 </Alert>
               </div>
             </div>
@@ -89,7 +89,7 @@ function CheckBios({
                   ) : (
                     <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                   )}{' '}
-                  Yuzu Firmware {biosText(switchBios)}
+                  {t('CheckBios.yuzu')} {biosText(switchBios)}
                 </Alert>
               </div>
               <div>
@@ -99,7 +99,7 @@ function CheckBios({
                   ) : (
                     <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                   )}
-                  {ryujinxBios} Eden Firmware {biosText(edenBios)}
+                  {ryujinxBios} {t('CheckBios.eden')} {biosText(edenBios)}
                 </Alert>
               </div>
               {installEmus.ryujinx.status && (
@@ -110,7 +110,7 @@ function CheckBios({
                     ) : (
                       <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                     )}{' '}
-                    Ryujinx Firmware {biosText(ryujinxBios)}
+                    {t('CheckBios.ryujinx')} {biosText(ryujinxBios)}
                   </Alert>
                 </div>
               )}
@@ -121,7 +121,7 @@ function CheckBios({
                   ) : (
                     <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                   )}{' '}
-                  Citron Firmware {biosText(citronBios)}
+                  {t('CheckBios.citron')} {biosText(citronBios)}
                 </Alert>
               </div>
             </div>
@@ -133,7 +133,7 @@ function CheckBios({
                   ) : (
                     <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                   )}{' '}
-                  Sega CD BIOS {biosText(segaCDBios)}
+                  {t('CheckBios.segacd')} {biosText(segaCDBios)}
                 </Alert>
                 <Alert css={`alert--mini ${biosCSS(saturnBios)}`}>
                   {biosText(saturnBios).includes('missing') ? (
@@ -141,7 +141,7 @@ function CheckBios({
                   ) : (
                     <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                   )}{' '}
-                  Saturn BIOS {biosText(saturnBios)}
+                  {t('CheckBios.saturn')} {biosText(saturnBios)}
                 </Alert>
                 <Alert css={`alert--mini ${biosCSS(DSBios)}`}>
                   {biosText(DSBios).includes('missing') ? (
@@ -149,7 +149,7 @@ function CheckBios({
                   ) : (
                     <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                   )}{' '}
-                  Nintendo DS BIOS {biosText(DSBios)}
+                  {t('CheckBios.nds')} {biosText(DSBios)}
                 </Alert>
                 <Alert
                   css={`alert--mini ${
@@ -161,7 +161,7 @@ function CheckBios({
                   ) : (
                     <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
                   )}{' '}
-                  Dreamcast BIOS{' '}
+                  {t('CheckBios.dreamcast')}{' '}
                   {dreamcastBios
                     ? t('CheckBios.detected')
                     : t('CheckBios.missing')}

@@ -1,7 +1,7 @@
 import citraControls from 'assets/hotkeys/3ds-controls.jpg';
 import citraHotkeys from 'assets/hotkeys/3ds-hotkeys.jpg';
 import duckstationControls from 'assets/hotkeys/duckstation-controls.jpg';
-import duckstationHotkeys from 'assets/hotkeys/duckstation-hotkeys-alt.jpg';
+import duckstationHotkeysExpert from 'assets/hotkeys/duckstation-hotkeys-alt.jpg';
 import duckstationHotkeys from 'assets/hotkeys/duckstation-hotkeys.jpg';
 import gamecubeControls from 'assets/hotkeys/gamecube-controls.jpg';
 import gamecubeHotkeysExpert from 'assets/hotkeys/gamecube-hotkeys-alt.jpg';
@@ -31,6 +31,7 @@ export {
   citraControls,
   citraHotkeys,
   duckstationControls,
+  duckstationHotkeysExpert,
   duckstationHotkeys,
   basicHotkeys,
   basicHotkeysWin,

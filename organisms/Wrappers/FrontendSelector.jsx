@@ -27,7 +27,7 @@ function FrontendSelector({ onClick, images, lastSelected, installFrontends }) {
               >
                 <img src={img} alt={item.name} />
                 <span className="h6">{item.name}</span>
-                <p>{item.desc}</p>
+                <p>{t(item.desc)}</p>
               </Card>
             );
           })}

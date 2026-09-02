@@ -41,7 +41,7 @@ function PowerTools({
               <div className="form">
                 <p>{t('general.sudo')}</p>
                 <FormInputSimple
-                  label="Sudo Password"
+                  label={t('general.sudoPassword')}
                   type="password"
                   name="pass"
                   id="pass"

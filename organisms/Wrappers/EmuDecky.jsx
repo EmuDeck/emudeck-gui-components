@@ -25,12 +25,7 @@ function EmuDecky({
   const { system } = state;
   return (
     <>
-      <p className="lead">
-        EmuDecky is a plugin that allows you to see all of EmuDeck controls and
-        hotkeys while you are gaming and event configure EmuDeck!. To use
-        EmuDecky: In Game Mode, press the ... button, press the socket icon, and
-        select EmuDecky.
-      </p>
+      <p className="lead">{t('EmuDeckyPage.intro')}</p>
       <Main>
         <br />
         <div className="container--grid">
@@ -39,11 +34,11 @@ function EmuDecky({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Install EmuDecky"
+                aria={t('EmuDeckyPage.install')}
                 onClick={installClick}
                 disabled={disableButton && 'true'}
               >
-                Install EmuDecky
+                {t('EmuDeckyPage.install')}
               </BtnSimple>
             )}
 
@@ -51,22 +46,19 @@ function EmuDecky({
               <BtnSimple
                 css="btn-simple--1"
                 type="button"
-                aria="Install EmuDecky"
+                aria={t('EmuDeckyPage.install')}
                 onClick={installClick}
                 disabled={disableButton && 'true'}
               >
-                Install EmuDecky
+                {t('EmuDeckyPage.install')}
               </BtnSimple>
             )}
 
             {hasSudo === true && system !== 'win32' && (
               <div className="form">
-                <p>
-                  We have detected you have set a sudo password, type it on the
-                  next input to install this tool.
-                </p>
+                <p>{t('general.sudoDetected')}</p>
                 <FormInputSimple
-                  label="Sudo Password"
+                  label={t('general.sudoPassword')}
                   type="password"
                   name="pass"
                   id="pass"
@@ -77,11 +69,11 @@ function EmuDecky({
                   <BtnSimple
                     css="btn-simple--1"
                     type="button"
-                    aria="Install EmuDecky"
+                    aria={t('EmuDeckyPage.install')}
                     onClick={installClick}
                     disabled={disableButton && 'true'}
                   >
-                    Install EmuDecky
+                    {t('EmuDeckyPage.install')}
                   </BtnSimple>
                 )}
               </div>

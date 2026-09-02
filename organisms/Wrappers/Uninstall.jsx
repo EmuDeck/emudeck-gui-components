@@ -14,33 +14,31 @@ function Uninstall({ onClick }) {
         <div>
           <a
             href="https://discord.gg/b9F7GpXtFP"
-            aria-label="Go Next"
+            aria-label={t('aria.goNext')}
             className="btn-simple btn-simple--1"
             target="_blank"
             rel="noreferrer"
           >
-            Our Discord
+            {t('UninstallPage.discord')}
           </a>
           <a
             href="https://www.reddit.com/r/EmuDeck/"
-            aria-label="Go Next"
+            aria-label={t('aria.goNext')}
             className="btn-simple btn-simple--1"
             target="_blank"
             rel="noreferrer"
           >
-            Our Reddit
+            {t('UninstallPage.reddit')}
           </a>
         </div>
-        <p className="lead">
-          I know what I am doing, I would like to uninstall EmuDeck.
-        </p>
+        <p className="lead">{t('UninstallPage.confirm')}</p>
         <BtnSimple
           css="btn-simple--3"
           type="button"
           onClick={() => onClick()}
-          aria="Go Next"
+          aria={t('aria.goNext')}
         >
-          Uninstall EmuDeck
+          {t('UninstallPage.title')}
         </BtnSimple>
       </Main>
     </>

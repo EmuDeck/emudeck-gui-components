@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import kamek from 'assets/kamek/kamek.png';
 import sparkles from 'assets/kamek/sparkles.gif';
 import './kamek.scss';
 
 function Kamek() {
+  const { t } = useTranslation();
   return (
     <div className="container-kamek">
       <a
@@ -11,7 +13,7 @@ function Kamek() {
         target="_blank"
         rel="noreferrer"
       >
-        Original idea by <strong>acupoftee</strong>
+        {t('credits.originalIdeaBy')} <strong>acupoftee</strong>
       </a>
       <ul className="stars">
         <li> </li>
