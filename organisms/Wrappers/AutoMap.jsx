@@ -70,14 +70,14 @@ function AutoMap({ onClick }) {
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
                     <Card
-                      css={automap.azahar === true ? 'is-selected' : ''}
-                      onClick={() => onClick('azahar', true)}
+                      css={automap.cemu === true ? 'is-selected' : ''}
+                      onClick={() => onClick('cemu', true)}
                     >
                       <strong>On</strong>
                     </Card>
                     <Card
-                      css={automap.azahar === false ? 'is-selected' : ''}
-                      onClick={() => onClick('azahar', false)}
+                      css={automap.cemu === false ? 'is-selected' : ''}
+                      onClick={() => onClick('cemu', false)}
                     >
                       <strong>Off</strong>
                     </Card>
