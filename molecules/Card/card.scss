@@ -85,6 +85,11 @@
     .card__selected {
       opacity: 1;
     }
+    &.is-selected--hide-tick {
+      .card__selected {
+        display: none;
+      }
+    }
   }
 }
 
