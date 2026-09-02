@@ -30,6 +30,7 @@ import logo_channelf from 'assets/systems/channelf.svg';
 import logo_coco from 'assets/systems/coco.svg';
 import logo_colecovision from 'assets/systems/colecovision.svg';
 import logo_cps from 'assets/systems/cps.svg';
+import logo_customcollec from 'assets/systems/custom-collections.svg';
 import logo_daphne from 'assets/systems/daphne.svg';
 import logo_desktop from 'assets/systems/desktop.svg';
 import logo_doom from 'assets/systems/doom.svg';
@@ -59,6 +60,8 @@ import logo_lutris from 'assets/systems/lutris.svg';
 import logo_lutro from 'assets/systems/lutro.svg';
 import logo_macintosh from 'assets/systems/macintosh.svg';
 import logo_mame from 'assets/systems/mame.svg';
+import logo_mameadvmame from 'assets/systems/mame-advmame.svg';
+import logo_mamemame4all from 'assets/systems/mame-mame4all.svg';
 import logo_mastersystem from 'assets/systems/mastersystem.svg';
 import logo_megacd from 'assets/systems/megacd.svg';
 import logo_megacdjp from 'assets/systems/megacdjp.svg';
@@ -328,7 +331,6 @@ export {
   logo_sega32xna,
   logo_segacd,
   logo_sfc,
-  logo_sg1000,
   logo_sgb,
   logo_snes,
   logo_snesna,
@@ -354,7 +356,7 @@ export {
   logo_wii,
   logo_wiiu,
   logo_wonderswan,
-  logo_wonderswancol,
+  logo_wonderswancolor,
   logo_x1,
   logo_x68000,
   logo_xbox,
