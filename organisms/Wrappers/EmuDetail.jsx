@@ -420,16 +420,18 @@ function EmuDetail(props) {
                   >
                     {t('EmulatorsDetailPage.removeCache')}
                   </BtnSimple>
-                  <BtnSimple
-                    css="btn-simple--2"
-                    type="button"
-                    aria={t('aria.goBack')}
-                    onClick={() => {
-                      onClickParsers();
-                    }}
-                  >
-                    {t('EmulatorsDetailPage.standaloneParsers')}
-                  </BtnSimple>
+                  {system === 'win32' && (
+                    <BtnSimple
+                      css="btn-simple--2"
+                      type="button"
+                      aria={t('aria.goBack')}
+                      onClick={() => {
+                        onClickParsers();
+                      }}
+                    >
+                      {t('EmulatorsDetailPage.standaloneParsers')}
+                    </BtnSimple>
+                  )}
                   {/* <BtnSimple
                     css="btn-simple--2"
                     type="button"
