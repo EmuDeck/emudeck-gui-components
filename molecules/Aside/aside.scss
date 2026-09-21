@@ -53,13 +53,14 @@
       padding: 13px 3px 11px 10px;
       border-radius: 0;
       transition: 0.5s;
+      border-radius: 12px;
       &:focus {
         animation: none;
       }
       &:hover {
         background: rgba(255, 255, 255, 0.2);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
+
         overflow: hidden;
         transition: 0.5s;
       }
