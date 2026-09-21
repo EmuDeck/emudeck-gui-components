@@ -92,3 +92,10 @@
     }
   }
 }
+
+body[data-platform='linux'] .header__version {
+  right: 104px;
+}
+body[data-platform='win32'] .header__version {
+  right: 146px;
+}

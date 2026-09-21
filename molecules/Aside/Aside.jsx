@@ -81,16 +81,20 @@ function Aside({ css }) {
     window.open('https://manual.emudeck.com', '_blank');
   };
 
+  const openStore = () => {
+    window.open('https://store.emudeck.com', '_blank');
+  };
+
   const uninstall = () => {
     if (system === 'win32') {
       ipcChannel.sendMessage(
         'emudeck',
-        'powershell -ExecutionPolicy Bypass -NoProfile -File "$env:APPDATA/EmuDeck/backend/uninstall.ps1"'
+        'powershell -ExecutionPolicy Bypass -NoProfile -File "$env:APPDATA/EmuDeck/backend/uninstall.ps1"',
       );
     } else {
       ipcChannel.sendMessage(
         'bash',
-        'bash ~/.config/EmuDeck/backend/uninstall.sh'
+        'bash ~/.config/EmuDeck/backend/uninstall.sh',
       );
     }
   };
@@ -191,13 +195,13 @@ function Aside({ css }) {
       setStatePage({ ...statePage, modal: modalData });
       ipcChannel.sendMessage(
         'emudeck',
-        'powershell -ExecutionPolicy Bypass -NoProfile -File "$toolsPath/launchers/srm/steamrommanager.ps1"'
+        'powershell -ExecutionPolicy Bypass -NoProfile -File "$toolsPath/launchers/srm/steamrommanager.ps1"',
       );
     } else if (system !== 'darwin') {
       setStatePage({ ...statePage, modal: modalData });
       ipcChannel.sendMessage(
         'emudeck',
-        '"$toolsPath/launchers/srm/steamrommanager.sh"'
+        '"$toolsPath/launchers/srm/steamrommanager.sh"',
       );
     } else {
       modalData = {
@@ -217,7 +221,7 @@ function Aside({ css }) {
       setStatePage({ ...statePage, modal: modalData });
       ipcChannel.sendMessage(
         'emudeck',
-        '"$toolsPath/launchers/srm/steamrommanager.sh"'
+        '"$toolsPath/launchers/srm/steamrommanager.sh"',
       );
     }
 
@@ -363,7 +367,7 @@ function Aside({ css }) {
       button: t('aside.buttons.getFreeGames'),
       btnCSS: 'btn-simple--1',
       status: true,
-      function: () => functions.navigate('/store-front'),
+      function: () => openStore(),
     },
     {
       icon: [iconJoystick],

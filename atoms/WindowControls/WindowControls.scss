@@ -1,0 +1,91 @@
+.window-controls {
+  position: fixed;
+  top: 6px;
+  right: 8px;
+  z-index: 1000;
+  display: flex;
+  gap: 6px;
+  -webkit-app-region: no-drag;
+
+  &__btn {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    -webkit-app-region: no-drag;
+    background: transparent;
+    color: var(--color-text, #fff);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+
+    svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.18);
+      outline: none;
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 0.32);
+    }
+
+    &--close:hover,
+    &--close:focus-visible {
+      background: #da4453;
+      color: #fff;
+    }
+
+    &--close:active {
+      background: #b53a47;
+    }
+  }
+}
+
+.window-controls--win32 {
+  top: 0;
+  right: 0;
+  gap: 0;
+
+  .window-controls__btn {
+    width: 46px;
+    height: 32px;
+    border-radius: 0;
+
+    svg {
+      stroke-width: 1;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    &--close:hover,
+    &--close:focus-visible {
+      background: #c42b1c;
+      color: #fff;
+    }
+
+    &--close:active {
+      background: #b2271a;
+    }
+  }
+}
+
+body:fullscreen .window-controls {
+  display: none;
+}
