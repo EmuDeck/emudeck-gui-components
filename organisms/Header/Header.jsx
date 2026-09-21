@@ -1,9 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PropTypes } from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
 import Toasty from 'components/atoms/Toasty/Toasty';
+import EmuModal from 'components/molecules/EmuModal/EmuModal';
+import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 
 import './Header.scss';
 import flagEN from 'assets/flags/en.svg';
@@ -48,6 +50,150 @@ function HeaderElectron({ title, bold }) {
     it: {
       nativeName: <img src={flagIT} alt={t('languages.it')} />,
     },
+  };
+
+  // Release channel selector (top right, next to the version)
+  const releaseChannels = ['main', 'beta', 'early', 'early-unstable'];
+  const [channelModal, setChannelModal] = useState(false);
+
+  const channelName = (id) =>
+    t(`Header.channels.${id}`, { defaultValue: id.toUpperCase() });
+
+  const closeChannelModal = () => setChannelModal(false);
+
+  const channelProgressModal = (channel, body, percent) => ({
+    active: true,
+    header: (
+      <span className="h4">
+        {t('Header.channel.updating', { channel: channelName(channel) })}
+      </span>
+    ),
+    body: <p>{body}</p>,
+    footer:
+      percent === undefined ? (
+        <ProgressBar css="progress--success" infinite max="100" />
+      ) : (
+        <ProgressBar css="progress--success" value={percent} max="100" />
+      ),
+    css: 'emumodal--xs',
+  });
+
+  const channelResultModal = (header, body) => ({
+    active: true,
+    header: <span className="h4">{header}</span>,
+    body: <p>{body}</p>,
+    footer: (
+      <BtnSimple css="btn-simple--1" type="button" onClick={closeChannelModal}>
+        {t('general.close')}
+      </BtnSimple>
+    ),
+    css: 'emumodal--xs',
+  });
+
+  const switchChannel = (channel) => {
+    setChannelModal(
+      channelProgressModal(channel, t('Header.channel.checking')),
+    );
+    ipcChannel.sendMessage('update-channel', [channel]);
+  };
+
+  useEffect(() => {
+    const unsubscribe = ipcChannel.on('update-channel-out', (message) => {
+      const [status, payload] = message;
+      const channel = branch;
+      switch (status) {
+        case 'checking':
+          setChannelModal(
+            channelProgressModal(payload, t('Header.channel.checking')),
+          );
+          break;
+        case 'downloading':
+          setChannelModal(
+            channelProgressModal(
+              channel,
+              t('Header.channel.downloading', { version: payload?.version }),
+              0,
+            ),
+          );
+          break;
+        case 'progress':
+          setChannelModal(
+            channelProgressModal(
+              channel,
+              t('Header.channel.downloadingPercent', { percent: payload }),
+              payload,
+            ),
+          );
+          break;
+        case 'installing':
+          setChannelModal(
+            channelProgressModal(channel, t('Header.channel.installing')),
+          );
+          break;
+        case 'same-version':
+          setChannelModal(
+            channelResultModal(
+              t('general.warning'),
+              t('Header.channel.sameVersion', { version: payload?.version }),
+            ),
+          );
+          break;
+        case 'error':
+        default:
+          setChannelModal(
+            channelResultModal(
+              t('general.error'),
+              payload === 'DEV MODE'
+                ? t('Header.channel.devMode')
+                : t('Header.channel.error', { error: payload }),
+            ),
+          );
+          break;
+      }
+    });
+    return () => {
+      if (typeof unsubscribe === 'function') unsubscribe();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [branch]);
+
+  const askChannel = (e) => {
+    const channel = e.target.value;
+    if (channel === branch) return;
+    setChannelModal({
+      active: true,
+      header: <span className="h4">{t('Header.channel.confirmTitle')}</span>,
+      body: (
+        <>
+          <p>
+            {t('Header.channel.confirmBody', {
+              from: channelName(branch),
+              to: channelName(channel),
+            })}
+          </p>
+          <p>{t('Header.channel.confirmNote')}</p>
+        </>
+      ),
+      footer: (
+        <>
+          <BtnSimple
+            css="btn-simple--2"
+            type="button"
+            onClick={closeChannelModal}
+          >
+            {t('general.cancel')}
+          </BtnSimple>
+          <BtnSimple
+            css="btn-simple--1"
+            type="button"
+            onClick={() => switchChannel(channel)}
+          >
+            {t('general.update')}
+          </BtnSimple>
+        </>
+      ),
+      css: 'emumodal--xs',
+    });
   };
 
   const toggleDebug = (e) => {
@@ -289,11 +435,32 @@ function HeaderElectron({ title, bold }) {
         </div>
         <Toasty />
         {month === 11 && snowFlakes && snowFlakes}
-        <button type="button" onClick={toggleDebug} className="header__version">
-          <small>
-            {version} - {branch.toUpperCase()}
-          </small>
-        </button>
+        <div className="header__version">
+          <button
+            type="button"
+            onClick={toggleDebug}
+            className="header__version-number"
+          >
+            <small>{version} -</small>
+          </button>
+          <select
+            className="header__channel"
+            value={branch}
+            onChange={askChannel}
+            aria-label={t('Header.channel.label')}
+            title={t('Header.channel.label')}
+          >
+            {releaseChannels.map((id) => (
+              <option key={id} value={id}>
+                {channelName(id)}
+              </option>
+            ))}
+            {!releaseChannels.includes(branch) && (
+              <option value={branch}>{branch.toUpperCase()}</option>
+            )}
+          </select>
+        </div>
+        <EmuModal modal={channelModal} />
         <div className="header__accesibility">
           {Object.keys(lngs).map((lng) => (
             <button
