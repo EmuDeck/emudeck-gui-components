@@ -16,7 +16,7 @@ import flagIT from 'assets/flags/it.svg';
 function HeaderElectron({ title, bold }) {
   const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
-  const { debug, version, branch, command, second } = state;
+  const { debug, version, branch, command, second, system } = state;
   const ipcChannel = window.electron.ipcRenderer;
 
   //Prevent users closing the app before finishing the installation
@@ -177,18 +177,27 @@ function HeaderElectron({ title, bold }) {
       footer: (
         <>
           <BtnSimple
-            css="btn-simple--2"
-            type="button"
-            onClick={closeChannelModal}
-          >
-            {t('general.cancel')}
-          </BtnSimple>
-          <BtnSimple
             css="btn-simple--1"
             type="button"
             onClick={() => switchChannel(channel)}
           >
             {t('general.update')}
+          </BtnSimple>
+          <BtnSimple
+            css="btn-simple--2"
+            type="link"
+            aria={t('CheckUpdatePage.found.changelog')}
+            target="_blank"
+            href={`https://cloud.emudeck.com/changelog/changelog.php?c=${channel}&s=${system}`}
+          >
+            {t('CheckUpdatePage.found.changelog')}
+          </BtnSimple>
+          <BtnSimple
+            css="btn-simple--3"
+            type="button"
+            onClick={closeChannelModal}
+          >
+            {t('general.cancel')}
           </BtnSimple>
         </>
       ),
