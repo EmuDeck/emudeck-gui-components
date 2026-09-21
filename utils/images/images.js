@@ -88,6 +88,7 @@ import steamUI from 'assets/steamUI.png';
 import winDesktop from 'assets/winDesktop.png';
 import imgDeck from 'assets/devices/deck.png';
 import imgSteamMachine from 'assets/devices/steamMachine.png';
+import imgSteamFrame from 'assets/devices/steamFrame.png';
 import imgPlaynixConsole from 'assets/devices/playnixConsole.png';
 import imgWin600 from 'assets/devices/win600.png';
 import imgally from 'assets/devices/ally.png';
@@ -233,6 +234,7 @@ export {
   imgDeck,
   imgWin600,
   imgSteamMachine,
+  imgSteamFrame,
   imgally,
   imgaokzoepro,
   imgayaneo2,

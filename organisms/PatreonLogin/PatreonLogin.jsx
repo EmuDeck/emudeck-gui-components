@@ -206,9 +206,10 @@ function PatreonLogin({ children }) {
 
         ipcChannel.once('version-out', (version) => {
           ipcChannel.sendMessage('system-info-in');
-          ipcChannel.once('system-info-out', (platform) => {
+          ipcChannel.once('system-info-out', (platform, arch) => {
             console.log({
               system: platform,
+              arch,
               version: version[0],
               gamemode: version[1],
             });
@@ -226,6 +227,7 @@ function PatreonLogin({ children }) {
               },
               shaders: { ...shaders, ...shadersStored },
               system: platform,
+              arch,
               version: version[0],
               gamemode: version[1],
               branch,
