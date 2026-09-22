@@ -26,6 +26,7 @@ import yuzuHotkeysExpert from 'assets/hotkeys/yuzu-hotkeys-alt.jpg';
 import yuzuHotkeys from 'assets/hotkeys/yuzu-hotkeys.jpg';
 import basicHotkeys from 'assets/hotkeys/basic-hotkeys.png';
 import basicHotkeysWin from 'assets/hotkeys/basic-hotkeys-win.png';
+import basicHotkeysWin from 'assets/hotkeys/basic-hotkeys-win.png';
 
 export {
   citraControls,
