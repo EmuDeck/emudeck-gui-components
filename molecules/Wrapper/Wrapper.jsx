@@ -4,7 +4,7 @@ import { GlobalContext } from 'context/globalContext';
 import Aside from 'components/molecules/Aside/Aside';
 import { useNavigate } from 'react-router-dom';
 
-function Wrapper({ children, aside, css }) {
+function Wrapper({ children, aside, css, asideComponent }) {
   const { state } = useContext(GlobalContext);
   const { system, second } = state;
   let showAside;
@@ -30,7 +30,7 @@ function Wrapper({ children, aside, css }) {
 
   return (
     <div className={`app ${system}`}>
-      <Aside css={showAside ? '' : 'is-hidden'} />
+      {asideComponent || <Aside css={showAside ? '' : 'is-hidden'} />}
       <div className={`wrapper ${css}`}>{children}</div>
     </div>
   );
@@ -57,10 +57,12 @@ Wrapper.propTypes = {
     PropTypes.element,
     PropTypes.string,
   ]),
+  asideComponent: PropTypes.node,
 };
 
 Wrapper.defaultProps = {
   children: '',
   aside: true,
   css: '',
+  asideComponent: null,
 };

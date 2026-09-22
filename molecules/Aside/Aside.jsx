@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import React, { useContext, useState, useEffect, useLayoutEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,7 @@ import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import EmuModal from 'components/molecules/EmuModal/EmuModal';
 
 import './aside.scss';
+import useAsideResize from 'hooks/useAsideResize';
 import {
   iconChecker,
   iconCloud,
@@ -39,48 +40,7 @@ function Aside({ css }) {
     state;
   const { modal, updates } = statePage;
   const navigate = useNavigate();
-  const [resizing, setResizing] = useState(false);
-
-  // Restore the stored width before paint so there is no jump on mount
-  useLayoutEffect(() => {
-    const asideWidth = localStorage.getItem('aside_width');
-    if (asideWidth) {
-      document.documentElement.style.setProperty(
-        '--aside-width',
-        `${asideWidth}px`,
-      );
-    }
-  }, []);
-
-  // Drag the right edge to resize the aside; width persists in localStorage
-  const startResize = (event) => {
-    const aside = event.currentTarget.parentElement;
-    const startX = event.clientX;
-    const startWidth = aside.getBoundingClientRect().width;
-    let width = startWidth;
-    setResizing(true);
-
-    const onMove = (moveEvent) => {
-      width = Math.min(
-        480,
-        Math.max(180, startWidth + moveEvent.clientX - startX),
-      );
-      document.documentElement.style.setProperty('--aside-width', `${width}px`);
-    };
-    const onUp = () => {
-      window.removeEventListener('pointermove', onMove);
-      window.removeEventListener('pointerup', onUp);
-      setResizing(false);
-      localStorage.setItem('aside_width', String(Math.round(width)));
-    };
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  };
-
-  const resetResize = () => {
-    document.documentElement.style.removeProperty('--aside-width');
-    localStorage.removeItem('aside_width');
-  };
+  const { asideClass, resizerProps } = useAsideResize();
 
   const openCSM = () => {
     ipcChannel.sendMessage('bash', [
@@ -392,6 +352,16 @@ function Aside({ css }) {
     },
     {
       icon: [iconGear],
+      iconFlat: 'joystick',
+      title: t('aside.romLibrary'),
+      description: t('aside.cards.romLibrary.description'),
+      button: t('aside.buttons.configure'),
+      btnCSS: 'btn-simple--1',
+      status: branch.includes('dev') ? true : false,
+      function: () => functions.navigate('/rom-library'),
+    },
+    {
+      icon: [iconGear],
       iconFlat: 'books',
       title: t('aside.manageEmulators'),
       description: t('aside.cards.manageEmulators.description'),
@@ -694,14 +664,8 @@ function Aside({ css }) {
     },
   ];
   return (
-    <aside className={`sidebar ${css} ${resizing ? 'is-resizing' : ''}`}>
-      <div
-        className="sidebar__resizer"
-        role="separator"
-        aria-orientation="vertical"
-        onPointerDown={startResize}
-        onDoubleClick={resetResize}
-      />
+    <aside className={`sidebar ${css} ${asideClass}`}>
+      <div {...resizerProps} />
       <Sprite />
       <ul className="sidebar__elements">
         <li>{system !== 'win32' && <small>{t('aside.featured')}</small>}</li>
