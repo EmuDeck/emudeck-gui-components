@@ -450,7 +450,7 @@ function HeaderElectron({ title, bold }) {
             onClick={toggleDebug}
             className="header__version-number"
           >
-            <small>{version} -</small>
+            <small>{version}</small>
           </button>
           <select
             className="header__channel"
