@@ -108,6 +108,8 @@ function HeaderElectron({ title, bold }) {
           );
           break;
         case 'downloading':
+          // Show the changelog on the first launch after the channel switch
+          localStorage.setItem('show_changelog', true);
           setChannelModal(
             channelProgressModal(
               channel,
