@@ -27,7 +27,7 @@ function End({ message, percentage, step, disabledNext }) {
     const installEmusArray = Object.values(installEmus);
 
     const onlySelectedEmus = installEmusArray.filter(
-      (item) => item.status === true
+      (item) => item.status === true,
     );
 
     const bashArray = [];
@@ -94,7 +94,7 @@ function End({ message, percentage, step, disabledNext }) {
       <Main>
         {disabledNext === false && (
           <div className="tips">
-            {system !== 'win32' && (
+            {/*system == 'win32' && (
               <Card css="is-selected">
                 <div className="container--grid">
                   <span data-col-sm="12" className="h2">
@@ -128,6 +128,21 @@ function End({ message, percentage, step, disabledNext }) {
                         </div>
                       );
                     })}
+                </div>
+              </Card>
+            )*/}
+            {system !== 'win32' && device == 'Steam Frame' && (
+              <Card css="is-selected">
+                <div className="container--grid">
+                  <div data-col-sm="7">
+                    <span className="h3">{t('EndPage.readBefore')}</span>
+                    <p
+                      className="lead"
+                      dangerouslySetInnerHTML={{
+                        __html: t('EndPage.readBeforeDescriptionFrame'),
+                      }}
+                    />
+                  </div>
                 </div>
               </Card>
             )}

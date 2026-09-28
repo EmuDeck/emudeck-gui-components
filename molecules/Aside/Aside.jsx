@@ -36,8 +36,15 @@ function Aside({ css }) {
   const ipcChannel = window.electron.ipcRenderer;
   const { state, setState, stateCurrentConfigs } = useContext(GlobalContext);
   const [statePage, setStatePage] = useState({ modal: false, updates: false });
-  const { system, systemName, mode, branch, installEmus, installFrontends } =
-    state;
+  const {
+    system,
+    systemName,
+    mode,
+    branch,
+    installEmus,
+    installFrontends,
+    device,
+  } = state;
   const { modal, updates } = statePage;
   const navigate = useNavigate();
   const { asideClass, resizerProps } = useAsideResize();
@@ -192,6 +199,19 @@ function Aside({ css }) {
       footer: <ProgressBar css="progress--success" infinite max="100" />,
       css: 'emumodal--xs',
     };
+
+    if (device == 'Steam Frame') {
+      modalData = {
+        active: true,
+        header: (
+          <span className="h4">{t('general.launching')} Steam Rom Manager</span>
+        ),
+        body: <p>{t('aside.srm.bodyFrame')}</p>,
+        css: 'emumodal--xs',
+      };
+      setStatePage({ ...statePage, modal: modalData });
+      return;
+    }
 
     if (system === 'win32') {
       setStatePage({ ...statePage, modal: modalData });

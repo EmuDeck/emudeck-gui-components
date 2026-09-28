@@ -16,6 +16,7 @@ import {
   imgduckstation,
   imgazahar,
   imgpcsx2,
+  imgarmsx2,
   imgrpcs3,
   imgyuzu,
   imgeden,
@@ -52,6 +53,7 @@ function EmuDetail(props) {
     onClickMigrate,
     onClickCustomParser,
     onClickOptionalParser,
+    onClickAddToSteam,
     emuData,
     installEmus,
     disableResetButton,
@@ -102,6 +104,9 @@ function EmuDetail(props) {
         break;
       case 'pcsx2':
         setStateImg({ img: imgpcsx2 });
+        break;
+      case 'armsx2':
+        setStateImg({ img: imgarmsx2 });
         break;
       case 'rpcs3':
         setStateImg({ img: imgrpcs3 });
@@ -395,6 +400,20 @@ function EmuDetail(props) {
                   </BtnSimple>
                 )}
               {disableInstallButton &&
+                emuData.id !== 'esde' &&
+                emuData.id !== 'srm' &&
+                emuData.id !== 'pegasus' && (
+                  <BtnSimple
+                    css="btn-simple--2"
+                    type="button"
+                    aria="Add to Steam"
+                    disabled={hideInstallButton}
+                    onClick={() => onClickAddToSteam(emuData.id, emuData.code)}
+                  >
+                    Add to Steam
+                  </BtnSimple>
+                )}
+              {disableInstallButton &&
                 emuData.id !== 'yuzu' &&
                 emuData.id !== 'citron' &&
                 emuData.id !== 'eden' && (
@@ -459,6 +478,7 @@ function EmuDetail(props) {
             <div className="emudetail__actions">
               {(emuData.id === 'primehack' ||
                 emuData.id === 'pcsx2' ||
+                emuData.id === 'armsx2' ||
                 emuData.id === 'yuzu' ||
                 emuData.id === 'eden' ||
                 emuData.id === 'citron' ||
@@ -479,7 +499,8 @@ function EmuDetail(props) {
 
                   {(emuData.id === 'ra' ||
                     emuData.id === 'primehack' ||
-                    emuData.id === 'pcsx2') && (
+                    emuData.id === 'pcsx2' ||
+                    emuData.id === 'armsx2') && (
                     <BtnSimple
                       css="btn-simple--2"
                       type="button"
@@ -492,16 +513,17 @@ function EmuDetail(props) {
                 </>
               )}
 
-              {emuData.id === 'pcsx2' && (
-                <BtnSimple
-                  css="btn-simple--2"
-                  type="button"
-                  aria={t('EmulatorsDetailPage.hotkeys')}
-                  onClick={() => onClickHotkeys('pcsx2_expert')}
-                >
-                  {t('EmulatorsDetailPage.hotkeysExpert')}
-                </BtnSimple>
-              )}
+              {emuData.id === 'pcsx2' ||
+                (emuData.id === 'armsx2' && (
+                  <BtnSimple
+                    css="btn-simple--2"
+                    type="button"
+                    aria={t('EmulatorsDetailPage.hotkeys')}
+                    onClick={() => onClickHotkeys('pcsx2_expert')}
+                  >
+                    {t('EmulatorsDetailPage.hotkeysExpert')}
+                  </BtnSimple>
+                ))}
               {emuData.id === 'dolphin' && (
                 <>
                   <BtnSimple

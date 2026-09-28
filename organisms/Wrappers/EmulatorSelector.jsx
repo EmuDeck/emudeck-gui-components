@@ -8,7 +8,7 @@ import Card from 'components/molecules/Card/Card';
 function EmulatorSelector({ onClick, images, installEmus }) {
   const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
-  const { system, branch } = state;
+  const { system, branch, arch } = state;
   const installEmusArray = Object.values(installEmus);
 
   return (
@@ -25,6 +25,22 @@ function EmulatorSelector({ onClick, images, installEmus }) {
             }
             if (system === 'win32') {
               if (item.id === 'rmg' || item.id === 'ares') {
+                return;
+              }
+            }
+
+            if (system !== 'win32' && arch == 'arm64') {
+              if (
+                item.id === 'pcsx2' ||
+                item.id === 'shadps4' ||
+                item.id === 'model2' ||
+                item.id === 'supermodel'
+              ) {
+                return;
+              }
+            }
+            if (arch != 'arm64') {
+              if (item.id === 'armsx2') {
                 return;
               }
             }

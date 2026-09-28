@@ -82,6 +82,19 @@ function Welcome({ onClick, alert, alertCSS, functions, updates }) {
                 description={t('WelcomePage.custom')}
               />
             </div>
+            {branch === 'dev' && (
+              <div data-col-sm="6">
+                <CardSettings
+                  css={mode === 'ondemand' && 'is-highlighted'}
+                  btnCSS="btn-simple--1"
+                  icon={iconQuick}
+                  iconSize="md"
+                  title={t('WelcomePage.ondemandTitle')}
+                  onClick={() => onClick('ondemand')}
+                  description={t('WelcomePage.ondemand')}
+                />
+              </div>
+            )}
           </div>
         )}
       </Main>

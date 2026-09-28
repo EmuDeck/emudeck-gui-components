@@ -65,7 +65,7 @@ function EmulatorResolution({ onClick }) {
                 <div className="pcsx2" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
                     {t('systems.ps2')}
-                    <br /> <small>PCSX2</small>
+                    <br /> <small>PCSX2 / ARMSX2</small>
                   </span>
                   <div className="cards cards--mini" style={{ flex: 1 }}>
                     <Card

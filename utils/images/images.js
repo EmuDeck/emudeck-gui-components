@@ -7,6 +7,7 @@ import imgppsspp from 'assets/emulators/ppsspp.png';
 import imgduckstation from 'assets/emulators/duckstation.png';
 import imgazahar from 'assets/emulators/azahar.svg';
 import imgpcsx2 from 'assets/emulators/pcsx2.png';
+import imgarmsx2 from 'assets/emulators/armsx2.png';
 import imgrpcs3 from 'assets/emulators/rpcs3.png';
 import imgyuzu from 'assets/emulators/yuzu.png';
 import imgeden from 'assets/emulators/eden.png';
@@ -115,6 +116,7 @@ import flycastGrid from 'assets/emulators/grid/flycast.png';
 import melondsGrid from 'assets/emulators/grid/melonds.png';
 import mgbaGrid from 'assets/emulators/grid/mgba.png';
 import pcsx2Grid from 'assets/emulators/grid/pcsx2.png';
+import armsx2Grid from 'assets/emulators/grid/pcsx2.png';
 import ppssppGrid from 'assets/emulators/grid/ppsspp.png';
 import primehackGrid from 'assets/emulators/grid/primehack.png';
 import raGrid from 'assets/emulators/grid/ra.png';
@@ -150,6 +152,7 @@ export {
   imgduckstation,
   imgazahar,
   imgpcsx2,
+  imgarmsx2,
   imgrpcs3,
   imgyuzu,
   imgeden,
@@ -256,6 +259,7 @@ export {
   melondsGrid,
   mgbaGrid,
   pcsx2Grid,
+  armx2Grid,
   ppssppGrid,
   primehackGrid,
   raGrid,
