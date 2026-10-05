@@ -8,7 +8,7 @@ import Card from 'components/molecules/Card/Card';
 function EmulatorConfiguration({ onClick, images }) {
   const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
-  const { overwriteConfigEmus, second, system, branch } = state;
+  const { overwriteConfigEmus, second, system, branch, arch } = state;
   const overwriteConfigEmusArray = Object.values(overwriteConfigEmus);
 
   return (
@@ -39,6 +39,22 @@ function EmulatorConfiguration({ onClick, images }) {
                 return;
               }
               if (item.id === 'shadps4') {
+                return;
+              }
+            }
+
+            if (system !== 'win32' && arch == 'arm64') {
+              if (
+                item.id === 'pcsx2' ||
+                item.id === 'shadps4' ||
+                item.id === 'model2' ||
+                item.id === 'supermodel'
+              ) {
+                return;
+              }
+            }
+            if (arch != 'arm64') {
+              if (item.id === 'armsx2') {
                 return;
               }
             }
