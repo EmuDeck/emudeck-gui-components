@@ -36,6 +36,7 @@
   }
   &__accesibility {
     margin-top: 4px;
+    -webkit-app-region: no-drag;
     button {
       margin-bottom: 0;
     }
