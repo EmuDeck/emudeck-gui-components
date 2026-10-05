@@ -60,7 +60,8 @@ function EmulatorResolution({ onClick }) {
                 <hr />
               </>
             )}
-            {overwriteConfigEmus.pcsx2.status && (
+            {(overwriteConfigEmus.pcsx2?.status ||
+              overwriteConfigEmus.armsx2?.status) && (
               <>
                 <div className="pcsx2" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
