@@ -36,7 +36,7 @@
   }
   &__accesibility {
     margin-top: 4px;
-    -webkit-app-region: no-drag;
+    -webkit-app-region: no-drag; /* Lang button fixes */
     button {
       margin-bottom: 0;
     }
