@@ -313,7 +313,7 @@ $kamek-bg-colors: ();
 
           // image source: https://codepen.io/simeydotme/pen/PrQKgo
           .sparkles {
-            background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif');
+            background-image: url('../../../../assets/kamek/sparkles.gif');
             background-position: $kamek-percentage 0;
             border-bottom-left-radius: $kamek-trail-radius;
             border-bottom-right-radius: $kamek-trail-radius;
