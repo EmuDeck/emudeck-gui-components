@@ -1,0 +1,56 @@
+.metro-cop {
+  margin-bottom: 24px;
+  -webkit-app-region: no-drag;
+
+  &__frame {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 4 / 3;
+    border: 0;
+    border-radius: 16px;
+    background: #000;
+  }
+
+  &__credits {
+    margin: 4px 0 0;
+    font-size: 12px;
+    opacity: 0.6;
+
+    a {
+      display: inline;
+      font-size: 12px;
+    }
+  }
+
+  &__back {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+    -webkit-app-region: no-drag;
+  }
+
+  &--fullscreen {
+    position: fixed;
+    inset: 0;
+    z-index: 9;
+    margin: 0;
+    background: #000;
+
+    .metro-cop__frame {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      aspect-ratio: auto;
+      border-radius: 0;
+    }
+
+    .metro-cop__credits {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      margin: 0;
+    }
+  }
+}
