@@ -10,6 +10,7 @@ import EmuModal from 'components/molecules/EmuModal/EmuModal';
 
 import './aside.scss';
 import useAsideResize from 'hooks/useAsideResize';
+import { isEmulatorAvailable } from 'components/utils/isEmulatorAvailable';
 import {
   iconChecker,
   iconCloud,
@@ -44,6 +45,7 @@ function Aside({ css }) {
     installEmus,
     installFrontends,
     device,
+    arch,
   } = state;
   const { modal, updates } = statePage;
   const navigate = useNavigate();
@@ -317,7 +319,7 @@ function Aside({ css }) {
           if (
             JSON.stringify(obj1[key]) !== JSON.stringify(obj2[key]) &&
             installEmus[obj1[key].id].status &&
-            installEmus[obj1[key].code] !== 'BigPemu'
+            isEmulatorAvailable(obj1[key].id, system, arch)
           ) {
             differences[key] = obj1[key];
           }
@@ -440,6 +442,16 @@ function Aside({ css }) {
       btnCSS: 'btn-simple--5',
       status: true,
       function: () => selectMode('expert'),
+    },
+    {
+      icon: [iconJoystick],
+      iconFlat: 'gamepad',
+      title: 'Metro Cop',
+      description: 'Metro Cop',
+      button: t('aside.buttons.launch'),
+      btnCSS: 'btn-simple--1',
+      status: true,
+      function: () => functions.navigate('/metro-cop'),
     },
     {
       status: system !== 'darwin' ? 'separator' : false,
