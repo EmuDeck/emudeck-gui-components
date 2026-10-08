@@ -205,9 +205,7 @@ function Aside({ css }) {
     if (device == 'Steam Frame') {
       modalData = {
         active: true,
-        header: (
-          <span className="h4">{t('general.launching')} Steam Rom Manager</span>
-        ),
+        header: <span className="h4">{t('aside.srm.titleFrame')}</span>,
         body: <p>{t('aside.srm.bodyFrame')}</p>,
         css: 'emumodal--xs',
       };
@@ -424,14 +422,14 @@ function Aside({ css }) {
       function: () => functions.openSRM(),
     },
     {
-      icon: [iconDisk],
+      icon: [iconScreen],
       iconFlat: 'disk',
-      title: t('aside.importGames'),
-      description: t('aside.cards.importGames.description'),
-      button: t('aside.buttons.addMoreGames'),
-      btnCSS: 'btn-simple--1',
+      title: t('aside.importExport'),
+      description: t('aside.cards.importExport.description'),
+      button: t('general.moreInfo'),
+      btnCSS: 'btn-simple--5',
       status: true,
-      function: () => functions.navigate('/copy-games'),
+      function: () => functions.navigate('/import-export'),
     },
     {
       icon: [iconQuick],
@@ -460,7 +458,7 @@ function Aside({ css }) {
       description: 'Metro Cop',
       button: t('aside.buttons.launch'),
       btnCSS: 'btn-simple--1',
-      status: branch.includes('dev') ? false : true,
+      status: true,
       function: () => functions.navigate('/metro-cop'),
     },
     {
@@ -501,16 +499,6 @@ function Aside({ css }) {
     {
       status: 'separator',
       title: t('aside.exclusiveTools'),
-    },
-    {
-      icon: [iconScreen],
-      iconFlat: 'disk',
-      title: t('aside.importExport'),
-      description: t('aside.cards.importExport.description'),
-      button: t('general.moreInfo'),
-      btnCSS: 'btn-simple--5',
-      status: true,
-      function: () => functions.navigate('/import-export'),
     },
     {
       icon: [iconScreen],

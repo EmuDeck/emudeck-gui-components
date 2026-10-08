@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 // components
 //
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
+import EarlyAccessTiers from 'components/organisms/EarlyAccessTiers/EarlyAccessTiers';
 import Wrapper from 'components/molecules/Wrapper/Wrapper';
 
 import Main from 'components/organisms/Main/Main';
@@ -78,10 +79,6 @@ function PatreonLogin({ children }) {
       ...statePage,
       patreonClicked: true,
     });
-  };
-
-  const goToPatreon = () => {
-    navigate('/early-access');
   };
 
   const patreonSetToken = (data) => {
@@ -258,51 +255,61 @@ function PatreonLogin({ children }) {
   }
   return (
     <>
-      <Header title={t('PatroenLoginPage.featureTitle')} />
+      <Header />
       <Main>
-        <p className="lead">{t('PatroenLoginPage.featureDescription')}</p>
+        <div className="container--grid">
+          <div data-col-sm="8">
+            <h1 className="h2">{t('PatroenLoginPage.featureTitle')}</h1>
+            <p className="lead">{t('PatroenLoginPage.featureDescription')}</p>
 
-        {!!errorMessage && branch.includes('early') && (
-          <p className="lead">{errorMessage}</p>
-        )}
+            {!!errorMessage && branch.includes('early') && (
+              <p className="lead">{errorMessage}</p>
+            )}
 
-        {!patreonClicked &&
-          branch !== 'early' &&
-          branch !== 'early-unstabled' && (
-            <BtnSimple
-              css="btn-simple--3"
-              type="button"
-              target="_blank"
-              aria={t('PatroenLoginPage.checkFeatures')}
-              onClick={() => goToPatreon()}
-            >
-              {t('PatroenLoginPage.checkFeatures')}
-            </BtnSimple>
-          )}
+            {!patreonClicked &&
+              branch !== 'early' &&
+              branch !== 'early-unstabled' && (
+                <BtnSimple
+                  css="btn-simple--6"
+                  type="link"
+                  target="_blank"
+                  href="https://www.patreon.com/checkout/dragoonDorise?rid=8177551"
+                  aria={t('PatroenLoginPage.joinPatreon')}
+                >
+                  {t('PatroenLoginPage.joinPatreon')}
+                </BtnSimple>
+              )}
 
-        {patreonClicked && (
-          <div className="form">
-            <FormInputSimple
-              label={t('PatroenLoginPage.token')}
-              type="token"
-              name="token"
-              id="token"
-              value={patreonTokenTemp}
-              onChange={patreonSetToken}
-            />
-            {patreonTokenTemp !== null && (
-              <BtnSimple
-                css="btn-simple--3"
-                type="button"
-                aria={t('general.next')}
-                onClick={() => patreonCheckToken()}
-              >
-                {status === null && 'Check Token'}
-                {status === 'checking' && 'Checking token...'}
-              </BtnSimple>
+            {patreonClicked && (
+              <div className="form">
+                <FormInputSimple
+                  label={t('PatroenLoginPage.token')}
+                  type="token"
+                  name="token"
+                  id="token"
+                  value={patreonTokenTemp}
+                  onChange={patreonSetToken}
+                />
+                {patreonTokenTemp !== null && (
+                  <BtnSimple
+                    css="btn-simple--3"
+                    type="button"
+                    aria={t('general.next')}
+                    onClick={() => patreonCheckToken()}
+                  >
+                    {status === null && 'Check Token'}
+                    {status === 'checking' && 'Checking token...'}
+                  </BtnSimple>
+                )}
+              </div>
             )}
           </div>
-        )}
+          <div data-col-sm="4">
+            {!patreonClicked &&
+              branch !== 'early' &&
+              branch !== 'early-unstabled' && <EarlyAccessTiers />}
+          </div>
+        </div>
       </Main>
     </>
   );
