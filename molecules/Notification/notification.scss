@@ -1,31 +1,30 @@
-// .notification {
-//   position: fixed;
-//   top: 0;
-//   right: 0;
-//   transition: 0.5s;
-//   padding: 20px;
-//   background: --var(--color-info);
-// }
-// body {
-//   display: none;
-// }
-
-@keyframes slide {
-  100% {
-    right: 0;
-  }
-}
-
 .notification {
   position: fixed;
   top: 20px;
-  right: -100%;
-  transition: 0.8s;
-  padding: 20px;
-  background: var(--color-info);
-  border-radius: 15px 0 0 15px;
-}
-
-.notification.is-animated {
   right: 0;
+  z-index: 100;
+  max-width: 360px;
+  padding: 14px 20px 14px 22px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(242, 235, 255, 0.16) 0%,
+      rgba(242, 235, 255, 0.08) 100%
+    ),
+    var(--color-bg-1);
+  border: 1px solid rgba(231, 216, 255, 0.4);
+  border-right: 0;
+  border-radius: 12px 0 0 12px;
+  color: var(--color-text-1);
+  font-size: 1.6rem;
+  line-height: 1.4;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  -webkit-app-region: no-drag;
+
+  &.is-animated {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
 }

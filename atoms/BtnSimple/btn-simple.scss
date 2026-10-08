@@ -164,3 +164,28 @@
 .btn-simple--3 {
   border: 1px solid rgba(255, 255, 255, 0.16);
 }
+
+.btn-simple--tv {
+  border: 1px solid #0a0a0a;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #3a3a3a 0%, #262626 55%, #1c1c1c 100%);
+  color: #b8b8b8;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+
+  &:hover {
+    transform: none;
+    background: linear-gradient(180deg, #444 0%, #2c2c2c 55%, #202020 100%);
+    color: #e0e0e0;
+  }
+
+  &:active {
+    transform: translateY(1px);
+    background: linear-gradient(180deg, #1c1c1c 0%, #262626 100%);
+    box-shadow:
+      inset 0 2px 3px rgba(0, 0, 0, 0.7),
+      0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+}

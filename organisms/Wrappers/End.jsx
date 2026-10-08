@@ -7,21 +7,39 @@ import Card from 'components/molecules/Card/Card';
 import Header from 'components/organisms/Header/Header';
 import Main from 'components/organisms/Main/Main';
 import Sonic from 'components/organisms/Sonic/Sonic';
+import MetroCop from 'components/organisms/MetroCop/MetroCop';
 import EmuModal from 'components/molecules/EmuModal/EmuModal';
+import Notification from 'components/molecules/Notification/Notification';
 import { Img, ProgressBar, BtnSimple, Iframe } from 'getbasecore/Atoms';
 import { iconSuccess, iconDanger } from 'components/utils/images/icons';
-
 const ipcChannel = window.electron.ipcRenderer;
-function End({ message, percentage, step, disabledNext }) {
+function End({ message, percentage, step, disabledNext, onNext }) {
   const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
   const { installEmus, system, device } = state;
 
   const [statePage, setStatePage] = useState({
     emusInstalledStatus: undefined,
+    showNotification: false,
   });
 
-  const { emusInstalledStatus } = statePage;
+  const { emusInstalledStatus, showNotification, notificationText } = statePage;
+  const [power, setPower] = useState(false);
+
+  const notificationShow = (text) => {
+    setStatePage((prev) => ({
+      ...prev,
+      notificationText: text,
+      showNotification: true,
+    }));
+
+    setTimeout(() => {
+      setStatePage((prev) => ({
+        ...prev,
+        showNotification: false,
+      }));
+    }, 2000);
+  };
 
   const checkInstallation = () => {
     const installEmusArray = Object.values(installEmus);
@@ -59,18 +77,26 @@ function End({ message, percentage, step, disabledNext }) {
       `getEmuInstallStatus|||getEmuInstallStatus "${emuList}"`,
     ]);
     ipcChannel.once('getEmuInstallStatus', (messageInstallStatus) => {
-      setStatePage({
-        ...statePage,
+      setStatePage((prev) => ({
+        ...prev,
         emusInstalledStatus: JSON.parse(messageInstallStatus.stdout),
-      });
+      }));
     });
   };
 
   // We check if everything installed
   useEffect(() => {
-    if (system !== 'win32') {
-      checkInstallation();
+    if (disabledNext === false) {
+      if (power) {
+        notificationShow(`🎉`);
+      } else {
+        onNext();
+      }
     }
+
+    // if (system !== 'win32') {
+    //   checkInstallation();
+    // }
   }, [disabledNext]);
 
   const showLog = () => {
@@ -91,7 +117,7 @@ function End({ message, percentage, step, disabledNext }) {
 
   return (
     <>
-      <Main>
+      <Main css="main--fill">
         {disabledNext === false && (
           <div className="tips">
             {/*system == 'win32' && (
@@ -166,34 +192,16 @@ function End({ message, percentage, step, disabledNext }) {
             )}
           </div>
         )}
-        <br />
-        {disabledNext === true && <Sonic />}
-      </Main>
-      {disabledNext && (
-        <EmuModal
-          modalActiveValue={disabledNext === true}
-          modalHeaderValue={
-            <span className="h4">{t('EndPage.installing')}</span>
-          }
-          modalBodyValue={
-            <>
-              <p>{message}...</p>
-            </>
-          }
-          modalFooterValue={
-            <BtnSimple
-              css="btn-simple--1"
-              type="button"
-              aria={t('aria.showLog')}
-              disabled={false}
-              onClick={() => showLog()}
-            >
-              {t('EndPage.openLog')}
-            </BtnSimple>
-          }
-          modalCSSValue="emumodal--xs emumodal--loading"
+        <MetroCop
+          message={`${message}...`}
+          buttonText={disabledNext ? t('EndPage.openLog') : t('general.next')}
+          onButtonClick={disabledNext ? showLog : onNext}
+          onPowerChange={setPower}
         />
-      )}
+      </Main>
+      <Notification css={showNotification ? 'is-animated' : 'nope'}>
+        {notificationText}
+      </Notification>
     </>
   );
 }
@@ -203,6 +211,7 @@ End.propTypes = {
   percentage: PropTypes.any,
   step: PropTypes.string,
   disabledNext: PropTypes.bool,
+  onNext: PropTypes.func,
 };
 
 End.defaultProps = {
@@ -210,6 +219,7 @@ End.defaultProps = {
   percentage: '',
   step: '',
   disabledNext: true,
+  onNext: () => {},
 };
 
 export default End;

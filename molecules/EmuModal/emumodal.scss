@@ -127,6 +127,9 @@
       }
     }
   }
+  &--no-pointer {
+    pointer-events: none !important;
+  }
 }
 
 .embed-responsive {
