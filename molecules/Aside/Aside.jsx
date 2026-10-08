@@ -450,7 +450,7 @@ function Aside({ css }) {
       description: 'Metro Cop',
       button: t('aside.buttons.launch'),
       btnCSS: 'btn-simple--1',
-      status: true,
+      status: branch.includes('dev') ? false : true,
       function: () => functions.navigate('/metro-cop'),
     },
     {
