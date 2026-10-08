@@ -8,7 +8,7 @@ import { automapon } from 'components/utils/images/images';
 function AutoMap({ onClick }) {
   const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
-  const { automap, overwriteConfigEmus } = state;
+  const { automap, installEmus } = state;
   return (
     <>
       <Main>
@@ -35,7 +35,7 @@ function AutoMap({ onClick }) {
               </div>
             </div>
             <hr />
-            {overwriteConfigEmus.dolphin.status && (
+            {installEmus.dolphin.status && (
               <>
                 <div className="dolphin" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
@@ -61,7 +61,7 @@ function AutoMap({ onClick }) {
                 <hr />
               </>
             )}
-            {overwriteConfigEmus.cemu.status && (
+            {installEmus.cemu.status && (
               <>
                 <div className="cemu" style={{ display: 'flex' }}>
                   <span className="h5" style={{ flexBasis: '40%' }}>
