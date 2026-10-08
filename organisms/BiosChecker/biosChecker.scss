@@ -1,0 +1,32 @@
+.bios-checker {
+  .alert {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    // Img renders a picture with an inline img, which adds space under the icon
+    picture,
+    img {
+      display: block;
+    }
+  }
+
+  // Only the alerts followed by another one keep their bottom margin
+  > .alert:not(:has(~ .alert)) {
+    margin-bottom: 0;
+  }
+
+  .btn-simple.bios-checker__help {
+    margin: 0 0 0 auto;
+    padding: 4px 12px;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+  }
+
+  &__files {
+    max-height: 30vh;
+    overflow: auto;
+    -webkit-user-select: text;
+    user-select: text;
+  }
+}

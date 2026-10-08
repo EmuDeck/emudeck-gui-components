@@ -50,14 +50,28 @@
 
 @include generate-btn-simple(
   6,
-  white,
-  var(--color-warning),
-  white,
-  var(--deck-1),
-  var(--grey3),
+  var(--color-bg-1),
+  #fbe16d,
+  var(--color-bg-1),
+  #fde98f,
+  #ecc94b,
   white,
   var(--color-disabled)
 );
+
+.btn-simple--6 {
+  background: linear-gradient(180deg, #fbe16d 24.09%, #f3cf4b 100%);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.4);
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(180deg, #fde98f 24.09%, #f8db6b 100%);
+  }
+
+  &:active {
+    background: linear-gradient(180deg, #ecc94b 24.09%, #e2b938 100%);
+  }
+}
 
 @keyframes background {
   0% {

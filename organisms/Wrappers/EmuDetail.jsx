@@ -249,6 +249,9 @@ function EmuDetail(props) {
       case 'ps2':
         biosName = 'Playstation 2';
         break;
+      case 'ps3':
+        biosName = 'Playstation 3';
+        break;
       case 'segacd':
         biosName = 'SegaCD';
         break;
@@ -281,7 +284,10 @@ function EmuDetail(props) {
     return (
       <li key={item}>
         <Alert css={`alert--mini ${biosCSS(item)}`}>
-          {biosName} {t('EmulatorsDetailPage.bios')} {biosText(item)}
+          {item === 'ps3'
+            ? t('CheckBios.ps3')
+            : `${biosName} ${t('EmulatorsDetailPage.bios')}`}{' '}
+          {biosText(item)}
         </Alert>
       </li>
     );

@@ -19,6 +19,7 @@ function Footer({
   thirdText,
   exit,
   comments,
+  children,
 }) {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -69,6 +70,7 @@ function Footer({
           {thirdText}
         </BtnSimple>
       )}
+      {children}
       {back !== false && (
         <BtnSimple
           css="btn-simple--2"
@@ -123,6 +125,7 @@ Footer.propTypes = {
   backText: PropTypes.string,
   thirdText: PropTypes.string,
   exit: PropTypes.string,
+  children: PropTypes.node,
 };
 Footer.defaultProps = {
   back: '',
@@ -136,6 +139,7 @@ Footer.defaultProps = {
   backText: '',
   thirdText: '',
   exit: '',
+  children: null,
 };
 
 export default Footer;

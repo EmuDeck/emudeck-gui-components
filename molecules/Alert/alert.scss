@@ -1,6 +1,6 @@
 .alert {
   --alert-padding: 20px;
-  --alert-pr: 30px;
+  --alert-pr: 10px;
   --alert-border-radius: 10px;
   --alert-mb: 10px;
   --alert-border-size: 1px;
@@ -25,6 +25,9 @@
 
 .alert {
   border: 1px solid rgba(255, 255, 255, 0.24);
+  & + .alert:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 img {

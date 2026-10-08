@@ -353,6 +353,16 @@ function Aside({ css }) {
 
   const settingsCards = [
     {
+      icon: [iconPrize],
+      iconFlat: 'prize',
+      title: t('aside.earlyAccess'),
+      description: t('aside.cards.earlyAccess.description'),
+      button: t('aside.buttons.donate'),
+      btnCSS: 'btn-simple--5',
+      status: branch.includes('early') ? false : true,
+      function: () => functions.navigate('/early-access'),
+    },
+    {
       icon: [iconHelp],
       iconFlat: 'list',
       title: t('aside.cards.manual.title'),
@@ -632,16 +642,6 @@ function Aside({ css }) {
     {
       status: 'separator',
       title: t('aside.other'),
-    },
-    {
-      icon: [iconPrize],
-      iconFlat: 'prize',
-      title: t('aside.earlyAccess'),
-      description: t('aside.cards.earlyAccess.description'),
-      button: t('aside.buttons.donate'),
-      btnCSS: 'btn-simple--5',
-      status: branch.includes('early') ? false : true,
-      function: () => functions.navigate('/early-access'),
     },
     {
       icon: [iconPrize],

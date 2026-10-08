@@ -1,228 +1,42 @@
 import { useTranslation } from 'react-i18next';
-import React, { useContext } from 'react';
-import { GlobalContext } from 'context/globalContext';
-import PropTypes from 'prop-types';
-import { Img } from 'getbasecore/Atoms';
+import React, { useState } from 'react';
+import { BtnSimple } from 'getbasecore/Atoms';
 import { Alert } from 'getbasecore/Molecules';
 import Main from 'components/organisms/Main/Main';
+import BiosChecker from 'components/organisms/BiosChecker/BiosChecker';
 
-import {
-  iconSuccess,
-  iconDanger,
-  iconWarning,
-} from 'components/utils/images/icons';
-
-function CheckBios({
-  ps1Bios,
-  ps2Bios,
-  switchBios,
-  edenBios,
-  citronBios,
-  ryujinxBios,
-  segaCDBios,
-  saturnBios,
-  dreamcastBios,
-  DSBios,
-}) {
-  const { t, i18n } = useTranslation();
-
-  const { state, setState } = useContext(GlobalContext);
-
-  const { installEmus } = state;
-
-  const biosText = (name) => {
-    switch (name) {
-      case true:
-        return t('CheckBios.detected');
-      case false:
-        return t('CheckBios.missing');
-      case null:
-        return t('CheckBios.sarching');
-      default:
-        return t('CheckBios.sarching');
-    }
-  };
-
-  const biosCSS = (name) => {
-    switch (name) {
-      case true:
-        return 'alert--success ';
-      case false:
-        return 'alert--danger ';
-      case null:
-        return ' ';
-      default:
-        return ' ';
-    }
-  };
+// BIOS checker with the tips and the check again button, used in the Check BIOS page and the install
+function CheckBios() {
+  const { t } = useTranslation();
+  const [refresh, setRefresh] = useState(0);
 
   return (
-    <>
-      <Main>
-        <div className="container--grid">
-          <div data-col-sm="6">
-            <div>
-              <div data-col-sm="6">
-                <Alert css={`alert--mini ${biosCSS(ps1Bios)}`}>
-                  {biosText(ps1Bios).includes('missing') ? (
-                    <Img src={iconDanger} css="icon icon--xs" alt="OK" />
-                  ) : (
-                    <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                  )}{' '}
-                  {t('CheckBios.ps1')} {biosText(ps1Bios)}
-                </Alert>
-                <Alert css={`alert--mini ${biosCSS(ps2Bios)}`}>
-                  {biosText(ps2Bios).includes('missing') ? (
-                    <Img src={iconDanger} css="icon icon--xs" alt="OK" />
-                  ) : (
-                    <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                  )}{' '}
-                  {t('CheckBios.ps2')} {biosText(ps2Bios)}
-                </Alert>
-              </div>
-            </div>
-            <div style={{ display: 'flex', gap: '12px' }}>
-              <div>
-                <Alert css={`alert--mini ${biosCSS(switchBios)}`}>
-                  {biosText(switchBios).includes('missing') ? (
-                    <Img src={iconDanger} css="icon icon--xs" alt="OK" />
-                  ) : (
-                    <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                  )}{' '}
-                  {t('CheckBios.yuzu')} {biosText(switchBios)}
-                </Alert>
-              </div>
-              <div>
-                <Alert css={`alert--mini ${biosCSS(edenBios)}`}>
-                  {biosText(edenBios).includes('missing') ? (
-                    <Img src={iconDanger} css="icon icon--xs" alt="OK" />
-                  ) : (
-                    <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                  )}
-                  {ryujinxBios} {t('CheckBios.eden')} {biosText(edenBios)}
-                </Alert>
-              </div>
-              {installEmus.ryujinx.status && (
-                <div>
-                  <Alert css={`alert--mini ${biosCSS(ryujinxBios)}`}>
-                    {biosText(ryujinxBios).includes('missing') ? (
-                      <Img src={iconDanger} css="icon icon--xs" alt="OK" />
-                    ) : (
-                      <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                    )}{' '}
-                    {t('CheckBios.ryujinx')} {biosText(ryujinxBios)}
-                  </Alert>
-                </div>
-              )}
-              <div>
-                <Alert css={`alert--mini ${biosCSS(citronBios)}`}>
-                  {biosText(citronBios).includes('missing') ? (
-                    <Img src={iconDanger} css="icon icon--xs" alt="OK" />
-                  ) : (
-                    <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                  )}{' '}
-                  {t('CheckBios.citron')} {biosText(citronBios)}
-                </Alert>
-              </div>
-            </div>
-            <div>
-              <div data-col-sm="6">
-                <Alert css={`alert--mini ${biosCSS(segaCDBios)}`}>
-                  {biosText(segaCDBios).includes('missing') ? (
-                    <Img src={iconDanger} css="icon icon--xs" alt="OK" />
-                  ) : (
-                    <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                  )}{' '}
-                  {t('CheckBios.segacd')} {biosText(segaCDBios)}
-                </Alert>
-                <Alert css={`alert--mini ${biosCSS(saturnBios)}`}>
-                  {biosText(saturnBios).includes('missing') ? (
-                    <Img src={iconDanger} css="icon icon--xs" alt="OK" />
-                  ) : (
-                    <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                  )}{' '}
-                  {t('CheckBios.saturn')} {biosText(saturnBios)}
-                </Alert>
-                <Alert css={`alert--mini ${biosCSS(DSBios)}`}>
-                  {biosText(DSBios).includes('missing') ? (
-                    <Img src={iconDanger} css="icon icon--xs" alt="OK" />
-                  ) : (
-                    <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                  )}{' '}
-                  {t('CheckBios.nds')} {biosText(DSBios)}
-                </Alert>
-                <Alert
-                  css={`alert--mini ${
-                    dreamcastBios ? 'alert--success' : 'alert--warning'
-                  }`}
-                >
-                  {biosText(DSBios).includes('missing') ? (
-                    <Img src={iconWarning} css="icon icon--xs" alt="OK" />
-                  ) : (
-                    <Img src={iconSuccess} css="icon icon--xs" alt="OK" />
-                  )}{' '}
-                  {t('CheckBios.dreamcast')}{' '}
-                  {dreamcastBios
-                    ? t('CheckBios.detected')
-                    : t('CheckBios.missing')}
-                </Alert>
-              </div>
-            </div>
-          </div>
-          <div data-col-sm="6">
+    <Main>
+      <div className="container--grid">
+        <div data-col-sm="6">
+          <BiosChecker refresh={refresh} />
+        </div>
+        <div data-col-sm="6">
+          <Alert css="alert--info">
             <ul className="list">
               <li>{t('CheckBios.tip1')}</li>
               <li>{t('CheckBios.tip2')}</li>
               <li>{t('CheckBios.tip3')}</li>
               <li>{t('CheckBios.tip4')}</li>
-              <li>
-                {t('CheckBios.tip5')}
-                <a
-                  href="https://emudeck.github.io/cheat-sheet/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {t('CheckBios.cheat')}
-                </a>
-              </li>
-              <li>
-                {t('CheckBios.tip6')}
-                <a
-                  href="https://emulation.gametechwiki.com/index.php/File_hashes"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  BIOS
-                </a>
-              </li>
             </ul>
-          </div>
+          </Alert>
+          <BtnSimple
+            css="btn-simple--2"
+            type="button"
+            aria={t('CheckBiosPage.checkAgain')}
+            onClick={() => setRefresh(refresh + 1)}
+          >
+            {t('CheckBiosPage.checkAgain')}
+          </BtnSimple>
         </div>
-      </Main>
-    </>
+      </div>
+    </Main>
   );
 }
-
-CheckBios.propTypes = {
-  ps1Bios: PropTypes.string,
-  ps2Bios: PropTypes.string,
-  switchBios: PropTypes.string,
-  segaCDBios: PropTypes.string,
-  saturnBios: PropTypes.string,
-  dreamcastBios: PropTypes.string,
-  DSBios: PropTypes.string,
-  checkBiosAgain: PropTypes.func,
-};
-
-CheckBios.defaultProps = {
-  ps1Bios: '',
-  ps2Bios: '',
-  switchBios: '',
-  segaCDBios: '',
-  saturnBios: '',
-  dreamcastBios: '',
-  DSBios: '',
-  checkBiosAgain: '',
-};
 
 export default CheckBios;

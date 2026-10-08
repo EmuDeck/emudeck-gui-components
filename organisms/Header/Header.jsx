@@ -505,16 +505,19 @@ function HeaderElectron({ title, bold }) {
         </div>
       </header>
 
-      <h1 className="h2" dangerouslySetInnerHTML={{ __html: title }} />
+      {title && (
+        <h1 className="h2" dangerouslySetInnerHTML={{ __html: title }} />
+      )}
     </>
   );
 }
 
 HeaderElectron.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   bold: PropTypes.string,
 };
 HeaderElectron.defaultProps = {
+  title: '',
   bold: '',
 };
 

@@ -24,7 +24,7 @@ import {
 } from 'components/utils/images/images';
 
 /* Componentes outside the modal because of state shenanigans for storing JSX in the state */
-function ImportProgress({ initialKey, onClose }) {
+function ImportProgress({ initialKey, onClose, onFinish = () => {} }) {
   const { t } = useTranslation();
   const [progress, setProgress] = useState({
     key: initialKey,
@@ -83,6 +83,7 @@ function ImportProgress({ initialKey, onClose }) {
       if (json.finished === true || json.finished === 'true') {
         pending.current = null;
         flush(json);
+        onFinish(json);
         return;
       }
 
@@ -132,15 +133,17 @@ function ImportProgress({ initialKey, onClose }) {
     </>
   );
 }
-function ImportCheckBoxes({ onChange }) {
+function ImportCheckBoxes({ onChange, initial }) {
   const { t } = useTranslation();
-  const [checkboxes, setCheckboxes] = useState({
-    roms: true,
-    bios: true,
-    storage: true,
-    saves: true,
-    esdeArtwork: false,
-  });
+  const [checkboxes, setCheckboxes] = useState(
+    initial || {
+      roms: true,
+      bios: true,
+      storage: true,
+      saves: true,
+      esdeArtwork: false,
+    },
+  );
 
   useEffect(() => {
     onChange(checkboxes);
@@ -253,7 +256,8 @@ function ImportCheckBoxes({ onChange }) {
   );
 }
 
-function ImportExport({ exportEnable = true }) {
+// Drive picker, options modal and import/export launch shared with other pages
+export function useImportExport({ onFinish = () => {}, selection } = {}) {
   const { t, i18n } = useTranslation();
   const { state, setState } = useContext(GlobalContext);
   const { automap, system } = state;
@@ -326,6 +330,7 @@ function ImportExport({ exportEnable = true }) {
         <>
           <p>{desc}</p>
           <ImportCheckBoxes
+            initial={selection}
             onChange={(sel) => {
               selectionRef.current = sel;
             }}
@@ -359,6 +364,7 @@ function ImportExport({ exportEnable = true }) {
         <ImportProgress
           initialKey="importExport.preparingImport"
           onClose={closeModal}
+          onFinish={onFinish}
         />
       ),
       footer: '',
@@ -381,6 +387,7 @@ function ImportExport({ exportEnable = true }) {
         <ImportProgress
           initialKey="importExport.preparingExport"
           onClose={closeModal}
+          onFinish={onFinish}
         />
       ),
       footer: '',
@@ -407,10 +414,14 @@ function ImportExport({ exportEnable = true }) {
     setStatePage((prev) => ({ ...prev, storage: drive }));
   };
 
-  const pickDrive = (type) => {
+  const pickDrive = (type, options = {}) => {
+    const { title: customTitle, onSelect, footer } = options;
     let title = t('ImportExportPage.pickDriveExport');
     if (type === 'import') {
       title = t('ImportExportPage.pickDriveImport');
+    }
+    if (customTitle) {
+      title = customTitle;
     }
 
     ipcChannel.sendMessage('emudeck', ['get_locations|||get_locations']);
@@ -437,7 +448,14 @@ function ImportExport({ exportEnable = true }) {
                   ? 'is-selected card--horizontal'
                   : 'card--horizontal'
               }
-              onClick={() => setDrive(item.letter)}
+              onClick={() => {
+                if (onSelect) {
+                  closeModal();
+                  onSelect(item.letter);
+                } else {
+                  setDrive(item.letter);
+                }
+              }}
             >
               <img
                 src={
@@ -464,7 +482,19 @@ function ImportExport({ exportEnable = true }) {
         active: true,
         header: <span className="h4">{title}</span>,
         body: <div className="cards">{driveCards}</div>,
-        footer: '',
+        footer: footer
+          ? footer(() => {
+              setStateModal({
+                modal: {
+                  ...modalData,
+                  body: (
+                    <ProgressBar css="progress--success" infinite max="100" />
+                  ),
+                },
+              });
+              pickDrive(type, options);
+            })
+          : '',
         css: 'emumodal--xs',
       };
       setStatePage(() => ({
@@ -477,41 +507,47 @@ function ImportExport({ exportEnable = true }) {
     });
   };
 
+  return { modal, pickDrive, closeModal };
+}
+
+function ImportExport({ exportEnable = true }) {
+  const { t } = useTranslation();
+  const { modal, pickDrive } = useImportExport();
   const navigate = useNavigate();
   return (
     <>
       <EmuModal modal={modal} />
-      <div className="container--grid">
-        {exportEnable && (
-          <div data-col-md="5">
-            <span className="h4">{t('ImportExportPage.export')}</span>
-            <p>{t('ImportExportPage.exportDescription')}</p>
-            <button
-              type="button"
-              aria-label={t('general.next')}
-              className="btn-simple btn-simple--1"
-              style={{ marginBottom: 0 }}
-              onClick={() => pickDrive('export')}
-            >
-              {t('ImportExportPage.exportButton')}
-            </button>
+      <Main>
+        <div className="container--grid">
+          {exportEnable && (
+            <div data-col-sm="6">
+              <span className="h4">{t('ImportExportPage.export')}</span>
+              <p>{t('ImportExportPage.exportDescription')}</p>
+              <div className="cards">
+                <Card
+                  css="card--horizontal"
+                  onClick={() => pickDrive('export')}
+                >
+                  <img src={imgExternal} width="100" alt="Background" />
+                  <span className="h6">
+                    {t('ImportExportPage.exportButton')}
+                  </span>
+                </Card>
+              </div>
+            </div>
+          )}
+          <div data-col-sm="6">
+            <span className="h4">{t('ImportExportPage.import')}</span>
+            <p>{t('ImportExportPage.importDescription')}</p>
+            <div className="cards">
+              <Card css="card--horizontal" onClick={() => pickDrive('import')}>
+                <img src={imgExternal} width="100" alt="Background" />
+                <span className="h6">{t('ImportExportPage.importButton')}</span>
+              </Card>
+            </div>
           </div>
-        )}
-
-        <div data-col-md="5">
-          <span className="h4">{t('ImportExportPage.import')}</span>
-          <p>{t('ImportExportPage.importDescription')}</p>
-          <button
-            type="button"
-            aria-label={t('general.next')}
-            className="btn-simple btn-simple--1"
-            style={{ marginBottom: 0 }}
-            onClick={() => pickDrive('import')}
-          >
-            {t('ImportExportPage.importButton')}
-          </button>
         </div>
-      </div>
+      </Main>
     </>
   );
 }
