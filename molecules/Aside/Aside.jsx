@@ -45,6 +45,7 @@ function Aside({ css }) {
     branch,
     installEmus,
     installFrontends,
+    device,
     arch,
   } = state;
   const { modal, updates } = statePage;
@@ -554,7 +555,7 @@ function Aside({ css }) {
       description: t('aside.cards.emuDecky.description'),
       button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
-      status: !(system === 'win32'),
+      status: system !== 'win32' && device !== 'Steam Frame',
       function: () => functions.navigate('/decky-controls'),
     },
     {
@@ -579,7 +580,7 @@ function Aside({ css }) {
       description: t('aside.cards.gyro.description'),
       button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
-      status: system === 'SteamOS',
+      status: system === 'SteamOS' && device !== 'Steam Frame',
       function: () => functions.navigate('/gyrodsu'),
     },
     {
@@ -589,7 +590,7 @@ function Aside({ css }) {
       description: t('aside.cards.deckyPerformance.description'),
       button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
-      status: system === 'SteamOS',
+      status: system === 'SteamOS' && device !== 'Steam Frame',
       function: () => functions.navigate('/power-tools'),
     },
     {
