@@ -544,7 +544,7 @@ function Aside({ css }) {
       description: t('aside.cards.migration.description'),
       button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
-      status: !(system === 'win32'),
+      status: true,
       function: () => functions.navigate('/migration'),
     },
 
