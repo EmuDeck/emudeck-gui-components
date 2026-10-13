@@ -7,6 +7,7 @@ import Sprite from 'components/atoms/Sprite/Sprite';
 import Icon from 'components/atoms/Sprite/Icon';
 import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import EmuModal from 'components/molecules/EmuModal/EmuModal';
+import { BtnSimple } from 'getbasecore/Atoms';
 
 import './aside.scss';
 import useAsideResize from 'hooks/useAsideResize';
@@ -235,18 +236,38 @@ function Aside({ css }) {
   };
 
   const selectMode = (value) => {
-    setState({ ...state, mode: value });
-
     const modalData = {
       active: true,
       header: <span className="h4">{t('general.warning')}</span>,
       body: <p>{t('aside.reset.warningBody')}</p>,
+      footer: (
+        <>
+          <BtnSimple
+            css="btn-simple--2"
+            type="button"
+            aria={t('general.cancel')}
+            onClick={closeModal}
+          >
+            {t('general.cancel')}
+          </BtnSimple>
+          <BtnSimple
+            css="btn-simple--1"
+            type="button"
+            aria={t('general.ok')}
+            onClick={() => {
+              closeModal();
+              setState({ ...state, mode: value });
+              navigate('/rom-storage');
+            }}
+          >
+            {t('general.ok')}
+          </BtnSimple>
+        </>
+      ),
       css: 'emumodal--xs',
     };
 
     setStatePage({ ...statePage, modal: modalData });
-
-    navigate('/rom-storage');
   };
 
   const showLog = () => {
