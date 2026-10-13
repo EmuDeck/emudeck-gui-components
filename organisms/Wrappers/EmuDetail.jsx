@@ -406,7 +406,6 @@ function EmuDetail(props) {
                   </BtnSimple>
                 )}
               {disableInstallButton &&
-                emuData.id !== 'esde' &&
                 emuData.id !== 'srm' &&
                 emuData.id !== 'pegasus' && (
                   <BtnSimple
