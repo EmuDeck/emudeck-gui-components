@@ -382,16 +382,6 @@ function Aside({ css }) {
     },
     {
       icon: [iconGear],
-      iconFlat: 'joystick',
-      title: t('aside.romLibrary'),
-      description: t('aside.cards.romLibrary.description'),
-      button: t('aside.buttons.configure'),
-      btnCSS: 'btn-simple--1',
-      status: branch.includes('dev') ? true : false,
-      function: () => functions.navigate('/rom-library'),
-    },
-    {
-      icon: [iconGear],
       iconFlat: 'books',
       title: t('aside.manageEmulators'),
       description: t('aside.cards.manageEmulators.description'),
