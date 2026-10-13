@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PropTypes } from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
@@ -55,6 +55,7 @@ function HeaderElectron({ title, bold }) {
   // Release channel selector (top right, next to the version)
   const releaseChannels = ['main', 'beta', 'early', 'early-unstable'];
   const [channelModal, setChannelModal] = useState(false);
+  const targetChannel = useRef(null);
 
   const channelName = (id) =>
     t(`Header.channels.${id}`, { defaultValue: id.toUpperCase() });
@@ -91,6 +92,7 @@ function HeaderElectron({ title, bold }) {
   });
 
   const switchChannel = (channel) => {
+    targetChannel.current = channel;
     setChannelModal(
       channelProgressModal(channel, t('Header.channel.checking')),
     );
@@ -100,7 +102,7 @@ function HeaderElectron({ title, bold }) {
   useEffect(() => {
     const unsubscribe = ipcChannel.on('update-channel-out', (message) => {
       const [status, payload] = message;
-      const channel = branch;
+      const channel = targetChannel.current || branch;
       switch (status) {
         case 'checking':
           setChannelModal(
