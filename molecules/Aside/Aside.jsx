@@ -44,7 +44,6 @@ function Aside({ css }) {
     branch,
     installEmus,
     installFrontends,
-    device,
     arch,
   } = state;
   const { modal, updates } = statePage;
@@ -192,7 +191,7 @@ function Aside({ css }) {
   };
 
   const openSRM = () => {
-    let modalData = {
+    const modalData = {
       active: true,
       header: (
         <span className="h4">{t('general.launching')} Steam Rom Manager</span>
@@ -201,17 +200,6 @@ function Aside({ css }) {
       footer: <ProgressBar css="progress--success" infinite max="100" />,
       css: 'emumodal--xs',
     };
-
-    if (device == 'Steam Frame') {
-      modalData = {
-        active: true,
-        header: <span className="h4">{t('aside.srm.titleFrame')}</span>,
-        body: <p>{t('aside.srm.bodyFrame')}</p>,
-        css: 'emumodal--xs',
-      };
-      setStatePage({ ...statePage, modal: modalData });
-      return;
-    }
 
     if (system === 'win32') {
       setStatePage({ ...statePage, modal: modalData });
