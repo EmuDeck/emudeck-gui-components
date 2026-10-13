@@ -4,6 +4,7 @@ import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
+import { isEmulatorAvailable } from 'components/utils/isEmulatorAvailable';
 
 function EmulatorSelector({ onClick, images, installEmus }) {
   const { t, i18n } = useTranslation();
@@ -23,26 +24,9 @@ function EmulatorSelector({ onClick, images, installEmus }) {
             if (item.id === 'ares') {
               return;
             }
-            if (system === 'win32') {
-              if (item.id === 'rmg' || item.id === 'ares') {
-                return;
-              }
-            }
 
-            if (system !== 'win32' && arch == 'arm64') {
-              if (
-                item.id === 'pcsx2' ||
-                item.id === 'shadps4' ||
-                item.id === 'model2' ||
-                item.id === 'supermodel'
-              ) {
-                return;
-              }
-            }
-            if (arch != 'arm64') {
-              if (item.id === 'armsx2') {
-                return;
-              }
+            if (!isEmulatorAvailable(item.id, system, arch)) {
+              return;
             }
 
             if (system === 'darwin') {

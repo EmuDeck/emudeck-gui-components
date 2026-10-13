@@ -4,6 +4,7 @@ import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
+import { isEmulatorAvailable } from 'components/utils/isEmulatorAvailable';
 
 function EmulatorConfiguration({ onClick, images }) {
   const { t, i18n } = useTranslation();
@@ -23,11 +24,6 @@ function EmulatorConfiguration({ onClick, images }) {
               return;
             }
 
-            if (system === 'win32') {
-              if (item.id === 'rmg' || item.id === 'ares') {
-                return;
-              }
-            }
             if (system === 'darwin') {
               if (item.id !== 'ra') {
                 return;
@@ -43,20 +39,8 @@ function EmulatorConfiguration({ onClick, images }) {
               }
             }
 
-            if (system !== 'win32' && arch == 'arm64') {
-              if (
-                item.id === 'pcsx2' ||
-                item.id === 'shadps4' ||
-                item.id === 'model2' ||
-                item.id === 'supermodel'
-              ) {
-                return;
-              }
-            }
-            if (arch != 'arm64') {
-              if (item.id === 'armsx2') {
-                return;
-              }
+            if (!isEmulatorAvailable(item.id, system, arch)) {
+              return;
             }
 
             if (item.id === 'ares') {
