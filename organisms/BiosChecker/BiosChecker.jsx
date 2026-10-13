@@ -68,12 +68,10 @@ function BiosChecker({ refresh }) {
   }, [refresh]);
 
   // Launches the emulator with the launcher of each system
-  const openEmulator = ({ name, file }) => {
+  const openEmulator = ({ file }) => {
     let command = `"$toolsPath/launchers/${file}.sh"`;
     if (system === 'win32') {
       command = `powershell -ExecutionPolicy Bypass -NoProfile -File "$toolsPath/launchers/${file}.ps1"`;
-    } else if (system === 'darwin') {
-      command = `open -a ${name}`;
     }
     ipcChannel.sendMessage('emudeck', command);
     setModal({ active: false });

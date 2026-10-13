@@ -31,7 +31,7 @@ function RomStorage({
     <>
       <Main>
         <div className="cards">
-          {showSDCard && system !== 'darwin' && (
+          {showSDCard && (
             <Card
               css={
                 storage === 'SD-Card'

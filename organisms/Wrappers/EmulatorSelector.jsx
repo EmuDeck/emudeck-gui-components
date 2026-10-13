@@ -29,12 +29,6 @@ function EmulatorSelector({ onClick, images, installEmus }) {
               return;
             }
 
-            if (system === 'darwin') {
-              if (item.id !== 'ra') {
-                return;
-              }
-            }
-
             if (item.id === 'yuzu') {
               return;
             }

@@ -24,21 +24,6 @@ function EmulatorConfiguration({ onClick, images }) {
               return;
             }
 
-            if (system === 'darwin') {
-              if (item.id !== 'ra') {
-                return;
-              }
-              if (item.id === 'model2') {
-                return;
-              }
-              if (item.id === 'supermodel') {
-                return;
-              }
-              if (item.id === 'shadps4') {
-                return;
-              }
-            }
-
             if (!isEmulatorAvailable(item.id, system, arch)) {
               return;
             }

@@ -219,27 +219,7 @@ function Aside({ css }) {
         'emudeck',
         'powershell -ExecutionPolicy Bypass -NoProfile -File "$toolsPath/launchers/srm/steamrommanager.ps1"',
       );
-    } else if (system !== 'darwin') {
-      setStatePage({ ...statePage, modal: modalData });
-      ipcChannel.sendMessage(
-        'emudeck',
-        '"$toolsPath/launchers/srm/steamrommanager.sh"',
-      );
     } else {
-      modalData = {
-        active: true,
-        header: (
-          <span className="h4">{t('general.launching')} Steam Rom Manager</span>
-        ),
-        body: (
-          <>
-            <p>{t('aside.srm.body')}</p>
-            <strong>{t('aside.srm.desktopControls')}</strong>
-          </>
-        ),
-        footer: <ProgressBar css="progress--success" infinite max="100" />,
-        css: 'emumodal--sm',
-      };
       setStatePage({ ...statePage, modal: modalData });
       ipcChannel.sendMessage(
         'emudeck',
@@ -285,10 +265,6 @@ function Aside({ css }) {
     if (system === 'win32') {
       ipcChannel.sendMessage('bash-nolog', [
         `start powershell -NoExit -ExecutionPolicy Bypass -command "& { Get-Content $env:APPDATA/emudeck/logs/git.log -Tail 100 -Wait }"`,
-      ]);
-    } else if (system === 'darwin') {
-      ipcChannel.sendMessage('bash-nolog', [
-        `osascript -e 'tell app "Terminal" to do script "clear && tail -f $HOME/.config/EmuDeck/logs/git.log"'`,
       ]);
     } else {
       ipcChannel.sendMessage('bash-nolog', [
@@ -452,7 +428,7 @@ function Aside({ css }) {
       function: () => functions.navigate('/metro-cop'),
     },
     {
-      status: system !== 'darwin' ? 'separator' : false,
+      status: 'separator',
       title: t('aside.otherSettings'),
     },
     {
@@ -472,7 +448,7 @@ function Aside({ css }) {
       description: t('aside.cards.screenResolution.description'),
       button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
-      status: system !== 'darwin',
+      status: true,
       function: () => functions.navigate('/change-resolution'),
     },
     {
@@ -482,7 +458,7 @@ function Aside({ css }) {
       description: t('aside.cards.retroAchievements.description'),
       button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
-      status: system !== 'darwin',
+      status: true,
       function: () => functions.navigate('/RA-achievements-config'),
     },
 
@@ -507,7 +483,7 @@ function Aside({ css }) {
       description: t('aside.cards.compressor.description'),
       button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
-      status: system !== 'darwin',
+      status: true,
       function: () => functions.navigate('/chd-tool'),
     },
     {
@@ -537,7 +513,7 @@ function Aside({ css }) {
       description: t('aside.cards.pegasusTheme.description'),
       button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
-      status: state.installFrontends.pegasus.status && system !== 'darwin',
+      status: state.installFrontends.pegasus.status,
       function: () => functions.navigate('/pegasus-theme-choice'),
     },
     {
@@ -547,7 +523,7 @@ function Aside({ css }) {
       description: t('aside.cards.cloudSaves.description'),
       button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
-      status: system !== 'darwin',
+      status: true,
       function: () => functions.navigate('/cloud-sync/welcome'),
     },
 
@@ -573,7 +549,7 @@ function Aside({ css }) {
       function: () => functions.navigate('/decky-controls'),
     },
     {
-      status: system === 'win32' || system === 'darwin' ? false : 'separator',
+      status: system === 'win32' ? false : 'separator',
       title: t('aside.thirdParty'),
     },
 
@@ -659,7 +635,7 @@ function Aside({ css }) {
       description: t('aside.cards.cloudServices.description'),
       button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
-      status: !(system === 'win32' || system === 'darwin'),
+      status: system !== 'win32',
       function: () => functions.openCSM(),
     },
     {
@@ -669,7 +645,7 @@ function Aside({ css }) {
       description: t('aside.cards.uninstall.description'),
       button: t('general.uninstall'),
       btnCSS: 'btn-simple--3',
-      status: system !== 'darwin',
+      status: true,
       function: () => functions.uninstall(),
     },
   ];
@@ -688,15 +664,6 @@ function Aside({ css }) {
                   <small>{item.title}</small>
                 </li>
               );
-            }
-
-            if (system === 'darwin') {
-              if (item.iconFlat === 'disk') {
-                return;
-              }
-              if (item.iconFlat === 'screen') {
-                return;
-              }
             }
 
             if (item.status === false) {
