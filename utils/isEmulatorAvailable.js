@@ -1,4 +1,4 @@
-const notOnArm = ['pcsx2', 'shadps4', 'model2', 'supermodel'];
+const notOnArm = ['pcsx2', 'shadps4'];
 const onlyOnArm = ['armsx2'];
 const notOnWindows = ['rmg', 'ares'];
 
