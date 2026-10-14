@@ -60,7 +60,6 @@ function Settings({
     bezels,
     shaders,
     autosave,
-    system,
     cloudSyncStatus,
     gamemode,
     branch,
@@ -102,36 +101,34 @@ function Settings({
               ]}
             />
           </li>
-          {system !== 'win32' && (
-            <li>
-              <SelectorMenu
-                toggle
-                title={t('QuickSettingsPage.controllerLayout')}
-                css="selector-menu--mini"
-                imgs={[
-                  [abxy, controllerLayout === 'baxy' ? 'is-hidden' : ''],
-                  [bayx, controllerLayout === 'abxy' ? 'is-hidden' : ''],
-                ]}
-                enabled={controllerLayout === 'baxy' ? false : true}
-                options={[
-                  [
-                    () => onClickControllerLayoutSet('baxy'),
-                    controllerLayout === 'baxy' ? 'is-selected' : '',
-                    t('general.off'),
-                    '',
-                    true,
-                  ],
-                  [
-                    () => onClickControllerLayoutSet('abxy'),
-                    controllerLayout === 'abxy' ? 'is-selected' : '',
-                    t('general.on'),
-                    '',
-                    true,
-                  ],
-                ]}
-              />
-            </li>
-          )}
+          <li>
+            <SelectorMenu
+              toggle
+              title={t('QuickSettingsPage.controllerLayout')}
+              css="selector-menu--mini"
+              imgs={[
+                [abxy, controllerLayout === 'baxy' ? 'is-hidden' : ''],
+                [bayx, controllerLayout === 'abxy' ? 'is-hidden' : ''],
+              ]}
+              enabled={controllerLayout === 'baxy' ? false : true}
+              options={[
+                [
+                  () => onClickControllerLayoutSet('baxy'),
+                  controllerLayout === 'baxy' ? 'is-selected' : '',
+                  t('general.off'),
+                  '',
+                  true,
+                ],
+                [
+                  () => onClickControllerLayoutSet('abxy'),
+                  controllerLayout === 'abxy' ? 'is-selected' : '',
+                  t('general.on'),
+                  '',
+                  true,
+                ],
+              ]}
+            />
+          </li>
           {(branch.includes('early') || branch === 'dev') && (
             <li>
               <SelectorMenu
