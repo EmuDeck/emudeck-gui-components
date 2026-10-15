@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { PropTypes } from 'prop-types';
 import { GlobalContext } from 'context/globalContext';
 import { BtnSimple, FormInputSimple } from 'getbasecore/Atoms';
+import { Dropdown } from 'getbasecore/Molecules';
 import Toasty from 'components/atoms/Toasty/Toasty';
 import EmuModal from 'components/molecules/EmuModal/EmuModal';
 import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
@@ -55,6 +56,7 @@ function HeaderElectron({ title, bold }) {
   // Release channel selector (top right, next to the version)
   const releaseChannels = ['main', 'beta', 'early', 'early-unstable'];
   const [channelModal, setChannelModal] = useState(false);
+  const [channelMenu, setChannelMenu] = useState(0);
   const targetChannel = useRef(null);
 
   const channelName = (id) =>
@@ -161,9 +163,11 @@ function HeaderElectron({ title, bold }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [branch]);
 
-  const askChannel = (e) => {
-    const channel = e.target.value;
+  const askChannel = (channel) => {
     if (channel === branch) return;
+    const changelogSystem = ['darwin', 'win32', 'SteamOS'].includes(system)
+      ? system
+      : 'linux';
     setChannelModal({
       active: true,
       header: <span className="h4">{t('Header.channel.confirmTitle')}</span>,
@@ -192,7 +196,7 @@ function HeaderElectron({ title, bold }) {
             type="link"
             aria={t('CheckUpdatePage.found.changelog')}
             target="_blank"
-            href={`https://cloud.emudeck.com/changelog/changelog.php?c=${channel}&s=${system}`}
+            href={`https://cloud.emudeck.com/changelog/changelog.php?c=${channel}&s=${changelogSystem}`}
           >
             {t('CheckUpdatePage.found.changelog')}
           </BtnSimple>
@@ -456,22 +460,35 @@ function HeaderElectron({ title, bold }) {
           >
             <small>{version}</small>
           </button>
-          <select
-            className="header__channel"
-            value={branch}
-            onChange={askChannel}
-            aria-label={t('Header.channel.label')}
-            title={t('Header.channel.label')}
+          <Dropdown
+            key={channelMenu}
+            css="header__channel"
+            text={channelName(branch)}
+            ariaControls="header-channel-menu"
+            ariaLabelled="header-channel"
           >
-            {releaseChannels.map((id) => (
-              <option key={id} value={id}>
-                {channelName(id)}
-              </option>
-            ))}
-            {!releaseChannels.includes(branch) && (
-              <option value={branch}>{branch.toUpperCase()}</option>
-            )}
-          </select>
+            <>
+              {releaseChannels.map((id) => (
+                <li key={id} role="none">
+                  <button
+                    type="button"
+                    role="menuitem"
+                    className={
+                      id === branch
+                        ? 'header__channel-option is-selected'
+                        : 'header__channel-option'
+                    }
+                    onClick={() => {
+                      setChannelMenu((menu) => menu + 1);
+                      askChannel(id);
+                    }}
+                  >
+                    {channelName(id)}
+                  </button>
+                </li>
+              ))}
+            </>
+          </Dropdown>
         </div>
         <EmuModal modal={channelModal} />
         <div className="header__accesibility">

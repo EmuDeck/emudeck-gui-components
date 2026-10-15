@@ -17,6 +17,9 @@ function UpdateNotifier() {
   const ipcChannel = window.electron.ipcRenderer;
   const { state } = useContext(GlobalContext);
   const { system, branch } = state;
+  const changelogSystem = ['darwin', 'win32', 'SteamOS'].includes(system)
+    ? system
+    : 'linux';
   const location = useLocation();
   const [update, setUpdate] = useState(null);
   const avoid = avoidRoutes.includes(location.pathname);
@@ -93,7 +96,9 @@ function UpdateNotifier() {
             type="link"
             aria={t('CheckUpdatePage.found.changelog')}
             target="_blank"
-            href={`https://cloud.emudeck.com/changelog/changelog.php?c=${branch}&s=${system}`}
+            href={`https://cloud.emudeck.com/changelog/changelog.php?c=${
+              branch || 'main'
+            }&s=${changelogSystem}`}
           >
             {t('CheckUpdatePage.found.changelog')}
           </BtnSimple>

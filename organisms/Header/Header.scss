@@ -71,8 +71,50 @@
     text-transform: uppercase;
     padding: 2px 6px;
     cursor: pointer;
-    option {
-      color: #000;
+    margin-bottom: 0;
+    .icon {
+      display: none;
+    }
+    &::after {
+      content: '\25BE';
+      margin-left: 4px;
+    }
+  }
+  &__channel-option {
+    display: block;
+    width: 100%;
+    background: none;
+    border: 0;
+    padding: 4px 10px;
+    color: #000;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    &:hover,
+    &.is-selected {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    &:active,
+    &:focus-visible {
+      background: rgba(0, 0, 0, 0.25);
+      outline: none;
+    }
+  }
+  &__version .dropdown__menu {
+    -webkit-app-region: no-drag;
+    width: auto;
+    min-width: 100%;
+    left: auto;
+    right: 0;
+    margin: 2px 0 0;
+    padding: 4px 0;
+    border-radius: 6px;
+    li {
+      margin: 0;
+      list-style: none;
     }
   }
   &__flag {
