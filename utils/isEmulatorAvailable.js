@@ -1,9 +1,29 @@
 const notOnArm = ['pcsx2', 'shadps4'];
 const onlyOnArm = ['armsx2'];
 const notOnWindows = ['rmg', 'ares'];
+const notOnDarwin = [
+  'rmg',
+  'ares',
+  'bigpemu',
+  'citron',
+  'flycast',
+  'mame',
+  'melonds',
+  'mgba',
+  'model2',
+  'primehack',
+  'scummvm',
+  'supermodel',
+  'xenia',
+  'yuzu',
+  'eden',
+];
 
 export const isEmulatorAvailable = (id, system, arch) => {
   if (system === 'win32' && notOnWindows.includes(id)) {
+    return false;
+  }
+  if (system === 'darwin' && notOnDarwin.includes(id)) {
     return false;
   }
   if (arch === 'arm64') {

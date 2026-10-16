@@ -4,12 +4,15 @@ import { GlobalContext } from 'context/globalContext';
 import PropTypes from 'prop-types';
 import Main from 'components/organisms/Main/Main';
 import Card from 'components/molecules/Card/Card';
+import { isFrontendAvailable } from 'components/utils/isFrontendAvailable';
 
 function FrontendSelector({ onClick, images, lastSelected, installFrontends }) {
   const { t, i18n } = useTranslation();
   const { state } = useContext(GlobalContext);
-  const { system, branch } = state;
-  const installFrontendsArray = Object.values(installFrontends);
+  const { system, branch, arch } = state;
+  const installFrontendsArray = Object.values(installFrontends).filter((item) =>
+    isFrontendAvailable(item.id, system, arch),
+  );
 
   const { esdePreview, pegasusPreview, steamPreview } = images;
   return (

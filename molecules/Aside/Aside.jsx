@@ -12,6 +12,7 @@ import { BtnSimple } from 'getbasecore/Atoms';
 import './aside.scss';
 import useAsideResize from 'hooks/useAsideResize';
 import { isEmulatorAvailable } from 'components/utils/isEmulatorAvailable';
+import { isFrontendAvailable } from 'components/utils/isFrontendAvailable';
 import {
   iconChecker,
   iconCloud,
@@ -523,7 +524,9 @@ function Aside({ css }) {
       description: t('aside.cards.pegasusTheme.description'),
       button: t('general.moreInfo'),
       btnCSS: 'btn-simple--5',
-      status: state.installFrontends.pegasus.status,
+      status:
+        state.installFrontends.pegasus.status &&
+        isFrontendAvailable('pegasus', system, arch),
       function: () => functions.navigate('/pegasus-theme-choice'),
     },
     {
