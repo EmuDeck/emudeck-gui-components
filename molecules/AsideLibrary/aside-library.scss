@@ -8,6 +8,15 @@
     .text {
       padding-left: calc(var(--icon-sm) + 1.6rem);
     }
+    .loader-circle {
+      --loader-circle-diameter: 12px;
+      --loader-circle-border: 2px;
+      --loader-circle-mb: 0;
+      --loader-circle-color: #fff;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
     .sidebar__back {
       position: sticky;
       top: 0;

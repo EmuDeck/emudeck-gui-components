@@ -4,12 +4,19 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import Sprite from 'components/atoms/Sprite/Sprite';
 import Icon from 'components/atoms/Sprite/Icon';
+import { LoaderCircle } from 'getbasecore/Atoms';
 import useAsideResize from 'hooks/useAsideResize';
 
 import 'components/molecules/Aside/aside.scss';
 import './aside-library.scss';
 
-function AsideLibrary({ css = '', systems = [], onClick = () => {} }) {
+function AsideLibrary({
+  css = '',
+  systems = [],
+  missing = [],
+  scraping = false,
+  onClick = () => {},
+}) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { asideClass, resizerProps } = useAsideResize();
@@ -43,6 +50,9 @@ function AsideLibrary({ css = '', systems = [], onClick = () => {} }) {
                     alt=""
                   />
                   {platform.title}
+                  {scraping && missing.includes(platform.id) && (
+                    <LoaderCircle aria="Loading" />
+                  )}
                 </div>
               </div>
             </button>
@@ -56,6 +66,8 @@ function AsideLibrary({ css = '', systems = [], onClick = () => {} }) {
 AsideLibrary.propTypes = {
   css: PropTypes.string,
   systems: PropTypes.array,
+  missing: PropTypes.array,
+  scraping: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
