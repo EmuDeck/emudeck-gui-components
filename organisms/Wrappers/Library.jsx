@@ -5,7 +5,12 @@ import Main from 'components/organisms/Main/Main';
 import GameLists from 'components/molecules/GameLists/GameLists';
 import Game from 'components/molecules/Game/Game';
 
-function Library({ games = [], storagePath = '', artworkVersion = 0 }) {
+function Library({
+  games = [],
+  storagePath = '',
+  artworkVersion = 0,
+  onLaunch = () => {},
+}) {
   const artworkPath = `${storagePath.replace(/\\/g, '/')}/retrolibrary/artwork`;
 
   return (
@@ -19,6 +24,7 @@ function Library({ games = [], storagePath = '', artworkVersion = 0 }) {
             img={`emudeck-media://file/${encodeURI(
               `${artworkPath}/${game.platform}/media/box2dfront/${game.name}.jpg`,
             )}?v=${artworkVersion}`}
+            onClick={() => onLaunch(game)}
           />
         ))}
       </GameLists>
@@ -30,6 +36,7 @@ Library.propTypes = {
   games: PropTypes.array,
   storagePath: PropTypes.string,
   artworkVersion: PropTypes.number,
+  onLaunch: PropTypes.func,
 };
 
 export default Library;
