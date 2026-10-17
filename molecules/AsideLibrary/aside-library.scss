@@ -4,6 +4,7 @@
       width: auto;
       left: calc(var(--icon-sm) / 2);
       transform: translateX(-50%);
+      border-radius: 0;
     }
     .text {
       padding-left: calc(var(--icon-sm) + 1.6rem);
