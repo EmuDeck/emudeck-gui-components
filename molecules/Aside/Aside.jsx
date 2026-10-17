@@ -389,6 +389,16 @@ function Aside({ css }) {
       function: () => openStore(),
     },
     {
+      icon: [iconPackage],
+      iconFlat: 'package',
+      title: t('LibraryPage.title'),
+      description: t('aside.cards.library.description'),
+      button: t('aside.buttons.launch'),
+      btnCSS: 'btn-simple--1',
+      status: true,
+      function: () => functions.navigate('/library'),
+    },
+    {
       icon: [iconJoystick],
       iconFlat: 'joystick',
       title: 'Steam ROM Manager',

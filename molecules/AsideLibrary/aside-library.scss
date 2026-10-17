@@ -1,0 +1,18 @@
+.sidebar--library {
+  .sidebar__elements {
+    img.icon {
+      width: auto;
+      left: calc(var(--icon-sm) / 2);
+      transform: translateX(-50%);
+    }
+    .text {
+      padding-left: calc(var(--icon-sm) + 1.6rem);
+    }
+    .sidebar__back {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: var(--color-bg-4);
+    }
+  }
+}
