@@ -2765,11 +2765,9 @@ body[data-platform='darwin'] {
   }
 }
 
-// Custom scrollbars for Linux / Windows only.
-// On macOS we leave ::-webkit-scrollbar untouched so Chromium keeps the native
-// overlay scrollbars (auto-hide, only visible while scrolling).
-// body[data-platform] is set in App.tsx from window.electron.platform.
-body:not([data-platform='darwin']) {
+// Custom scrollbars
+body:not([data-platform='darwin']),
+body[data-scrollbars='classic'] {
   ::-webkit-scrollbar {
     width: 8px;
   }

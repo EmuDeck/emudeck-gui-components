@@ -17,6 +17,7 @@ const notOnDarwin = [
   'xenia',
   'yuzu',
   'eden',
+  'pegasus',
 ];
 
 export const isEmulatorAvailable = (id, system, arch) => {

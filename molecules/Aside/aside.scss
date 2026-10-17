@@ -30,11 +30,6 @@
     -webkit-app-region: no-drag;
     user-select: none;
     touch-action: none;
-
-    &:hover,
-    .is-resizing & {
-      background: rgba(255, 255, 255, 0.18);
-    }
   }
 
   svg {
