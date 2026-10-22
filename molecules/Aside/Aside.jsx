@@ -385,6 +385,16 @@ function Aside({ css }) {
       function: () => functions.navigate('/store'),
     },
     {
+      icon: [iconScreen],
+      iconFlat: 'screen',
+      title: t('RemixPage.title'),
+      description: t('aside.cards.remix.description'),
+      button: t('aside.buttons.browsePacks'),
+      btnCSS: 'btn-simple--1',
+      status: system === 'darwin',
+      function: () => functions.navigate('/remix'),
+    },
+    {
       icon: [iconPackage],
       iconFlat: 'package',
       title: t('LibraryPage.title'),

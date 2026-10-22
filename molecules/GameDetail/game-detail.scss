@@ -127,6 +127,17 @@
     }
   }
 
+  &__instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    ol {
+      margin: 0;
+      padding-left: 20px;
+      list-style: decimal;
+    }
+  }
+
   &__comments {
     display: flex;
     flex-direction: column;

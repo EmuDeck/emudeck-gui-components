@@ -129,6 +129,17 @@ function GameDetail({
 
         <p>{game.description || t('StorePage.noDescription')}</p>
 
+        {game.instructions && game.instructions.length > 0 && (
+          <div className="game-detail__instructions">
+            <span className="h5">{t('StorePage.instructions')}</span>
+            <ol>
+              {game.instructions.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </div>
+        )}
+
         <div className="game-detail__comments">
           <span className="h5">{t('StorePage.comments')}</span>
           {comments.length === 0 && <small>{t('StorePage.noComments')}</small>}

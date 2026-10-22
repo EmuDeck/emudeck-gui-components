@@ -7,7 +7,11 @@ import { useFetchCond } from 'hooks/useFetchCond';
 
 import './store-login.scss';
 
-function StoreLogin({ onLogin = () => {}, onClose = () => {} }) {
+function StoreLogin({
+  api = 'https://store.emudeck.com/rest',
+  onLogin = () => {},
+  onClose = () => {},
+}) {
   const { t } = useTranslation();
   const [stateLogin, setStateLogin] = useState({
     email: '',
@@ -17,9 +21,7 @@ function StoreLogin({ onLogin = () => {}, onClose = () => {} }) {
     loading: false,
   });
   const { email, code, step, error, loading } = stateLogin;
-  const loginCodeWS = useFetchCond(
-    'https://store.emudeck.com/rest/login-code.php',
-  );
+  const loginCodeWS = useFetchCond(`${api}/login-code.php`);
 
   const onChange = (e) => {
     setStateLogin({ ...stateLogin, [e.target.name]: e.target.value, error: '' });
@@ -122,6 +124,7 @@ function StoreLogin({ onLogin = () => {}, onClose = () => {} }) {
 }
 
 StoreLogin.propTypes = {
+  api: PropTypes.string,
   onLogin: PropTypes.func,
   onClose: PropTypes.func,
 };
