@@ -381,7 +381,7 @@ function Aside({ css }) {
       description: t('aside.cards.store.description'),
       button: t('aside.buttons.getFreeGames'),
       btnCSS: 'btn-simple--1',
-      status: true,
+      status: system === 'darwin',
       function: () => functions.navigate('/store'),
     },
     {
@@ -391,7 +391,7 @@ function Aside({ css }) {
       description: t('aside.cards.library.description'),
       button: t('aside.buttons.launch'),
       btnCSS: 'btn-simple--1',
-      status: true,
+      status: system === 'darwin',
       function: () => functions.navigate('/library'),
     },
     {
