@@ -16,6 +16,7 @@ function AsideLibrary({
   missing = [],
   scraping = false,
   onClick = () => {},
+  children = null,
 }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ function AsideLibrary({
             </div>
           </button>
         </li>
+        {children}
         <li>
           <small>{t('LibraryPage.platforms')}</small>
         </li>
@@ -69,6 +71,7 @@ AsideLibrary.propTypes = {
   missing: PropTypes.array,
   scraping: PropTypes.bool,
   onClick: PropTypes.func,
+  children: PropTypes.node,
 };
 
 export default AsideLibrary;

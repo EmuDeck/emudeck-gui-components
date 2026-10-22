@@ -10,6 +10,7 @@ function GameDetail({
   game,
   comments = [],
   status = '',
+  owned = false,
   onAction = () => {},
   onClose = () => {},
 }) {
@@ -18,7 +19,7 @@ function GameDetail({
     ? `${game.price} ${game.currency}`
     : t('StorePage.free');
   const installing = status === 'installing';
-  const actionLabel = game.price ? priceLabel : t('StorePage.get');
+  const actionLabel = game.price && !owned ? priceLabel : t('general.install');
   const statusText = {
     installing: t('StorePage.installing'),
     installed: t('StorePage.installed'),
@@ -110,6 +111,7 @@ GameDetail.propTypes = {
   game: PropTypes.object.isRequired,
   comments: PropTypes.array,
   status: PropTypes.string,
+  owned: PropTypes.bool,
   onAction: PropTypes.func,
   onClose: PropTypes.func,
 };

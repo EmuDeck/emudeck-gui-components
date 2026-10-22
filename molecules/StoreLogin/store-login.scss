@@ -1,0 +1,18 @@
+.store-login {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  p {
+    margin: 0;
+  }
+  &__error {
+    color: #f87171 !important;
+  }
+  &__actions {
+    display: flex;
+    gap: 12px;
+    .btn-simple {
+      margin: 0;
+    }
+  }
+}
