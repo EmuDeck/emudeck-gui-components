@@ -109,6 +109,24 @@
     margin: 0;
   }
 
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    small {
+      margin: 0;
+    }
+  }
+  &__comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    textarea {
+      width: 100%;
+      resize: vertical;
+    }
+  }
+
   &__comments {
     display: flex;
     flex-direction: column;

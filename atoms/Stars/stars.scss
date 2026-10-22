@@ -4,10 +4,34 @@
   gap: 4px;
 
   &__star {
+    display: inline-flex;
     width: 16px;
     height: 16px;
+    padding: 0;
+    border: 0;
+    background: none;
     color: rgba(255, 255, 255, 0.25);
+    svg {
+      width: 100%;
+      height: 100%;
+    }
     &.is-filled {
+      color: #fbbf24;
+    }
+  }
+
+  &--interactive {
+    -webkit-app-region: no-drag;
+    .stars__star {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+    }
+    &:hover .stars__star {
+      color: rgba(255, 255, 255, 0.25);
+    }
+    .stars__star:hover,
+    .stars__star:has(~ .stars__star:hover) {
       color: #fbbf24;
     }
   }
