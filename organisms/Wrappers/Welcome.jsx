@@ -9,7 +9,6 @@ import CardSettings from 'components/molecules/CardSettings/CardSettings';
 import Banner from 'components/molecules/Banner/Banner';
 import { Iframe } from 'getbasecore/Atoms';
 import { useNavigate, Link } from 'react-router-dom';
-import StoreGame from 'components/molecules/StoreGame/StoreGame';
 
 const welcomeItems = require('data/welcome.json');
 import {

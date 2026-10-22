@@ -1,0 +1,128 @@
+.emumodal--game {
+  .emumodal__box {
+    width: 90vw;
+    max-width: 1400px;
+    padding: 0;
+    overflow: hidden;
+  }
+  .emumodal__header,
+  .emumodal__footer {
+    display: none;
+  }
+  .emumodal__body {
+    max-height: none;
+    overflow: hidden;
+  }
+}
+
+.game-detail {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  height: 85vh;
+
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+
+  &__gallery {
+    display: flex;
+    gap: 12px;
+    padding: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    background: rgba(0, 0, 0, 0.2);
+    video,
+    img {
+      display: block;
+      flex-shrink: 0;
+      height: 100%;
+      width: auto;
+      max-width: 90%;
+      object-fit: contain;
+      border-radius: 12px;
+      scroll-snap-align: start;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    overflow-y: auto;
+    .h2,
+    p {
+      margin: 0;
+    }
+    .h2 {
+      padding-right: 40px;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    small {
+      margin: 0;
+    }
+  }
+  &__platform,
+  &__price,
+  &__tag {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.15);
+  }
+  &__platform {
+    text-transform: uppercase;
+  }
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  &__tag {
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    .btn-simple {
+      margin: 0;
+    }
+  }
+  &__status {
+    margin: 0;
+  }
+
+  &__comments {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &__comment {
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  &__comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+}

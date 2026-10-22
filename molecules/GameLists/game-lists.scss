@@ -1,8 +1,8 @@
 .game-lists {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-auto-rows: 1fr;
   gap: 24px;
-  align-items: start;
   margin: 0;
   padding: 0;
   list-style: none;

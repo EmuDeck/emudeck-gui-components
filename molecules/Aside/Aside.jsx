@@ -94,10 +94,6 @@ function Aside({ css }) {
     window.open('https://manual.emudeck.com', '_blank');
   };
 
-  const openStore = () => {
-    window.open('https://store.emudeck.com', '_blank');
-  };
-
   const uninstall = () => {
     if (system === 'win32') {
       ipcChannel.sendMessage(
@@ -386,7 +382,7 @@ function Aside({ css }) {
       button: t('aside.buttons.getFreeGames'),
       btnCSS: 'btn-simple--1',
       status: true,
-      function: () => openStore(),
+      function: () => functions.navigate('/store'),
     },
     {
       icon: [iconPackage],
