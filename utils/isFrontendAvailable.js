@@ -1,8 +1,12 @@
 const notOnArm = [];
 const notOnWindows = [];
 const notOnDarwin = ['pegasus'];
+const onlyOnDarwin = ['library'];
 
 export const isFrontendAvailable = (id, system, arch) => {
+  if (system !== 'darwin' && onlyOnDarwin.includes(id)) {
+    return false;
+  }
   if (system === 'win32' && notOnWindows.includes(id)) {
     return false;
   }

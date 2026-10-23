@@ -14,7 +14,6 @@ const notOnDarwin = [
   'primehack',
   'scummvm',
   'supermodel',
-  'xenia',
   'yuzu',
   'eden',
   'pegasus',
