@@ -213,7 +213,11 @@ function PatreonLogin({ children }) {
             setState({
               ...state,
               ...settingsStorage,
-              installEmus: { ...installEmus, ...installEmusStored },
+              installEmus: Object.fromEntries(
+                Object.entries({ ...installEmus, ...installEmusStored }).map(
+                  ([id, emu]) => [id, { ...installEmus[id], ...emu }],
+                ),
+              ),
               overwriteConfigEmus: {
                 ...overwriteConfigEmus,
                 ...overwriteConfigEmusStored,
